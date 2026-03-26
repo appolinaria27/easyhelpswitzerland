@@ -1,0 +1,2451 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Polina Kravtsova — Relocation & Legal Support</title>
+  <meta name="description" content="Relocation, migration, documents and practical support in Switzerland." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#dcdcdc;
+      --panel:#e8e8e8;
+      --panel-soft:#f4f4f2;
+      --text:#111111;
+      --muted:#4f4f4f;
+      --line:rgba(17,17,17,.08);
+      --white:#ffffff;
+      --blue:#4693e8;
+      --blue-dark:#317bcd;
+      --hero:#0f1215;
+      --radius:34px;
+      --radius-lg:42px;
+      --shadow:0 10px 28px rgba(0,0,0,.04);
+      --container:min(100% - 38px, 1700px);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Manrope", system-ui, sans-serif;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+
+    .shell{
+      width:var(--container);
+      margin:20px auto 48px;
+    }
+
+    .panel{
+      background:var(--panel);
+      border-radius:38px;
+      padding:34px;
+      margin-bottom:22px;
+      box-shadow:inset 0 0 0 1px rgba(255,255,255,.35);
+    }
+
+    .section-title{
+      font-weight:300;
+      font-size:clamp(54px,6vw,92px);
+      line-height:.95;
+      letter-spacing:-.06em;
+      margin:0;
+    }
+
+    .micro{
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(17,17,17,.48);
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:20px;
+    }
+
+    .copy{
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.7;
+    }
+
+    /* hero */
+    .hero-wrap{
+      position:relative;
+      min-height:920px;
+      border-radius:44px;
+      overflow:hidden;
+      color:#fff;
+      padding:26px 36px 34px;
+      background:
+        linear-gradient(180deg, rgba(9,12,15,.44), rgba(9,12,15,.58)),
+        radial-gradient(circle at 50% 40%, rgba(255,255,255,.03), transparent 35%),
+        url('https://cdn.contexttravel.com/image/upload/c_fill,q_60,w_2600/v1738864614/production/city/hero_image_64_1738864614f1163e56.jpg') center/cover no-repeat;
+    }
+
+    .hero-top{
+      display:grid;
+      grid-template-columns:220px 1fr auto;
+      align-items:center;
+      gap:24px;
+      font-size:15px;
+      position:relative;
+      z-index:2;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      font-weight:500;
+    }
+
+    .brand svg{
+      width:36px;
+      height:52px;
+      stroke:#fff;
+      fill:none;
+      stroke-width:1.5;
+      opacity:.92;
+    }
+
+    .nav{
+      display:flex;
+      justify-content:center;
+      gap:64px;
+      color:rgba(255,255,255,.9);
+    }
+
+    .nav a{
+      font-weight:400;
+      position:relative;
+    }
+
+    .nav a::after{
+      content:"";
+      position:absolute;
+      left:0; right:0; bottom:-6px;
+      height:1px;
+      background:rgba(255,255,255,.8);
+      transform:scaleX(0);
+      transition:.25s ease;
+    }
+    .nav a:hover::after{transform:scaleX(1)}
+
+    .hero-right{
+      display:flex;
+      align-items:center;
+      gap:26px;
+      white-space:nowrap;
+      font-size:18px;
+    }
+
+    .lang-switch{
+      display:flex;
+      gap:8px;
+      font-size:16px;
+    }
+    .lang-switch button{
+      border:0;
+      background:transparent;
+      color:rgba(255,255,255,.7);
+      cursor:pointer;
+      padding:0;
+    }
+    .lang-switch button.active{color:var(--blue)}
+
+    .hero-center{
+      position:absolute;
+      inset:140px 80px 170px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      z-index:1;
+    }
+
+    .hero-title{
+      font-family:"Cormorant Garamond", serif;
+      font-weight:500;
+      font-size:clamp(110px,15vw,250px);
+      line-height:.82;
+      letter-spacing:-.06em;
+      margin:0;
+    }
+    .hero-title span{
+      display:block;
+      font-size:clamp(74px,7vw,128px);
+      margin-top:8px;
+    }
+
+    .hero-sub{
+      margin-top:20px;
+      font-size:18px;
+      color:rgba(255,255,255,.86);
+    }
+
+    .pill-cta{
+      margin-top:48px;
+      display:inline-flex;
+      align-items:center;
+      gap:0;
+      border-radius:999px;
+      overflow:hidden;
+      box-shadow:0 8px 30px rgba(0,0,0,.2);
+    }
+    .pill-cta .main{
+      min-width:260px;
+      padding:20px 38px;
+      background:#fff;
+      color:#111;
+      border:0;
+      font-weight:600;
+      cursor:pointer;
+    }
+    .pill-cta .arrow{
+      width:82px;
+      aspect-ratio:1;
+      border-radius:50%;
+      border:0;
+      background:#fff;
+      color:#111;
+      font-size:28px;
+      cursor:pointer;
+      border-left:1px solid rgba(17,17,17,.08);
+    }
+
+    .hero-bottom{
+      position:absolute;
+      left:36px; right:36px; bottom:28px;
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-end;
+      gap:20px;
+      z-index:2;
+    }
+
+    .hero-features{
+      display:flex;
+      gap:48px;
+      flex-wrap:wrap;
+      color:rgba(255,255,255,.95);
+    }
+    .hero-feature{
+      display:flex;
+      gap:12px;
+      font-size:18px;
+      line-height:1.1;
+      max-width:190px;
+    }
+    .hero-feature .dot{
+      width:15px;height:15px;border-radius:50%;
+      background:#fff;
+      color:#111;
+      display:grid;place-items:center;
+      font-size:10px;
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+    .hero-years{
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+      color:#fff;
+      text-align:left;
+    }
+    .hero-years strong{
+      font-family:"Cormorant Garamond", serif;
+      font-size:86px;
+      line-height:.8;
+      font-weight:500;
+    }
+    .hero-years span{
+      max-width:118px;
+      font-size:18px;
+      line-height:1.05;
+      color:rgba(255,255,255,.9);
+      padding-top:8px;
+    }
+
+    /* shared grids */
+    .three-top{
+      display:grid;
+      grid-template-columns:1.35fr .7fr .9fr;
+      gap:42px;
+      align-items:start;
+      margin-bottom:56px;
+    }
+    .tiny-stat{
+      display:flex;
+      align-items:flex-start;
+      gap:18px;
+      padding-top:10px;
+    }
+    .tiny-stat strong{
+      font-weight:400;
+      font-size:62px;
+      line-height:.9;
+    }
+    .tiny-stat span{
+      font-size:20px;
+      line-height:1.0;
+      max-width:120px;
+    }
+    .side-copy{
+      font-size:16px;
+      line-height:1.35;
+      max-width:350px;
+      justify-self:end;
+    }
+    .intro-copy{
+      max-width:360px;
+      font-size:18px;
+      line-height:1.35;
+    }
+
+    .cards-3, .cards-4{
+      display:grid;
+      gap:30px;
+    }
+    .cards-3{grid-template-columns:repeat(3,1fr)}
+    .cards-4{grid-template-columns:repeat(4,1fr)}
+
+    .district-card{
+      cursor:pointer;
+    }
+    .district-image,
+    .property-image{
+      position:relative;
+      overflow:hidden;
+      border-radius:28px;
+      aspect-ratio:1.45 / 0.92;
+      background:#ccc;
+    }
+    .district-image img,
+    .property-image img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      transition:transform .6s ease;
+    }
+    .district-card:hover img,
+    .property-card:hover img{
+      transform:scale(1.04);
+    }
+    .district-title,
+    .property-title{
+      margin:18px 0 8px;
+      font-size:27px;
+      font-weight:500;
+      letter-spacing:-.04em;
+    }
+    .district-desc,
+    .property-desc{
+      font-size:17px;
+      line-height:1.32;
+      color:#222;
+      max-width:95%;
+    }
+
+    /* property highlight area */
+    .listing-intro{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr .8fr;
+      align-items:center;
+      gap:36px;
+      margin:30px 0 44px;
+    }
+    .logo-block{
+      max-width:330px;
+      font-size:17px;
+      line-height:1.22;
+    }
+    .logo-block .brand-mark{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin-bottom:26px;
+      font-size:22px;
+    }
+    .brand-mark svg{
+      width:32px;height:48px;stroke:#111;fill:none;stroke-width:1.3;
+    }
+    .listing-big{
+      text-align:center;
+      font-weight:300;
+      font-size:clamp(72px,7vw,110px);
+      line-height:.92;
+      letter-spacing:-.07em;
+      margin:0;
+    }
+    .listing-side{
+      font-size:17px;
+      line-height:1.25;
+      justify-self:end;
+      max-width:330px;
+    }
+
+    .find-pill{
+      margin-top:34px;
+      display:inline-flex;
+      align-items:center;
+      border-radius:999px;
+      overflow:hidden;
+      background:var(--blue);
+      color:#fff;
+    }
+    .find-pill button{
+      border:0;
+      cursor:pointer;
+      color:#fff;
+      background:transparent;
+      font-weight:500;
+    }
+    .find-pill .label{padding:19px 38px 19px 44px}
+    .find-pill .go{
+      width:74px;
+      aspect-ratio:1;
+      border-left:1px solid rgba(255,255,255,.16);
+      font-size:28px;
+    }
+
+    .property-card .property-image{
+      aspect-ratio:.78 / 1.1;
+    }
+    .property-image::before{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.08), rgba(0,0,0,.26));
+      z-index:1;
+    }
+    .property-overlay{
+      position:absolute;
+      inset:auto 26px 26px;
+      z-index:2;
+      color:#fff;
+      font-size:28px;
+      font-weight:500;
+      letter-spacing:-.04em;
+    }
+
+    /* about */
+    .about-grid{
+      display:grid;
+      grid-template-columns:530px 1fr;
+      gap:70px;
+      align-items:start;
+    }
+
+    .portrait-card{
+      position:relative;
+      overflow:hidden;
+      border-radius:28px;
+      aspect-ratio:.72 / 1;
+      background:#cfcfcf;
+    }
+    .portrait-card img{
+      width:100%;height:100%;object-fit:cover;
+    }
+    .portrait-caption{
+      position:absolute;
+      left:34px; bottom:28px;
+      color:#fff;
+      z-index:2;
+    }
+    .portrait-caption strong{
+      display:block;
+      font-size:26px;
+      letter-spacing:-.04em;
+      margin-bottom:6px;
+    }
+    .portrait-caption span{
+      font-size:17px;
+      color:rgba(255,255,255,.9);
+    }
+    .portrait-card::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, transparent 50%, rgba(0,0,0,.38));
+    }
+
+    .about-content{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:44px 54px;
+      align-items:start;
+    }
+    .about-content .section-title{grid-column:2; justify-self:end}
+    .about-copy{
+      font-size:18px;
+      line-height:1.13;
+      max-width:520px;
+    }
+    .about-quote{
+      align-self:end;
+      justify-self:end;
+      max-width:280px;
+      font-size:18px;
+      line-height:1.1;
+    }
+    .signature{
+      display:flex;align-items:center;gap:14px;margin-top:36px;font-size:17px;
+    }
+    .signature::before{
+      content:"";
+      width:26px;height:2px;background:#111;
+    }
+    .watermark{
+      justify-self:center;
+      align-self:center;
+      opacity:.08;
+    }
+    .watermark svg{width:150px;height:220px;stroke:#111;fill:none;stroke-width:1.3}
+
+    /* relocation check */
+    .check-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:50px;
+      align-items:start;
+    }
+
+    .check-left h2{
+      max-width:9ch;
+    }
+    .bullet-list{
+      display:grid;
+      gap:18px;
+      margin-top:32px;
+      font-size:18px;
+      line-height:1.3;
+    }
+    .bullet{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+    }
+    .bullet i{
+      width:14px;height:14px;border-radius:50%;background:#111;display:block;margin-top:6px;
+    }
+    .check-form{
+      background:var(--panel-soft);
+      border-radius:30px;
+      padding:34px;
+      box-shadow:var(--shadow);
+    }
+    .check-form h3{
+      margin:0 0 12px;
+      font-size:36px;
+      font-weight:400;
+      letter-spacing:-.05em;
+    }
+    .check-form p{
+      margin:0 0 28px;
+      color:var(--muted);
+      line-height:1.55;
+    }
+    .field{
+      margin-bottom:16px;
+    }
+    .field label{
+      display:block;
+      font-size:14px;
+      margin-bottom:8px;
+      color:#333;
+    }
+    .field select{
+      width:100%;
+      border:0;
+      border-radius:18px;
+      padding:16px 18px;
+      background:#fff;
+      appearance:none;
+      color:#111;
+    }
+    .check-form .action-row{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      margin-top:18px;
+      flex-wrap:wrap;
+    }
+
+    .btn-blue{
+      border:0;
+      cursor:pointer;
+      background:var(--blue);
+      color:#fff;
+      padding:18px 30px;
+      border-radius:999px;
+      font-weight:600;
+      transition:.25s ease;
+    }
+    .btn-blue:hover{background:var(--blue-dark)}
+    .btn-outline{
+      border:1px solid var(--line);
+      background:#fff;
+      color:#111;
+      padding:18px 30px;
+      border-radius:999px;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .check-footnote{
+      margin-top:20px;
+      font-size:13px;
+      color:#676767;
+      line-height:1.5;
+    }
+
+    /* services */
+    .service-card{
+      background:var(--panel-soft);
+      border-radius:28px;
+      padding:28px;
+      min-height:240px;
+      cursor:pointer;
+      transition:.28s ease;
+      box-shadow:var(--shadow);
+    }
+    .service-card:hover{
+      transform:translateY(-4px);
+    }
+    .service-icon{
+      width:58px;height:58px;border-radius:50%;
+      display:grid;place-items:center;
+      background:#fff;
+      margin-bottom:28px;
+    }
+    .service-icon svg{
+      width:28px;height:28px;stroke:#111;fill:none;stroke-width:1.5;
+    }
+    .service-card h3{
+      margin:0 0 12px;
+      font-size:30px;
+      line-height:1.02;
+      letter-spacing:-.05em;
+      font-weight:500;
+    }
+    .service-card p{
+      margin:0;
+      font-size:17px;
+      line-height:1.35;
+      color:#303030;
+    }
+
+    /* why/process/testimonials/pricing/blog */
+    .minimal-grid-4{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:26px;
+    }
+    .minimal-card{
+      padding:28px;
+      border-radius:28px;
+      background:var(--panel-soft);
+      box-shadow:var(--shadow);
+      min-height:220px;
+    }
+    .minimal-card .number{
+      font-size:16px;
+      color:rgba(17,17,17,.55);
+      margin-bottom:22px;
+    }
+    .minimal-card h3{
+      margin:0 0 10px;
+      font-size:28px;
+      line-height:1.02;
+      letter-spacing:-.05em;
+      font-weight:500;
+    }
+    .minimal-card p{
+      margin:0;
+      color:#303030;
+      line-height:1.35;
+      font-size:17px;
+    }
+
+    .process-steps{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:24px;
+      margin-top:34px;
+    }
+    .process-step{
+      padding:28px;
+      border-radius:28px;
+      background:var(--panel-soft);
+      box-shadow:var(--shadow);
+      min-height:240px;
+    }
+    .process-step strong{
+      font-size:48px;
+      font-weight:300;
+      letter-spacing:-.05em;
+      display:block;
+      margin-bottom:34px;
+    }
+    .process-step h3{
+      margin:0 0 10px;
+      font-size:28px;
+      font-weight:500;
+      letter-spacing:-.05em;
+    }
+    .process-step p{
+      margin:0;
+      color:#303030;
+      font-size:17px;
+      line-height:1.35;
+    }
+
+    .testimonial-grid{
+      display:grid;
+      grid-template-columns:1.1fr .9fr;
+      gap:28px;
+      align-items:stretch;
+    }
+    .testimonial-left,
+    .testimonial-right{
+      border-radius:32px;
+      overflow:hidden;
+      position:relative;
+      min-height:520px;
+    }
+    .testimonial-left{
+      background:
+        linear-gradient(180deg, rgba(0,0,0,.28), rgba(0,0,0,.38)),
+        url('https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color:#fff;
+      padding:34px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+    }
+    .testimonial-slide{
+      display:none;
+      max-width:760px;
+    }
+    .testimonial-slide.active{display:block}
+    .testimonial-slide p{
+      margin:0 0 22px;
+      font-size:28px;
+      line-height:1.18;
+      letter-spacing:-.04em;
+    }
+    .testimonial-author strong{
+      display:block;font-size:20px;font-weight:600;margin-bottom:4px;
+    }
+    .testimonial-author span{font-size:16px;color:rgba(255,255,255,.82)}
+    .testimonial-controls{margin-top:28px}
+    .testimonial-next{
+      width:68px;height:68px;border-radius:50%;
+      border:0;background:#fff;color:#111;font-size:28px;cursor:pointer;
+    }
+
+    .testimonial-right{
+      background:#111;color:#fff;padding:40px;
+      display:flex;flex-direction:column;justify-content:space-between;
+    }
+    .testimonial-right h3{
+      margin:0 0 18px;
+      font-size:clamp(42px,5vw,72px);
+      line-height:.95;
+      font-weight:300;
+      letter-spacing:-.06em;
+    }
+    .testimonial-right p{
+      margin:0 0 18px;
+      font-size:18px;
+      line-height:1.45;
+      color:rgba(255,255,255,.8);
+    }
+
+    .pricing-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+      margin-top:34px;
+    }
+    .price-card{
+      background:var(--panel-soft);
+      border-radius:30px;
+      padding:30px;
+      min-height:420px;
+      display:flex;
+      flex-direction:column;
+      box-shadow:var(--shadow);
+    }
+    .price-card.featured{
+      background:#111;
+      color:#fff;
+    }
+    .badge{
+      align-self:flex-start;
+      padding:8px 14px;
+      border-radius:999px;
+      background:#111;
+      color:#fff;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      margin-bottom:18px;
+    }
+    .price-card.featured .badge{
+      background:var(--blue);
+    }
+    .plan{
+      font-size:13px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(17,17,17,.55);
+      margin-bottom:16px;
+    }
+    .price-card.featured .plan{color:rgba(255,255,255,.65)}
+    .price-card h3{
+      margin:0 0 14px;
+      font-size:36px;
+      line-height:.98;
+      letter-spacing:-.05em;
+      font-weight:500;
+    }
+    .amount{
+      font-size:62px;
+      line-height:.9;
+      letter-spacing:-.06em;
+      margin-bottom:18px;
+      font-weight:300;
+    }
+    .price-card p{
+      margin:0 0 20px;
+      line-height:1.45;
+      color:#363636;
+    }
+    .price-card.featured p{color:rgba(255,255,255,.8)}
+    .price-points{
+      list-style:none;margin:0 0 28px;padding:0;display:grid;gap:12px
+    }
+    .price-points li{
+      position:relative;
+      padding-left:20px;
+      line-height:1.35;
+    }
+    .price-points li::before{
+      content:"";
+      position:absolute;left:0;top:.55em;
+      width:8px;height:8px;border-radius:50%;background:currentColor;
+      transform:translateY(-50%);
+    }
+    .price-card .btn-blue,
+    .price-card .btn-outline{
+      margin-top:auto;
+      width:100%;
+      text-align:center;
+      display:inline-flex;
+      justify-content:center;
+    }
+
+    .compare-box{
+      margin-top:28px;
+      background:var(--panel-soft);
+      border-radius:34px;
+      padding:30px;
+      box-shadow:var(--shadow);
+    }
+    .compare-grid{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:22px;
+      margin-top:22px;
+    }
+    .compare-col{
+      background:#fff;
+      border-radius:28px;
+      padding:28px;
+    }
+    .compare-col.mine{
+      background:#111;
+      color:#fff;
+    }
+    .compare-col h4{
+      margin:0 0 12px;
+      font-size:16px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+      font-weight:500;
+    }
+    .compare-col strong{
+      display:block;font-size:42px;line-height:.95;font-weight:300;margin-bottom:16px
+    }
+    .compare-col ul{
+      margin:0;padding-left:18px;display:grid;gap:10px;line-height:1.35
+    }
+
+    .blog-grid{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+    .blog-card{
+      background:var(--panel-soft);
+      border-radius:30px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .blog-card img{
+      width:100%; aspect-ratio:1.28 / .88; object-fit:cover;
+    }
+    .blog-card .content{
+      padding:24px;
+    }
+    .blog-card h3{
+      margin:0 0 12px;
+      font-size:28px;
+      line-height:1.02;
+      letter-spacing:-.05em;
+      font-weight:500;
+    }
+    .blog-card p{
+      margin:0 0 16px;
+      color:#313131;
+      line-height:1.4;
+      font-size:17px;
+    }
+    .blog-link{
+      display:inline-flex;align-items:center;gap:8px;
+      color:#111;font-weight:600;
+    }
+
+    /* faq */
+    .faq-list{
+      display:grid;
+      gap:16px;
+      margin-top:32px;
+    }
+    .faq-item{
+      background:var(--panel-soft);
+      border-radius:26px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+    }
+    .faq-question{
+      width:100%;
+      border:0;
+      background:transparent;
+      text-align:left;
+      padding:24px 26px;
+      font-size:25px;
+      letter-spacing:-.04em;
+      cursor:pointer;
+      position:relative;
+    }
+    .faq-question::after{
+      content:"+";
+      position:absolute; right:24px; top:50%;
+      transform:translateY(-50%);
+      font-size:34px; font-weight:300;
+    }
+    .faq-item.open .faq-question::after{content:"−"}
+    .faq-answer{
+      display:none;
+      padding:0 26px 24px;
+      color:#313131;
+      font-size:17px;
+      line-height:1.45;
+    }
+    .faq-item.open .faq-answer{display:block}
+
+    /* contact */
+    .contact-grid{
+      display:grid;
+      grid-template-columns:1fr 1.05fr;
+      gap:60px;
+      align-items:start;
+    }
+    .contact-lead{
+      font-size:clamp(68px,8vw,110px);
+      line-height:.93;
+      letter-spacing:-.07em;
+      font-weight:300;
+      margin:0 0 28px;
+    }
+    .contact-form{
+      max-width:420px;
+    }
+    .input{
+      width:100%;
+      border:0;
+      background:var(--panel-soft);
+      border-radius:999px;
+      padding:22px 34px;
+      font-size:18px;
+      margin-bottom:18px;
+    }
+    .contact-row{
+      margin-top:8px;
+      display:inline-flex;
+      align-items:center;
+      border-radius:999px;
+      overflow:hidden;
+      background:var(--blue);
+      color:#fff;
+    }
+    .contact-row button{
+      border:0;background:transparent;color:#fff;cursor:pointer;
+      padding:0 34px;font-weight:600;height:74px
+    }
+    .contact-row .arrow{
+      width:74px;height:74px;border-left:1px solid rgba(255,255,255,.18);font-size:28px
+    }
+    .small-note{
+      margin-top:14px;
+      font-size:12px;
+      color:#666;
+    }
+
+    .socials{
+      margin-top:44px;
+      font-size:19px;
+    }
+    .social-line{
+      display:flex;align-items:center;gap:18px;margin-top:20px;flex-wrap:wrap
+    }
+    .social-icon{
+      width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+      background:var(--panel-soft);font-size:18px;font-weight:700
+    }
+
+    .map-box{
+      background:transparent;
+    }
+    .map-frame{
+      width:100%;
+      aspect-ratio:1.42 / .86;
+      border-radius:36px;
+      overflow:hidden;
+      background:#d2d2d2;
+      position:relative;
+    }
+    .map-frame iframe{
+      width:100%;height:100%;border:0;filter:grayscale(.08);
+    }
+    .map-meta{
+      margin-top:22px;
+      font-size:18px;
+      line-height:1.35;
+    }
+    .map-meta small{
+      display:block;
+      margin-top:6px;
+      color:#555;
+      font-size:16px;
+    }
+
+    footer{
+      margin-top:40px;
+      padding-top:30px;
+      border-top:1px solid rgba(255,255,255,.4);
+      display:grid;
+      grid-template-columns:220px 1fr 280px;
+      gap:20px;
+      align-items:end;
+      color:#444;
+      font-size:14px;
+    }
+    .footer-brand{
+      display:flex; align-items:center; gap:12px; font-size:18px;
+    }
+    .footer-brand svg{width:26px;height:40px;stroke:#111;fill:none;stroke-width:1.3}
+    .footer-center{text-align:center}
+    .footer-right{text-align:right}
+
+    /* floating assistant + modals */
+    .ai-assistant{
+      position:fixed;
+      right:18px; bottom:18px; z-index:1000;
+    }
+    .ai-launcher{
+      border:0;
+      cursor:pointer;
+      padding:16px 18px;
+      border-radius:999px;
+      background:#111;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      gap:12px;
+      box-shadow:0 14px 32px rgba(0,0,0,.18);
+    }
+    .ai-launcher span:first-child{
+      width:38px;height:38px;border-radius:50%;
+      display:grid;place-items:center;background:var(--blue)
+    }
+    .ai-panel{
+      position:absolute;
+      right:0; bottom:82px;
+      width:min(390px, calc(100vw - 20px));
+      background:#fff;
+      color:#111;
+      border-radius:28px;
+      box-shadow:0 22px 60px rgba(0,0,0,.18);
+      overflow:hidden;
+      opacity:0;
+      pointer-events:none;
+      transform:translateY(14px);
+      transition:.25s ease;
+    }
+    .ai-panel.open{
+      opacity:1; pointer-events:auto; transform:none;
+    }
+    .ai-header{
+      padding:18px 18px 14px;
+      background:#111;color:#fff;display:flex;justify-content:space-between;gap:12px
+    }
+    .ai-header h3{margin:0 0 6px;font-size:22px;font-weight:500;letter-spacing:-.04em}
+    .ai-header p{margin:0;color:rgba(255,255,255,.7);font-size:14px;line-height:1.45}
+    .ai-close{
+      border:0;background:transparent;color:#fff;font-size:24px;cursor:pointer
+    }
+    .ai-body{padding:16px;background:#f6f6f6}
+    .ai-messages{display:grid;gap:10px;max-height:320px;overflow:auto}
+    .ai-msg{
+      padding:12px 14px;border-radius:18px;font-size:14px;line-height:1.45;max-width:90%
+    }
+    .ai-msg.bot{background:#fff}
+    .ai-msg.user{background:#dfeeff;justify-self:end}
+    .ai-choices{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+    .ai-chip{
+      border:0;border-radius:999px;padding:10px 12px;background:#fff;cursor:pointer
+    }
+    .ai-footer{padding:16px;background:#fff;border-top:1px solid var(--line)}
+    .ai-disclaimer{font-size:12px;color:#666;line-height:1.45;margin:0 0 14px}
+    .ai-actions{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+    .modal,
+    .assessment-modal{
+      position:fixed; inset:0; z-index:1500;
+      background:rgba(0,0,0,.34);
+      display:none; align-items:center; justify-content:center;
+      padding:20px;
+    }
+    .modal.open,
+    .assessment-modal.open{display:flex}
+    .modal-panel,
+    .assessment-modal-panel{
+      width:min(760px,100%);
+      max-height:88vh;
+      overflow:auto;
+      background:#fff;
+      border-radius:32px;
+      padding:28px;
+      box-shadow:0 25px 70px rgba(0,0,0,.18);
+    }
+    .modal-head{
+      display:flex;justify-content:space-between;gap:18px;align-items:start
+    }
+    .modal-title,
+    .assessment-modal-title{
+      margin:0;
+      font-size:42px;
+      line-height:.95;
+      letter-spacing:-.06em;
+      font-weight:400;
+    }
+    .modal-close,
+    .assessment-modal-close{
+      border:0;background:#f3f3f3;cursor:pointer;
+      width:44px;height:44px;border-radius:50%;font-size:28px
+    }
+    .modal-body,
+    .assessment-modal-text{
+      margin-top:18px;
+      font-size:18px;
+      line-height:1.5;
+      color:#222;
+    }
+    .modal-body ul{padding-left:18px;display:grid;gap:10px}
+    .modal-actions,
+    .assessment-modal-actions{
+      display:flex;flex-wrap:wrap;gap:12px;margin-top:26px
+    }
+    .assessment-score{
+      display:inline-block;
+      font-size:70px;
+      line-height:.9;
+      font-weight:300;
+      letter-spacing:-.08em;
+      margin-bottom:14px;
+    }
+    .assessment-route{
+      display:inline-block;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#f1f1f1;
+      margin-bottom:14px;
+      font-size:12px;
+      text-transform:uppercase;
+      letter-spacing:.14em;
+    }
+    .assessment-highlight{
+      background:#f5f5f5;
+      border-radius:22px;
+      padding:18px 20px;
+      margin:12px 0 20px;
+    }
+
+    @media (max-width:1400px){
+      .cards-4,
+      .minimal-grid-4,
+      .process-steps{
+        grid-template-columns:repeat(2,1fr);
+      }
+      .about-grid,
+      .contact-grid,
+      .check-grid,
+      .testimonial-grid{
+        grid-template-columns:1fr;
+      }
+      .about-content{
+        grid-template-columns:1fr 1fr;
+      }
+      .about-content .section-title{grid-column:auto;justify-self:start}
+      .portrait-card{max-width:520px}
+    }
+
+    @media (max-width:1180px){
+      .cards-3,
+      .blog-grid,
+      .pricing-grid,
+      .compare-grid,
+      .listing-intro,
+      .three-top{
+        grid-template-columns:1fr;
+      }
+      .cards-4{grid-template-columns:repeat(2,1fr)}
+      .hero-top{
+        grid-template-columns:1fr;
+        justify-items:start;
+      }
+      .nav{justify-content:flex-start;gap:24px;flex-wrap:wrap}
+      .hero-right{justify-self:start}
+      .hero-center{
+        position:relative;
+        inset:auto;
+        min-height:auto;
+        display:block;
+        text-align:left;
+        padding-top:140px;
+      }
+      .hero-title{
+        font-size:clamp(86px,12vw,160px);
+      }
+      .hero-title span{
+        font-size:clamp(58px,8vw,104px);
+      }
+      .hero-bottom{
+        position:relative;
+        left:auto; right:auto; bottom:auto;
+        margin-top:100px;
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .hero-wrap{
+        min-height:auto;
+        padding-bottom:34px;
+      }
+      .listing-big{ text-align:left; }
+      .listing-side{justify-self:start}
+      footer{
+        grid-template-columns:1fr;
+        text-align:left;
+      }
+      .footer-center,
+      .footer-right{text-align:left}
+    }
+
+    @media (max-width:780px){
+      :root{ --container:min(100% - 18px, 1700px); }
+      .panel{padding:20px;border-radius:26px}
+      .hero-wrap{padding:18px 18px 22px;border-radius:28px}
+      .section-title{font-size:52px}
+      .cards-3,
+      .cards-4,
+      .minimal-grid-4,
+      .process-steps,
+      .pricing-grid,
+      .blog-grid,
+      .about-content{
+        grid-template-columns:1fr;
+      }
+      .hero-features{gap:20px}
+      .hero-feature{max-width:100%}
+      .tiny-stat strong{font-size:48px}
+      .district-title,.property-title{font-size:22px}
+      .property-overlay{font-size:22px;inset:auto 18px 20px}
+      .testimonial-left,.testimonial-right{min-height:auto}
+      .testimonial-slide p{font-size:22px}
+      .modal-panel,.assessment-modal-panel{padding:20px;border-radius:24px}
+      .modal-title,.assessment-modal-title{font-size:32px}
+      .contact-lead{font-size:56px}
+      .hero-right{flex-wrap:wrap}
+      .nav{gap:14px;font-size:14px}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+
+    <section class="hero-wrap" id="home">
+      <div class="hero-top">
+        <div class="brand">
+          <svg viewBox="0 0 32 48" aria-hidden="true">
+            <path d="M4 44V10l10-8 10 8v34"></path>
+            <path d="M14 44V22l10-8v30"></path>
+          </svg>
+          <div>
+            <div style="font-size:18px">Easy Help</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase">Switzerland</div>
+          </div>
+        </div>
+
+        <nav class="nav">
+          <a href="#clients-map" data-i18n="nav_areas">Areas</a>
+          <a href="#services" data-i18n="nav_objects">Services</a>
+          <a href="#about" data-i18n="nav_about">About us</a>
+          <a href="#contact" data-i18n="nav_contact">Contacts</a>
+        </nav>
+
+        <div class="hero-right">
+          <a href="tel:+41764497581">+41 76 449 75 81</a>
+          <div class="lang-switch">
+            <button type="button" data-lang="en" class="active">EN</button>
+            <button type="button" data-lang="es">ES</button>
+            <button type="button" data-lang="de">DE</button>
+            <button type="button" data-lang="uk">UA</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-center">
+        <div>
+          <h1 class="hero-title" data-i18n="hero_title">Easy Help<span>Switzerland</span></h1>
+          <div class="hero-sub" data-i18n="hero_sub">International relocation, migration support, guidance and document help in Zürich.</div>
+
+          <div class="pill-cta">
+            <button class="main" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})" data-i18n="hero_cta">Find a new route →</button>
+            
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-features">
+          <div class="hero-feature"><div class="dot">✓</div><div data-i18n="hero_f1">Only verified support paths</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div data-i18n="hero_f2">Free first consultation</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div data-i18n="hero_f3">Daily assistance</div></div>
+        </div>
+
+        <div class="hero-years">
+          <strong>20+</strong>
+          <span data-i18n="hero_years">clients guided through Swiss administrative processes</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="clients-map">
+      <div class="three-top">
+        <div>
+          <h2 class="section-title" data-i18n="areas_title">With whom we work</h2>
+        </div>
+
+        <div class="tiny-stat">
+          <strong>5</strong>
+          <span data-i18n="areas_stat">days to get your next apartment step sorted</span>
+        </div>
+
+        <div class="side-copy" data-i18n="areas_side">
+          We support migrants, students, families and professionals with practical relocation steps, permits, registrations and life setup in Switzerland.
+        </div>
+      </div>
+
+      <div class="three-top" style="margin-bottom:28px;align-items:end">
+        <div class="intro-copy" data-i18n="areas_intro">
+          We help clients move through Zürich and other Swiss cantons with a clear strategy, realistic route, and support for the everyday bureaucracy that follows arrival.
+        </div>
+        <div></div>
+        <div class="side-copy" data-i18n="areas_side_2">
+          Browse our focus areas covering permits, municipality registration, housing, insurance and settlement planning for clients from many different countries.
+        </div>
+      </div>
+
+      <div class="cards-3">
+        <article class="district-card">
+          <div class="district-image"><img src="https://images.unsplash.com/photo-1521295121783-8a321d551ad2?auto=format&fit=crop&w=1000&q=80" alt="Zürich city center"></div>
+          <div class="district-title">Zürich City ↗</div>
+          <div class="district-desc">Registrations, permits, student relocation and authority communication in the Zürich area.</div>
+        </article>
+
+        <article class="district-card">
+          <div class="district-image"><img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?auto=format&fit=crop&w=1000&q=80" alt="Switzerland towns"></div>
+          <div class="district-title">German-speaking cantons ↗</div>
+          <div class="district-desc">Clear support for cantonal procedures, family steps and local admin follow-up.</div>
+        </article>
+
+        <article class="district-card">
+          <div class="district-image"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=80" alt="International relocation"></div>
+          <div class="district-title">International clients ↗</div>
+          <div class="district-desc">Practical guidance for clients arriving from Latin America, Eastern Europe and beyond.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="cards-3" style="margin-bottom:54px">
+        <article class="district-card">
+          <div class="district-image"><img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1000&q=80" alt="Residence permits"></div>
+          <div class="district-title">Residence permits ↗</div>
+          <div class="district-desc">New permits, renewals, family reunification and document reviews for migration steps.</div>
+        </article>
+
+        <article class="district-card">
+          <div class="district-image"><img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1000&q=80" alt="Housing and registration"></div>
+          <div class="district-title">Housing & Anmeldung ↗</div>
+          <div class="district-desc">Support with Anmeldung, Gemeinde paperwork, rental files and housing communication.</div>
+        </article>
+
+        <article class="district-card">
+          <div class="district-image"><img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1000&q=80" alt="Employment and studies"></div>
+          <div class="district-title">Work & studies ↗</div>
+          <div class="district-desc">Job applications, student preparation, employer letters and contract-oriented help.</div>
+        </article>
+      </div>
+
+      <div class="listing-intro">
+        <div class="logo-block">
+          <div class="brand-mark">
+            <svg viewBox="0 0 32 48" aria-hidden="true">
+              <path d="M4 44V10l10-8 10 8v34"></path>
+              <path d="M14 44V22l10-8v30"></path>
+            </svg>
+            <span>Polina Kravtsova</span>
+          </div>
+          Explore all support categories: migration, authorities, documents, translations, employment, insurance, housing and individual practical help.
+        </div>
+
+        <h2 class="listing-big" data-i18n="listing_title">Support<br>categories</h2>
+
+        <div class="listing-side">
+          Choose the type of support you need, or start with a free consultation and we will direct you to the right next step.
+          <div class="find-pill">
+            <button class="label" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})" data-i18n="listing_cta">Find a service</button>
+            <button class="go" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">→</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="cards-4">
+        <article class="property-card">
+          <div class="property-image">
+            <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1000&q=80" alt="Documents">
+            <div class="property-overlay">Documents</div>
+          </div>
+          <div class="property-title">Documents ↗</div>
+          <div class="property-desc">Letters, replies, explanations, translations and submission preparation.</div>
+        </article>
+
+        <article class="property-card">
+          <div class="property-image">
+            <img src="https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=1000&q=80" alt="Consultations">
+            <div class="property-overlay">Consultations</div>
+          </div>
+          <div class="property-title">Consultation ↗</div>
+          <div class="property-desc">Focused meetings for permits, relocation strategy and personal next steps.</div>
+        </article>
+
+        <article class="property-card">
+          <div class="property-image">
+            <img src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1000&q=80" alt="Authorities">
+            <div class="property-overlay">Authorities</div>
+          </div>
+          <div class="property-title">Authorities ↗</div>
+          <div class="property-desc">Gemeinde, migration office, appointment preparation and communication help.</div>
+        </article>
+
+        <article class="property-card">
+          <div class="property-image">
+            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1000&q=80" alt="Settlement">
+            <div class="property-overlay">Settlement</div>
+          </div>
+          <div class="property-title">Settlement ↗</div>
+          <div class="property-desc">Insurance, housing, courses and everyday administrative guidance after arrival.</div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="about">
+      <div class="about-grid">
+        <div class="portrait-card">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1000&q=80" alt="Polina Kravtsova portrait">
+          <div class="portrait-caption">
+            <strong>Polina Kravtsova</strong>
+            <span>legal advisory & relocation support</span>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <div></div>
+          <h2 class="section-title" data-i18n="about_title">Who we are</h2>
+
+          <div class="about-copy">
+            <p>I am Polina Kravtsova. I help people moving to Switzerland or already building their life here with permits, registrations, legal communication and practical relocation support.</p>
+            <p>My own path included study, residence procedures and building a family life in Switzerland. I arrived without language and without a clear system around me, so I know how confusing these steps can feel in real life.</p>
+            <p>Together with Swiss legal education and work in a migration-focused law firm, this experience allows me to offer support that is practical, clear and accessible.</p>
+          </div>
+
+          <div class="watermark" aria-hidden="true">
+            <svg viewBox="0 0 32 48">
+              <path d="M4 44V10l10-8 10 8v34"></path>
+              <path d="M14 44V22l10-8v30"></path>
+            </svg>
+          </div>
+
+          <div class="about-copy">
+            <p>Whether you are coming for work, study, marriage, family life or simply trying to improve your administrative position in Switzerland, I focus on helping you take the next correct step.</p>
+            <p>My mission is simple: reduce stress, create structure, and help you move forward without unnecessary delays or legal costs.</p>
+          </div>
+
+          <div class="about-quote">
+            My goal is to help every client find a clear route in Switzerland with ease, preparation and confidence.
+            <div class="signature">Polina Kravtsova</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="relocation-check">
+      <div class="check-grid">
+        <div class="check-left">
+          <div class="micro">Initial assessment</div>
+          <h2 class="section-title">Swiss relocation check</h2>
+          <div class="copy" style="max-width:560px;margin-top:22px">
+            Answer a few questions and receive an initial route indication together with a broad chance level. It is a private orientation tool before a full consultation.
+          </div>
+
+          <div class="bullet-list">
+            <div class="bullet"><i></i><span>Work, study, marriage, family and business-based scenarios</span></div>
+            <div class="bullet"><i></i><span>Fast private review in under one minute</span></div>
+            <div class="bullet"><i></i><span>Designed to help you decide whether to book a consultation</span></div>
+          </div>
+        </div>
+
+        <div class="check-form">
+          <h3>Your first indication</h3>
+          <p>This is not a final legal opinion. A precise legal assessment always depends on status, canton, documents and timeline.</p>
+
+          <div class="field">
+            <label for="rc-nationality">1. Are you an EU citizen or a non-EU citizen?</label>
+            <select id="rc-nationality">
+              <option value="">Select an option</option>
+              <option value="eu">EU citizen</option>
+              <option value="non-eu">Non-EU citizen</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="rc-reason">2. Do you have any of the following reasons to come?</label>
+            <select id="rc-reason">
+              <option value="">Select an option</option>
+              <option value="study">Studying</option>
+              <option value="family">Family reunification</option>
+              <option value="job">Job offer</option>
+              <option value="marriage">Marriage possibility</option>
+              <option value="business">Business option</option>
+              <option value="refugee">Refugee</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="rc-finance">3. Do you have enough financial possibility to come?</label>
+            <select id="rc-finance">
+              <option value="">Select an option</option>
+              <option value="yes">Yes, I have</option>
+              <option value="no">No, I do not have</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="rc-guarantor">4. Do you have any guarantor in Switzerland?</label>
+            <select id="rc-guarantor">
+              <option value="">Select an option</option>
+              <option value="yes">Yes, I have</option>
+              <option value="no">No, I do not have</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="rc-roots">5. Do you have stable work / family roots in your home country?</label>
+            <select id="rc-roots">
+              <option value="">Select an option</option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+          </div>
+
+          <div class="action-row">
+            <button type="button" class="btn-blue" onclick="checkRelocation()">Get instant review</button>
+            <a href="booking.html" class="btn-outline">Book consultation</a>
+          </div>
+
+          <div class="check-footnote">
+            This tool provides a rough orientation only. Individual criteria may improve or reduce actual chances.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="services">
+      <div class="three-top">
+        <div><h2 class="section-title">Services</h2></div>
+        <div class="tiny-stat">
+          <strong>6</strong>
+          <span>main support categories</span>
+        </div>
+        <div class="side-copy">Everything you had in the previous project is kept here, but rebuilt in a completely new visual language.</div>
+      </div>
+
+      <div class="minimal-grid-4" style="margin-bottom:26px">
+        <article class="service-card" tabindex="0" data-title="Residence permits & migration" data-desc="Permit support, residence questions, migration procedures and practical next-step guidance." data-details='[{"name":"Residence permit guidance","price":"from 49 CHF"},{"name":"Residence permit extension support","price":"from 49 CHF"},{"name":"Family reunification document guidance","price":"from 49 CHF"},{"name":"Marriage procedure support","price":"from 49 CHF"},{"name":"Document checklist for migration case","price":"29 CHF"},{"name":"Document check before submission","price":"39 CHF"},{"name":"Form filling support","price":"from 29 CHF"},{"name":"Appeal / objection drafting support","price":"19 CHF per page"}]'>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg>
+          </div>
+          <h3>Residence permits</h3>
+          <p>Permits, extensions, migration procedures and case support.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" data-title="Authorities & administration" data-desc="Support with Gemeinde, migration office and other institutions, including preparation, calls and accompaniment." data-details='[{"name":"Phone call to Gemeinde / institution","price":"29 CHF"},{"name":"Appointment preparation","price":"39 CHF"},{"name":"Administrative accompaniment","price":"79 CHF / hour"},{"name":"Gemeinde registration support","price":"from 49 CHF"},{"name":"Wohnungsanmeldung support","price":"from 49 CHF"},{"name":"Follow-up inquiry after no response","price":"29 CHF"},{"name":"Administrative inquiry drafting","price":"19 CHF per page"},{"name":"Deadline check and next-step guidance","price":"19 CHF"}]'>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 20h16M6 20V10m4 10V10m4 10V10m4 10V10"/><path d="M4 10h16L12 4 4 10Z"/></svg>
+          </div>
+          <h3>Authorities</h3>
+          <p>Gemeinde, migration office, appointments and administrative support.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" data-title="Documents, letters & translations" data-desc="Document explanation, official letters, replies, translations and practical writing support." data-details='[{"name":"Document / letter explanation","price":"19 CHF"},{"name":"Reply to official letter","price":"29 CHF"},{"name":"Letter drafting","price":"29 CHF"},{"name":"Inquiry drafting","price":"19 CHF per page"},{"name":"Translation / simple document adaptation","price":"15 CHF per page"},{"name":"Email drafting to institution / landlord / insurance","price":"19 CHF"},{"name":"Case summary preparation","price":"19 CHF"},{"name":"Document organization for submission","price":"from 29 CHF"}]'>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M4 6h16v12H4z"/><path d="M4 8 12 13 20 8"/></svg>
+          </div>
+          <h3>Documents</h3>
+          <p>Letters, replies, translations, explanations and document support.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" data-title="Work, CV & applications" data-desc="Career support for Switzerland: CV, cover letter and application preparation." data-details='[{"name":"CV creation","price":"69 CHF"},{"name":"CV correction / Swiss adaptation","price":"39 CHF"},{"name":"Cover letter drafting","price":"39 CHF"},{"name":"Job application package","price":"89 CHF"},{"name":"Employment contract review","price":"from 49 CHF"},{"name":"Job inquiry drafting","price":"29 CHF"}]'>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="2"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+          </div>
+          <h3>Employment</h3>
+          <p>CVs, cover letters, applications and contract review.</p>
+        </article>
+      </div>
+
+      <div class="minimal-grid-4">
+        <article class="service-card" tabindex="0" data-title="Insurance, courses & housing" data-desc="Practical support with insurance, course search, housing communication and subsidized options." data-details='[{"name":"Health insurance inquiry","price":"29 CHF"},{"name":"Insurance registration support","price":"39 CHF"},{"name":"Course / language school inquiry","price":"29 CHF"},{"name":"Integration / subsidized course search","price":"39 CHF"},{"name":"Housing inquiry support","price":"29 CHF"},{"name":"Rental application support","price":"49 CHF"},{"name":"Subsidized housing / social support inquiry","price":"29 CHF"},{"name":"Landlord / agency communication support","price":"29 CHF"}]'>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3l7 4v5c0 5-3.5 8-7 9-3.5-1-7-4-7-9V7z"/><path d="M9 12h6"/></svg>
+          </div>
+          <h3>Insurance & housing</h3>
+          <p>Insurance, schools, courses, housing requests and social options.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" data-title="Additional practical support" data-desc="Useful add-ons for clients who need urgent or ongoing help." data-details='[{"name":"Free first consultation","price":"Free"},{"name":"Urgent same-day response","price":"29 CHF"},{"name":"WhatsApp follow-up support","price":"from 29 CHF"},{"name":"Phone call preparation","price":"19 CHF"},{"name":"Extra hour of accompaniment","price":"79 CHF"},{"name":"Additional document page","price":"15 CHF"},{"name":"Additional letter / inquiry","price":"19 CHF"},{"name":"Individual support on request","price":"Custom"}]'>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+          </div>
+          <h3>Additional support</h3>
+          <p>Urgent requests, add-ons and practical follow-up help.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" data-title="Study & university support" data-desc="Preparation for student relocation, permits, UZH and education-related administrative support." data-details='[{"name":"Student residence route consultation","price":"from 49 CHF"},{"name":"Document review for study route","price":"39 CHF"},{"name":"University admin letter support","price":"29 CHF"},{"name":"Student insurance / registration help","price":"39 CHF"}]'>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><path d="M3 9 12 4l9 5-9 5-9-5Z"/><path d="M6 11v4c0 1.7 2.7 3 6 3s6-1.3 6-3v-4"/></svg>
+          </div>
+          <h3>Study support</h3>
+          <p>Student route guidance, documents and education-related admin help.</p>
+        </article>
+
+        <article class="service-card" tabindex="0" data-title="Personal consultation" data-desc="A focused one-to-one meeting to clarify your route, risk level, and next practical step." data-details='[{"name":"30-minute quick consultation","price":"79 CHF"},{"name":"60-minute strategy consultation","price":"149 CHF"},{"name":"Case summary after meeting","price":"19 CHF"},{"name":"Follow-up WhatsApp support","price":"from 29 CHF"}]'>
+          <div class="service-icon">
+            <svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="3"/><circle cx="16" cy="9" r="2.5"/><path d="M3.5 19c0-2.5 2-4.5 4.5-4.5S12.5 16.5 12.5 19"/><path d="M13 19c.2-1.9 1.8-3.5 4-3.5 2.2 0 4 1.6 4 3.5"/></svg>
+          </div>
+          <h3>Consultation</h3>
+          <p>Private review of your case, documents, timing and realistic route options.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="why">
+      <div class="three-top">
+        <div><h2 class="section-title">Why choose us</h2></div>
+        <div class="tiny-stat"><strong>5</strong><span>reasons clients start here</span></div>
+        <div class="side-copy">The service is designed for people who first need structure, clarity and action — before moving into a full legal mandate.</div>
+      </div>
+
+      <div class="minimal-grid-4">
+        <article class="minimal-card">
+          <div class="number">01</div>
+          <h3>Legal background</h3>
+          <p>Swiss legal education and practical migration-focused work experience.</p>
+        </article>
+        <article class="minimal-card">
+          <div class="number">02</div>
+          <h3>Clear communication</h3>
+          <p>Letters and administrative messages prepared in a correct Swiss tone.</p>
+        </article>
+        <article class="minimal-card">
+          <div class="number">03</div>
+          <h3>Cost-efficient support</h3>
+          <p>Accessible help for relocation and admin matters before unnecessary legal spending.</p>
+        </article>
+        <article class="minimal-card">
+          <div class="number">04</div>
+          <h3>Intensive support</h3>
+          <p>Hands-on, practical guidance with referrals to lawyers if formal representation becomes necessary.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="process">
+      <div class="three-top">
+        <div><h2 class="section-title">How we work</h2></div>
+        <div class="tiny-stat"><strong>4</strong><span>clear steps from request to follow-up</span></div>
+        <div class="side-copy">A structured process designed to reduce uncertainty and keep every stage simple, visible and manageable.</div>
+      </div>
+
+      <div class="process-steps">
+        <article class="process-step">
+          <strong>01</strong>
+          <h3>Initial consultation</h3>
+          <p>We clarify your situation, timeline, risks and required documents.</p>
+        </article>
+        <article class="process-step">
+          <strong>02</strong>
+          <h3>Checklist & strategy</h3>
+          <p>You receive a structured checklist and the most suitable administrative route.</p>
+        </article>
+        <article class="process-step">
+          <strong>03</strong>
+          <h3>Documents & communication</h3>
+          <p>Drafting and reviewing letters or emails in the correct administrative tone.</p>
+        </article>
+        <article class="process-step">
+          <strong>04</strong>
+          <h3>Submission & follow-up</h3>
+          <p>Preparation support and follow-ups until the administrative step is completed.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="testimonials">
+      <div class="testimonial-grid">
+        <div class="testimonial-left">
+          <div class="micro" style="color:rgba(255,255,255,.7)">Client feedback</div>
+          <div class="testimonial-slide active">
+            <p>I was completely confused when I arrived in Zürich. After the consultation, everything finally felt clear and much less stressful.</p>
+            <div class="testimonial-author">
+              <strong>Maria S.</strong>
+              <span>Moved from Brazil</span>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <p>I was worried about my permit and several letters from the authorities. Everything was explained to me in a very simple way.</p>
+            <div class="testimonial-author">
+              <strong>Olena K.</strong>
+              <span>Moved from Ukraine</span>
+            </div>
+          </div>
+          <div class="testimonial-slide">
+            <p>What helped me most was that I could ask normal questions and get clear answers without feeling rushed.</p>
+            <div class="testimonial-author">
+              <strong>David R.</strong>
+              <span>Moved from Spain</span>
+            </div>
+          </div>
+          <div class="testimonial-controls">
+            <button type="button" class="testimonial-next">→</button>
+          </div>
+        </div>
+
+        <div class="testimonial-right">
+          <div>
+            <div class="micro" style="color:rgba(255,255,255,.55)">Why clients start here</div>
+            <h3>Practical support before unnecessary costs</h3>
+            <p>Many people first need clarity, structure and help with documents or communication — not a full legal mandate from the beginning.</p>
+            <p>A short consultation can often save time, reduce stress and help avoid expensive mistakes or delays.</p>
+          </div>
+
+          <div>
+            <a class="btn-blue" href="free-consultation.html">Request free consultation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="pricing">
+      <div class="three-top">
+        <div><h2 class="section-title">Pricing</h2></div>
+        <div class="tiny-stat"><strong>3</strong><span>clear packages to begin</span></div>
+        <div class="side-copy">Start with clarity — not with a large legal bill. Choose a level of support that matches your case and urgency.</div>
+      </div>
+
+      <div class="pricing-grid">
+        <article class="price-card">
+          <div class="plan">Quick Start</div>
+          <h3>Quick consultation</h3>
+          <div class="amount">CHF 79</div>
+          <p>Perfect if you need quick guidance on one practical question.</p>
+          <ul class="price-points">
+            <li>30-minute consultation online</li>
+            <li>Personalised checklist</li>
+            <li>One written clarification</li>
+            <li>WhatsApp follow-up for 3 days</li>
+          </ul>
+          <a class="btn-outline" href="booking.html">Book package</a>
+        </article>
+
+        <article class="price-card featured">
+          <div class="badge">Most popular</div>
+          <div class="plan">Core</div>
+          <h3>Relocation support</h3>
+          <div class="amount">CHF 189</div>
+          <p>Ideal if you are preparing documents or starting your first relocation steps.</p>
+          <ul class="price-points">
+            <li>Consultation and situation review</li>
+            <li>Personal relocation checklist</li>
+            <li>Up to 2 written inquiries or letters</li>
+            <li>Support with one admin step</li>
+            <li>One follow-up document review</li>
+          </ul>
+          <a class="btn-blue" href="booking.html">Book package</a>
+        </article>
+
+        <article class="price-card">
+          <div class="plan">Premium</div>
+          <h3>Settlement strategy</h3>
+          <div class="amount">CHF 349</div>
+          <p>Comprehensive guidance for settling in Switzerland more confidently.</p>
+          <ul class="price-points">
+            <li>Extended consultation</li>
+            <li>Personal route and document strategy</li>
+            <li>Guidance on Anmeldung, insurance or housing</li>
+            <li>Up to 5 written inquiries</li>
+            <li>Follow-up support for 2 weeks</li>
+          </ul>
+          <a class="btn-outline" href="booking.html">Book package</a>
+        </article>
+      </div>
+
+      <div class="compare-box">
+        <div class="micro">Comparison</div>
+        <h3 style="margin:0;font-size:42px;line-height:1.0;font-weight:400;letter-spacing:-.05em">A smarter first step for practical migration matters</h3>
+        <div class="compare-grid">
+          <div class="compare-col mine">
+            <h4>This service</h4>
+            <strong>CHF 0 – 349+</strong>
+            <ul>
+              <li>Free first consultation</li>
+              <li>Accessible support for migration steps</li>
+              <li>Help with documents and communication</li>
+              <li>Clear administrative guidance</li>
+              <li>Referral to lawyers when necessary</li>
+            </ul>
+          </div>
+          <div class="compare-col">
+            <h4>Typical lawyer pricing</h4>
+            <strong>CHF 250 – 500/hour</strong>
+            <ul>
+              <li>Often billed hourly</li>
+              <li>Initial consultations around CHF 300+</li>
+              <li>Best for disputes and legal representation</li>
+              <li>Often unnecessary for admin steps</li>
+              <li>Important for complex legal cases</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="blog">
+      <div class="three-top">
+        <div><h2 class="section-title">Guides & blog</h2></div>
+        <div class="tiny-stat"><strong>3</strong><span>practical articles to start with</span></div>
+        <div class="side-copy">Clear articles on permits, registration, insurance and first everyday steps after arrival in Switzerland.</div>
+      </div>
+
+      <div class="blog-grid">
+        <article class="blog-card">
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80" alt="Residence permits guide">
+          <div class="content">
+            <h3>Residence permits in Switzerland: where to start</h3>
+            <p>A practical overview of the first steps, required documents and common mistakes when applying.</p>
+            <a href="blog.html#permits" class="blog-link">Read more <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" alt="Registration guide">
+          <div class="content">
+            <h3>Anmeldung in Zürich: what you need to prepare</h3>
+            <p>Learn what to bring, how the process works and how to avoid delays when registering.</p>
+            <a href="blog.html#anmeldung" class="blog-link">Read more <span>→</span></a>
+          </div>
+        </article>
+
+        <article class="blog-card">
+          <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1200&q=80" alt="Insurance guide">
+          <div class="content">
+            <h3>Health insurance in Switzerland: deadlines and obligations</h3>
+            <p>Understand the legal requirements, time limits and basics of choosing coverage after arrival.</p>
+            <a href="blog.html#insurance" class="blog-link">Read more <span>→</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="faq">
+      <div class="three-top">
+        <div><h2 class="section-title">FAQ</h2></div>
+        <div class="tiny-stat"><strong>4</strong><span>most common questions</span></div>
+        <div class="side-copy">Clear information about consultations, support, and the scope of assistance.</div>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">Do you only work with migration cases?</button>
+          <div class="faq-answer">No. I also provide consultations in administration, study opportunities, business questions and integration in Switzerland.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">If I already live in Switzerland, can you help me improve my situation?</button>
+          <div class="faq-answer">Yes. We can work on your next steps in Switzerland — job, education, business or administrative matters.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Do you provide translation services?</button>
+          <div class="faq-answer">Yes. I can help translate documents and explain official letters from authorities or organisations.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Can you help with taxes or Quellensteuer?</button>
+          <div class="faq-answer">Yes. I can help review calculations, communicate with the Steueramt, and prepare explanations or appeals if taxation seems incorrect.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="contact">
+      <div class="contact-grid">
+        <div>
+          <h2 class="contact-lead">Let’s plan your move together</h2>
+          <div class="copy" style="margin-bottom:24px">Fill out the form and we will contact you:</div>
+
+          <form class="contact-form">
+            <input class="input" type="text" placeholder="Your name">
+            <input class="input" type="tel" placeholder="Phone number">
+            <div class="contact-row">
+              <button type="button">Contact me</button>
+              <button type="button" class="arrow">→</button>
+            </div>
+            <div class="small-note">By clicking on the “Submit” button you consent to data processing.</div>
+          </form>
+
+          <div class="socials">
+            <div>Or contact us:</div>
+            <div class="social-line">
+              <span class="social-icon">✈</span>
+              <span class="social-icon">◉</span>
+              <span class="social-icon">f</span>
+              <a href="tel:+41764497581">+41 76 449 75 81</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-box">
+          <div class="map-frame">
+            <iframe loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=8.5300%2C47.3600%2C8.5600%2C47.3800&amp;layer=mapnik&amp;marker=47.3700%2C8.5450"></iframe>
+          </div>
+          <div class="map-meta">
+            📍 Zürich, Switzerland
+            <small>Online and in-person consultations. Answer within 24 hours on working days.</small>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="footer-brand">
+          <svg viewBox="0 0 32 48" aria-hidden="true">
+            <path d="M4 44V10l10-8 10 8v34"></path>
+            <path d="M14 44V22l10-8v30"></path>
+          </svg>
+          <span>Polina Kravtsova</span>
+        </div>
+        <div class="footer-center">privacy policy</div>
+        <div class="footer-right">© 2026 Polina Kravtsova — All rights reserved.</div>
+      </footer>
+    </section>
+
+  </div>
+
+  <div class="modal" id="serviceModal" aria-hidden="true">
+    <div class="modal-panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-head">
+        <h3 class="modal-title" id="modalTitle">Service details</h3>
+        <button class="modal-close" type="button" id="modalClose">×</button>
+      </div>
+      <div class="modal-body" id="modalBody"></div>
+      <div class="modal-actions">
+        <a href="free-consultation.html" class="btn-blue">Book free consultation</a>
+        <a href="https://wa.me/41764497581" target="_blank" rel="noopener" class="btn-outline">Ask on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="assessment-modal" id="assessmentModal" aria-hidden="true">
+    <div class="assessment-modal-panel">
+      <button class="assessment-modal-close" id="assessmentModalClose" type="button">×</button>
+      <div class="micro">Initial assessment</div>
+      <h3 class="assessment-modal-title" id="assessmentModalTitle">Your relocation chances</h3>
+      <div class="assessment-modal-text" id="assessmentModalText"></div>
+      <div class="assessment-modal-actions">
+        <a href="booking.html" class="btn-blue" id="assessmentModalCta">Book consultation</a>
+        <button type="button" class="btn-outline" id="assessmentModalCloseBottom">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ai-assistant" id="aiAssistant">
+    <div class="ai-panel" id="aiPanel">
+      <div class="ai-header">
+        <div>
+          <h3>AI route assistant</h3>
+          <p>Quick route guidance, case qualification and WhatsApp handoff.</p>
+        </div>
+        <button class="ai-close" type="button" id="aiClose">×</button>
+      </div>
+
+      <div class="ai-body">
+        <div class="ai-messages" id="aiMessages"></div>
+        <div class="ai-choices" id="aiChoices"></div>
+      </div>
+
+      <div class="ai-footer">
+        <p class="ai-disclaimer">AI provides general orientation only and does not replace an individual legal assessment.</p>
+        <div class="ai-actions">
+          <a href="free-consultation.html" class="btn-outline" id="aiBookBtn">Book consultation</a>
+          <a href="https://wa.me/41764497581" class="btn-blue" target="_blank" rel="noopener" id="aiWhatsappBtn">Open WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <button class="ai-launcher" type="button" id="aiLauncher">
+      <span>✦</span>
+      <span>
+        <strong style="display:block">Ask AI assistant</strong>
+        <small style="opacity:.72">Get route guidance in 60 sec</small>
+      </span>
+    </button>
+  </div>
+
+  <script>
+    // language dropdown placeholder
+    document.querySelectorAll('.lang-switch button').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+
+    // testimonials
+    (() => {
+      const slides = document.querySelectorAll('.testimonial-slide');
+      const nextBtn = document.querySelector('.testimonial-next');
+      if (!slides.length || !nextBtn) return;
+      let current = 0;
+      nextBtn.addEventListener('click', () => {
+        slides[current].classList.remove('active');
+        current = (current + 1) % slides.length;
+        slides[current].classList.add('active');
+      });
+    })();
+
+    // faq
+    document.querySelectorAll('.faq-item').forEach(item => {
+      const button = item.querySelector('.faq-question');
+      button.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+
+    // services modal
+    (() => {
+      const cards = document.querySelectorAll('.service-card');
+      const modal = document.getElementById('serviceModal');
+      const modalTitle = document.getElementById('modalTitle');
+      const modalBody = document.getElementById('modalBody');
+      const modalClose = document.getElementById('modalClose');
+
+      function openModal(card) {
+        const title = card.getAttribute('data-title') || 'Service details';
+        const desc = card.getAttribute('data-desc') || '';
+        const detailsRaw = card.getAttribute('data-details') || '[]';
+
+        let details = [];
+        try { details = JSON.parse(detailsRaw); } catch(e) { details = []; }
+
+        let html = '';
+        if (desc) html += `<p>${desc}</p>`;
+        if (details.length) {
+          html += '<ul>';
+          details.forEach(item => {
+            html += `<li><strong>${item.name}</strong> — ${item.price}</li>`;
+          });
+          html += '</ul>';
+        }
+        html += '<p><strong>Not sure which service fits your case?</strong> Start with the free first consultation and choose the right next step afterwards.</p>';
+
+        modalTitle.textContent = title;
+        modalBody.innerHTML = html;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => openModal(card));
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openModal(card);
+          }
+        });
+      });
+
+      modalClose.addEventListener('click', closeModal);
+      modal.addEventListener('click', e => {
+        if (e.target === modal) closeModal();
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+      });
+    })();
+
+    // relocation modal
+    function openAssessmentModal(title, html, ctaHref, ctaText) {
+      const modal = document.getElementById("assessmentModal");
+      const modalTitle = document.getElementById("assessmentModalTitle");
+      const modalText = document.getElementById("assessmentModalText");
+      const modalCta = document.getElementById("assessmentModalCta");
+
+      modalTitle.textContent = title;
+      modalText.innerHTML = html;
+      modalCta.href = ctaHref || "booking.html";
+      modalCta.textContent = ctaText || "Book consultation";
+
+      modal.classList.add("open");
+      modal.setAttribute("aria-hidden", "false");
+    }
+
+    function closeAssessmentModal() {
+      const modal = document.getElementById("assessmentModal");
+      modal.classList.remove("open");
+      modal.setAttribute("aria-hidden", "true");
+    }
+
+    function checkRelocation() {
+      const nationality = document.getElementById("rc-nationality")?.value || "";
+      const reason = document.getElementById("rc-reason")?.value || "";
+      const finance = document.getElementById("rc-finance")?.value || "";
+      const guarantor = document.getElementById("rc-guarantor")?.value || "";
+      const roots = document.getElementById("rc-roots")?.value || "";
+
+      if (!nationality || !reason || !finance || !guarantor || !roots) {
+        openAssessmentModal(
+          "Complete all answers",
+          `<div class="assessment-highlight">Please answer all five questions first, and then we can show your initial route and estimated chances.</div>`,
+          "#relocation-check",
+          "Return to check"
+        );
+        return;
+      }
+
+      let score = 35;
+      let routeName = "";
+      let summary = "";
+      let detail = "";
+      let ctaHref = "booking.html";
+      let ctaText = "Book consultation";
+
+      if (nationality === "eu") score += 18;
+      if (nationality === "non-eu") score += 6;
+      if (finance === "yes") score += 15;
+      if (guarantor === "yes") score += 12;
+      if (roots === "yes") score += 10;
+
+      switch (reason) {
+        case "job":
+          routeName = "Work / Employment Route";
+          score += nationality === "eu" ? 20 : 14;
+          summary = "Yes, you may have an option to arrive through a work-related route.";
+          detail = "A job offer is one of the strongest practical grounds, especially if combined with financial means and a stable background.";
+          break;
+        case "study":
+          routeName = "Study Route";
+          score += 14;
+          summary = "Yes, studying can be a valid route to come to Switzerland.";
+          detail = "This route becomes more realistic when you can show sufficient financial means, a structured study plan, and overall credibility of stay.";
+          break;
+        case "family":
+          routeName = "Family Reunification Route";
+          score += 18;
+          summary = "Yes, family reunification may be a relevant route in your case.";
+          detail = "Your chances are usually stronger if there is already a family member in Switzerland and financial / accommodation conditions can be supported.";
+          break;
+        case "marriage":
+          routeName = "Marriage / Future Family Route";
+          score += 16;
+          summary = "Yes, marriage-related residence options may be possible.";
+          detail = "This route depends heavily on the real family situation, the partner’s status in Switzerland and the quality of documentary preparation.";
+          break;
+        case "business":
+          routeName = "Business / Entrepreneur Route";
+          score += 12;
+          summary = "Yes, a business-based route may be possible.";
+          detail = "This option is more individual and usually requires stronger preparation, financial credibility and a more tailored legal review.";
+          break;
+        case "refugee":
+          routeName = "Protection / Refugee Route";
+          score += 8;
+          summary = "This route cannot be assessed reliably by a simple online tool.";
+          detail = "Protection-based cases depend on very specific legal and factual circumstances. A private individual review is strongly recommended.";
+          ctaHref = "free-consultation.html";
+          ctaText = "Request private consultation";
+          break;
+      }
+
+      if (finance === "no") score -= 12;
+      if (guarantor === "no") score -= 6;
+      if (roots === "no") score -= 8;
+      score = Math.max(18, Math.min(92, score));
+
+      let chanceLabel = "";
+      if (score >= 75) chanceLabel = "Strong initial chances";
+      else if (score >= 55) chanceLabel = "Moderate but realistic chances";
+      else chanceLabel = "Possible, but requires stronger individual review";
+
+      const html = `
+        <div class="assessment-score">${score}%</div><br>
+        <span class="assessment-route">${routeName}</span>
+        <div class="assessment-highlight"><strong>${chanceLabel}</strong><br>${summary}</div>
+        <p>${detail}</p>
+        <p><strong>Why this result:</strong> ${finance === "yes" ? "financial means" : "limited financial means"}, ${guarantor === "yes" ? "guarantor in Switzerland" : "no guarantor"}, ${roots === "yes" ? "stable home-country ties" : "limited home-country ties"}, and <strong>${nationality === "eu" ? "EU citizenship" : "non-EU citizenship"}</strong> all influence the initial picture.</p>
+        <p>For a precise answer, your documents, purpose of stay, family status, timeline and canton must be reviewed individually.</p>
+      `;
+
+      openAssessmentModal("Your current chances", html, ctaHref, ctaText);
+    }
+
+    document.getElementById("assessmentModalClose").addEventListener("click", closeAssessmentModal);
+    document.getElementById("assessmentModalCloseBottom").addEventListener("click", closeAssessmentModal);
+    document.getElementById("assessmentModal").addEventListener("click", function(e){
+      if (e.target === this) closeAssessmentModal();
+    });
+
+    // AI assistant
+    (() => {
+      const launcher = document.getElementById("aiLauncher");
+      const panel = document.getElementById("aiPanel");
+      const closeBtn = document.getElementById("aiClose");
+      const messages = document.getElementById("aiMessages");
+      const choices = document.getElementById("aiChoices");
+      const whatsappBtn = document.getElementById("aiWhatsappBtn");
+
+      const state = { route:"", location:"", nationality:"", urgency:"", goal:"" };
+
+      const flow = {
+        start: {
+          text: `Hi — I’m the AI assistant for Polina’s website.\n\nI can help with:\n• choosing the right service\n• quick route orientation\n• preparing a WhatsApp message for your case\n\nWhat best describes your situation?`,
+          chips: [
+            { label: "Work / Job offer", value: "work", next: "location" },
+            { label: "Study", value: "study", next: "location" },
+            { label: "Marriage / Family", value: "family", next: "location" },
+            { label: "Permit / Documents", value: "documents", next: "location" }
+          ],
+          saveAs: "route"
+        },
+        location: {
+          text: "Are you already in Switzerland, or are you planning the move from abroad?",
+          chips: [
+            { label: "Already in Switzerland", value: "already in Switzerland", next: "nationality" },
+            { label: "Planning from abroad", value: "planning from abroad", next: "nationality" }
+          ],
+          saveAs: "location"
+        },
+        nationality: {
+          text: "Are you an EU citizen or a non-EU citizen?",
+          chips: [
+            { label: "EU citizen", value: "EU citizen", next: "urgency" },
+            { label: "Non-EU citizen", value: "Non-EU citizen", next: "urgency" }
+          ],
+          saveAs: "nationality"
+        },
+        urgency: {
+          text: "How urgent is your situation?",
+          chips: [
+            { label: "Urgent — this week", value: "urgent this week", next: "goal" },
+            { label: "Soon — this month", value: "this month", next: "goal" },
+            { label: "Planning ahead", value: "planning ahead", next: "result" }
+          ],
+          saveAs: "urgency"
+        },
+        goal: {
+          text: "What would you prefer as the next step?",
+          chips: [
+            { label: "WhatsApp first", value: "WhatsApp first", next: "result" },
+            { label: "Book consultation", value: "Book consultation", next: "result" },
+            { label: "I need more information", value: "Need more information", next: "result" }
+          ],
+          saveAs: "goal"
+        }
+      };
+
+      function openPanel() {
+        panel.classList.add("open");
+        if (!messages.dataset.started) {
+          startChat();
+          messages.dataset.started = "true";
+        }
+      }
+      function closePanel() { panel.classList.remove("open"); }
+
+      function addMessage(type, text) {
+        const el = document.createElement("div");
+        el.className = "ai-msg " + type;
+        el.textContent = text;
+        messages.appendChild(el);
+        messages.scrollTop = messages.scrollHeight;
+      }
+
+      function renderChoices(stepName) {
+        choices.innerHTML = "";
+        const step = flow[stepName];
+        if (!step || !step.chips) return;
+
+        step.chips.forEach(chip => {
+          const btn = document.createElement("button");
+          btn.type = "button";
+          btn.className = "ai-chip";
+          btn.textContent = chip.label;
+          btn.addEventListener("click", function () {
+            addMessage("user", chip.label);
+            if (step.saveAs) state[step.saveAs] = chip.value;
+            if (chip.next === "result") showResult();
+            else setTimeout(() => goToStep(chip.next), 250);
+          });
+          choices.appendChild(btn);
+        });
+      }
+
+      function goToStep(stepName) {
+        const step = flow[stepName];
+        if (!step) return;
+        addMessage("bot", step.text);
+        renderChoices(stepName);
+      }
+
+      function routeLabel(value) {
+        const labels = {
+          work: "Work / Job offer",
+          study: "Study",
+          family: "Marriage / Family",
+          documents: "Permit / Documents"
+        };
+        return labels[value] || value;
+      }
+
+      function recommendationText() {
+        const map = {
+          work: "Your route looks best suited for a focused consultation on employment-based relocation, employer communication, and permit preparation.",
+          study: "Your route looks best suited for a student relocation review with documents, finances, and canton-specific preparation.",
+          family: "Your route looks best suited for a family / marriage consultation with document strategy and timeline review.",
+          documents: "Your route looks best suited for a practical document and authority communication review."
+        };
+        return map[state.route] || "A short consultation would help clarify your next best route.";
+      }
+
+      function nextStepAdvice() {
+        if (state.goal === "WhatsApp first") return "Best next step: send your case summary on WhatsApp for a quick first review.";
+        if (state.goal === "Book consultation") return "Best next step: book a consultation so your documents and timeline can be reviewed properly.";
+        return "Best next step: start with WhatsApp or a consultation, depending on how detailed your case is.";
+      }
+
+      function buildWhatsappText() {
+        const parts = [
+          "Hello Polina,",
+          "I came from your website and I would like help with relocation to Switzerland.",
+          `Topic: ${routeLabel(state.route)}.`,
+          `Situation: ${state.location}.`,
+          `Status: ${state.nationality}.`,
+          `Urgency: ${state.urgency}.`,
+          `Preferred next step: ${state.goal || "not specified"}.`
+        ];
+        return encodeURIComponent(parts.join("\n"));
+      }
+
+      function showResult() {
+        choices.innerHTML = "";
+        const summary =
+`${recommendationText()}
+
+Case summary:
+• Topic: ${routeLabel(state.route)}
+• Situation: ${state.location}
+• Status: ${state.nationality}
+• Urgency: ${state.urgency}
+
+${nextStepAdvice()}`;
+        setTimeout(() => {
+          addMessage("bot", summary);
+          whatsappBtn.href = `https://wa.me/41764497581?text=${buildWhatsappText()}`;
+        }, 280);
+      }
+
+      function startChat() {
+        messages.innerHTML = "";
+        choices.innerHTML = "";
+        state.route = "";
+        state.location = "";
+        state.nationality = "";
+        state.urgency = "";
+        state.goal = "";
+        goToStep("start");
+      }
+
+      launcher.addEventListener("click", function () {
+        if (panel.classList.contains("open")) closePanel();
+        else openPanel();
+      });
+      closeBtn.addEventListener("click", closePanel);
+    })();
+  </script>
+</body>
+</html>
