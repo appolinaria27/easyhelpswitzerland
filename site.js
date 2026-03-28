@@ -2,26 +2,19 @@ const translations = {
   en: {
     nav_home: "Home",
     nav_about: "About",
-    nav_services: "Services",
-    nav_blog: "Blog",
+    nav_objects: "Services",
     nav_contact: "Contact",
-    nav_book: "Pay / Book",
 
-    hero_kicker: "Zürich • Online / In-person",
-    hero_title: "Clear support for settling in Switzerland",
-    hero_text: "Visas, Anmeldung, registrations, documents and practical legal guidance — for clients from Latin America, Eastern Europe, and worldwide.",
+    
+  hero_title_main: "Easy Help",
+  hero_title_sub: "Switzerland",
+  hero_sub: "Relocation, migration support, and document assistance in Zurich.",
+  hero_cta: "Find your best next step →",
+  hero_f1: "Trusted support only",
+  hero_f2: "Free initial consultation",
+  hero_f3: "Ongoing support",
+  hero_years: "clients guided through Swiss administrative procedures",
 
-    hero_ed: "6+",
-    hero_ed2: "years legal education",
-
-    hero_cons: "24+",
-    hero_cons2: "consultations completed",
-
-    hero_exp: "5+",
-    hero_exp2: "years migrant experience",
-
-    hero_lang: "5",
-    hero_lang2: "languages",
 
     about_label: "About",
 about_title: "About Me",
@@ -539,26 +532,17 @@ brand_name: "Polina Kravtsova",
   es: {
     nav_home: "Inicio",
     nav_about: "Sobre mí",
-    nav_services: "Servicios",
-    nav_blog: "Blog",
+    nav_objects: "Servicios",
     nav_contact: "Contacto",
-    nav_book: "Pagar / Reservar",
 
-    hero_kicker: "Zúrich • Online / Presencial",
-    hero_title: "Apoyo claro para establecerse en Suiza",
-    hero_text: "Visas, Anmeldung, registros, documentos y asesoría legal práctica para clientes de América Latina, Europa del Este y de todo el mundo.",
-
-    hero_ed: "6+",
-    hero_ed2: "años de educación jurídica",
-
-    hero_cons: "24+",
-    hero_cons2: "consultas realizadas",
-
-    hero_exp: "5+",
-    hero_exp2: "años de experiencia migratoria",
-
-    hero_lang: "5",
-    hero_lang2: "idiomas",
+  hero_title_main: "Easy Help",
+  hero_title_sub: "Suiza",
+  hero_sub: "Relocalización, apoyo migratorio y ayuda con documentos en Zúrich.",
+  hero_cta: "Encuentra tu mejor siguiente paso →",
+  hero_f1: "Solo apoyo de confianza",
+  hero_f2: "Primera consulta gratuita",
+  hero_f3: "Acompañamiento continuo",
+  hero_years: "clientes guiados en procesos administrativos suizos",
 
     about_label: "Sobre mí",
 about_title: "Sobre mí",
@@ -1083,26 +1067,17 @@ footer_tagline: "Apoyo práctico para la reubicación en Suiza",
   de: {
     nav_home: "Startseite",
     nav_about: "Über mich",
-    nav_services: "Leistungen",
-    nav_blog: "Blog",
+    nav_objects: "Leistungen",
     nav_contact: "Kontakt",
-    nav_book: "Bezahlen / Buchen",
 
-    hero_kicker: "Zürich • Online / Persönlich",
-    hero_title: "Klare Unterstützung beim Leben in der Schweiz",
-    hero_text: "Visa, Anmeldung, Registrierungen, Dokumente und praktische rechtliche Beratung für Klienten aus Lateinamerika, Osteuropa und weltweit.",
-
-    hero_ed: "6+",
-    hero_ed2: "Jahre juristische Ausbildung",
-
-    hero_cons: "24+",
-    hero_cons2: "durchgeführte Beratungen",
-
-    hero_exp: "5+",
-    hero_exp2: "Jahre Migrationserfahrung",
-
-    hero_lang: "5",
-    hero_lang2: "Sprachen",
+  hero_title_main: "Easy Help",
+  hero_title_sub: "Schweiz",
+  hero_sub: "Relocation, Migrationsunterstützung und Hilfe mit Dokumenten in Zürich.",
+  hero_cta: "Den besten nächsten Schritt finden →",
+  hero_f1: "Nur verlässliche Unterstützung",
+  hero_f2: "Kostenlose Erstberatung",
+  hero_f3: "Laufende Unterstützung",
+  hero_years: "Klient:innen durch Schweizer Verwaltungsverfahren begleitet",
 
     about_label: "Über mich",
 about_title: "Über mich",
@@ -1627,26 +1602,18 @@ footer_tagline: "Praktische Unterstützung beim Umzug in die Schweiz",
   uk: {
     nav_home: "Головна",
     nav_about: "Про мене",
-    nav_services: "Послуги",
-    nav_blog: "Блог",
+    nav_objects: "Послуги",
     nav_contact: "Контакти",
-    nav_book: "Оплата / Бронювання",
+    
 
-    hero_kicker: "Цюрих • Онлайн / Особисто",
-    hero_title: "Чітка підтримка для життя у Швейцарії",
-    hero_text: "Візи, Anmeldung, реєстрації, документи та практична юридична допомога для клієнтів з Латинської Америки, Східної Європи та з усього світу.",
-
-    hero_ed: "6+",
-    hero_ed2: "років юридичної освіти",
-
-    hero_cons: "24+",
-    hero_cons2: "проведених консультацій",
-
-    hero_exp: "5+",
-    hero_exp2: "років міграційного досвіду",
-
-    hero_lang: "5",
-    hero_lang2: "мов",
+  hero_title_main: "Easy Help",
+  hero_title_sub: "Швейцарія",
+  hero_sub: "Релокація, міграційна підтримка та допомога з документами у Цюриху.",
+  hero_cta: "Знайти свій найкращий наступний крок →",
+  hero_f1: "Лише надійна підтримка",
+  hero_f2: "Безкоштовна перша консультація",
+  hero_f3: "Супровід на всіх етапах",
+  hero_years: "клієнтів супроводжено через швейцарські адміністративні процедури",
 
     about_label: "Про мене",
     about_title: "Про мене",

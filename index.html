@@ -2559,8 +2559,8 @@
             <path d="M14 44V22l10-8v30"></path>
           </svg>
           <div>
-            <div style="font-size:18px">Easy Help</div>
-            <div style="font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase">Switzerland</div>
+            <div style="font-size:18px" data-i18n="brand_name">Easy Help</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase" data-i18n="brand_name">Switzerland</div>
           </div>
         </div>
 
@@ -3957,6 +3957,52 @@ ${nextStepAdvice()}`;
 
   titleItems.forEach(title => titleObserver.observe(title));
 </script>
+
+<script>
+function setLanguage(lang) {
+  const elements = document.querySelectorAll("[data-i18n]");
+
+  elements.forEach(el => {
+    const key = el.getAttribute("data-i18n");
+    if (translations[lang] && translations[lang][key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+
+  // placeholders
+  const placeholders = document.querySelectorAll("[data-i18n-placeholder]");
+  placeholders.forEach(el => {
+    const key = el.getAttribute("data-i18n-placeholder");
+    if (translations[lang] && translations[lang][key]) {
+      el.placeholder = translations[lang][key];
+    }
+  });
+
+  // update active button
+  document.querySelectorAll("[data-lang]").forEach(btn => {
+    btn.classList.remove("active");
+  });
+  document.querySelector(`[data-lang="${lang}"]`)?.classList.add("active");
+
+  // optional: save language
+  localStorage.setItem("lang", lang);
+}
+
+document.querySelectorAll("[data-lang]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    const lang = btn.getAttribute("data-lang");
+    setLanguage(lang);
+  });
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("lang") || "en";
+  setLanguage(savedLang);
+});
+
+</script>
+
+<script src="site.js"></script>
 
 </body>
 </html>
