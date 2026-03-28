@@ -1,0 +1,544 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Review & Payment | Easy Help Switzerland</title>
+  <meta name="description" content="Review your booking details and continue to secure payment in a premium, consistent checkout step." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --panel:#e8e8e8;
+      --panel-soft:#f4f4f2;
+      --text:#111111;
+      --muted:#4f4f4f;
+      --line:rgba(17,17,17,.08);
+      --white:#ffffff;
+      --blue:#4693e8;
+      --blue-dark:#317bcd;
+      --shadow:0 10px 28px rgba(0,0,0,.04);
+      --container:min(100% - 38px, 1700px);
+      --content:min(100% - 90px, 1480px);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Manrope",system-ui,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+
+    .shell{width:var(--container);margin:20px auto 48px}
+
+    .hero-wrap{
+      position:relative;
+      min-height:620px;
+      border-radius:44px;
+      overflow:hidden;
+      color:#fff;
+      padding:26px 36px 34px;
+      background:
+        linear-gradient(180deg, rgba(9,12,15,.48), rgba(9,12,15,.66)),
+        radial-gradient(circle at 50% 40%, rgba(255,255,255,.03), transparent 35%),
+        url('https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+    }
+
+    .hero-top{
+      display:grid;
+      grid-template-columns:220px 1fr auto;
+      align-items:center;
+      gap:24px;
+      font-size:15px;
+      position:relative;
+      z-index:2;
+    }
+    .brand{display:flex;align-items:center;gap:14px;font-weight:500}
+    .brand svg{width:36px;height:52px;stroke:#fff;fill:none;stroke-width:1.5;opacity:.92}
+    .nav{display:flex;justify-content:center;gap:40px;color:rgba(255,255,255,.9);flex-wrap:wrap}
+    .nav a{font-weight:400;position:relative}
+    .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:rgba(255,255,255,.8);transform:scaleX(0);transition:.25s ease}
+    .nav a:hover::after{transform:scaleX(1)}
+    .hero-right{display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:16px;flex-wrap:wrap}
+    .lang-toggle,.back-pill{
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      cursor:pointer;
+    }
+
+    .hero-center{
+      position:absolute;
+      inset:150px 90px 150px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      z-index:1;
+    }
+    .micro{
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.72);
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:20px;
+    }
+    .hero-title{
+      font-family:"Cormorant Garamond",serif;
+      font-weight:500;
+      font-size:clamp(76px,10vw,180px);
+      line-height:.82;
+      letter-spacing:-.06em;
+      margin:0;
+    }
+    .hero-title span{display:block;font-size:clamp(46px,4.5vw,96px);margin-top:10px}
+    .hero-sub{margin-top:20px;font-size:18px;color:rgba(255,255,255,.86);max-width:62ch}
+
+    .hero-bottom{
+      position:absolute;
+      left:36px;right:36px;bottom:28px;
+      display:flex;justify-content:space-between;align-items:flex-end;gap:20px;z-index:2;
+    }
+    .hero-features{display:flex;gap:38px;flex-wrap:wrap;color:rgba(255,255,255,.95)}
+    .hero-feature{display:flex;gap:12px;font-size:18px;line-height:1.1;max-width:220px}
+    .hero-feature .dot{width:15px;height:15px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-size:10px;flex:0 0 auto;margin-top:2px}
+    .hero-years{display:flex;align-items:flex-start;gap:12px;color:#fff;text-align:left}
+    .hero-years strong{font-family:"Cormorant Garamond",serif;font-size:86px;line-height:.8;font-weight:500}
+    .hero-years span{max-width:145px;font-size:18px;line-height:1.05;color:rgba(255,255,255,.9);padding-top:8px}
+
+    .payment-zone{padding:68px 0 0;background:#fff}
+    .payment-layout{
+      width:var(--content);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:minmax(0, 1.05fr) 400px;
+      gap:28px;
+      align-items:start;
+    }
+
+    .glass-card{
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:28px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.22);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+    }
+
+    .summary-card,
+    .payment-card,
+    .info-card{
+      background:
+        radial-gradient(circle at 20% 20%, rgba(193,232,241,.55), transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(70,147,232,.18), transparent 30%),
+        linear-gradient(180deg, #f7fafb 0%, #eef5f7 100%);
+    }
+
+    .summary-card{padding:38px}
+    .section-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7a8a99;margin:0 0 12px}
+    .title{margin:0 0 14px;font-weight:300;font-size:clamp(42px,4.5vw,72px);line-height:.95;letter-spacing:-.06em}
+    .subtitle{margin:0;color:var(--muted);line-height:1.55;max-width:60ch}
+
+    .summary-box{
+      margin-top:28px;
+      display:grid;
+      grid-template-columns:1fr auto;
+      gap:18px;
+      align-items:end;
+      padding:26px 28px;
+      border-radius:28px;
+      background:rgba(255,255,255,.72);
+      border:1px solid rgba(255,255,255,.34);
+      box-shadow:inset 0 1px 0 rgba(255,255,255,.35);
+    }
+    .package-name{font-size:32px;line-height:1.02;letter-spacing:-.05em;font-weight:500}
+    .price{font-size:42px;line-height:.95;letter-spacing:-.06em;font-weight:300;white-space:nowrap}
+
+    .details{display:grid;gap:16px;margin-top:24px}
+    .detail{
+      display:grid;
+      grid-template-columns:190px 1fr;
+      gap:18px;
+      align-items:start;
+      padding:16px 0;
+      border-bottom:1px solid rgba(17,17,17,.08);
+    }
+    .detail:last-child{border-bottom:none}
+    .label{display:block;font-size:13px;text-transform:uppercase;letter-spacing:.12em;color:#7a8a99}
+    .value{font-size:17px;color:#111;line-height:1.55;word-break:break-word}
+
+    .total{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding:20px 0;
+      border-top:1px solid rgba(17,17,17,.08);
+      border-bottom:1px solid rgba(17,17,17,.08);
+      margin:24px 0 0;
+      gap:20px;
+    }
+    .total span:first-child{font-size:15px;color:var(--muted)}
+    .total strong{font-size:32px;line-height:.95;letter-spacing:-.06em;font-weight:400}
+
+    .sidebar{position:sticky;top:24px;display:grid;gap:22px}
+    .payment-card,.info-card{padding:28px}
+    .payment-card h2,.info-card h3{margin:0 0 12px;font-size:30px;line-height:1.02;letter-spacing:-.05em;font-weight:500}
+    .payment-card p,.info-card p{margin:0;color:#303030;line-height:1.5}
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      min-height:58px;
+      padding:16px 24px;
+      border:none;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:16px;
+      line-height:1;
+      transition:transform .2s ease, box-shadow .2s ease, background .25s ease;
+      margin-top:16px;
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .btn.primary{
+      background:linear-gradient(135deg,#4693e8 0%,#6fb3f2 100%);
+      color:#fff;
+      box-shadow:0 8px 20px rgba(70,147,232,.22), inset 0 1px 0 rgba(255,255,255,.22);
+    }
+    .btn.secondary{background:#fff;color:#111;border:1px solid rgba(17,17,17,.08)}
+
+    .small{margin-top:16px;font-size:13px;color:#5a5a5a;line-height:1.7}
+    .step-list{display:grid;gap:14px;margin-top:18px}
+    .step{padding:14px 0;border-bottom:1px solid rgba(17,17,17,.08)}
+    .step:last-child{border-bottom:none;padding-bottom:0}
+    .step span{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7a8a99;margin-bottom:6px}
+    .step strong{font-size:17px;line-height:1.35}
+
+    .contact-footer{
+      width:100%;
+      margin-top:28px;
+      padding:28px 32px;
+      background:#02070d;
+      color:#ffffff;
+      border-top:1px solid rgba(255,255,255,.08);
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:20px;
+      align-items:center;
+      font-size:14px;
+      border-radius:0 0 38px 38px;
+    }
+    .contact-footer .footer-brand{display:flex;align-items:center;gap:12px;font-size:18px;color:#ffffff;justify-self:start}
+    .contact-footer .footer-brand svg{width:26px;height:40px;stroke:#ffffff;fill:none;stroke-width:1.3}
+    .contact-footer .footer-center{text-align:center;color:rgba(255,255,255,.72);justify-self:center}
+    .contact-footer .footer-right{text-align:right;color:rgba(255,255,255,.72);justify-self:end}
+
+    .whatsapp-float{
+      position:fixed;
+      right:24px;
+      bottom:24px;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      background:#25D366;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:28px;
+      text-decoration:none;
+      box-shadow:0 10px 24px rgba(0,0,0,.22);
+      z-index:999;
+    }
+
+    @media (max-width:1180px){
+      .hero-top{grid-template-columns:1fr;justify-items:start}
+      .nav{justify-content:flex-start;gap:18px}
+      .hero-center{position:relative;inset:auto;display:block;text-align:left;padding-top:140px}
+      .hero-bottom{position:relative;left:auto;right:auto;bottom:auto;margin-top:90px;flex-direction:column;align-items:flex-start}
+      .hero-wrap{min-height:auto;padding-bottom:34px}
+      .payment-layout{grid-template-columns:1fr}
+      .sidebar{position:relative;top:0}
+    }
+
+    @media (max-width:780px){
+      :root{--container:min(100% - 18px, 1700px);--content:min(100% - 20px, 1480px)}
+      .hero-wrap{padding:18px 18px 22px;border-radius:28px}
+      .summary-card,.payment-card,.info-card{padding:24px 20px}
+      .summary-box,.detail,.contact-footer{grid-template-columns:1fr}
+      .price{white-space:normal}
+      .contact-footer{text-align:left;border-radius:0 0 28px 28px}
+      .contact-footer .footer-center,.contact-footer .footer-right{text-align:left;justify-self:start}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero-wrap" id="top">
+      <div class="hero-top">
+        <a class="brand" href="index.html" aria-label="Easy Help Switzerland home">
+          <svg viewBox="0 0 32 48" aria-hidden="true">
+            <path d="M4 44V10l10-8 10 8v34"></path>
+            <path d="M14 44V22l10-8v30"></path>
+          </svg>
+          <div>
+            <div style="font-size:18px">Easy Help</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase">Switzerland</div>
+          </div>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="booking.html">Booking</a>
+          <a href="blog.html">Guides</a>
+          <a href="free-consultation.html">Free consultation</a>
+          <a href="index.html#contact">Contacts</a>
+        </nav>
+
+        <div class="hero-right">
+          <a href="tel:+41764497581">+41 76 449 75 81</a>
+          <button class="lang-toggle" type="button">English ▾</button>
+          <a class="back-pill" href="booking.html" data-i18n="payment_back">← Back to booking</a>
+        </div>
+      </div>
+
+      <div class="hero-center">
+        <div>
+          <div class="micro">Payment review</div>
+          <h1 class="hero-title">Review your <span>consultation</span></h1>
+          <div class="hero-sub">Confirm your selected package and your details before continuing to secure payment. This page preserves the original query-string summary flow and Stripe handoff while fully matching your main website design.</div>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-features">
+          <div class="hero-feature"><div class="dot">✓</div><div>Booking summary</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div>Secure Stripe handoff</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div>Edit before payment</div></div>
+        </div>
+
+        <div class="hero-years">
+          <strong>1</strong>
+          <span>final step before checkout</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="payment-zone">
+      <div class="payment-layout">
+        <section class="summary-card glass-card">
+          <p class="section-label" data-i18n="payment_summary_kicker">Booking summary</p>
+          <h1 class="title" data-i18n="payment_title">Review your consultation before payment</h1>
+          <p class="subtitle" data-i18n="payment_subtitle">Please confirm your selected package and your details below.</p>
+
+          <div class="summary-box">
+            <div id="packageName" class="package-name">—</div>
+            <div id="packagePrice" class="price">—</div>
+          </div>
+
+          <div class="details">
+            <div class="detail">
+              <span class="label" data-i18n="payment_name">Full name</span>
+              <div id="customerName" class="value">—</div>
+            </div>
+            <div class="detail">
+              <span class="label" data-i18n="payment_email">Email</span>
+              <div id="customerEmail" class="value">—</div>
+            </div>
+            <div class="detail">
+              <span class="label" data-i18n="payment_phone">Phone / WhatsApp</span>
+              <div id="customerPhone" class="value">—</div>
+            </div>
+            <div class="detail">
+              <span class="label" data-i18n="payment_location">Current location</span>
+              <div id="customerLocation" class="value">—</div>
+            </div>
+            <div class="detail">
+              <span class="label" data-i18n="payment_format">Preferred format</span>
+              <div id="customerPreferred" class="value">—</div>
+            </div>
+            <div class="detail">
+              <span class="label" data-i18n="payment_message">Short description</span>
+              <div id="customerMessage" class="value">—</div>
+            </div>
+          </div>
+
+          <div class="total">
+            <span data-i18n="payment_total">Total due</span>
+            <strong id="summaryTotalPrice">—</strong>
+          </div>
+        </section>
+
+        <aside class="sidebar">
+          <section class="payment-card glass-card">
+            <p class="section-label" data-i18n="payment_kicker">Payment</p>
+            <h2 data-i18n="payment_right_title">Continue to secure payment</h2>
+            <p data-i18n="payment_right_text">When you click the button below, you can continue with your payment setup.</p>
+
+            <div class="total">
+              <span data-i18n="payment_total">Total due</span>
+              <strong id="paymentTotalPrice">—</strong>
+            </div>
+
+            <a id="payNowLink" href="#" class="btn primary" data-i18n="payment_pay_now">Pay now</a>
+            <a class="btn secondary" href="booking.html" data-i18n="payment_edit">Edit booking</a>
+
+            <p class="small" data-i18n="payment_note">Payment confirms your consultation request. If your matter requires formal legal representation, you may be referred to a licensed lawyer where appropriate.</p>
+          </section>
+
+          <section class="info-card glass-card">
+            <p class="section-label">What stays the same</p>
+            <h3>Original checkout logic preserved</h3>
+            <p>The current setup reads booking details from the URL, shows the selected package and price, and builds the Stripe link to <code>create-checkout-session.php</code>. This redesign only changes presentation, not the flow itself.</p>
+            <div class="step-list">
+              <div class="step"><span>Package pricing</span><strong>Initial consultation — CHF 59</strong></div>
+              <div class="step"><span>Package pricing</span><strong>Consultation + review — CHF 129</strong></div>
+              <div class="step"><span>Package pricing</span><strong>Relocation support — CHF 290</strong></div>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </section>
+
+    <footer class="contact-footer">
+      <div class="footer-brand">
+        <svg viewBox="0 0 32 48" aria-hidden="true"><path d="M4 44V10l10-8 10 8v34"></path><path d="M14 44V22l10-8v30"></path></svg>
+        <span>Easy Help Switzerland</span>
+      </div>
+      <div class="footer-center">© 2026 Zurich Relocation</div>
+      <div class="footer-right">Secure payment step aligned to the main website</div>
+    </footer>
+  </div>
+
+  <a class="whatsapp-float" href="#" aria-label="WhatsApp">✆</a>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+
+      const packageValue = params.get("package");
+      const customerName = params.get("name");
+      const customerEmail = params.get("email");
+      const customerPhone = params.get("phone");
+      const customerLocation = params.get("location");
+      const customerPreferred = params.get("preferred");
+      const customerMessage = params.get("message");
+
+      const lang = localStorage.getItem("siteLanguage") || "en";
+
+      const packageNames = {
+        en: {
+          initial: "Initial consultation",
+          review: "Consultation + review",
+          support: "Relocation support",
+          none: "No package selected"
+        },
+        de: {
+          initial: "Erstberatung",
+          review: "Beratung + Dokumentenprüfung",
+          support: "Relocation-Unterstützung",
+          none: "Kein Paket ausgewählt"
+        },
+        es: {
+          initial: "Consulta inicial",
+          review: "Consulta + revisión",
+          support: "Apoyo de relocación",
+          none: "Ningún paquete seleccionado"
+        },
+        uk: {
+          initial: "Початкова консультація",
+          review: "Консультація + перевірка документів",
+          support: "Підтримка релокації",
+          none: "Пакет не вибрано"
+        }
+      };
+
+      const packagePrices = {
+        initial: "CHF 59",
+        review: "CHF 129",
+        support: "CHF 290"
+      };
+
+      const selectedPackage = {
+        name:
+          (packageNames[lang] && packageNames[lang][packageValue]) ||
+          packageNames.en[packageValue] ||
+          packageNames[lang]?.none ||
+          "—",
+        price: packagePrices[packageValue] || "—"
+      };
+
+      function setText(id, value) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = value;
+      }
+
+      setText("packageName", selectedPackage.name);
+      setText("packagePrice", selectedPackage.price);
+      setText("summaryTotalPrice", selectedPackage.price);
+      setText("paymentTotalPrice", selectedPackage.price);
+
+      setText("customerName", customerName || "—");
+      setText("customerEmail", customerEmail || "—");
+      setText("customerPhone", customerPhone || "—");
+      setText("customerLocation", customerLocation || "—");
+      setText("customerPreferred", customerPreferred || "—");
+      setText("customerMessage", customerMessage || "—");
+    });
+  </script>
+
+  <script>
+    window.addEventListener("DOMContentLoaded", function () {
+      const params = new URLSearchParams(window.location.search);
+
+      const packageValue = params.get("package") || "";
+      const name = params.get("name") || "";
+      const email = params.get("email") || "";
+      const phone = params.get("phone") || "";
+      const location = params.get("location") || "";
+      const preferred = params.get("preferred") || "";
+      const message = params.get("message") || "";
+
+      const payNowLink = document.getElementById("payNowLink");
+
+      const checkoutParams = new URLSearchParams({
+        package: packageValue,
+        name: name,
+        email: email,
+        phone: phone,
+        location: location,
+        preferred: preferred,
+        message: message
+      });
+
+      payNowLink.href = "create-checkout-session.php?" + checkoutParams.toString();
+    });
+  </script>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const toggle = document.querySelector(".lang-toggle");
+      if (toggle) {
+        toggle.addEventListener("click", function () {
+          // Placeholder preserved for your existing language dropdown logic.
+        });
+      }
+    });
+  </script>
+
+  <script src="site.js"></script>
+</body>
+</html>

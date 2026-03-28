@@ -1,0 +1,4 @@
+vendor/
+bookings/
+.env
+.DS_Store

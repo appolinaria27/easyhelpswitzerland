@@ -1,0 +1,578 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Relocation Guides | Easy Help Switzerland</title>
+  <meta name="description" content="Practical relocation guides for permits, registration, insurance, study, marriage and family reunification in Switzerland." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#ffffff;
+      --panel:#e8e8e8;
+      --panel-soft:#f4f4f2;
+      --text:#111111;
+      --muted:#4f4f4f;
+      --line:rgba(17,17,17,.08);
+      --white:#ffffff;
+      --blue:#4693e8;
+      --blue-dark:#317bcd;
+      --hero:#0f1215;
+      --radius:34px;
+      --radius-lg:42px;
+      --shadow:0 10px 28px rgba(0,0,0,.04);
+      --container:min(100% - 38px, 1700px);
+      --content:min(100% - 90px, 1460px);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:var(--text);
+      font-family:"Manrope",system-ui,sans-serif;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    img{display:block;max-width:100%}
+    a{text-decoration:none;color:inherit}
+    button,input,select,textarea{font:inherit}
+
+    .shell{width:var(--container);margin:20px auto 48px}
+
+    .section-heading-bracket{
+      display:grid;
+      grid-template-columns:46px auto 46px;
+      align-items:start;
+      column-gap:18px;
+      width:fit-content;
+    }
+    .section-bracket{
+      width:14px;
+      height:80px;
+      margin-top:2px;
+      position:relative;
+    }
+    .section-bracket::before,
+    .section-bracket::after{
+      content:"";
+      position:absolute;
+      width:12px;
+      height:1.5px;
+      background:rgba(17,17,17,.50);
+    }
+    .section-bracket::before{top:0}
+    .section-bracket::after{bottom:0}
+    .section-bracket-left{border-left:1.5px solid rgba(17,17,17,.50)}
+    .section-bracket-right{border-right:1.5px solid rgba(17,17,17,.50)}
+
+    .section-title{
+      margin:0;
+      font-weight:300;
+      font-size:clamp(54px,6vw,92px);
+      line-height:.95;
+      letter-spacing:-.06em;
+    }
+
+    .micro{
+      font-size:12px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(17,17,17,.48);
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:20px;
+    }
+
+    .hero-wrap{
+      position:relative;
+      min-height:760px;
+      border-radius:44px;
+      overflow:hidden;
+      color:#fff;
+      padding:26px 36px 34px;
+      background:
+        linear-gradient(180deg, rgba(9,12,15,.48), rgba(9,12,15,.66)),
+        radial-gradient(circle at 50% 40%, rgba(255,255,255,.03), transparent 35%),
+        url('https://pohcdn.com/sites/default/files/styles/paragraph__live_banner__lb_image__1880bp/public/live_banner/Zurich-1.jpg') center/cover no-repeat;
+    }
+
+    .hero-top{
+      display:grid;
+      grid-template-columns:220px 1fr auto;
+      align-items:center;
+      gap:24px;
+      font-size:15px;
+      position:relative;
+      z-index:2;
+    }
+
+    .brand{display:flex;align-items:center;gap:14px;font-weight:500}
+    .brand svg{width:36px;height:52px;stroke:#fff;fill:none;stroke-width:1.5;opacity:.92}
+
+    .nav{display:flex;justify-content:center;gap:40px;color:rgba(255,255,255,.9);flex-wrap:wrap}
+    .nav a{font-weight:400;position:relative}
+    .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:rgba(255,255,255,.8);transform:scaleX(0);transition:.25s ease}
+    .nav a:hover::after{transform:scaleX(1)}
+
+    .hero-right{display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:16px}
+    .lang-toggle{
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.08);
+      color:#fff;
+      padding:10px 14px;
+      border-radius:999px;
+      cursor:pointer;
+    }
+
+    .hero-center{
+      position:absolute;
+      inset:160px 90px 180px;
+      display:grid;
+      place-items:center;
+      text-align:center;
+      z-index:1;
+    }
+    .hero-title{
+      font-family:"Cormorant Garamond",serif;
+      font-weight:500;
+      font-size:clamp(92px,12vw,220px);
+      line-height:.82;
+      letter-spacing:-.06em;
+      margin:0;
+    }
+    .hero-title span{display:block;font-size:clamp(54px,5vw,110px);margin-top:10px}
+    .hero-sub{margin-top:20px;font-size:18px;color:rgba(255,255,255,.86);max-width:68ch}
+
+    .hero-bottom{
+      position:absolute;
+      left:36px;right:36px;bottom:28px;
+      display:flex;justify-content:space-between;align-items:flex-end;gap:20px;z-index:2;
+    }
+    .hero-features{display:flex;gap:38px;flex-wrap:wrap;color:rgba(255,255,255,.95)}
+    .hero-feature{display:flex;gap:12px;font-size:18px;line-height:1.1;max-width:220px}
+    .hero-feature .dot{width:15px;height:15px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-size:10px;flex:0 0 auto;margin-top:2px}
+    .hero-years{display:flex;align-items:flex-start;gap:12px;color:#fff;text-align:left}
+    .hero-years strong{font-family:"Cormorant Garamond",serif;font-size:86px;line-height:.8;font-weight:500}
+    .hero-years span{max-width:140px;font-size:18px;line-height:1.05;color:rgba(255,255,255,.9);padding-top:8px}
+
+    .blog-shell{padding:70px 0 0;background:#fff}
+    .blog-layout{
+      width:var(--content);
+      margin:0 auto;
+      display:grid;
+      grid-template-columns:minmax(0, 1.1fr) 360px;
+      gap:34px;
+      align-items:start;
+    }
+
+    .content-column{min-width:0}
+    .sidebar{position:sticky;top:24px;display:grid;gap:22px}
+
+    .glass-card{
+      background:rgba(255,255,255,.16);
+      border:1px solid rgba(255,255,255,.22);
+      border-radius:28px;
+      box-shadow:0 10px 30px rgba(0,0,0,.08), inset 0 1px 0 rgba(255,255,255,.22);
+      backdrop-filter:blur(18px);
+      -webkit-backdrop-filter:blur(18px);
+    }
+
+    .sidebar-card{
+      padding:28px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(193,232,241,.55), transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(70,147,232,.18), transparent 30%),
+        linear-gradient(180deg, #f7fafb 0%, #eef5f7 100%);
+    }
+    .sidebar-card h3{margin:0 0 14px;font-size:30px;line-height:1.02;letter-spacing:-.05em;font-weight:500}
+    .sidebar-card p{margin:0;color:#303030;line-height:1.45;font-size:16px}
+    .toc,.related-list{display:grid;gap:10px}
+    .toc a,.related-item{padding:12px 0;border-bottom:1px solid rgba(17,17,17,.08);transition:.25s ease}
+    .toc a:hover,.related-item:hover{transform:translateX(4px)}
+    .related-item span{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7a8a99;margin-bottom:6px}
+    .related-item strong{display:block;font-size:17px;line-height:1.35}
+
+    .btn-blue,.btn-outline{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:999px;
+      padding:18px 30px;
+      font-weight:600;
+      cursor:pointer;
+      transition:.25s ease;
+      border:0;
+    }
+    .btn-blue{
+      background:linear-gradient(135deg,#4693e8 0%,#6fb3f2 100%);
+      color:#fff;
+      box-shadow:0 8px 20px rgba(70,147,232,.22), inset 0 1px 0 rgba(255,255,255,.22);
+    }
+    .btn-blue:hover{background:linear-gradient(135deg,#317bcd 0%,#5aa6ec 100%);transform:translateY(-1px)}
+    .btn-outline{border:1px solid var(--line);background:#fff;color:#111}
+
+    .article-block{margin-bottom:36px;scroll-margin-top:100px}
+    .article-card{
+      overflow:hidden;
+      background:#fff;
+      border-radius:34px;
+      border:1px solid rgba(17,17,17,.06);
+      box-shadow:0 14px 38px rgba(0,0,0,.05);
+    }
+    .article-cover{position:relative;aspect-ratio:16/8;overflow:hidden;background:#ccc}
+    .article-cover img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+    .article-card:hover .article-cover img{transform:scale(1.04)}
+    .article-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.22))}
+    .article-body{padding:34px}
+    .article-meta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7a8a99}
+    .article-body h2{margin:0 0 18px;font-size:clamp(36px,3vw,54px);line-height:.95;letter-spacing:-.06em;font-weight:400}
+    .article-lead{margin:0 0 26px;font-size:19px;line-height:1.72;color:var(--muted)}
+    .article-body p{margin:0 0 18px;font-size:17px;line-height:1.75;color:#222}
+    .article-body h3{margin:34px 0 12px;font-size:28px;line-height:1.02;letter-spacing:-.05em;font-weight:500}
+    .article-body ul{margin:0 0 24px;padding-left:20px;display:grid;gap:10px}
+    .article-note{
+      margin:26px 0;
+      padding:20px 22px;
+      border-radius:22px;
+      background:linear-gradient(135deg, rgba(70,147,232,.08), rgba(193,232,241,.32));
+      border:1px solid rgba(70,147,232,.14);
+      color:#222;
+    }
+    .inline-image{margin:26px 0 30px;overflow:hidden;border-radius:24px;background:#eaeaea}
+    .inline-image img{width:100%;height:auto}
+    .caption{padding:12px 14px;font-size:14px;color:#666;background:#fafafa;border-top:1px solid rgba(17,17,17,.08)}
+    .article-footer{margin-top:30px;padding-top:22px;border-top:1px solid rgba(17,17,17,.08);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
+    .tag-row{display:flex;flex-wrap:wrap;gap:10px}
+    .tag{padding:8px 12px;border-radius:999px;background:rgba(17,17,17,.05);font-size:13px;color:#333}
+    .next-links{margin-top:18px;display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+    .next-card{padding:22px 24px;border-radius:26px;background:var(--panel-soft);border:1px solid rgba(17,17,17,.06);transition:.25s ease}
+    .next-card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(4,35,64,.08)}
+    .next-card span{display:block;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7a8a99;margin-bottom:8px}
+    .next-card strong{display:block;font-size:20px;line-height:1.3}
+
+    .cta-band{
+      width:var(--content);
+      margin:28px auto 0;
+      padding:46px;
+      border-radius:38px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(193,232,241,.55), transparent 35%),
+        radial-gradient(circle at 80% 70%, rgba(70,147,232,.18), transparent 30%),
+        linear-gradient(180deg, #f7fafb 0%, #eef5f7 100%);
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:30px;
+      align-items:center;
+    }
+    .cta-band h2{margin:0 0 12px;font-size:clamp(42px,4vw,72px);line-height:.95;font-weight:300;letter-spacing:-.06em}
+    .cta-band p{margin:0;max-width:56ch;color:#303030;line-height:1.55}
+    .cta-actions{display:flex;justify-content:flex-end;gap:14px;flex-wrap:wrap}
+
+    .contact-footer{
+      width:100%;
+      margin-top:22px;
+      padding:28px 32px;
+      background:#02070d;
+      color:#ffffff;
+      border-top:1px solid rgba(255,255,255,.08);
+      display:grid;
+      grid-template-columns:1fr 1fr 1fr;
+      gap:20px;
+      align-items:center;
+      font-size:14px;
+      border-radius:0 0 38px 38px;
+    }
+    .contact-footer .footer-brand{display:flex;align-items:center;gap:12px;font-size:18px;color:#ffffff;justify-self:start}
+    .contact-footer .footer-brand svg{width:26px;height:40px;stroke:#ffffff;fill:none;stroke-width:1.3}
+    .contact-footer .footer-center{text-align:center;color:rgba(255,255,255,.72);justify-self:center}
+    .contact-footer .footer-right{text-align:right;color:rgba(255,255,255,.72);justify-self:end}
+
+    @media (max-width:1180px){
+      .hero-top{grid-template-columns:1fr;justify-items:start}
+      .nav{justify-content:flex-start;gap:18px}
+      .hero-right{justify-self:start;flex-wrap:wrap}
+      .hero-center{position:relative;inset:auto;display:block;text-align:left;padding-top:140px}
+      .hero-bottom{position:relative;left:auto;right:auto;bottom:auto;margin-top:90px;flex-direction:column;align-items:flex-start}
+      .hero-wrap{min-height:auto;padding-bottom:34px}
+      .blog-layout,.cta-band{grid-template-columns:1fr}
+      .sidebar{position:relative;top:0}
+      .cta-actions{justify-content:flex-start}
+    }
+
+    @media (max-width:780px){
+      :root{--container:min(100% - 18px, 1700px);--content:min(100% - 20px, 1460px)}
+      .hero-wrap{padding:18px 18px 22px;border-radius:28px}
+      .section-title{font-size:52px}
+      .article-body{padding:24px 20px}
+      .next-links{grid-template-columns:1fr}
+      .cta-band{padding:26px 22px;border-radius:28px}
+      .contact-footer{grid-template-columns:1fr;text-align:left;border-radius:0 0 28px 28px}
+      .contact-footer .footer-center,.contact-footer .footer-right{text-align:left;justify-self:start}
+    }
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <section class="hero-wrap" id="top">
+      <div class="hero-top">
+        <a class="brand" href="index.html" aria-label="Easy Help Switzerland home">
+          <svg viewBox="0 0 32 48" aria-hidden="true">
+            <path d="M4 44V10l10-8 10 8v34"></path>
+            <path d="M14 44V22l10-8v30"></path>
+          </svg>
+          <div>
+            <div style="font-size:18px">Easy Help</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase">Switzerland</div>
+          </div>
+        </a>
+
+        <nav class="nav">
+          <a href="index.html">Home</a>
+          <a href="#permits">Guides</a>
+          <a href="index.html#services">Services</a>
+          <a href="free-consultation.html">Consultation</a>
+          <a href="index.html#contact">Contacts</a>
+        </nav>
+
+        <div class="hero-right">
+          <a href="tel:+41764497581">+41 76 449 75 81</a>
+          <button class="lang-toggle" type="button">English ▾</button>
+        </div>
+      </div>
+
+      <div class="hero-center">
+        <div>
+          <div class="micro">Guides & Blog</div>
+          <h1 class="hero-title">Swiss relocation <span>guides</span></h1>
+          <div class="hero-sub">Clear practical articles on permits, registration, health insurance, study, marriage and family reunification — redesigned to match the editorial premium style of your main website.</div>
+        </div>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="hero-features">
+          <div class="hero-feature"><div class="dot">✓</div><div>Easy to scan long-form articles</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div>Premium editorial layout</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div>Same visual language as homepage</div></div>
+        </div>
+
+        <div class="hero-years">
+          <strong>6</strong>
+          <span>guides structured in one destination</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="blog-shell">
+      <div class="blog-layout">
+        <main class="content-column">
+          <section class="article-block" id="permits">
+            <article class="article-card">
+              <div class="article-cover">
+                <img src="https://www.swissinfo.ch/content/wp-content/uploads/sites/13/2024/02/226027049_highres.jpg?ver=433a521d" alt="Residence permit article cover">
+              </div>
+              <div class="article-body">
+                <div class="article-meta"><span>Residence permits</span><span>•</span><span>5 min read</span></div>
+                <h2>Residence permits in Switzerland: where to start</h2>
+                <p class="article-lead">For many newcomers, the permit process feels opaque at first. The good news is that most cases become manageable once you understand the timeline, the required documents, and the logic behind the different permit types.</p>
+                <p>If you are moving to Switzerland for work, family reasons, or a long-term stay, your residence permit is one of the first essential administrative steps. In most cases, your type of permit depends on your nationality, employment status, and expected length of stay.</p>
+                <h3>The three permit types most people hear about first</h3>
+                <ul>
+                  <li><strong>L permit</strong> for shorter stays, often tied to limited contracts or temporary assignments.</li>
+                  <li><strong>B permit</strong> for longer residence, commonly used for employees, family reunification, and many standard relocation cases.</li>
+                  <li><strong>C permit</strong> for permanent residence after several qualifying years in Switzerland.</li>
+                </ul>
+                <div class="article-note">Start by checking not only the federal rules, but also the practical process in your canton and municipality. The legal structure is national, but execution often happens locally.</div>
+                <div class="inline-image">
+                  <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1400&q=80" alt="Documents on a desk">
+                  <div class="caption">A strong application usually starts with complete documentation and a clear registration timeline.</div>
+                </div>
+                <h3>Documents you usually need early</h3>
+                <p>Although requirements differ by case, people often need a valid passport or ID, proof of address, an employment contract or proof of sufficient means, and civil status documents where relevant. It is worth preparing both originals and digital copies in advance.</p>
+                <p>One of the most common mistakes is assuming that the permit is handled before local registration. In reality, registration and permit processing are usually closely connected. If you delay one, you often delay both.</p>
+                <h3>How to make the process smoother</h3>
+                <ul>
+                  <li>Prepare documents before arrival where possible.</li>
+                  <li>Check your municipality’s registration deadline immediately.</li>
+                  <li>Keep copies of contracts, address confirmations, and correspondence.</li>
+                  <li>Ask early if translations, apostilles, or certified copies are needed.</li>
+                </ul>
+                <p>The permit process is rarely about one single form. It is about sequencing: housing, registration, insurance, and employment paperwork often interact. The earlier you organize them together, the easier your first weeks in Switzerland become.</p>
+                <div class="article-footer">
+                  <div class="tag-row"><span class="tag">Permits</span><span class="tag">Arrival</span><span class="tag">Administration</span></div>
+                  <a href="free-consultation.html" class="btn-blue">Need personal guidance?</a>
+                </div>
+              </div>
+            </article>
+            <div class="next-links">
+              <a class="next-card" href="#anmeldung"><span>Next article</span><strong>Anmeldung in Zürich: what you need to prepare</strong></a>
+              <a class="next-card" href="#insurance"><span>Related article</span><strong>Health insurance in Switzerland: deadlines and obligations</strong></a>
+            </div>
+          </section>
+
+          <section class="article-block" id="anmeldung">
+            <article class="article-card">
+              <div class="article-cover"><img src="https://images.winalist.com/blog/wp-content/uploads/2025/06/26123743/adobestock-118763263-1500x831.jpeg" alt="Zurich registration article cover"></div>
+              <div class="article-body">
+                <div class="article-meta"><span>Registration</span><span>•</span><span>4 min read</span></div>
+                <h2>Anmeldung in Zürich: what you need to prepare</h2>
+                <p class="article-lead">Registration in Zürich is often one of the first official appointments after arrival. It may look simple from the outside, but having the right documents ready can save you delays, repeat visits, and unnecessary stress.</p>
+                <p>After moving into the city, you usually need to register your address with the local authorities within a limited time. This registration confirms your residence and is often needed for later administrative steps such as permit processing, banking, utilities, and insurance setup.</p>
+                <h3>What to bring to the appointment</h3>
+                <ul>
+                  <li>Valid passport or national ID card</li>
+                  <li>Rental agreement or written housing confirmation</li>
+                  <li>Employment contract or proof of income, if relevant</li>
+                  <li>Additional civil status documents, depending on your case</li>
+                </ul>
+                <div class="inline-image"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1400&q=80" alt="City office and paperwork"><div class="caption">A well-prepared registration appointment can unlock several next steps in your relocation journey.</div></div>
+                <h3>Why this step matters more than people expect</h3>
+                <p>Anmeldung is not just a formality. It establishes your local presence in the system. Many downstream processes rely on it, including communications from authorities, tax administration, insurance enrollment, and in some cases permit issuance.</p>
+                <p>New arrivals often underestimate how important small details are, such as matching names across documents, correct move-in dates, and written confirmation from the main tenant or landlord where needed.</p>
+                <div class="article-note">If your housing situation is temporary, shared, or newly arranged, double-check whether your address proof will be accepted before the appointment.</div>
+                <h3>How to avoid delays</h3>
+                <ul>
+                  <li>Book your appointment as early as possible.</li>
+                  <li>Bring complete paperwork, not only screenshots.</li>
+                  <li>Make sure your address format is consistent everywhere.</li>
+                  <li>Keep a copy of the registration confirmation after the meeting.</li>
+                </ul>
+                <p>Once registration is complete, things tend to move faster. You have an official local reference point, and that makes every following step more straightforward.</p>
+              </div>
+            </article>
+          </section>
+
+          <section class="article-block" id="insurance">
+            <article class="article-card">
+              <div class="article-cover"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1400&q=80" alt="Health insurance in Switzerland"></div>
+              <div class="article-body">
+                <div class="article-meta"><span>Health insurance</span><span>•</span><span>5 min read</span></div>
+                <h2>Health insurance in Switzerland: deadlines and obligations</h2>
+                <p class="article-lead">Health insurance is one of the most time-sensitive steps after arrival. Understanding the deadline early helps you avoid unnecessary stress and unexpected backdated costs.</p>
+                <p>In Switzerland, basic health insurance is generally mandatory. New residents often need to enroll within a set period after becoming subject to the Swiss system. Waiting too long can mean administrative complications and retroactive premiums.</p>
+                <h3>What makes this step important</h3>
+                <ul>
+                  <li>It is a legal requirement in most standard relocation cases.</li>
+                  <li>Coverage choices influence monthly costs and healthcare access.</li>
+                  <li>It interacts with registration timing and arrival dates.</li>
+                </ul>
+                <div class="article-note">Insurance is not only about buying a policy. It is about choosing the correct start date, model, deductible, and provider logic for your situation.</div>
+                <p>People often focus on price first, but the timing and correctness of enrollment are just as important. A structured comparison usually saves more stress than a rushed last-minute decision.</p>
+              </div>
+            </article>
+            <div class="next-links">
+              <a class="next-card" href="#study"><span>Next article</span><strong>Studying in Switzerland: first admin steps</strong></a>
+              <a class="next-card" href="#permits"><span>Back to start</span><strong>Residence permits in Switzerland: where to start</strong></a>
+            </div>
+          </section>
+
+          <section class="article-block" id="study">
+            <article class="article-card">
+              <div class="article-cover"><img src="https://media.licdn.com/dms/image/v2/C4E1BAQGJPxYQb6uu2Q/company-background_10000/company-background_10000/0/1649769619603/uzhalumni_cover?e=2147483647&v=beta&t=qSbct4AWQ90CtFrj6sO-2pvbITtGMJPd7Dq3YbpSotE" alt="Studying in Switzerland"></div>
+              <div class="article-body">
+                <div class="article-meta"><span>Study</span><span>•</span><span>4 min read</span></div>
+                <h2>Studying in Switzerland: what students should organize first</h2>
+                <p class="article-lead">For students, the first weeks are rarely about one document only. Housing, registration, insurance, and permit questions often arrive at the same time.</p>
+                <p>When preparing for study in Switzerland, it helps to see your move as an administrative route: secure housing, register locally, confirm insurance status, and make sure your residence basis matches the duration and purpose of your stay.</p>
+              </div>
+            </article>
+          </section>
+
+          <section class="article-block" id="marriage">
+            <article class="article-card">
+              <div class="article-cover"><img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1400&q=80" alt="Getting married in Switzerland"></div>
+              <div class="article-body">
+                <div class="article-meta"><span>Marriage</span><span>•</span><span>5 min read</span></div>
+                <h2>Getting married in Switzerland: what international couples should know</h2>
+                <p class="article-lead">Marriage in Switzerland can be straightforward, but international couples should be ready for document checks, civil status formalities, and timing that depends heavily on preparation.</p>
+                <p>If one or both partners are foreign nationals, the process often includes submitting official identity documents, birth certificates, civil status records, and in some cases additional legalized or translated papers.</p>
+                <div class="article-note">If documents were issued abroad, check early whether apostilles, legalization, or official translations are required. This is often where the process slows down.</div>
+              </div>
+            </article>
+          </section>
+
+          <section class="article-block" id="family-reunification">
+            <article class="article-card">
+              <div class="article-cover"><img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=1400&q=80" alt="Bringing family to Switzerland"></div>
+              <div class="article-body">
+                <div class="article-meta"><span>Family reunification</span><span>•</span><span>6 min read</span></div>
+                <h2>Bringing your family to Switzerland: is it easier for Swiss or EU citizens?</h2>
+                <p class="article-lead">Family reunification rules in Switzerland depend strongly on nationality, permit type, housing situation, and income. In practical terms, the path may feel easier or harder depending on which legal route applies to you.</p>
+                <p>People often ask whether it is easier for Swiss citizens or EU citizens to bring their family members to Switzerland. The answer depends on the exact family relationship, the country of origin of the relatives, and the residence status of the person already living in Switzerland.</p>
+                <h3>What authorities often look at</h3>
+                <ul>
+                  <li>Your nationality and residence status</li>
+                  <li>Your type of permit or citizenship status</li>
+                  <li>Whether you have suitable accommodation</li>
+                  <li>Whether financial support requirements are met</li>
+                  <li>The relationship to the family member joining you</li>
+                </ul>
+                <div class="article-note">The fastest way to reduce uncertainty is to define the case very clearly first: who is joining, from where, under which status, and on what timeline.</div>
+              </div>
+            </article>
+          </section>
+        </main>
+
+        <aside class="sidebar">
+          <div class="sidebar-card glass-card">
+            <div class="micro">On this page</div>
+            <h3>Table of contents</h3>
+            <div class="toc">
+              <a href="#permits">Residence permits in Switzerland</a>
+              <a href="#anmeldung">Anmeldung in Zürich</a>
+              <a href="#insurance">Health insurance in Switzerland</a>
+              <a href="#study">Studying in Switzerland</a>
+              <a href="#marriage">Getting married in Switzerland</a>
+              <a href="#family-reunification">Bringing your family to Switzerland</a>
+            </div>
+          </div>
+
+          <div class="sidebar-card glass-card">
+            <div class="micro">Related services</div>
+            <h3>How we can help</h3>
+            <div class="related-list">
+              <a href="free-consultation.html" class="related-item"><span>Consultation</span><strong>Book a free consultation for your relocation plan</strong></a>
+              <a href="index.html#services" class="related-item"><span>Permits</span><strong>Support with residence permits and registration steps</strong></a>
+              <a href="index.html#services" class="related-item"><span>Insurance</span><strong>Get help choosing the right health insurance setup</strong></a>
+            </div>
+          </div>
+
+          <div class="sidebar-card glass-card">
+            <div class="micro">Need support?</div>
+            <h3>Prefer personal guidance?</h3>
+            <p>If you want help with registration, permits, housing documents, or health insurance, book a consultation and get a clear step-by-step plan.</p>
+            <div style="margin-top:18px"><a href="free-consultation.html" class="btn-blue">Book consultation</a></div>
+          </div>
+        </aside>
+      </div>
+
+      <section class="cta-band">
+        <div>
+          <div class="micro">Next step</div>
+          <h2>Make your relocation easier from day one</h2>
+          <p>Save time, avoid missed deadlines, and move through permits, registration, and insurance with a clear structure and personal support.</p>
+        </div>
+        <div class="cta-actions">
+          <a href="free-consultation.html" class="btn-blue">Book consultation</a>
+          <a href="index.html" class="btn-outline">Back to homepage</a>
+        </div>
+      </section>
+    </section>
+
+    <footer class="contact-footer">
+      <div class="footer-brand">
+        <svg viewBox="0 0 32 48" aria-hidden="true"><path d="M4 44V10l10-8 10 8v34"></path><path d="M14 44V22l10-8v30"></path></svg>
+        <span>Easy Help Switzerland</span>
+      </div>
+      <div class="footer-center">© 2026 Zurich Relocation</div>
+      <div class="footer-right">Practical relocation support in Switzerland</div>
+    </footer>
+  </div>
+
+  <script src="site.js"></script>
+</body>
+</html>
