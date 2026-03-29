@@ -15,76 +15,168 @@ const translations = {
   hero_f3: "Ongoing support",
   hero_years: "clients guided through Swiss administrative procedures",
 
+  clients_micro: "With whom we work",
+areas_stat: "days to get your next apartment step sorted",
+areas_side: "We support migrants, students, families and professionals with practical relocation steps, permits, registrations and life setup in Switzerland.",
+areas_intro: "We help clients move through Zürich and other Swiss cantons with a clear strategy, realistic route, and support for the everyday bureaucracy that follows arrival.",
+areas_side_2: "Browse our focus areas covering permits, municipality registration, housing, insurance and settlement planning for clients from many different countries.",
 
-    about_label: "About",
-about_title: "About Me",
-about_p1: "I am Polina Kravtsova. I provide structured relocation and administrative support in Switzerland, based in Zürich.",
-about_p2: "My background includes legal education and professional experience in a law firm specializing in migration matters. During this time, I was involved in residence permit applications, administrative procedures, case preparation and client communication. This experience enables me to approach each matter with a clear understanding of regulatory requirements and procedural standards.",
-about_p3: "In addition to my professional training, I have personally navigated the Swiss migration system. This allows me to combine formal legal knowledge with practical insight into the realities of relocation and integration.",
+area_1_title: "Zürich City ↗",
+area_1_desc: "Registrations, permits, student relocation and authority communication in the Zürich area.",
+area_1_modal_title: "Zürich City",
+area_1_modal_content: `
+  <p>We support clients in Zürich with registration, local authority communication, residence-related first steps, and practical relocation administration.</p>
+  <ul>
+    <li><strong>Anmeldung / registration</strong> support and preparation</li>
+    <li><strong>Permit-related guidance</strong> for first local steps</li>
+    <li><strong>Student relocation</strong> help in the Zürich area</li>
+    <li><strong>Authority communication</strong> and document preparation</li>
+  </ul>
+  <p><strong>Best for:</strong> people living in Zürich or moving to Zürich soon.</p>
+`,
 
-services_label: "Services",
-services_title: "What I can help with",
+area_2_title: "All Switzerland ↗",
+area_2_desc: "Clear support for cantonal procedures, family steps and local admin follow-up.",
+area_2_modal_title: "All Switzerland",
+area_2_modal_content: `
+  <p>We also work with clients across Switzerland, not only in Zürich. This includes support for different cantons and different local administrative procedures.</p>
+  <ul>
+    <li><strong>Cantonal process guidance</strong> depending on your location</li>
+    <li><strong>Family and relocation steps</strong> with practical planning</li>
+    <li><strong>Local admin follow-up</strong> for your case</li>
+    <li><strong>Clear next-step strategy</strong> before you submit documents</li>
+  </ul>
+  <p><strong>Best for:</strong> clients relocating or living anywhere in Switzerland.</p>
+`,
 
-service_permits_title: "Residence permits",
-service_permits_text: "Permits, extensions, status clarification and migration procedures.",
+area_3_title: "International clients ↗",
+area_3_desc: "Practical guidance for clients arriving from Latin America, Eastern Europe and beyond.",
+area_3_modal_title: "International clients",
+area_3_modal_content: `
+  <p>We support international clients before arrival and during their first Switzerland preparation phase, with clear explanations and practical relocation structure.</p>
+  <ul>
+    <li><strong>Pre-arrival planning</strong> and document orientation</li>
+    <li><strong>Support for Latin America, Eastern Europe and beyond</strong></li>
+    <li><strong>Step-by-step preparation</strong> before coming to Switzerland</li>
+    <li><strong>Clarity on realistic routes</strong>, timing and first admin steps</li>
+  </ul>
+  <p><strong>Best for:</strong> clients outside Switzerland who want to prepare correctly before moving.</p>
+`,
 
-service_registration_title: "Registration & Authorities",
-service_registration_text: "Gemeinde registration, coordination with migration and administrative offices.",
+check_micro: "Initial assessment",
+check_title: "Swiss relocation check",
+check_desc: "Answer a few questions and receive an initial route indication together with a broad chance level. It is a private orientation tool before a full consultation.",
 
-service_documents_title: "Documents & Correspondence",
-service_documents_text: "Official letters, formal communication, document drafting and review.",
+check_bullet_1: "Work, study, marriage, family and business-based scenarios",
+check_bullet_2: "Fast private review in under one minute",
+check_bullet_3: "Designed to help you decide whether to book a consultation",
 
-service_employment_title: "Employment",
-service_employment_text: "CV preparation, job applications and employment contract review.",
+check_form_title: "Your first indication",
+check_form_desc: "This is not a final legal opinion. A precise legal assessment always depends on status, canton, documents and timeline.",
 
-service_insurance_title: "Insurance",
-service_insurance_text: "Health insurance setup, legal obligations and clarification of coverage.",
+check_q1: "1. Are you an EU citizen or a non-EU citizen?",
+check_q2: "2. Do you have any of the following reasons to come?",
+check_q3: "3. Do you have enough financial possibility to come?",
+check_q4: "4. Do you have any guarantor in Switzerland?",
+check_q5: "5. Do you have stable work / family roots in your home country?",
 
-service_family_title: "Family Matters",
-service_family_text: "Marriage procedures, family reunification and residence for relatives.",
-why_label: "Why choose us",
-why_title: "Why clients trust us for relocation support",
+select_option: "Select an option",
 
-why_legal_title: "Legal background",
-why_legal_text: "Legal education and experience in a migration-focused law firm—structured, accurate and procedure-aware.",
+option_eu: "EU citizen",
+option_non_eu: "Non-EU citizen",
+option_study: "Studying",
+option_family: "Family reunification",
+option_job: "Job offer",
+option_marriage: "Marriage possibility",
+option_business: "Business option",
+option_refugee: "Refugee",
 
-why_comm_title: "Clear communication",
-why_comm_text: "Professional letters and administrative messaging in the correct Swiss tone—so your requests are taken seriously.",
+option_yes_have: "Yes, I have",
+option_no_have: "No, I do not have",
+option_yes: "Yes",
+option_no: "No",
 
-why_cost_title: "Cost-efficient support",
-why_cost_text: "More accessible than traditional legal representation while maintaining a structured and professional approach.",
+check_btn_primary: "Get instant review",
+check_btn_secondary: "Book consultation",
+check_footnote: "This tool provides a rough orientation only. Individual criteria may improve or reduce actual chances.",
 
-why_support_title: "Intensive support",
-why_support_text: "Fast, hands-on guidance at accessible pricing—and collaboration with trusted lawyers when formal representation is needed.",
+about_kicker: "About",
+    about_title: "Who supports you in Switzerland?",
+    about_text_1: "My name is Polina Kravtsova. I support international clients with relocation, permits, and administrative processes in Switzerland. My goal is simple — to make complex procedures clear, structured, and manageable. I am currently pursuing a Master’s degree at the University of Zurich, focusing on migration and administrative law.",
+    about_text_2: "I understand how difficult it can be to move to a new country — I started from zero myself. Now, I want to help others save years of their lives trying to understand and navigate the system. My experience as a legal assistant in a Zurich law firm allows me to provide clear guidance and practical support. Instead of confusion and uncertainty, you get clear steps and a realistic path forward.",
 
-why_consult_title: "Free first consultation",
-why_consult_text: "A short initial conversation to understand your situation and clarify the next steps before choosing a support package.",
+    services_title: "Services",
+    services_stat: "main support categories",
+    services_side: "Everything you had in the previous project is kept here, but rebuilt in a completely new visual language.",
 
-process_label: "Process",
-process_title: "How we work",
+    service_residence_title: "Residence permits",
+    service_residence_desc: "Permits, extensions, migration procedures and case support.",
 
-process_intro: "A structured approach designed to reduce uncertainty and keep every step clear: we review your situation, prepare documents and communication, and support follow-ups until the administrative step is completed.",
+    service_authorities_title: "Authorities",
+    service_authorities_desc: "Gemeinde, migration office, appointments and administrative support.",
 
-process_consult_title: "Consultations",
-process_consult_text: "Online or in-person in Zürich. Answer within 24 hours.",
+    service_documents_title: "Documents",
+    service_documents_desc: "Letters, replies, translations, explanations and document support.",
 
-process_contact_title: "Contact",
-process_email_label: "Email:",
-process_whatsapp_label: "WhatsApp:",
+    service_employment_title: "Employment",
+    service_employment_desc: "CVs, cover letters, applications and contract review.",
 
-process_step1_title: "Initial consultation",
-process_step1_text: "We clarify your situation, timeline, risks, and required documents.",
+    service_insurance_title: "Insurance & housing",
+    service_insurance_desc: "Insurance, schools, courses, housing requests and social options.",
 
-process_step2_title: "Checklist & strategy",
-process_step2_text: "You receive a structured checklist and the correct administrative route.",
+    service_additional_title: "Additional support",
+    service_additional_desc: "Urgent requests, add-ons and practical follow-up help.",
 
-process_step3_title: "Documents & communication",
-process_step3_text: "Drafting and reviewing letters/emails in the correct Swiss administrative tone.",
+    service_study_title: "Study support",
+    service_study_desc: "Student route guidance, documents and education-related admin help.",
 
-process_step4_title: "Submission & follow-up",
-process_step4_text: "Preparation support and follow-ups until the procedure is completed.",
+    service_consultation_title: "Consultation",
+    service_consultation_desc: "Private review of your case, documents, timing and realistic route options.",
 
-process_cta: "Book Consultation",
+    why_note: "SMART, CLEAR, AND HUMAN SUPPORT FOR SWISS RELOCATION, MIGRATION, AND EVERYDAY LEGAL STEPS.",
+why_title: "Why clients choose us",
+
+why_1_title: "Legal clarity",
+why_1_desc: "Clear agreements and practical support make the process more seamless and less stressful.",
+why_1_content: `<p>Legal clarity means understanding your real options before taking action.</p><ul><li>We explain which route is realistic for your case</li><li>We show what documents and steps matter first</li><li>We help you avoid delays, refusals and unnecessary costs</li></ul><p><strong>Result:</strong> you move forward with a clear and structured plan.</p>`,
+
+why_2_title: "Clear communication",
+why_2_desc: "Complex Swiss procedures are explained simply, with practical next steps you can actually follow.",
+why_2_content: `<p>Swiss procedures can feel complex, especially when information is formal or in German.</p><ul><li>We explain things in simple language</li><li>You get practical next steps instead of vague theory</li><li>You know what to do, when to do it, and why it matters</li></ul><p><strong>Result:</strong> less confusion and more confidence.</p>`,
+
+why_3_title: "Practical support",
+why_3_desc: "Support with permits, registrations, documents, and authority communication in one structured process.",
+why_3_content: `<p>This is hands-on help, not only general advice.</p><ul><li>Support with permits, registration and documents</li><li>Help preparing forms and authority communication</li><li>Structured guidance through each stage of the process</li></ul><p><strong>Result:</strong> your case moves faster and with less stress.</p>`,
+
+why_4_title: "Cost-efficient help",
+why_4_desc: "Get clarity and direction before spending unnecessarily on a full legal mandate.",
+why_4_content: `<p>Not every situation requires a full legal mandate from the beginning.</p><ul><li>Get clarity before paying for unnecessary legal work</li><li>Understand the smartest first step for your case</li><li>Use targeted support where it brings the most value</li></ul><p><strong>Result:</strong> better decisions with better budget control.</p>`,
+
+process: {
+title: "How we work",
+      side: "A structured process designed to reduce uncertainty and keep every stage simple, visible and manageable.",
+
+      discoverTitle: "Discover",
+      discoverItem1: "First case review",
+      discoverItem2: "Clarify your route",
+      discoverItem3: "Check urgency",
+
+      defineTitle: "Define",
+      defineItem1: "Documents needed",
+      defineItem2: "Best admin path",
+      defineItem3: "Clear next actions",
+
+      supportTitle: "Support",
+      supportItem1: "Forms and letters",
+      supportItem2: "Authority contact",
+      supportItem3: "Practical guidance",
+
+      followUpTitle: "Follow-up",
+      followUpItem1: "Submission check",
+      followUpItem2: "Next-step review",
+      followUpItem3: "Ongoing help"
+      },
+
 
 testimonials_label: "Client feedback",
 testimonials_title: "What clients say",
@@ -544,76 +636,168 @@ brand_name: "Polina Kravtsova",
   hero_f3: "Acompañamiento continuo",
   hero_years: "clientes guiados en procesos administrativos suizos",
 
-    about_label: "Sobre mí",
-about_title: "Sobre mí",
-about_p1: "Soy Polina Kravtsova. Ofrezco apoyo estructurado en reubicación y trámites administrativos en Suiza, con base en Zúrich.",
-about_p2: "Mi formación incluye educación jurídica y experiencia profesional en un despacho de abogados especializado en asuntos migratorios. Durante ese tiempo participé en solicitudes de permisos de residencia, procedimientos administrativos, preparación de casos y comunicación con clientes. Esta experiencia me permite abordar cada asunto con una comprensión clara de los requisitos regulatorios y de los estándares procedimentales.",
-about_p3: "Además de mi formación profesional, yo misma he pasado por el sistema migratorio suizo. Esto me permite combinar conocimientos jurídicos formales con una visión práctica de la realidad de la reubicación y la integración.",
+  clients_micro: "Con quién trabajamos",
+areas_stat: "días para resolver el siguiente paso con su apartamento",
+areas_side: "Apoyamos a migrantes, estudiantes, familias y profesionales con pasos prácticos de reubicación, permisos, registros y organización de la vida en Suiza.",
+areas_intro: "Ayudamos a los clientes en Zúrich y otros cantones suizos con una estrategia clara, una ruta realista y apoyo para la burocracia cotidiana que sigue a la llegada.",
+areas_side_2: "Explore nuestras áreas de enfoque sobre permisos, registro municipal, vivienda, seguro y planificación de establecimiento para clientes de muchos países distintos.",
 
-services_label: "Servicios",
-services_title: "En qué puedo ayudarte",
+area_1_title: "Ciudad de Zúrich ↗",
+area_1_desc: "Registros, permisos, reubicación para estudiantes y comunicación con autoridades en la zona de Zúrich.",
+area_1_modal_title: "Ciudad de Zúrich",
+area_1_modal_content: `
+  <p>Apoyamos a clientes en Zúrich con el registro, la comunicación con autoridades locales, los primeros pasos relacionados con la residencia y la administración práctica de la reubicación.</p>
+  <ul>
+    <li><strong>Anmeldung / registro</strong> apoyo y preparación</li>
+    <li><strong>Orientación sobre permisos</strong> para los primeros pasos locales</li>
+    <li><strong>Ayuda para reubicación de estudiantes</strong> en la zona de Zúrich</li>
+    <li><strong>Comunicación con autoridades</strong> y preparación de documentos</li>
+  </ul>
+  <p><strong>Ideal para:</strong> personas que viven en Zúrich o que pronto se mudarán a Zúrich.</p>
+`,
 
-service_permits_title: "Permisos de residencia",
-service_permits_text: "Permisos, prórrogas, aclaración de estatus y procedimientos migratorios.",
+area_2_title: "Toda Suiza ↗",
+area_2_desc: "Apoyo claro para procedimientos cantonales, pasos familiares y seguimiento administrativo local.",
+area_2_modal_title: "Toda Suiza",
+area_2_modal_content: `
+  <p>También trabajamos con clientes en toda Suiza, no solo en Zúrich. Esto incluye apoyo para distintos cantones y diferentes procedimientos administrativos locales.</p>
+  <ul>
+    <li><strong>Orientación sobre procesos cantonales</strong> según su ubicación</li>
+    <li><strong>Pasos familiares y de reubicación</strong> con planificación práctica</li>
+    <li><strong>Seguimiento administrativo local</strong> para su caso</li>
+    <li><strong>Estrategia clara de próximos pasos</strong> antes de presentar documentos</li>
+  </ul>
+  <p><strong>Ideal para:</strong> clientes que se trasladan o viven en cualquier lugar de Suiza.</p>
+`,
 
-service_registration_title: "Registro y autoridades",
-service_registration_text: "Registro en Gemeinde, coordinación con oficinas migratorias y administrativas.",
+area_3_title: "Clientes internacionales ↗",
+area_3_desc: "Orientación práctica para clientes que llegan de América Latina, Europa del Este y otras regiones.",
+area_3_modal_title: "Clientes internacionales",
+area_3_modal_content: `
+  <p>Apoyamos a clientes internacionales antes de su llegada y durante su primera fase de preparación para Suiza, con explicaciones claras y una estructura práctica de reubicación.</p>
+  <ul>
+    <li><strong>Planificación previa a la llegada</strong> y orientación documental</li>
+    <li><strong>Apoyo para América Latina, Europa del Este y otras regiones</strong></li>
+    <li><strong>Preparación paso a paso</strong> antes de venir a Suiza</li>
+    <li><strong>Claridad sobre rutas realistas</strong>, tiempos y primeros pasos administrativos</li>
+  </ul>
+  <p><strong>Ideal para:</strong> clientes fuera de Suiza que quieren prepararse correctamente antes de mudarse.</p>
+`,
 
-service_documents_title: "Documentos y correspondencia",
-service_documents_text: "Cartas oficiales, comunicación formal, redacción y revisión de documentos.",
+check_micro: "Evaluación inicial",
+check_title: "Comprobación de reubicación a Suiza",
+check_desc: "Responde algunas preguntas y recibe una indicación inicial de ruta junto con un nivel general de probabilidad. Es una herramienta privada de orientación antes de una consulta completa.",
 
-service_employment_title: "Empleo",
-service_employment_text: "Preparación de CV, solicitudes de empleo y revisión de contratos laborales.",
+check_bullet_1: "Escenarios basados en trabajo, estudios, matrimonio, familia y negocios",
+check_bullet_2: "Revisión privada rápida en menos de un minuto",
+check_bullet_3: "Diseñado para ayudarte a decidir si reservar una consulta",
 
-service_insurance_title: "Seguro",
-service_insurance_text: "Contratación de seguro médico, obligaciones legales y aclaración de cobertura.",
+check_form_title: "Tu primera indicación",
+check_form_desc: "Esta no es una opinión legal definitiva. Una evaluación legal precisa siempre depende del estatus, cantón, documentos y plazo.",
 
-service_family_title: "Asuntos familiares",
-service_family_text: "Procedimientos de matrimonio, reunificación familiar y residencia para familiares.",
+check_q1: "1. ¿Eres ciudadano de la UE o ciudadano de fuera de la UE?",
+check_q2: "2. ¿Tienes alguna de las siguientes razones para venir?",
+check_q3: "3. ¿Tienes suficientes recursos económicos para venir?",
+check_q4: "4. ¿Tienes algún garante en Suiza?",
+check_q5: "5. ¿Tienes trabajo estable o vínculos familiares en tu país de origen?",
 
-why_label: "Por qué elegirnos",
-why_title: "Por qué los clientes confían en nosotros para su reubicación",
+select_option: "Selecciona una opción",
 
-why_legal_title: "Formación jurídica",
-why_legal_text: "Formación jurídica y experiencia en un despacho enfocado en migración: un enfoque estructurado, preciso y consciente de los procedimientos.",
+option_eu: "Ciudadano de la UE",
+option_non_eu: "Ciudadano de fuera de la UE",
+option_study: "Estudios",
+option_family: "Reagrupación familiar",
+option_job: "Oferta de trabajo",
+option_marriage: "Posibilidad de matrimonio",
+option_business: "Opción de negocio",
+option_refugee: "Refugiado",
 
-why_comm_title: "Comunicación clara",
-why_comm_text: "Cartas profesionales y comunicación administrativa en el tono suizo adecuado, para que sus solicitudes sean tomadas en serio.",
+option_yes_have: "Sí, tengo",
+option_no_have: "No, no tengo",
+option_yes: "Sí",
+option_no: "No",
 
-why_cost_title: "Apoyo rentable",
-why_cost_text: "Más accesible que la representación legal tradicional, manteniendo al mismo tiempo un enfoque estructurado y profesional.",
+check_btn_primary: "Obtener revisión instantánea",
+check_btn_secondary: "Reservar consulta",
+check_footnote: "Esta herramienta solo proporciona una orientación general. Los criterios individuales pueden mejorar o reducir las posibilidades reales.",
 
-why_support_title: "Apoyo intensivo",
-why_support_text: "Orientación rápida y práctica a un precio accesible, con colaboración de abogados de confianza cuando se necesita representación formal.",
+about_kicker: "Sobre mí",
+    about_title: "¿Quién te apoya en Suiza?",
+    about_text_1: "Mi nombre es Polina Kravtsova. Apoyo a clientes internacionales con la reubicación, permisos y procesos administrativos en Suiza. Mi objetivo es hacer que los procesos complejos sean claros, estructurados y manejables. Actualmente estudio un máster en la Universidad de Zúrich en derecho migratorio y administrativo.",
+    about_text_2: "Entiendo lo difícil que puede ser mudarse a un nuevo país — yo también empecé desde cero. Ahora quiero ayudar a otros a ahorrar años intentando entender el sistema. Mi experiencia en un bufete de abogados en Zúrich me permite ofrecer apoyo claro y práctico. En lugar de confusión, obtienes pasos claros y un camino realista.",
 
-why_consult_title: "Primera consulta gratuita",
-why_consult_text: "Una breve conversación inicial para entender su situación y aclarar los próximos pasos antes de elegir un paquete de apoyo.",
+    services_title: "Servicios",
+    services_stat: "categorías principales",
+    services_side: "Todo del proyecto anterior se mantiene, pero con un nuevo lenguaje visual.",
 
-process_label: "Proceso",
-process_title: "Cómo trabajamos",
+    service_residence_title: "Permisos de residencia",
+    service_residence_desc: "Permisos, extensiones y procedimientos migratorios.",
 
-process_intro: "Un enfoque estructurado diseñado para reducir la incertidumbre y mantener cada paso claro: revisamos su situación, preparamos documentos y comunicación, y apoyamos el seguimiento hasta completar el trámite administrativo.",
+    service_authorities_title: "Autoridades",
+    service_authorities_desc: "Gemeinde, oficina de migración y apoyo administrativo.",
 
-process_consult_title: "Consultas",
-process_consult_text: "En línea o presencial en Zúrich. Respuesta dentro de 24 horas.",
+    service_documents_title: "Documentos",
+    service_documents_desc: "Cartas, respuestas, traducciones y soporte documental.",
 
-process_contact_title: "Contacto",
-process_email_label: "Correo:",
-process_whatsapp_label: "WhatsApp:",
+    service_employment_title: "Empleo",
+    service_employment_desc: "CV, solicitudes de trabajo y revisión de contratos.",
 
-process_step1_title: "Consulta inicial",
-process_step1_text: "Aclaramos su situación, plazos, riesgos y documentos necesarios.",
+    service_insurance_title: "Seguro y vivienda",
+    service_insurance_desc: "Seguro, cursos y solicitudes de vivienda.",
 
-process_step2_title: "Lista de verificación y estrategia",
-process_step2_text: "Recibe una lista estructurada y la vía administrativa correcta.",
+    service_additional_title: "Apoyo adicional",
+    service_additional_desc: "Solicitudes urgentes y ayuda adicional.",
 
-process_step3_title: "Documentos y comunicación",
-process_step3_text: "Redacción y revisión de cartas o correos en el tono administrativo suizo adecuado.",
+    service_study_title: "Estudios",
+    service_study_desc: "Apoyo para estudiantes y administración universitaria.",
 
-process_step4_title: "Presentación y seguimiento",
-process_step4_text: "Apoyo en la preparación y seguimiento hasta completar el procedimiento.",
+    service_consultation_title: "Consulta",
+    service_consultation_desc: "Revisión personalizada de tu caso y próximos pasos.",
 
-process_cta: "Reservar consulta",
+    why_note: "APOYO INTELIGENTE, CLARO Y HUMANO PARA REUBICACIÓN, MIGRACIÓN Y PASOS LEGALES COTIDIANOS EN SUIZA.",
+why_title: "Por qué los clientes nos eligen",
+
+why_1_title: "Claridad legal",
+why_1_desc: "Acuerdos claros y apoyo práctico hacen que el proceso sea más fluido y menos estresante.",
+why_1_content: `<p>La claridad legal significa entender tus opciones reales antes de actuar.</p><ul><li>Explicamos qué vía es realista para tu caso</li><li>Mostramos qué documentos y pasos importan primero</li><li>Te ayudamos a evitar retrasos, rechazos y costes innecesarios</li></ul><p><strong>Resultado:</strong> avanzas con un plan claro y estructurado.</p>`,
+
+why_2_title: "Comunicación clara",
+why_2_desc: "Los procedimientos suizos complejos se explican de forma simple, con pasos prácticos que realmente puedes seguir.",
+why_2_content: `<p>Los procedimientos suizos pueden parecer complejos, especialmente cuando la información es formal o está en alemán.</p><ul><li>Explicamos las cosas en un lenguaje sencillo</li><li>Recibes pasos prácticos en lugar de teoría vaga</li><li>Sabes qué hacer, cuándo hacerlo y por qué importa</li></ul><p><strong>Resultado:</strong> menos confusión y más confianza.</p>`,
+
+why_3_title: "Apoyo práctico",
+why_3_desc: "Apoyo con permisos, registros, documentos y comunicación con autoridades en un proceso estructurado.",
+why_3_content: `<p>Esto es ayuda práctica, no solo asesoramiento general.</p><ul><li>Apoyo con permisos, registro y documentos</li><li>Ayuda para preparar formularios y comunicación con autoridades</li><li>Orientación estructurada en cada etapa del proceso</li></ul><p><strong>Resultado:</strong> tu caso avanza más rápido y con menos estrés.</p>`,
+
+why_4_title: "Ayuda rentable",
+why_4_desc: "Obtén claridad y dirección antes de gastar innecesariamente en un mandato legal completo.",
+why_4_content: `<p>No todas las situaciones requieren un mandato legal completo desde el principio.</p><ul><li>Obtén claridad antes de pagar por trabajo legal innecesario</li><li>Entiende cuál es el primer paso más inteligente para tu caso</li><li>Usa apoyo específico donde aporte más valor</li></ul><p><strong>Resultado:</strong> mejores decisiones y mejor control del presupuesto.</p>`,
+
+process: {
+title: "Cómo trabajamos",
+      side: "Un proceso estructurado diseñado para reducir la incertidumbre y mantener cada etapa simple, visible y manejable.",
+
+      discoverTitle: "Descubrir",
+      discoverItem1: "Revisión inicial del caso",
+      discoverItem2: "Clarificar tu camino",
+      discoverItem3: "Evaluar urgencia",
+
+      defineTitle: "Definir",
+      defineItem1: "Documentos necesarios",
+      defineItem2: "Mejor vía administrativa",
+      defineItem3: "Próximos pasos claros",
+
+      supportTitle: "Apoyo",
+      supportItem1: "Formularios y cartas",
+      supportItem2: "Contacto con autoridades",
+      supportItem3: "Orientación práctica",
+
+      followUpTitle: "Seguimiento",
+      followUpItem1: "Revisión de la solicitud",
+      followUpItem2: "Revisión de próximos pasos",
+      followUpItem3: "Apoyo continuo"
+      },
+    
 
 testimonials_label: "Opiniones de clientes",
 testimonials_title: "Lo que dicen los clientes",
@@ -1079,76 +1263,167 @@ footer_tagline: "Apoyo práctico para la reubicación en Suiza",
   hero_f3: "Laufende Unterstützung",
   hero_years: "Klient:innen durch Schweizer Verwaltungsverfahren begleitet",
 
-    about_label: "Über mich",
-about_title: "Über mich",
-about_p1: "Ich bin Polina Kravtsova. Ich biete strukturierte Unterstützung bei Relocation und administrativen Fragen in der Schweiz mit Sitz in Zürich.",
-about_p2: "Mein Hintergrund umfasst eine juristische Ausbildung und Berufserfahrung in einer auf Migrationsfragen spezialisierten Kanzlei. In dieser Zeit war ich an Aufenthaltsbewilligungsanträgen, Verwaltungsverfahren, Fallvorbereitung und Mandantenkommunikation beteiligt. Diese Erfahrung ermöglicht es mir, jeden Fall mit einem klaren Verständnis der regulatorischen Anforderungen und Verfahrensstandards anzugehen.",
-about_p3: "Zusätzlich zu meiner beruflichen Ausbildung habe ich das Schweizer Migrationssystem persönlich durchlaufen. Dadurch kann ich formales juristisches Wissen mit praktischer Einsicht in die Realität von Relocation und Integration verbinden.",
+  clients_micro: "Mit wem wir arbeiten",
+areas_stat: "Tage, um Ihren nächsten Wohnungsschritt zu klären",
+areas_side: "Wir unterstützen Migranten, Studierende, Familien und Fachkräfte mit praktischen Relocation-Schritten, Bewilligungen, Anmeldungen und dem Aufbau des Lebens in der Schweiz.",
+areas_intro: "Wir helfen Klienten in Zürich und anderen Schweizer Kantonen mit einer klaren Strategie, einem realistischen Weg und Unterstützung bei der alltäglichen Bürokratie nach der Ankunft.",
+areas_side_2: "Entdecken Sie unsere Schwerpunktbereiche rund um Bewilligungen, Gemeindeanmeldung, Wohnen, Versicherung und Niederlassungsplanung für Klienten aus vielen verschiedenen Ländern.",
 
-services_label: "Leistungen",
-services_title: "Wobei ich helfen kann",
+area_1_title: "Stadt Zürich ↗",
+area_1_desc: "Anmeldungen, Bewilligungen, Relocation für Studierende und Kommunikation mit Behörden im Raum Zürich.",
+area_1_modal_title: "Stadt Zürich",
+area_1_modal_content: `
+  <p>Wir unterstützen Klienten in Zürich bei der Anmeldung, der Kommunikation mit lokalen Behörden, den ersten schriten zum Aufenthalt und der praktischen Relocation-Administration.</p>
+  <ul>
+    <li><strong>Anmeldung / registration</strong> Unterstützung und Vorbereitung</li>
+    <li><strong>Beratung zu Bewilligungen</strong> für die ersten lokalen Schritte</li>
+    <li><strong>Unterstützung für studierende</strong> im Raum Zürich</li>
+    <li><strong>Kommunikation mit Behörden</strong> und Dokumentenvorbereitung</li>
+  </ul>
+  <p><strong>Am besten geeignet für:</strong> Menschen, die in Zürich leben oder bald nach Zürich ziehen.</p>
+`,
 
-service_permits_title: "Aufenthaltsbewilligungen",
-service_permits_text: "Bewilligungen, Verlängerungen, Statusklärung und Migrationsverfahren.",
+area_2_title: "Ganze Schweiz ↗",
+area_2_desc: "Klare Unterstützung bei kantonalen Verfahren, Familienschritten und lokaler administrativer Nachverfolgung.",
+area_2_modal_title: "Ganze Schweiz",
+area_2_modal_content: `
+  <p>Wir arbeiten auch mit Klienten in der ganzen Schweiz, nicht nur in Zürich. Dazu gehört Unterstützung in verschiedenen Kantonen und bei unterschiedlichen lokalen Verwaltungsverfahren.</p>
+  <ul>
+    <li><strong>Beratung zu kantonalen Prozessen</strong> je nach Wohnort</li>
+    <li><strong>Familien- und Relocation-Schritte</strong> mit praktischer Planung</li>
+    <li><strong>Lokale administrative Nachverfolgung</strong> für Ihren Fall</li>
+    <li><strong>Klare Strategie für die nächsten Schritte</strong> bevor Sie Unterlagen einreichen</li>
+  </ul>
+  <p><strong>Am besten geeignet für:</strong> Klienten, die irgendwo in der Schweiz leben oder dorthin umziehen.</p>
+`,
 
-service_registration_title: "Anmeldung und Behörden",
-service_registration_text: "Gemeindeanmeldung, Koordination mit Migrations- und Verwaltungsbehörden.",
+area_3_title: "Internationale Klienten ↗",
+area_3_desc: "Praktische Begleitung für Klienten aus Lateinamerika, Osteuropa und weiteren Regionen.",
+area_3_modal_title: "Internationale Klienten",
+area_3_modal_content: `
+  <p>Wir unterstützen internationale Klienten vor der Ankunft und während der ersten Vorbereitungsphase für die Schweiz mit klaren Erklärungen und einer praktischen Relocation-Struktur.</p>
+  <ul>
+    <li><strong>Planung vor der Ankunft</strong> und Orientierung zu Dokumenten</li>
+    <li><strong>Unterstützung für Lateinamerika, Osteuropa und weitere Regionen</strong></li>
+    <li><strong>Schritt-für-Schritt-Vorbereitung</strong> vor dem Umzug in die Schweiz</li>
+    <li><strong>Klarheit über realistische Wege</strong>, Timing und erste administrative Schritte</li>
+  </ul>
+  <p><strong>Am besten geeignet für:</strong> Klienten außerhalb der Schweiz, die sich vor dem Umzug richtig vorbereiten möchten.</p>
+`,
 
-service_documents_title: "Dokumente und Korrespondenz",
-service_documents_text: "Offizielle Schreiben, formelle Kommunikation, Erstellung und Prüfung von Dokumenten.",
+check_micro: "Erste Einschätzung",
+check_title: "Schweizer Umzugs-Check",
+check_desc: "Beantworten Sie einige Fragen und erhalten Sie eine erste Einschätzung des möglichen Weges sowie eine grobe Chancenbewertung. Dies ist ein privates Orientierungstool vor einer vollständigen Beratung.",
 
-service_employment_title: "Beschäftigung",
-service_employment_text: "CV-Erstellung, Bewerbungen und Prüfung von Arbeitsverträgen.",
+check_bullet_1: "Szenarien zu Arbeit, Studium, Ehe, Familie und geschäftsbezogenen Gründen",
+check_bullet_2: "Schnelle private Einschätzung in weniger als einer Minute",
+check_bullet_3: "Hilft Ihnen zu entscheiden, ob Sie eine Beratung buchen sollten",
 
-service_insurance_title: "Versicherung",
-service_insurance_text: "Einrichtung der Krankenversicherung, rechtliche Pflichten und Klärung des Versicherungsschutzes.",
+check_form_title: "Ihre erste Einschätzung",
+check_form_desc: "Dies ist keine endgültige rechtliche Beurteilung. Eine genaue rechtliche Einschätzung hängt immer von Status, Kanton, Unterlagen und Zeitplan ab.",
 
-service_family_title: "Familiäre Angelegenheiten",
-service_family_text: "Eheschließungsverfahren, Familiennachzug und Aufenthalt für Angehörige.",
+check_q1: "1. Sind Sie EU-Bürger oder Nicht-EU-Bürger?",
+check_q2: "2. Haben Sie einen der folgenden Gründe, in die Schweiz zu kommen?",
+check_q3: "3. Verfügen Sie über ausreichende finanzielle Mittel, um in die Schweiz zu kommen?",
+check_q4: "4. Haben Sie einen Bürgen in der Schweiz?",
+check_q5: "5. Haben Sie eine stabile Arbeit oder familiäre Bindungen in Ihrem Heimatland?",
 
-why_label: "Warum wir",
-why_title: "Warum Mandanten uns bei der Relocation vertrauen",
+select_option: "Option auswählen",
 
-why_legal_title: "Juristischer Hintergrund",
-why_legal_text: "Juristische Ausbildung und Erfahrung in einer auf Migration spezialisierten Kanzlei – strukturiert, präzise und verfahrensorientiert.",
+option_eu: "EU-Bürger",
+option_non_eu: "Nicht-EU-Bürger",
+option_study: "Studium",
+option_family: "Familiennachzug",
+option_job: "Jobangebot",
+option_marriage: "Möglichkeit zur Eheschließung",
+option_business: "Geschäftliche Option",
+option_refugee: "Flüchtling",
 
-why_comm_title: "Klare Kommunikation",
-why_comm_text: "Professionelle Schreiben und administrative Kommunikation im passenden Schweizer Ton – damit Ihre Anliegen ernst genommen werden.",
+option_yes_have: "Ja, habe ich",
+option_no_have: "Nein, habe ich nicht",
+option_yes: "Ja",
+option_no: "Nein",
 
-why_cost_title: "Kosteneffiziente Unterstützung",
-why_cost_text: "Zugänglicher als eine klassische anwaltliche Vertretung und gleichzeitig strukturiert und professionell.",
+check_btn_primary: "Sofortige Einschätzung erhalten",
+check_btn_secondary: "Beratung buchen",
+check_footnote: "Dieses Tool bietet nur eine grobe Orientierung. Individuelle Kriterien können die tatsächlichen Chancen erhöhen oder verringern.",
 
-why_support_title: "Intensive Unterstützung",
-why_support_text: "Schnelle, praktische Begleitung zu fairen Preisen – und Zusammenarbeit mit vertrauenswürdigen Anwälten, wenn eine formelle Vertretung notwendig ist.",
+about_kicker: "Über mich",
+    about_title: "Wer unterstützt Sie in der Schweiz?",
+    about_text_1: "Mein Name ist Polina Kravtsova. Ich unterstütze internationale Kunden bei Umzug, Bewilligungen und administrativen Prozessen in der Schweiz. Mein Ziel ist es, komplexe Verfahren klar, strukturiert und verständlich zu machen. Ich studiere derzeit im Master an der Universität Zürich mit Schwerpunkt Migrations- und Verwaltungsrecht.",
+    about_text_2: "Ich verstehe, wie schwierig es sein kann, in ein neues Land zu ziehen — ich habe selbst bei null angefangen. Jetzt möchte ich anderen helfen, Jahre zu sparen, die sie sonst damit verbringen würden, das System zu verstehen. Meine Erfahrung als Rechtsassistentin in einer Zürcher Kanzlei ermöglicht es mir, klare und praktische Unterstützung zu bieten. Statt Verwirrung erhalten Sie klare Schritte und einen realistischen Weg nach vorne.",
 
-why_consult_title: "Kostenloses Erstgespräch",
-why_consult_text: "Ein kurzes erstes Gespräch, um Ihre Situation zu verstehen und die nächsten Schritte zu klären, bevor Sie ein Unterstützungspaket wählen.",
+    services_title: "Dienstleistungen",
+    services_stat: "Hauptkategorien",
+    services_side: "Alles aus dem vorherigen Projekt ist erhalten geblieben, jedoch in einer neuen visuellen Sprache gestaltet.",
 
-process_label: "Ablauf",
-process_title: "So arbeiten wir",
+    service_residence_title: "Aufenthaltsbewilligungen",
+    service_residence_desc: "Bewilligungen, Verlängerungen und Migrationsverfahren.",
 
-process_intro: "Ein strukturierter Ansatz, um Unsicherheit zu reduzieren und jeden Schritt klar zu halten: Wir analysieren Ihre Situation, bereiten Dokumente und Kommunikation vor und unterstützen bei Rückfragen bis zum Abschluss des administrativen Verfahrens.",
+    service_authorities_title: "Behörden",
+    service_authorities_desc: "Gemeinde, Migrationsamt und administrative Unterstützung.",
 
-process_consult_title: "Beratungen",
-process_consult_text: "Online oder persönlich in Zürich. Antwort innerhalb von 24 Stunden.",
+    service_documents_title: "Dokumente",
+    service_documents_desc: "Briefe, Antworten, Übersetzungen und Dokumentenhilfe.",
 
-process_contact_title: "Kontakt",
-process_email_label: "E-Mail:",
-process_whatsapp_label: "WhatsApp:",
+    service_employment_title: "Arbeit",
+    service_employment_desc: "Lebensläufe, Bewerbungen und Vertragsprüfung.",
 
-process_step1_title: "Erstberatung",
-process_step1_text: "Wir klären Ihre Situation, Zeitplan, Risiken und erforderlichen Dokumente.",
+    service_insurance_title: "Versicherung & Wohnen",
+    service_insurance_desc: "Versicherung, Kurse und Wohnungsanfragen.",
 
-process_step2_title: "Checkliste & Strategie",
-process_step2_text: "Sie erhalten eine strukturierte Checkliste und den richtigen administrativen Weg.",
+    service_additional_title: "Zusätzliche Unterstützung",
+    service_additional_desc: "Dringende Anfragen und zusätzliche Hilfe.",
 
-process_step3_title: "Dokumente & Kommunikation",
-process_step3_text: "Erstellung und Überprüfung von Schreiben und E-Mails im passenden Schweizer Verwaltungston.",
+    service_study_title: "Studium",
+    service_study_desc: "Unterstützung für Studierende und Uni-Verwaltung.",
 
-process_step4_title: "Einreichung & Nachverfolgung",
-process_step4_text: "Unterstützung bei der Vorbereitung und Nachverfolgung bis zum Abschluss des Verfahrens.",
+    service_consultation_title: "Beratung",
+    service_consultation_desc: "Individuelle Analyse Ihres Falls und nächste Schritte.",
 
-process_cta: "Beratung buchen",
+why_note: "KLARE, MENSCHLICHE UND STRUKTURIERTE UNTERSTÜTZUNG FÜR UMZUG, MIGRATION UND RECHTLICHE ALLTAGSSCHRITTE IN DER SCHWEIZ.",
+why_title: "Warum Kundinnen und Kunden uns wählen",
+
+why_1_title: "Rechtliche Klarheit",
+why_1_desc: "Klare Absprachen und praktische Unterstützung machen den Prozess strukturierter und weniger belastend.",
+why_1_content: `<p>Rechtliche Klarheit bedeutet, die realistischen Optionen zu verstehen, bevor Sie handeln.</p><ul><li>Wir erklären, welcher Weg für Ihren Fall realistisch ist</li><li>Wir zeigen, welche Dokumente und Schritte zuerst wichtig sind</li><li>Wir helfen, Verzögerungen, Ablehnungen und unnötige Kosten zu vermeiden</li></ul><p><strong>Ergebnis:</strong> Sie gehen mit einem klaren und strukturierten Plan weiter.</p>`,
+
+why_2_title: "Klare Kommunikation",
+why_2_desc: "Komplexe Schweizer Verfahren werden einfach erklärt — mit konkreten nächsten Schritten, die Sie wirklich umsetzen können.",
+why_2_content: `<p>Schweizer Verfahren können kompliziert wirken, besonders wenn Informationen formal oder auf Deutsch sind.</p><ul><li>Wir erklären alles in einfacher Sprache</li><li>Sie erhalten konkrete nächste Schritte statt vager Theorie</li><li>Sie wissen, was zu tun ist, wann es zu tun ist und warum es wichtig ist</li></ul><p><strong>Ergebnis:</strong> weniger Verwirrung und mehr Sicherheit.</p>`,
+
+why_3_title: "Praktische Unterstützung",
+why_3_desc: "Hilfe bei Bewilligungen, Anmeldungen, Dokumenten und Behördenkommunikation in einem strukturierten Ablauf.",
+why_3_content: `<p>Das ist konkrete Unterstützung, nicht nur allgemeine Beratung.</p><ul><li>Hilfe bei Bewilligungen, Anmeldung und Dokumenten</li><li>Unterstützung bei Formularen und Behördenkommunikation</li><li>Strukturierte Begleitung durch jede Phase des Prozesses</li></ul><p><strong>Ergebnis:</strong> Ihr Fall kommt schneller und mit weniger Stress voran.</p>`,
+
+why_4_title: "Kosteneffiziente Hilfe",
+why_4_desc: "Erhalten Sie Klarheit und Orientierung, bevor Sie unnötig für ein vollständiges Rechtsmandat bezahlen.",
+why_4_content: `<p>Nicht jede Situation erfordert von Anfang an ein vollständiges Rechtsmandat.</p><ul><li>Gewinnen Sie Klarheit, bevor Sie unnötige Rechtskosten zahlen</li><li>Verstehen Sie den sinnvollsten ersten Schritt für Ihren Fall</li><li>Nutzen Sie gezielte Unterstützung dort, wo sie den größten Wert bringt</li></ul><p><strong>Ergebnis:</strong> bessere Entscheidungen und bessere Budgetkontrolle.</p>`,
+
+process: {
+title: "Wie wir arbeiten",
+      side: "Ein strukturierter Prozess, der Unsicherheit reduziert und jede Phase einfach, transparent und überschaubar macht.",
+
+      discoverTitle: "Analyse",
+      discoverItem1: "Erste Fallprüfung",
+      discoverItem2: "Ihren Weg klären",
+      discoverItem3: "Dringlichkeit prüfen",
+
+      defineTitle: "Definition",
+      defineItem1: "Benötigte Dokumente",
+      defineItem2: "Bester administrativer Weg",
+      defineItem3: "Klare nächste Schritte",
+
+      supportTitle: "Unterstützung",
+      supportItem1: "Formulare und Schreiben",
+      supportItem2: "Kontakt mit Behörden",
+      supportItem3: "Praktische Anleitung",
+
+      followUpTitle: "Nachverfolgung",
+      followUpItem1: "Einreichung prüfen",
+      followUpItem2: "Nächste Schritte prüfen",
+      followUpItem3: "Fortlaufende Unterstützung"
+},
 
 testimonials_label: "Kundenfeedback",
 testimonials_title: "Was Klienten sagen",
@@ -1615,76 +1890,170 @@ footer_tagline: "Praktische Unterstützung beim Umzug in die Schweiz",
   hero_f3: "Супровід на всіх етапах",
   hero_years: "клієнтів супроводжено через швейцарські адміністративні процедури",
 
+  clients_micro: "З ким ми працюємо",
+areas_stat: "днів, щоб вирішити ваш наступний крок з житлом",
+areas_side: "Ми допомагаємо мігрантам, студентам, сім’ям і фахівцям з практичними кроками релокації, дозволами, реєстрацією та облаштуванням життя у Швейцарії.",
+areas_intro: "Ми допомагаємо клієнтам у Цюриху та інших кантонах Швейцарії з чіткою стратегією, реалістичним маршрутом і підтримкою в щоденній бюрократії після приїзду.",
+areas_side_2: "Ознайомтеся з нашими напрямами підтримки щодо дозволів, реєстрації в громаді, житла, страхування та планування облаштування для клієнтів з різних країн.",
+
+area_1_title: "Місто Цюрих ↗",
+area_1_desc: "Реєстрація, дозволи, релокація студентів і комунікація з органами влади в районі Цюриха.",
+area_1_modal_title: "Місто Цюрих",
+area_1_modal_content: `
+  <p>Ми підтримуємо клієнтів у Цюриху з реєстрацією, комунікацією з місцевими органами влади, першими кроками щодо проживання та практичними адміністративними питаннями релокації.</p>
+  <ul>
+    <li><strong>Anmeldung / реєстрація</strong> — підтримка та підготовка</li>
+    <li><strong>Консультації щодо дозволів</strong> для перших місцевих кроків</li>
+    <li><strong>Допомога студентам з релокацією</strong> в районі Цюриха</li>
+    <li><strong>Комунікація з органами влади</strong> та підготовка документів</li>
+  </ul>
+  <p><strong>Найкраще підходить для:</strong> людей, які живуть у Цюриху або скоро переїжджають до Цюриха.</p>
+`,
+
+area_2_title: "Уся Швейцарія ↗",
+area_2_desc: "Чітка підтримка щодо кантональних процедур, сімейних кроків і місцевого адміністративного супроводу.",
+area_2_modal_title: "Уся Швейцарія",
+area_2_modal_content: `
+  <p>Ми також працюємо з клієнтами по всій Швейцарії, не лише в Цюриху. Це включає підтримку для різних кантонів і різних місцевих адміністративних процедур.</p>
+  <ul>
+    <li><strong>Пояснення кантональних процесів</strong> залежно від вашого місця проживання</li>
+    <li><strong>Сімейні та релокаційні кроки</strong> з практичним плануванням</li>
+    <li><strong>Місцевий адміністративний супровід</strong> для вашої справи</li>
+    <li><strong>Чітка стратегія наступних кроків</strong> перед поданням документів</li>
+  </ul>
+  <p><strong>Найкраще підходить для:</strong> клієнтів, які переїжджають або живуть у будь-якій частині Швейцарії.</p>
+`,
+
+area_3_title: "Міжнародні клієнти ↗",
+area_3_desc: "Практична підтримка для клієнтів, які приїжджають з Латинської Америки, Східної Європи та інших регіонів.",
+area_3_modal_title: "Міжнародні клієнти",
+area_3_modal_content: `
+  <p>Ми підтримуємо міжнародних клієнтів до приїзду та на першому етапі підготовки до Швейцарії, надаючи чіткі пояснення та практичну структуру релокації.</p>
+  <ul>
+    <li><strong>Планування до приїзду</strong> та орієнтація щодо документів</li>
+    <li><strong>Підтримка для Латинської Америки, Східної Європи та інших регіонів</strong></li>
+    <li><strong>Покрокова підготовка</strong> перед переїздом до Швейцарії</li>
+    <li><strong>Чіткість щодо реалістичних маршрутів</strong>, термінів і перших адміністративних кроків</li>
+  </ul>
+  <p><strong>Найкраще підходить для:</strong> клієнтів за межами Швейцарії, які хочуть правильно підготуватися перед переїздом.</p>
+`,
+
+check_micro: "Початкова оцінка",
+check_title: "Перевірка переїзду до Швейцарії",
+check_desc: "Дайте відповіді на кілька запитань і отримайте попереднє розуміння можливого шляху разом із загальним рівнем шансів. Це приватний інструмент для орієнтації перед повною консультацією.",
+
+check_bullet_1: "Сценарії на основі роботи, навчання, шлюбу, сім’ї та бізнесу",
+check_bullet_2: "Швидка приватна перевірка менш ніж за одну хвилину",
+check_bullet_3: "Створено, щоб допомогти вам вирішити, чи варто бронювати консультацію",
+
+check_form_title: "Ваш перший результат",
+check_form_desc: "Це не є остаточним юридичним висновком. Точна юридична оцінка завжди залежить від статусу, кантону, документів і строків.",
+
+check_q1: "1. Ви громадянин ЄС чи не ЄС?",
+check_q2: "2. Чи є у вас одна з таких причин для переїзду?",
+check_q3: "3. Чи маєте ви достатні фінансові можливості для переїзду?",
+check_q4: "4. Чи є у вас гарант у Швейцарії?",
+check_q5: "5. Чи маєте ви стабільну роботу або сімейні зв’язки у своїй країні?",
+
+select_option: "Оберіть варіант",
+
+option_eu: "Громадянин ЄС",
+option_non_eu: "Громадянин не ЄС",
+option_study: "Навчання",
+option_family: "Возз’єднання сім’ї",
+option_job: "Пропозиція роботи",
+option_marriage: "Можливість шлюбу",
+option_business: "Бізнес-варіант",
+option_refugee: "Біженець",
+
+option_yes_have: "Так, маю",
+option_no_have: "Ні, не маю",
+option_yes: "Так",
+option_no: "Ні",
+
+check_btn_primary: "Отримати миттєву оцінку",
+check_btn_secondary: "Забронювати консультацію",
+check_footnote: "Цей інструмент дає лише загальне орієнтування. Індивідуальні критерії можуть підвищити або знизити реальні шанси.",
+
+about_kicker: "Про мене",
+    about_title: "Хто підтримує вас у Швейцарії?",
+    about_text_1: "Мене звати Поліна Кравцова. Я допомагаю міжнародним клієнтам із переїздом, дозволами та адміністративними процесами у Швейцарії. Моя мета — зробити складні процедури зрозумілими, структурованими та керованими. Я навчаюся на магістратурі в Університеті Цюриха за спеціальністю міграційне та адміністративне право.",
+    about_text_2: "Я розумію, наскільки складно переїхати до нової країни — я сама починала з нуля. Тепер я хочу допомогти іншим заощадити роки життя, намагаючись розібратися в системі. Мій досвід роботи юридичною асистенткою в Цюриху дозволяє мені надавати чітку та практичну підтримку. Замість невизначеності ви отримуєте чіткі кроки та реалістичний шлях вперед.",
     about_label: "Про мене",
-    about_title: "Про мене",
-    about_p1: "Я Поліна Кравцова. Я надаю структуровану підтримку з релокації та адміністративних питань у Швейцарії, базуючись у Цюриху.",
-    about_p2: "Мій досвід включає юридичну освіту та професійну роботу в юридичній фірмі, що спеціалізується на міграційних питаннях. У цей період я брала участь у подачі заяв на дозволи на проживання, адміністративних процедурах, підготовці справ і комунікації з клієнтами. Цей досвід дозволяє мені підходити до кожної справи з чітким розумінням регуляторних вимог і процедурних стандартів.",
-    about_p3: "Окрім професійної підготовки, я особисто пройшла швейцарську міграційну систему. Це дозволяє мені поєднувати формальні юридичні знання з практичним розумінням реалій релокації та інтеграції.",
 
-    services_label: "Послуги",
-services_title: "Чим я можу допомогти",
+    services_title: "Послуги",
+    services_stat: "основні категорії",
+    services_side: "Усе з попереднього проєкту збережено, але в новому візуальному стилі.",
 
-service_permits_title: "Дозволи на проживання",
-service_permits_text: "Дозволи, продовження, уточнення статусу та міграційні процедури.",
+    service_residence_title: "Дозволи на проживання",
+    service_residence_desc: "Дозволи, продовження та міграційні процедури.",
 
-service_registration_title: "Реєстрація та органи влади",
-service_registration_text: "Реєстрація в Gemeinde, координація з міграційними та адміністративними органами.",
+    service_authorities_title: "Органи влади",
+    service_authorities_desc: "Гемайнде, міграційна служба та адміністративна підтримка.",
 
-service_documents_title: "Документи та листування",
-service_documents_text: "Офіційні листи, формальна комунікація, підготовка та перевірка документів.",
+    service_documents_title: "Документи",
+    service_documents_desc: "Листи, відповіді, переклади та допомога з документами.",
 
-service_employment_title: "Працевлаштування",
-service_employment_text: "Підготовка CV, заявки на роботу та перевірка трудових договорів.",
+    service_employment_title: "Робота",
+    service_employment_desc: "CV, заявки та перевірка контрактів.",
 
-service_insurance_title: "Страхування",
-service_insurance_text: "Оформлення медичного страхування, юридичні обов’язки та пояснення покриття.",
+    service_insurance_title: "Страхування та житло",
+    service_insurance_desc: "Страхування, курси та житлові запити.",
 
-service_family_title: "Сімейні питання",
-service_family_text: "Процедури шлюбу, возз’єднання сім’ї та проживання для родичів.",
+    service_additional_title: "Додаткова підтримка",
+    service_additional_desc: "Термінові запити та додаткова допомога.",
 
-why_label: "Чому обирають нас",
-why_title: "Чому клієнти довіряють нам підтримку з релокації",
+    service_study_title: "Навчання",
+    service_study_desc: "Підтримка студентів та університетська адміністрація.",
 
-why_legal_title: "Юридичний досвід",
-why_legal_text: "Юридична освіта та досвід роботи в юридичній фірмі, що спеціалізується на міграційних питаннях — структурований, точний і процедурно грамотний підхід.",
+    service_consultation_title: "Консультація",
+    service_consultation_desc: "Індивідуальний розбір ситуації та наступні кроки.",
 
-why_comm_title: "Чітка комунікація",
-why_comm_text: "Професійні листи та адміністративна комунікація у правильному швейцарському тоні, щоб ваші звернення сприймали серйозно.",
+    why_note: "РОЗУМНА, ЗРОЗУМІЛА ТА ЛЮДЯНА ПІДТРИМКА ДЛЯ ПЕРЕЇЗДУ, МІГРАЦІЇ ТА ЩОДЕННИХ ЮРИДИЧНИХ КРОКІВ У ШВЕЙЦАРІЇ.",
+why_title: "Чому клієнти обирають нас",
 
-why_cost_title: "Економічно вигідна підтримка",
-why_cost_text: "Більш доступно, ніж традиційне юридичне представництво, зі збереженням структурованого та професійного підходу.",
+why_1_title: "Юридична ясність",
+why_1_desc: "Чіткі домовленості та практична підтримка роблять процес більш зрозумілим і менш стресовим.",
+why_1_content: `<p>Юридична ясність означає розуміння ваших реальних можливостей ще до того, як ви почнете діяти.</p><ul><li>Ми пояснюємо, який шлях є реалістичним саме для вашої справи</li><li>Показуємо, які документи та кроки є найважливішими спочатку</li><li>Допомагаємо уникнути затримок, відмов і зайвих витрат</li></ul><p><strong>Результат:</strong> ви рухаєтесь далі з чітким і структурованим планом.</p>`,
 
-why_support_title: "Інтенсивна підтримка",
-why_support_text: "Швидкий і практичний супровід за доступною ціною, а також співпраця з перевіреними адвокатами, коли потрібне офіційне представництво.",
+why_2_title: "Чітка комунікація",
+why_2_desc: "Складні швейцарські процедури пояснюються просто, з практичними наступними кроками, які реально виконати.",
+why_2_content: `<p>Швейцарські процедури можуть здаватися складними, особливо коли інформація подається формально або німецькою мовою.</p><ul><li>Ми пояснюємо все простою мовою</li><li>Ви отримуєте практичні наступні кроки замість розмитої теорії</li><li>Ви знаєте, що робити, коли це робити і чому це важливо</li></ul><p><strong>Результат:</strong> менше плутанини та більше впевненості.</p>`,
 
-why_consult_title: "Безкоштовна перша консультація",
-why_consult_text: "Коротка первинна розмова, щоб зрозуміти вашу ситуацію та визначити наступні кроки перед вибором пакета підтримки.",
+why_3_title: "Практична підтримка",
+why_3_desc: "Допомога з дозволами, реєстраціями, документами та комунікацією з органами влади в одному структурованому процесі.",
+why_3_content: `<p>Це практична допомога, а не лише загальна порада.</p><ul><li>Підтримка з дозволами, реєстрацією та документами</li><li>Допомога з підготовкою форм і комунікацією з органами влади</li><li>Структурований супровід на кожному етапі процесу</li></ul><p><strong>Результат:</strong> ваша справа рухається швидше і з меншим стресом.</p>`,
 
-process_label: "Процес",
-process_title: "Як ми працюємо",
+why_4_title: "Економна допомога",
+why_4_desc: "Отримайте ясність і напрямок, перш ніж витрачати зайві кошти на повний юридичний мандат.",
+why_4_content: `<p>Не кожна ситуація потребує повного юридичного супроводу з самого початку.</p><ul><li>Отримайте ясність до того, як платити за непотрібну юридичну роботу</li><li>Зрозумійте, який перший крок є найрозумнішим саме для вашої справи</li><li>Використовуйте точкову підтримку там, де вона дає найбільшу користь</li></ul><p><strong>Результат:</strong> кращі рішення та кращий контроль бюджету.</p>`,
 
-process_intro: "Структурований підхід, який допомагає зменшити невизначеність і зробити кожен крок зрозумілим: ми аналізуємо вашу ситуацію, готуємо документи та комунікацію і супроводжуємо вас до завершення адміністративної процедури.",
 
-process_consult_title: "Консультації",
-process_consult_text: "Онлайн або особисто в Цюриху. Відповідь протягом 24 годин.",
+process: {
+      title: "Як ми працюємо",
+      side: "Структурований процес, який зменшує невизначеність і робить кожен етап простим, зрозумілим і керованим.",
 
-process_contact_title: "Контакт",
-process_email_label: "Email:",
-process_whatsapp_label: "WhatsApp:",
+      discoverTitle: "Аналіз",
+      discoverItem1: "Первинний розгляд справи",
+      discoverItem2: "Уточнення вашого шляху",
+      discoverItem3: "Оцінка терміновості",
 
-process_step1_title: "Перша консультація",
-process_step1_text: "Ми уточнюємо вашу ситуацію, строки, ризики та необхідні документи.",
+      defineTitle: "Визначення",
+      defineItem1: "Необхідні документи",
+      defineItem2: "Найкращий адміністративний шлях",
+      defineItem3: "Чіткі наступні кроки",
 
-process_step2_title: "Чекліст і стратегія",
-process_step2_text: "Ви отримуєте структурований список і правильний адміністративний шлях.",
+      supportTitle: "Підтримка",
+      supportItem1: "Форми та листи",
+      supportItem2: "Контакт з органами",
+      supportItem3: "Практичні поради",
 
-process_step3_title: "Документи та комунікація",
-process_step3_text: "Підготовка та перевірка листів і електронних повідомлень у правильному швейцарському адміністративному стилі.",
+      followUpTitle: "Супровід",
+      followUpItem1: "Перевірка подання",
+      followUpItem2: "Оцінка наступних кроків",
+      followUpItem3: "Постійна підтримка"
+    },
 
-process_step4_title: "Подання та супровід",
-process_step4_text: "Підтримка під час підготовки та подальшого супроводу до завершення процедури.",
-
-process_cta: "Записатися на консультацію",
 
 testimonials_label: "Відгуки клієнтів",
 testimonials_title: "Що кажуть клієнти",
@@ -2136,18 +2505,120 @@ footer_tagline: "Практична підтримка при переїзді �
   }
 };
 
+function getTranslation(lang, key) {
+  if (
+    translations[lang] &&
+    Object.prototype.hasOwnProperty.call(translations[lang], key)
+  ) {
+    return translations[lang][key];
+  }
+
+  if (
+    translations.en &&
+    Object.prototype.hasOwnProperty.call(translations.en, key)
+  ) {
+    return translations.en[key];
+  }
+
+  return null;
+}
+
 function setLanguage(lang) {
-  localStorage.setItem("siteLanguage", lang);
+  const safeLang = translations[lang] ? lang : "en";
+
+  localStorage.setItem("siteLanguage", safeLang);
+  document.documentElement.setAttribute("lang", safeLang);
 
   document.querySelectorAll("[data-i18n]").forEach((el) => {
     const key = el.dataset.i18n;
+    const value = getTranslation(safeLang, key);
 
-    if (translations[lang] && translations[lang][key]) {
-      el.textContent = translations[lang][key];
+    if (value === null) {
+      console.warn("Missing translation for:", safeLang, key);
+      return;
+    }
+
+    const shouldRenderHtml =
+      el.hasAttribute("data-i18n-html") ||
+      /<[a-z][\s\S]*>/i.test(String(value));
+
+    if (shouldRenderHtml) {
+      el.innerHTML = value;
     } else {
-      console.log("Missing translation for:", lang, key);
+      el.textContent = value;
     }
   });
+
+  document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+    const key = el.dataset.i18nPlaceholder;
+    const value = getTranslation(safeLang, key);
+    if (value !== null) {
+      el.setAttribute("placeholder", value);
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-title]").forEach((el) => {
+    const key = el.dataset.i18nTitle;
+    const value = getTranslation(safeLang, key);
+    if (value !== null) {
+      el.setAttribute("title", value);
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
+    const key = el.dataset.i18nAriaLabel;
+    const value = getTranslation(safeLang, key);
+    if (value !== null) {
+      el.setAttribute("aria-label", value);
+    }
+  });
+
+  document.querySelectorAll(".lang-toggle").forEach((btn) => {
+    const toggleText = getTranslation(safeLang, "lang_toggle");
+    btn.textContent = toggleText !== null ? toggleText : "English ▾";
+  });
+
+  document.querySelectorAll(".lang-menu").forEach((menu) => {
+    menu.classList.remove("show");
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const savedLang = localStorage.getItem("siteLanguage") || "en";
+  setLanguage(savedLang);
+
+  document.querySelectorAll(".lang-toggle").forEach((toggle) => {
+    toggle.addEventListener("click", function (e) {
+      e.stopPropagation();
+      const menu = this.nextElementSibling;
+      if (!menu) return;
+
+      document.querySelectorAll(".lang-menu").forEach((otherMenu) => {
+        if (otherMenu !== menu) {
+          otherMenu.classList.remove("show");
+        }
+      });
+
+      menu.classList.toggle("show");
+    });
+  });
+
+  document.querySelectorAll(".lang-menu button").forEach((button) => {
+    button.addEventListener("click", function () {
+      const lang = this.getAttribute("data-lang");
+      if (lang) setLanguage(lang);
+    });
+  });
+
+  document.addEventListener("click", function (e) {
+    document.querySelectorAll(".lang-dropdown").forEach((dropdown) => {
+      if (!dropdown.contains(e.target)) {
+        const menu = dropdown.querySelector(".lang-menu");
+        if (menu) menu.classList.remove("show");
+      }
+    });
+  });
+});
 
   document.querySelectorAll(".lang-toggle").forEach((btn) => {
     if (lang === "en") btn.textContent = "English ▾";
@@ -2159,7 +2630,7 @@ function setLanguage(lang) {
   document.querySelectorAll(".lang-menu").forEach((menu) => {
     menu.classList.remove("show");
   });
-}
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const lang = localStorage.getItem("siteLanguage") || "en";
