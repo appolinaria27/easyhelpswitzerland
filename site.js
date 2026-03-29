@@ -644,8 +644,25 @@ payment_note: "Payment confirms your consultation request. If your matter requir
   package_relocation: "Settlement strategy — CHF 349",
 
   payment_footer_rights: "© 2026 Easy Help Switzerland - all rights reserved.",
-  payment_footer_page: "Payment page"
+  payment_footer_page: "Payment page",
 
+
+  service_documents_modal_title: "Documents",
+  service_documents_modal_desc: "Support with letters, replies, translations, explanations and document handling.",
+
+  service_documents_modal_item_1: "Short letter or reply",
+  service_documents_modal_item_2: "Document explanation",
+  service_documents_modal_item_3: "Form support",
+  service_documents_modal_item_4: "Translation check",
+  service_documents_modal_item_5: "Document formatting",
+  service_documents_modal_item_6: "Simple written response",
+  service_documents_modal_item_7: "Administrative clarification",
+  service_documents_modal_item_8: "Custom document support",
+
+  service_modal_fallback_title: "Service details",
+  service_modal_fallback_empty: "More information coming soon.",
+  service_modal_help_title: "Not sure which service fits your case?",
+  service_modal_help_text: "Start with the free first consultation and choose the right next step afterwards."
 
   },
 
@@ -1149,7 +1166,7 @@ consult_why_point_2_text: "Un punto de entrada más sencillo para visitantes que
 consult_why_point_3_title: "Camino natural hacia adelante",
 consult_why_point_3_text: "Si durante la consulta se requieren otros servicios, estos deberán abonarse.",
 
-consult_footer_copy: "© 2026 © 2026 Easy Help Switzerland — Todos los derechos reservados.",
+consult_footer_copy: "© 2026 Easy Help Switzerland — Todos los derechos reservados.",
 consult_footer_right: "Página de consulta gratuita",
 consult_whatsapp_aria: "WhatsApp",
 
@@ -1243,7 +1260,7 @@ booking_brand_main: "Easy Help Switzerland",
     booking_free_text: "Usa primero la opción gratuita.",
     booking_free_button: "Consulta gratuita",
 
-    booking_footer_copy: "© 2026 Easy Help Switzerland",
+    booking_footer_copy: "© 2026 Easy Help Switzerland — Todos los derechos reservados.",
     booking_footer_right: "Página de reserva de packages",
 
 
@@ -1297,6 +1314,22 @@ booking_brand_main: "Easy Help Switzerland",
   payment_footer_rights: "© 2026 Easy Help Switzerland - todos los derechos reservados.",
   payment_footer_page: "Página de pago",
 
+
+  service_documents_modal_title: "Documentos",
+service_documents_modal_desc: "Apoyo con cartas, respuestas, traducciones, explicaciones y gestión de documentos.",
+
+service_documents_modal_item_1: "Carta o respuesta corta",
+service_documents_modal_item_2: "Explicación de documentos",
+service_documents_modal_item_3: "Ayuda con formularios",
+service_documents_modal_item_4: "Revisión de traducción",
+service_documents_modal_item_5: "Formato de documentos",
+service_documents_modal_item_6: "Respuesta escrita simple",
+service_documents_modal_item_7: "Aclaración administrativa",
+service_documents_modal_item_8: "Apoyo documental personalizado",
+
+service_modal_fallback_empty: "Más información próximamente.",
+service_modal_help_title: "¿No sabes qué servicio elegir?",
+service_modal_help_text: "Empieza con la primera consulta gratuita y elige el siguiente paso adecuado después."
 
 },
 
@@ -1887,7 +1920,7 @@ booking_brand_main: "Easy Help Switzerland",
     booking_free_text: "Erst kostenlose Beratung.",
     booking_free_button: "Gratis Beratung",
 
-    booking_footer_copy: "© 2026 Easy Help Switzerland",
+    booking_footer_copy: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
     booking_footer_right: "Seite zur Buchung von Packages",
 
 
@@ -1941,6 +1974,17 @@ booking_brand_main: "Easy Help Switzerland",
   payment_footer_rights: "© 2026 Easy Help Switzerland - alle Rechte vorbehalten.",
   payment_footer_page: "Zahlungsseite",
 
+
+  service_authorities_modal_title: "Behörden",
+  service_authorities_modal_desc: "Unterstützung bei Behörden, Kommunikation und offiziellen Verfahren.",
+  service_authorities_modal_item_1: "Brief an eine Behörde",
+  service_authorities_modal_item_2: "Antwort an eine Behörde",
+  service_authorities_modal_item_3: "Vorbereitung auf einen Termin",
+  service_authorities_modal_item_4: "Fallklärung",
+  service_authorities_modal_item_5: "Nachricht zur Nachverfolgung",
+  service_authorities_modal_item_6: "Administrative Hilfe",
+  service_authorities_modal_item_7: "Hilfe bei der Einreichung von Dokumenten",
+  service_authorities_modal_item_8: "Individuelle Behördenanfrage"
 
   },
 
@@ -2616,7 +2660,7 @@ consult_whatsapp_aria: "WhatsApp",
     booking_free_text: "Спочатку безкоштовна консультація.",
     booking_free_button: "Безкоштовно",
 
-    booking_footer_copy: "© 2026 Easy Help Switzerland",
+    booking_footer_copy: "© 2026 Easy Help Switzerland — Усі права захищені.",
     booking_footer_right: "Сторінка бронювання пакету послуг",
 
 
@@ -2667,12 +2711,34 @@ consult_whatsapp_aria: "WhatsApp",
   package_review: "Підтримка переїзду — CHF 189",
   package_relocation: "Стратегія поселення — CHF 349",
 
-  payment_footer_rights: "© 2026 Easy Help Switzerland - усі права захищено.",
+  payment_footer_rights: "© 2026 Easy Help Switzerland — Усі права захищені.",
   payment_footer_page: "Сторінка оплати",
 
 
-  }
+  service_documents_modal_title: "Документи",
+service_documents_modal_desc: "Допомога з листами, відповідями, перекладами, поясненнями та роботою з документами.",
+
+service_documents_modal_item_1: "Короткий лист або відповідь",
+service_documents_modal_item_2: "Пояснення документів",
+service_documents_modal_item_3: "Допомога з формами",
+service_documents_modal_item_4: "Перевірка перекладу",
+service_documents_modal_item_5: "Форматування документів",
+service_documents_modal_item_6: "Проста письмова відповідь",
+service_documents_modal_item_7: "Адміністративне роз’яснення",
+service_documents_modal_item_8: "Індивідуальна допомога з документами",
+
+service_modal_fallback_empty: "Незабаром з’явиться більше інформації.",
+service_modal_help_title: "Не впевнені, яка послуга вам підходить?",
+service_modal_help_text: "Почніть із безкоштовної первинної консультації та оберіть наступний крок пізніше."
+
+  },
+
+
+
+
 };
+
+
 
 function getTranslation(lang, key) {
   if (

@@ -457,107 +457,60 @@
   <a class="whatsapp-float" href="#" aria-label="WhatsApp">✆</a>
 
   <script>
-    window.addEventListener("DOMContentLoaded", function () {
-      const params = new URLSearchParams(window.location.search);
+document.addEventListener("DOMContentLoaded", () => {
+  const params = new URLSearchParams(window.location.search);
 
-      const packageValue = params.get("package");
-      const customerName = params.get("name");
-      const customerEmail = params.get("email");
-      const customerPhone = params.get("phone");
-      const customerLocation = params.get("location");
-      const customerPreferred = params.get("preferred");
-      const customerMessage = params.get("message");
+  const bookingData = {
+    package: params.get("package") || "initial",
+    name: params.get("name") || "",
+    email: params.get("email") || "",
+    phone: params.get("phone") || "",
+    location: params.get("location") || "",
+    preferred: params.get("preferred") || "",
+    message: params.get("message") || ""
+  };
 
-      const lang = localStorage.getItem("siteLanguage") || "en";
+  const packages = {
+    initial: {
+      name: "Quick consultation",
+      price: "CHF 79"
+    },
+    review: {
+      name: "Relocation support",
+      price: "CHF 189"
+    },
+    support: {
+      name: "Settlement strategy",
+      price: "CHF 349"
+    }
+  };
 
-      const packageNames = {
-        en: {
-          initial: "Initial consultation",
-          review: "Consultation + review",
-          support: "Relocation support",
-          none: "No package selected"
-        },
-        de: {
-          initial: "Erstberatung",
-          review: "Beratung + Dokumentenprüfung",
-          support: "Relocation-Unterstützung",
-          none: "Kein Paket ausgewählt"
-        },
-        es: {
-          initial: "Consulta inicial",
-          review: "Consulta + revisión",
-          support: "Apoyo de relocación",
-          none: "Ningún paquete seleccionado"
-        },
-        uk: {
-          initial: "Початкова консультація",
-          review: "Консультація + перевірка документів",
-          support: "Підтримка релокації",
-          none: "Пакет не вибрано"
-        }
-      };
+  const selectedPackage = packages[bookingData.package] || packages.initial;
 
-      const packagePrices = {
-        initial: "CHF 59",
-        review: "CHF 129",
-        support: "CHF 290"
-      };
+  const setText = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = value && value.trim() ? value : "—";
+  };
 
-      const selectedPackage = {
-        name:
-          (packageNames[lang] && packageNames[lang][packageValue]) ||
-          packageNames.en[packageValue] ||
-          packageNames[lang]?.none ||
-          "—",
-        price: packagePrices[packageValue] || "—"
-      };
+  setText("packageName", selectedPackage.name);
+  setText("packagePrice", selectedPackage.price);
+  setText("summaryTotalPrice", selectedPackage.price);
+  setText("paymentTotalPrice", selectedPackage.price);
 
-      function setText(id, value) {
-        const el = document.getElementById(id);
-        if (el) el.textContent = value;
-      }
+  setText("customerName", bookingData.name);
+  setText("customerEmail", bookingData.email);
+  setText("customerPhone", bookingData.phone);
+  setText("customerLocation", bookingData.location);
+  setText("customerPreferred", bookingData.preferred);
+  setText("customerMessage", bookingData.message);
 
-      setText("packageName", selectedPackage.name);
-      setText("packagePrice", selectedPackage.price);
-      setText("summaryTotalPrice", selectedPackage.price);
-      setText("paymentTotalPrice", selectedPackage.price);
-
-      setText("customerName", customerName || "—");
-      setText("customerEmail", customerEmail || "—");
-      setText("customerPhone", customerPhone || "—");
-      setText("customerLocation", customerLocation || "—");
-      setText("customerPreferred", customerPreferred || "—");
-      setText("customerMessage", customerMessage || "—");
-    });
-  </script>
-
-  <script>
-    window.addEventListener("DOMContentLoaded", function () {
-      const params = new URLSearchParams(window.location.search);
-
-      const packageValue = params.get("package") || "";
-      const name = params.get("name") || "";
-      const email = params.get("email") || "";
-      const phone = params.get("phone") || "";
-      const location = params.get("location") || "";
-      const preferred = params.get("preferred") || "";
-      const message = params.get("message") || "";
-
-      const payNowLink = document.getElementById("payNowLink");
-
-      const checkoutParams = new URLSearchParams({
-        package: packageValue,
-        name: name,
-        email: email,
-        phone: phone,
-        location: location,
-        preferred: preferred,
-        message: message
-      });
-
-      payNowLink.href = "create-checkout-session.php?" + checkoutParams.toString();
-    });
-  </script>
+  const payNowLink = document.getElementById("payNowLink");
+  if (payNowLink) {
+    const checkoutParams = new URLSearchParams(bookingData);
+    payNowLink.href = "create-checkout-session.php?" + checkoutParams.toString();
+  }
+});
+</script>
 
   <script src="site.js"></script>
 </body>
