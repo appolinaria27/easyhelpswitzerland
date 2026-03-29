@@ -68,14 +68,38 @@
     .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:rgba(255,255,255,.8);transform:scaleX(0);transition:.25s ease}
     .nav a:hover::after{transform:scaleX(1)}
     .hero-right{display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:16px;flex-wrap:wrap}
-    .lang-toggle,.back-pill{
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.08);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:999px;
-      cursor:pointer;
-    }
+    
+    .hero-right{
+  display:flex;
+  align-items:center;
+  gap:26px;
+  white-space:nowrap;
+  font-size:18px;
+  flex-wrap:wrap;
+}
+
+.lang-switch{
+  display:flex;
+  gap:8px;
+  font-size:16px;
+}
+
+.lang-switch button{
+  border:0;
+  background:transparent;
+  color:rgba(255,255,255,.7);
+  cursor:pointer;
+  padding:0;
+}
+
+.lang-switch button.active{
+  color:var(--blue);
+}
+
+.back-link{
+  color:rgba(255,255,255,.9);
+  text-decoration:none;
+}
 
     .hero-center{
       position:absolute;
@@ -301,38 +325,45 @@
         </a>
 
         <nav class="nav">
-          <a href="index.html">Home</a>
-          <a href="booking.html">Booking</a>
-          <a href="blog.html">Guides</a>
-          <a href="free-consultation.html">Free consultation</a>
-          <a href="index.html#contact">Contacts</a>
+          <a href="index.html" data-i18n="payment_home">Home</a>
+          <a href="booking.html" data-i18n="payment_booking_nav">Booking</a>
+          <a href="blog.html" data-i18n="payment_guides">Guides</a>
+          <a href="free-consultation.html" data-i18n="payment_free_consultation">Free consultation</a>
+          <a href="index.html#contact" data-i18n="payment_contacts">Contacts</a>
         </nav>
 
         <div class="hero-right">
-          <a href="tel:+41764497581">+41 76 449 75 81</a>
-          <button class="lang-toggle" type="button">English ▾</button>
-          <a class="back-pill" href="booking.html" data-i18n="payment_back">← Back to booking</a>
-        </div>
+  <a href="tel:+41764497581">+41 76 449 75 81</a>
+
+  <div class="lang-switch">
+    <button type="button" data-lang="en" class="active">EN</button>
+    <button type="button" data-lang="es">ES</button>
+    <button type="button" data-lang="de">DE</button>
+    <button type="button" data-lang="uk">UA</button>
+  </div>
+
+  <a class="back-link" href="booking.html" data-i18n="payment_back">← Back</a>
+</div>
       </div>
 
       <div class="hero-center">
         <div>
-          <div class="micro">Payment review</div>
-          <h1 class="hero-title">Review your <span>consultation</span></h1>
-          <div class="hero-sub">Confirm your selected package and your details before continuing to secure payment. This page preserves the original query-string summary flow and Stripe handoff while fully matching your main website design.</div>
+          <div class="micro" data-i18n="payment_micro">Payment review</div>
+          <h1 class="hero-title" data-i18n="payment_hero_title">Review your <span data-i18n="payment_hero_title_span">consultation</span></h1>
+          <div class="hero-sub" data-i18n="payment_hero_sub">Confirm your selected package and your details before continuing to secure payment.</div>
         </div>
       </div>
 
       <div class="hero-bottom">
         <div class="hero-features">
-          <div class="hero-feature"><div class="dot">✓</div><div>Booking summary</div></div>
-          <div class="hero-feature"><div class="dot">✓</div><div>Secure Stripe handoff</div></div>
-          <div class="hero-feature"><div class="dot">✓</div><div>Edit before payment</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div data-i18n="payment_feature_summary">Booking summary</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div data-i18n="payment_feature_stripe">Secure Stripe handoff</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div data-i18n="payment_feature_edit">Edit before payment</div></div>
         </div>
 
         <div class="hero-years">
           <strong>1</strong>
-          <span>final step before checkout</span>
+          <span data-i18n="payment_final_step">final step before checkout</span>
         </div>
       </div>
     </section>
@@ -400,13 +431,13 @@
           </section>
 
           <section class="info-card glass-card">
-            <p class="section-label">What stays the same</p>
-            <h3>Original checkout logic preserved</h3>
-            <p>The current setup reads booking details from the URL, shows the selected package and price, and builds the Stripe link to <code>create-checkout-session.php</code>. This redesign only changes presentation, not the flow itself.</p>
+            <p class="section-label" data-i18n="payment_attention">Pay attention</p>
+            <h3 data-i18n="payment_no_free_consultation">Booked without free consultation</h3>
+            <p data-i18n="payment_attention_text">We recommend to book a free consultation. If you book a package and turns out, that your case is hopeless, we will charge 10% from the package price and give you back the rest.</p>
             <div class="step-list">
-              <div class="step"><span>Package pricing</span><strong>Initial consultation — CHF 59</strong></div>
-              <div class="step"><span>Package pricing</span><strong>Consultation + review — CHF 129</strong></div>
-              <div class="step"><span>Package pricing</span><strong>Relocation support — CHF 290</strong></div>
+              <div class="step"><span data-i18n="payment_package_pricing">Package pricing</span><strong data-i18n="package_initial">Quick consultation — CHF 79</strong></div>
+              <div class="step"><span data-i18n="payment_package_pricing">Package pricing</span><strong data-i18n="package_review">Relocation support — CHF 189</strong></div>
+              <div class="step"><span data-i18n="payment_package_pricing">Package pricing</span><strong data-i18n="package_relocation">Settlement strategy — CHF 349</strong></div>
             </div>
           </section>
         </aside>
@@ -418,8 +449,8 @@
         <svg viewBox="0 0 32 48" aria-hidden="true"><path d="M4 44V10l10-8 10 8v34"></path><path d="M14 44V22l10-8v30"></path></svg>
         <span>Easy Help Switzerland</span>
       </div>
-      <div class="footer-center">© 2026 Zurich Relocation</div>
-      <div class="footer-right">Secure payment step aligned to the main website</div>
+      <div class="footer-center" data-i18n="payment_footer_rights">© 2026 Easy Help Switzerland - all rights reserved.</div>
+      <div class="footer-right" data-i18n="payment_footer_page">Payment page</div>
     </footer>
   </div>
 
@@ -525,17 +556,6 @@
       });
 
       payNowLink.href = "create-checkout-session.php?" + checkoutParams.toString();
-    });
-  </script>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const toggle = document.querySelector(".lang-toggle");
-      if (toggle) {
-        toggle.addEventListener("click", function () {
-          // Placeholder preserved for your existing language dropdown logic.
-        });
-      }
     });
   </script>
 

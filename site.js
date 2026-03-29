@@ -152,30 +152,29 @@ why_4_title: "Cost-efficient help",
 why_4_desc: "Get clarity and direction before spending unnecessarily on a full legal mandate.",
 why_4_content: `<p>Not every situation requires a full legal mandate from the beginning.</p><ul><li>Get clarity before paying for unnecessary legal work</li><li>Understand the smartest first step for your case</li><li>Use targeted support where it brings the most value</li></ul><p><strong>Result:</strong> better decisions with better budget control.</p>`,
 
-process: {
-title: "How we work",
-      side: "A structured process designed to reduce uncertainty and keep every stage simple, visible and manageable.",
 
-      discoverTitle: "Discover",
-      discoverItem1: "First case review",
-      discoverItem2: "Clarify your route",
-      discoverItem3: "Check urgency",
+process_title: "How we work",
+      process_side: "A structured process designed to reduce uncertainty and keep every stage simple, visible and manageable.",
 
-      defineTitle: "Define",
-      defineItem1: "Documents needed",
-      defineItem2: "Best admin path",
-      defineItem3: "Clear next actions",
+      process_discoverTitle: "Discover",
+      process_iscoverItem1: "First case review",
+      process_discoverItem2: "Clarify your route",
+      process_discoverItem3: "Check urgency",
 
-      supportTitle: "Support",
-      supportItem1: "Forms and letters",
-      supportItem2: "Authority contact",
-      supportItem3: "Practical guidance",
+      process_defineTitle: "Define",
+      process_defineItem1: "Documents needed",
+      process_defineItem2: "Best admin path",
+      process_defineItem3: "Clear next actions",
 
-      followUpTitle: "Follow-up",
-      followUpItem1: "Submission check",
-      followUpItem2: "Next-step review",
-      followUpItem3: "Ongoing help"
-      },
+      process_supportTitle: "Support",
+      process_supportItem1: "Forms and letters",
+      process_supportItem2: "Authority contact",
+      process_supportItem3: "Practical guidance",
+
+      process_followUpTitle: "Follow-up",
+      process_followUpItem1: "Submission check",
+      process_followUpItem2: "Next-step review",
+      process_followUpItem3: "Ongoing help",
 
 
 testimonials_label: "Client feedback",
@@ -198,157 +197,385 @@ testimonials_why_p1: "Many people first need clarity, structure, and help with d
 testimonials_why_p2: "A short consultation can often save time, reduce stress, and help you avoid expensive mistakes or delays.",
 testimonials_cta: "Request free consultation",
 
-pricing_label: "Pricing",
-pricing_title: "Start with clarity — not with a large legal bill",
-pricing_intro: "For many relocation and administrative matters, you may not need full legal representation from the beginning. Start with a free first consultation, understand your route, and choose the level of support that fits your case.",
+pricing_title: "Pricing",
+pricing_stat: "clear packages to begin",
+pricing_side: "Start with clarity — not with a large legal bill. Choose a level of support that matches your case and urgency.",
 
-pricing_card1_plan: "Essential",
-pricing_card1_title: "Single consultation",
-pricing_card1_price: "CHF 59",
-pricing_card1_sub: "For clients who need one clear answer, orientation, and next steps.",
-pricing_card1_point1: "30-minute consultation",
-pricing_card1_point2: "Case overview",
-pricing_card1_point3: "Required documents explained",
-pricing_card1_point4: "Clear next-step guidance",
-pricing_card1_cta: "Book package",
+pricing_badge: "Most popular",
+pricing_cta: "Book package",
 
-pricing_card2_badge: "Most requested",
-pricing_card2_plan: "Practical",
-pricing_card2_title: "Consultation + document review",
-pricing_card2_price: "CHF 129",
-pricing_card2_sub: "For clients who want guidance plus help checking paperwork before taking action.",
-pricing_card2_point1: "60-minute consultation",
-pricing_card2_point2: "Review of your documents",
-pricing_card2_point3: "Personal checklist",
-pricing_card2_point4: "Written follow-up summary",
-pricing_card2_point5: "Administrative route explained",
-pricing_card2_cta: "Book package",
+pricing_qs_plan: "Quick Start",
+pricing_qs_title: "Quick consultation",
+pricing_qs_desc: "Perfect if you need quick guidance on one practical question.",
+pricing_qs_item1: "30-minute consultation online",
+pricing_qs_item2: "Personalised checklist",
+pricing_qs_item3: "One written clarification",
+pricing_qs_item4: "WhatsApp follow-up for 3 days",
 
-pricing_card3_plan: "Complete",
-pricing_card3_title: "Relocation support package",
-pricing_card3_price: "from CHF 290",
-pricing_card3_sub: "For more complex situations involving several steps, forms, authorities, or letters.",
-pricing_card3_point1: "Full case review",
-pricing_card3_point2: "Document preparation support",
-pricing_card3_point3: "Letter / email drafting help",
-pricing_card3_point4: "Anmeldung / authority preparation",
-pricing_card3_point5: "Follow-up guidance during the process",
-pricing_card3_cta: "Book package",
+pricing_core_plan: "Core",
+pricing_core_title: "Relocation support",
+pricing_core_desc: "Ideal if you are preparing documents or starting your first relocation steps.",
+pricing_core_item1: "Consultation and situation review",
+pricing_core_item2: "Personal relocation checklist",
+pricing_core_item3: "Up to 2 written inquiries or letters",
+pricing_core_item4: "Support with one admin step",
+pricing_core_item5: "One follow-up document review",
 
-pricing_compare_label: "Why start here",
-pricing_compare_title: "A smarter first step for practical migration matters",
-pricing_compare_intro: "Many people first need clarity, structure, documents, and the right communication — not necessarily a full lawyer mandate.",
+pricing_premium_plan: "Premium",
+pricing_premium_title: "Settlement strategy",
+pricing_premium_desc: "Comprehensive guidance for settling in Switzerland more confidently.",
+pricing_premium_item1: "Extended consultation",
+pricing_premium_item2: "Personal route and document strategy",
+pricing_premium_item3: "Guidance on Anmeldung, insurance or housing",
+pricing_premium_item4: "Up to 5 written inquiries",
+pricing_premium_item5: "Follow-up support for 2 weeks",
 
-pricing_compare_mine_title: "This service",
-pricing_compare_mine_price: "CHF 0 – 290+",
-pricing_compare_mine_point1: "Free first consultation",
-pricing_compare_mine_point2: "Accessible support for everyday migration steps",
-pricing_compare_mine_point3: "Help with documents, letters, checklists, preparation",
-pricing_compare_mine_point4: "Clear and practical administrative guidance",
-pricing_compare_mine_point5: "Referral to a lawyer when formal representation is needed",
 
-pricing_compare_market_title: "Typical lawyer pricing",
-pricing_compare_market_price: "CHF 250 – 500/hour",
-pricing_compare_market_point1: "Often billed hourly",
-pricing_compare_market_point2: "Some initial consultations around CHF 300–330",
-pricing_compare_market_point3: "Best for disputes, appeals, and formal legal representation",
-pricing_compare_market_point4: "Can be more than needed for mainly administrative matters",
-pricing_compare_market_point5: "Important when the case becomes legally complex",
+blog_title: "Guides & Blog",
+blog_stat: "practical articles to start with",
+blog_side: "Clear articles on permits, registration, insurance and first everyday steps after arrival in Switzerland.",
 
-pricing_market_note: "Publicly posted examples in Switzerland show migration/legal consultations around CHF 300–330, hourly lawyer fees around CHF 250 and up to CHF 350–500 or more, while low-cost advisory centres can be much cheaper in specific settings.",
+blog_1_title: "Residence permits in Switzerland: where to start",
+blog_1_desc: "A practical overview of the first steps, required documents and common mistakes when applying.",
 
-faq_label: "FAQ",
-faq_title: "Find answers to your most common questions",
-faq_intro: "Clear information about consultations, support, and the scope of assistance.",
+blog_2_title: "Anmeldung in Zürich: what you need to prepare",
+blog_2_desc: "Learn what to bring, how the process works and how to avoid delays when registering.",
 
-faq_q1: "Is the first consultation free of charge?",
-faq_a1: "Yes. The first consultation is free of charge. During this initial conversation we briefly analyse your case and discuss the possible next steps.",
+blog_3_title: "Health insurance in Switzerland: deadlines and obligations",
+blog_3_desc: "Understand the legal requirements, time limits and basics of choosing coverage after arrival.",
 
-faq_q2: "Do you provide legal representation?",
-faq_a2: "No. I provide structured guidance, administrative support and document preparation. Where formal representation is required, I can refer clients to licensed lawyers.",
+blog_read: "Read more →",
 
-faq_q3: "Are consultations available online or in person?",
-faq_a3: "Both options are available. Consultations can take place online or in person in Zürich depending on your preference.",
 
-faq_q4: "Do you only work with migration matters?",
-faq_a4: "Migration and relocation matters are the main focus. In some cases related administrative questions can also be addressed, while specialised areas may require referral to a qualified lawyer.",
+faq_title: "Frequently asked questions",
 
-blog_label: "Insights",
-blog_title: "Practical guides for moving and settling in Switzerland",
-blog_intro: "Clear articles on permits, registration, insurance, employment, and everyday administrative steps in Switzerland.",
+faq_1_question: "How long is the first consultation for free?",
+faq_1_answer: "As long as we can define our strategy, the questions we need to answer and the steps to do - it is free. Usually the first 30 minutes are enough to understand the matter and its solution.",
 
-blog_card1_title: "Residence permits in Switzerland: where to start",
-blog_card1_text: "A practical overview of the first steps, required documents, and common mistakes when applying for a permit.",
-blog_card1_link: "Read more",
+faq_2_question: "I am not sure if I can write to you about my matter.",
+faq_2_answer: "There is an approximate list of my services on the page. You can always have a first free consultation to understand if your matter falls under my services. So just write me!",
 
-blog_card2_title: "Anmeldung in Zürich: what you need to prepare",
-blog_card2_text: "Learn what to bring, how the process works, and how to avoid delays when registering with the local authorities.",
-blog_card2_link: "Read more",
+faq_3_question: "How long have you been studying and in which areas?",
+faq_3_answer: "I already have a Bachelor in Law. I am now in my second year of the Master’s degree. I have studied many subjects, but my strongest areas are migration law, family law, tax law, criminal law, notary law, marriage and inheritance law, and administrative law.",
 
-blog_card3_title: "Health insurance in Switzerland: deadlines and obligations",
-blog_card3_text: "Understand the legal requirements, time limits, and the basics of choosing coverage after your arrival.",
-blog_card3_link: "Read more",
+faq_4_question: "Which languages do you speak?",
+faq_4_answer: "I speak German, English, Ukrainian and Russian fluently. We can also communicate in Spanish. My husband, Kevin Garcia, speaks Italian, Portuguese and Spanish fluently and is ready to take part in a consultation.",
 
-contact_label: "Contact",
-contact_title: "Send a short request",
-contact_text: "Feel free to reach out for consultations, document support, or relocation questions in Switzerland.",
-contact_email_label: "Email",
-contact_phone_label: "Phone",
-contact_location_label: "Location",
-contact_location_value: "Zurich, Switzerland",
-footer_copyright: "© 2026 Polina Kravtsova — All rights reserved.",
 
-booking_back: "← Back to homepage",
+contact_title: "Ready to discuss your future?",
+contact_text: "Leave your contact details, and I will get in touch to help you choose the right way to solve your matter as quickly as possible.",
 
-booking_kicker: "Booking",
-booking_title: "Book your consultation",
-booking_intro: "Choose the package that fits your situation, leave a short description, and continue to payment. The process is clear, simple, and designed to save you time.",
+contact_name: "YOUR NAME",
+contact_email: "YOUR EMAIL",
+contact_phone: "+41 00 000 00 00",
 
-booking_next_title: "What happens next",
-booking_next_text: "After payment, your request is received and reviewed. You will then be contacted to confirm the consultation format and next steps.",
-booking_next_1: "Online or in-person in Zürich",
-booking_next_2: "Structured practical guidance",
-booking_next_3: "Reply within 24 hours",
+contact_policy: "By clicking the button, you accept the privacy policy and consent to the processing of personal data.",
+contact_cta: "Get A Free Consultation",
 
-booking_details_label: "Client details",
-booking_details_title: "Select your package and fill in your details",
-booking_details_text: "Choose one option below and provide the key information needed to prepare your booking.",
+footer_brand: "Easy Help Switzerland",
+footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
 
-booking_pack1_name: "Initial consultation",
-booking_pack1_desc: "A focused consultation for first questions and orientation.",
 
-booking_pack2_name: "Consultation + review",
-booking_pack2_desc: "Consultation plus document review and more detailed preparation.",
+//Blog.html
 
-booking_pack3_name: "Relocation support",
-booking_pack3_desc: "For more involved cases with several steps, forms, or authority contact.",
+  blog_brand_name: "Easy Help",
+  blog_brand_country: "Switzerland",
 
-booking_name: "Full name",
-booking_email: "Email",
-booking_phone: "Phone / WhatsApp",
-booking_location: "Current location",
-booking_message: "Short description of your situation",
-booking_format: "Preferred consultation format",
+  blog_nav_home: "Home",
+  blog_nav_guides: "Guides",
+  blog_nav_services: "Services",
+  blog_nav_consultation: "Consultation",
+  blog_nav_contacts: "Contacts",
 
-booking_format_online: "Online",
-booking_format_inperson: "In person in Zürich",
-booking_format_any: "No preference",
+  blog_phone: "+41 76 449 75 81",
+  lang_toggle: "English ▾",
 
-booking_note: "Payment confirms your request. If your matter requires formal legal representation, you may be referred to a licensed lawyer where appropriate.",
+  blog_hero_micro: "Guides & Blog",
+  blog_hero_title_main: "Easy Guide Switzerland",
+  blog_hero_title_sub: "guides",
+  blog_hero_sub: "Clear practical articles on permits, registration, health insurance, study, marriage and family reunification — redesigned to match the editorial premium style of your main website.",
 
-booking_continue: "Continue to payment",
-booking_back_button: "Back",
+  blog_hero_feature_1: "Easy to scan long-form articles",
+  blog_hero_feature_2: "Premium editorial layout",
+  blog_hero_feature_3: "Same visual language as homepage",
 
-booking_trust1_title: "Clear process",
-booking_trust1_text: "Choose a package, provide your details, and continue to payment.",
+  blog_hero_guides_count: "6",
+  blog_hero_guides_label: "guides structured in one destination",
 
-booking_trust2_title: "Quick contact",
-booking_trust2_text: "Your request is reviewed and answered within 24 hours.",
+  blog_permits_meta_category: "Residence permits",
+  blog_permits_meta_time: "5 min read",
+  blog_permits_title: "Residence permits in Switzerland: where to start",
+  blog_permits_lead: "For many newcomers, the permit process feels opaque at first. The good news is that most cases become manageable once you understand the timeline, the required documents, and the logic behind the different permit types.",
+  blog_permits_p1: "If you are moving to Switzerland for work, family reasons, or a long-term stay, your residence permit is one of the first essential administrative steps. In most cases, your type of permit depends on your nationality, employment status, and expected length of stay.",
+  blog_permits_h3_1: "The three permit types most people hear about first",
+  blog_permits_li1: "L permit for shorter stays, often tied to limited contracts or temporary assignments.",
+  blog_permits_li2: "B permit for longer residence, commonly used for employees, family reunification, and many standard relocation cases.",
+  blog_permits_li3: "C permit for permanent residence after several qualifying years in Switzerland.",
+  blog_permits_note: "Start by checking not only the federal rules, but also the practical process in your canton and municipality. The legal structure is national, but execution often happens locally.",
+  blog_permits_caption: "A strong application usually starts with complete documentation and a clear registration timeline.",
+  blog_permits_h3_2: "Documents you usually need early",
+  blog_permits_p2: "Although requirements differ by case, people often need a valid passport or ID, proof of address, an employment contract or proof of sufficient means, and civil status documents where relevant. It is worth preparing both originals and digital copies in advance.",
+  blog_permits_p3: "One of the most common mistakes is assuming that the permit is handled before local registration. In reality, registration and permit processing are usually closely connected. If you delay one, you often delay both.",
+  blog_permits_h3_3: "How to make the process smoother",
+  blog_permits_li4: "Prepare documents before arrival where possible.",
+  blog_permits_li5: "Check your municipality’s registration deadline immediately.",
+  blog_permits_li6: "Keep copies of contracts, address confirmations, and correspondence.",
+  blog_permits_li7: "Ask early if translations, apostilles, or certified copies are needed.",
+  blog_permits_p4: "The permit process is rarely about one single form. It is about sequencing: housing, registration, insurance, and employment paperwork often interact. The earlier you organize them together, the easier your first weeks in Switzerland become.",
+  blog_permits_tag1: "Permits",
+  blog_permits_tag2: "Arrival",
+  blog_permits_tag3: "Administration",
+  blog_permits_cta: "Need personal guidance?",
 
-booking_trust3_title: "Practical support",
-booking_trust3_text: "Structured guidance for permits, registrations, and administrative steps.",
+  blog_permits_next_label: "Next article",
+  blog_permits_next_title: "Anmeldung in Zürich: what you need to prepare",
+  blog_permits_related_label: "Related article",
+  blog_permits_related_title: "Health insurance in Switzerland: deadlines and obligations",
 
-payment_back: "← Back to booking",
+  blog_anmeldung_meta_category: "Registration",
+  blog_anmeldung_meta_time: "4 min read",
+  blog_anmeldung_title: "Anmeldung in Zürich: what you need to prepare",
+  blog_anmeldung_lead: "Registration in Zürich is often one of the first official appointments after arrival. It may look simple from the outside, but having the right documents ready can save you delays, repeat visits, and unnecessary stress.",
+  blog_anmeldung_p1: "After moving into the city, you usually need to register your address with the local authorities within a limited time. This registration confirms your residence and is often needed for later administrative steps such as permit processing, banking, utilities, and insurance setup.",
+  blog_anmeldung_h3_1: "What to bring to the appointment",
+  blog_anmeldung_li1: "Valid passport or national ID card",
+  blog_anmeldung_li2: "Rental agreement or written housing confirmation",
+  blog_anmeldung_li3: "Employment contract or proof of income, if relevant",
+  blog_anmeldung_li4: "Additional civil status documents, depending on your case",
+  blog_anmeldung_caption: "A well-prepared registration appointment can unlock several next steps in your relocation journey.",
+  blog_anmeldung_h3_2: "Why this step matters more than people expect",
+  blog_anmeldung_p2: "Anmeldung is not just a formality. It establishes your local presence in the system. Many downstream processes rely on it, including communications from authorities, tax administration, insurance enrollment, and in some cases permit issuance.",
+  blog_anmeldung_p3: "New arrivals often underestimate how important small details are, such as matching names across documents, correct move-in dates, and written confirmation from the main tenant or landlord where needed.",
+  blog_anmeldung_note: "If your housing situation is temporary, shared, or newly arranged, double-check whether your address proof will be accepted before the appointment.",
+  blog_anmeldung_h3_3: "How to avoid delays",
+  blog_anmeldung_li5: "Book your appointment as early as possible.",
+  blog_anmeldung_li6: "Bring complete paperwork, not only screenshots.",
+  blog_anmeldung_li7: "Make sure your address format is consistent everywhere.",
+  blog_anmeldung_li8: "Keep a copy of the registration confirmation after the meeting.",
+  blog_anmeldung_p4: "Once registration is complete, things tend to move faster. You have an official local reference point, and that makes every following step more straightforward.",
+
+  blog_insurance_meta_category: "Health insurance",
+  blog_insurance_meta_time: "5 min read",
+  blog_insurance_title: "Health insurance in Switzerland: deadlines and obligations",
+  blog_insurance_lead: "Health insurance is one of the most time-sensitive steps after arrival. Understanding the deadline early helps you avoid unnecessary stress and unexpected backdated costs.",
+  blog_insurance_p1: "In Switzerland, basic health insurance is generally mandatory. New residents often need to enroll within a set period after becoming subject to the Swiss system. Waiting too long can mean administrative complications and retroactive premiums.",
+  blog_insurance_h3_1: "What makes this step important",
+  blog_insurance_li1: "It is a legal requirement in most standard relocation cases.",
+  blog_insurance_li2: "Coverage choices influence monthly costs and healthcare access.",
+  blog_insurance_li3: "It interacts with registration timing and arrival dates.",
+  blog_insurance_note: "Insurance is not only about buying a policy. It is about choosing the correct start date, model, deductible, and provider logic for your situation.",
+  blog_insurance_p2: "People often focus on price first, but the timing and correctness of enrollment are just as important. A structured comparison usually saves more stress than a rushed last-minute decision.",
+
+  blog_insurance_next_label: "Next article",
+  blog_insurance_next_title: "Studying in Switzerland: first admin steps",
+  blog_insurance_back_label: "Back to start",
+  blog_insurance_back_title: "Residence permits in Switzerland: where to start",
+
+  blog_study_meta_category: "Study",
+  blog_study_meta_time: "4 min read",
+  blog_study_title: "Studying in Switzerland: what students should organize first",
+  blog_study_lead: "For students, the first weeks are rarely about one document only. Housing, registration, insurance, and permit questions often arrive at the same time.",
+  blog_study_p1: "When preparing for study in Switzerland, it helps to see your move as an administrative route: secure housing, register locally, confirm insurance status, and make sure your residence basis matches the duration and purpose of your stay.",
+
+  blog_marriage_meta_category: "Marriage",
+  blog_marriage_meta_time: "5 min read",
+  blog_marriage_title: "Getting married in Switzerland: what international couples should know",
+  blog_marriage_lead: "Marriage in Switzerland can be straightforward, but international couples should be ready for document checks, civil status formalities, and timing that depends heavily on preparation.",
+  blog_marriage_p1: "If one or both partners are foreign nationals, the process often includes submitting official identity documents, birth certificates, civil status records, and in some cases additional legalized or translated papers.",
+  blog_marriage_note: "If documents were issued abroad, check early whether apostilles, legalization, or official translations are required. This is often where the process slows down.",
+
+  blog_family_meta_category: "Family reunification",
+  blog_family_meta_time: "6 min read",
+  blog_family_title: "Bringing your family to Switzerland: is it easier for Swiss or EU citizens?",
+  blog_family_lead: "Family reunification rules in Switzerland depend strongly on nationality, permit type, housing situation, and income. In practical terms, the path may feel easier or harder depending on which legal route applies to you.",
+  blog_family_p1: "People often ask whether it is easier for Swiss citizens or EU citizens to bring their family members to Switzerland. The answer depends on the exact family relationship, the country of origin of the relatives, and the residence status of the person already living in Switzerland.",
+  blog_family_h3_1: "What authorities often look at",
+  blog_family_li1: "Your nationality and residence status",
+  blog_family_li2: "Your type of permit or citizenship status",
+  blog_family_li3: "Whether you have suitable accommodation",
+  blog_family_li4: "Whether financial support requirements are met",
+  blog_family_li5: "The relationship to the family member joining you",
+  blog_family_note: "The fastest way to reduce uncertainty is to define the case very clearly first: who is joining, from where, under which status, and on what timeline.",
+
+  sidebar_on_page_label: "On this page",
+  sidebar_toc_title: "Table of contents",
+  sidebar_toc_permits: "Residence permits in Switzerland",
+  sidebar_toc_anmeldung: "Anmeldung in Zürich",
+  sidebar_toc_insurance: "Health insurance in Switzerland",
+  sidebar_toc_study: "Studying in Switzerland",
+  sidebar_toc_marriage: "Getting married in Switzerland",
+  sidebar_toc_family: "Bringing your family to Switzerland",
+
+  sidebar_related_label: "Related services",
+  sidebar_related_title: "How we can help",
+  sidebar_related_consultation_label: "Consultation",
+  sidebar_related_consultation_title: "Book a free consultation for your relocation plan",
+  sidebar_related_permits_label: "Permits",
+  sidebar_related_permits_title: "Support with residence permits and registration steps",
+  sidebar_related_insurance_label: "Insurance",
+  sidebar_related_insurance_title: "Get help choosing the right health insurance setup",
+
+  sidebar_support_label: "Need support?",
+  sidebar_support_title: "Prefer personal guidance?",
+  sidebar_support_text: "If you want help with registration, permits, housing documents, or health insurance, book a consultation and get a clear step-by-step plan.",
+  sidebar_support_cta: "Book consultation",
+
+  cta_label: "Next step",
+  cta_title: "Make your relocation easier from day one",
+  cta_text: "Save time, avoid missed deadlines, and move through permits, registration, and insurance with a clear structure and personal support.",
+  cta_book: "Book consultation",
+  cta_home: "Back to homepage",
+
+  footer_brand: "Easy Help Switzerland",
+  footer_copy: "© 2026 Easy Help Switzerland - all rights reserved.",
+  footer_tagline: "Practical relocation support in Switzerland",
+
+
+  //Free Consultation
+
+  consult_brand_main: "Easy Help",
+consult_brand_sub: "Switzerland",
+consult_nav_guides: "Guides",
+consult_nav_booking: "Booking",
+
+consult_micro: "Free first step",
+consult_title: 'Request a free <span>consultation</span>',
+consult_subtitle: "Tell us briefly about your situation and we will contact you to arrange a free initial consultation.",
+
+consult_feature_1: "Free initial request",
+consult_feature_2: "Clear next-step guidance",
+consult_feature_3: "Good place to start",
+consult_hero_minutes: "minutes is often enough to define the next route",
+
+consult_start_here: "Start here",
+consult_intro_copy: 'Fill out the form for your first free consultation. Maximum booking time is 30 minutes. We will contact you and send you suggestions for a meeting (online or in person, as you prefer). Please fill in all fields and describe your situation as best as possible so that we can prepare for the consultation.',
+consult_bullet_1: "Fast first contact without payment",
+consult_bullet_2: "Good for simple orientation and case clarity",
+consult_bullet_3: "This does not obligate you to pay or take any action.",
+
+consult_form_label: "Free consultation request",
+consult_form_title: "Tell us briefly about your situation",
+consult_form_text: 'This form is sent and saves topic options: residence permit, work permit, moving to Zurich, legal advice, and more.',
+consult_paid_booking: "Go to paid booking",
+
+consult_how_label: "How it works",
+consult_how_title: "Simple first contact",
+consult_step_1: "Send your request and describe the matter briefly.",
+consult_step_2: "Your request is reviewed and routed to the right next step.",
+consult_step_3: "You are contacted to arrange the free initial consultation.",
+
+consult_email_label: "Sent by email",
+consult_email_title: "Please arrive on time for the meeting.",
+consult_email_text: 'If you do not arrive within the first 10 minutes, the consultation is considered canceled.',
+
+consult_paid_label: "Need more than a first chat?",
+consult_paid_title: "Move to paid support",
+consult_paid_text: "If you would like to purchase any consultation or special services, please proceed to paid booking or write in the comments what service you would like to receive.",
+consult_open_booking: "Open booking page",
+
+consult_why_label: "Why clients start here",
+consult_why_title: "Practical support before unnecessary costs",
+consult_why_text: "Many people first need clarity, structure, and help understanding their documents or next administrative step — not a full legal mandate immediately. A short consultation can often save time and reduce stress early.",
+consult_why_point_1_title: "Good for orientation",
+consult_why_point_1_text: "Useful when the first problem is uncertainty, not yet execution.",
+consult_why_point_2_title: "Lower friction",
+consult_why_point_2_text: "A simpler entry point for visitors who are not ready to pay yet.",
+consult_why_point_3_title: "Natural path onward",
+consult_why_point_3_text: "If any other services are required during the consultation, they must be paid for.",
+
+consult_footer_copy: "© 2026 Easy Help Switzerland - all rights reserved.",
+consult_footer_right: "Free consultation page",
+consult_whatsapp_aria: "WhatsApp",
+
+
+// Booking.html
+
+
+booking_brand_main: "Easy Help Switzerland",
+    nav_home: "Home",
+    nav_services: "Services",
+    booking_nav_guides: "Guides",
+    booking_nav_free_consultation: "Free consultation",
+    nav_contacts: "Contacts",
+    back: "← Back",
+
+    booking_micro: "Booking",
+    booking_title: "Book your <span>consultation</span>",
+    booking_subtitle: "Choose the package that fits your situation, leave a short description, and continue to payment.",
+
+    booking_feature_1: "Clear package selection",
+    booking_feature_2: "Fast structured booking flow",
+    booking_feature_3: "Reply within 24 hours",
+    booking_hero_packages: "packages available to start",
+
+    booking_flow_title: "Booking flow",
+    booking_flow_text: "Payment will be booked from your card. You can cancel free of charge a booking up to 1 day to the start of the service. The late cancelation fee is half of the price of one package. Any Storno is to order per E-mail. If other services will be needed, they are to be paid separately. ",
+    booking_info_1: "Online or in-person in Zürich",
+    booking_info_2: "Structured practical guidance",
+    booking_info_3: "Designed to save time and reduce uncertainty",
+
+    booking_client_details: "Client details",
+    booking_form_title: "Select your package and fill in your details",
+    booking_form_intro: "Fill in your details and proceed to payment.",
+
+    booking_package_1_name: "Quick consultation",
+    booking_package_1_desc: "Perfect if you need quick guidance on one question.",
+    booking_package_2_name: "Relocation support",
+    booking_package_2_desc: "Ideal if you are preparing documents or starting your first relocation steps.",
+    booking_package_3_name: "Settlement strategy",
+    booking_package_3_desc: "Comprehensive guidance for settling in Switzerland more confidently.",
+
+    booking_name: "Full name",
+    booking_email: "Email",
+    booking_phone: "Phone / WhatsApp",
+    booking_location: "Current location",
+
+    booking_placeholder_name: "Your full name",
+booking_placeholder_email: "your@email.com",
+booking_placeholder_phone: "+41 …",
+booking_placeholder_location: "Country or city",
+booking_placeholder_message: "Briefly describe your situation or question.",
+
+    booking_preferred_label: "Preferred consultation format",
+    booking_preferred_default: "Select an option",
+    booking_preferred_online: "Online consultation",
+    booking_preferred_zurich: "In person in Zürich",
+    booking_preferred_phone: "Phone / WhatsApp",
+
+    booking_message: "Short description",
+    booking_placeholder_message: "Briefly describe your situation or question.",
+
+    booking_note: "Payment confirms your request.",
+    booking_continue_payment: "Continue to payment",
+    booking_back: "← Back",
+
+    booking_trust_1_title: "Clear process",
+    booking_trust_1_text: "Choose a package and continue to payment.",
+    booking_trust_2_title: "Quick contact",
+    booking_trust_2_text: "Response within 24 hours.",
+    booking_trust_3_title: "Practical support",
+    booking_trust_3_text: "Guidance for permits and admin steps.",
+
+    booking_next_label: "What happens next",
+    booking_next_title: "Three clear steps",
+    booking_step_1: "Select package and enter details.",
+    booking_step_2: "Review on payment page.",
+    booking_step_3: "Receive confirmation after payment.",
+
+    booking_structure_label: "Order modification",
+    booking_structure_title: "Pay attention",
+    booking_structure_text: "Go back to change your information. You can`t do it later.",
+
+    booking_free_label: "Need a free option?",
+    booking_free_title: "Start with a free consultation",
+    booking_free_text: "Use the free consultation before booking.",
+    booking_free_button: "Free consultation",
+
+    booking_footer_copy: "© 2026 Easy Help Switzerland - all rights reserved.",
+    booking_footer_right: "Package booking page",
+
+
+payment_back: "← Back",
 payment_summary_kicker: "Booking summary",
 payment_title: "Review your consultation before payment",
 payment_subtitle: "Please confirm your selected package and your details below.",
@@ -368,256 +595,57 @@ payment_pay_now: "Pay now",
 payment_edit: "Edit booking",
 payment_note: "Payment confirms your consultation request. If your matter requires formal legal representation, you may be referred to a licensed lawyer where appropriate.",
 
-brand_name: "Polina Kravtsova",
-    brand_sub: "Legal Advisory",
 
-    blog_nav_home: "Home",
-    blog_nav_permits: "Permits",
-    blog_nav_registration: "Registration",
-    blog_nav_insurance: "Insurance",
-    blog_nav_book: "Book consultation",
+//Payment.html
 
-    lang_toggle: "English ▾",
-    lang_en: "English",
-    lang_de: "Deutsch",
-    lang_es: "Español",
-    lang_uk: "Українська",
 
-    blog_breadcrumb_home: "Home",
-    blog_breadcrumb_guides: "Relocation Guides",
-    blog_label: "Insights",
-    blog_title: "Practical guides for moving and settling in Switzerland",
-    blog_intro:
-      "Clear, elegant articles on permits, registration, insurance, and the first administrative steps after arrival — written for people who want confidence, clarity, and less stress.",
+  payment_home: "Home",
+  payment_booking_nav: "Booking",
+  payment_guides: "Guides",
+  payment_free_consultation: "Free consultation",
+  payment_contacts: "Contacts",
 
-    blog_permits_meta_category: "Residence permits",
-    blog_permits_meta_time: "5 min read",
-    blog_permits_title: "Residence permits in Switzerland: where to start",
-    blog_permits_lead:
-      "For many newcomers, the permit process feels opaque at first. The good news is that most cases become manageable once you understand the timeline, the required documents, and the logic behind the different permit types.",
-    blog_permits_p1:
-      "If you are moving to Switzerland for work, family reasons, or a long-term stay, your residence permit is one of the first essential administrative steps. In most cases, your type of permit depends on your nationality, employment status, and expected length of stay.",
-    blog_permits_h3: "The three permit types most people hear about first",
-    blog_permits_li1:
-      "<strong>L permit</strong> for shorter stays, often tied to limited contracts or temporary assignments.",
-    blog_permits_li2:
-      "<strong>B permit</strong> for longer residence, commonly used for employees, family reunification, and many standard relocation cases.",
-    blog_permits_li3:
-      "<strong>C permit</strong> for permanent residence after several qualifying years in Switzerland.",
-    blog_permits_note:
-      "Start by checking not only the federal rules, but also the practical process in your canton and municipality. The legal structure is national, but execution often happens locally.",
-    blog_permits_caption:
-      "A strong application usually starts with complete documentation and a clear registration timeline.",
-    blog_permits_h3_2: "Documents you usually need early",
-    blog_permits_p2:
-      "Although requirements differ by case, people often need a valid passport or ID, proof of address, an employment contract or proof of sufficient means, and civil status documents where relevant. It is worth preparing both originals and digital copies in advance.",
-    blog_permits_p3:
-      "One of the most common mistakes is assuming that the permit is handled before local registration. In reality, registration and permit processing are usually closely connected. If you delay one, you often delay both.",
-    blog_permits_h3_3: "How to make the process smoother",
-    blog_permits_li4: "Prepare documents before arrival where possible.",
-    blog_permits_li5: "Check your municipality’s registration deadline immediately.",
-    blog_permits_li6: "Keep copies of contracts, address confirmations, and correspondence.",
-    blog_permits_li7: "Ask early if translations, apostilles, or certified copies are needed.",
-    blog_permits_p4:
-      "The permit process is rarely about one single form. It is about sequencing: housing, registration, insurance, and employment paperwork often interact. The earlier you organize them together, the easier your first weeks in Switzerland become.",
-    blog_permits_tag1: "Permits",
-    blog_permits_tag2: "Arrival",
-    blog_permits_tag3: "Administration",
-    blog_permits_cta: "Need personal guidance?",
-    blog_permits_next_label: "Next article",
-    blog_permits_next_title: "Anmeldung in Zürich: what you need to prepare",
-    blog_permits_related_label: "Related article",
-    blog_permits_related_title: "Health insurance in Switzerland: deadlines and obligations",
-    blog_permits_cover_alt: "Residence permit article cover",
-    blog_permits_inline_alt: "Documents on a desk",
+  payment_back: "← Back",
+  payment_micro: "Payment review",
+  payment_hero_title: "Review your <span>consultation</span>",
+  payment_hero_title_span: "consultation",
+  payment_hero_sub: "Confirm your selected package and your details before continuing to secure payment.",
 
-    blog_anmeldung_meta_category: "Registration",
-    blog_anmeldung_meta_time: "4 min read",
-    blog_anmeldung_title: "Anmeldung in Zürich: what you need to prepare",
-    blog_anmeldung_lead:
-      "Registration in Zürich is often one of the first official appointments after arrival. It may look simple from the outside, but having the right documents ready can save you delays, repeat visits, and unnecessary stress.",
-    blog_anmeldung_p1:
-      "After moving into the city, you usually need to register your address with the local authorities within a limited time. This registration confirms your residence and is often needed for later administrative steps such as permit processing, banking, utilities, and insurance setup.",
-    blog_anmeldung_h3_1: "What to bring to the appointment",
-    blog_anmeldung_li1: "Valid passport or national ID card",
-    blog_anmeldung_li2: "Rental agreement or written housing confirmation",
-    blog_anmeldung_li3: "Employment contract or proof of income, if relevant",
-    blog_anmeldung_li4: "Additional civil status documents, depending on your case",
-    blog_anmeldung_caption:
-      "A well-prepared registration appointment can unlock several next steps in your relocation journey.",
-    blog_anmeldung_h3_2: "Why this step matters more than people expect",
-    blog_anmeldung_p2:
-      "Anmeldung is not just a formality. It establishes your local presence in the system. Many downstream processes rely on it, including communications from authorities, tax administration, insurance enrollment, and in some cases permit issuance.",
-    blog_anmeldung_p3:
-      "New arrivals often underestimate how important small details are, such as matching names across documents, correct move-in dates, and written confirmation from the main tenant or landlord where needed.",
-    blog_anmeldung_note:
-      "If your housing situation is temporary, shared, or newly arranged, double-check whether your address proof will be accepted before the appointment.",
-    blog_anmeldung_h3_3: "How to avoid delays",
-    blog_anmeldung_li5: "Book your appointment as early as possible.",
-    blog_anmeldung_li6: "Bring complete paperwork, not only screenshots.",
-    blog_anmeldung_li7: "Make sure your address format is consistent everywhere.",
-    blog_anmeldung_li8: "Keep a copy of the registration confirmation after the meeting.",
-    blog_anmeldung_p4:
-      "Once registration is complete, things tend to move faster. You have an official local reference point, and that makes every following step more straightforward.",
-    blog_anmeldung_tag1: "Zürich",
-    blog_anmeldung_tag2: "Registration",
-    blog_anmeldung_tag3: "First steps",
-    blog_anmeldung_cta: "Book support",
-    blog_anmeldung_prev_label: "Previous article",
-    blog_anmeldung_prev_title: "Residence permits in Switzerland: where to start",
-    blog_anmeldung_next_label: "Next article",
-    blog_anmeldung_next_title: "Health insurance in Switzerland: deadlines and obligations",
-    blog_anmeldung_cover_alt: "Zurich registration article cover",
-    blog_anmeldung_inline_alt: "City office and paperwork",
+  payment_feature_summary: "Booking summary",
+  payment_feature_stripe: "Secure Stripe handoff",
+  payment_feature_edit: "Edit before payment",
+  payment_final_step: "final step before checkout",
 
-    blog_study_meta_category: "Study",
-    blog_study_meta_time: "5 min read",
-    blog_study_title: "Studying in Switzerland: easier than you think",
-    blog_study_lead:
-      "Switzerland can feel highly structured from the outside, but for many international students the process is more approachable than expected once you understand admissions, residence registration, and the basic paperwork after arrival.",
-    blog_study_p1:
-      "Students choosing universities in Switzerland are often surprised by how organized the system is. Once you have your admission, the next steps usually become much clearer: securing accommodation, preparing proof of finances, arranging health insurance, and registering after arrival.",
-    blog_study_h3_1: "What usually matters most",
-    blog_study_li1: "Your university admission confirmation",
-    blog_study_li2: "A valid passport or ID",
-    blog_study_li3: "Proof of accommodation",
-    blog_study_li4: "Proof that you can financially support yourself",
-    blog_study_li5: "Health insurance planning",
-    blog_study_note:
-      "Many students think the difficult part starts after arrival. In practice, life becomes easier once your address, permit process, and insurance are organized early.",
-    blog_study_p2:
-      "If you are studying in Zürich, Lausanne, Geneva, or another major city, demand for housing can be one of the biggest practical challenges. Starting your search early is often more important than overcomplicating the rest of the process.",
-    blog_study_h3_2: "Why it may be easier than expected",
-    blog_study_p3:
-      "Swiss administration is formal, but it is usually predictable. If your documents are complete and your deadlines are respected, the process tends to move in a logical order. That predictability is often what makes the experience easier than newcomers first imagine.",
-    blog_study_tag1: "Students",
-    blog_study_tag2: "Universities",
-    blog_study_tag3: "Arrival",
-    blog_study_cta: "Need help planning?",
-    blog_study_cover_alt: "Studying in Switzerland",
+  payment_summary_kicker: "Booking summary",
+  payment_title: "Review your consultation before payment",
+  payment_subtitle: "Please confirm your selected package and your details below.",
+  payment_name: "Full name",
+  payment_email: "Email",
+  payment_phone: "Phone / WhatsApp",
+  payment_location: "Current location",
+  payment_format: "Preferred format",
+  payment_message: "Short description",
+  payment_total: "Total due",
 
-    blog_marriage_meta_category: "Marriage",
-    blog_marriage_meta_time: "5 min read",
-    blog_marriage_title: "Getting married in Switzerland: what international couples should know",
-    blog_marriage_lead:
-      "Marriage in Switzerland can be straightforward, but international couples should be ready for document checks, civil status formalities, and timing that depends heavily on preparation.",
-    blog_marriage_p1:
-      "If one or both partners are foreign nationals, the process often includes submitting official identity documents, birth certificates, civil status records, and in some cases additional legalized or translated papers. The exact requirements can vary depending on nationality and personal history.",
-    blog_marriage_h3_1: "What to prepare early",
-    blog_marriage_li1: "Valid identification for both partners",
-    blog_marriage_li2: "Birth certificates and civil status documents",
-    blog_marriage_li3: "Any required translations or certified copies",
-    blog_marriage_li4: "Proof of residence where relevant",
-    blog_marriage_p2:
-      "One of the main reasons couples experience delays is not the marriage appointment itself, but document preparation. Missing one formal requirement can postpone the timeline much more than expected.",
-    blog_marriage_note:
-      "If documents were issued abroad, check early whether apostilles, legalization, or official translations are required. This is often where the process slows down.",
-    blog_marriage_h3_2: "Why planning matters",
-    blog_marriage_p3:
-      "International marriages are usually manageable when approached as an administrative sequence rather than a single event. Civil status paperwork, local registration, and future residence planning often connect closely, especially when one spouse intends to remain in Switzerland.",
-    blog_marriage_tag1: "Marriage",
-    blog_marriage_tag2: "Civil status",
-    blog_marriage_tag3: "Documents",
-    blog_marriage_cta: "Get personal guidance",
-    blog_marriage_cover_alt: "Getting married in Switzerland",
+  payment_kicker: "Payment",
+  payment_right_title: "Continue to secure payment",
+  payment_right_text: "When you click the button below, you can continue with your payment setup.",
+  payment_pay_now: "Pay now",
+  payment_edit: "Edit booking",
+  payment_note: "Payment confirms your consultation request. If your matter requires formal legal representation, you may be referred to a licensed lawyer where appropriate.",
 
-    blog_family_meta_category: "Family reunification",
-    blog_family_meta_time: "6 min read",
-    blog_family_title: "Bringing your family to Switzerland: is it easier for Swiss or EU citizens?",
-    blog_family_lead:
-      "Family reunification rules in Switzerland depend strongly on nationality, permit type, housing situation, and income. In practical terms, the path may feel easier or harder depending on which legal route applies to you.",
-    blog_family_p1:
-      "People often ask whether it is easier for Swiss citizens or EU citizens to bring their family members to Switzerland. The answer depends on the exact family relationship, the country of origin of the relatives, and the residence status of the person already living in Switzerland.",
-    blog_family_h3_1: "What authorities often look at",
-    blog_family_li1: "Your nationality and residence status",
-    blog_family_li2: "Your type of permit or citizenship status",
-    blog_family_li3: "Whether you have suitable accommodation",
-    blog_family_li4: "Whether financial support requirements are met",
-    blog_family_li5: "The relationship to the family member joining you",
-    blog_family_p2:
-      "In practice, EU-related mobility rights can make some cases more flexible, while Swiss citizens may be dealing with a different legal framework. That is why two families with seemingly similar situations can face different document requirements and timelines.",
-    blog_family_note:
-      "The fastest way to reduce uncertainty is to define the case very clearly first: who is joining, from where, under which status, and on what timeline.",
-    blog_family_h3_2: "How to prepare a strong case",
-    blog_family_p3:
-      "Start with complete personal documents, proof of relationship, proof of housing, and proof of financial stability where required. Many delays happen because families start the process emotionally, but not structurally. A good document strategy makes the process much easier.",
-    blog_family_tag1: "Family",
-    blog_family_tag2: "Relocation",
-    blog_family_tag3: "Permits",
-    blog_family_cta: "Ask about your case",
-    blog_family_cover_alt: "Bringing family to Switzerland",
+  payment_attention: "Pay attention",
+  payment_no_free_consultation: "Booked without free consultation",
+  payment_attention_text: "We recommend booking a free consultation. If you book a package and it turns out that your case is hopeless, we will charge 10% of the package price and return the rest.",
+  payment_package_pricing: "Package pricing",
 
-    blog_insurance_meta_category: "Health insurance",
-    blog_insurance_meta_time: "6 min read",
-    blog_insurance_title: "Health insurance in Switzerland: deadlines and obligations",
-    blog_insurance_lead:
-      "Swiss health insurance is mandatory, private, and highly structured. For newcomers, the challenge is rarely understanding that it is required — it is understanding when to act, what to choose, and how to avoid paying more than necessary.",
-    blog_insurance_p1:
-      "After arriving in Switzerland, you generally have a limited period to enroll in health insurance. Basic coverage is compulsory, and it applies even when people are still settling in, comparing providers, or waiting for other paperwork to be completed.",
-    blog_insurance_h3_1: "The three decisions most newcomers need to make",
-    blog_insurance_li1: "Which provider to choose",
-    blog_insurance_li2: "Which deductible level fits their budget and situation",
-    blog_insurance_li3: "Which insurance model makes sense for their lifestyle",
-    blog_insurance_p2:
-      "Premiums can vary significantly, but the cheapest option is not always the best one. People with families, regular medical needs, or a preference for maximum flexibility may value different features than someone who wants the lowest monthly premium.",
-    blog_insurance_caption:
-      "Choosing coverage is about balancing legal compliance, monthly premiums, deductible, and convenience.",
-    blog_insurance_h3_2: "Deadlines matter",
-    blog_insurance_p3:
-      "One of the most important details is timing. If you miss the enrollment window, the authorities may assign a provider on your behalf. That usually means less control, less optimization, and potentially higher costs than if you had chosen carefully yourself.",
-    blog_insurance_note:
-      "Insurance should not be treated as a final step after everything else. It is one of the core arrival tasks and works best when handled alongside registration and permit planning.",
-    blog_insurance_h3_3: "A smart way to compare options",
-    blog_insurance_li4: "Estimate how often you realistically expect to use healthcare.",
-    blog_insurance_li5: "Compare deductible impact, not only monthly premium.",
-    blog_insurance_li6: "Check whether telemedicine or family-doctor models suit you.",
-    blog_insurance_li7: "Review whether supplementary insurance is actually necessary.",
-    blog_insurance_p4:
-      "A good setup is not just compliant. It should also feel sustainable. The right insurance choice gives you peace of mind, protects your budget, and avoids expensive corrections later.",
-    blog_insurance_tag1: "Insurance",
-    blog_insurance_tag2: "Deadlines",
-    blog_insurance_tag3: "Budget",
-    blog_insurance_cta: "Get help choosing",
-    blog_insurance_prev_label: "Previous article",
-    blog_insurance_prev_title: "Anmeldung in Zürich: what you need to prepare",
-    blog_insurance_back_label: "Back to start",
-    blog_insurance_back_title: "Residence permits in Switzerland: where to start",
-    blog_insurance_cover_alt: "Health insurance article cover",
-    blog_insurance_inline_alt: "Medical insurance planning",
+  package_initial: "Quick consultation — CHF 79",
+  package_review: "Relocation support — CHF 189",
+  package_relocation: "Settlement strategy — CHF 349",
 
-    sidebar_on_page_label: "On this page",
-    sidebar_toc_title: "Table of contents",
-    sidebar_toc_permits: "Residence permits in Switzerland",
-    sidebar_toc_anmeldung: "Anmeldung in Zürich",
-    sidebar_toc_insurance: "Health insurance in Switzerland",
-    sidebar_toc_study: "Studying in Switzerland",
-    sidebar_toc_marriage: "Getting married in Switzerland",
-    sidebar_toc_family: "Bringing your family to Switzerland",
+  payment_footer_rights: "© 2026 Easy Help Switzerland - all rights reserved.",
+  payment_footer_page: "Payment page"
 
-    sidebar_related_label: "Related services",
-    sidebar_related_title: "How we can help",
-    sidebar_related_consultation_label: "Consultation",
-    sidebar_related_consultation_title: "Book a free consultation for your relocation plan",
-    sidebar_related_permits_label: "Permits",
-    sidebar_related_permits_title: "Support with residence permits and registration steps",
-    sidebar_related_insurance_label: "Insurance",
-    sidebar_related_insurance_title: "Get help choosing the right health insurance setup",
-
-    sidebar_support_label: "Need support?",
-    sidebar_support_title: "Prefer personal guidance?",
-    sidebar_support_text:
-      "If you want help with registration, permits, housing documents, or health insurance, book a consultation and get a clear step-by-step plan.",
-    sidebar_support_cta: "Book consultation",
-
-    cta_label: "Next step",
-    cta_title: "Make your relocation easier from day one",
-    cta_text:
-      "Save time, avoid missed deadlines, and move through permits, registration, and insurance with a clear structure and personal support.",
-    cta_book: "Book consultation",
-    cta_home: "Back to homepage",
-
-    footer_copy: "© 2026 Zurich Relocation",
-    footer_tagline: "Practical relocation support in Switzerland",
 
   },
 
@@ -773,478 +801,502 @@ why_4_title: "Ayuda rentable",
 why_4_desc: "Obtén claridad y dirección antes de gastar innecesariamente en un mandato legal completo.",
 why_4_content: `<p>No todas las situaciones requieren un mandato legal completo desde el principio.</p><ul><li>Obtén claridad antes de pagar por trabajo legal innecesario</li><li>Entiende cuál es el primer paso más inteligente para tu caso</li><li>Usa apoyo específico donde aporte más valor</li></ul><p><strong>Resultado:</strong> mejores decisiones y mejor control del presupuesto.</p>`,
 
-process: {
-title: "Cómo trabajamos",
-      side: "Un proceso estructurado diseñado para reducir la incertidumbre y mantener cada etapa simple, visible y manejable.",
 
-      discoverTitle: "Descubrir",
-      discoverItem1: "Revisión inicial del caso",
-      discoverItem2: "Clarificar tu camino",
-      discoverItem3: "Evaluar urgencia",
+process_title: "Cómo trabajamos",
+      process_side: "Un proceso estructurado diseñado para reducir la incertidumbre y mantener cada etapa simple, visible y manejable.",
 
-      defineTitle: "Definir",
-      defineItem1: "Documentos necesarios",
-      defineItem2: "Mejor vía administrativa",
-      defineItem3: "Próximos pasos claros",
+      process_discoverTitle: "Descubrir",
+      process_discoverItem1: "Revisión inicial del caso",
+      process_discoverItem2: "Clarificar tu camino",
+      process_discoverItem3: "Evaluar urgencia",
 
-      supportTitle: "Apoyo",
-      supportItem1: "Formularios y cartas",
-      supportItem2: "Contacto con autoridades",
-      supportItem3: "Orientación práctica",
+      process_defineTitle: "Definir",
+      process_defineItem1: "Documentos necesarios",
+      process_defineItem2: "Mejor vía administrativa",
+      process_defineItem3: "Próximos pasos claros",
 
-      followUpTitle: "Seguimiento",
-      followUpItem1: "Revisión de la solicitud",
-      followUpItem2: "Revisión de próximos pasos",
-      followUpItem3: "Apoyo continuo"
-      },
+      process_supportTitle: "Apoyo",
+      process_supportItem1: "Formularios y cartas",
+      process_supportItem2: "Contacto con autoridades",
+      process_supportItem3: "Orientación práctica",
+
+      process_followUpTitle: "Seguimiento",
+      process_followUpItem1: "Revisión de la solicitud",
+      process_followUpItem2: "Revisión de próximos pasos",
+      process_followUpItem3: "Apoyo continuo",
     
 
-testimonials_label: "Opiniones de clientes",
-testimonials_title: "Lo que dicen los clientes",
+      testimonials_micro_left: "Opiniones de clientes",
 
-testimonial_1_text: "Cuando llegué a Zúrich estaba completamente confundida. No sabía adónde ir primero, qué documentos necesitaba ni cómo funcionaba el registro. Después de la consulta, todo finalmente se sintió claro y mucho menos estresante.",
-testimonial_1_from: "Llegó desde Brasil",
+testimonial_1_text: "Estaba completamente confundida cuando llegué a Zúrich. Después de la consulta, todo finalmente se sintió claro y mucho menos estresante.",
+testimonial_1_meta: "Mudada desde Brasil vive en Zúrich",
 
-testimonial_2_text: "Estaba preocupada por mi permiso y por algunas cartas de las autoridades. Todo me fue explicado de una manera muy simple y me sentí mucho más tranquila después.",
-testimonial_2_from: "Llegó desde Ucrania",
+testimonial_2_text: "Me preocupaba mi permiso y varias cartas de las autoridades. Todo me fue explicado de forma muy sencilla.",
+testimonial_2_meta: "Mudada desde Ucrania",
 
-testimonial_3_text: "Lo que más me ayudó fue poder hacer preguntas normales y obtener respuestas claras. No me sentí apurado y finalmente entendí qué hacer después.",
-testimonial_3_from: "Llegó desde España",
+testimonial_3_text: "Lo que más me ayudó fue poder hacer preguntas normales y recibir respuestas claras sin sentirme apresurado.",
+testimonial_3_meta: "Mudado desde España",
 
-testimonial_next_aria: "Siguiente testimonio",
+testimonials_micro_right: "Por qué empezar aquí",
+testimonials_title: "Apoyo práctico antes de costes innecesarios",
 
-testimonials_why_label: "Por qué los clientes empiezan aquí",
-testimonials_why_title: "Apoyo práctico antes de costos innecesarios",
-testimonials_why_p1: "Muchas personas primero necesitan claridad, estructura y ayuda con documentos o comunicación, no un mandato legal completo desde el principio.",
-testimonials_why_p2: "Una consulta breve puede ahorrar tiempo, reducir el estrés y ayudarte a evitar errores costosos o retrasos.",
+testimonials_text_1: "Muchas personas primero necesitan claridad, estructura y ayuda con documentos o comunicación, no un mandato legal completo desde el principio.",
+testimonials_text_2: "Una breve consulta puede ahorrar tiempo, reducir el estrés y evitar errores o retrasos costosos.",
+
 testimonials_cta: "Solicitar consulta gratuita",
 
-pricing_label: "Precios",
-pricing_title: "Empiece con claridad, no con una gran factura legal",
-pricing_intro: "Para muchos asuntos de reubicación y trámites administrativos, quizá no necesite representación legal completa desde el inicio. Empiece con una primera consulta gratuita, entienda su ruta y elija el nivel de apoyo que mejor se adapte a su caso.",
 
-pricing_card1_plan: "Essential",
-pricing_card1_title: "Consulta individual",
-pricing_card1_price: "CHF 59",
-pricing_card1_sub: "Para clientes que necesitan una respuesta clara, orientación y próximos pasos.",
-pricing_card1_point1: "Consulta de 30 minutos",
-pricing_card1_point2: "Visión general del caso",
-pricing_card1_point3: "Explicación de los documentos necesarios",
-pricing_card1_point4: "Orientación clara sobre los siguientes pasos",
-pricing_card1_cta: "Reservar paquete",
+pricing_title: "Precios",
+pricing_stat: "paquetes claros para empezar",
+pricing_side: "Empieza con claridad — no con una gran factura legal. Elige el nivel de apoyo según tu caso y urgencia.",
 
-pricing_card2_badge: "Más solicitado",
-pricing_card2_plan: "Practical",
-pricing_card2_title: "Consulta + revisión de documentos",
-pricing_card2_price: "CHF 129",
-pricing_card2_sub: "Para clientes que quieren orientación y además ayuda para revisar la documentación antes de actuar.",
-pricing_card2_point1: "Consulta de 60 minutos",
-pricing_card2_point2: "Revisión de sus documentos",
-pricing_card2_point3: "Lista personalizada",
-pricing_card2_point4: "Resumen escrito de seguimiento",
-pricing_card2_point5: "Explicación de la vía administrativa correcta",
-pricing_card2_cta: "Reservar paquete",
+pricing_badge: "Más popular",
+pricing_cta: "Reservar paquete",
 
-pricing_card3_plan: "Complete",
-pricing_card3_title: "Paquete de apoyo para reubicación",
-pricing_card3_price: "desde CHF 290",
-pricing_card3_sub: "Para situaciones más complejas que implican varios pasos, formularios, autoridades o cartas.",
-pricing_card3_point1: "Revisión completa del caso",
-pricing_card3_point2: "Apoyo en la preparación de documentos",
-pricing_card3_point3: "Ayuda con redacción de cartas / correos",
-pricing_card3_point4: "Preparación para Anmeldung / autoridades",
-pricing_card3_point5: "Orientación de seguimiento durante el proceso",
-pricing_card3_cta: "Reservar paquete",
+pricing_qs_plan: "Inicio rápido",
+pricing_qs_title: "Consulta rápida",
+pricing_qs_desc: "Perfecto si necesitas orientación rápida sobre una cuestión práctica.",
+pricing_qs_item1: "Consulta online de 30 minutos",
+pricing_qs_item2: "Lista personalizada",
+pricing_qs_item3: "Una aclaración escrita",
+pricing_qs_item4: "Seguimiento por WhatsApp durante 3 días",
 
-pricing_compare_label: "Por qué empezar aquí",
-pricing_compare_title: "Un primer paso más inteligente para asuntos prácticos de migración",
-pricing_compare_intro: "Muchas personas primero necesitan claridad, estructura, documentos y la comunicación adecuada, no necesariamente un mandato completo con un abogado.",
+pricing_core_plan: "Core",
+pricing_core_title: "Apoyo en reubicación",
+pricing_core_desc: "Ideal si estás preparando documentos o comenzando tu traslado.",
+pricing_core_item1: "Consulta y revisión de situación",
+pricing_core_item2: "Lista de reubicación personalizada",
+pricing_core_item3: "Hasta 2 consultas o cartas",
+pricing_core_item4: "Apoyo en un trámite administrativo",
+pricing_core_item5: "Revisión de un documento",
 
-pricing_compare_mine_title: "Este servicio",
-pricing_compare_mine_price: "CHF 0 – 290+",
-pricing_compare_mine_point1: "Primera consulta gratuita",
-pricing_compare_mine_point2: "Apoyo accesible para pasos migratorios cotidianos",
-pricing_compare_mine_point3: "Ayuda con documentos, cartas, listas y preparación",
-pricing_compare_mine_point4: "Orientación administrativa clara y práctica",
-pricing_compare_mine_point5: "Derivación a un abogado cuando se necesita representación formal",
+pricing_premium_plan: "Premium",
+pricing_premium_title: "Estrategia de establecimiento",
+pricing_premium_desc: "Asesoramiento completo para establecerte en Suiza con confianza.",
+pricing_premium_item1: "Consulta extendida",
+pricing_premium_item2: "Estrategia personalizada",
+pricing_premium_item3: "Asesoramiento sobre registro, seguro o vivienda",
+pricing_premium_item4: "Hasta 5 consultas escritas",
+pricing_premium_item5: "Seguimiento durante 2 semanas",
 
-pricing_compare_market_title: "Tarifas típicas de abogados",
-pricing_compare_market_price: "CHF 250 – 500/hora",
-pricing_compare_market_point1: "A menudo se factura por hora",
-pricing_compare_market_point2: "Algunas consultas iniciales rondan CHF 300–330",
-pricing_compare_market_point3: "Lo mejor para disputas, recursos y representación legal formal",
-pricing_compare_market_point4: "Puede ser más de lo necesario para asuntos principalmente administrativos",
-pricing_compare_market_point5: "Importante cuando el caso se vuelve jurídicamente complejo",
 
-pricing_market_note: "Ejemplos publicados en Suiza muestran consultas migratorias o legales alrededor de CHF 300–330, honorarios de abogados desde unos CHF 250 y hasta CHF 350–500 o más por hora, mientras que algunos centros de asesoramiento de bajo coste pueden ser mucho más económicos en contextos específicos.",
+blog_title: "Guías y Blog",
+blog_stat: "artículos prácticos para empezar",
+blog_side: "Artículos claros sobre permisos, registro, seguros y primeros pasos en Suiza.",
 
-faq_label: "Preguntas frecuentes",
-faq_title: "Encuentre respuestas a sus preguntas más comunes",
-faq_intro: "Información clara sobre consultas, apoyo y el alcance de la asistencia.",
+blog_1_title: "Permisos de residencia en Suiza: por dónde empezar",
+blog_1_desc: "Una visión práctica de los primeros pasos, documentos necesarios y errores comunes.",
 
-faq_q1: "¿La primera consulta es gratuita?",
-faq_a1: "Sí. La primera consulta es gratuita. Durante esta conversación inicial analizamos brevemente su caso y comentamos los posibles próximos pasos.",
+blog_2_title: "Anmeldung en Zúrich: qué preparar",
+blog_2_desc: "Descubre qué llevar, cómo funciona el proceso y cómo evitar retrasos.",
 
-faq_q2: "¿Ofrece representación legal?",
-faq_a2: "No. Ofrezco orientación estructurada, apoyo administrativo y preparación de documentos. Cuando se requiere representación formal, puedo derivar a los clientes a abogados autorizados.",
+blog_3_title: "Seguro de salud en Suiza: plazos y obligaciones",
+blog_3_desc: "Entiende los requisitos legales, plazos y cómo elegir cobertura.",
 
-faq_q3: "¿Las consultas están disponibles en línea o en persona?",
-faq_a3: "Ambas opciones están disponibles. Las consultas pueden realizarse en línea o en persona en Zúrich, según su preferencia.",
+blog_read: "Leer más →",
 
-faq_q4: "¿Trabaja solo con asuntos migratorios?",
-faq_a4: "Los asuntos de migración y reubicación son el enfoque principal. En algunos casos también pueden abordarse cuestiones administrativas relacionadas, mientras que las áreas más especializadas pueden requerir la derivación a un abogado cualificado.",
 
-blog_label: "Guías",
-blog_title: "Guías prácticas para mudarse y establecerse en Suiza",
-blog_intro: "Artículos claros sobre permisos, registro, seguro, empleo y los pasos administrativos cotidianos en Suiza.",
+faq_title: "Preguntas frecuentes",
 
-blog_card1_title: "Permisos de residencia en Suiza: por dónde empezar",
-blog_card1_text: "Una visión práctica de los primeros pasos, los documentos necesarios y los errores comunes al solicitar un permiso.",
-blog_card1_link: "Leer más",
+faq_1_question: "¿Cuánto tiempo dura la primera consulta gratuita?",
+faq_1_answer: "Mientras podamos definir la estrategia, las preguntas que debemos responder y los pasos a seguir, es gratuita. Normalmente, los primeros 30 minutos son suficientes para entender el asunto y su solución.",
 
-blog_card2_title: "Anmeldung en Zúrich: qué necesitas preparar",
-blog_card2_text: "Descubre qué debes llevar, cómo funciona el proceso y cómo evitar retrasos al registrarte ante las autoridades locales.",
-blog_card2_link: "Leer más",
+faq_2_question: "No estoy seguro de si puedo escribirte sobre mi caso.",
+faq_2_answer: "Hay una lista aproximada de mis servicios en la página. Siempre puedes tener una primera consulta gratuita para entender si tu asunto entra dentro de mis servicios. Así que escríbeme.",
 
-blog_card3_title: "Seguro médico en Suiza: plazos y obligaciones",
-blog_card3_text: "Comprende los requisitos legales, los plazos y los aspectos básicos para elegir la cobertura después de tu llegada.",
-blog_card3_link: "Leer más",
+faq_3_question: "¿Cuánto tiempo llevas estudiando y en qué áreas?",
+faq_3_answer: "Ya tengo una Licenciatura en Derecho. Ahora estoy en mi segundo año de Máster. He estudiado muchas materias, pero mis áreas más fuertes son derecho migratorio, derecho de familia, derecho fiscal, derecho penal, derecho notarial, derecho matrimonial y sucesorio, y derecho administrativo.",
 
-contact_label: "Contacto",
-contact_title: "Envíe una breve solicitud",
-contact_text: "No dude en ponerse en contacto para consultas, apoyo con documentos o preguntas sobre reubicación en Suiza.",
-contact_email_label: "Correo electrónico",
-contact_phone_label: "Teléfono",
-contact_location_label: "Ubicación",
-contact_location_value: "Zúrich, Suiza",
-footer_copyright: "© 2026 Polina Kravtsova — Todos los derechos reservados.",
+faq_4_question: "¿Qué idiomas hablas?",
+faq_4_answer: "Hablo alemán, inglés, ucraniano y ruso con fluidez. También podemos comunicarnos en español. Mi esposo, Kevin Garcia, habla italiano, portugués y español con fluidez y está listo para participar en una consulta.",
 
-booking_back: "← Volver a la página principal",
 
-booking_kicker: "Reserva",
-booking_title: "Reservar una consulta",
-booking_intro: "Elija el paquete que mejor se adapte a su situación, deje una breve descripción y continúe con el pago. El proceso es claro, sencillo y está diseñado para ahorrarle tiempo.",
+contact_title: "¿Listo para hablar sobre tu futuro?",
+contact_text: "Deja tus datos de contacto y me pondré en contacto contigo para ayudarte a elegir la mejor forma de resolver tu caso lo antes posible.",
 
-booking_next_title: "Qué sucede después",
-booking_next_text: "Después del pago, su solicitud será revisada. Luego será contactado para confirmar el formato de la consulta y los siguientes pasos.",
-booking_next_1: "Online o presencial en Zúrich",
-booking_next_2: "Orientación práctica estructurada",
-booking_next_3: "Respuesta en 24 horas",
+contact_name: "TU NOMBRE",
+contact_email: "TU EMAIL",
+contact_phone: "+41 00 000 00 00",
 
-booking_details_label: "Datos del cliente",
-booking_details_title: "Seleccione su paquete y complete sus datos",
-booking_details_text: "Elija una opción a continuación y proporcione la información necesaria para preparar su reserva.",
+contact_policy: "Al hacer clic en el botón, aceptas la política de privacidad y el tratamiento de datos personales.",
+contact_cta: "Solicitar consulta gratuita",
 
-booking_pack1_name: "Consulta inicial",
-booking_pack1_desc: "Una consulta enfocada para preguntas iniciales y orientación.",
+footer_brand: "Easy Help Switzerland",
+footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.",
 
-booking_pack2_name: "Consulta + revisión",
-booking_pack2_desc: "Consulta con revisión de documentos y preparación más detallada.",
 
-booking_pack3_name: "Apoyo de relocación",
-booking_pack3_desc: "Para casos más complejos con varios pasos, formularios o contacto con autoridades.",
+//Blog.html
 
-booking_name: "Nombre completo",
-booking_email: "Correo electrónico",
-booking_phone: "Teléfono / WhatsApp",
-booking_location: "Ubicación actual",
-booking_message: "Breve descripción de su situación",
-booking_format: "Formato de consulta preferido",
 
-booking_format_online: "Online",
-booking_format_inperson: "Presencial en Zúrich",
-booking_format_any: "Sin preferencia",
+  blog_brand_name: "Easy Help",
+  blog_brand_country: "Suiza",
 
-booking_note: "El pago confirma su solicitud. Si su caso requiere representación legal formal, puede ser referido a un abogado autorizado.",
+  blog_nav_home: "Inicio",
+  blog_nav_guides: "Guías",
+  blog_nav_services: "Servicios",
+  blog_nav_consultation: "Consulta",
+  blog_nav_contacts: "Contactos",
 
-booking_continue: "Continuar al pago",
-booking_back_button: "Volver",
+  blog_phone: "+41 76 449 75 81",
+  lang_toggle: "Español ▾",
 
-booking_trust1_title: "Proceso claro",
-booking_trust1_text: "Elija un paquete, complete sus datos y continúe con el pago.",
+  blog_hero_micro: "Guías y Blog",
+  blog_hero_title_main: "Easy Guide Switzerland",
+  blog_hero_title_sub: "reubicación en Suiza",
+  blog_hero_sub: "Artículos claros y prácticos sobre permisos, registro, seguro médico, estudios, matrimonio y reunificación familiar, rediseñados para encajar con el estilo editorial premium de su sitio web principal.",
 
-booking_trust2_title: "Contacto rápido",
-booking_trust2_text: "Su solicitud será revisada y respondida en 24 horas.",
+  blog_hero_feature_1: "Artículos largos fáciles de leer",
+  blog_hero_feature_2: "Diseño editorial premium",
+  blog_hero_feature_3: "Mismo lenguaje visual que la página principal",
 
-booking_trust3_title: "Apoyo práctico",
-booking_trust3_text: "Orientación estructurada para permisos, registros y trámites administrativos.",
+  blog_hero_guides_count: "6",
+  blog_hero_guides_label: "guías estructuradas en un solo lugar",
 
-payment_back: "← Volver a la reserva",
-payment_summary_kicker: "Resumen de la reserva",
-payment_title: "Revise su consulta antes del pago",
-payment_subtitle: "Por favor confirme a continuación el paquete seleccionado y sus datos.",
+  blog_permits_meta_category: "Permisos de residencia",
+  blog_permits_meta_time: "5 min de lectura",
+  blog_permits_title: "Permisos de residencia en Suiza: por dónde empezar",
+  blog_permits_lead: "Para muchas personas recién llegadas, el proceso de permiso parece opaco al principio. La buena noticia es que la mayoría de los casos se vuelven manejables una vez que entiendes el calendario, los documentos necesarios y la lógica detrás de los distintos tipos de permiso.",
+  blog_permits_p1: "Si te mudas a Suiza por trabajo, razones familiares o una estancia de larga duración, tu permiso de residencia es uno de los primeros pasos administrativos esenciales. En la mayoría de los casos, el tipo de permiso depende de tu nacionalidad, situación laboral y duración prevista de la estancia.",
+  blog_permits_h3_1: "Los tres tipos de permiso de los que la mayoría oye hablar primero",
+  blog_permits_li1: "Permiso L para estancias cortas, a menudo vinculado a contratos limitados o asignaciones temporales.",
+  blog_permits_li2: "Permiso B para residencia más larga, usado comúnmente para empleados, reunificación familiar y muchos casos estándar de reubicación.",
+  blog_permits_li3: "Permiso C para residencia permanente tras varios años que cumplan los requisitos en Suiza.",
+  blog_permits_note: "Empieza revisando no solo las normas federales, sino también el proceso práctico en tu cantón y municipio. La estructura legal es nacional, pero la ejecución suele hacerse a nivel local.",
+  blog_permits_caption: "Una buena solicitud suele empezar con documentación completa y un calendario claro de registro.",
+  blog_permits_h3_2: "Documentos que normalmente necesitas desde el principio",
+  blog_permits_p2: "Aunque los requisitos varían según el caso, las personas suelen necesitar un pasaporte o documento de identidad válido, prueba de domicilio, contrato de trabajo o prueba de medios suficientes, y documentos de estado civil cuando corresponda. Vale la pena preparar originales y copias digitales con antelación.",
+  blog_permits_p3: "Uno de los errores más comunes es asumir que el permiso se tramita antes del registro local. En realidad, el registro y el procesamiento del permiso suelen estar estrechamente conectados. Si retrasas uno, a menudo retrasas ambos.",
+  blog_permits_h3_3: "Cómo hacer el proceso más fluido",
+  blog_permits_li4: "Prepara los documentos antes de la llegada cuando sea posible.",
+  blog_permits_li5: "Comprueba de inmediato el plazo de registro de tu municipio.",
+  blog_permits_li6: "Guarda copias de contratos, confirmaciones de domicilio y correspondencia.",
+  blog_permits_li7: "Pregunta pronto si se necesitan traducciones, apostillas o copias certificadas.",
+  blog_permits_p4: "El proceso del permiso rara vez trata de un solo formulario. Se trata de secuencia: vivienda, registro, seguro y documentación laboral suelen interactuar. Cuanto antes lo organices todo junto, más fáciles serán tus primeras semanas en Suiza.",
+  blog_permits_tag1: "Permisos",
+  blog_permits_tag2: "Llegada",
+  blog_permits_tag3: "Administración",
+  blog_permits_cta: "¿Necesitas orientación personal?",
 
-payment_name: "Nombre completo",
-payment_email: "Correo electrónico",
-payment_phone: "Teléfono / WhatsApp",
-payment_location: "Ubicación actual",
-payment_format: "Formato preferido",
-payment_message: "Descripción breve",
-payment_total: "Total a pagar",
+  blog_permits_next_label: "Siguiente artículo",
+  blog_permits_next_title: "Anmeldung en Zúrich: qué debes preparar",
+  blog_permits_related_label: "Artículo relacionado",
+  blog_permits_related_title: "Seguro médico en Suiza: plazos y obligaciones",
 
-payment_kicker: "Pago",
-payment_right_title: "Continuar al pago seguro",
-payment_right_text: "Cuando haga clic en el botón de abajo, podrá continuar con su proceso de pago.",
-payment_pay_now: "Pagar ahora",
-payment_edit: "Editar reserva",
-payment_note: "El pago confirma su solicitud de consulta. Si su caso requiere representación legal formal, puede ser referido a un abogado autorizado.",
+  blog_anmeldung_meta_category: "Registro",
+  blog_anmeldung_meta_time: "4 min de lectura",
+  blog_anmeldung_title: "Anmeldung en Zúrich: qué debes preparar",
+  blog_anmeldung_lead: "El registro en Zúrich suele ser una de las primeras citas oficiales después de llegar. Puede parecer simple desde fuera, pero tener los documentos correctos listos puede ahorrarte retrasos, visitas repetidas y estrés innecesario.",
+  blog_anmeldung_p1: "Después de mudarte a la ciudad, normalmente debes registrar tu dirección ante las autoridades locales dentro de un plazo limitado. Este registro confirma tu residencia y a menudo es necesario para pasos administrativos posteriores como el permiso, la banca, los servicios públicos y la configuración del seguro.",
+  blog_anmeldung_h3_1: "Qué llevar a la cita",
+  blog_anmeldung_li1: "Pasaporte válido o documento nacional de identidad",
+  blog_anmeldung_li2: "Contrato de alquiler o confirmación escrita de alojamiento",
+  blog_anmeldung_li3: "Contrato de trabajo o prueba de ingresos, si corresponde",
+  blog_anmeldung_li4: "Documentos adicionales de estado civil, según tu caso",
+  blog_anmeldung_caption: "Una cita de registro bien preparada puede desbloquear varios pasos siguientes en tu proceso de reubicación.",
+  blog_anmeldung_h3_2: "Por qué este paso importa más de lo que la gente espera",
+  blog_anmeldung_p2: "La Anmeldung no es solo una formalidad. Establece tu presencia local en el sistema. Muchos procesos posteriores dependen de ello, incluidas las comunicaciones de las autoridades, la administración fiscal, la inscripción al seguro y, en algunos casos, la emisión del permiso.",
+  blog_anmeldung_p3: "Las personas recién llegadas suelen subestimar la importancia de pequeños detalles, como que los nombres coincidan en todos los documentos, las fechas correctas de entrada y la confirmación escrita del inquilino principal o del propietario cuando sea necesario.",
+  blog_anmeldung_note: "Si tu situación de vivienda es temporal, compartida o recién organizada, verifica si tu comprobante de domicilio será aceptado antes de la cita.",
+  blog_anmeldung_h3_3: "Cómo evitar retrasos",
+  blog_anmeldung_li5: "Reserva tu cita lo antes posible.",
+  blog_anmeldung_li6: "Lleva la documentación completa, no solo capturas de pantalla.",
+  blog_anmeldung_li7: "Asegúrate de que el formato de tu dirección sea consistente en todas partes.",
+  blog_anmeldung_li8: "Guarda una copia de la confirmación de registro después de la cita.",
+  blog_anmeldung_p4: "Una vez completado el registro, las cosas suelen avanzar más rápido. Tienes un punto de referencia local oficial, y eso hace que cada paso siguiente sea más sencillo.",
 
-// =========================
-// BLOG.HTML — ES
-// Add inside: es: { ... }
-// =========================
+  blog_insurance_meta_category: "Seguro médico",
+  blog_insurance_meta_time: "5 min de lectura",
+  blog_insurance_title: "Seguro médico en Suiza: plazos y obligaciones",
+  blog_insurance_lead: "El seguro médico es uno de los pasos más sensibles al tiempo después de llegar. Entender el plazo desde el principio te ayuda a evitar estrés innecesario y costes retroactivos inesperados.",
+  blog_insurance_p1: "En Suiza, el seguro médico básico suele ser obligatorio. Los nuevos residentes a menudo deben inscribirse dentro de un período determinado después de quedar sujetos al sistema suizo. Esperar demasiado puede causar complicaciones administrativas y primas retroactivas.",
+  blog_insurance_h3_1: "Qué hace importante este paso",
+  blog_insurance_li1: "Es un requisito legal en la mayoría de los casos estándar de reubicación.",
+  blog_insurance_li2: "Las decisiones de cobertura influyen en los costes mensuales y el acceso a la atención médica.",
+  blog_insurance_li3: "Se relaciona con el momento del registro y las fechas de llegada.",
+  blog_insurance_note: "El seguro no es solo comprar una póliza. Se trata de elegir la fecha de inicio correcta, el modelo, la franquicia y la lógica del proveedor adecuada para tu situación.",
+  blog_insurance_p2: "La gente suele centrarse primero en el precio, pero el momento y la corrección de la inscripción son igual de importantes. Una comparación estructurada suele ahorrar más estrés que una decisión apresurada de último minuto.",
 
-brand_name: "Polina Kravtsova",
-brand_sub: "Asesoría legal",
+  blog_insurance_next_label: "Siguiente artículo",
+  blog_insurance_next_title: "Estudiar en Suiza: primeros pasos administrativos",
+  blog_insurance_back_label: "← Volver",
+  blog_insurance_back_title: "Permisos de residencia en Suiza: por dónde empezar",
 
-blog_nav_home: "Inicio",
-blog_nav_permits: "Permisos",
-blog_nav_registration: "Registro",
-blog_nav_insurance: "Seguro",
-blog_nav_book: "Reservar consulta",
+  blog_study_meta_category: "Estudios",
+  blog_study_meta_time: "4 min de lectura",
+  blog_study_title: "Estudiar en Suiza: qué deben organizar primero los estudiantes",
+  blog_study_lead: "Para los estudiantes, las primeras semanas rara vez giran en torno a un solo documento. Vivienda, registro, seguro y preguntas sobre el permiso suelen llegar al mismo tiempo.",
+  blog_study_p1: "Al prepararte para estudiar en Suiza, ayuda ver tu mudanza como una ruta administrativa: asegurar alojamiento, registrarte localmente, confirmar tu situación de seguro y asegurarte de que tu base de residencia coincida con la duración y el propósito de tu estancia.",
 
-lang_toggle: "Español ▾",
-lang_en: "English",
-lang_de: "Deutsch",
-lang_es: "Español",
-lang_uk: "Українська",
+  blog_marriage_meta_category: "Matrimonio",
+  blog_marriage_meta_time: "5 min de lectura",
+  blog_marriage_title: "Casarse en Suiza: lo que las parejas internacionales deben saber",
+  blog_marriage_lead: "Casarse en Suiza puede ser sencillo, pero las parejas internacionales deben estar preparadas para verificaciones de documentos, formalidades de estado civil y plazos que dependen mucho de la preparación.",
+  blog_marriage_p1: "Si uno o ambos miembros de la pareja son extranjeros, el proceso suele incluir la presentación de documentos oficiales de identidad, certificados de nacimiento, registros de estado civil y, en algunos casos, documentos adicionales legalizados o traducidos.",
+  blog_marriage_note: "Si los documentos fueron emitidos en el extranjero, verifica pronto si se requieren apostillas, legalización o traducciones oficiales. Aquí es donde el proceso suele ralentizarse.",
 
-blog_breadcrumb_home: "Inicio",
-blog_breadcrumb_guides: "Guías de reubicación",
+  blog_family_meta_category: "Reagrupación familiar",
+  blog_family_meta_time: "6 min de lectura",
+  blog_family_title: "Traer a tu familia a Suiza: ¿es más fácil para ciudadanos suizos o de la UE?",
+  blog_family_lead: "Las normas de reunificación familiar en Suiza dependen mucho de la nacionalidad, el tipo de permiso, la vivienda y los ingresos. En la práctica, el camino puede sentirse más fácil o más difícil según la vía legal que se aplique a tu caso.",
+  blog_family_p1: "La gente suele preguntar si es más fácil para ciudadanos suizos o ciudadanos de la UE traer a sus familiares a Suiza. La respuesta depende de la relación familiar exacta, del país de origen de los familiares y del estatus de residencia de la persona que ya vive en Suiza.",
+  blog_family_h3_1: "Qué suelen revisar las autoridades",
+  blog_family_li1: "Tu nacionalidad y estatus de residencia",
+  blog_family_li2: "Tu tipo de permiso o situación de ciudadanía",
+  blog_family_li3: "Si tienes alojamiento adecuado",
+  blog_family_li4: "Si se cumplen los requisitos de apoyo económico",
+  blog_family_li5: "La relación con el familiar que se une contigo",
+  blog_family_note: "La forma más rápida de reducir la incertidumbre es definir el caso muy claramente desde el principio: quién se une, desde dónde, bajo qué estatus y en qué plazo.",
 
-blog_label: "Información",
-blog_title: "Guías prácticas para mudarse y establecerse en Suiza",
-blog_intro:
-  "Artículos claros y elegantes sobre permisos, registro, seguro y los primeros pasos administrativos tras la llegada, escritos para personas que quieren confianza, claridad y menos estrés.",
+  sidebar_on_page_label: "En esta página",
+  sidebar_toc_title: "Tabla de contenidos",
+  sidebar_toc_permits: "Permisos de residencia en Suiza",
+  sidebar_toc_anmeldung: "Anmeldung en Zúrich",
+  sidebar_toc_insurance: "Seguro médico en Suiza",
+  sidebar_toc_study: "Estudiar en Suiza",
+  sidebar_toc_marriage: "Casarse en Suiza",
+  sidebar_toc_family: "Traer a tu familia a Suiza",
 
-blog_permits_meta_category: "Permisos de residencia",
-blog_permits_meta_time: "5 min de lectura",
-blog_permits_title: "Permisos de residencia en Suiza: por dónde empezar",
-blog_permits_lead:
-  "Para muchos recién llegados, el proceso del permiso parece poco claro al principio. La buena noticia es que la mayoría de los casos se vuelve manejable una vez que entiendes los plazos, los documentos necesarios y la lógica detrás de los distintos tipos de permiso.",
-blog_permits_p1:
-  "Si te mudas a Suiza por trabajo, por razones familiares o para una estancia de largo plazo, tu permiso de residencia es uno de los primeros pasos administrativos esenciales. En la mayoría de los casos, el tipo de permiso depende de tu nacionalidad, tu situación laboral y la duración prevista de tu estancia.",
-blog_permits_h3: "Los tres tipos de permiso de los que la mayoría oye hablar primero",
-blog_permits_li1:
-  "<strong>Permiso L</strong> para estancias más cortas, a menudo vinculado a contratos limitados o asignaciones temporales.",
-blog_permits_li2:
-  "<strong>Permiso B</strong> para residencias más largas, comúnmente utilizado para empleados, reunificación familiar y muchos casos estándar de reubicación.",
-blog_permits_li3:
-  "<strong>Permiso C</strong> para residencia permanente tras varios años que cumplen los requisitos en Suiza.",
-blog_permits_note:
-  "Empieza revisando no solo las normas federales, sino también el proceso práctico en tu cantón y municipio. La estructura legal es nacional, pero la ejecución suele producirse a nivel local.",
-blog_permits_caption:
-  "Una solicitud sólida suele comenzar con documentación completa y un calendario claro de registro.",
-blog_permits_h3_2: "Documentos que normalmente necesitas pronto",
-blog_permits_p2:
-  "Aunque los requisitos varían según el caso, muchas personas necesitan un pasaporte o documento de identidad válido, prueba de domicilio, un contrato de trabajo o prueba de medios suficientes y documentos de estado civil cuando corresponda. Vale la pena preparar tanto los originales como las copias digitales con antelación.",
-blog_permits_p3:
-  "Uno de los errores más comunes es asumir que el permiso se gestiona antes del registro local. En realidad, el registro y la tramitación del permiso suelen estar estrechamente conectados. Si retrasas uno, a menudo retrasas ambos.",
-blog_permits_h3_3: "Cómo hacer el proceso más fácil",
-blog_permits_li4: "Prepara los documentos antes de llegar cuando sea posible.",
-blog_permits_li5: "Verifica inmediatamente el plazo de registro de tu municipio.",
-blog_permits_li6: "Conserva copias de contratos, confirmaciones de domicilio y correspondencia.",
-blog_permits_li7: "Pregunta pronto si se necesitan traducciones, apostillas o copias certificadas.",
-blog_permits_p4:
-  "El proceso del permiso rara vez trata de un solo formulario. Se trata de secuencia: vivienda, registro, seguro y documentación laboral suelen interactuar entre sí. Cuanto antes los organices juntos, más fáciles serán tus primeras semanas en Suiza.",
-blog_permits_tag1: "Permisos",
-blog_permits_tag2: "Llegada",
-blog_permits_tag3: "Administración",
-blog_permits_cta: "¿Necesitas orientación personal?",
-blog_permits_next_label: "Siguiente artículo",
-blog_permits_next_title: "Anmeldung en Zúrich: qué necesitas preparar",
-blog_permits_related_label: "Artículo relacionado",
-blog_permits_related_title: "Seguro médico en Suiza: plazos y obligaciones",
-blog_permits_cover_alt: "Imagen de portada del artículo sobre permisos de residencia",
-blog_permits_inline_alt: "Documentos sobre un escritorio",
+  sidebar_related_label: "Servicios relacionados",
+  sidebar_related_title: "Cómo podemos ayudar",
+  sidebar_related_consultation_label: "Consulta",
+  sidebar_related_consultation_title: "Reserva una consulta gratuita para tu plan de reubicación",
+  sidebar_related_permits_label: "Permisos",
+  sidebar_related_permits_title: "Apoyo con permisos de residencia y pasos de registro",
+  sidebar_related_insurance_label: "Seguro",
+  sidebar_related_insurance_title: "Obtén ayuda para elegir la configuración correcta del seguro médico",
 
-blog_anmeldung_meta_category: "Registro",
-blog_anmeldung_meta_time: "4 min de lectura",
-blog_anmeldung_title: "Anmeldung en Zúrich: qué necesitas preparar",
-blog_anmeldung_lead:
-  "El registro en Zúrich suele ser una de las primeras citas oficiales después de la llegada. Puede parecer simple desde fuera, pero tener los documentos correctos preparados puede ahorrarte retrasos, visitas repetidas y estrés innecesario.",
-blog_anmeldung_p1:
-  "Después de mudarte a la ciudad, normalmente debes registrar tu dirección ante las autoridades locales dentro de un plazo limitado. Este registro confirma tu residencia y suele ser necesario para pasos administrativos posteriores como el trámite del permiso, banca, suministros y contratación del seguro.",
-blog_anmeldung_h3_1: "Qué llevar a la cita",
-blog_anmeldung_li1: "Pasaporte válido o documento nacional de identidad",
-blog_anmeldung_li2: "Contrato de alquiler o confirmación escrita de alojamiento",
-blog_anmeldung_li3: "Contrato de trabajo o comprobante de ingresos, si corresponde",
-blog_anmeldung_li4: "Documentos adicionales de estado civil, según tu caso",
-blog_anmeldung_caption:
-  "Una cita de registro bien preparada puede abrir varios pasos siguientes en tu proceso de reubicación.",
-blog_anmeldung_h3_2: "Por qué este paso importa más de lo que la gente espera",
-blog_anmeldung_p2:
-  "La Anmeldung no es solo una formalidad. Establece tu presencia local dentro del sistema. Muchos procesos posteriores dependen de ello, incluidas las comunicaciones de las autoridades, la administración fiscal, la inscripción al seguro y, en algunos casos, la emisión del permiso.",
-blog_anmeldung_p3:
-  "Quienes acaban de llegar suelen subestimar la importancia de pequeños detalles, como que los nombres coincidan en todos los documentos, que las fechas de entrada sean correctas y que exista confirmación escrita del inquilino principal o del arrendador cuando sea necesario.",
-blog_anmeldung_note:
-  "Si tu situación de vivienda es temporal, compartida o recién organizada, comprueba antes de la cita si tu prueba de domicilio será aceptada.",
-blog_anmeldung_h3_3: "Cómo evitar retrasos",
-blog_anmeldung_li5: "Reserva tu cita lo antes posible.",
-blog_anmeldung_li6: "Lleva la documentación completa, no solo capturas de pantalla.",
-blog_anmeldung_li7: "Asegúrate de que el formato de tu dirección sea coherente en todas partes.",
-blog_anmeldung_li8: "Guarda una copia de la confirmación de registro después de la cita.",
-blog_anmeldung_p4:
-  "Una vez completado el registro, las cosas suelen avanzar más rápido. Tienes un punto de referencia local oficial y eso hace que cada paso posterior sea más sencillo.",
-blog_anmeldung_tag1: "Zúrich",
-blog_anmeldung_tag2: "Registro",
-blog_anmeldung_tag3: "Primeros pasos",
-blog_anmeldung_cta: "Reservar apoyo",
-blog_anmeldung_prev_label: "Artículo anterior",
-blog_anmeldung_prev_title: "Permisos de residencia en Suiza: por dónde empezar",
-blog_anmeldung_next_label: "Siguiente artículo",
-blog_anmeldung_next_title: "Seguro médico en Suiza: plazos y obligaciones",
-blog_anmeldung_cover_alt: "Imagen de portada del artículo sobre el registro en Zúrich",
-blog_anmeldung_inline_alt: "Oficina municipal y documentos",
+  sidebar_support_label: "¿Necesitas ayuda?",
+  sidebar_support_title: "¿Prefieres orientación personal?",
+  sidebar_support_text: "Si quieres ayuda con registro, permisos, documentos de vivienda o seguro médico, reserva una consulta y obtén un plan claro paso a paso.",
+  sidebar_support_cta: "Reservar consulta",
 
-blog_study_meta_category: "Estudios",
-blog_study_meta_time: "5 min de lectura",
-blog_study_title: "Estudiar en Suiza: más fácil de lo que parece",
-blog_study_lead:
-  "Suiza puede parecer muy estructurada desde fuera, pero para muchos estudiantes internacionales el proceso es más accesible de lo esperado una vez que entienden la admisión, el registro de residencia y la documentación básica tras la llegada.",
-blog_study_p1:
-  "Los estudiantes que eligen universidades en Suiza a menudo se sorprenden de lo organizado que es el sistema. Una vez que tienes tu admisión, los siguientes pasos suelen quedar mucho más claros: conseguir alojamiento, preparar prueba de medios económicos, organizar el seguro médico y registrarte tras la llegada.",
-blog_study_h3_1: "Lo que normalmente más importa",
-blog_study_li1: "Tu confirmación de admisión universitaria",
-blog_study_li2: "Un pasaporte o documento de identidad válido",
-blog_study_li3: "Prueba de alojamiento",
-blog_study_li4: "Prueba de que puedes mantenerte económicamente",
-blog_study_li5: "Planificación del seguro médico",
-blog_study_note:
-  "Muchos estudiantes piensan que la parte difícil empieza después de llegar. En la práctica, la vida se vuelve más fácil una vez que tu dirección, el proceso del permiso y el seguro están organizados desde el principio.",
-blog_study_p2:
-  "Si estudias en Zúrich, Lausana, Ginebra u otra gran ciudad, la demanda de vivienda puede ser uno de los mayores desafíos prácticos. Empezar la búsqueda pronto suele ser más importante que complicar el resto del proceso.",
-blog_study_h3_2: "Por qué puede ser más fácil de lo esperado",
-blog_study_p3:
-  "La administración suiza es formal, pero suele ser predecible. Si tus documentos están completos y respetas los plazos, el proceso tiende a avanzar en un orden lógico. Esa previsibilidad es lo que a menudo hace la experiencia más fácil de lo que imaginan los recién llegados.",
-blog_study_tag1: "Estudiantes",
-blog_study_tag2: "Universidades",
-blog_study_tag3: "Llegada",
-blog_study_cta: "¿Necesitas ayuda para planificar?",
-blog_study_cover_alt: "Estudiar en Suiza",
+  cta_label: "Siguiente paso",
+  cta_title: "Haz tu reubicación más fácil desde el primer día",
+  cta_text: "Ahorra tiempo, evita plazos perdidos y avanza con permisos, registro y seguro con una estructura clara y apoyo personal.",
+  cta_book: "Reservar consulta",
+  cta_home: "Volver a la página principal",
 
-blog_marriage_meta_category: "Matrimonio",
-blog_marriage_meta_time: "5 min de lectura",
-blog_marriage_title: "Casarse en Suiza: lo que las parejas internacionales deben saber",
-blog_marriage_lead:
-  "Casarse en Suiza puede ser sencillo, pero las parejas internacionales deben estar preparadas para la verificación de documentos, las formalidades del estado civil y unos tiempos que dependen mucho de la preparación.",
-blog_marriage_p1:
-  "Si uno o ambos miembros de la pareja son extranjeros, el proceso suele incluir la presentación de documentos oficiales de identidad, certificados de nacimiento, registros de estado civil y, en algunos casos, documentos adicionales legalizados o traducidos. Los requisitos exactos pueden variar según la nacionalidad y la situación personal.",
-blog_marriage_h3_1: "Qué preparar con antelación",
-blog_marriage_li1: "Identificación válida para ambos miembros de la pareja",
-blog_marriage_li2: "Certificados de nacimiento y documentos de estado civil",
-blog_marriage_li3: "Traducciones o copias certificadas cuando se requieran",
-blog_marriage_li4: "Prueba de residencia cuando corresponda",
-blog_marriage_p2:
-  "Una de las razones principales por las que las parejas sufren retrasos no es la cita matrimonial en sí, sino la preparación de los documentos. Falta de un requisito formal puede retrasar mucho más el proceso de lo esperado.",
-blog_marriage_note:
-  "Si los documentos fueron emitidos en el extranjero, verifica pronto si se requieren apostillas, legalización o traducciones oficiales. Ahí es donde el proceso suele ralentizarse.",
-blog_marriage_h3_2: "Por qué la planificación importa",
-blog_marriage_p3:
-  "Los matrimonios internacionales suelen ser manejables cuando se abordan como una secuencia administrativa y no como un único evento. La documentación de estado civil, el registro local y la futura planificación de residencia suelen estar muy conectados, especialmente cuando uno de los cónyuges pretende permanecer en Suiza.",
-blog_marriage_tag1: "Matrimonio",
-blog_marriage_tag2: "Estado civil",
-blog_marriage_tag3: "Documentos",
-blog_marriage_cta: "Recibir orientación personal",
-blog_marriage_cover_alt: "Casarse en Suiza",
+  footer_brand: "Easy Help Switzerland",
+  footer_copy: "© 2026 Easy Help Switzerland — Todos los derechos reservados.",
+  footer_tagline: "Apoyo práctico de reubicación en Suiza",
 
-blog_family_meta_category: "Reunificación familiar",
-blog_family_meta_time: "6 min de lectura",
-blog_family_title: "Traer a tu familia a Suiza: ¿es más fácil para ciudadanos suizos o de la UE?",
-blog_family_lead:
-  "Las reglas de reunificación familiar en Suiza dependen mucho de la nacionalidad, el tipo de permiso, la situación de vivienda y los ingresos. En la práctica, el camino puede sentirse más fácil o más difícil según la vía legal que se aplique.",
-blog_family_p1:
-  "Muchas personas preguntan si es más fácil para ciudadanos suizos o ciudadanos de la UE traer a sus familiares a Suiza. La respuesta depende de la relación familiar exacta, del país de origen de los familiares y del estatus de residencia de la persona que ya vive en Suiza.",
-blog_family_h3_1: "En qué suelen fijarse las autoridades",
-blog_family_li1: "Tu nacionalidad y tu estatus de residencia",
-blog_family_li2: "Tu tipo de permiso o tu ciudadanía",
-blog_family_li3: "Si tienes alojamiento adecuado",
-blog_family_li4: "Si se cumplen los requisitos de apoyo económico",
-blog_family_li5: "La relación con el familiar que se incorpora",
-blog_family_p2:
-  "En la práctica, los derechos de movilidad relacionados con la UE pueden hacer algunos casos más flexibles, mientras que los ciudadanos suizos pueden estar sujetos a otro marco legal. Por eso dos familias con situaciones aparentemente similares pueden enfrentarse a requisitos documentales y plazos distintos.",
-blog_family_note:
-  "La forma más rápida de reducir la incertidumbre es definir el caso con claridad desde el principio: quién se incorpora, desde dónde, bajo qué estatus y con qué calendario.",
-blog_family_h3_2: "Cómo preparar un caso sólido",
-blog_family_p3:
-  "Empieza con documentos personales completos, prueba del vínculo familiar, prueba de vivienda y prueba de estabilidad económica cuando se requiera. Muchos retrasos ocurren porque las familias empiezan el proceso de forma emocional, pero no estructurada. Una buena estrategia documental facilita mucho el proceso.",
-blog_family_tag1: "Familia",
-blog_family_tag2: "Reubicación",
-blog_family_tag3: "Permisos",
-blog_family_cta: "Consulta tu caso",
-blog_family_cover_alt: "Traer familia a Suiza",
 
-blog_insurance_meta_category: "Seguro médico",
-blog_insurance_meta_time: "6 min de lectura",
-blog_insurance_title: "Seguro médico en Suiza: plazos y obligaciones",
-blog_insurance_lead:
-  "El seguro médico suizo es obligatorio, privado y muy estructurado. Para quienes acaban de llegar, el reto rara vez es entender que es obligatorio, sino saber cuándo actuar, qué elegir y cómo evitar pagar más de lo necesario.",
-blog_insurance_p1:
-  "Después de llegar a Suiza, normalmente tienes un plazo limitado para contratar el seguro médico. La cobertura básica es obligatoria, y se aplica incluso mientras las personas todavía se están instalando, comparando proveedores o esperando otros documentos.",
-blog_insurance_h3_1: "Las tres decisiones que la mayoría de los recién llegados debe tomar",
-blog_insurance_li1: "Qué proveedor elegir",
-blog_insurance_li2: "Qué nivel de franquicia encaja con su presupuesto y situación",
-blog_insurance_li3: "Qué modelo de seguro tiene sentido para su estilo de vida",
-blog_insurance_p2:
-  "Las primas pueden variar significativamente, pero la opción más barata no siempre es la mejor. Las personas con familia, necesidades médicas frecuentes o preferencia por la máxima flexibilidad pueden valorar aspectos diferentes que alguien que busca la prima mensual más baja.",
-blog_insurance_caption:
-  "Elegir la cobertura consiste en equilibrar cumplimiento legal, primas mensuales, franquicia y comodidad.",
-blog_insurance_h3_2: "Los plazos importan",
-blog_insurance_p3:
-  "Uno de los detalles más importantes es el tiempo. Si pierdes el plazo de inscripción, las autoridades pueden asignarte un proveedor. Eso normalmente significa menos control, menos optimización y potencialmente mayores costes que si hubieras elegido con cuidado por tu cuenta.",
-blog_insurance_note:
-  "El seguro no debe tratarse como un paso final después de todo lo demás. Es una de las tareas centrales al llegar y funciona mejor cuando se gestiona junto con el registro y la planificación del permiso.",
-blog_insurance_h3_3: "Una forma inteligente de comparar opciones",
-blog_insurance_li4: "Calcula con realismo con qué frecuencia usarás la atención médica.",
-blog_insurance_li5: "Compara el impacto de la franquicia, no solo la prima mensual.",
-blog_insurance_li6: "Comprueba si los modelos de telemedicina o médico de cabecera se adaptan a ti.",
-blog_insurance_li7: "Revisa si el seguro complementario es realmente necesario.",
-blog_insurance_p4:
-  "Una buena configuración no solo cumple la ley. También debe ser sostenible. La elección correcta del seguro te da tranquilidad, protege tu presupuesto y evita correcciones costosas más adelante.",
-blog_insurance_tag1: "Seguro",
-blog_insurance_tag2: "Plazos",
-blog_insurance_tag3: "Presupuesto",
-blog_insurance_cta: "Recibir ayuda para elegir",
-blog_insurance_prev_label: "Artículo anterior",
-blog_insurance_prev_title: "Anmeldung en Zúrich: qué necesitas preparar",
-blog_insurance_back_label: "Volver al inicio",
-blog_insurance_back_title: "Permisos de residencia en Suiza: por dónde empezar",
-blog_insurance_cover_alt: "Imagen de portada del artículo sobre seguro médico",
-blog_insurance_inline_alt: "Planificación del seguro médico",
+//Free Consultation
 
-sidebar_on_page_label: "En esta página",
-sidebar_toc_title: "Tabla de contenidos",
-sidebar_toc_permits: "Permisos de residencia en Suiza",
-sidebar_toc_anmeldung: "Anmeldung en Zúrich",
-sidebar_toc_insurance: "Seguro médico en Suiza",
-sidebar_toc_study: "Estudiar en Suiza",
-sidebar_toc_marriage: "Casarse en Suiza",
-sidebar_toc_family: "Traer a tu familia a Suiza",
 
-sidebar_related_label: "Servicios relacionados",
-sidebar_related_title: "Cómo podemos ayudar",
-sidebar_related_consultation_label: "Consulta",
-sidebar_related_consultation_title: "Reserva una consulta gratuita para tu plan de reubicación",
-sidebar_related_permits_label: "Permisos",
-sidebar_related_permits_title: "Apoyo con permisos de residencia y pasos de registro",
-sidebar_related_insurance_label: "Seguro",
-sidebar_related_insurance_title: "Ayuda para elegir la configuración adecuada de seguro médico",
+consult_brand_main: "Easy Help",
+consult_brand_sub: "Switzerland",
+consult_nav_guides: "Guías",
+consult_nav_booking: "Reserva",
 
-sidebar_support_label: "¿Necesitas ayuda?",
-sidebar_support_title: "¿Prefieres orientación personal?",
-sidebar_support_text:
-  "Si quieres ayuda con el registro, permisos, documentos de vivienda o seguro médico, reserva una consulta y obtén un plan claro paso a paso.",
-sidebar_support_cta: "Reservar consulta",
+consult_micro: "Primer paso gratuito",
+consult_title: 'Solicitar una <span>consulta gratuita</span>',
+consult_subtitle: "Cuéntenos brevemente su situación y nos pondremos en contacto con usted para organizar una consulta inicial gratuita.",
 
-cta_label: "Siguiente paso",
-cta_title: "Haz tu reubicación más fácil desde el primer día",
-cta_text:
-  "Ahorra tiempo, evita plazos perdidos y avanza con permisos, registro y seguro con una estructura clara y apoyo personal.",
-cta_book: "Reservar consulta",
-cta_home: "Volver a la página principal",
+consult_feature_1: "Solicitud inicial gratuita",
+consult_feature_2: "Orientación clara sobre el siguiente paso",
+consult_feature_3: "Un buen lugar para empezar",
+consult_hero_minutes: "minutos suelen ser suficientes para definir la siguiente ruta",
 
-footer_copy: "© 2026 Zurich Relocation",
-footer_tagline: "Apoyo práctico para la reubicación en Suiza",
+consult_start_here: "Empiece aquí",
+consult_intro_copy: 'Complete el formulario para su primera consulta gratuita. La duración máxima de la cita es de 30 minutos. Nos pondremos en contacto con usted y le enviaremos sugerencias para una reunión (en línea o presencial, según su preferencia). Por favor, complete todos los campos y describa su situación con el mayor detalle posible para que podamos prepararnos para la consulta.',
+consult_bullet_1: "Primer contacto rápido sin pago",
+consult_bullet_2: "Bueno para orientación simple y claridad del caso",
+consult_bullet_3: "Esto no le obliga a pagar ni a realizar ninguna acción.",
+
+consult_form_label: "Solicitud de consulta gratuita",
+consult_form_title: "Cuéntenos brevemente su situación",
+consult_form_text: 'Este formulario se envía y guarda las opciones de tema: permiso de residencia, permiso de trabajo, mudanza a Zúrich, asesoramiento legal y más.',
+consult_paid_booking: "Ir a la reserva de pago",
+
+name: "Nombre completo",
+email: "Correo electrónico",
+phone: "Teléfono / WhatsApp",
+location: "Ubicación actual",
+topic: "¿En qué necesita ayuda?",
+opt_residence: "Permiso de residencia",
+opt_work: "Permiso de trabajo",
+opt_relocation: "Reubicación a Zúrich",
+opt_legal: "Consulta",
+opt_other: "Otro",
+message: "Descripción breve",
+submit: "Solicitar consulta",
+consult_paid_booking: "Ir a la reserva de pago",
+note: "Esta solicitud no crea una relación abogado-cliente. Si se requiere representación legal formal, puede ser referido a un abogado suizo autorizado.",
+
+consult_how_label: "Cómo funciona",
+consult_how_title: "Primer contacto sencillo",
+consult_step_1: "Envíe su solicitud y describa brevemente el asunto.",
+consult_step_2: "Su solicitud se revisa y se dirige al siguiente paso correcto.",
+consult_step_3: "Nos pondremos en contacto con usted para organizar la consulta inicial gratuita.",
+
+consult_email_label: "Enviado por correo electrónico",
+consult_email_title: "Por favor, llegue puntual a la reunión.",
+consult_email_text: 'Si no llega en los primeros 10 minutos, la consulta se considerará cancelada.',
+
+consult_paid_label: "¿Necesita más que una primera conversación?",
+consult_paid_title: "Pasar al soporte de pago",
+consult_paid_text: "Si desea adquirir alguna consulta o servicio especial, proceda a la reserva de pago o escriba en los comentarios qué servicio le gustaría recibir.",
+consult_open_booking: "Abrir página de reserva",
+
+consult_why_label: "Por qué los clientes empiezan aquí",
+consult_why_title: "Apoyo práctico antes de costes innecesarios",
+consult_why_text: "Muchas personas primero necesitan claridad, estructura y ayuda para entender sus documentos o el siguiente paso administrativo, no un mandato legal completo de inmediato. Una breve consulta a menudo puede ahorrar tiempo y reducir el estrés desde el principio.",
+consult_why_point_1_title: "Bueno para orientarse",
+consult_why_point_1_text: "Útil cuando el primer problema es la incertidumbre y todavía no la ejecución.",
+consult_why_point_2_title: "Menos fricción",
+consult_why_point_2_text: "Un punto de entrada más sencillo para visitantes que aún no están listos para pagar.",
+consult_why_point_3_title: "Camino natural hacia adelante",
+consult_why_point_3_text: "Si durante la consulta se requieren otros servicios, estos deberán abonarse.",
+
+consult_footer_copy: "© 2026 © 2026 Easy Help Switzerland — Todos los derechos reservados.",
+consult_footer_right: "Página de consulta gratuita",
+consult_whatsapp_aria: "WhatsApp",
+
+
+//Booking.html
+
+
+booking_brand_main: "Easy Help Switzerland",
+    nav_home: "Inicio",
+    nav_services: "Servicios",
+    booking_nav_guides: "Guías",
+    booking_nav_free_consultation: "Consulta gratuita",
+    nav_contacts: "Contacto",
+    back: "← Volver",
+
+    booking_micro: "Reserva",
+    booking_title: "Reserva tu <span>consulta</span>",
+    booking_subtitle: "Elige el paquete adecuado, deja una breve descripción y continúa al pago.",
+
+    booking_feature_1: "Selección clara de paquetes",
+    booking_feature_2: "Proceso rápido y estructurado",
+    booking_feature_3: "Respuesta en 24 horas",
+    booking_hero_packages: "paquetes disponibles",
+
+    booking_flow_title: "Proceso de reserva",
+    booking_flow_text: "El pago se cargará a su tarjeta. Puede cancelar su reserva sin cargo hasta 1 día antes del inicio del servicio. La penalización por cancelación tardía es la mitad del precio de un paquete. Cualquier servicio de traslado debe solicitarse por correo electrónico. Si se requieren otros servicios, estos se pagarán por separado.",
+    booking_info_1: "Online o en persona en Zúrich",
+    booking_info_2: "Asesoramiento práctico",
+    booking_info_3: "Ahorra tiempo y reduce incertidumbre",
+
+    booking_client_details: "Datos del cliente",
+    booking_form_title: "Selecciona tu paquete y completa tus datos",
+    booking_form_intro: "Introduce tus datos y continúa al pago.",
+
+    booking_package_1_name: "Consulta rápida",
+    booking_package_1_desc: "Perfecto si necesitas orientación rápida sobre una cuestión práctica.",
+    booking_package_2_name: "Apoyo en reubicación",
+    booking_package_2_desc: "Ideal si estás preparando documentos o comenzando tu traslado.",
+    booking_package_3_name: "Estrategia de establecimiento",
+    booking_package_3_desc: "Asesoramiento completo para establecerte en Suiza con confianza.",
+
+    booking_name: "Nombre completo",
+    booking_email: "Correo electrónico",
+    booking_phone: "Teléfono / WhatsApp",
+    booking_location: "Ubicación actual",
+
+    booking_placeholder_name: "Tu nombre completo",
+  booking_placeholder_email: "tu@email.com",
+  booking_placeholder_phone: "+41 …",
+  booking_placeholder_location: "País o ciudad",
+  booking_placeholder_message: "Describe brevemente tu situación, tus documentos o la pregunta principal que quieres tratar.",
+
+  booking_placeholder_name: "Ihr vollständiger Name",
+  booking_placeholder_email: "ihre@email.com",
+  booking_placeholder_phone: "+41 …",
+  booking_placeholder_location: "Land oder Stadt",
+  booking_placeholder_message: "Beschreiben Sie kurz Ihre Situation, Ihre Unterlagen oder die wichtigste Frage, die Sie besprechen möchten.",
+
+    booking_preferred_label: "Formato preferido",
+    booking_preferred_default: "Selecciona una opción",
+    booking_preferred_online: "Consulta online",
+    booking_preferred_zurich: "En persona en Zúrich",
+    booking_preferred_phone: "Teléfono / WhatsApp",
+
+    booking_message: "Descripción breve",
+    booking_placeholder_message: "Describe tu situación brevemente.",
+
+    booking_note: "El pago confirma tu solicitud.",
+    booking_continue_payment: "Continuar al pago",
+    booking_back: "← Volver",
+
+    booking_trust_1_title: "Proceso claro",
+    booking_trust_1_text: "Elige y paga fácilmente.",
+    booking_trust_2_title: "Contacto rápido",
+    booking_trust_2_text: "Respuesta en 24 horas.",
+    booking_trust_3_title: "Apoyo práctico",
+    booking_trust_3_text: "Asesoramiento administrativo.",
+
+    booking_next_label: "Qué sigue",
+    booking_next_title: "Tres pasos",
+    booking_step_1: "Selecciona paquete y datos.",
+    booking_step_2: "Revisa antes de pagar.",
+    booking_step_3: "Confirmación tras el pago.",
+
+    booking_structure_label: "Modificación del pedido",
+    booking_structure_title: "Prestar atención",
+    booking_structure_text: "Vuelve atrás para modificar tu información. No podrás hacerlo más tarde.",
+
+    booking_free_label: "¿Gratis?",
+    booking_free_title: "Empieza con consulta gratuita",
+    booking_free_text: "Usa primero la opción gratuita.",
+    booking_free_button: "Consulta gratuita",
+
+    booking_footer_copy: "© 2026 Easy Help Switzerland",
+    booking_footer_right: "Página de reserva de packages",
+
+
+    //Payment.html
+
+
+    payment_home: "Inicio",
+  payment_booking_nav: "Reserva",
+  payment_guides: "Guías",
+  payment_free_consultation: "Consulta gratuita",
+  payment_contacts: "Contactos",
+
+  payment_back: "← Volver",
+  payment_micro: "Revisión del pago",
+  payment_hero_title: "Revisa tu <span>consulta</span>",
+  payment_hero_title_span: "consulta",
+  payment_hero_sub: "Confirma tu paquete seleccionado y tus datos antes de continuar al pago seguro.",
+
+  payment_feature_summary: "Resumen de la reserva",
+  payment_feature_stripe: "Redirección segura a Stripe",
+  payment_feature_edit: "Editar antes del pago",
+  payment_final_step: "último paso antes del pago",
+
+  payment_summary_kicker: "Resumen de la reserva",
+  payment_title: "Revisa tu consulta antes del pago",
+  payment_subtitle: "Confirma abajo tu paquete seleccionado y tus datos.",
+  payment_name: "Nombre completo",
+  payment_email: "Correo electrónico",
+  payment_phone: "Teléfono / WhatsApp",
+  payment_location: "Ubicación actual",
+  payment_format: "Formato preferido",
+  payment_message: "Descripción breve",
+  payment_total: "Total a pagar",
+
+  payment_kicker: "Pago",
+  payment_right_title: "Continuar al pago seguro",
+  payment_right_text: "Cuando hagas clic en el botón de abajo, podrás continuar con la configuración de tu pago.",
+  payment_pay_now: "Pagar ahora",
+  payment_edit: "Editar reserva",
+  payment_note: "El pago confirma tu solicitud de consulta. Si tu asunto requiere representación legal formal, se te puede derivar a un abogado autorizado cuando corresponda.",
+
+  payment_attention: "Atención",
+  payment_no_free_consultation: "Reservado sin consulta gratuita",
+  payment_attention_text: "Recomendamos reservar una consulta gratuita. Si reservas un paquete y resulta que tu caso no tiene solución, cobraremos el 10 % del precio del paquete y te devolveremos el resto.",
+  payment_package_pricing: "Precio del paquete",
+
+  package_initial: "Consulta rápida — CHF 79",
+  package_review: "Apoyo en reubicación — CHF 189",
+  package_relocation: "Estrategia de establecimiento — CHF 349",
+
+  payment_footer_rights: "© 2026 Easy Help Switzerland - todos los derechos reservados.",
+  payment_footer_page: "Página de pago",
+
 
 },
 
@@ -1400,477 +1452,495 @@ why_4_title: "Kosteneffiziente Hilfe",
 why_4_desc: "Erhalten Sie Klarheit und Orientierung, bevor Sie unnötig für ein vollständiges Rechtsmandat bezahlen.",
 why_4_content: `<p>Nicht jede Situation erfordert von Anfang an ein vollständiges Rechtsmandat.</p><ul><li>Gewinnen Sie Klarheit, bevor Sie unnötige Rechtskosten zahlen</li><li>Verstehen Sie den sinnvollsten ersten Schritt für Ihren Fall</li><li>Nutzen Sie gezielte Unterstützung dort, wo sie den größten Wert bringt</li></ul><p><strong>Ergebnis:</strong> bessere Entscheidungen und bessere Budgetkontrolle.</p>`,
 
-process: {
-title: "Wie wir arbeiten",
-      side: "Ein strukturierter Prozess, der Unsicherheit reduziert und jede Phase einfach, transparent und überschaubar macht.",
 
-      discoverTitle: "Analyse",
-      discoverItem1: "Erste Fallprüfung",
-      discoverItem2: "Ihren Weg klären",
-      discoverItem3: "Dringlichkeit prüfen",
+process_title: "Wie wir arbeiten",
+      process_side: "Ein strukturierter Prozess, der Unsicherheit reduziert und jede Phase einfach, transparent und überschaubar macht.",
 
-      defineTitle: "Definition",
-      defineItem1: "Benötigte Dokumente",
-      defineItem2: "Bester administrativer Weg",
-      defineItem3: "Klare nächste Schritte",
+      process_discoverTitle: "Analyse",
+      process_discoverItem1: "Erste Fallprüfung",
+      process_discoverItem2: "Ihren Weg klären",
+      process_discoverItem3: "Dringlichkeit prüfen",
 
-      supportTitle: "Unterstützung",
-      supportItem1: "Formulare und Schreiben",
-      supportItem2: "Kontakt mit Behörden",
-      supportItem3: "Praktische Anleitung",
+      process_defineTitle: "Definition",
+      process_defineItem1: "Benötigte Dokumente",
+      process_defineItem2: "Bester administrativer Weg",
+      process_defineItem3: "Klare nächste Schritte",
 
-      followUpTitle: "Nachverfolgung",
-      followUpItem1: "Einreichung prüfen",
-      followUpItem2: "Nächste Schritte prüfen",
-      followUpItem3: "Fortlaufende Unterstützung"
-},
+      process_supportTitle: "Unterstützung",
+      process_supportItem1: "Formulare und Schreiben",
+      process_supportItem2: "Kontakt mit Behörden",
+      process_supportItem3: "Praktische Anleitung",
 
-testimonials_label: "Kundenfeedback",
-testimonials_title: "Was Klienten sagen",
+      process_followUpTitle: "Nachverfolgung",
+      process_followUpItem1: "Einreichung prüfen",
+      process_followUpItem2: "Nächste Schritte prüfen",
+      process_followUpItem3: "Fortlaufende Unterstützung",
 
-testimonial_1_text: "Als ich in Zürich ankam, war ich völlig verwirrt. Ich wusste nicht, wohin ich zuerst gehen sollte, welche Unterlagen ich brauchte oder wie die Anmeldung funktionierte. Nach der Beratung fühlte sich endlich alles klarer und viel weniger stressig an.",
-testimonial_1_from: "Aus Brasilien umgezogen",
 
-testimonial_2_text: "Ich machte mir Sorgen wegen meiner Bewilligung und einiger Briefe von den Behörden. Alles wurde mir sehr einfach erklärt, und ich fühlte mich danach viel ruhiger.",
-testimonial_2_from: "Aus der Ukraine umgezogen",
+      testimonials_micro_left: "Kundenfeedback",
 
-testimonial_3_text: "Am meisten hat mir geholfen, dass ich normale Fragen stellen und klare Antworten bekommen konnte. Ich fühlte mich nicht unter Druck gesetzt und verstand endlich, was ich als Nächstes tun musste.",
-testimonial_3_from: "Aus Spanien umgezogen",
+testimonial_1_text: "Ich war völlig verwirrt, als ich in Zürich ankam. Nach der Beratung wurde alles endlich klar und viel weniger stressig.",
+testimonial_1_meta: "Aus Brasilien gezogen, lebt in Zürich",
 
-testimonial_next_aria: "Nächstes Testimonial",
+testimonial_2_text: "Ich machte mir Sorgen um meine Bewilligung und mehrere Briefe von Behörden. Alles wurde mir sehr einfach erklärt.",
+testimonial_2_meta: "Aus der Ukraine gezogen",
 
-testimonials_why_label: "Warum Klienten hier anfangen",
-testimonials_why_title: "Praktische Unterstützung vor unnötigen Kosten",
-testimonials_why_p1: "Viele Menschen brauchen zunächst Klarheit, Struktur und Hilfe bei Dokumenten oder Kommunikation — nicht von Anfang an ein vollständiges juristisches Mandat.",
-testimonials_why_p2: "Eine kurze Beratung kann oft Zeit sparen, Stress reduzieren und Ihnen helfen, teure Fehler oder Verzögerungen zu vermeiden.",
+testimonial_3_text: "Am meisten hat mir geholfen, dass ich normale Fragen stellen konnte und klare Antworten bekam, ohne Zeitdruck.",
+testimonial_3_meta: "Aus Spanien gezogen",
+
+testimonials_micro_right: "Warum hier starten",
+testimonials_title: "Praktische Unterstützung vor unnötigen Kosten",
+
+testimonials_text_1: "Viele Menschen brauchen zunächst Klarheit, Struktur und Hilfe bei Dokumenten oder Kommunikation — kein vollständiges Mandat von Anfang an.",
+testimonials_text_2: "Eine kurze Beratung kann Zeit sparen, Stress reduzieren und teure Fehler oder Verzögerungen vermeiden.",
+
 testimonials_cta: "Kostenlose Beratung anfragen",
 
-pricing_label: "Preise",
-pricing_title: "Mit Klarheit beginnen — nicht mit einer hohen Anwaltsrechnung",
-pricing_intro: "Für viele Relocation- und Verwaltungsangelegenheiten brauchen Sie zu Beginn keine vollständige anwaltliche Vertretung. Starten Sie mit einem kostenlosen Erstgespräch, verstehen Sie Ihren Weg und wählen Sie die Unterstützung, die zu Ihrem Fall passt.",
 
-pricing_card1_plan: "Essential",
-pricing_card1_title: "Einzelberatung",
-pricing_card1_price: "CHF 59",
-pricing_card1_sub: "Für Klientinnen und Klienten, die eine klare Antwort, Orientierung und die nächsten Schritte brauchen.",
-pricing_card1_point1: "30-minütige Beratung",
-pricing_card1_point2: "Fallüberblick",
-pricing_card1_point3: "Erklärung der erforderlichen Unterlagen",
-pricing_card1_point4: "Klare Anleitung zu den nächsten Schritten",
-pricing_card1_cta: "Paket buchen",
+pricing_title: "Preise",
+pricing_stat: "klare Pakete zum Start",
+pricing_side: "Starten Sie mit Klarheit — nicht mit einer hohen Anwaltsrechnung. Wählen Sie das passende Unterstützungsniveau.",
 
-pricing_card2_badge: "Am häufigsten gewählt",
-pricing_card2_plan: "Practical",
-pricing_card2_title: "Beratung + Dokumentenprüfung",
-pricing_card2_price: "CHF 129",
-pricing_card2_sub: "Für Klientinnen und Klienten, die Beratung plus Unterstützung bei der Prüfung ihrer Unterlagen vor dem nächsten Schritt wünschen.",
-pricing_card2_point1: "60-minütige Beratung",
-pricing_card2_point2: "Prüfung Ihrer Unterlagen",
-pricing_card2_point3: "Persönliche Checkliste",
-pricing_card2_point4: "Schriftliche Zusammenfassung im Nachgang",
-pricing_card2_point5: "Erklärung des administrativen Vorgehens",
-pricing_card2_cta: "Paket buchen",
+pricing_badge: "Am beliebtesten",
+pricing_cta: "Paket buchen",
 
-pricing_card3_plan: "Complete",
-pricing_card3_title: "Relocation-Unterstützungspaket",
-pricing_card3_price: "ab CHF 290",
-pricing_card3_sub: "Für komplexere Situationen mit mehreren Schritten, Formularen, Behörden oder Schreiben.",
-pricing_card3_point1: "Vollständige Fallprüfung",
-pricing_card3_point2: "Unterstützung bei der Dokumentenvorbereitung",
-pricing_card3_point3: "Hilfe beim Verfassen von Briefen / E-Mails",
-pricing_card3_point4: "Vorbereitung für Anmeldung / Behördenkontakte",
-pricing_card3_point5: "Begleitung während des laufenden Prozesses",
-pricing_card3_cta: "Paket buchen",
+pricing_qs_plan: "Schnellstart",
+pricing_qs_title: "Kurze Beratung",
+pricing_qs_desc: "Perfekt für schnelle Hilfe bei einer konkreten Frage.",
+pricing_qs_item1: "30-minütige Online-Beratung",
+pricing_qs_item2: "Persönliche Checkliste",
+pricing_qs_item3: "Eine schriftliche Klärung",
+pricing_qs_item4: "WhatsApp-Support für 3 Tage",
 
-pricing_compare_label: "Warum hier beginnen",
-pricing_compare_title: "Ein klügerer erster Schritt für praktische Migrationsfragen",
-pricing_compare_intro: "Viele Menschen brauchen zunächst Klarheit, Struktur, Dokumente und die richtige Kommunikation — nicht zwingend sofort ein volles anwaltliches Mandat.",
+pricing_core_plan: "Core",
+pricing_core_title: "Umzugsunterstützung",
+pricing_core_desc: "Ideal für Dokumentenvorbereitung und erste Schritte.",
+pricing_core_item1: "Beratung und Situationsanalyse",
+pricing_core_item2: "Persönliche Checkliste",
+pricing_core_item3: "Bis zu 2 Anfragen oder Schreiben",
+pricing_core_item4: "Unterstützung bei einem Behördengang",
+pricing_core_item5: "Dokumentenprüfung",
 
-pricing_compare_mine_title: "Dieser Service",
-pricing_compare_mine_price: "CHF 0 – 290+",
-pricing_compare_mine_point1: "Kostenloses Erstgespräch",
-pricing_compare_mine_point2: "Zugängliche Unterstützung für alltägliche Migrationsschritte",
-pricing_compare_mine_point3: "Hilfe bei Dokumenten, Schreiben, Checklisten und Vorbereitung",
-pricing_compare_mine_point4: "Klare und praktische administrative Orientierung",
-pricing_compare_mine_point5: "Weitervermittlung an eine Anwältin oder einen Anwalt, wenn formelle Vertretung nötig ist",
+pricing_premium_plan: "Premium",
+pricing_premium_title: "Ansiedlungsstrategie",
+pricing_premium_desc: "Umfassende Unterstützung für Ihren Start in der Schweiz.",
+pricing_premium_item1: "Erweiterte Beratung",
+pricing_premium_item2: "Individuelle Strategie",
+pricing_premium_item3: "Hilfe bei Anmeldung, Versicherung oder Wohnung",
+pricing_premium_item4: "Bis zu 5 schriftliche Anfragen",
+pricing_premium_item5: "2 Wochen Nachbetreuung",
 
-pricing_compare_market_title: "Übliche Anwaltspreise",
-pricing_compare_market_price: "CHF 250 – 500/Stunde",
-pricing_compare_market_point1: "Oft stundenweise abgerechnet",
-pricing_compare_market_point2: "Manche Erstberatungen liegen bei etwa CHF 300–330",
-pricing_compare_market_point3: "Besonders geeignet für Streitigkeiten, Beschwerden und formelle Rechtsvertretung",
-pricing_compare_market_point4: "Kann für überwiegend administrative Anliegen mehr sein als nötig",
-pricing_compare_market_point5: "Wichtig, wenn der Fall rechtlich komplex wird",
 
-pricing_market_note: "Öffentlich verfügbare Beispiele in der Schweiz zeigen migrations- bzw. rechtsbezogene Beratungen um CHF 300–330, anwaltliche Stundensätze ab etwa CHF 250 bis CHF 350–500 oder mehr, während günstige Beratungsstellen in bestimmten Kontexten deutlich preiswerter sein können.",
+blog_title: "Guides & Blog",
+blog_stat: "praktische Artikel für den Start",
+blog_side: "Klare Artikel zu Bewilligungen, Anmeldung, Versicherung und ersten Schritten in der Schweiz.",
 
-faq_label: "FAQ",
-faq_title: "Antworten auf die häufigsten Fragen",
-faq_intro: "Klare Informationen zu Beratungen, Unterstützung und dem Umfang der Hilfe.",
+blog_1_title: "Aufenthaltsbewilligung in der Schweiz: wo anfangen",
+blog_1_desc: "Praktischer Überblick über erste Schritte, Dokumente und typische Fehler.",
 
-faq_q1: "Ist das erste Beratungsgespräch kostenlos?",
-faq_a1: "Ja. Das erste Beratungsgespräch ist kostenlos. In diesem ersten Gespräch analysieren wir Ihren Fall kurz und besprechen die möglichen nächsten Schritte.",
+blog_2_title: "Anmeldung in Zürich: was vorbereiten",
+blog_2_desc: "Erfahren Sie, was Sie mitbringen müssen und wie Sie Verzögerungen vermeiden.",
 
-faq_q2: "Bieten Sie rechtliche Vertretung an?",
-faq_a2: "Nein. Ich biete strukturierte Orientierung, administrative Unterstützung und Hilfe bei der Dokumentenvorbereitung. Wenn eine formelle Vertretung erforderlich ist, kann ich Klientinnen und Klienten an zugelassene Anwälte verweisen.",
+blog_3_title: "Krankenversicherung in der Schweiz: Fristen und Pflichten",
+blog_3_desc: "Verstehen Sie Anforderungen, Fristen und Grundlagen der Auswahl.",
 
-faq_q3: "Sind Beratungen online oder persönlich möglich?",
-faq_a3: "Beides ist möglich. Beratungen können je nach Ihrer Präferenz online oder persönlich in Zürich stattfinden.",
+blog_read: "Mehr lesen →",
 
-faq_q4: "Arbeiten Sie nur mit Migrationsangelegenheiten?",
-faq_a4: "Migrations- und Relocation-Angelegenheiten sind der Hauptfokus. In einigen Fällen können auch damit verbundene administrative Fragen behandelt werden, während spezialisierte Bereiche eine Weitervermittlung an eine qualifizierte Anwältin oder einen qualifizierten Anwalt erfordern können.",
 
-blog_label: "Einblicke",
-blog_title: "Praktische Leitfäden für den Umzug und das Einleben in der Schweiz",
-blog_intro: "Klare Artikel zu Bewilligungen, Anmeldung, Versicherung, Arbeit und administrativen Alltagsschritten in der Schweiz.",
+faq_title: "Häufig gestellte Fragen",
 
-blog_card1_title: "Aufenthaltsbewilligungen in der Schweiz: wo man beginnt",
-blog_card1_text: "Ein praktischer Überblick über die ersten Schritte, notwendige Unterlagen und häufige Fehler bei der Beantragung einer Bewilligung.",
-blog_card1_link: "Mehr lesen",
+faq_1_question: "Wie lange ist die erste Beratung kostenlos?",
+faq_1_answer: "Solange wir unsere Strategie, die zu klärenden Fragen und die nächsten Schritte definieren können, ist sie kostenlos. In der Regel reichen die ersten 30 Minuten aus, um das Anliegen und die Lösung zu verstehen.",
 
-blog_card2_title: "Anmeldung in Zürich: was Sie vorbereiten müssen",
-blog_card2_text: "Erfahren Sie, was Sie mitbringen müssen, wie der Ablauf funktioniert und wie Sie Verzögerungen bei der Anmeldung bei den Behörden vermeiden.",
-blog_card2_link: "Mehr lesen",
+faq_2_question: "Ich bin nicht sicher, ob ich Ihnen wegen meines Anliegens schreiben kann.",
+faq_2_answer: "Auf der Seite gibt es eine ungefähre Liste meiner Leistungen. Sie können immer eine erste kostenlose Beratung nutzen, um zu verstehen, ob Ihr Anliegen zu meinen Leistungen gehört. Schreiben Sie mir einfach.",
 
-blog_card3_title: "Krankenversicherung in der Schweiz: Fristen und Pflichten",
-blog_card3_text: "Verstehen Sie die gesetzlichen Anforderungen, Fristen und die Grundlagen der Wahl des richtigen Versicherungsschutzes nach Ihrer Ankunft.",
-blog_card3_link: "Mehr lesen",
+faq_3_question: "Wie lange studieren Sie schon und in welchen Bereichen?",
+faq_3_answer: "Ich habe bereits einen Bachelor of Law. Zurzeit bin ich im zweiten Jahr meines Masterstudiums. Ich habe viele Fächer studiert, aber meine stärksten Bereiche sind Migrationsrecht, Familienrecht, Steuerrecht, Strafrecht, Notarrecht, Ehe- und Erbrecht sowie Verwaltungsrecht.",
 
-contact_label: "Kontakt",
-contact_title: "Senden Sie eine kurze Anfrage",
-contact_text: "Kontaktieren Sie mich gern für Beratungen, Unterstützung bei Dokumenten oder Fragen zum Umzug in die Schweiz.",
-contact_email_label: "E-Mail",
-contact_phone_label: "Telefon",
-contact_location_label: "Standort",
-contact_location_value: "Zürich, Schweiz",
-footer_copyright: "© 2026 Polina Kravtsova — Alle Rechte vorbehalten.",
+faq_4_question: "Welche Sprachen sprechen Sie?",
+faq_4_answer: "Ich spreche Deutsch, Englisch, Ukrainisch und Russisch fließend. Wir können auch auf Spanisch kommunizieren. Mein Mann, Kevin Garcia, spricht Italienisch, Portugiesisch und Spanisch fließend und kann ebenfalls an einer Beratung teilnehmen.",
 
-booking_back: "← Zurück zur Startseite",
 
-booking_kicker: "Buchung",
-booking_title: "Beratung buchen",
-booking_intro: "Wählen Sie das Paket, das zu Ihrer Situation passt, hinterlassen Sie eine kurze Beschreibung und fahren Sie mit der Zahlung fort. Der Prozess ist klar, einfach und darauf ausgelegt, Zeit zu sparen.",
+contact_title: "Bereit, Ihre Zukunft zu besprechen?",
+contact_text: "Hinterlassen Sie Ihre Kontaktdaten und ich melde mich, um Ihnen zu helfen, den richtigen Weg zur Lösung Ihres Anliegens zu finden.",
 
-booking_next_title: "Wie es weitergeht",
-booking_next_text: "Nach der Zahlung wird Ihre Anfrage geprüft. Anschließend werden Sie kontaktiert, um das Beratungsformat und die nächsten Schritte zu bestätigen.",
-booking_next_1: "Online oder persönlich in Zürich",
-booking_next_2: "Strukturierte praktische Beratung",
-booking_next_3: "Antwort innerhalb von 24 Stunden",
+contact_name: "IHR NAME",
+contact_email: "IHRE E-MAIL",
+contact_phone: "+41 00 000 00 00",
 
-booking_details_label: "Kundendaten",
-booking_details_title: "Wählen Sie Ihr Paket und geben Sie Ihre Daten ein",
-booking_details_text: "Wählen Sie unten eine Option und geben Sie die wichtigsten Informationen an, damit Ihre Buchung vorbereitet werden kann.",
+contact_policy: "Durch Klicken auf den Button akzeptieren Sie die Datenschutzerklärung und die Verarbeitung Ihrer personenbezogenen Daten.",
+contact_cta: "Kostenlose Beratung anfragen",
 
-booking_pack1_name: "Erstberatung",
-booking_pack1_desc: "Eine fokussierte Beratung für erste Fragen und Orientierung.",
+footer_brand: "Easy Help Switzerland",
+footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
 
-booking_pack2_name: "Beratung + Dokumentenprüfung",
-booking_pack2_desc: "Beratung mit Prüfung von Dokumenten und detaillierter Vorbereitung.",
 
-booking_pack3_name: "Relocation-Unterstützung",
-booking_pack3_desc: "Für komplexere Fälle mit mehreren Schritten, Formularen oder Behördenkontakt.",
+//Blog.html
 
-booking_name: "Vollständiger Name",
-booking_email: "E-Mail",
-booking_phone: "Telefon / WhatsApp",
-booking_location: "Aktueller Standort",
-booking_message: "Kurze Beschreibung Ihrer Situation",
-booking_format: "Bevorzugtes Beratungsformat",
 
-booking_format_online: "Online",
-booking_format_inperson: "Persönlich in Zürich",
-booking_format_any: "Keine Präferenz",
+  blog_brand_name: "Easy Help",
+  blog_brand_country: "Schweiz",
 
-booking_note: "Die Zahlung bestätigt Ihre Anfrage. Wenn eine formelle rechtliche Vertretung erforderlich ist, kann eine Weitervermittlung an einen zugelassenen Anwalt erfolgen.",
+  blog_nav_home: "Startseite",
+  blog_nav_guides: "Ratgeber",
+  blog_nav_services: "Leistungen",
+  blog_nav_consultation: "Beratung",
+  blog_nav_contacts: "Kontakte",
 
-booking_continue: "Weiter zur Zahlung",
-booking_back_button: "Zurück",
+  blog_phone: "+41 76 449 75 81",
+  lang_toggle: "Deutsch ▾",
 
-booking_trust1_title: "Klarer Ablauf",
-booking_trust1_text: "Paket auswählen, Daten eingeben und zur Zahlung weitergehen.",
+  blog_hero_micro: "Ratgeber & Blog",
+  blog_hero_title_main: "Easy Guide Switzerland",
+  blog_hero_sub: "Klare praktische Artikel zu Bewilligungen, Anmeldung, Krankenversicherung, Studium, Heirat und Familiennachzug — neu gestaltet im hochwertigen redaktionellen Stil Ihrer Hauptwebsite.",
 
-booking_trust2_title: "Schnelle Antwort",
-booking_trust2_text: "Ihre Anfrage wird innerhalb von 24 Stunden geprüft und beantwortet.",
+  blog_hero_feature_1: "Lange Artikel leicht erfassbar",
+  blog_hero_feature_2: "Hochwertiges redaktionelles Layout",
+  blog_hero_feature_3: "Gleiche visuelle Sprache wie die Startseite",
 
-booking_trust3_title: "Praktische Unterstützung",
-booking_trust3_text: "Strukturierte Beratung zu Bewilligungen, Anmeldung und administrativen Schritten.",
+  blog_hero_guides_count: "6",
+  blog_hero_guides_label: "Ratgeber an einem Ort gebündelt",
 
-payment_back: "← Zurück zur Buchung",
-payment_summary_kicker: "Buchungsübersicht",
-payment_title: "Prüfen Sie Ihre Beratung vor der Zahlung",
-payment_subtitle: "Bitte bestätigen Sie unten Ihr gewähltes Paket und Ihre Angaben.",
+  blog_permits_meta_category: "Aufenthaltsbewilligungen",
+  blog_permits_meta_time: "5 Min. Lesezeit",
+  blog_permits_title: "Aufenthaltsbewilligungen in der Schweiz: wo Sie anfangen sollten",
+  blog_permits_lead: "Für viele Neuankömmlinge wirkt der Bewilligungsprozess anfangs undurchsichtig. Die gute Nachricht: Die meisten Fälle werden überschaubar, sobald Sie den Zeitablauf, die erforderlichen Unterlagen und die Logik hinter den verschiedenen Bewilligungsarten verstehen.",
+  blog_permits_p1: "Wenn Sie wegen Arbeit, Familie oder für einen langfristigen Aufenthalt in die Schweiz ziehen, ist Ihre Aufenthaltsbewilligung einer der ersten wichtigen administrativen Schritte. In den meisten Fällen hängt die Art Ihrer Bewilligung von Ihrer Staatsangehörigkeit, Ihrem Beschäftigungsstatus und der erwarteten Aufenthaltsdauer ab.",
+  blog_permits_h3_1: "Die drei Bewilligungsarten, von denen die meisten zuerst hören",
+  blog_permits_li1: "L-Bewilligung für kürzere Aufenthalte, oft bei befristeten Verträgen oder temporären Einsätzen.",
+  blog_permits_li2: "B-Bewilligung für längeren Aufenthalt, häufig für Arbeitnehmende, Familiennachzug und viele Standardfälle beim Umzug.",
+  blog_permits_li3: "C-Bewilligung für den Daueraufenthalt nach mehreren anrechenbaren Jahren in der Schweiz.",
+  blog_permits_note: "Prüfen Sie nicht nur die bundesrechtlichen Regeln, sondern auch den praktischen Ablauf in Ihrem Kanton und Ihrer Gemeinde. Die rechtliche Struktur ist national, die Umsetzung erfolgt aber oft lokal.",
+  blog_permits_caption: "Ein guter Antrag beginnt meist mit vollständigen Unterlagen und einem klaren Anmeldungszeitplan.",
+  blog_permits_h3_2: "Unterlagen, die Sie meist früh brauchen",
+  blog_permits_p2: "Auch wenn die Anforderungen je nach Fall unterschiedlich sind, brauchen viele Personen einen gültigen Pass oder Ausweis, einen Adressnachweis, einen Arbeitsvertrag oder den Nachweis ausreichender Mittel sowie gegebenenfalls Zivilstandsdokumente. Es lohnt sich, Originale und digitale Kopien früh vorzubereiten.",
+  blog_permits_p3: "Einer der häufigsten Fehler ist die Annahme, dass die Bewilligung vor der lokalen Anmeldung bearbeitet wird. Tatsächlich sind Anmeldung und Bewilligungsverfahren meist eng miteinander verbunden. Wenn Sie das eine verzögern, verzögern Sie oft auch das andere.",
+  blog_permits_h3_3: "So machen Sie den Prozess einfacher",
+  blog_permits_li4: "Unterlagen wenn möglich vor der Ankunft vorbereiten.",
+  blog_permits_li5: "Die Anmeldefrist Ihrer Gemeinde sofort prüfen.",
+  blog_permits_li6: "Kopien von Verträgen, Adressbestätigungen und Korrespondenz aufbewahren.",
+  blog_permits_li7: "Früh klären, ob Übersetzungen, Apostillen oder beglaubigte Kopien nötig sind.",
+  blog_permits_p4: "Das Bewilligungsverfahren dreht sich selten nur um ein einziges Formular. Es geht um die richtige Reihenfolge: Wohnung, Anmeldung, Versicherung und Arbeitsunterlagen greifen oft ineinander. Je früher Sie das gemeinsam organisieren, desto leichter werden Ihre ersten Wochen in der Schweiz.",
+  blog_permits_tag1: "Bewilligungen",
+  blog_permits_tag2: "Ankunft",
+  blog_permits_tag3: "Administration",
+  blog_permits_cta: "Brauchen Sie persönliche Unterstützung?",
 
-payment_name: "Vollständiger Name",
-payment_email: "E-Mail",
-payment_phone: "Telefon / WhatsApp",
-payment_location: "Aktueller Standort",
-payment_format: "Bevorzugtes Format",
-payment_message: "Kurze Beschreibung",
-payment_total: "Gesamtbetrag",
+  blog_permits_next_label: "Nächster Artikel",
+  blog_permits_next_title: "Anmeldung in Zürich: was Sie vorbereiten sollten",
+  blog_permits_related_label: "Verwandter Artikel",
+  blog_permits_related_title: "Krankenversicherung in der Schweiz: Fristen und Pflichten",
 
-payment_kicker: "Zahlung",
-payment_right_title: "Weiter zur sicheren Zahlung",
-payment_right_text: "Wenn Sie auf die Schaltfläche unten klicken, können Sie mit Ihrer Zahlung fortfahren.",
-payment_pay_now: "Jetzt bezahlen",
-payment_edit: "Buchung bearbeiten",
-payment_note: "Die Zahlung bestätigt Ihre Beratungsanfrage. Wenn eine formelle rechtliche Vertretung erforderlich ist, kann eine Weitervermittlung an einen zugelassenen Anwalt erfolgen.",
+  blog_anmeldung_meta_category: "Anmeldung",
+  blog_anmeldung_meta_time: "4 Min. Lesezeit",
+  blog_anmeldung_title: "Anmeldung in Zürich: was Sie vorbereiten sollten",
+  blog_anmeldung_lead: "Die Anmeldung in Zürich ist oft einer der ersten offiziellen Termine nach der Ankunft. Von außen wirkt sie einfach, aber die richtigen Unterlagen können Verzögerungen, zusätzliche Termine und unnötigen Stress vermeiden.",
+  blog_anmeldung_p1: "Nach dem Einzug in die Stadt müssen Sie Ihre Adresse in der Regel innerhalb einer begrenzten Frist bei den lokalen Behörden anmelden. Diese Anmeldung bestätigt Ihren Wohnsitz und wird oft für spätere Verwaltungsschritte wie Bewilligungsverfahren, Bankangelegenheiten, Versorger und Versicherungen benötigt.",
+  blog_anmeldung_h3_1: "Was Sie zum Termin mitbringen sollten",
+  blog_anmeldung_li1: "Gültiger Pass oder Personalausweis",
+  blog_anmeldung_li2: "Mietvertrag oder schriftliche Wohnbestätigung",
+  blog_anmeldung_li3: "Arbeitsvertrag oder Einkommensnachweis, falls relevant",
+  blog_anmeldung_li4: "Weitere Zivilstandsdokumente, je nach Fall",
+  blog_anmeldung_caption: "Ein gut vorbereiteter Anmeldetermin kann mehrere nächste Schritte Ihres Umzugs erleichtern.",
+  blog_anmeldung_h3_2: "Warum dieser Schritt wichtiger ist, als viele denken",
+  blog_anmeldung_p2: "Die Anmeldung ist nicht nur eine Formalität. Sie verankert Ihre lokale Präsenz im System. Viele nachgelagerte Prozesse hängen davon ab, darunter Mitteilungen von Behörden, Steuerverwaltung, Versicherungsanmeldung und in manchen Fällen die Erteilung der Bewilligung.",
+  blog_anmeldung_p3: "Neuankömmlinge unterschätzen oft, wie wichtig kleine Details sind, etwa identische Namensschreibweisen in allen Unterlagen, korrekte Einzugsdaten und gegebenenfalls eine schriftliche Bestätigung des Hauptmieters oder Vermieters.",
+  blog_anmeldung_note: "Wenn Ihre Wohnsituation vorübergehend, geteilt oder ganz neu ist, prüfen Sie vor dem Termin, ob Ihr Adressnachweis akzeptiert wird.",
+  blog_anmeldung_h3_3: "So vermeiden Sie Verzögerungen",
+  blog_anmeldung_li5: "Buchen Sie Ihren Termin so früh wie möglich.",
+  blog_anmeldung_li6: "Bringen Sie vollständige Unterlagen mit, nicht nur Screenshots.",
+  blog_anmeldung_li7: "Achten Sie darauf, dass Ihr Adressformat überall gleich ist.",
+  blog_anmeldung_li8: "Bewahren Sie nach dem Termin eine Kopie der Anmeldebestätigung auf.",
+  blog_anmeldung_p4: "Sobald die Anmeldung erledigt ist, geht vieles schneller. Sie haben einen offiziellen lokalen Bezugspunkt, und das macht alle weiteren Schritte einfacher.",
 
-// =========================
-// BLOG.HTML — DE
-// Add inside: de: { ... }
-// =========================
+  blog_insurance_meta_category: "Krankenversicherung",
+  blog_insurance_meta_time: "5 Min. Lesezeit",
+  blog_insurance_title: "Krankenversicherung in der Schweiz: Fristen und Pflichten",
+  blog_insurance_lead: "Die Krankenversicherung ist einer der zeitkritischsten Schritte nach der Ankunft. Wenn Sie die Frist früh verstehen, vermeiden Sie unnötigen Stress und unerwartete rückwirkende Kosten.",
+  blog_insurance_p1: "In der Schweiz ist die Grundkrankenversicherung grundsätzlich obligatorisch. Neue Einwohner müssen sich oft innerhalb einer festgelegten Frist nach Eintritt in das Schweizer System anmelden. Zu langes Warten kann zu administrativen Problemen und rückwirkenden Prämien führen.",
+  blog_insurance_h3_1: "Warum dieser Schritt wichtig ist",
+  blog_insurance_li1: "Er ist in den meisten Standardfällen beim Umzug gesetzlich vorgeschrieben.",
+  blog_insurance_li2: "Die Wahl des Versicherungsschutzes beeinflusst monatliche Kosten und den Zugang zur Gesundheitsversorgung.",
+  blog_insurance_li3: "Er hängt mit dem Zeitpunkt der Anmeldung und dem Ankunftsdatum zusammen.",
+  blog_insurance_note: "Bei der Versicherung geht es nicht nur um den Kauf einer Police. Es geht darum, das richtige Startdatum, Modell, die Franchise und die passende Logik des Anbieters für Ihre Situation zu wählen.",
+  blog_insurance_p2: "Viele achten zuerst auf den Preis, doch Zeitpunkt und korrekte Anmeldung sind genauso wichtig. Ein strukturierter Vergleich spart meist mehr Stress als eine hastige Last-Minute-Entscheidung.",
 
-brand_name: "Polina Kravtsova",
-brand_sub: "Rechtsberatung",
+  blog_insurance_next_label: "Nächster Artikel",
+  blog_insurance_next_title: "Studieren in der Schweiz: erste administrative Schritte",
+  blog_insurance_back_label: "← Zurück",
+  blog_insurance_back_title: "Aufenthaltsbewilligungen in der Schweiz: wo Sie anfangen sollten",
 
-blog_nav_home: "Startseite",
-blog_nav_permits: "Bewilligungen",
-blog_nav_registration: "Anmeldung",
-blog_nav_insurance: "Versicherung",
-blog_nav_book: "Beratung buchen",
+  blog_study_meta_category: "Studium",
+  blog_study_meta_time: "4 Min. Lesezeit",
+  blog_study_title: "Studieren in der Schweiz: was Studierende zuerst organisieren sollten",
+  blog_study_lead: "Für Studierende geht es in den ersten Wochen selten nur um ein Dokument. Wohnen, Anmeldung, Versicherung und Bewilligungsfragen kommen oft gleichzeitig.",
+  blog_study_p1: "Wenn Sie ein Studium in der Schweiz vorbereiten, hilft es, den Umzug als administrative Route zu sehen: Wohnung sichern, lokal anmelden, den Versicherungsstatus klären und sicherstellen, dass Ihre Aufenthaltsgrundlage zur Dauer und zum Zweck Ihres Aufenthalts passt.",
 
-lang_toggle: "Deutsch ▾",
-lang_en: "English",
-lang_de: "Deutsch",
-lang_es: "Español",
-lang_uk: "Українська",
+  blog_marriage_meta_category: "Heirat",
+  blog_marriage_meta_time: "5 Min. Lesezeit",
+  blog_marriage_title: "Heirat in der Schweiz: was internationale Paare wissen sollten",
+  blog_marriage_lead: "Eine Heirat in der Schweiz kann unkompliziert sein, aber internationale Paare sollten sich auf Dokumentenprüfungen, Zivilstandsformalitäten und einen Ablauf vorbereiten, der stark von guter Vorbereitung abhängt.",
+  blog_marriage_p1: "Wenn einer oder beide Partner ausländische Staatsangehörige sind, umfasst der Prozess oft die Einreichung offizieller Ausweisdokumente, Geburtsurkunden, Zivilstandsnachweise und in manchen Fällen zusätzlicher legalisierter oder übersetzter Unterlagen.",
+  blog_marriage_note: "Wenn Dokumente im Ausland ausgestellt wurden, prüfen Sie früh, ob Apostillen, Legalisationen oder offizielle Übersetzungen erforderlich sind. Hier verlangsamt sich der Prozess oft.",
 
-blog_breadcrumb_home: "Startseite",
-blog_breadcrumb_guides: "Umzugsratgeber",
+  blog_family_meta_category: "Familiennachzug",
+  blog_family_meta_time: "6 Min. Lesezeit",
+  blog_family_title: "Ihre Familie in die Schweiz holen: ist es für Schweizer oder EU-Bürger einfacher?",
+  blog_family_lead: "Die Regeln zum Familiennachzug in der Schweiz hängen stark von Staatsangehörigkeit, Bewilligungsart, Wohnsituation und Einkommen ab. Praktisch kann der Weg je nach anwendbarem Rechtsweg leichter oder schwieriger sein.",
+  blog_family_p1: "Viele fragen, ob es für Schweizer Bürger oder EU-Bürger einfacher ist, Familienmitglieder in die Schweiz zu holen. Die Antwort hängt von der genauen familiären Beziehung, dem Herkunftsland der Angehörigen und dem Aufenthaltsstatus der bereits in der Schweiz lebenden Person ab.",
+  blog_family_h3_1: "Worauf die Behörden oft achten",
+  blog_family_li1: "Ihre Staatsangehörigkeit und Ihr Aufenthaltsstatus",
+  blog_family_li2: "Ihre Bewilligungsart oder Ihr Bürgerstatus",
+  blog_family_li3: "Ob Sie über geeigneten Wohnraum verfügen",
+  blog_family_li4: "Ob finanzielle Voraussetzungen erfüllt sind",
+  blog_family_li5: "Die Beziehung zu dem Familienmitglied, das zu Ihnen zieht",
+  blog_family_note: "Der schnellste Weg, Unsicherheit zu verringern, ist, den Fall zuerst sehr klar zu definieren: wer nachzieht, von wo, unter welchem Status und in welchem Zeitrahmen.",
 
-blog_label: "Einblicke",
-blog_title: "Praktische Leitfäden für den Umzug und das Einleben in der Schweiz",
-blog_intro:
-  "Klare, elegante Artikel zu Bewilligungen, Anmeldung, Versicherung und den ersten administrativen Schritten nach der Ankunft — geschrieben für Menschen, die Sicherheit, Klarheit und weniger Stress wollen.",
+  sidebar_on_page_label: "Auf dieser Seite",
+  sidebar_toc_title: "Inhaltsverzeichnis",
+  sidebar_toc_permits: "Aufenthaltsbewilligungen in der Schweiz",
+  sidebar_toc_anmeldung: "Anmeldung in Zürich",
+  sidebar_toc_insurance: "Krankenversicherung in der Schweiz",
+  sidebar_toc_study: "Studieren in der Schweiz",
+  sidebar_toc_marriage: "Heirat in der Schweiz",
+  sidebar_toc_family: "Ihre Familie in die Schweiz holen",
 
-blog_permits_meta_category: "Aufenthaltsbewilligungen",
-blog_permits_meta_time: "5 Min. Lesezeit",
-blog_permits_title: "Aufenthaltsbewilligungen in der Schweiz: wo man beginnt",
-blog_permits_lead:
-  "Für viele Neuankömmlinge wirkt das Bewilligungsverfahren zunächst undurchsichtig. Die gute Nachricht ist, dass die meisten Fälle überschaubar werden, sobald man den Zeitablauf, die erforderlichen Unterlagen und die Logik der verschiedenen Bewilligungsarten versteht.",
-blog_permits_p1:
-  "Wenn Sie aus beruflichen Gründen, wegen der Familie oder für einen längeren Aufenthalt in die Schweiz ziehen, gehört die Aufenthaltsbewilligung zu den ersten wichtigen administrativen Schritten. In den meisten Fällen hängt die Art der Bewilligung von Ihrer Nationalität, Ihrem Beschäftigungsstatus und der geplanten Aufenthaltsdauer ab.",
-blog_permits_h3: "Die drei Bewilligungsarten, von denen man meist zuerst hört",
-blog_permits_li1:
-  "<strong>L-Bewilligung</strong> für kürzere Aufenthalte, oft im Zusammenhang mit befristeten Verträgen oder temporären Einsätzen.",
-blog_permits_li2:
-  "<strong>B-Bewilligung</strong> für einen längeren Aufenthalt, häufig für Arbeitnehmer, Familiennachzug und viele gewöhnliche Umzugsfälle.",
-blog_permits_li3:
-  "<strong>C-Bewilligung</strong> für den Daueraufenthalt nach mehreren qualifizierenden Jahren in der Schweiz.",
-blog_permits_note:
-  "Prüfen Sie nicht nur die bundesrechtlichen Regeln, sondern auch den praktischen Ablauf in Ihrem Kanton und Ihrer Gemeinde. Die rechtliche Struktur ist national, die Umsetzung erfolgt jedoch oft lokal.",
-blog_permits_caption:
-  "Ein guter Antrag beginnt meist mit vollständigen Unterlagen und einem klaren Zeitplan für die Anmeldung.",
-blog_permits_h3_2: "Unterlagen, die man meist früh braucht",
-blog_permits_p2:
-  "Auch wenn die Anforderungen je nach Fall unterschiedlich sind, werden häufig ein gültiger Pass oder Ausweis, ein Wohnnachweis, ein Arbeitsvertrag oder Nachweis ausreichender Mittel sowie zivilstandsrechtliche Dokumente benötigt. Es lohnt sich, sowohl Originale als auch digitale Kopien im Voraus vorzubereiten.",
-blog_permits_p3:
-  "Einer der häufigsten Fehler ist die Annahme, dass die Bewilligung vor der lokalen Anmeldung erledigt wird. Tatsächlich sind Anmeldung und Bewilligungsverfahren meist eng miteinander verbunden. Verzögert man das eine, verzögert sich oft auch das andere.",
-blog_permits_h3_3: "So wird der Ablauf einfacher",
-blog_permits_li4: "Bereiten Sie Unterlagen möglichst schon vor der Ankunft vor.",
-blog_permits_li5: "Prüfen Sie sofort die Anmeldefrist Ihrer Gemeinde.",
-blog_permits_li6: "Bewahren Sie Kopien von Verträgen, Adressbestätigungen und Korrespondenz auf.",
-blog_permits_li7: "Fragen Sie frühzeitig, ob Übersetzungen, Apostillen oder beglaubigte Kopien erforderlich sind.",
-blog_permits_p4:
-  "Das Bewilligungsverfahren besteht selten nur aus einem einzigen Formular. Es geht um die richtige Reihenfolge: Wohnung, Anmeldung, Versicherung und Arbeitsunterlagen greifen oft ineinander. Je früher Sie diese Punkte zusammen organisieren, desto einfacher werden die ersten Wochen in der Schweiz.",
-blog_permits_tag1: "Bewilligungen",
-blog_permits_tag2: "Ankunft",
-blog_permits_tag3: "Administration",
-blog_permits_cta: "Brauchen Sie persönliche Unterstützung?",
-blog_permits_next_label: "Nächster Artikel",
-blog_permits_next_title: "Anmeldung in Zürich: was Sie vorbereiten müssen",
-blog_permits_related_label: "Verwandter Artikel",
-blog_permits_related_title: "Krankenversicherung in der Schweiz: Fristen und Pflichten",
-blog_permits_cover_alt: "Titelbild zum Artikel über Aufenthaltsbewilligungen",
-blog_permits_inline_alt: "Dokumente auf einem Schreibtisch",
+  sidebar_related_label: "Verwandte Leistungen",
+  sidebar_related_title: "Wie wir helfen können",
+  sidebar_related_consultation_label: "Beratung",
+  sidebar_related_consultation_title: "Buchen Sie eine kostenlose Beratung für Ihren Umzugsplan",
+  sidebar_related_permits_label: "Bewilligungen",
+  sidebar_related_permits_title: "Unterstützung bei Aufenthaltsbewilligungen und Anmeldung",
+  sidebar_related_insurance_label: "Versicherung",
+  sidebar_related_insurance_title: "Hilfe bei der Wahl der richtigen Krankenversicherung",
 
-blog_anmeldung_meta_category: "Anmeldung",
-blog_anmeldung_meta_time: "4 Min. Lesezeit",
-blog_anmeldung_title: "Anmeldung in Zürich: was Sie vorbereiten müssen",
-blog_anmeldung_lead:
-  "Die Anmeldung in Zürich ist oft einer der ersten offiziellen Termine nach der Ankunft. Von außen wirkt sie einfach, doch die richtigen Unterlagen können Verzögerungen, zusätzliche Termine und unnötigen Stress vermeiden.",
-blog_anmeldung_p1:
-  "Nach dem Einzug in die Stadt müssen Sie Ihre Adresse in der Regel innerhalb einer begrenzten Frist bei den lokalen Behörden anmelden. Diese Anmeldung bestätigt Ihren Wohnsitz und wird oft für weitere administrative Schritte wie Bewilligungsverfahren, Bankkonto, Versorgungsleistungen und Versicherung benötigt.",
-blog_anmeldung_h3_1: "Was Sie zum Termin mitbringen sollten",
-blog_anmeldung_li1: "Gültiger Pass oder nationaler Ausweis",
-blog_anmeldung_li2: "Mietvertrag oder schriftliche Wohnbestätigung",
-blog_anmeldung_li3: "Arbeitsvertrag oder Einkommensnachweis, falls relevant",
-blog_anmeldung_li4: "Zusätzliche Zivilstandsdokumente, je nach Situation",
-blog_anmeldung_caption:
-  "Ein gut vorbereiteter Anmeldungstermin kann mehrere nächste Schritte Ihres Umzugs erleichtern.",
-blog_anmeldung_h3_2: "Warum dieser Schritt wichtiger ist, als viele denken",
-blog_anmeldung_p2:
-  "Die Anmeldung ist nicht nur eine Formalität. Sie begründet Ihre lokale Präsenz im System. Viele nachfolgende Prozesse hängen davon ab, darunter Mitteilungen von Behörden, Steuerverwaltung, Einschreibung in die Versicherung und in manchen Fällen die Erteilung der Bewilligung.",
-blog_anmeldung_p3:
-  "Neuankömmlinge unterschätzen oft, wie wichtig kleine Details sind, etwa die Übereinstimmung von Namen in allen Unterlagen, korrekte Einzugsdaten und gegebenenfalls eine schriftliche Bestätigung des Hauptmieters oder Vermieters.",
-blog_anmeldung_note:
-  "Wenn Ihre Wohnsituation vorübergehend, geteilt oder neu organisiert ist, prüfen Sie vor dem Termin, ob Ihr Adressnachweis akzeptiert wird.",
-blog_anmeldung_h3_3: "So vermeiden Sie Verzögerungen",
-blog_anmeldung_li5: "Buchen Sie Ihren Termin so früh wie möglich.",
-blog_anmeldung_li6: "Bringen Sie vollständige Unterlagen mit, nicht nur Screenshots.",
-blog_anmeldung_li7: "Achten Sie darauf, dass das Adressformat überall einheitlich ist.",
-blog_anmeldung_li8: "Bewahren Sie nach dem Termin eine Kopie der Anmeldebestätigung auf.",
-blog_anmeldung_p4:
-  "Sobald die Anmeldung abgeschlossen ist, laufen viele Dinge schneller. Sie haben dann einen offiziellen lokalen Bezugspunkt, und das macht alle folgenden Schritte einfacher.",
-blog_anmeldung_tag1: "Zürich",
-blog_anmeldung_tag2: "Anmeldung",
-blog_anmeldung_tag3: "Erste Schritte",
-blog_anmeldung_cta: "Unterstützung buchen",
-blog_anmeldung_prev_label: "Vorheriger Artikel",
-blog_anmeldung_prev_title: "Aufenthaltsbewilligungen in der Schweiz: wo man beginnt",
-blog_anmeldung_next_label: "Nächster Artikel",
-blog_anmeldung_next_title: "Krankenversicherung in der Schweiz: Fristen und Pflichten",
-blog_anmeldung_cover_alt: "Titelbild zum Artikel über die Anmeldung in Zürich",
-blog_anmeldung_inline_alt: "Stadtverwaltung und Unterlagen",
+  sidebar_support_label: "Brauchen Sie Unterstützung?",
+  sidebar_support_title: "Bevorzugen Sie persönliche Begleitung?",
+  sidebar_support_text: "Wenn Sie Hilfe bei Anmeldung, Bewilligungen, Wohnungsunterlagen oder Krankenversicherung möchten, buchen Sie eine Beratung und erhalten Sie einen klaren Schritt-für-Schritt-Plan.",
+  sidebar_support_cta: "Beratung buchen",
 
-blog_study_meta_category: "Studium",
-blog_study_meta_time: "5 Min. Lesezeit",
-blog_study_title: "Studieren in der Schweiz: einfacher als gedacht",
-blog_study_lead:
-  "Die Schweiz wirkt von außen sehr strukturiert, doch für viele internationale Studierende ist der Prozess zugänglicher als erwartet, sobald man Zulassung, Anmeldung und die grundlegenden Unterlagen nach der Ankunft versteht.",
-blog_study_p1:
-  "Studierende, die sich für Universitäten in der Schweiz entscheiden, sind oft überrascht, wie organisiert das System ist. Sobald Sie Ihre Zulassung haben, werden die nächsten Schritte meist klarer: Wohnung finden, Finanzierungsnachweis vorbereiten, Krankenversicherung organisieren und sich nach der Ankunft anmelden.",
-blog_study_h3_1: "Was meistens am wichtigsten ist",
-blog_study_li1: "Ihre Zulassungsbestätigung der Universität",
-blog_study_li2: "Ein gültiger Pass oder Ausweis",
-blog_study_li3: "Nachweis der Unterkunft",
-blog_study_li4: "Nachweis, dass Sie sich finanziell selbst tragen können",
-blog_study_li5: "Planung der Krankenversicherung",
-blog_study_note:
-  "Viele Studierende denken, der schwierige Teil beginne erst nach der Ankunft. In der Praxis wird das Leben leichter, sobald Adresse, Bewilligungsverfahren und Versicherung früh organisiert sind.",
-blog_study_p2:
-  "Wenn Sie in Zürich, Lausanne, Genf oder einer anderen großen Stadt studieren, kann die Wohnungssuche eine der größten praktischen Herausforderungen sein. Früh mit der Suche zu beginnen ist oft wichtiger, als den Rest des Prozesses zu verkomplizieren.",
-blog_study_h3_2: "Warum es einfacher sein kann als erwartet",
-blog_study_p3:
-  "Die Schweizer Verwaltung ist formal, aber meist vorhersehbar. Wenn Ihre Unterlagen vollständig sind und Fristen eingehalten werden, läuft der Prozess oft in logischer Reihenfolge. Gerade diese Vorhersehbarkeit macht die Erfahrung häufig einfacher, als Neuankömmlinge zunächst denken.",
-blog_study_tag1: "Studierende",
-blog_study_tag2: "Universitäten",
-blog_study_tag3: "Ankunft",
-blog_study_cta: "Brauchen Sie Hilfe bei der Planung?",
-blog_study_cover_alt: "Studieren in der Schweiz",
+  cta_label: "Nächster Schritt",
+  cta_title: "Machen Sie Ihren Umzug vom ersten Tag an einfacher",
+  cta_text: "Sparen Sie Zeit, vermeiden Sie verpasste Fristen und gehen Sie mit einer klaren Struktur und persönlicher Unterstützung durch Bewilligungen, Anmeldung und Versicherung.",
+  cta_book: "Beratung buchen",
+  cta_home: "Zur Startseite",
 
-blog_marriage_meta_category: "Eheschließung",
-blog_marriage_meta_time: "5 Min. Lesezeit",
-blog_marriage_title: "Heiraten in der Schweiz: was internationale Paare wissen sollten",
-blog_marriage_lead:
-  "Eine Eheschließung in der Schweiz kann unkompliziert sein, doch internationale Paare sollten sich auf Dokumentenprüfungen, Zivilstandsformalitäten und einen Zeitplan vorbereiten, der stark von guter Vorbereitung abhängt.",
-blog_marriage_p1:
-  "Wenn ein oder beide Partner ausländische Staatsangehörige sind, umfasst der Prozess oft die Einreichung offizieller Ausweisdokumente, Geburtsurkunden, Zivilstandsnachweise und in manchen Fällen zusätzlicher legalisierter oder übersetzter Unterlagen. Die genauen Anforderungen können je nach Nationalität und persönlicher Vorgeschichte variieren.",
-blog_marriage_h3_1: "Was Sie früh vorbereiten sollten",
-blog_marriage_li1: "Gültige Ausweisdokumente beider Partner",
-blog_marriage_li2: "Geburtsurkunden und Zivilstandsdokumente",
-blog_marriage_li3: "Erforderliche Übersetzungen oder beglaubigte Kopien",
-blog_marriage_li4: "Wohnsitznachweis, falls relevant",
-blog_marriage_p2:
-  "Einer der Hauptgründe für Verzögerungen ist nicht der Trauungstermin selbst, sondern die Vorbereitung der Dokumente. Fehlt eine formale Anforderung, kann sich der Zeitplan viel stärker verzögern als erwartet.",
-blog_marriage_note:
-  "Wenn Dokumente im Ausland ausgestellt wurden, prüfen Sie frühzeitig, ob Apostillen, Legalisierungen oder amtliche Übersetzungen erforderlich sind. Genau hier verlangsamt sich der Prozess oft.",
-blog_marriage_h3_2: "Warum Planung wichtig ist",
-blog_marriage_p3:
-  "Internationale Eheschließungen sind meist gut zu bewältigen, wenn man sie als administrative Abfolge und nicht als einzelnes Ereignis betrachtet. Zivilstandsdokumente, lokale Anmeldung und spätere Aufenthaltsplanung hängen oft eng zusammen, besonders wenn ein Ehepartner in der Schweiz bleiben möchte.",
-blog_marriage_tag1: "Eheschließung",
-blog_marriage_tag2: "Zivilstand",
-blog_marriage_tag3: "Dokumente",
-blog_marriage_cta: "Persönliche Unterstützung erhalten",
-blog_marriage_cover_alt: "Heiraten in der Schweiz",
+  footer_brand: "Easy Help Switzerland",
+  footer_copy: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
+  footer_tagline: "Praktische Umzugsunterstützung in der Schweiz",
 
-blog_family_meta_category: "Familiennachzug",
-blog_family_meta_time: "6 Min. Lesezeit",
-blog_family_title: "Ihre Familie in die Schweiz holen: ist es für Schweizer oder EU-Bürger einfacher?",
-blog_family_lead:
-  "Die Regeln zum Familiennachzug in der Schweiz hängen stark von Nationalität, Bewilligungsart, Wohnsituation und Einkommen ab. Praktisch kann der Weg je nach anwendbarem Rechtsrahmen leichter oder schwieriger sein.",
-blog_family_p1:
-  "Viele Menschen fragen sich, ob es für Schweizer Staatsangehörige oder EU-Bürger einfacher ist, ihre Familienmitglieder in die Schweiz zu holen. Die Antwort hängt von der genauen Familienbeziehung, dem Herkunftsland der Angehörigen und dem Aufenthaltsstatus der bereits in der Schweiz lebenden Person ab.",
-blog_family_h3_1: "Worauf Behörden oft achten",
-blog_family_li1: "Ihre Nationalität und Ihr Aufenthaltsstatus",
-blog_family_li2: "Ihre Bewilligungsart oder Ihr Bürgerstatus",
-blog_family_li3: "Ob geeigneter Wohnraum vorhanden ist",
-blog_family_li4: "Ob finanzielle Anforderungen erfüllt sind",
-blog_family_li5: "Die Beziehung zum nachziehenden Familienmitglied",
-blog_family_p2:
-  "In der Praxis können Freizügigkeitsrechte im EU-Kontext manche Fälle flexibler machen, während für Schweizer Bürger ein anderer rechtlicher Rahmen gilt. Deshalb können zwei scheinbar ähnliche Familienfälle unterschiedliche Unterlagen und Zeitabläufe haben.",
-blog_family_note:
-  "Der schnellste Weg, Unsicherheit zu verringern, ist eine klare Definition des Falls: Wer zieht nach, von wo, unter welchem Status und in welchem Zeitrahmen?",
-blog_family_h3_2: "So bereiten Sie einen starken Fall vor",
-blog_family_p3:
-  "Beginnen Sie mit vollständigen persönlichen Unterlagen, Beziehungsnachweisen, Wohnraumnachweis und gegebenenfalls Nachweis finanzieller Stabilität. Viele Verzögerungen entstehen, weil Familien emotional, aber nicht strukturiert starten. Eine gute Dokumentenstrategie macht den Prozess deutlich einfacher.",
-blog_family_tag1: "Familie",
-blog_family_tag2: "Relocation",
-blog_family_tag3: "Bewilligungen",
-blog_family_cta: "Fragen Sie zu Ihrem Fall",
-blog_family_cover_alt: "Familie in die Schweiz holen",
 
-blog_insurance_meta_category: "Krankenversicherung",
-blog_insurance_meta_time: "6 Min. Lesezeit",
-blog_insurance_title: "Krankenversicherung in der Schweiz: Fristen und Pflichten",
-blog_insurance_lead:
-  "Die Schweizer Krankenversicherung ist obligatorisch, privat und stark strukturiert. Für Neuankömmlinge besteht die Herausforderung selten darin zu verstehen, dass sie erforderlich ist — sondern wann man handeln muss, was man wählen soll und wie man unnötige Kosten vermeidet.",
-blog_insurance_p1:
-  "Nach der Ankunft in der Schweiz haben Sie in der Regel eine begrenzte Frist, um eine Krankenversicherung abzuschließen. Die Grundversicherung ist obligatorisch und gilt auch dann, wenn Sie sich noch einleben, Anbieter vergleichen oder auf andere Unterlagen warten.",
-blog_insurance_h3_1: "Die drei Entscheidungen, die die meisten Neuankömmlinge treffen müssen",
-blog_insurance_li1: "Welchen Anbieter Sie wählen",
-blog_insurance_li2: "Welche Franchise zu Ihrem Budget und Ihrer Situation passt",
-blog_insurance_li3: "Welches Versicherungsmodell zu Ihrem Lebensstil passt",
-blog_insurance_p2:
-  "Die Prämien können stark variieren, doch die günstigste Option ist nicht immer die beste. Familien, Menschen mit regelmäßigem medizinischem Bedarf oder Personen, die maximale Flexibilität möchten, schätzen oft andere Merkmale als jemand, der vor allem die niedrigste Monatsprämie sucht.",
-blog_insurance_caption:
-  "Die Wahl der Versicherung bedeutet, gesetzliche Anforderungen, monatliche Prämien, Franchise und praktische Abläufe in Einklang zu bringen.",
-blog_insurance_h3_2: "Fristen sind entscheidend",
-blog_insurance_p3:
-  "Eines der wichtigsten Details ist der Zeitpunkt. Wenn Sie die Einschreibefrist verpassen, können die Behörden Ihnen einen Anbieter zuweisen. Das bedeutet meist weniger Kontrolle, weniger Optimierungsmöglichkeiten und potenziell höhere Kosten, als wenn Sie selbst sorgfältig gewählt hätten.",
-blog_insurance_note:
-  "Versicherung sollte nicht als letzter Schritt behandelt werden, wenn alles andere bereits erledigt ist. Sie gehört zu den zentralen Aufgaben nach der Ankunft und funktioniert am besten zusammen mit Anmeldung und Bewilligungsplanung.",
-blog_insurance_h3_3: "Ein kluger Weg, Optionen zu vergleichen",
-blog_insurance_li4: "Schätzen Sie realistisch ein, wie oft Sie medizinische Leistungen nutzen werden.",
-blog_insurance_li5: "Vergleichen Sie nicht nur die Monatsprämie, sondern auch die Auswirkung der Franchise.",
-blog_insurance_li6: "Prüfen Sie, ob Telemedizin- oder Hausarztmodelle zu Ihnen passen.",
-blog_insurance_li7: "Überlegen Sie, ob eine Zusatzversicherung wirklich notwendig ist.",
-blog_insurance_p4:
-  "Eine gute Lösung ist nicht nur gesetzeskonform. Sie sollte auch nachhaltig sein. Die richtige Versicherungswahl gibt Ihnen Sicherheit, schützt Ihr Budget und vermeidet teure Korrekturen später.",
-blog_insurance_tag1: "Versicherung",
-blog_insurance_tag2: "Fristen",
-blog_insurance_tag3: "Budget",
-blog_insurance_cta: "Hilfe bei der Auswahl erhalten",
-blog_insurance_prev_label: "Vorheriger Artikel",
-blog_insurance_prev_title: "Anmeldung in Zürich: was Sie vorbereiten müssen",
-blog_insurance_back_label: "Zurück zum Anfang",
-blog_insurance_back_title: "Aufenthaltsbewilligungen in der Schweiz: wo man beginnt",
-blog_insurance_cover_alt: "Titelbild zum Artikel über Krankenversicherung",
-blog_insurance_inline_alt: "Planung der Krankenversicherung",
+//Free Consultation
 
-sidebar_on_page_label: "Auf dieser Seite",
-sidebar_toc_title: "Inhaltsverzeichnis",
-sidebar_toc_permits: "Aufenthaltsbewilligungen in der Schweiz",
-sidebar_toc_anmeldung: "Anmeldung in Zürich",
-sidebar_toc_insurance: "Krankenversicherung in der Schweiz",
-sidebar_toc_study: "Studieren in der Schweiz",
-sidebar_toc_marriage: "Heiraten in der Schweiz",
-sidebar_toc_family: "Ihre Familie in die Schweiz holen",
 
-sidebar_related_label: "Verwandte Leistungen",
-sidebar_related_title: "Wie wir helfen können",
-sidebar_related_consultation_label: "Beratung",
-sidebar_related_consultation_title: "Buchen Sie eine kostenlose Beratung für Ihren Umzugsplan",
-sidebar_related_permits_label: "Bewilligungen",
-sidebar_related_permits_title: "Unterstützung bei Aufenthaltsbewilligungen und Anmeldung",
-sidebar_related_insurance_label: "Versicherung",
-sidebar_related_insurance_title: "Hilfe bei der Wahl der richtigen Krankenversicherung",
+consult_brand_main: "Easy Help",
+consult_brand_sub: "Switzerland",
+consult_nav_guides: "Ratgeber",
+consult_nav_booking: "Buchung",
 
-sidebar_support_label: "Brauchen Sie Unterstützung?",
-sidebar_support_title: "Bevorzugen Sie persönliche Beratung?",
-sidebar_support_text:
-  "Wenn Sie Hilfe bei Anmeldung, Bewilligungen, Wohnunterlagen oder Krankenversicherung möchten, buchen Sie eine Beratung und erhalten Sie einen klaren Schritt-für-Schritt-Plan.",
-sidebar_support_cta: "Beratung buchen",
+consult_micro: "Kostenloser erster Schritt",
+consult_title: 'Kostenlose <span>Beratung</span> anfragen',
+consult_subtitle: "Beschreiben Sie kurz Ihre Situation und wir kontaktieren Sie, um eine kostenlose Erstberatung zu vereinbaren.",
 
-cta_label: "Nächster Schritt",
-cta_title: "Machen Sie Ihren Umzug ab dem ersten Tag einfacher",
-cta_text:
-  "Sparen Sie Zeit, vermeiden Sie verpasste Fristen und gehen Sie mit klarer Struktur und persönlicher Unterstützung durch Bewilligungen, Anmeldung und Versicherung.",
-cta_book: "Beratung buchen",
-cta_home: "Zurück zur Startseite",
+consult_feature_1: "Kostenlose Erstanfrage",
+consult_feature_2: "Klare Empfehlung für den nächsten Schritt",
+consult_feature_3: "Ein guter Startpunkt",
+consult_hero_minutes: "Minuten reichen oft aus, um den nächsten Weg festzulegen",
 
-footer_copy: "© 2026 Zurich Relocation",
-footer_tagline: "Praktische Unterstützung beim Umzug in die Schweiz",
+consult_start_here: "Hier anfangen",
+consult_intro_copy: 'Füllen Sie das Formular für Ihre erste kostenlose Beratung aus. Die maximale Buchungsdauer beträgt 30 Minuten. Wir melden uns bei Ihnen und unterbreiten Ihnen Terminvorschläge (online oder persönlich, ganz nach Ihren Wünschen). Bitte füllen Sie alle Felder aus und beschreiben Sie Ihre Situation so genau wie möglich, damit wir uns optimal auf die Beratung vorbereiten können.',
+consult_bullet_1: "Schneller Erstkontakt ohne Zahlung",
+consult_bullet_2: "Gut für erste Orientierung und Fallklarheit",
+consult_bullet_3: "Dies verpflichtet Sie weder zur Zahlung noch zu irgendwelchen Massnahmen.",
+
+consult_form_label: "Anfrage für kostenlose Beratung",
+consult_form_title: "Beschreiben Sie uns kurz Ihre Situation",
+consult_form_text: 'Dieses Formular wird versendet und speichert Themenoptionen: Aufenthaltserlaubnis, Arbeitserlaubnis, Umzug nach Zürich, Rechtsberatung und mehr.',
+consult_paid_booking: "Zur kostenpflichtigen Buchung",
+
+name: "Vollständiger Name",
+email: "E-Mail",
+phone: "Telefon / WhatsApp",
+location: "Aktueller Wohnort",
+topic: "Wobei benötigen Sie Hilfe?",
+opt_residence: "Aufenthaltsbewilligung",
+opt_work: "Arbeitsbewilligung",
+opt_relocation: "Umzug nach Zürich",
+opt_legal: "Beratung",
+opt_other: "Andere",
+message: "Kurze Beschreibung",
+submit: "Beratung anfragen",
+consult_paid_booking: "Zur kostenpflichtigen Buchung",
+note: "Diese Anfrage begründet kein Mandatsverhältnis. Falls eine formelle rechtliche Vertretung erforderlich ist, können Sie an einen zugelassenen Schweizer Anwalt verwiesen werden.",
+
+consult_how_label: "So funktioniert es",
+consult_how_title: "Einfacher Erstkontakt",
+consult_step_1: "Senden Sie Ihre Anfrage und beschreiben Sie das Anliegen kurz.",
+consult_step_2: "Ihre Anfrage wird geprüft und an den richtigen nächsten Schritt weitergeleitet.",
+consult_step_3: "Sie werden kontaktiert, um die kostenlose Erstberatung zu vereinbaren.",
+
+consult_email_label: "Per E-Mail gesendet",
+consult_email_title: "Bitte erscheinen Sie pünktlich zum Treffen.",
+consult_email_text: 'Wenn Sie nicht innerhalb der ersten 10 Minuten eintreffen, gilt der Beratungstermin als abgesagt.',
+
+consult_paid_label: "Brauchen Sie mehr als ein erstes Gespräch?",
+consult_paid_title: "Weiter zu kostenpflichtiger Unterstützung",
+consult_paid_text: "Wenn Sie eine Beratung oder spezielle Dienstleistungen in Anspruch nehmen möchten, fahren Sie bitte mit der kostenpflichtigen Buchung fort oder geben Sie in den Kommentaren an, welche Dienstleistung Sie wünschen.",
+consult_open_booking: "Buchungsseite öffnen",
+
+consult_why_label: "Warum Kunden hier beginnen",
+consult_why_title: "Praktische Unterstützung vor unnötigen Kosten",
+consult_why_text: "Viele Menschen brauchen zuerst Klarheit, Struktur und Hilfe beim Verstehen ihrer Unterlagen oder des nächsten administrativen Schritts — nicht sofort ein vollständiges Rechtsmandat. Eine kurze Beratung kann oft frühzeitig Zeit sparen und Stress reduzieren.",
+consult_why_point_1_title: "Gut zur Orientierung",
+consult_why_point_1_text: "Hilfreich, wenn das erste Problem Unsicherheit ist und noch nicht die Umsetzung.",
+consult_why_point_2_title: "Weniger Hürden",
+consult_why_point_2_text: "Ein einfacherer Einstiegspunkt für Besucher, die noch nicht bereit sind zu zahlen.",
+consult_why_point_3_title: "Natürlicher nächster Schritt",
+consult_why_point_3_text: "Falls während der Beratung weitere Leistungen benötigt werden, müssen diese bezahlt werden.",
+
+consult_footer_copy: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
+consult_footer_right: "Seite für kostenlose Beratung",
+consult_whatsapp_aria: "WhatsApp",
+
+
+//Booking.html
+
+
+booking_brand_main: "Easy Help Switzerland",
+    nav_home: "Start",
+    nav_services: "Leistungen",
+    booking_nav_guides: "Ratgeber",
+    booking_nav_free_consultation: "Kostenlose Beratung",
+    nav_contacts: "Kontakt",
+    back: "← Zurück",
+
+    booking_micro: "Buchung",
+    booking_title: "Buchen Sie Ihre <span>Beratung</span>",
+    booking_subtitle: "Wählen Sie ein Paket und fahren Sie mit der Zahlung fort.",
+
+    booking_feature_1: "Klare Paketauswahl",
+    booking_feature_2: "Schneller Ablauf",
+    booking_feature_3: "Antwort innerhalb 24h",
+    booking_hero_packages: "Pakete verfügbar",
+
+    booking_flow_title: "Buchung",
+    booking_flow_text: "Die Zahlung wird von Ihrer Karte abgebucht. Sie können Ihre Buchung bis zu einem Tag vor Leistungsbeginn kostenfrei stornieren. Bei verspäteter Stornierung fällt eine Gebühr in Höhe der Hälfte des Paketpreises an. Storno-Buchungen erfolgen per E-Mail. Sollten Sie weitere Leistungen benötigen, sind diese separat zu bezahlen.",
+    booking_info_1: "Online oder in Zürich",
+    booking_info_2: "Praktische Beratung",
+    booking_info_3: "Zeit sparen",
+
+    booking_client_details: "Kundendaten",
+    booking_form_title: "Paket wählen und Daten eingeben",
+    booking_form_intro: "Daten eingeben und bezahlen.",
+
+    booking_package_1_name: "Kurze Beratung",
+    booking_package_1_desc: "Perfekt für schnelle Hilfe bei einer konkreten Frage.",
+    booking_package_2_name: "Umzugsunterstützung",
+    booking_package_2_desc: "Ideal für Dokumentenvorbereitung und erste Schritte.",
+    booking_package_3_name: "Ansiedlungsstrategie",
+    booking_package_3_desc: "Umfassende Unterstützung für Ihren Start in der Schweiz.",
+
+    booking_name: "Name",
+    booking_email: "E-Mail",
+    booking_phone: "Telefon / WhatsApp",
+    booking_location: "Ort",
+
+    booking_placeholder_name: "Ihr vollständiger Name",
+  booking_placeholder_email: "ihre@email.com",
+  booking_placeholder_phone: "+41 …",
+  booking_placeholder_location: "Land oder Stadt",
+  booking_placeholder_message: "Beschreiben Sie kurz Ihre Situation, Ihre Unterlagen oder die wichtigste Frage, die Sie besprechen möchten.",
+
+    booking_preferred_label: "Format",
+    booking_preferred_default: "Option wählen",
+    booking_preferred_online: "Online",
+    booking_preferred_zurich: "Vor Ort Zürich",
+    booking_preferred_phone: "Telefon",
+
+    booking_message: "Beschreibung",
+    booking_placeholder_message: "Kurz beschreiben.",
+
+    booking_note: "Zahlung bestätigt Anfrage.",
+    booking_continue_payment: "Zur Zahlung",
+    booking_back: "← Zurück",
+
+    booking_trust_1_title: "Klar",
+    booking_trust_1_text: "Einfacher Ablauf.",
+    booking_trust_2_title: "Schnell",
+    booking_trust_2_text: "Antwort 24h.",
+    booking_trust_3_title: "Praktisch",
+    booking_trust_3_text: "Konkrete Hilfe.",
+
+    booking_next_label: "Nächste Schritte",
+    booking_next_title: "3 Schritte",
+    booking_step_1: "Paket wählen",
+    booking_step_2: "Prüfen",
+    booking_step_3: "Bestätigung",
+
+    booking_structure_label: "Auftragsänderung",
+    booking_structure_title: "Passt auf",
+    booking_structure_text: "Gehen Sie zurück, um Ihre Informationen zu ändern. Das ist später nicht mehr möglich.",
+
+    booking_free_label: "Kostenlos?",
+    booking_free_title: "Gratis starten",
+    booking_free_text: "Erst kostenlose Beratung.",
+    booking_free_button: "Gratis Beratung",
+
+    booking_footer_copy: "© 2026 Easy Help Switzerland",
+    booking_footer_right: "Seite zur Buchung von Packages",
+
+
+    //Payment.html
+
+
+    payment_home: "Startseite",
+  payment_booking_nav: "Buchung",
+  payment_guides: "Ratgeber",
+  payment_free_consultation: "Kostenlose Beratung",
+  payment_contacts: "Kontakte",
+
+  payment_back: "← Zurück",
+  payment_micro: "Zahlungsübersicht",
+  payment_hero_title: "Prüfen Sie Ihre <span>Beratung</span>",
+  payment_hero_title_span: "Beratung",
+  payment_hero_sub: "Bestätigen Sie Ihr ausgewähltes Paket und Ihre Angaben, bevor Sie zur sicheren Zahlung fortfahren.",
+
+  payment_feature_summary: "Buchungsübersicht",
+  payment_feature_stripe: "Sichere Stripe-Weiterleitung",
+  payment_feature_edit: "Vor der Zahlung bearbeiten",
+  payment_final_step: "letzter Schritt vor dem Checkout",
+
+  payment_summary_kicker: "Buchungsübersicht",
+  payment_title: "Prüfen Sie Ihre Beratung vor der Zahlung",
+  payment_subtitle: "Bitte bestätigen Sie unten Ihr ausgewähltes Paket und Ihre Angaben.",
+  payment_name: "Vollständiger Name",
+  payment_email: "E-Mail",
+  payment_phone: "Telefon / WhatsApp",
+  payment_location: "Aktueller Wohnort",
+  payment_format: "Bevorzugtes Format",
+  payment_message: "Kurze Beschreibung",
+  payment_total: "Gesamtbetrag",
+
+  payment_kicker: "Zahlung",
+  payment_right_title: "Zur sicheren Zahlung fortfahren",
+  payment_right_text: "Wenn Sie auf die Schaltfläche unten klicken, können Sie mit Ihrer Zahlung fortfahren.",
+  payment_pay_now: "Jetzt bezahlen",
+  payment_edit: "Buchung bearbeiten",
+  payment_note: "Die Zahlung bestätigt Ihre Beratungsanfrage. Falls Ihre Angelegenheit eine formelle rechtliche Vertretung erfordert, können Sie gegebenenfalls an einen zugelassenen Anwalt verwiesen werden.",
+
+  payment_attention: "Bitte beachten",
+  payment_no_free_consultation: "Ohne kostenlose Beratung gebucht",
+  payment_attention_text: "Wir empfehlen, zuerst eine kostenlose Beratung zu buchen. Wenn Sie ein Paket buchen und sich herausstellt, dass Ihr Fall aussichtslos ist, berechnen wir 10 % des Paketpreises und erstatten den Rest.",
+  payment_package_pricing: "Paketpreis",
+
+  package_initial: "Kurze Beratung — CHF 79",
+  package_review: "Umzugsunterstützung — CHF 189",
+  package_relocation: "Ansiedlungsstrategie — CHF 349",
+
+  payment_footer_rights: "© 2026 Easy Help Switzerland - alle Rechte vorbehalten.",
+  payment_footer_page: "Zahlungsseite",
+
 
   },
 
@@ -2029,142 +2099,131 @@ why_4_desc: "Отримайте ясність і напрямок, перш н�
 why_4_content: `<p>Не кожна ситуація потребує повного юридичного супроводу з самого початку.</p><ul><li>Отримайте ясність до того, як платити за непотрібну юридичну роботу</li><li>Зрозумійте, який перший крок є найрозумнішим саме для вашої справи</li><li>Використовуйте точкову підтримку там, де вона дає найбільшу користь</li></ul><p><strong>Результат:</strong> кращі рішення та кращий контроль бюджету.</p>`,
 
 
-process: {
-      title: "Як ми працюємо",
-      side: "Структурований процес, який зменшує невизначеність і робить кожен етап простим, зрозумілим і керованим.",
+      process_title: "Як ми працюємо",
+      process_side: "Структурований процес, який зменшує невизначеність і робить кожен етап простим, зрозумілим і керованим.",
 
-      discoverTitle: "Аналіз",
-      discoverItem1: "Первинний розгляд справи",
-      discoverItem2: "Уточнення вашого шляху",
-      discoverItem3: "Оцінка терміновості",
+      process_discoverTitle: "Аналіз",
+      process_discoverItem1: "Первинний розгляд справи",
+      process_discoverItem2: "Уточнення вашого шляху",
+      process_discoverItem3: "Оцінка терміновості",
 
-      defineTitle: "Визначення",
-      defineItem1: "Необхідні документи",
-      defineItem2: "Найкращий адміністративний шлях",
-      defineItem3: "Чіткі наступні кроки",
+      process_defineTitle: "Визначення",
+      process_defineItem1: "Необхідні документи",
+      process_defineItem2: "Найкращий адміністративний шлях",
+      process_defineItem3: "Чіткі наступні кроки",
 
-      supportTitle: "Підтримка",
-      supportItem1: "Форми та листи",
-      supportItem2: "Контакт з органами",
-      supportItem3: "Практичні поради",
+      process_supportTitle: "Підтримка",
+      process_supportItem1: "Форми та листи",
+      process_supportItem2: "Контакт з органами",
+      process_supportItem3: "Практичні поради",
 
-      followUpTitle: "Супровід",
-      followUpItem1: "Перевірка подання",
-      followUpItem2: "Оцінка наступних кроків",
-      followUpItem3: "Постійна підтримка"
-    },
+      process_followUpTitle: "Супровід",
+      process_followUpItem1: "Перевірка подання",
+      process_followUpItem2: "Оцінка наступних кроків",
+      process_followUpItem3: "Постійна підтримка",
 
 
-testimonials_label: "Відгуки клієнтів",
-testimonials_title: "Що кажуть клієнти",
+      testimonials_micro_left: "Client feedback",
 
-testimonial_1_text: "Коли я приїхала до Цюриха, я була зовсім розгублена. Я не знала, куди йти спочатку, які документи потрібні і як працює реєстрація. Після консультації все нарешті стало зрозумілим і значно менш стресовим.",
-testimonial_1_from: "Переїхала з Бразилії",
 
-testimonial_2_text: "Я хвилювалася через свій дозвіл і деякі листи від органів влади. Мені все пояснили дуже просто, і після цього я почувалася набагато спокійніше.",
-testimonial_2_from: "Переїхала з України",
+      testimonials_micro_left: "Відгуки клієнтів",
 
-testimonial_3_text: "Найбільше мені допомогло те, що я міг ставити звичайні запитання і отримувати чіткі відповіді. Я не відчував тиску і нарешті зрозумів, що робити далі.",
-testimonial_3_from: "Переїхав з Іспанії",
+testimonial_1_text: "Я була повністю розгублена, коли приїхала до Цюриха. Після консультації все стало зрозумілим і значно менш стресовим.",
+testimonial_1_meta: "Переїхала з Бразилії, живе в Цюриху",
 
-testimonial_next_aria: "Наступний відгук",
+testimonial_2_text: "Я хвилювалася щодо свого дозволу та листів від органів влади. Все пояснили дуже просто.",
+testimonial_2_meta: "Переїхала з України",
 
-testimonials_why_label: "Чому клієнти починають тут",
-testimonials_why_title: "Практична підтримка до зайвих витрат",
-testimonials_why_p1: "Багатьом людям спочатку потрібні ясність, структура та допомога з документами чи комунікацією, а не повний юридичний супровід із самого початку.",
-testimonials_why_p2: "Коротка консультація часто може зекономити час, зменшити стрес і допомогти уникнути дорогих помилок або затримок.",
-testimonials_cta: "Запросити безкоштовну консультацію",
+testimonial_3_text: "Найбільше допомогло те, що я могла ставити звичайні питання і отримувати чіткі відповіді без поспіху.",
+testimonial_3_meta: "Переїхав з Іспанії",
 
-pricing_label: "Ціни",
-pricing_title: "Почніть із ясності, а не з великого рахунку за юридичні послуги",
-pricing_intro: "Для багатьох питань релокації та адміністративних процедур вам може не знадобитися повне юридичне представництво з самого початку. Почніть з безкоштовної першої консультації, зрозумійте свій маршрут і оберіть рівень підтримки, який підходить саме вашій ситуації.",
+testimonials_micro_right: "Чому починають тут",
+testimonials_title: "Практична підтримка без зайвих витрат",
 
-pricing_card1_plan: "Essential",
-pricing_card1_title: "Окрема консультація",
-pricing_card1_price: "CHF 59",
-pricing_card1_sub: "Для клієнтів, яким потрібна одна чітка відповідь, орієнтація та наступні кроки.",
-pricing_card1_point1: "30-хвилинна консультація",
-pricing_card1_point2: "Огляд ситуації",
-pricing_card1_point3: "Пояснення необхідних документів",
-pricing_card1_point4: "Чіткі рекомендації щодо наступних кроків",
-pricing_card1_cta: "Забронювати пакет",
+testimonials_text_1: "Багатьом спочатку потрібні ясність, структура та допомога з документами або комунікацією, а не повний юридичний супровід одразу.",
+testimonials_text_2: "Коротка консультація може заощадити час, зменшити стрес і допомогти уникнути дорогих помилок або затримок.",
 
-pricing_card2_badge: "Найчастіше обирають",
-pricing_card2_plan: "Practical",
-pricing_card2_title: "Консультація + перевірка документів",
-pricing_card2_price: "CHF 129",
-pricing_card2_sub: "Для клієнтів, які хочуть отримати консультацію та допомогу з перевіркою документів перед наступними діями.",
-pricing_card2_point1: "60-хвилинна консультація",
-pricing_card2_point2: "Перевірка ваших документів",
-pricing_card2_point3: "Персональний чекліст",
-pricing_card2_point4: "Письмовий підсумок після консультації",
-pricing_card2_point5: "Пояснення правильного адміністративного маршруту",
-pricing_card2_cta: "Забронювати пакет",
+testimonials_cta: "Записатися на безкоштовну консультацію",
 
-pricing_card3_plan: "Complete",
-pricing_card3_title: "Пакет підтримки з релокації",
-pricing_card3_price: "від CHF 290",
-pricing_card3_sub: "Для складніших ситуацій, що включають кілька етапів, форми, державні органи або листування.",
-pricing_card3_point1: "Повний аналіз ситуації",
-pricing_card3_point2: "Допомога у підготовці документів",
-pricing_card3_point3: "Допомога з підготовкою листів / email",
-pricing_card3_point4: "Підготовка до Anmeldung / взаємодії з органами",
-pricing_card3_point5: "Подальший супровід під час процесу",
-pricing_card3_cta: "Забронювати пакет",
 
-pricing_compare_label: "Чому варто почати тут",
-pricing_compare_title: "Розумніший перший крок для практичних міграційних питань",
-pricing_compare_intro: "Багатьом людям спочатку потрібні ясність, структура, документи та правильна комунікація, а не обов’язково повний мандат адвоката.",
+pricing_title: "Ціни",
+pricing_stat: "чіткі пакети для початку",
+pricing_side: "Почніть із ясності — не з великого рахунку за юриста. Оберіть рівень підтримки відповідно до вашої ситуації.",
 
-pricing_compare_mine_title: "Цей сервіс",
-pricing_compare_mine_price: "CHF 0 – 290+",
-pricing_compare_mine_point1: "Безкоштовна перша консультація",
-pricing_compare_mine_point2: "Доступна підтримка для повсякденних міграційних кроків",
-pricing_compare_mine_point3: "Допомога з документами, листами, чеклістами та підготовкою",
-pricing_compare_mine_point4: "Чіткі та практичні адміністративні рекомендації",
-pricing_compare_mine_point5: "Направлення до адвоката, коли потрібне формальне представництво",
+pricing_badge: "Найпопулярніше",
+pricing_cta: "Забронювати пакет",
 
-pricing_compare_market_title: "Типові тарифи адвокатів",
-pricing_compare_market_price: "CHF 250 – 500/година",
-pricing_compare_market_point1: "Часто оплата погодинна",
-pricing_compare_market_point2: "Деякі первинні консультації коштують близько CHF 300–330",
-pricing_compare_market_point3: "Найкраще підходить для спорів, оскаржень та формального юридичного представництва",
-pricing_compare_market_point4: "Може бути дорожче, ніж потрібно для переважно адміністративних питань",
-pricing_compare_market_point5: "Важливо, коли справа стає юридично складною",
+pricing_qs_plan: "Швидкий старт",
+pricing_qs_title: "Швидка консультація",
+pricing_qs_desc: "Ідеально для швидкої відповіді на практичне питання.",
+pricing_qs_item1: "30-хвилинна онлайн консультація",
+pricing_qs_item2: "Персональний чек-лист",
+pricing_qs_item3: "Одне письмове роз’яснення",
+pricing_qs_item4: "Підтримка в WhatsApp 3 дні",
 
-pricing_market_note: "Опубліковані приклади у Швейцарії показують, що консультації з міграційних або правових питань коштують близько CHF 300–330, погодинні ставки адвокатів починаються приблизно від CHF 250 і можуть сягати CHF 350–500 або більше, тоді як у деяких спеціалізованих недорогих консультаційних центрах ціни можуть бути значно нижчими.",
+pricing_core_plan: "Core",
+pricing_core_title: "Підтримка переїзду",
+pricing_core_desc: "Ідеально для підготовки документів і початку переїзду.",
+pricing_core_item1: "Консультація та аналіз ситуації",
+pricing_core_item2: "Персональний план",
+pricing_core_item3: "До 2 письмових запитів",
+pricing_core_item4: "Допомога з одним адміністративним кроком",
+pricing_core_item5: "Перевірка документа",
 
-faq_label: "FAQ",
-faq_title: "Знайдіть відповіді на найпоширеніші запитання",
-faq_intro: "Чітка інформація про консультації, підтримку та обсяг допомоги.",
+pricing_premium_plan: "Premium",
+pricing_premium_title: "Стратегія поселення",
+pricing_premium_desc: "Повна підтримка для впевненого життя у Швейцарії.",
+pricing_premium_item1: "Розширена консультація",
+pricing_premium_item2: "Індивідуальна стратегія",
+pricing_premium_item3: "Допомога з реєстрацією, страховкою або житлом",
+pricing_premium_item4: "До 5 письмових запитів",
+pricing_premium_item5: "Підтримка протягом 2 тижнів",
 
-faq_q1: "Чи є перша консультація безкоштовною?",
-faq_a1: "Так. Перша консультація є безкоштовною. Під час цієї початкової розмови ми коротко аналізуємо вашу ситуацію та обговорюємо можливі наступні кроки.",
 
-faq_q2: "Чи надаєте ви юридичне представництво?",
-faq_a2: "Ні. Я надаю структуровані рекомендації, адміністративну підтримку та допомогу з підготовкою документів. Якщо потрібне формальне представництво, я можу направити клієнтів до ліцензованих адвокатів.",
+blog_title: "Гіди та блог",
+blog_stat: "практичні статті для початку",
+blog_side: "Зрозумілі статті про дозволи, реєстрацію, страхування та перші кроки у Швейцарії.",
 
-faq_q3: "Чи доступні консультації онлайн чи особисто?",
-faq_a3: "Доступні обидва варіанти. Консультації можуть проходити онлайн або особисто в Цюриху, залежно від ваших уподобань.",
+blog_1_title: "Дозвіл на проживання у Швейцарії: з чого почати",
+blog_1_desc: "Практичний огляд перших кроків, документів і типових помилок.",
 
-faq_q4: "Чи працюєте ви лише з міграційними питаннями?",
-faq_a4: "Основний фокус — це питання міграції та релокації. У деяких випадках також можуть розглядатися пов’язані адміністративні питання, тоді як для більш спеціалізованих сфер може знадобитися направлення до кваліфікованого адвоката.",
+blog_2_title: "Anmeldung у Цюриху: що підготувати",
+blog_2_desc: "Дізнайтесь, що взяти з собою і як уникнути затримок.",
 
-blog_label: "Корисні матеріали",
-blog_title: "Практичні гіди для переїзду та облаштування у Швейцарії",
-blog_intro: "Зрозумілі статті про дозволи, реєстрацію, страхування, працевлаштування та щоденні адміністративні кроки у Швейцарії.",
+blog_3_title: "Медичне страхування у Швейцарії: строки та вимоги",
+blog_3_desc: "Зрозумійте вимоги, строки та вибір страхування.",
 
-blog_card1_title: "Дозволи на проживання у Швейцарії: з чого почати",
-blog_card1_text: "Практичний огляд перших кроків, необхідних документів і типових помилок під час подання на дозвіл.",
-blog_card1_link: "Читати далі",
+blog_read: "Читати далі →",
 
-blog_card2_title: "Anmeldung у Цюриху: що потрібно підготувати",
-blog_card2_text: "Дізнайтеся, що потрібно взяти з собою, як проходить процес і як уникнути затримок під час реєстрації в місцевих органах.",
-blog_card2_link: "Читати далі",
 
-blog_card3_title: "Медичне страхування у Швейцарії: строки та обов’язки",
-blog_card3_text: "Зрозумійте юридичні вимоги, строки та основи вибору страхового покриття після приїзду.",
-blog_card3_link: "Читати далі",
+faq_title: "Поширені запитання",
+
+faq_1_question: "Скільки триває перша безкоштовна консультація?",
+faq_1_answer: "Поки ми можемо визначити стратегію, питання, на які треба відповісти, і наступні кроки — консультація є безкоштовною. Зазвичай перших 30 хвилин достатньо, щоб зрозуміти суть справи та її можливе вирішення.",
+
+faq_2_question: "Я не впевнений(а), чи можу написати вам зі своєю справою.",
+faq_2_answer: "На сторінці є орієнтовний список моїх послуг. Ви завжди можете скористатися першою безкоштовною консультацією, щоб зрозуміти, чи входить ваше питання до моїх послуг. Тож просто напишіть мені.",
+
+faq_3_question: "Скільки часу ви вже навчаєтесь і в яких сферах?",
+faq_3_answer: "Я вже маю ступінь бакалавра права. Зараз я на другому курсі магістратури. Я вивчала багато дисциплін, але мої найсильніші напрями — міграційне право, сімейне право, податкове право, кримінальне право, нотаріальне право, шлюбне та спадкове право, а також адміністративне право.",
+
+faq_4_question: "Якими мовами ви розмовляєте?",
+faq_4_answer: "Я вільно розмовляю німецькою, англійською, українською та російською. Також можемо спілкуватися іспанською. Мій чоловік, Kevin Garcia, вільно розмовляє італійською, португальською та іспанською і також може взяти участь у консультації.",
+
+
+contact_title: "Готові обговорити ваше майбутнє?",
+contact_text: "Залиште свої контактні дані, і я зв’яжуся з вами, щоб допомогти обрати правильний шлях вирішення вашого питання якнайшвидше.",
+
+contact_name: "ВАШЕ ІМ’Я",
+contact_email: "ВАШ EMAIL",
+contact_phone: "+41 00 000 00 00",
+
+contact_policy: "Натискаючи кнопку, ви погоджуєтесь з політикою конфіденційності та обробкою персональних даних.",
+contact_cta: "Отримати безкоштовну консультацію",
+
+footer_brand: "Easy Help Switzerland",
+footer_rights: "© 2026 Easy Help Switzerland — Усі права захищені.",
+
 
 contact_label: "Контакти",
 contact_title: "Надішліть короткий запит",
@@ -2175,7 +2234,7 @@ contact_location_label: "Місцезнаходження",
 contact_location_value: "Цюрих, Швейцарія",
 footer_copyright: "© 2026 Polina Kravtsova — Усі права захищено.",
 
-booking_back: "← Повернутися на головну сторінку",
+booking_back: "← Назад",
 
 booking_kicker: "Бронювання",
 booking_title: "Забронювати консультацію",
@@ -2214,7 +2273,7 @@ booking_format_any: "Без різниці",
 booking_note: "Оплата підтверджує ваш запит. Якщо потрібне формальне юридичне представництво, вас можуть направити до ліцензованого адвоката.",
 
 booking_continue: "Перейти до оплати",
-booking_back_button: "Назад",
+booking_back_button: "← Назад",
 
 booking_trust1_title: "Зрозумілий процес",
 booking_trust1_text: "Оберіть пакет, введіть свої дані та перейдіть до оплати.",
@@ -2225,7 +2284,7 @@ booking_trust2_text: "Ваш запит буде розглянуто та от�
 booking_trust3_title: "Практична допомога",
 booking_trust3_text: "Структурована консультація щодо дозволів, реєстрації та адміністративних процедур.",
 
-payment_back: "← Повернутися до бронювання",
+payment_back: "← Назад",
 payment_summary_kicker: "Підсумок бронювання",
 payment_title: "Перевірте вашу консультацію перед оплатою",
 payment_subtitle: "Будь ласка, підтвердьте вибраний пакет і ваші дані нижче.",
@@ -2245,262 +2304,372 @@ payment_pay_now: "Оплатити зараз",
 payment_edit: "Редагувати бронювання",
 payment_note: "Оплата підтверджує ваш запит на консультацію. Якщо потрібне формальне юридичне представництво, вас можуть направити до ліцензованого адвоката.",
 
- // =========================
-// BLOG.HTML — UK
-// Add inside: uk: { ... }
-// =========================
 
-brand_name: "Polina Kravtsova",
-brand_sub: "Юридичний супровід",
+//Blog.html
 
-blog_nav_home: "Головна",
-blog_nav_permits: "Дозволи",
-blog_nav_registration: "Реєстрація",
-blog_nav_insurance: "Страхування",
-blog_nav_book: "Забронювати консультацію",
 
-lang_toggle: "Українська ▾",
-lang_en: "English",
-lang_de: "Deutsch",
-lang_es: "Español",
-lang_uk: "Українська",
+  blog_brand_name: "Easy Help",
+  blog_brand_country: "Швейцарія",
 
-blog_breadcrumb_home: "Головна",
-blog_breadcrumb_guides: "Гіди з переїзду",
+  blog_nav_home: "Головна",
+  blog_nav_guides: "Гіди",
+  blog_nav_services: "Послуги",
+  blog_nav_consultation: "Консультація",
+  blog_nav_contacts: "Контакти",
 
-blog_label: "Матеріали",
-blog_title: "Практичні гіди для переїзду та облаштування у Швейцарії",
-blog_intro:
-  "Чіткі та елегантні статті про дозволи, реєстрацію, страхування та перші адміністративні кроки після прибуття — для людей, які хочуть більше впевненості, ясності та менше стресу.",
+  blog_phone: "+41 76 449 75 81",
+  lang_toggle: "Українська ▾",
 
-blog_permits_meta_category: "Дозволи на проживання",
-blog_permits_meta_time: "5 хв читання",
-blog_permits_title: "Дозволи на проживання у Швейцарії: з чого почати",
-blog_permits_lead:
-  "Для багатьох новоприбулих процес отримання дозволу спочатку здається незрозумілим. Добра новина в тому, що більшість випадків стає цілком керованою, коли ви розумієте строки, потрібні документи та логіку різних типів дозволів.",
-blog_permits_p1:
-  "Якщо ви переїжджаєте до Швейцарії для роботи, з сімейних причин або на тривалий термін, ваш дозвіл на проживання є одним із перших важливих адміністративних кроків. У більшості випадків тип дозволу залежить від вашого громадянства, трудового статусу та очікуваної тривалості перебування.",
-blog_permits_h3: "Три типи дозволів, про які зазвичай чують найперше",
-blog_permits_li1:
-  "<strong>Дозвіл L</strong> для коротших перебувань, часто пов’язаний з обмеженими контрактами або тимчасовими призначеннями.",
-blog_permits_li2:
-  "<strong>Дозвіл B</strong> для довшого проживання, який часто використовується для працівників, возз’єднання сім’ї та багатьох стандартних випадків переїзду.",
-blog_permits_li3:
-  "<strong>Дозвіл C</strong> для постійного проживання після кількох років у Швейцарії, що відповідають вимогам.",
-blog_permits_note:
-  "Почніть із перевірки не лише федеральних правил, а й практичного процесу у вашому кантоні та муніципалітеті. Правова структура є національною, але практична реалізація часто відбувається на місцевому рівні.",
-blog_permits_caption:
-  "Сильна заява зазвичай починається з повного пакета документів і чіткого графіка реєстрації.",
-blog_permits_h3_2: "Документи, які зазвичай потрібні на ранньому етапі",
-blog_permits_p2:
-  "Хоча вимоги залежать від конкретного випадку, людям часто потрібні дійсний паспорт або посвідчення особи, підтвердження адреси, трудовий договір або підтвердження достатніх коштів, а також документи цивільного стану, якщо це актуально. Варто заздалегідь підготувати як оригінали, так і цифрові копії.",
-blog_permits_p3:
-  "Одна з найпоширеніших помилок — вважати, що дозвіл оформлюється до місцевої реєстрації. Насправді реєстрація та процес видачі дозволу зазвичай тісно пов’язані. Якщо ви затримуєте одне, часто затримується й інше.",
-blog_permits_h3_3: "Як зробити процес простішим",
-blog_permits_li4: "Підготуйте документи ще до прибуття, якщо це можливо.",
-blog_permits_li5: "Одразу перевірте строк реєстрації у вашому муніципалітеті.",
-blog_permits_li6: "Зберігайте копії контрактів, підтверджень адреси та листування.",
-blog_permits_li7: "Заздалегідь уточніть, чи потрібні переклади, апостилі або завірені копії.",
-blog_permits_p4:
-  "Процес отримання дозволу рідко зводиться до однієї форми. Йдеться про послідовність: житло, реєстрація, страхування та трудові документи часто взаємодіють між собою. Чим раніше ви організуєте це разом, тим легшими будуть ваші перші тижні у Швейцарії.",
-blog_permits_tag1: "Дозволи",
-blog_permits_tag2: "Прибуття",
-blog_permits_tag3: "Адміністрація",
-blog_permits_cta: "Потрібна персональна допомога?",
-blog_permits_next_label: "Наступна стаття",
-blog_permits_next_title: "Anmeldung у Цюриху: що потрібно підготувати",
-blog_permits_related_label: "Пов’язана стаття",
-blog_permits_related_title: "Медичне страхування у Швейцарії: строки та обов’язки",
-blog_permits_cover_alt: "Зображення обкладинки статті про дозвіл на проживання",
-blog_permits_inline_alt: "Документи на столі",
+  blog_hero_micro: "Гіди та блог",
+  blog_hero_title_main: "Easy Guide Switzerland",
+  blog_hero_sub: "Чіткі практичні статті про дозволи, реєстрацію, медичне страхування, навчання, шлюб і возз’єднання сім’ї — у преміальному редакційному стилі вашого основного сайту.",
 
-blog_anmeldung_meta_category: "Реєстрація",
-blog_anmeldung_meta_time: "4 хв читання",
-blog_anmeldung_title: "Anmeldung у Цюриху: що потрібно підготувати",
-blog_anmeldung_lead:
-  "Реєстрація в Цюриху часто є однією з перших офіційних процедур після прибуття. З боку це може здаватися простим, але правильно підготовлені документи допоможуть уникнути затримок, повторних візитів і зайвого стресу.",
-blog_anmeldung_p1:
-  "Після переїзду до міста зазвичай потрібно зареєструвати свою адресу в місцевих органах у встановлений строк. Ця реєстрація підтверджує ваше місце проживання і часто потрібна для наступних адміністративних кроків, таких як оформлення дозволу, банківські питання, комунальні послуги та страхування.",
-blog_anmeldung_h3_1: "Що взяти із собою на прийом",
-blog_anmeldung_li1: "Дійсний паспорт або національне посвідчення особи",
-blog_anmeldung_li2: "Договір оренди або письмове підтвердження житла",
-blog_anmeldung_li3: "Трудовий договір або підтвердження доходу, якщо це актуально",
-blog_anmeldung_li4: "Додаткові документи цивільного стану, залежно від вашої ситуації",
-blog_anmeldung_caption:
-  "Добре підготовлений запис на реєстрацію може відкрити доступ до кількох наступних кроків у вашому переїзді.",
-blog_anmeldung_h3_2: "Чому цей крок важливіший, ніж багато хто думає",
-blog_anmeldung_p2:
-  "Anmeldung — це не просто формальність. Вона фіксує вашу локальну присутність у системі. Багато подальших процесів залежать від неї, включно з листуванням від органів влади, податковим адмініструванням, оформленням страхування та в деяких випадках видачею дозволу.",
-blog_anmeldung_p3:
-  "Новоприбулі часто недооцінюють, наскільки важливими є дрібні деталі, наприклад збіг імен у документах, правильні дати заселення та письмове підтвердження від основного орендаря або власника житла, якщо це потрібно.",
-blog_anmeldung_note:
-  "Якщо ваша житлова ситуація тимчасова, спільна або щойно організована, заздалегідь перевірте, чи буде прийнято ваше підтвердження адреси.",
-blog_anmeldung_h3_3: "Як уникнути затримок",
-blog_anmeldung_li5: "Запишіться на прийом якомога раніше.",
-blog_anmeldung_li6: "Приносьте повний пакет документів, а не лише скріншоти.",
-blog_anmeldung_li7: "Переконайтеся, що формат адреси скрізь однаковий.",
-blog_anmeldung_li8: "Збережіть копію підтвердження реєстрації після зустрічі.",
-blog_anmeldung_p4:
-  "Після завершення реєстрації справи зазвичай рухаються швидше. У вас з’являється офіційна локальна точка відліку, і це робить кожен наступний крок простішим.",
-blog_anmeldung_tag1: "Цюрих",
-blog_anmeldung_tag2: "Реєстрація",
-blog_anmeldung_tag3: "Перші кроки",
-blog_anmeldung_cta: "Забронювати підтримку",
-blog_anmeldung_prev_label: "Попередня стаття",
-blog_anmeldung_prev_title: "Дозволи на проживання у Швейцарії: з чого почати",
-blog_anmeldung_next_label: "Наступна стаття",
-blog_anmeldung_next_title: "Медичне страхування у Швейцарії: строки та обов’язки",
-blog_anmeldung_cover_alt: "Зображення обкладинки статті про реєстрацію в Цюриху",
-blog_anmeldung_inline_alt: "Міський офіс і документи",
+  blog_hero_feature_1: "Зручно читати довгі статті",
+  blog_hero_feature_2: "Преміальний редакційний дизайн",
+  blog_hero_feature_3: "Той самий візуальний стиль, що й на головній сторінці",
 
-blog_study_meta_category: "Навчання",
-blog_study_meta_time: "5 хв читання",
-blog_study_title: "Навчання у Швейцарії: простіше, ніж здається",
-blog_study_lead:
-  "Швейцарія може здаватися дуже структурованою ззовні, але для багатьох міжнародних студентів процес виявляється простішим, ніж очікувалося, коли вони розуміють вступ, реєстрацію проживання та базові документи після прибуття.",
-blog_study_p1:
-  "Студенти, які обирають університети у Швейцарії, часто дивуються, наскільки організованою є система. Після отримання підтвердження про вступ наступні кроки зазвичай стають значно зрозумілішими: пошук житла, підготовка підтвердження фінансів, організація медичного страхування та реєстрація після приїзду.",
-blog_study_h3_1: "Що зазвичай має найбільше значення",
-blog_study_li1: "Підтвердження про зарахування до університету",
-blog_study_li2: "Дійсний паспорт або посвідчення особи",
-blog_study_li3: "Підтвердження житла",
-blog_study_li4: "Підтвердження, що ви можете фінансово себе забезпечити",
-blog_study_li5: "Планування медичного страхування",
-blog_study_note:
-  "Багато студентів думають, що складна частина починається після приїзду. Насправді життя стає легшим, коли ваша адреса, процес отримання дозволу та страхування організовані заздалегідь.",
-blog_study_p2:
-  "Якщо ви навчаєтесь у Цюриху, Лозанні, Женеві чи іншому великому місті, попит на житло може бути однією з найбільших практичних труднощів. Почати пошук житла раніше часто важливіше, ніж ускладнювати решту процесу.",
-blog_study_h3_2: "Чому це може бути легше, ніж очікується",
-blog_study_p3:
-  "Швейцарська адміністрація формальна, але зазвичай передбачувана. Якщо ваші документи повні, а строки дотримані, процес зазвичай рухається в логічному порядку. Саме ця передбачуваність часто робить досвід простішим, ніж новоприбулі спочатку уявляють.",
-blog_study_tag1: "Студенти",
-blog_study_tag2: "Університети",
-blog_study_tag3: "Прибуття",
-blog_study_cta: "Потрібна допомога з плануванням?",
-blog_study_cover_alt: "Навчання у Швейцарії",
+  blog_hero_guides_count: "6",
+  blog_hero_guides_label: "гідів, зібраних в одному місці",
 
-blog_marriage_meta_category: "Шлюб",
-blog_marriage_meta_time: "5 хв читання",
-blog_marriage_title: "Одруження у Швейцарії: що варто знати міжнародним парам",
-blog_marriage_lead:
-  "Одруження у Швейцарії може бути доволі straightforward, але міжнародним парам слід бути готовими до перевірки документів, формальностей цивільного стану та строків, які дуже залежать від підготовки.",
-blog_marriage_p1:
-  "Якщо один або обидва партнери є іноземцями, процес часто включає подання офіційних документів, що посвідчують особу, свідоцтв про народження, документів цивільного стану та в деяких випадках додаткових легалізованих або перекладених паперів. Точні вимоги можуть відрізнятися залежно від громадянства та особистої історії.",
-blog_marriage_h3_1: "Що варто підготувати заздалегідь",
-blog_marriage_li1: "Дійсні документи, що посвідчують особу, для обох партнерів",
-blog_marriage_li2: "Свідоцтва про народження та документи цивільного стану",
-blog_marriage_li3: "Потрібні переклади або завірені копії",
-blog_marriage_li4: "Підтвердження місця проживання, якщо це актуально",
-blog_marriage_p2:
-  "Одна з головних причин затримок для пар — не сам запис на шлюб, а підготовка документів. Відсутність хоча б однієї формальної вимоги може відкласти весь процес набагато сильніше, ніж очікувалося.",
-blog_marriage_note:
-  "Якщо документи видані за кордоном, заздалегідь перевірте, чи потрібні апостиль, легалізація або офіційний переклад. Саме тут процес часто сповільнюється.",
-blog_marriage_h3_2: "Чому планування має значення",
-blog_marriage_p3:
-  "Міжнародні шлюби зазвичай цілком керовані, якщо сприймати їх як адміністративну послідовність, а не як одну подію. Документи цивільного стану, місцева реєстрація та подальше планування проживання часто тісно пов’язані, особливо якщо один із подружжя планує залишитися у Швейцарії.",
-blog_marriage_tag1: "Шлюб",
-blog_marriage_tag2: "Цивільний стан",
-blog_marriage_tag3: "Документи",
-blog_marriage_cta: "Отримати персональну консультацію",
-blog_marriage_cover_alt: "Одруження у Швейцарії",
+  blog_permits_meta_category: "Дозволи на проживання",
+  blog_permits_meta_time: "5 хв читання",
+  blog_permits_title: "Дозволи на проживання у Швейцарії: з чого почати",
+  blog_permits_lead: "Для багатьох новоприбулих процес отримання дозволу спочатку здається незрозумілим. Хороша новина в тому, що більшість випадків стають керованими, щойно ви розумієте часові рамки, потрібні документи та логіку різних типів дозволів.",
+  blog_permits_p1: "Якщо ви переїжджаєте до Швейцарії через роботу, сімейні обставини або на тривалий строк, дозвіл на проживання є одним із перших важливих адміністративних кроків. У більшості випадків тип дозволу залежить від вашого громадянства, статусу зайнятості та очікуваної тривалості перебування.",
+  blog_permits_h3_1: "Три типи дозволів, про які більшість чує першими",
+  blog_permits_li1: "Дозвіл L для коротших перебувань, часто пов’язаний з обмеженими контрактами або тимчасовими призначеннями.",
+  blog_permits_li2: "Дозвіл B для довшого проживання, який часто використовують працівники, сімейне возз’єднання та багато стандартних випадків релокації.",
+  blog_permits_li3: "Дозвіл C для постійного проживання після кількох років у Швейцарії, що відповідають вимогам.",
+  blog_permits_note: "Перевіряйте не лише федеральні правила, а й практичний процес у вашому кантоні та муніципалітеті. Правова структура є національною, але виконання часто відбувається на місцевому рівні.",
+  blog_permits_caption: "Сильна заявка зазвичай починається з повного пакета документів і чіткого графіка реєстрації.",
+  blog_permits_h3_2: "Документи, які зазвичай потрібні на ранньому етапі",
+  blog_permits_p2: "Хоча вимоги відрізняються залежно від ситуації, людям часто потрібні чинний паспорт або ID, підтвердження адреси, трудовий контракт або підтвердження достатніх коштів, а також документи цивільного стану, якщо це актуально. Варто заздалегідь підготувати і оригінали, і цифрові копії.",
+  blog_permits_p3: "Одна з найпоширеніших помилок — вважати, що дозвіл оформлюється до місцевої реєстрації. Насправді реєстрація та обробка дозволу зазвичай тісно пов’язані. Якщо ви затримуєте одне, часто затримується й інше.",
+  blog_permits_h3_3: "Як зробити процес простішим",
+  blog_permits_li4: "Підготуйте документи до прибуття, якщо це можливо.",
+  blog_permits_li5: "Одразу перевірте строк реєстрації у вашому муніципалітеті.",
+  blog_permits_li6: "Зберігайте копії контрактів, підтверджень адреси та листування.",
+  blog_permits_li7: "Завчасно уточніть, чи потрібні переклади, апостилі або завірені копії.",
+  blog_permits_p4: "Процес отримання дозволу рідко стосується лише однієї форми. Тут важлива послідовність: житло, реєстрація, страхування та трудові документи часто взаємопов’язані. Чим раніше ви організуєте це разом, тим легшими будуть ваші перші тижні у Швейцарії.",
+  blog_permits_tag1: "Дозволи",
+  blog_permits_tag2: "Прибуття",
+  blog_permits_tag3: "Адміністрація",
+  blog_permits_cta: "Потрібна персональна допомога?",
 
-blog_family_meta_category: "Возз’єднання сім’ї",
-blog_family_meta_time: "6 хв читання",
-blog_family_title: "Перевезення сім’ї до Швейцарії: кому легше — швейцарцям чи громадянам ЄС?",
-blog_family_lead:
-  "Правила возз’єднання сім’ї у Швейцарії значною мірою залежать від громадянства, типу дозволу, житлової ситуації та доходу. На практиці шлях може здаватися легшим або складнішим залежно від того, який правовий механізм застосовується.",
-blog_family_p1:
-  "Люди часто запитують, кому легше привезти своїх родичів до Швейцарії — громадянам Швейцарії чи громадянам ЄС. Відповідь залежить від конкретного сімейного зв’язку, країни походження родичів і статусу проживання особи, яка вже живе у Швейцарії.",
-blog_family_h3_1: "На що часто звертають увагу органи влади",
-blog_family_li1: "Ваше громадянство та статус проживання",
-blog_family_li2: "Ваш тип дозволу або громадянський статус",
-blog_family_li3: "Чи маєте ви відповідне житло",
-blog_family_li4: "Чи виконані фінансові вимоги",
-blog_family_li5: "Який саме зв’язок із членом сім’ї, що переїжджає",
-blog_family_p2:
-  "На практиці права мобільності, пов’язані з ЄС, можуть зробити деякі справи гнучкішими, тоді як для громадян Швейцарії діє інша правова рамка. Саме тому дві сім’ї з, на перший погляд, схожими ситуаціями можуть зіткнутися з різними вимогами до документів і строками.",
-blog_family_note:
-  "Найшвидший спосіб зменшити невизначеність — чітко визначити справу від самого початку: хто переїжджає, звідки, на підставі якого статусу та в які строки.",
-blog_family_h3_2: "Як підготувати сильну справу",
-blog_family_p3:
-  "Почніть із повного пакета особистих документів, підтвердження родинного зв’язку, підтвердження житла та фінансової стабільності, якщо це потрібно. Багато затримок трапляється тому, що сім’ї починають процес емоційно, але не структуровано. Хороша документальна стратегія значно полегшує процес.",
-blog_family_tag1: "Сім’я",
-blog_family_tag2: "Релокація",
-blog_family_tag3: "Дозволи",
-blog_family_cta: "Запитайте про свою ситуацію",
-blog_family_cover_alt: "Перевезення сім’ї до Швейцарії",
+  blog_permits_next_label: "Наступна стаття",
+  blog_permits_next_title: "Anmeldung у Цюриху: що потрібно підготувати",
+  blog_permits_related_label: "Пов’язана стаття",
+  blog_permits_related_title: "Медичне страхування у Швейцарії: строки та обов’язки",
 
-blog_insurance_meta_category: "Медичне страхування",
-blog_insurance_meta_time: "6 хв читання",
-blog_insurance_title: "Медичне страхування у Швейцарії: строки та обов’язки",
-blog_insurance_lead:
-  "Швейцарське медичне страхування є обов’язковим, приватним і дуже структурованим. Для новоприбулих складність зазвичай полягає не в тому, щоб зрозуміти, що воно є обов’язковим, а в тому, щоб знати, коли діяти, що обрати і як не платити більше, ніж потрібно.",
-blog_insurance_p1:
-  "Після прибуття до Швейцарії у вас зазвичай є обмежений строк для оформлення медичного страхування. Базове покриття є обов’язковим і застосовується навіть тоді, коли люди ще облаштовуються, порівнюють провайдерів або чекають на інші документи.",
-blog_insurance_h3_1: "Три рішення, які найчастіше потрібно прийняти новоприбулим",
-blog_insurance_li1: "Якого провайдера обрати",
-blog_insurance_li2: "Який рівень франшизи підходить вашому бюджету та ситуації",
-blog_insurance_li3: "Яка модель страхування відповідає вашому способу життя",
-blog_insurance_p2:
-  "Премії можуть суттєво відрізнятися, але найдешевший варіант не завжди є найкращим. Люди з сім’ями, регулярними медичними потребами або бажанням максимальної гнучкості можуть цінувати зовсім інші параметри, ніж ті, хто шукає лише найнижчу місячну премію.",
-blog_insurance_caption:
-  "Вибір покриття — це баланс між юридичними вимогами, місячною премією, франшизою та зручністю.",
-blog_insurance_h3_2: "Строки мають значення",
-blog_insurance_p3:
-  "Одна з найважливіших деталей — це час. Якщо ви пропустите строк оформлення, органи влади можуть самі призначити вам страховика. Зазвичай це означає менше контролю, менше можливостей для оптимізації і потенційно вищі витрати, ніж якби ви самостійно обрали варіант уважно.",
-blog_insurance_note:
-  "Страхування не слід сприймати як останній крок після всього іншого. Це одне з ключових завдань після прибуття, і найкраще воно працює, коли оформлюється паралельно з реєстрацією та плануванням дозволу.",
-blog_insurance_h3_3: "Розумний спосіб порівняти варіанти",
-blog_insurance_li4: "Реалістично оцініть, як часто ви будете користуватися медичними послугами.",
-blog_insurance_li5: "Порівнюйте не лише місячну премію, а й вплив франшизи.",
-blog_insurance_li6: "Перевірте, чи підходять вам моделі телемедицини або сімейного лікаря.",
-blog_insurance_li7: "Подумайте, чи справді потрібне додаткове страхування.",
-blog_insurance_p4:
-  "Хороше страхове рішення — це не лише відповідність закону. Воно також має бути стійким у довгостроковій перспективі. Правильний вибір страхування дає відчуття спокою, захищає бюджет і допомагає уникнути дорогих виправлень пізніше.",
-blog_insurance_tag1: "Страхування",
-blog_insurance_tag2: "Строки",
-blog_insurance_tag3: "Бюджет",
-blog_insurance_cta: "Отримати допомогу з вибором",
-blog_insurance_prev_label: "Попередня стаття",
-blog_insurance_prev_title: "Anmeldung у Цюриху: що потрібно підготувати",
-blog_insurance_back_label: "Назад на початок",
-blog_insurance_back_title: "Дозволи на проживання у Швейцарії: з чого почати",
-blog_insurance_cover_alt: "Зображення обкладинки статті про медичне страхування",
-blog_insurance_inline_alt: "Планування медичного страхування",
+  blog_anmeldung_meta_category: "Реєстрація",
+  blog_anmeldung_meta_time: "4 хв читання",
+  blog_anmeldung_title: "Anmeldung у Цюриху: що потрібно підготувати",
+  blog_anmeldung_lead: "Реєстрація в Цюриху часто є однією з перших офіційних процедур після прибуття. Ззовні вона може здаватися простою, але правильно підготовлені документи допоможуть уникнути затримок, повторних візитів і зайвого стресу.",
+  blog_anmeldung_p1: "Після переїзду до міста вам зазвичай потрібно зареєструвати свою адресу в місцевих органах влади протягом обмеженого строку. Ця реєстрація підтверджує ваше місце проживання і часто потрібна для подальших адміністративних кроків, таких як оформлення дозволу, банківські послуги, комунальні сервіси та страхування.",
+  blog_anmeldung_h3_1: "Що взяти з собою на прийом",
+  blog_anmeldung_li1: "Чинний паспорт або національну ID-картку",
+  blog_anmeldung_li2: "Договір оренди або письмове підтвердження проживання",
+  blog_anmeldung_li3: "Трудовий контракт або підтвердження доходу, якщо це актуально",
+  blog_anmeldung_li4: "Додаткові документи цивільного стану залежно від вашого випадку",
+  blog_anmeldung_caption: "Добре підготовлений візит на реєстрацію може відкрити кілька наступних кроків у вашій релокації.",
+  blog_anmeldung_h3_2: "Чому цей крок важливіший, ніж багато хто очікує",
+  blog_anmeldung_p2: "Anmeldung — це не просто формальність. Вона фіксує вашу місцеву присутність у системі. Багато подальших процесів залежать від неї, включно з повідомленнями від органів влади, податковим адмініструванням, оформленням страхування і в деяких випадках видачею дозволу.",
+  blog_anmeldung_p3: "Новоприбулі часто недооцінюють важливість дрібних деталей, таких як однакове написання імен у документах, правильні дати в’їзду та письмове підтвердження від основного орендаря або власника житла, якщо це потрібно.",
+  blog_anmeldung_note: "Якщо ваша житлова ситуація тимчасова, спільна або щойно організована, заздалегідь перевірте, чи приймуть ваше підтвердження адреси.",
+  blog_anmeldung_h3_3: "Як уникнути затримок",
+  blog_anmeldung_li5: "Записуйтеся на прийом якомога раніше.",
+  blog_anmeldung_li6: "Приносьте повний пакет документів, а не лише скріншоти.",
+  blog_anmeldung_li7: "Переконайтеся, що формат адреси всюди однаковий.",
+  blog_anmeldung_li8: "Збережіть копію підтвердження реєстрації після зустрічі.",
+  blog_anmeldung_p4: "Після завершення реєстрації все зазвичай рухається швидше. У вас з’являється офіційна місцева точка відліку, і це робить кожен наступний крок простішим.",
 
-sidebar_on_page_label: "На цій сторінці",
-sidebar_toc_title: "Зміст",
-sidebar_toc_permits: "Дозволи на проживання у Швейцарії",
-sidebar_toc_anmeldung: "Anmeldung у Цюриху",
-sidebar_toc_insurance: "Медичне страхування у Швейцарії",
-sidebar_toc_study: "Навчання у Швейцарії",
-sidebar_toc_marriage: "Одруження у Швейцарії",
-sidebar_toc_family: "Перевезення сім’ї до Швейцарії",
+  blog_insurance_meta_category: "Медичне страхування",
+  blog_insurance_meta_time: "5 хв читання",
+  blog_insurance_title: "Медичне страхування у Швейцарії: строки та обов’язки",
+  blog_insurance_lead: "Медичне страхування є одним із найбільш чутливих до часу кроків після прибуття. Розуміння строку з самого початку допомагає уникнути зайвого стресу та неочікуваних витрат заднім числом.",
+  blog_insurance_p1: "У Швейцарії базове медичне страхування зазвичай є обов’язковим. Нові мешканці часто повинні оформити його протягом визначеного строку після того, як вони починають підпадати під швейцарську систему. Якщо чекати занадто довго, це може призвести до адміністративних ускладнень і донарахування внесків заднім числом.",
+  blog_insurance_h3_1: "Що робить цей крок важливим",
+  blog_insurance_li1: "Це юридична вимога в більшості стандартних випадків релокації.",
+  blog_insurance_li2: "Вибір покриття впливає на щомісячні витрати та доступ до медичних послуг.",
+  blog_insurance_li3: "Він пов’язаний зі строками реєстрації та датами прибуття.",
+  blog_insurance_note: "Страхування — це не лише купівля поліса. Йдеться про правильний вибір дати початку, моделі, франшизи та логіки провайдера для вашої ситуації.",
+  blog_insurance_p2: "Люди часто спершу дивляться на ціну, але строки та правильність оформлення не менш важливі. Структуроване порівняння зазвичай заощаджує більше стресу, ніж поспішне рішення в останній момент.",
 
-sidebar_related_label: "Пов’язані послуги",
-sidebar_related_title: "Чим ми можемо допомогти",
-sidebar_related_consultation_label: "Консультація",
-sidebar_related_consultation_title: "Забронюйте безкоштовну консультацію щодо вашого плану переїзду",
-sidebar_related_permits_label: "Дозволи",
-sidebar_related_permits_title: "Підтримка з дозволами на проживання та етапами реєстрації",
-sidebar_related_insurance_label: "Страхування",
-sidebar_related_insurance_title: "Допомога з вибором правильної моделі медичного страхування",
+  blog_insurance_next_label: "Наступна стаття",
+  blog_insurance_next_title: "Навчання у Швейцарії: перші адміністративні кроки",
+  blog_insurance_back_label: "Назад на початок",
+  blog_insurance_back_title: "Дозволи на проживання у Швейцарії: з чого почати",
 
-sidebar_support_label: "Потрібна допомога?",
-sidebar_support_title: "Хочете персональну консультацію?",
-sidebar_support_text:
-  "Якщо вам потрібна допомога з реєстрацією, дозволами, житловими документами або медичним страхуванням, забронюйте консультацію та отримайте чіткий покроковий план.",
-sidebar_support_cta: "Забронювати консультацію",
+  blog_study_meta_category: "Навчання",
+  blog_study_meta_time: "4 хв читання",
+  blog_study_title: "Навчання у Швейцарії: що студентам варто організувати насамперед",
+  blog_study_lead: "Для студентів перші тижні рідко пов’язані лише з одним документом. Житло, реєстрація, страхування та питання дозволу часто з’являються одночасно.",
+  blog_study_p1: "Плануючи навчання у Швейцарії, корисно бачити переїзд як адміністративний маршрут: знайти житло, зареєструватися на місці, підтвердити статус страхування та переконатися, що підстава вашого проживання відповідає тривалості й меті перебування.",
 
-cta_label: "Наступний крок",
-cta_title: "Зробіть ваш переїзд простішим із першого дня",
-cta_text:
-  "Заощаджуйте час, уникайте пропущених строків і проходьте процес дозволів, реєстрації та страхування з чіткою структурою та персональною підтримкою.",
-cta_book: "Забронювати консультацію",
-cta_home: "Повернутися на головну",
+  blog_marriage_meta_category: "Шлюб",
+  blog_marriage_meta_time: "5 хв читання",
+  blog_marriage_title: "Шлюб у Швейцарії: що варто знати міжнародним парам",
+  blog_marriage_lead: "Шлюб у Швейцарії може бути досить простим, але міжнародним парам слід бути готовими до перевірки документів, формальностей цивільного стану та строків, які сильно залежать від підготовки.",
+  blog_marriage_p1: "Якщо один або обидва партнери є іноземцями, процес часто включає подання офіційних документів, що посвідчують особу, свідоцтв про народження, документів цивільного стану та в деяких випадках додаткових легалізованих або перекладених паперів.",
+  blog_marriage_note: "Якщо документи були видані за кордоном, завчасно перевірте, чи потрібні апостилі, легалізація або офіційні переклади. Саме тут процес часто сповільнюється.",
 
-footer_copy: "© 2026 Zurich Relocation",
-footer_tagline: "Практична підтримка при переїзді до Швейцарії",
+  blog_family_meta_category: "Возз’єднання сім’ї",
+  blog_family_meta_time: "6 хв читання",
+  blog_family_title: "Перевезення сім’ї до Швейцарії: кому простіше — громадянам Швейцарії чи ЄС?",
+  blog_family_lead: "Правила возз’єднання сім’ї у Швейцарії значною мірою залежать від громадянства, типу дозволу, житлової ситуації та доходу. На практиці шлях може здаватися легшим або складнішим залежно від того, який правовий маршрут застосовується саме до вас.",
+  blog_family_p1: "Люди часто запитують, чи простіше громадянам Швейцарії чи громадянам ЄС привезти членів родини до Швейцарії. Відповідь залежить від конкретного родинного зв’язку, країни походження родичів та статусу проживання особи, яка вже живе у Швейцарії.",
+  blog_family_h3_1: "На що часто звертають увагу органи влади",
+  blog_family_li1: "Ваше громадянство та статус проживання",
+  blog_family_li2: "Ваш тип дозволу або громадянський статус",
+  blog_family_li3: "Чи маєте ви відповідне житло",
+  blog_family_li4: "Чи виконані вимоги щодо фінансової підтримки",
+  blog_family_li5: "Ваш родинний зв’язок із членом сім’ї, який приєднується до вас",
+  blog_family_note: "Найшвидший спосіб зменшити невизначеність — дуже чітко визначити справу з самого початку: хто приїжджає, звідки, у якому статусі та в які строки.",
+
+  sidebar_on_page_label: "На цій сторінці",
+  sidebar_toc_title: "Зміст",
+  sidebar_toc_permits: "Дозволи на проживання у Швейцарії",
+  sidebar_toc_anmeldung: "Anmeldung у Цюриху",
+  sidebar_toc_insurance: "Медичне страхування у Швейцарії",
+  sidebar_toc_study: "Навчання у Швейцарії",
+  sidebar_toc_marriage: "Шлюб у Швейцарії",
+  sidebar_toc_family: "Перевезення сім’ї до Швейцарії",
+
+  sidebar_related_label: "Пов’язані послуги",
+  sidebar_related_title: "Як ми можемо допомогти",
+  sidebar_related_consultation_label: "Консультація",
+  sidebar_related_consultation_title: "Запишіться на безкоштовну консультацію щодо вашого плану релокації",
+  sidebar_related_permits_label: "Дозволи",
+  sidebar_related_permits_title: "Підтримка з дозволами на проживання та реєстрацією",
+  sidebar_related_insurance_label: "Страхування",
+  sidebar_related_insurance_title: "Допомога з вибором правильного медичного страхування",
+
+  sidebar_support_label: "Потрібна допомога?",
+  sidebar_support_title: "Хочете персональний супровід?",
+  sidebar_support_text: "Якщо вам потрібна допомога з реєстрацією, дозволами, документами на житло або медичним страхуванням, запишіться на консультацію та отримайте чіткий покроковий план.",
+  sidebar_support_cta: "Записатися на консультацію",
+
+  cta_label: "Наступний крок",
+  cta_title: "Зробіть вашу релокацію простішою з першого дня",
+  cta_text: "Заощаджуйте час, уникайте пропущених строків і проходьте етапи з дозволами, реєстрацією та страхуванням із чіткою структурою та персональною підтримкою.",
+  cta_book: "Записатися на консультацію",
+  cta_home: "Назад на головну",
+
+  footer_brand: "Easy Help Switzerland",
+  footer_copy: "© 2026 Easy Help Switzerland — Усі права захищені.",
+  footer_tagline: "Практична підтримка з релокації у Швейцарії",
+
+
+  //Free Consultation
+
+
+  consult_brand_main: "Easy Help",
+consult_brand_sub: "Switzerland",
+consult_nav_guides: "Гіди",
+consult_nav_booking: "Бронювання",
+
+consult_micro: "Безкоштовний перший крок",
+consult_title: 'Запит на <span>безкоштовну консультацію</span>',
+consult_subtitle: "Коротко опишіть вашу ситуацію, і ми зв’яжемося з вами, щоб організувати безкоштовну початкову консультацію.",
+
+consult_feature_1: "Безкоштовний первинний запит",
+consult_feature_2: "Чітке розуміння наступного кроку",
+consult_feature_3: "Гарне місце для старту",
+consult_hero_minutes: "хвилин часто достатньо, щоб визначити подальший шлях",
+
+consult_start_here: "Почніть тут",
+consult_intro_copy: 'Заповніть форму для першої безкоштовної консультації. Максимальний час бронювання – 30 хвилин. Ми зв’яжемося з вами та надішлемо вам пропозиції щодо зустрічі (онлайн або особисто, як ви бажаєте). Будь ласка, заповніть усі поля та якомога краще опишіть ситуацію, щоб ми могли підготуватися до консультації.',
+consult_bullet_1: "Швидкий перший контакт без оплати",
+consult_bullet_2: "Добре підходить для простої орієнтації та ясності щодо справи",
+consult_bullet_3: "Це не зобов'язує вас платити чи діяти",
+
+consult_form_label: "Запит на безкоштовну консультацію",
+consult_form_title: "Коротко розкажіть нам про вашу ситуацію",
+consult_form_text: 'Ця форма надсилається і зберігає варіанти тем: дозвіл на проживання, дозвіл на роботу, переїзд до Цюриха, юридична консультація та інше.',
+consult_paid_booking: "Перейти до платного бронювання",
+
+name: "Повне ім’я",
+email: "Електронна пошта",
+phone: "Телефон / WhatsApp",
+location: "Поточне місце проживання",
+topic: "У чому вам потрібна допомога?",
+opt_residence: "Дозвіл на проживання",
+opt_work: "Дозвіл на роботу",
+opt_relocation: "Переїзд до Цюриха",
+opt_legal: "Консультація",
+opt_other: "Інше",
+message: "Короткий опис",
+submit: "Запросити консультацію",
+consult_paid_booking: "Перейти до платного бронювання",
+note: "Цей запит не створює відносин адвокат-клієнт. Якщо потрібне формальне юридичне представництво, вас можуть направити до ліцензованого швейцарського адвоката.",
+
+consult_how_label: "Як це працює",
+consult_how_title: "Простий перший контакт",
+consult_step_1: "Надішліть свій запит і коротко опишіть суть питання.",
+consult_step_2: "Ваш запит буде розглянуто і спрямовано до правильного наступного кроку.",
+consult_step_3: "З вами зв’яжуться, щоб домовитися про безкоштовну початкову консультацію.",
+
+consult_email_label: "Надсилається електронною поштою",
+consult_email_title: "Будь ласка, приходьте вчасно на зустріч",
+consult_email_text: 'Якщо ви не прийдете протягом перших 10 хвилин, консультація вважається скасованою.',
+
+consult_paid_label: "Потрібно більше, ніж перша розмова?",
+consult_paid_title: "Перейдіть до платної підтримки",
+consult_paid_text: "Якщо ви хочете придбати якусь консультацію або спеціальні послуги, перейдіть до платного бронювання або напишіть у коментарі, яку послугу ви хотіли б отримати.",
+consult_open_booking: "Відкрити сторінку бронювання",
+
+consult_why_label: "Чому клієнти починають тут",
+consult_why_title: "Практична підтримка до зайвих витрат",
+consult_why_text: "Багатьом людям спочатку потрібні ясність, структура та допомога в розумінні своїх документів або наступного адміністративного кроку, а не повний юридичний мандат одразу. Коротка консультація часто допомагає зекономити час і зменшити стрес ще на ранньому етапі.",
+consult_why_point_1_title: "Добре для орієнтації",
+consult_why_point_1_text: "Корисно, коли головна проблема — невизначеність, а не виконання.",
+consult_why_point_2_title: "Менше бар’єрів",
+consult_why_point_2_text: "Простіша точка входу для відвідувачів, які ще не готові платити.",
+consult_why_point_3_title: "Природний наступний крок",
+consult_why_point_3_text: "Якщо під час консультації потрібні якісь інші послуги – вони мають бути оплачені.",
+
+consult_footer_copy: "© 2026 Easy Help Switzerland — Усі права захищені.",
+consult_footer_right: "Сторінка безкоштовної консультації",
+consult_whatsapp_aria: "WhatsApp",
+
+
+//Booking.html
+
+
+    nav_home: "Головна",
+    nav_services: "Послуги",
+    booking_nav_guides: "Гіди",
+    booking_nav_free_consultation: "Безкоштовна консультація",
+    nav_contacts: "Контакти",
+    back: "← Назад",
+
+    booking_micro: "Бронювання",
+    booking_title: "Забронюйте <span>консультацію</span>",
+    booking_subtitle: "Оберіть пакет і перейдіть до оплати.",
+
+    booking_feature_1: "Чіткий вибір пакета",
+    booking_feature_2: "Швидкий процес",
+    booking_feature_3: "Відповідь за 24 години",
+    booking_hero_packages: "доступні пакети",
+
+    booking_flow_title: "Процес бронювання",
+    booking_flow_text: "Оплата буде здійснена з вашої картки. Ви можете безкоштовно скасувати бронювання за 1 день до початку послуги. Плата за пізнє скасування становить половину вартості одного пакету. Будь-який запит на скасування необхідно надсилати електронною поштою. Якщо знадобляться інші послуги, їх необхідно оплачувати окремо.",
+    booking_info_1: "Онлайн або в Цюриху",
+    booking_info_2: "Практичні поради",
+    booking_info_3: "Економія часу",
+
+    booking_client_details: "Дані клієнта",
+    booking_form_title: "Оберіть пакет і заповніть дані",
+    booking_form_intro: "Заповніть форму та оплатіть.",
+
+    booking_package_1_name: "Швидка консультація",
+    booking_package_1_desc: "Ідеально для швидкої відповіді на практичне питання.",
+    booking_package_2_name: "Підтримка переїзду",
+    booking_package_2_desc: "Ідеально для підготовки документів і початку переїзду.",
+    booking_package_3_name: "Стратегія поселення",
+    booking_package_3_desc: "Повна підтримка для впевненого життя у Швейцарії.",
+
+    booking_name: "Ім'я",
+    booking_email: "Email",
+    booking_phone: "Телефон / WhatsApp",
+    booking_location: "Локація",
+
+    booking_placeholder_name: "Ваше повне ім’я",
+  booking_placeholder_email: "your@email.com",
+  booking_placeholder_phone: "+41 …",
+  booking_placeholder_location: "Країна або місто",
+  booking_placeholder_message: "Коротко опишіть вашу ситуацію, документи або головне питання, яке ви хочете обговорити.",
+
+
+    booking_preferred_label: "Формат",
+    booking_preferred_default: "Оберіть",
+    booking_preferred_online: "Онлайн",
+    booking_preferred_zurich: "У Цюриху",
+    booking_preferred_phone: "Телефон",
+
+    booking_message: "Опис",
+    booking_placeholder_message: "Коротко опишіть ситуацію.",
+
+    booking_note: "Оплата підтверджує заявку.",
+    booking_continue_payment: "До оплати",
+    booking_back: "← Назад",
+
+    booking_trust_1_title: "Просто",
+    booking_trust_1_text: "Зрозумілий процес.",
+    booking_trust_2_title: "Швидко",
+    booking_trust_2_text: "Відповідь за 24 години.",
+    booking_trust_3_title: "Практично",
+    booking_trust_3_text: "Конкретна допомога.",
+
+    booking_next_label: "Що далі",
+    booking_next_title: "3 кроки",
+    booking_step_1: "Оберіть пакет",
+    booking_step_2: "Перевірте",
+    booking_step_3: "Отримайте підтвердження",
+
+    booking_structure_label: "Зміна замовлення",
+    booking_structure_title: "Зверніть увагу",
+    booking_structure_text: "Поверніться, щоб змінити свою інформацію. Пізніше це буде неможливо.",
+
+    booking_free_label: "Безкоштовно?",
+    booking_free_title: "Почніть безкоштовно",
+    booking_free_text: "Спочатку безкоштовна консультація.",
+    booking_free_button: "Безкоштовно",
+
+    booking_footer_copy: "© 2026 Easy Help Switzerland",
+    booking_footer_right: "Сторінка бронювання пакету послуг",
+
+
+    //Payment.html
+
+
+    payment_home: "Головна",
+  payment_booking_nav: "Бронювання",
+  payment_guides: "Гіди",
+  payment_free_consultation: "Безкоштовна консультація",
+  payment_contacts: "Контакти",
+
+  payment_back: "← Назад",
+  payment_micro: "Перевірка оплати",
+  payment_hero_title: "Перевірте вашу <span>консультацію</span>",
+  payment_hero_title_span: "консультацію",
+  payment_hero_sub: "Підтвердіть обраний пакет і ваші дані перед переходом до безпечної оплати.",
+
+  payment_feature_summary: "Підсумок бронювання",
+  payment_feature_stripe: "Безпечний перехід до Stripe",
+  payment_feature_edit: "Редагувати перед оплатою",
+  payment_final_step: "останній крок перед оплатою",
+
+  payment_summary_kicker: "Підсумок бронювання",
+  payment_title: "Перевірте вашу консультацію перед оплатою",
+  payment_subtitle: "Будь ласка, підтвердьте нижче вибраний пакет і ваші дані.",
+  payment_name: "Повне ім’я",
+  payment_email: "Електронна пошта",
+  payment_phone: "Телефон / WhatsApp",
+  payment_location: "Поточне місце перебування",
+  payment_format: "Бажаний формат",
+  payment_message: "Короткий опис",
+  payment_total: "Сума до сплати",
+
+  payment_kicker: "Оплата",
+  payment_right_title: "Перейти до безпечної оплати",
+  payment_right_text: "Коли ви натиснете кнопку нижче, ви зможете продовжити налаштування оплати.",
+  payment_pay_now: "Оплатити зараз",
+  payment_edit: "Редагувати бронювання",
+  payment_note: "Оплата підтверджує ваш запит на консультацію. Якщо ваша справа потребує офіційного юридичного представництва, за потреби вас можуть направити до ліцензованого адвоката.",
+
+  payment_attention: "Зверніть увагу",
+  payment_no_free_consultation: "Заброньовано без безкоштовної консультації",
+  payment_attention_text: "Ми рекомендуємо спочатку забронювати безкоштовну консультацію. Якщо ви бронюєте пакет і з’ясується, що ваша справа безнадійна, ми утримаємо 10 % вартості пакета, а решту повернемо.",
+  payment_package_pricing: "Вартість пакета",
+
+  package_initial: "Швидка консультація — CHF 79",
+  package_review: "Підтримка переїзду — CHF 189",
+  package_relocation: "Стратегія поселення — CHF 349",
+
+  payment_footer_rights: "© 2026 Easy Help Switzerland - усі права захищено.",
+  payment_footer_page: "Сторінка оплати",
+
 
   }
 };
@@ -2552,6 +2721,7 @@ function setLanguage(lang) {
   document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
     const key = el.dataset.i18nPlaceholder;
     const value = getTranslation(safeLang, key);
+
     if (value !== null) {
       el.setAttribute("placeholder", value);
     }
@@ -2560,6 +2730,7 @@ function setLanguage(lang) {
   document.querySelectorAll("[data-i18n-title]").forEach((el) => {
     const key = el.dataset.i18nTitle;
     const value = getTranslation(safeLang, key);
+
     if (value !== null) {
       el.setAttribute("title", value);
     }
@@ -2568,18 +2739,18 @@ function setLanguage(lang) {
   document.querySelectorAll("[data-i18n-aria-label]").forEach((el) => {
     const key = el.dataset.i18nAriaLabel;
     const value = getTranslation(safeLang, key);
+
     if (value !== null) {
       el.setAttribute("aria-label", value);
     }
   });
 
-  document.querySelectorAll(".lang-toggle").forEach((btn) => {
-    const toggleText = getTranslation(safeLang, "lang_toggle");
-    btn.textContent = toggleText !== null ? toggleText : "English ▾";
+  document.querySelectorAll("[data-lang]").forEach((btn) => {
+    btn.classList.remove("active");
   });
 
-  document.querySelectorAll(".lang-menu").forEach((menu) => {
-    menu.classList.remove("show");
+  document.querySelectorAll(`[data-lang="${safeLang}"]`).forEach((btn) => {
+    btn.classList.add("active");
   });
 }
 
@@ -2587,84 +2758,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const savedLang = localStorage.getItem("siteLanguage") || "en";
   setLanguage(savedLang);
 
-  document.querySelectorAll(".lang-toggle").forEach((toggle) => {
-    toggle.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const menu = this.nextElementSibling;
-      if (!menu) return;
-
-      document.querySelectorAll(".lang-menu").forEach((otherMenu) => {
-        if (otherMenu !== menu) {
-          otherMenu.classList.remove("show");
-        }
-      });
-
-      menu.classList.toggle("show");
-    });
-  });
-
-  document.querySelectorAll(".lang-menu button").forEach((button) => {
-    button.addEventListener("click", function () {
-      const lang = this.getAttribute("data-lang");
-      if (lang) setLanguage(lang);
-    });
-  });
-
-  document.addEventListener("click", function (e) {
-    document.querySelectorAll(".lang-dropdown").forEach((dropdown) => {
-      if (!dropdown.contains(e.target)) {
-        const menu = dropdown.querySelector(".lang-menu");
-        if (menu) menu.classList.remove("show");
-      }
-    });
-  });
-});
-
-  document.querySelectorAll(".lang-toggle").forEach((btn) => {
-    if (lang === "en") btn.textContent = "English ▾";
-    if (lang === "es") btn.textContent = "Español ▾";
-    if (lang === "de") btn.textContent = "Deutsch ▾";
-    if (lang === "uk") btn.textContent = "Українська ▾";
-  });
-
-  document.querySelectorAll(".lang-menu").forEach((menu) => {
-    menu.classList.remove("show");
-  });
-
-
-document.addEventListener("DOMContentLoaded", () => {
-  const lang = localStorage.getItem("siteLanguage") || "en";
-setLanguage(lang);
-
-
-  document.querySelectorAll(".lang-toggle").forEach((toggle) => {
-    toggle.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const menu = this.nextElementSibling;
-      if (!menu) return;
-
-      document.querySelectorAll(".lang-menu").forEach((otherMenu) => {
-        if (otherMenu !== menu) {
-          otherMenu.classList.remove("show");
-        }
-      });
-
-      menu.classList.toggle("show");
-    });
-  });
-
-  document.querySelectorAll(".lang-menu button").forEach((button) => {
-    button.addEventListener("click", function () {
-      const lang = this.getAttribute("data-lang");
-      if (lang) setLanguage(lang);
-    });
-  });
-
-  document.addEventListener("click", function (e) {
-    document.querySelectorAll(".lang-dropdown").forEach((dropdown) => {
-      if (!dropdown.contains(e.target)) {
-        const menu = dropdown.querySelector(".lang-menu");
-        if (menu) menu.classList.remove("show");
+  document.querySelectorAll("[data-lang]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const lang = button.getAttribute("data-lang");
+      if (lang) {
+        setLanguage(lang);
       }
     });
   });
