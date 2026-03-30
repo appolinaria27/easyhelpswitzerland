@@ -647,23 +647,127 @@ payment_note: "Payment confirms your consultation request. If your matter requir
   payment_footer_page: "Payment page",
 
 
-  service_documents_modal_title: "Documents",
-  service_documents_modal_desc: "Support with letters, replies, translations, explanations and document handling.",
+  service_residence_modal_title: "Residence Services",
+service_residence_modal_desc: "We help with residence permits and registration in Switzerland.",
 
-  service_documents_modal_item_1: "Short letter or reply",
-  service_documents_modal_item_2: "Document explanation",
-  service_documents_modal_item_3: "Form support",
-  service_documents_modal_item_4: "Translation check",
-  service_documents_modal_item_5: "Document formatting",
-  service_documents_modal_item_6: "Simple written response",
-  service_documents_modal_item_7: "Administrative clarification",
-  service_documents_modal_item_8: "Custom document support",
+service_residence_modal_item_1: "Residence permit application",
+service_residence_modal_item_2: "Permit renewal",
+service_residence_modal_item_3: "Registration at municipality",
+service_residence_modal_item_4: "Address change support",
+service_residence_modal_item_5: "Family reunification applivation",
+service_residence_modal_item_6: "Permit type change consultation",
+service_residence_modal_item_7: "EU / non-EU relocation guidance",
+service_residence_modal_item_8: "Full relocation support",
 
-  service_modal_fallback_title: "Service details",
-  service_modal_fallback_empty: "More information coming soon.",
-  service_modal_help_title: "Not sure which service fits your case?",
-  service_modal_help_text: "Start with the free first consultation and choose the right next step afterwards."
+service_authorities_modal_title: "Authorities Services",
+service_authorities_modal_desc: "We assist with communication with Swiss authorities.",
 
+service_authorities_modal_item_1: "Official letter drafting",
+service_authorities_modal_item_2: "Government form completion",
+service_authorities_modal_item_3: "Appointment scheduling with authorities",
+service_authorities_modal_item_4: "Phone communication with authorities",
+service_authorities_modal_item_5: "Document submission assistance",
+service_authorities_modal_item_6: "Visit of authorities",
+service_authorities_modal_item_7: "Translation for official documents",
+service_authorities_modal_item_8: "Full case handling",
+
+service_employment_modal_title: "Employment Support",
+service_employment_modal_desc: "We help you find and secure jobs in Switzerland.",
+
+service_employment_modal_item_1: "CV optimization & creation",
+service_employment_modal_item_2: "Motivation letter",
+service_employment_modal_item_3: "Job search strategie & guidance",
+service_employment_modal_item_4: "Job application",
+service_employment_modal_item_5: "Work permit application support",
+service_employment_modal_item_6: "Full employement support",
+
+service_insurance_modal_title: "Insurance Services",
+service_insurance_modal_desc: "We help you choose and manage insurance.",
+
+service_insurance_modal_item_1: "Health insurance setup & registration",
+service_insurance_modal_item_2: "Insurance comparison & advisory",
+service_insurance_modal_item_3: "Policy change management",
+service_insurance_modal_item_4: "Insurance cancellation",
+service_insurance_modal_item_5: "Accident insurance setup",
+service_insurance_modal_item_6: "Prämienverbilligung application",
+service_insurance_modal_item_7: "Claims & communication",
+service_insurance_modal_item_8: "Full insurance support",
+
+service_additional_support_modal_title: "Additional Support",
+service_additional_support_modal_desc: "Extra services for daily life in Switzerland.",
+
+service_additional_support_modal_item_1: "Personal translation assistance",
+service_additional_support_modal_item_2: "Information call",
+service_additional_support_modal_item_3: "House review visit",
+service_additional_support_modal_item_4: "Appointment coordination",
+service_additional_support_modal_item_5: "Phone call assistance",
+service_additional_support_modal_item_6: "Urgent request handling",
+service_additional_support_modal_item_7: "House doctor coordination",
+service_additional_support_modal_item_8: "Lawyer/Notary connection",
+
+service_study_modal_title: "Study Support",
+service_study_modal_desc: "We help with education and university processes.",
+
+service_study_modal_item_1: "University selection & strategy",
+service_study_modal_item_2: "Application review review",
+service_study_modal_item_3: "Student visa guidance",
+service_study_modal_item_4: "Full administration support",
+
+service_consultation_modal_title: "Consultation",
+service_consultation_modal_desc: "Personal consultation for your situation.",
+
+service_consultation_modal_item_1: "General consultation and strategy building (1h)",
+service_consultation_modal_item_2: "Consultation and document review (1h)",
+service_consultation_modal_item_3: "Quick review online consultation (15min)",
+service_consultation_modal_item_4: "Additional informaion consultation (first 15min)",
+
+service_documents_modal_title: "Documents",
+service_documents_modal_desc: "We help with letters, applications, translations and document preparation.",
+
+service_documents_modal_item_1: "Document review & correction",
+service_documents_modal_item_2: "Proffesional letter writing",
+service_documents_modal_item_3: "Response to official letter",
+service_documents_modal_item_4: "Certified translation coordination",
+service_documents_modal_item_5: "Document explanation & breakdown",
+service_documents_modal_item_6: "Form completion assistance",
+service_documents_modal_item_7: "Document formatting & structuring",
+service_documents_modal_item_8: "Full document support",
+
+area_1_modal_title: "Zürich City",
+area_1_modal_content: `
+  <p>We support clients in Zürich with registration, local authority communication, residence-related first steps, and practical relocation administration.</p>
+  <ul>
+    <li><strong>Anmeldung / registration</strong> support and preparation</li>
+    <li><strong>Permit-related guidance</strong> for first local steps</li>
+    <li><strong>Student relocation</strong> help in the Zürich area</li>
+    <li><strong>Authority communication</strong> and document preparation</li>
+  </ul>
+  <p><strong>Best for:</strong> people living in Zürich or moving to Zürich soon.</p>
+`,
+
+area_2_modal_title: "All Switzerland",
+area_2_modal_content: `
+  <p>We also work with clients across Switzerland, not only in Zürich. This includes support for different cantons and different local administrative procedures.</p>
+  <ul>
+    <li><strong>Cantonal process guidance</strong> depending on your location</li>
+    <li><strong>Family and relocation steps</strong> with practical planning</li>
+    <li><strong>Local admin follow-up</strong> for your case</li>
+    <li><strong>Clear next-step strategy</strong> before you submit documents</li>
+  </ul>
+  <p><strong>Best for:</strong> clients relocating or living anywhere in Switzerland.</p>
+`,
+
+area_3_modal_title: "International clients",
+area_3_modal_content: `
+  <p>We support international clients before arrival and during their first Switzerland preparation phase, with clear explanations and practical relocation structure.</p>
+  <ul>
+    <li><strong>Pre-arrival planning</strong> and document orientation</li>
+    <li><strong>Support for Latin America, Eastern Europe and beyond</strong></li>
+    <li><strong>Step-by-step preparation</strong> before coming to Switzerland</li>
+    <li><strong>Clarity on realistic routes</strong>, timing and first admin steps</li>
+  </ul>
+  <p><strong>Best for:</strong> clients outside Switzerland who want to prepare correctly before moving.</p>
+`,
   },
 
   es: {
@@ -1315,21 +1419,91 @@ booking_brand_main: "Easy Help Switzerland",
   payment_footer_page: "Página de pago",
 
 
-  service_documents_modal_title: "Documentos",
-service_documents_modal_desc: "Apoyo con cartas, respuestas, traducciones, explicaciones y gestión de documentos.",
+  service_residence_modal_title: "Servicios de Residencia",
+service_residence_modal_desc: "Ayudamos con permisos de residencia y el registro en Suiza.",
 
-service_documents_modal_item_1: "Carta o respuesta corta",
-service_documents_modal_item_2: "Explicación de documentos",
-service_documents_modal_item_3: "Ayuda con formularios",
-service_documents_modal_item_4: "Revisión de traducción",
-service_documents_modal_item_5: "Formato de documentos",
-service_documents_modal_item_6: "Respuesta escrita simple",
-service_documents_modal_item_7: "Aclaración administrativa",
-service_documents_modal_item_8: "Apoyo documental personalizado",
+service_residence_modal_item_1: "Solicitud de permiso de residencia",
+service_residence_modal_item_2: "Renovación del permiso",
+service_residence_modal_item_3: "Registro en el municipio",
+service_residence_modal_item_4: "Ayuda con el cambio de dirección",
+service_residence_modal_item_5: "Solicitud de reunificación familiar",
+service_residence_modal_item_6: "Consulta sobre cambio de tipo de permiso",
+service_residence_modal_item_7: "Orientación de reubicación para ciudadanos UE / no UE",
+service_residence_modal_item_8: "Soporte completo de reubicación",
 
-service_modal_fallback_empty: "Más información próximamente.",
-service_modal_help_title: "¿No sabes qué servicio elegir?",
-service_modal_help_text: "Empieza con la primera consulta gratuita y elige el siguiente paso adecuado después."
+service_authorities_modal_title: "Servicios con Autoridades",
+service_authorities_modal_desc: "Ayudamos con la comunicación con las autoridades suizas.",
+
+service_authorities_modal_item_1: "Redacción de cartas oficiales",
+service_authorities_modal_item_2: "Completar formularios gubernamentales",
+service_authorities_modal_item_3: "Programación de citas con autoridades",
+service_authorities_modal_item_4: "Comunicación telefónica con autoridades",
+service_authorities_modal_item_5: "Asistencia con la entrega de documentos",
+service_authorities_modal_item_6: "Acompañamiento en visitas a autoridades",
+service_authorities_modal_item_7: "Traducción de documentos oficiales",
+service_authorities_modal_item_8: "Gestión completa del caso",
+
+service_employment_modal_title: "Apoyo Laboral",
+service_employment_modal_desc: "Te ayudamos a encontrar y conseguir trabajo en Suiza.",
+
+service_employment_modal_item_1: "Optimización y creación de CV",
+service_employment_modal_item_2: "Carta de motivación",
+service_employment_modal_item_3: "Estrategia y orientación para la búsqueda de empleo",
+service_employment_modal_item_4: "Solicitud de empleo",
+service_employment_modal_item_5: "Asistencia con la solicitud del permiso de trabajo",
+service_employment_modal_item_6: "Apoyo laboral completo",
+
+service_insurance_modal_title: "Servicios de Seguros",
+service_insurance_modal_desc: "Te ayudamos a elegir y gestionar seguros.",
+
+service_insurance_modal_item_1: "Configuración y registro del seguro de salud",
+service_insurance_modal_item_2: "Comparación de seguros y asesoramiento",
+service_insurance_modal_item_3: "Gestión de cambios de póliza",
+service_insurance_modal_item_4: "Cancelación de seguros",
+service_insurance_modal_item_5: "Configuración del seguro de accidentes",
+service_insurance_modal_item_6: "Asistencia con la solicitud de Prämienverbilligung",
+service_insurance_modal_item_7: "Reclamaciones y comunicación",
+service_insurance_modal_item_8: "Soporte completo de seguros",
+
+service_additional_support_modal_title: "Soporte Adicional",
+service_additional_support_modal_desc: "Servicios extra para la vida diaria en Suiza.",
+
+service_additional_support_modal_item_1: "Asistencia personal de traducción",
+service_additional_support_modal_item_2: "Llamada informativa",
+service_additional_support_modal_item_3: "Visita de revisión de vivienda",
+service_additional_support_modal_item_4: "Coordinación de citas",
+service_additional_support_modal_item_5: "Asistencia con llamadas telefónicas",
+service_additional_support_modal_item_6: "Gestión de solicitudes urgentes",
+service_additional_support_modal_item_7: "Coordinación con médico de cabecera",
+service_additional_support_modal_item_8: "Conexión con abogado/notario",
+
+service_study_modal_title: "Apoyo para Estudios",
+service_study_modal_desc: "Ayudamos con procesos educativos y universitarios.",
+
+service_study_modal_item_1: "Selección de universidad y estrategia",
+service_study_modal_item_2: "Revisión de solicitud",
+service_study_modal_item_3: "Orientación sobre visa de estudiante",
+service_study_modal_item_4: "Soporte administrativo completo",
+
+service_consultation_modal_title: "Consulta",
+service_consultation_modal_desc: "Consulta personal para tu situación.",
+
+service_consultation_modal_item_1: "Consulta general y desarrollo de estrategia (1 h)",
+service_consultation_modal_item_2: "Consulta y revisión de documentos (1 h)",
+service_consultation_modal_item_3: "Consulta rápida online de revisión (15 min)",
+service_consultation_modal_item_4: "Consulta de información adicional (primeros 15 min)",
+
+service_documents_modal_title: "Documentos",
+service_documents_modal_desc: "Ayudamos con cartas, solicitudes, traducciones y preparación de documentos.",
+
+service_documents_modal_item_1: "Revisión y corrección de documentos",
+service_documents_modal_item_2: "Redacción profesional de cartas",
+service_documents_modal_item_3: "Respuesta a una carta oficial",
+service_documents_modal_item_4: "Coordinación de traducción certificada",
+service_documents_modal_item_5: "Explicación y desglose de documentos",
+service_documents_modal_item_6: "Asistencia para completar formularios",
+service_documents_modal_item_7: "Formato y estructuración de documentos",
+service_documents_modal_item_8: "Soporte completo de documentos",
 
 },
 
@@ -1975,16 +2149,91 @@ booking_brand_main: "Easy Help Switzerland",
   payment_footer_page: "Zahlungsseite",
 
 
-  service_authorities_modal_title: "Behörden",
-  service_authorities_modal_desc: "Unterstützung bei Behörden, Kommunikation und offiziellen Verfahren.",
-  service_authorities_modal_item_1: "Brief an eine Behörde",
-  service_authorities_modal_item_2: "Antwort an eine Behörde",
-  service_authorities_modal_item_3: "Vorbereitung auf einen Termin",
-  service_authorities_modal_item_4: "Fallklärung",
-  service_authorities_modal_item_5: "Nachricht zur Nachverfolgung",
-  service_authorities_modal_item_6: "Administrative Hilfe",
-  service_authorities_modal_item_7: "Hilfe bei der Einreichung von Dokumenten",
-  service_authorities_modal_item_8: "Individuelle Behördenanfrage"
+  service_residence_modal_title: "Aufenthaltsservices",
+service_residence_modal_desc: "Wir helfen bei Aufenthaltsbewilligungen und der Anmeldung in der Schweiz.",
+
+service_residence_modal_item_1: "Beantragung der Aufenthaltsbewilligung",
+service_residence_modal_item_2: "Verlängerung der Bewilligung",
+service_residence_modal_item_3: "Anmeldung bei der Gemeinde",
+service_residence_modal_item_4: "Unterstützung bei Adressänderung",
+service_residence_modal_item_5: "Antrag auf Familiennachzug",
+service_residence_modal_item_6: "Beratung zum Wechsel des Bewilligungstyps",
+service_residence_modal_item_7: "Relocation-Beratung für EU-/Nicht-EU-Bürger",
+service_residence_modal_item_8: "Komplette Relocation-Unterstützung",
+
+service_authorities_modal_title: "Behördenservices",
+service_authorities_modal_desc: "Wir unterstützen bei der Kommunikation mit Schweizer Behörden.",
+
+service_authorities_modal_item_1: "Verfassen offizieller Schreiben",
+service_authorities_modal_item_2: "Ausfüllen von Behördenformularen",
+service_authorities_modal_item_3: "Terminvereinbarung mit Behörden",
+service_authorities_modal_item_4: "Telefonische Kommunikation mit Behörden",
+service_authorities_modal_item_5: "Unterstützung bei der Einreichung von Dokumenten",
+service_authorities_modal_item_6: "Begleitung bei Behördenbesuchen",
+service_authorities_modal_item_7: "Übersetzung offizieller Dokumente",
+service_authorities_modal_item_8: "Komplette Fallbetreuung",
+
+service_employment_modal_title: "Arbeitsunterstützung",
+service_employment_modal_desc: "Wir helfen Ihnen, in der Schweiz eine Arbeit zu finden und zu sichern.",
+
+service_employment_modal_item_1: "Optimierung und Erstellung des Lebenslaufs",
+service_employment_modal_item_2: "Motivationsschreiben",
+service_employment_modal_item_3: "Strategie und Beratung bei der Jobsuche",
+service_employment_modal_item_4: "Bewerbung auf Stellen",
+service_employment_modal_item_5: "Unterstützung bei der Beantragung der Arbeitsbewilligung",
+service_employment_modal_item_6: "Komplette Unterstützung bei der Arbeitssuche",
+
+service_insurance_modal_title: "Versicherungsservices",
+service_insurance_modal_desc: "Wir helfen Ihnen bei der Auswahl und Verwaltung von Versicherungen.",
+
+service_insurance_modal_item_1: "Einrichtung und Anmeldung der Krankenversicherung",
+service_insurance_modal_item_2: "Versicherungsvergleich und Beratung",
+service_insurance_modal_item_3: "Verwaltung von Policenänderungen",
+service_insurance_modal_item_4: "Kündigung von Versicherungen",
+service_insurance_modal_item_5: "Einrichtung einer Unfallversicherung",
+service_insurance_modal_item_6: "Unterstützung beim Antrag auf Prämienverbilligung",
+service_insurance_modal_item_7: "Schadensfälle und Kommunikation",
+service_insurance_modal_item_8: "Komplette Versicherungsunterstützung",
+
+service_additional_support_modal_title: "Zusätzliche Unterstützung",
+service_additional_support_modal_desc: "Zusätzliche Dienstleistungen für den Alltag in der Schweiz.",
+
+service_additional_support_modal_item_1: "Persönliche Übersetzungsunterstützung",
+service_additional_support_modal_item_2: "Informationsanruf",
+service_additional_support_modal_item_3: "Hausbesichtigung vor Ort",
+service_additional_support_modal_item_4: "Terminkoordination",
+service_additional_support_modal_item_5: "Unterstützung bei Telefonaten",
+service_additional_support_modal_item_6: "Bearbeitung dringender Anfragen",
+service_additional_support_modal_item_7: "Koordination mit dem Hausarzt",
+service_additional_support_modal_item_8: "Vermittlung zu Anwalt/Notar",
+
+service_study_modal_title: "Studienunterstützung",
+service_study_modal_desc: "Wir helfen bei Bildungs- und Universitätsprozessen.",
+
+service_study_modal_item_1: "Auswahl der Universität und Strategie",
+service_study_modal_item_2: "Prüfung der Bewerbung",
+service_study_modal_item_3: "Beratung zum Studentenvisum",
+service_study_modal_item_4: "Komplette administrative Unterstützung",
+
+service_consultation_modal_title: "Beratung",
+service_consultation_modal_desc: "Persönliche Beratung für Ihre Situation.",
+
+service_consultation_modal_item_1: "Allgemeine Beratung und Strategieentwicklung (1 Std.)",
+service_consultation_modal_item_2: "Beratung und Dokumentenprüfung (1 Std.)",
+service_consultation_modal_item_3: "Kurze Online-Beratung zur Schnellprüfung (15 Min.)",
+service_consultation_modal_item_4: "Beratung zu zusätzlichen Informationen (erste 15 Min.)",
+
+service_documents_modal_title: "Dokumente",
+service_documents_modal_desc: "Wir helfen bei Schreiben, Anträgen, Übersetzungen und der Vorbereitung von Dokumenten.",
+
+service_documents_modal_item_1: "Prüfung und Korrektur von Dokumenten",
+service_documents_modal_item_2: "Professionelles Verfassen von Schreiben",
+service_documents_modal_item_3: "Antwort auf ein offizielles Schreiben",
+service_documents_modal_item_4: "Koordination beglaubigter Übersetzungen",
+service_documents_modal_item_5: "Erklärung und Aufschlüsselung von Dokumenten",
+service_documents_modal_item_6: "Unterstützung beim Ausfüllen von Formularen",
+service_documents_modal_item_7: "Formatierung und Strukturierung von Dokumenten",
+service_documents_modal_item_8: "Komplette Dokumentenunterstützung",
 
   },
 
@@ -2715,21 +2964,91 @@ consult_whatsapp_aria: "WhatsApp",
   payment_footer_page: "Сторінка оплати",
 
 
-  service_documents_modal_title: "Документи",
-service_documents_modal_desc: "Допомога з листами, відповідями, перекладами, поясненнями та роботою з документами.",
+  service_residence_modal_title: "Послуги з проживання",
+service_residence_modal_desc: "Ми допомагаємо з дозволами на проживання та реєстрацією у Швейцарії.",
 
-service_documents_modal_item_1: "Короткий лист або відповідь",
-service_documents_modal_item_2: "Пояснення документів",
-service_documents_modal_item_3: "Допомога з формами",
-service_documents_modal_item_4: "Перевірка перекладу",
-service_documents_modal_item_5: "Форматування документів",
-service_documents_modal_item_6: "Проста письмова відповідь",
-service_documents_modal_item_7: "Адміністративне роз’яснення",
-service_documents_modal_item_8: "Індивідуальна допомога з документами",
+service_residence_modal_item_1: "Подання заяви на дозвіл на проживання",
+service_residence_modal_item_2: "Продовження дозволу",
+service_residence_modal_item_3: "Реєстрація в муніципалітеті",
+service_residence_modal_item_4: "Допомога зі зміною адреси",
+service_residence_modal_item_5: "Подання заяви на возз’єднання сім’ї",
+service_residence_modal_item_6: "Консультація щодо зміни типу дозволу",
+service_residence_modal_item_7: "Супровід релокації для громадян ЄС / не ЄС",
+service_residence_modal_item_8: "Повний супровід релокації",
 
-service_modal_fallback_empty: "Незабаром з’явиться більше інформації.",
-service_modal_help_title: "Не впевнені, яка послуга вам підходить?",
-service_modal_help_text: "Почніть із безкоштовної первинної консультації та оберіть наступний крок пізніше."
+service_authorities_modal_title: "Послуги щодо державних органів",
+service_authorities_modal_desc: "Ми допомагаємо з комунікацією зі швейцарськими державними органами.",
+
+service_authorities_modal_item_1: "Підготовка офіційних листів",
+service_authorities_modal_item_2: "Заповнення державних форм",
+service_authorities_modal_item_3: "Запис на прийом до державних органів",
+service_authorities_modal_item_4: "Телефонна комунікація з державними органами",
+service_authorities_modal_item_5: "Допомога з поданням документів",
+service_authorities_modal_item_6: "Супровід під час візиту до державних органів",
+service_authorities_modal_item_7: "Переклад офіційних документів",
+service_authorities_modal_item_8: "Повний супровід справи",
+
+service_employment_modal_title: "Підтримка у працевлаштуванні",
+service_employment_modal_desc: "Ми допомагаємо знайти та отримати роботу у Швейцарії.",
+
+service_employment_modal_item_1: "Оптимізація та створення CV",
+service_employment_modal_item_2: "Мотиваційний лист",
+service_employment_modal_item_3: "Стратегія та супровід у пошуку роботи",
+service_employment_modal_item_4: "Подання заявки на роботу",
+service_employment_modal_item_5: "Допомога з поданням заявки на дозвіл на роботу",
+service_employment_modal_item_6: "Повна підтримка у працевлаштуванні",
+
+service_insurance_modal_title: "Страхові послуги",
+service_insurance_modal_desc: "Ми допомагаємо обрати та керувати страховками.",
+
+service_insurance_modal_item_1: "Оформлення та реєстрація медичного страхування",
+service_insurance_modal_item_2: "Порівняння страхових планів та консультація",
+service_insurance_modal_item_3: "Супровід змін страхового полісу",
+service_insurance_modal_item_4: "Скасування страхування",
+service_insurance_modal_item_5: "Оформлення страхування від нещасних випадків",
+service_insurance_modal_item_6: "Допомога з поданням заявки на Prämienverbilligung",
+service_insurance_modal_item_7: "Страхові випадки та комунікація",
+service_insurance_modal_item_8: "Повний страховий супровід",
+
+service_additional_support_modal_title: "Додаткова підтримка",
+service_additional_support_modal_desc: "Додаткові послуги для повсякденного життя у Швейцарії.",
+
+service_additional_support_modal_item_1: "Персональна допомога з перекладом",
+service_additional_support_modal_item_2: "Інформаційний дзвінок",
+service_additional_support_modal_item_3: "Виїзд для огляду житла",
+service_additional_support_modal_item_4: "Координація записів на прийом",
+service_additional_support_modal_item_5: "Допомога з телефонними дзвінками",
+service_additional_support_modal_item_6: "Опрацювання термінових запитів",
+service_additional_support_modal_item_7: "Координація з сімейним лікарем",
+service_additional_support_modal_item_8: "Зв’язок з адвокатом/нотаріусом",
+
+service_study_modal_title: "Підтримка щодо навчання",
+service_study_modal_desc: "Ми допомагаємо з освітніми та університетськими процесами.",
+
+service_study_modal_item_1: "Вибір університету та стратегія",
+service_study_modal_item_2: "Перевірка заявки",
+service_study_modal_item_3: "Супровід щодо студентської візи",
+service_study_modal_item_4: "Повний адміністративний супровід",
+
+service_consultation_modal_title: "Консультація",
+service_consultation_modal_desc: "Персональна консультація для вашої ситуації.",
+
+service_consultation_modal_item_1: "Загальна консультація та побудова стратегії (1 год)",
+service_consultation_modal_item_2: "Консультація та перевірка документів (1 год)",
+service_consultation_modal_item_3: "Швидка онлайн-консультація для експрес-перевірки (15 хв)",
+service_consultation_modal_item_4: "Консультація щодо додаткової інформації (перші 15 хв)",
+
+service_documents_modal_title: "Документи",
+service_documents_modal_desc: "Ми допомагаємо з листами, заявами, перекладами та підготовкою документів.",
+
+service_documents_modal_item_1: "Перевірка та виправлення документів",
+service_documents_modal_item_2: "Професійне написання листів",
+service_documents_modal_item_3: "Відповідь на офіційний лист",
+service_documents_modal_item_4: "Координація сертифікованого перекладу",
+service_documents_modal_item_5: "Пояснення та розбір документів",
+service_documents_modal_item_6: "Допомога із заповненням форм",
+service_documents_modal_item_7: "Форматування та структурування документів",
+service_documents_modal_item_8: "Повний супровід документів",
 
   },
 
@@ -2738,7 +3057,7 @@ service_modal_help_text: "Почніть із безкоштовної перв�
 
 };
 
-
+window.translations = translations;
 
 function getTranslation(lang, key) {
   if (
@@ -2768,10 +3087,7 @@ function setLanguage(lang) {
     const key = el.dataset.i18n;
     const value = getTranslation(safeLang, key);
 
-    if (value === null) {
-      console.warn("Missing translation for:", safeLang, key);
-      return;
-    }
+    if (value === null) return;
 
     const shouldRenderHtml =
       el.hasAttribute("data-i18n-html") ||
@@ -2798,7 +3114,22 @@ function setLanguage(lang) {
     const value = getTranslation(safeLang, key);
 
     if (value !== null) {
-      el.setAttribute("title", value);
+      if (el.hasAttribute("title")) {
+        el.setAttribute("title", value);
+      }
+
+      if (el.hasAttribute("data-title")) {
+        el.setAttribute("data-title", value);
+      }
+    }
+  });
+
+  document.querySelectorAll("[data-i18n-content]").forEach((el) => {
+    const key = el.dataset.i18nContent;
+    const value = getTranslation(safeLang, key);
+
+    if (value !== null && el.hasAttribute("data-content")) {
+      el.setAttribute("data-content", value);
     }
   });
 
