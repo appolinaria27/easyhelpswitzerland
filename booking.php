@@ -426,7 +426,7 @@
               <p data-i18n="booking_form_intro" data-i18n-html>In the original booking page, the form sends the selected package, name, email, phone, location, preferred format, and message to <code>payment.html</code> using GET parameters. This version preserves that same logic and field set. </p>
             </div>
 
-            <form action="payment.html" method="get">
+            <form action="payment.php" method="POST">
               <div class="packages">
                 <label class="package-option">
                   <input type="radio" name="package" value="initial" checked>

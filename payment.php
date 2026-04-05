@@ -1,3 +1,80 @@
+<?php
+session_start();
+
+$errors = [];
+
+$bookingData = $_SESSION['booking'] ?? [
+    'package' => 'initial',
+    'name' => '',
+    'email' => '',
+    'phone' => '',
+    'location' => '',
+    'preferred' => '',
+    'message' => '',
+];
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+  
+    $package = trim($_POST['package'] ?? 'initial');
+    $name = trim($_POST['name'] ?? '');
+    $email = trim($_POST['email'] ?? '');
+    $phone = trim($_POST['phone'] ?? '');
+    $location = trim($_POST['location'] ?? '');
+    $preferred = trim($_POST['preferred'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+
+    $allowedPackages = ['initial', 'review', 'support'];
+    $allowedPreferred = ['', 'online', 'zurich', 'phone'];
+
+
+if (empty($errors)) {
+    $_SESSION['booking'] = $bookingData;
+}
+
+    if (!in_array($package, $allowedPackages, true)) {
+        $errors[] = 'Invalid package selected.';
+    }
+
+    if ($name === '' || mb_strlen($name) < 2 || mb_strlen($name) > 100) {
+        $errors[] = 'Please enter a valid name.';
+    }
+
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = 'Please enter a valid email address.';
+    }
+
+    if (mb_strlen($phone) > 50) {
+        $errors[] = 'Phone number is too long.';
+    }
+
+    if (mb_strlen($location) > 100) {
+        $errors[] = 'Location is too long.';
+    }
+
+    if (!in_array($preferred, $allowedPreferred, true)) {
+        $errors[] = 'Invalid consultation format selected.';
+    }
+
+    if (mb_strlen($message) > 2000) {
+        $errors[] = 'Message is too long.';
+    }
+
+    $bookingData = [
+        'package' => $package,
+        'name' => htmlspecialchars($name, ENT_QUOTES, 'UTF-8'),
+        'email' => htmlspecialchars($email, ENT_QUOTES, 'UTF-8'),
+        'phone' => htmlspecialchars($phone, ENT_QUOTES, 'UTF-8'),
+        'location' => htmlspecialchars($location, ENT_QUOTES, 'UTF-8'),
+        'preferred' => htmlspecialchars($preferred, ENT_QUOTES, 'UTF-8'),
+        'message' => htmlspecialchars($message, ENT_QUOTES, 'UTF-8'),
+    ];
+
+    if (empty($errors)) {
+        $_SESSION['booking'] = $bookingData;
+    }
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -311,6 +388,18 @@
 </head>
 <body>
   <div class="shell">
+
+  <?php if (!empty($errors)): ?>
+  <div style="width:min(100% - 38px, 1700px);margin:20px auto 0;padding:16px 20px;border-radius:18px;background:#fff4f4;border:1px solid #f1c0c0;color:#8a1f1f;">
+    <strong>Please fix the following:</strong>
+    <ul style="margin:10px 0 0 18px;padding:0;">
+      <?php foreach ($errors as $error): ?>
+        <li><?php echo htmlspecialchars($error, ENT_QUOTES, 'UTF-8'); ?></li>
+      <?php endforeach; ?>
+    </ul>
+  </div>
+<?php endif; ?>
+
     <section class="hero-wrap" id="top">
       <div class="hero-top">
         <a class="brand" href="index.html" aria-label="Easy Help Switzerland home">
@@ -326,7 +415,7 @@
 
         <nav class="nav">
           <a href="index.html" data-i18n="payment_home">Home</a>
-          <a href="booking.html" data-i18n="payment_booking_nav">Booking</a>
+          <a href="booking.php" data-i18n="payment_booking_nav">Booking</a>
           <a href="blog.html" data-i18n="payment_guides">Guides</a>
           <a href="free-consultation.html" data-i18n="payment_free_consultation">Free consultation</a>
           <a href="index.html#contact" data-i18n="payment_contacts">Contacts</a>
@@ -342,7 +431,7 @@
     <button type="button" data-lang="uk">UA</button>
   </div>
 
-  <a class="back-link" href="booking.html" data-i18n="payment_back">← Back</a>
+  <a class="back-link" href="booking.php" data-i18n="payment_back">← Back</a>
 </div>
       </div>
 
@@ -424,8 +513,20 @@
               <strong id="paymentTotalPrice">—</strong>
             </div>
 
-            <a id="payNowLink" href="#" class="btn primary" data-i18n="payment_pay_now">Pay now</a>
-            <a class="btn secondary" href="booking.html" data-i18n="payment_edit">Edit booking</a>
+            <form id="checkoutForm" action="create-checkout-session.php" method="POST">
+  <input type="hidden" name="package" id="checkoutPackage">
+  <input type="hidden" name="name" id="checkoutName">
+  <input type="hidden" name="email" id="checkoutEmail">
+  <input type="hidden" name="phone" id="checkoutPhone">
+  <input type="hidden" name="location" id="checkoutLocation">
+  <input type="hidden" name="preferred" id="checkoutPreferred">
+  <input type="hidden" name="message" id="checkoutMessage">
+
+  <button type="submit" class="btn primary" data-i18n="payment_pay_now">
+    Pay now
+  </button>
+</form>
+            <a class="btn secondary" href="booking.php" data-i18n="payment_edit">Edit booking</a>
 
             <p class="small" data-i18n="payment_note">Payment confirms your consultation request. If your matter requires formal legal representation, you may be referred to a licensed lawyer where appropriate.</p>
           </section>
@@ -458,38 +559,25 @@
 
   <script>
 document.addEventListener("DOMContentLoaded", () => {
-  const params = new URLSearchParams(window.location.search);
 
-  const bookingData = {
-    package: params.get("package") || "initial",
-    name: params.get("name") || "",
-    email: params.get("email") || "",
-    phone: params.get("phone") || "",
-    location: params.get("location") || "",
-    preferred: params.get("preferred") || "",
-    message: params.get("message") || ""
-  };
+  const bookingData = <?php echo json_encode($bookingData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>;
 
   const packages = {
-    initial: {
-      name: "Quick consultation",
-      price: "CHF 79"
-    },
-    review: {
-      name: "Relocation support",
-      price: "CHF 189"
-    },
-    support: {
-      name: "Settlement strategy",
-      price: "CHF 349"
-    }
+    initial: { name: "Quick consultation", price: "CHF 79" },
+    review: { name: "Relocation support", price: "CHF 189" },
+    support: { name: "Settlement strategy", price: "CHF 349" }
   };
 
   const selectedPackage = packages[bookingData.package] || packages.initial;
 
   const setText = (id, value) => {
     const el = document.getElementById(id);
-    if (el) el.textContent = value && value.trim() ? value : "—";
+    if (el) el.textContent = value && String(value).trim() ? value : "—";
+  };
+
+  const setHiddenValue = (id, value) => {
+    const el = document.getElementById(id);
+    if (el) el.value = value || "";
   };
 
   setText("packageName", selectedPackage.name);
@@ -504,11 +592,14 @@ document.addEventListener("DOMContentLoaded", () => {
   setText("customerPreferred", bookingData.preferred);
   setText("customerMessage", bookingData.message);
 
-  const payNowLink = document.getElementById("payNowLink");
-  if (payNowLink) {
-    const checkoutParams = new URLSearchParams(bookingData);
-    payNowLink.href = "create-checkout-session.php?" + checkoutParams.toString();
-  }
+  setHiddenValue("checkoutPackage", bookingData.package);
+  setHiddenValue("checkoutName", bookingData.name);
+  setHiddenValue("checkoutEmail", bookingData.email);
+  setHiddenValue("checkoutPhone", bookingData.phone);
+  setHiddenValue("checkoutLocation", bookingData.location);
+  setHiddenValue("checkoutPreferred", bookingData.preferred);
+  setHiddenValue("checkoutMessage", bookingData.message);
+
 });
 </script>
 
