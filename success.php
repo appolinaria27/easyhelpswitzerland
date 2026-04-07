@@ -12,7 +12,8 @@ $dotenv->load();
 $sessionId = $_GET['session_id'] ?? '';
 
 if (!$sessionId) {
-  die('Missing Stripe session ID.');
+  header('Location: booking.php?error=invalid_session');
+  exit;
 }
 
 try {
@@ -37,19 +38,19 @@ try {
   $emailError = '';
 
   if ($session->payment_status === 'paid') {
-    if (!is_dir('bookings')) {
-      mkdir('bookings', 0777, true);
-    }
+  if (!is_dir('bookings')) {
+    mkdir('bookings', 0777, true);
+  }
 
-    $safeSessionId = preg_replace('/[^a-zA-Z0-9_-]/', '', $session->id);
-    $filename = 'bookings/booking-' . time() . '-' . $safeSessionId . '.json';
+  $safeSessionId = preg_replace('/[^a-zA-Z0-9_-]/', '', $session->id);
+  $filename = 'bookings/booking-' . $safeSessionId . '.json';
+  $alreadyProcessed = file_exists($filename);
 
-    if (!file_exists($filename)) {
-      file_put_contents(
-        $filename,
-        json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
-      );
-    }
+  if (!$alreadyProcessed) {
+    file_put_contents(
+      $filename,
+      json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
+    );
 
     $mail = new PHPMailer(true);
 
@@ -91,9 +92,14 @@ try {
       $emailError = $mail->ErrorInfo;
     }
   }
-} catch (Exception $e) {
-  die('Error retrieving Stripe session: ' . $e->getMessage());
 }
+
+} catch (Exception $e) {
+  error_log('Stripe session error: ' . $e->getMessage());
+  header('Location: booking.php?error=payment_processing');
+  exit;
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -393,9 +399,9 @@ try {
 
         <nav class="nav">
           <a href="index.html">Home</a>
-          <a href="booking.html">Booking</a>
+          <a href="booking.php">Booking</a>
           <a href="blog.html">Guides</a>
-          <a href="free-consultation.html">Free consultation</a>
+          <a href="free-consultation.php">Free consultation</a>
           <a href="index.html#contact">Contacts</a>
         </nav>
 
@@ -523,7 +529,7 @@ try {
         </div>
         <div class="cta-actions">
           <a href="index.html" class="btn-blue">Return home</a>
-          <a href="booking.html" class="btn-outline">Book another consultation</a>
+          <a href="booking.php" class="btn-outline">Book another consultation</a>
         </div>
       </section>
     </section>

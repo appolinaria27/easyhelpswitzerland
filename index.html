@@ -2764,7 +2764,7 @@
 
           <div class="action-row">
             <button type="button" class="btn-blue" onclick="checkRelocation()" data-i18n="check_btn_primary">Get instant review</button>
-            <a href="booking.html" class="btn-outline" data-i18n="check_btn_secondary">Book consultation</a>
+            <a href="booking.php" class="btn-outline" data-i18n="check_btn_secondary">Book consultation</a>
           </div>
 
           <div class="check-footnote" data-i18n="check_footnote">
@@ -3126,7 +3126,7 @@
           </div>
 
           <div>
-            <a class="btn-blue" data-i18n="testimonials_cta" href="free-consultation.html">Request free consultation</a>
+            <a class="btn-blue" data-i18n="testimonials_cta" href="free-consultation.php">Request free consultation</a>
           </div>
         </div>
       </div>
@@ -3155,7 +3155,7 @@
             <li data-i18n="pricing_qs_item3">One written clarification</li>
             <li data-i18n="pricing_qs_item4">WhatsApp follow-up for 3 days</li>
           </ul>
-          <a class="btn-outline" data-i18n="pricing_cta" href="booking.html">Book package</a>
+          <a class="btn-outline" data-i18n="pricing_cta" href="booking.php">Book package</a>
         </article>
 
         <article class="price-card featured">
@@ -3171,7 +3171,7 @@
             <li data-i18n="pricing_core_item4">Support with one admin step</li>
             <li data-i18n="pricing_core_item5">One follow-up document review</li>
           </ul>
-          <a class="btn-blue" data-i18n="pricing_cta" href="booking.html">Book package</a>
+          <a class="btn-blue" data-i18n="pricing_cta" href="booking.php">Book package</a>
         </article>
 
         <article class="price-card">
@@ -3186,7 +3186,7 @@
             <li data-i18n="pricing_premium_item4">Up to 5 written inquiries</li>
             <li data-i18n="pricing_premium_item5">Follow-up support for 2 weeks</li>
           </ul>
-          <a class="btn-outline" data-i18n="pricing_cta" href="booking.html">Book package</a>
+          <a class="btn-outline" data-i18n="pricing_cta" href="booking.php">Book package</a>
         </article>
       </div>
 
@@ -3396,7 +3396,7 @@
     </div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-actions">
-      <a href="free-consultation.html" class="btn-blue">Book free consultation</a>
+      <a href="free-consultation.php" class="btn-blue">Book free consultation</a>
       <a href="https://wa.me/41764497581" target="_blank" rel="noopener" class="btn-outline">Ask on WhatsApp</a>
     </div>
   </div>
@@ -3409,7 +3409,7 @@
       <h3 class="assessment-modal-title" id="assessmentModalTitle">Your relocation chances</h3>
       <div class="assessment-modal-text" id="assessmentModalText"></div>
       <div class="assessment-modal-actions">
-        <a href="booking.html" class="btn-blue" id="assessmentModalCta">Book consultation</a>
+        <a href="booking.php" class="btn-blue" id="assessmentModalCta">Book consultation</a>
         <button type="button" class="btn-outline" id="assessmentModalCloseBottom">Close</button>
       </div>
     </div>
@@ -3433,7 +3433,7 @@
       <div class="ai-footer">
         <p class="ai-disclaimer">AI provides general orientation only and does not replace an individual legal assessment.</p>
         <div class="ai-actions">
-          <a href="free-consultation.html" class="btn-outline" id="aiBookBtn">Book consultation</a>
+          <a href="free-consultation.php" class="btn-outline" id="aiBookBtn">Book consultation</a>
           <a href="https://wa.me/41764497581" class="btn-blue" target="_blank" rel="noopener" id="aiWhatsappBtn">Open WhatsApp</a>
         </div>
       </div>
@@ -3623,7 +3623,7 @@
 
     modalTitle.textContent = title;
     modalText.innerHTML = html;
-    modalCta.href = ctaHref || 'booking.html';
+    modalCta.href = ctaHref || 'booking.php';
     modalCta.textContent = ctaText || 'Book consultation';
 
     modal.classList.add('open');
@@ -3659,7 +3659,7 @@
     let routeName = '';
     let summary = '';
     let detail = '';
-    let ctaHref = 'booking.html';
+    let ctaHref = 'booking.php';
     let ctaText = 'Book consultation';
 
     if (nationality === 'eu') score += 18;
@@ -3709,7 +3709,7 @@
         score += 8;
         summary = 'This route cannot be assessed reliably by a simple online tool.';
         detail = 'Protection-based cases depend on very specific legal and factual circumstances. A private individual review is strongly recommended.';
-        ctaHref = 'free-consultation.html';
+        ctaHref = 'free-consultation.php';
         ctaText = 'Request private consultation';
         break;
     }

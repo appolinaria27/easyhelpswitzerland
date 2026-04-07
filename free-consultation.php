@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -312,6 +320,13 @@
   </style>
 </head>
 <body>
+
+<?php if (!empty($_GET['error'])): ?>
+  <div style="margin:20px;padding:15px;border:1px solid #e0b4b4;background:#fff6f6;border-radius:10px;color:#9f3a38;">
+    Something went wrong. Please try again.
+  </div>
+<?php endif; ?>
+
   <div class="shell">
     <section class="hero-wrap" id="top">
       <div class="hero-top">
@@ -330,7 +345,7 @@
           <a href="index.html" data-i18n="nav_home">Home</a>
           <a href="index.html#services" data-i18n="nav_objects">Services</a>
           <a href="blog.html" data-i18n="consult_nav_guides">Guides</a>
-          <a href="booking.html" data-i18n="consult_nav_booking">Booking</a>
+          <a href="booking.php" data-i18n="consult_nav_booking">Booking</a>
           <a href="index.html#contact" data-i18n="nav_contact">Contacts</a>
         </nav>
 
@@ -400,6 +415,7 @@
             </div>
 
             <form action="submit-consultation.php" method="POST">
+              <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
               <div class="form-grid">
                 <div class="field">
                   <label data-i18n="name">Full name</label>
@@ -440,7 +456,7 @@
 
               <div class="btn-row">
                 <button class="btn-blue" type="submit" data-i18n="submit">Request consultation</button>
-                <a class="btn-outline" href="booking.html" data-i18n="consult_paid_booking">Go to paid booking</a>
+                <a class="btn-outline" href="booking.php" data-i18n="consult_paid_booking">Go to paid booking</a>
               </div>
 
               <p class="small-note" data-i18n="note">This request does not create a lawyer-client relationship. If formal legal representation is required, you may be referred to a licensed Swiss attorney.</p>
@@ -469,7 +485,7 @@
             <p class="section-label" data-i18n="consult_paid_label">Need more than a first chat?</p>
             <h3 data-i18n="consult_paid_title">Move to paid support</h3>
             <p data-i18n="consult_paid_text">Once the case is clearer, users can continue into the paid booking flow for structured consultation, review, or relocation support.</p>
-            <div style="margin-top:18px"><a href="booking.html" class="btn-blue" data-i18n="consult_open_booking">Open booking page</a></div>
+            <div style="margin-top:18px"><a href="booking.php" class="btn-blue" data-i18n="consult_open_booking">Open booking page</a></div>
           </div>
         </aside>
       </div>

@@ -6,12 +6,25 @@ session_start();
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+$baseUrl = rtrim($_ENV['APP_URL'], '/');
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (
+        empty($_POST['csrf_token']) ||
+        empty($_SESSION['csrf_token']) ||
+        !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
+    ) {
+        header('Location: ' . $baseUrl . '/payment.php?error=invalid_request');
+exit;
+    }
+}
+
 \Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
 
 $booking = $_SESSION['booking'] ?? [];
 
 if (empty($booking)) {
-    header('Location: http://localhost:8000/booking.php');
+    header('Location: ' . $baseUrl . '/booking.php');
     exit;
 }
 
@@ -27,52 +40,52 @@ $allowedPackages = ['initial', 'review', 'support'];
 $allowedPreferred = ['', 'online', 'zurich', 'phone'];
 
 if (!in_array($package, $allowedPackages, true)) {
-    header('Location: http://localhost:8000/booking.php');
+    header('Location: ' . $baseUrl . '/booking.php');
     exit;
 }
 
 if ($name === '' || mb_strlen($name) < 2 || mb_strlen($name) > 100) {
-    header('Location: http://localhost:8000/payment.php');
+    header('Location: ' . $baseUrl . '/payment.php');
     exit;
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header('Location: http://localhost:8000/payment.php');
+    header('Location: ' . $baseUrl . '/payment.php');
     exit;
 }
 
 if (mb_strlen($phone) > 50) {
-    header('Location: http://localhost:8000/payment.php');
+    header('Location: ' . $baseUrl . '/payment.php');
     exit;
 }
 
 if (mb_strlen($location) > 100) {
-    header('Location: http://localhost:8000/payment.php');
+    header('Location: ' . $baseUrl . '/payment.php');
     exit;
 }
 
 if (!in_array($preferred, $allowedPreferred, true)) {
-    header('Location: http://localhost:8000/payment.php');
+    header('Location: ' . $baseUrl . '/payment.php');
     exit;
 }
 
 if (mb_strlen($message) > 2000) {
-    header('Location: http://localhost:8000/payment.php');
+    header('Location: ' . $baseUrl . '/payment.php');
     exit;
 }
 
 $packages = [
   'initial' => [
-    'name' => 'Initial consultation',
-    'amount' => 5900,
+    'name' => 'Quick consultation',
+    'amount' => 79.00,
   ],
   'review' => [
-    'name' => 'Consultation + review',
-    'amount' => 12900,
+    'name' => 'Relocation help',
+    'amount' => 189.00,
   ],
   'support' => [
     'name' => 'Relocation support',
-    'amount' => 29000,
+    'amount' => 349.00,
   ],
 ];
 
@@ -107,8 +120,8 @@ $checkout_session = \Stripe\Checkout\Session::create([
     'message' => $message,
   ],
 
-  'success_url' => 'http://localhost:8000/success.php?session_id={CHECKOUT_SESSION_ID}',
-  'cancel_url' => 'http://localhost:8000/payment.php',
+  'success_url' => $baseUrl . '/success.php?session_id={CHECKOUT_SESSION_ID}',
+  'cancel_url' => $baseUrl . '/payment.php',
 ]);
 
 header('Location: ' . $checkout_session->url);

@@ -1,3 +1,11 @@
+<?php
+session_start();
+
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -335,6 +343,13 @@
   </style>
 </head>
 <body>
+
+<?php if (!empty($_GET['error'])): ?>
+  <div style="margin:20px 0;padding:14px 18px;border:1px solid #e5c2c2;background:#fff6f6;border-radius:12px;color:#8a2d2d;">
+    Something went wrong. Please try again.
+  </div>
+<?php endif; ?>
+
   <div class="shell">
     <section class="hero-wrap" id="top">
       <div class="hero-top">
@@ -355,7 +370,7 @@
           <a href="index.html" data-i18n="nav_home">Home</a>
           <a href="index.html#services" data-i18n="nav_services">Services</a>
           <a href="blog.html" data-i18n="booking_nav_guides">Guides</a>
-          <a href="free-consultation.html" data-i18n="booking_nav_free_consultation">Free consultation</a>
+          <a href="free-consultation.php" data-i18n="booking_nav_free_consultation">Free consultation</a>
           <a href="index.html#contact" data-i18n="nav_contacts">Contacts</a>
         </nav>
 
@@ -427,6 +442,7 @@
             </div>
 
             <form action="payment.php" method="POST">
+              <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
               <div class="packages">
                 <label class="package-option">
                   <input type="radio" name="package" value="initial" checked>
@@ -539,7 +555,7 @@
             <div class="micro" style="color:#7a8a99" data-i18n="booking_free_label">Need a free option?</div>
             <h3 data-i18n="booking_free_title">Start with a free consultation</h3>
             <p data-i18n="booking_free_text">If you are not ready to pay yet, you can direct users to the free consultation page first and keep this paid booking page for more committed leads.</p>
-            <div style="margin-top:18px"><a href="free-consultation.html" class="btn-blue" data-i18n="booking_free_button">Free consultation</a></div>
+            <div style="margin-top:18px"><a href="free-consultation.php" class="btn-blue" data-i18n="booking_free_button">Free consultation</a></div>
           </div>
         </aside>
       </div>

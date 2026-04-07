@@ -1,6 +1,10 @@
 <?php
 session_start();
 
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 $errors = [];
 
 $bookingData = $_SESSION['booking'] ?? [
@@ -15,6 +19,15 @@ $bookingData = $_SESSION['booking'] ?? [
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   
+if (
+    empty($_POST['csrf_token']) ||
+    empty($_SESSION['csrf_token']) ||
+    !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
+) {
+    header('Location: booking.php?error=invalid_request');
+exit;
+}
+
     $package = trim($_POST['package'] ?? 'initial');
     $name = trim($_POST['name'] ?? '');
     $email = trim($_POST['email'] ?? '');
@@ -25,11 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $allowedPackages = ['initial', 'review', 'support'];
     $allowedPreferred = ['', 'online', 'zurich', 'phone'];
-
-
-if (empty($errors)) {
-    $_SESSION['booking'] = $bookingData;
-}
 
     if (!in_array($package, $allowedPackages, true)) {
         $errors[] = 'Invalid package selected.';
@@ -387,6 +395,13 @@ if (empty($errors)) {
   </style>
 </head>
 <body>
+
+<?php if (!empty($_GET['error'])): ?>
+  <div style="margin:20px;padding:15px;border:1px solid #e0b4b4;background:#fff6f6;border-radius:10px;color:#9f3a38;">
+    Something went wrong. Please try again.
+  </div>
+<?php endif; ?>
+
   <div class="shell">
 
   <?php if (!empty($errors)): ?>
@@ -417,7 +432,7 @@ if (empty($errors)) {
           <a href="index.html" data-i18n="payment_home">Home</a>
           <a href="booking.php" data-i18n="payment_booking_nav">Booking</a>
           <a href="blog.html" data-i18n="payment_guides">Guides</a>
-          <a href="free-consultation.html" data-i18n="payment_free_consultation">Free consultation</a>
+          <a href="free-consultation.php" data-i18n="payment_free_consultation">Free consultation</a>
           <a href="index.html#contact" data-i18n="payment_contacts">Contacts</a>
         </nav>
 
@@ -514,6 +529,7 @@ if (empty($errors)) {
             </div>
 
             <form id="checkoutForm" action="create-checkout-session.php" method="POST">
+              <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
   <input type="hidden" name="package" id="checkoutPackage">
   <input type="hidden" name="name" id="checkoutName">
   <input type="hidden" name="email" id="checkoutEmail">
