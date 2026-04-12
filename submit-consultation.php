@@ -3,6 +3,11 @@
 session_start();
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+if (!empty($_POST['website'])) {
+    exit;
+}
+
     if (
         empty($_POST['csrf_token']) ||
         empty($_SESSION['csrf_token']) ||
@@ -29,7 +34,8 @@ $topic = trim($_POST['topic'] ?? '');
 $messageText = trim($_POST['message'] ?? '');
 
 if ($name === '' || $email === '') {
-    die('Не заполнены обязательные поля.');
+    header('Location: free-consultation.php?error=required_fields');
+exit;
 }
 
 $mail = new PHPMailer(true);
@@ -64,5 +70,6 @@ $mail->Body =
 
     echo 'Request is sent. Thank you!';
 } catch (Exception $e) {
-    echo 'Request is not sent, please try again: ' . $mail->ErrorInfo;
+    error_log('Consultation mail error: ' . $mail->ErrorInfo);
+echo 'Request is not sent, please try again later.';
 }

@@ -415,6 +415,7 @@ if (empty($_SESSION['csrf_token'])) {
             </div>
 
             <form action="submit-consultation.php" method="POST">
+              <input type="text" name="website" style="display:none">
               <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
               <div class="form-grid">
                 <div class="field">

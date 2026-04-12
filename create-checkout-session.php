@@ -77,15 +77,15 @@ if (mb_strlen($message) > 2000) {
 $packages = [
   'initial' => [
     'name' => 'Quick consultation',
-    'amount' => 79.00,
+    'amount' => 7900,
   ],
   'review' => [
     'name' => 'Relocation help',
-    'amount' => 189.00,
+    'amount' => 18900,
   ],
   'support' => [
     'name' => 'Relocation support',
-    'amount' => 349.00,
+    'amount' => 34900,
   ],
 ];
 

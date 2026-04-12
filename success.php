@@ -1,8 +1,7 @@
 <?php
 require 'vendor/autoload.php';
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -12,95 +11,35 @@ $dotenv->load();
 $sessionId = $_GET['session_id'] ?? '';
 
 if (!$sessionId) {
-  header('Location: booking.php?error=invalid_session');
-  exit;
+    header('Location: booking.php?error=invalid_session');
+    exit;
 }
 
 try {
-  $session = \Stripe\Checkout\Session::retrieve($sessionId);
+    $session = \Stripe\Checkout\Session::retrieve($sessionId);
 
-  $bookingData = [
-    'stripe_session_id' => $session->id,
-    'payment_status' => $session->payment_status,
-    'package' => $session->metadata->package ?? '',
-    'package_name' => $session->metadata->package_name ?? '',
-    'price_chf' => $session->metadata->price_chf ?? '',
-    'name' => $session->metadata->name ?? '',
-    'email' => $session->metadata->email ?? '',
-    'phone' => $session->metadata->phone ?? '',
-    'location' => $session->metadata->location ?? '',
-    'preferred' => $session->metadata->preferred ?? '',
-    'message' => $session->metadata->message ?? '',
-    'created_at' => date('Y-m-d H:i:s'),
-  ];
-
-  $emailSent = false;
-  $emailError = '';
-
-  if ($session->payment_status === 'paid') {
-  if (!is_dir('bookings')) {
-    mkdir('bookings', 0777, true);
-  }
-
-  $safeSessionId = preg_replace('/[^a-zA-Z0-9_-]/', '', $session->id);
-  $filename = 'bookings/booking-' . $safeSessionId . '.json';
-  $alreadyProcessed = file_exists($filename);
-
-  if (!$alreadyProcessed) {
-    file_put_contents(
-      $filename,
-      json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
-    );
-
-    $mail = new PHPMailer(true);
-
-    try {
-      $mail->isSMTP();
-      $mail->Host = $_ENV['SMTP_HOST'];
-      $mail->SMTPAuth = true;
-      $mail->Username = $_ENV['SMTP_USER'];
-      $mail->Password = $_ENV['SMTP_PASS'];
-      $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-      $mail->Port = (int) $_ENV['SMTP_PORT'];
-      $mail->CharSet = 'UTF-8';
-
-      $mail->setFrom($_ENV['MAIL_FROM'], 'Polina Kravtsova Legal Advisory');
-      $mail->addAddress($_ENV['ADMIN_EMAIL']);
-
-      if (!empty($bookingData['email'])) {
-        $mail->addReplyTo($bookingData['email'], $bookingData['name'] ?: 'Client');
-      }
-
-      $mail->Subject = 'New Paid Booking Received';
-      $mail->Body =
-        "A new paid consultation booking has been received.\n\n" .
-        "Package: {$bookingData['package_name']}\n" .
-        "Price: CHF {$bookingData['price_chf']}\n" .
-        "Name: {$bookingData['name']}\n" .
-        "Email: {$bookingData['email']}\n" .
-        "Phone / WhatsApp: {$bookingData['phone']}\n" .
-        "Current location: {$bookingData['location']}\n" .
-        "Preferred consultation format: {$bookingData['preferred']}\n\n" .
-        "Message:\n{$bookingData['message']}\n\n" .
-        "Stripe session ID: {$bookingData['stripe_session_id']}\n" .
-        "Payment status: {$bookingData['payment_status']}\n" .
-        "Submitted at: {$bookingData['created_at']}\n";
-
-      $mail->send();
-      $emailSent = true;
-    } catch (Exception $e) {
-      $emailError = $mail->ErrorInfo;
-    }
-  }
-}
+    $bookingData = [
+        'stripe_session_id' => $session->id,
+        'payment_status'    => $session->payment_status,
+        'package'           => $session->metadata->package ?? '',
+        'package_name'      => $session->metadata->package_name ?? '',
+        'price_chf'         => $session->metadata->price_chf ?? '',
+        'name'              => $session->metadata->name ?? '',
+        'email'             => $session->metadata->email ?? '',
+        'phone'             => $session->metadata->phone ?? '',
+        'location'          => $session->metadata->location ?? '',
+        'preferred'         => $session->metadata->preferred ?? '',
+        'message'           => $session->metadata->message ?? '',
+        'created_at'        => date('Y-m-d H:i:s'),
+    ];
 
 } catch (Exception $e) {
-  error_log('Stripe session error: ' . $e->getMessage());
-  header('Location: booking.php?error=payment_processing');
-  exit;
+    error_log('Stripe session error: ' . $e->getMessage());
+    header('Location: booking.php?error=payment_processing');
+    exit;
 }
-
 ?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -415,7 +354,7 @@ try {
         <div>
           <div class="micro">Booking confirmed</div>
           <h1 class="hero-title">Payment <span>successful</span></h1>
-          <div class="hero-sub">Your consultation request has been received. Your booking data has been processed from Stripe metadata, stored on the server, and the admin notification email has been attempted automatically.</div>
+          <div class="hero-sub">Your consultation request has been received. Thank you for your booking!</div>
         </div>
       </div>
 
@@ -423,7 +362,7 @@ try {
         <div class="hero-features">
           <div class="hero-feature"><div class="dot">✓</div><div>Payment received</div></div>
           <div class="hero-feature"><div class="dot">✓</div><div>Booking saved</div></div>
-          <div class="hero-feature"><div class="dot">✓</div><div>Admin notified</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div>Our team notified</div></div>
         </div>
         <div class="hero-years">
           <strong>24</strong>
@@ -437,7 +376,7 @@ try {
         <main class="main-card glass-card">
           <p class="section-label">Confirmation</p>
           <h1 class="title">Thank you for your booking</h1>
-          <p class="subtitle">This page keeps the original backend behavior: once Stripe marks the session as paid, the booking is saved to a JSON file in the <code>bookings</code> folder and an email notification is sent through PHPMailer to the configured admin address.</p>
+          <p class="subtitle">Your payment has been confirmed. Check the details of your application. By any issues write us in the contact form. Save the booking data.</p>
 
           <div class="status-box">
             <div class="status-row">
@@ -486,15 +425,7 @@ try {
             Your consultation request has been received successfully. You should now be contacted to confirm the format and next practical steps.
           </div>
 
-          <?php if (!$emailSent && !empty($emailError)): ?>
-            <div class="notice error">
-              Booking saved, but the notification email failed: <?= htmlspecialchars($emailError) ?>
-            </div>
-          <?php elseif ($emailSent): ?>
-            <div class="notice">
-              The admin notification email was sent successfully.
-            </div>
-          <?php endif; ?>
+
 
           <div class="btn-row">
             <a class="btn-blue" href="index.html">Back to homepage</a>
@@ -504,19 +435,19 @@ try {
 
         <aside class="sidebar">
           <section class="side-card glass-card">
-            <p class="section-label">What happened behind the scenes</p>
-            <h3>Server-side actions completed</h3>
-            <div class="step-list">
-              <div class="step"><span>01</span><strong>Stripe session retrieved using <code>session_id</code>.</strong></div>
-              <div class="step"><span>02</span><strong>Booking metadata collected and stored as JSON when payment is marked as paid.</strong></div>
-              <div class="step"><span>03</span><strong>Email notification attempted via PHPMailer and SMTP credentials from environment variables.</strong></div>
-            </div>
-          </section>
+  <p class="section-label">Payment status</p>
+  <h3>Confirmation received</h3>
+  <div class="step-list">
+    <div class="step"><span>01</span><strong>The payment is now being processed by bank.</strong></div>
+    <div class="step"><span>02</span><strong>We get the payment and prepare to the first call.</strong></div>
+    <div class="step"><span>03</span><strong>You are getting a call from us.</strong></div>
+  </div>
+</section>
 
           <section class="side-card glass-card">
-            <p class="section-label">Next for the client</p>
-            <h3>What to expect now</h3>
-            <p>You can use this page to reassure users that the booking is recorded, the payment has gone through, and they should expect a follow-up message shortly. That closes the booking flow cleanly after <code>payment.html</code> and Stripe checkout.</p>
+            <p class="section-label">Information check</p>
+            <h3>What you should remember</h3>
+            <p>All the booking and cancellation rules were introduced to you on the previous steps. The wrong bookings due to negligence will be cancelled with the fee. Be sure you get your confirmation per e-mail.</p>
           </section>
         </aside>
       </div>
@@ -524,8 +455,8 @@ try {
       <section class="cta-band glass-card">
         <div>
           <p class="section-label">After booking</p>
-          <h2>Everything is now in the system</h2>
-          <p>Your request has been submitted with your selected package, contact details, and message. The next step is human follow-up and case review.</p>
+          <h2>Everything is now being proccesed</h2>
+          <p>If you got an e-mail confirmation your booking was successful and we got the information. In case of any questions or mistakes contact us or we will contact you. Await our call within next 24 hours. If you are not available per phone we will write you an e-mail. If we do not hear from you within a week after e-mail was written, no cancellation is possible and no charge back will be made.</p>
         </div>
         <div class="cta-actions">
           <a href="index.html" class="btn-blue">Return home</a>
