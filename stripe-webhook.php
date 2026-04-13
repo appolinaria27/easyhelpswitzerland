@@ -134,8 +134,8 @@ if ($event->type === 'checkout.session.completed') {
                 mkdir(__DIR__ . '/bookings', 0700, true);
             }
 
-            file_put_contents(
-                $filename,
+            $saved = file_put_contents(
+                $archiveFile,
                 json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
             );
 

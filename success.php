@@ -21,14 +21,13 @@ $dotenv->load();
 
 $sessionIdFromSession = $_SESSION['last_checkout_session_id'] ?? null;
 $sessionIdFromUrl = $_GET['session_id'] ?? null;
+$sessionId = $sessionIdFromUrl ?? $sessionIdFromSession;
 
 // Validate session ID format — Stripe IDs start with 'cs_'
 if (!$sessionId || !preg_match('/^cs_[a-zA-Z0-9_]+$/', $sessionId)) {
     header('Location: booking.php?error=invalid_session');
     exit;
 }
-
-$sessionId = $sessionIdFromSession;
 
 try {
     $session = \Stripe\Checkout\Session::retrieve($sessionId);

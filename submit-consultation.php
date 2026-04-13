@@ -156,6 +156,7 @@ function createMailer(): PHPMailer
 
 try {
     $mail = createMailer();
+    $mail->setFrom($_ENV['MAIL_FROM'], 'Easy Help Switzerland');
     $mail->addAddress($_ENV['ADMIN_EMAIL']);
     $mail->addReplyTo($email, $safeName);
 

@@ -15,6 +15,6 @@ Options -Indexes
 </Files>
 
 # Запрет всех скрытых файлов (.git, .env, и т.д.)
-<FilesMatch "^\."">
+<FilesMatch "^\.">
   Require all denied
 </FilesMatch>
