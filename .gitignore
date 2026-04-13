@@ -1,15 +1,32 @@
-vendor/
-bookings/
-.env
+# macOS
 .DS_Store
-.htaccess
-backups/.htaccess
-.claude/worktrees/dreamy-mestorf
-.htaccess
-logs/webhook-log.txt
-pending-bookings/.htaccess
-pending-bookings/booking-a3ed519a9c448f2df6d60e6f3379609a.json
-rate-limit/.htaccess
-rate-limit/485bb1f90bdaba7f2134b068c02e8428ff46f407f03badb3e77ff82c018d44d1.json
-rate-limit/58644232fc5d2b2a83002a2468eb0b631f5178784579a4589a5f443f3a25ec87.json
-webhook-log.txt
+
+# env
+.env
+.env.local
+.env.*.local
+
+# dependencies
+vendor/
+
+# logs
+logs/
+*.log
+
+# backups
+backups/
+
+# temp data
+pending-bookings/
+rate-limit/
+
+# local tools
+.claude/
+
+# editor
+.vscode/
+.idea/
+
+
+bookings/*.json
+!bookings/.htaccess
