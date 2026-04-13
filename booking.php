@@ -303,7 +303,7 @@ if (empty($_SESSION['csrf_token'])) {
 
     .whatsapp-float{
       position:fixed;
-      right:24px;
+      left:24px;
       bottom:24px;
       width:58px;
       height:58px;
@@ -313,7 +313,6 @@ if (empty($_SESSION['csrf_token'])) {
       display:flex;
       align-items:center;
       justify-content:center;
-      font-size:28px;
       text-decoration:none;
       box-shadow:0 10px 24px rgba(0,0,0,.22);
       z-index:999;
@@ -572,7 +571,9 @@ if (empty($_SESSION['csrf_token'])) {
     </footer>
   </div>
 
-  <a class="whatsapp-float" href="#" aria-label="WhatsApp">✆</a>
+  <a class="whatsapp-float" href="https://wa.me/41764497581" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M20 12a8 8 0 1 0-14.5 4.7L4 21l4.5-1.4A8 8 0 1 0 20 12z"/><path d="M9.5 9.5c.3-.6.6-.6.9-.6h.7c.2 0 .4 0 .6.5.2.5.7 1.7.8 1.8.1.1.1.3 0 .5s-.2.3-.3.4c-.1.1-.3.3-.4.4-.1.1-.2.3 0 .6.2.3.8 1.3 1.8 2 .3.3.6.4.8.2.2-.2.4-.5.5-.7.1-.2.3-.2.5-.1.2.1 1.4.7 1.6.8.2.1.3.2.3.3 0 .1 0 .7-.4 1.3-.4.6-1.1 1.2-1.6 1.3-.4.1-1 .2-2.6-.5-2-.9-3.4-3.2-3.5-3.3-.1-.1-.8-1.1-.8-2.1 0-1 .5-1.5.7-1.7z" fill="#fff"/></svg>
+  </a>
 
   <script src="site.js"></script>
 

@@ -2,20 +2,87 @@
 require_once __DIR__ . '/security.php';
 session_start();
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    http_response_code(405);
+    exit('Method Not Allowed');
+}
 
-if (!empty($_POST['website'])) {
+function consultationFail(string $reason, string $errorCode): void
+{
+    error_log('Consultation form rejected: ' . $reason);
+    header('Location: free-consultation.php?error=' . urlencode($errorCode));
     exit;
 }
 
-    if (
-        empty($_POST['csrf_token']) ||
-        empty($_SESSION['csrf_token']) ||
-        !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
-    ) {
-        header('Location: free-consultation.php?error=invalid_request');
-        exit;
+// honeypot (боты заполняют это поле)
+if (!empty($_POST['website'])) {
+    exit; // тихо игнорируем
+}
+
+if (
+    empty($_POST['csrf_token']) ||
+    empty($_SESSION['csrf_token']) ||
+    !hash_equals($_SESSION['csrf_token'], $_POST['csrf_token'])
+) {
+    consultationFail('csrf validation failed', 'invalid_request');
+}
+
+$formStartedAt = (int)($_POST['form_started_at'] ?? 0);
+$sessionStartedAt = (int)($_SESSION['consultation_form_started_at'] ?? 0);
+
+if ($formStartedAt <= 0 || $sessionStartedAt <= 0 || abs($formStartedAt - $sessionStartedAt) > 10) {
+    consultationFail('form timestamp mismatch or missing', 'invalid_request');
+}
+
+if ((time() - $sessionStartedAt) < 3) {
+    consultationFail('form submitted too quickly', 'too_fast');
+}
+
+unset($_SESSION['consultation_form_started_at']);
+
+$ip = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+$rateLimitDir = __DIR__ . '/rate-limit';
+
+if (!is_dir($rateLimitDir)) {
+    mkdir($rateLimitDir, 0750, true);
+}
+
+$rateLimitKey = hash('sha256', 'consultation:' . $ip);
+$rateLimitFile = $rateLimitDir . '/' . $rateLimitKey . '.json';
+
+$now = time();
+$windowSeconds = 600; // 10 минут
+$maxRequests = 5;     // максимум 5 отправок за 10 минут
+
+$requests = [];
+
+if (file_exists($rateLimitFile)) {
+    $existing = file_get_contents($rateLimitFile);
+    $decoded = json_decode($existing, true);
+
+    if (is_array($decoded)) {
+        $requests = $decoded;
     }
+}
+
+$requests = array_filter($requests, function ($timestamp) use ($now, $windowSeconds) {
+    return is_int($timestamp) && ($now - $timestamp) < $windowSeconds;
+});
+
+if (count($requests) >= $maxRequests) {
+    consultationFail('rate limit exceeded', 'rate_limited');
+}
+
+$requests[] = $now;
+
+$saved = file_put_contents(
+    $rateLimitFile,
+    json_encode(array_values($requests), JSON_PRETTY_PRINT),
+    LOCK_EX
+);
+
+if ($saved === false) {
+    consultationFail('rate limit write failed', 'invalid_request');
 }
 
 require 'vendor/autoload.php';
@@ -56,7 +123,28 @@ $safeName = str_replace(["\r", "\n"], ' ', $name);
 
 $mail = new PHPMailer(true);
 
-try {
+if ($phone !== '' && mb_strlen($phone) > 50) {
+    consultationFail('invalid phone', 'invalid_phone');
+}
+
+if ($location !== '' && mb_strlen($location) > 100) {
+    consultationFail('invalid location', 'invalid_location');
+}
+
+if ($topic !== '' && mb_strlen($topic) > 150) {
+    consultationFail('invalid topic', 'invalid_topic');
+}
+
+if ($messageText !== '' && mb_strlen($messageText) > 2000) {
+    consultationFail('invalid message', 'invalid_message');
+}
+
+$name = str_replace(["\r", "\n"], ' ', $name);
+$email = str_replace(["\r", "\n"], '', $email);
+
+function createMailer(): PHPMailer
+{
+    $mail = new PHPMailer(true);
     $mail->isSMTP();
     $mail->Host       = $_ENV['SMTP_HOST'];
     $mail->SMTPAuth   = true;
@@ -66,7 +154,8 @@ try {
     $mail->Port       = (int) $_ENV['SMTP_PORT'];
     $mail->CharSet    = 'UTF-8';
 
-    $mail->setFrom($_ENV['MAIL_FROM'], 'Polina Kravtsova Legal Advisory');
+try {
+    $mail = createMailer();
     $mail->addAddress($_ENV['ADMIN_EMAIL']);
     $mail->addReplyTo($email, $safeName);
 
@@ -112,4 +201,5 @@ try {
     error_log('Consultation mail error: ' . $mail->ErrorInfo);
     http_response_code(500);
     echo 'Request is not sent, please try again later.';
+}
 }

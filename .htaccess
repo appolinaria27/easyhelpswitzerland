@@ -1,0 +1,20 @@
+Options -Indexes
+
+# Запрет доступа к .env
+<Files ".env">
+  Require all denied
+</Files>
+
+# Запрет composer файлов
+<Files "composer.json">
+  Require all denied
+</Files>
+
+<Files "composer.lock">
+  Require all denied
+</Files>
+
+# Запрет всех скрытых файлов (.git, .env, и т.д.)
+<FilesMatch "^\."">
+  Require all denied
+</FilesMatch>

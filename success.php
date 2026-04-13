@@ -1,21 +1,34 @@
 <?php
 require_once __DIR__ . '/security.php';
 require 'vendor/autoload.php';
+session_set_cookie_params([
+    'lifetime' => 0,
+    'path' => '/',
+    'domain' => '',
+    'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
+    'httponly' => true,
+    'samesite' => 'Lax',
+]);
 
+ini_set('session.use_strict_mode', '1');
 
+session_start();
 
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
 \Stripe\Stripe::setApiKey($_ENV['STRIPE_SECRET_KEY']);
 
-$sessionId = $_GET['session_id'] ?? '';
+$sessionIdFromSession = $_SESSION['last_checkout_session_id'] ?? null;
+$sessionIdFromUrl = $_GET['session_id'] ?? null;
 
 // Validate session ID format — Stripe IDs start with 'cs_'
 if (!$sessionId || !preg_match('/^cs_[a-zA-Z0-9_]+$/', $sessionId)) {
     header('Location: booking.php?error=invalid_session');
     exit;
 }
+
+$sessionId = $sessionIdFromSession;
 
 try {
     $session = \Stripe\Checkout\Session::retrieve($sessionId);
@@ -27,19 +40,16 @@ try {
     }
 
     $bookingData = [
-        'stripe_session_id' => $session->id,
-        'payment_status'    => $session->payment_status,
-        'package'           => $session->metadata->package ?? '',
-        'package_name'      => $session->metadata->package_name ?? '',
-        'price_chf'         => $session->metadata->price_chf ?? '',
-        'name'              => $session->metadata->name ?? '',
-        'email'             => $session->metadata->email ?? '',
-        'phone'             => $session->metadata->phone ?? '',
-        'location'          => $session->metadata->location ?? '',
-        'preferred'         => $session->metadata->preferred ?? '',
-        'message'           => $session->metadata->message ?? '',
-        'created_at'        => date('Y-m-d H:i:s'),
-    ];
+    'stripe_session_id' => $session->id,
+    'payment_status'    => $session->payment_status,
+    'package'           => $session->metadata->package ?? '',
+    'package_name'      => $session->metadata->package_name ?? '',
+    'price_chf'         => $session->metadata->price_chf ?? '',
+    'created_at'        => date('Y-m-d H:i:s'),
+];
+
+    unset($_SESSION['last_checkout_session_id']);
+unset($_SESSION['booking']);
 
 } catch (Exception $e) {
     error_log('Stripe session error: ' . $e->getMessage());
@@ -112,13 +122,11 @@ try {
     .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:rgba(255,255,255,.8);transform:scaleX(0);transition:.25s ease}
     .nav a:hover::after{transform:scaleX(1)}
     .hero-right{display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:16px;flex-wrap:wrap}
-    .back-pill{
-      border:1px solid rgba(255,255,255,.18);
-      background:rgba(255,255,255,.08);
-      color:#fff;
-      padding:10px 14px;
-      border-radius:999px;
-    }
+    .lang-switch{display:flex;gap:10px;align-items:center}
+    .lang-switch button{background:transparent;border:none;font-size:14px;font-weight:500;color:rgba(255,255,255,.65);cursor:pointer;padding:0;transition:.2s ease}
+    .lang-switch button:hover{color:#fff}
+    .lang-switch button.active{color:var(--blue)}
+    .back-link{color:rgba(255,255,255,.9);text-decoration:none}
 
     .hero-center{
       position:absolute;
@@ -327,6 +335,22 @@ try {
       .contact-footer{text-align:left;border-radius:0 0 28px 28px}
       .contact-footer .footer-center,.contact-footer .footer-right{text-align:left;justify-self:start}
     }
+    .whatsapp-float{
+      position:fixed;
+      left:24px;
+      bottom:24px;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      background:#25D366;
+      color:#fff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-decoration:none;
+      box-shadow:0 10px 24px rgba(0,0,0,.22);
+      z-index:999;
+    }
   </style>
 </head>
 <body>
@@ -345,36 +369,42 @@ try {
         </a>
 
         <nav class="nav">
-          <a href="index.html">Home</a>
-          <a href="booking.php">Booking</a>
-          <a href="blog.html">Guides</a>
-          <a href="free-consultation.php">Free consultation</a>
-          <a href="index.html#contact">Contacts</a>
+          <a href="index.html" data-i18n="nav_home">Home</a>
+          <a href="booking.php" data-i18n="success_nav_booking">Booking</a>
+          <a href="blog.html" data-i18n="success_nav_guides">Guides</a>
+          <a href="free-consultation.php" data-i18n="success_nav_free_consultation">Free consultation</a>
+          <a href="index.html#contact" data-i18n="success_nav_contacts">Contacts</a>
         </nav>
 
         <div class="hero-right">
           <a href="tel:+41764497581">+41 76 449 75 81</a>
-          <a class="back-pill" href="index.html">Back to homepage</a>
+          <div class="lang-switch">
+            <button type="button" data-lang="en" class="active">EN</button>
+            <button type="button" data-lang="es">ES</button>
+            <button type="button" data-lang="de">DE</button>
+            <button type="button" data-lang="uk">UA</button>
+          </div>
+          <a class="back-link" href="index.html" data-i18n="back">← Back</a>
         </div>
       </div>
 
       <div class="hero-center">
         <div>
-          <div class="micro">Booking confirmed</div>
-          <h1 class="hero-title">Payment <span>successful</span></h1>
-          <div class="hero-sub">Your consultation request has been received. Thank you for your booking!</div>
+          <div class="micro" data-i18n="success_micro">Booking confirmed</div>
+          <h1 class="hero-title" data-i18n="success_hero_title" data-i18n-html>Payment <span>successful</span></h1>
+          <div class="hero-sub" data-i18n="success_hero_sub">Your consultation request has been received. Thank you for your booking!</div>
         </div>
       </div>
 
       <div class="hero-bottom">
         <div class="hero-features">
-          <div class="hero-feature"><div class="dot">✓</div><div>Payment received</div></div>
-          <div class="hero-feature"><div class="dot">✓</div><div>Booking saved</div></div>
-          <div class="hero-feature"><div class="dot">✓</div><div>Our team notified</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div data-i18n="success_feature_1">Payment received</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div data-i18n="success_feature_2">Booking saved</div></div>
+          <div class="hero-feature"><div class="dot">✓</div><div data-i18n="success_feature_3">Our team notified</div></div>
         </div>
         <div class="hero-years">
           <strong>24</strong>
-          <span>hours target for follow-up contact</span>
+          <span data-i18n="success_hero_hours">hours target for follow-up contact</span>
         </div>
       </div>
     </section>
@@ -382,13 +412,13 @@ try {
     <section class="success-zone">
       <div class="success-layout">
         <main class="main-card glass-card">
-          <p class="section-label">Confirmation</p>
-          <h1 class="title">Thank you for your booking</h1>
-          <p class="subtitle">Your payment has been confirmed. Check the details of your application. By any issues write us in the contact form. Save the booking data.</p>
+          <p class="section-label" data-i18n="success_section_label">Confirmation</p>
+          <h1 class="title" data-i18n="success_title">Thank you for your booking</h1>
+          <p class="subtitle" data-i18n="success_subtitle">Your payment has been confirmed. Check the details of your application. By any issues write us in the contact form. Save the booking data.</p>
 
           <div class="status-box">
             <div class="status-row">
-              <span class="status-chip"><i></i>Payment status: <?= htmlspecialchars($bookingData['payment_status'] ?: 'unknown') ?></span>
+              <span class="status-chip"><i></i><?= htmlspecialchars($bookingData['payment_status'] ?: 'unknown') ?></span>
               <strong class="price"><?= !empty($bookingData['price_chf']) ? 'CHF ' . htmlspecialchars($bookingData['price_chf']) : '—' ?></strong>
             </div>
             <div style="font-size:28px;line-height:1.02;letter-spacing:-.05em;font-weight:500;"><?= htmlspecialchars($bookingData['package_name'] ?: 'Consultation booking') ?></div>
@@ -396,79 +426,73 @@ try {
 
           <div class="details">
             <div class="detail">
-              <span class="label">Full name</span>
+              <span class="label" data-i18n="success_label_name">Full name</span>
               <div class="value"><?= htmlspecialchars($bookingData['name'] ?: '—') ?></div>
             </div>
             <div class="detail">
-              <span class="label">Email</span>
+              <span class="label" data-i18n="success_label_email">Email</span>
               <div class="value"><?= htmlspecialchars($bookingData['email'] ?: '—') ?></div>
             </div>
             <div class="detail">
-              <span class="label">Phone / WhatsApp</span>
+              <span class="label" data-i18n="success_label_phone">Phone / WhatsApp</span>
               <div class="value"><?= htmlspecialchars($bookingData['phone'] ?: '—') ?></div>
             </div>
             <div class="detail">
-              <span class="label">Current location</span>
+              <span class="label" data-i18n="success_label_location">Current location</span>
               <div class="value"><?= htmlspecialchars($bookingData['location'] ?: '—') ?></div>
             </div>
             <div class="detail">
-              <span class="label">Preferred format</span>
+              <span class="label" data-i18n="success_label_format">Preferred format</span>
               <div class="value"><?= htmlspecialchars($bookingData['preferred'] ?: '—') ?></div>
             </div>
             <div class="detail">
-              <span class="label">Short description</span>
+              <span class="label" data-i18n="success_label_message">Short description</span>
               <div class="value"><?= nl2br(htmlspecialchars($bookingData['message'] ?: '—')) ?></div>
             </div>
             <div class="detail">
-              <span class="label">Stripe session ID</span>
-              <div class="value"><?= htmlspecialchars($bookingData['stripe_session_id'] ?: '—') ?></div>
-            </div>
-            <div class="detail">
-              <span class="label">Submitted at</span>
+              <span class="label" data-i18n="success_label_submitted">Submitted at</span>
               <div class="value"><?= htmlspecialchars($bookingData['created_at'] ?: '—') ?></div>
             </div>
           </div>
 
-          <div class="notice">
+          <div class="notice" data-i18n="success_notice">
             Your consultation request has been received successfully. You should now be contacted to confirm the format and next practical steps.
           </div>
 
-
-
           <div class="btn-row">
-            <a class="btn-blue" href="index.html">Back to homepage</a>
-            <a class="btn-outline" href="blog.html">Read relocation guides</a>
+            <a class="btn-blue" href="index.html" data-i18n="success_btn_home">Back to homepage</a>
+            <a class="btn-outline" href="blog.html" data-i18n="success_btn_guides">Read relocation guides</a>
           </div>
         </main>
 
         <aside class="sidebar">
           <section class="side-card glass-card">
-  <p class="section-label">Payment status</p>
-  <h3>Confirmation received</h3>
-  <div class="step-list">
-    <div class="step"><span>01</span><strong>The payment is now being processed by bank.</strong></div>
-    <div class="step"><span>02</span><strong>We get the payment and prepare to the first call.</strong></div>
-    <div class="step"><span>03</span><strong>You are getting a call from us.</strong></div>
-  </div>
-</section>
+            <p class="section-label" data-i18n="success_side_1_label">Payment status</p>
+            <h3 data-i18n="success_side_1_title">Confirmation received</h3>
+            <div class="step-list">
+              <div class="step"><span>01</span><strong data-i18n="success_step_1">The payment is now being processed by bank.</strong></div>
+              <div class="step"><span>02</span><strong data-i18n="success_step_2">We get the payment and prepare to the first call.</strong></div>
+              <div class="step"><span>03</span><strong data-i18n="success_step_3">You are getting a call from us.</strong></div>
+            </div>
+          </section>
 
           <section class="side-card glass-card">
-            <p class="section-label">Information check</p>
-            <h3>What you should remember</h3>
-            <p>All the booking and cancellation rules were introduced to you on the previous steps. The wrong bookings due to negligence will be cancelled with the fee. Be sure you get your confirmation per e-mail.</p>
+            <p class="section-label" data-i18n="success_side_2_label">Information check</p>
+            <h3 data-i18n="success_side_2_title">What you should remember</h3>
+            <p data-i18n="success_side_2_text">All the booking and cancellation rules were introduced to you on the previous steps. The wrong bookings due to negligence will be cancelled with the fee. Be sure you get your confirmation per e-mail.</p>
           </section>
         </aside>
       </div>
 
       <section class="cta-band glass-card">
         <div>
-          <p class="section-label">After booking</p>
-          <h2>Everything is now being proccesed</h2>
-          <p>If you got an e-mail confirmation your booking was successful and we got the information. In case of any questions or mistakes contact us or we will contact you. Await our call within next 24 hours. If you are not available per phone we will write you an e-mail. If we do not hear from you within a week after e-mail was written, no cancellation is possible and no charge back will be made.</p>
+          <p class="section-label" data-i18n="success_cta_label">After booking</p>
+          <h2 data-i18n="success_cta_title">Everything is now being processed</h2>
+          <p data-i18n="success_cta_text">If you got an e-mail confirmation your booking was successful and we got the information. In case of any questions or mistakes contact us or we will contact you. Await our call within next 24 hours.</p>
         </div>
         <div class="cta-actions">
-          <a href="index.html" class="btn-blue">Return home</a>
-          <a href="booking.php" class="btn-outline">Book another consultation</a>
+          <a href="index.html" class="btn-blue" data-i18n="success_cta_btn_home">Return home</a>
+          <a href="booking.php" class="btn-outline" data-i18n="success_cta_btn_book">Book another consultation</a>
         </div>
       </section>
     </section>
@@ -478,9 +502,13 @@ try {
         <svg viewBox="0 0 32 48" aria-hidden="true"><path d="M4 44V10l10-8 10 8v34"></path><path d="M14 44V22l10-8v30"></path></svg>
         <span>Easy Help Switzerland</span>
       </div>
-      <div class="footer-center">© 2026 Zurich Relocation</div>
-      <div class="footer-right">Confirmation page aligned to the main website</div>
+      <div class="footer-center" data-i18n="booking_footer_copy">© 2026 Easy Help Switzerland - all rights reserved.</div>
+      <div class="footer-right" data-i18n="success_footer_page">Confirmation page</div>
     </footer>
   </div>
+  <a class="whatsapp-float" href="https://wa.me/41764497581" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="#fff"><path d="M20 12a8 8 0 1 0-14.5 4.7L4 21l4.5-1.4A8 8 0 1 0 20 12z"/><path d="M9.5 9.5c.3-.6.6-.6.9-.6h.7c.2 0 .4 0 .6.5.2.5.7 1.7.8 1.8.1.1.1.3 0 .5s-.2.3-.3.4c-.1.1-.3.3-.4.4-.1.1-.2.3 0 .6.2.3.8 1.3 1.8 2 .3.3.6.4.8.2.2-.2.4-.5.5-.7.1-.2.3-.2.5-.1.2.1 1.4.7 1.6.8.2.1.3.2.3.3 0 .1 0 .7-.4 1.3-.4.6-1.1 1.2-1.6 1.3-.4.1-1 .2-2.6-.5-2-.9-3.4-3.2-3.5-3.3-.1-.1-.8-1.1-.8-2.1 0-1 .5-1.5.7-1.7z" fill="#fff"/></svg>
+  </a>
+  <script src="site.js"></script>
 </body>
 </html>
