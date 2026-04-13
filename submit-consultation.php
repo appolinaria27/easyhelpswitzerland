@@ -82,6 +82,31 @@ try {
 
     $mail->send();
 
+    // Send confirmation email to the customer
+    $confirmation = new PHPMailer(true);
+    $confirmation->isSMTP();
+    $confirmation->Host       = $_ENV['SMTP_HOST'];
+    $confirmation->SMTPAuth   = true;
+    $confirmation->Username   = $_ENV['SMTP_USER'];
+    $confirmation->Password   = $_ENV['SMTP_PASS'];
+    $confirmation->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $confirmation->Port       = (int) $_ENV['SMTP_PORT'];
+    $confirmation->CharSet    = 'UTF-8';
+
+    $confirmation->setFrom($_ENV['MAIL_FROM'], 'Easy Help Switzerland');
+    $confirmation->addAddress($email, $safeName);
+
+    $confirmation->Subject = 'We received your consultation request';
+    $confirmation->Body =
+        "Dear $safeName,\n\n" .
+        "Thank you for reaching out! We have received your free consultation request and will get back to you within 24 hours.\n\n" .
+        "Here is a summary of your request:\n" .
+        "Topic: $topic\n" .
+        "Message:\n$messageText\n\n" .
+        "Best regards,\nPolina Kravtsova\nEasy Help Switzerland";
+
+    $confirmation->send();
+
     echo 'Request is sent. Thank you!';
 } catch (Exception $e) {
     error_log('Consultation mail error: ' . $mail->ErrorInfo);
