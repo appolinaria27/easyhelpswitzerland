@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/security.php';
 require 'vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -11,7 +12,7 @@ $dotenv->load();
 
 $endpoint_secret = $_ENV['STRIPE_WEBHOOK_SECRET'];
 
-$payload = @file_get_contents('php://input');
+$payload = file_get_contents('php://input');
 $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'] ?? '';
 
 try {
@@ -59,7 +60,7 @@ if ($event->type === 'checkout.session.completed') {
             ];
 
             if (!is_dir(__DIR__ . '/bookings')) {
-                mkdir(__DIR__ . '/bookings', 0750, true);
+                mkdir(__DIR__ . '/bookings', 0700, true);
             }
 
             file_put_contents(
@@ -94,7 +95,9 @@ if ($event->type === 'checkout.session.completed') {
                 $mail->addAddress($_ENV['ADMIN_EMAIL']);
 
                 if (!empty($bookingData['email'])) {
-                    $mail->addReplyTo($bookingData['email'], $bookingData['name'] ?: 'Client');
+                    // Strip newlines from name to prevent email header injection
+                    $safeName = str_replace(["\r", "\n"], ' ', $bookingData['name'] ?: 'Client');
+                    $mail->addReplyTo($bookingData['email'], $safeName);
                 }
 
                 $mail->Subject = 'New Paid Booking Received';

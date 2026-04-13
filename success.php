@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/security.php';
 require 'vendor/autoload.php';
 
 
@@ -10,13 +11,20 @@ $dotenv->load();
 
 $sessionId = $_GET['session_id'] ?? '';
 
-if (!$sessionId) {
+// Validate session ID format — Stripe IDs start with 'cs_'
+if (!$sessionId || !preg_match('/^cs_[a-zA-Z0-9_]+$/', $sessionId)) {
     header('Location: booking.php?error=invalid_session');
     exit;
 }
 
 try {
     $session = \Stripe\Checkout\Session::retrieve($sessionId);
+
+    // Only show the confirmation page for completed, paid sessions
+    if ($session->payment_status !== 'paid') {
+        header('Location: booking.php?error=payment_processing');
+        exit;
+    }
 
     $bookingData = [
         'stripe_session_id' => $session->id,

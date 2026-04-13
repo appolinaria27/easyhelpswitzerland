@@ -3089,11 +3089,7 @@ function setLanguage(lang) {
 
     if (value === null) return;
 
-    const shouldRenderHtml =
-      el.hasAttribute("data-i18n-html") ||
-      /<[a-z][\s\S]*>/i.test(String(value));
-
-    if (shouldRenderHtml) {
+    if (el.hasAttribute("data-i18n-html")) {
       el.innerHTML = value;
     } else {
       el.textContent = value;
