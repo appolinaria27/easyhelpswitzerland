@@ -1714,11 +1714,7 @@
     @media (max-width:780px){
       :root{ --container:min(100% - 18px, 1700px); }
       .panel{padding:20px;border-radius:26px}
-      @media (max-width:780px){
-  #clients-map{
-    border-radius:0;
-  }
-}
+      #clients-map{border-radius:0}
 
       .hero-wrap{padding:18px 18px 22px;border-radius:28px}
       .section-title{font-size:52px}
@@ -2546,6 +2542,92 @@
     filter .45s ease;
 }
 
+/* ======== BURGER BUTTON ======== */
+.burger{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  gap:5px;
+  padding:8px;
+  background:transparent;
+  border:0;
+  cursor:pointer;
+  flex-shrink:0;
+  z-index:10;
+}
+.burger span{
+  display:block;
+  width:22px;height:2px;
+  background:rgba(255,255,255,.85);
+  border-radius:2px;
+  transition:transform .25s,opacity .25s;
+}
+.burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+.burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ======== 768px — HAMBURGER NAV ======== */
+@media(max-width:768px){
+  .burger{display:flex}
+  .hero-top{
+    display:flex !important;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+    gap:0;
+    position:relative;
+  }
+  .nav{
+    display:none;
+    flex-basis:100%;
+    flex-direction:column;
+    gap:0;
+    justify-content:flex-start;
+    background:rgba(13,16,20,.97);
+    border-radius:16px;
+    padding:8px 0;
+    margin-top:8px;
+  }
+  .nav.open{display:flex}
+  .nav a{
+    padding:14px 22px;
+    font-size:15px;
+    color:rgba(255,255,255,.85);
+    border-bottom:1px solid rgba(255,255,255,.07);
+  }
+  .nav a::after{display:none}
+  .nav a:last-child{border-bottom:0}
+  .hero-right{display:none}
+}
+
+/* ======== 480px — SMALL PHONES ======== */
+@media(max-width:480px){
+  :root{--container:min(100% - 16px,1700px)}
+  .section-title{font-size:34px !important;line-height:1.1}
+  .hero-title{font-size:clamp(46px,14vw,74px) !important}
+  .hero-title span{font-size:clamp(30px,10vw,50px) !important}
+  .contact-lead{font-size:36px !important}
+  .hero-features{flex-direction:column;gap:12px}
+  .why-title{font-size:clamp(46px,14vw,74px) !important}
+  .testimonial-slide p{font-size:18px !important}
+  .tiny-stat strong{font-size:38px !important}
+
+  /* AI panel — fits screen */
+  .ai-panel{
+    width:calc(100vw - 16px) !important;
+    right:8px !important;
+    bottom:76px !important;
+    border-radius:20px;
+  }
+  .ai-messages{max-height:180px}
+
+  /* Floating buttons — icon only on tiny screens */
+  .ai-launcher span:last-child{display:none}
+  .ai-launcher{padding:14px;border-radius:50%;gap:0}
+  .whatsapp-float span:last-child{display:none}
+  .whatsapp-float{padding:14px;border-radius:50%;gap:0;width:52px;height:52px;justify-content:center}
+}
+
   </style>
 </head>
 <body>
@@ -2564,7 +2646,11 @@
           </div>
         </div>
 
-        <nav class="nav">
+        <button class="burger" id="burgerBtn" type="button" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav" id="mainNav">
           <a href="#clients-map" data-i18n="nav_areas">Areas</a>
           <a href="#services" data-i18n="nav_objects">Services</a>
           <a href="#about" data-i18n="nav_about">About us</a>
@@ -3449,6 +3535,23 @@
   </div>
 
   <script>
+  // Burger menu
+  (() => {
+    const burger = document.getElementById('burgerBtn');
+    const nav = document.getElementById('mainNav');
+    if (!burger || !nav) return;
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('open');
+      nav.classList.toggle('open');
+    });
+    nav.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        burger.classList.remove('open');
+        nav.classList.remove('open');
+      });
+    });
+  })();
+
   // language dropdown placeholder
   document.querySelectorAll('.lang-switch button').forEach(btn => {
     btn.addEventListener('click', () => {

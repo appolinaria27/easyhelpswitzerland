@@ -337,6 +337,26 @@ unset($_SESSION['booking']);
     .whatsapp-float{position:fixed;left:18px;bottom:18px;z-index:999;display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:999px;background:#25D366;color:#fff;text-decoration:none;box-shadow:0 14px 32px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s}
     .whatsapp-float:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(37,211,102,.4)}
     .wa-icon-wrap{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+    .burger{display:none;flex-direction:column;justify-content:center;gap:5px;padding:8px;background:transparent;border:0;cursor:pointer;flex-shrink:0;z-index:10}
+    .burger span{display:block;width:22px;height:2px;background:rgba(255,255,255,.85);border-radius:2px;transition:transform .25s,opacity .25s}
+    .burger.open span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
+    .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    @media(max-width:768px){
+      .burger{display:flex}
+      .hero-top{display:flex !important;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0;position:relative}
+      .nav{display:none;flex-basis:100%;flex-direction:column;gap:0;background:rgba(13,16,20,.97);border-radius:16px;padding:8px 0;margin-top:8px}
+      .nav.open{display:flex}
+      .nav a{padding:14px 22px;font-size:15px;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.07)}
+      .nav a::after{display:none}
+      .nav a:last-child{border-bottom:0}
+      .hero-right{display:none}
+    }
+    @media(max-width:480px){
+      :root{--container:min(100% - 16px,1700px)}
+      .whatsapp-float span:last-child{display:none}
+      .whatsapp-float{padding:14px;border-radius:50%;gap:0;width:52px;height:52px;justify-content:center}
+    }
   </style>
 </head>
 <body>
@@ -354,7 +374,8 @@ unset($_SESSION['booking']);
           </div>
         </a>
 
-        <nav class="nav">
+        <button class="burger" id="burgerBtn" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <nav class="nav" id="mainNav">
           <a href="index.html" data-i18n="nav_home">Home</a>
           <a href="booking.php" data-i18n="success_nav_booking">Booking</a>
           <a href="blog.html" data-i18n="success_nav_guides">Guides</a>
@@ -497,5 +518,14 @@ unset($_SESSION['booking']);
     <span><strong style="display:block;font-size:14px">WhatsApp</strong><small style="opacity:.75;font-size:12px">Write to us</small></span>
   </a>
   <script src="site.js"></script>
+  <script>
+    (() => {
+      const burger = document.getElementById('burgerBtn');
+      const nav = document.getElementById('mainNav');
+      if (!burger || !nav) return;
+      burger.addEventListener('click', () => { burger.classList.toggle('open'); nav.classList.toggle('open'); });
+      nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); nav.classList.remove('open'); }));
+    })();
+  </script>
 </body>
 </html>
