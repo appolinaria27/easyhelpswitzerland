@@ -35,6 +35,7 @@
       font-family:"Manrope", system-ui, sans-serif;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
+      overflow-x:hidden;
     }
     img{display:block;max-width:100%}
     a{text-decoration:none;color:inherit}
@@ -2598,19 +2599,40 @@
   .nav a::after{display:none}
   .nav a:last-child{border-bottom:0}
   .hero-right{display:none}
+
+  /* Hero sizing */
+  .hero-wrap{min-height:auto;padding-bottom:140px}
+  .hero-center{inset:110px 22px 130px}
+  .hero-title{font-size:clamp(48px,12vw,82px) !important;letter-spacing:-.04em}
+  .hero-title span{font-size:clamp(32px,8vw,56px) !important}
+  .hero-sub{font-size:15px}
+  .pill-cta .main{min-width:auto}
+  .pill-cta{max-width:100%}
+
+  /* Why section — hide decorative circle, fix image */
+  .why-grid::after{display:none !important}
+  .why-topline{grid-template-columns:1fr}
+  .why-note{display:none}
 }
 
 /* ======== 480px — SMALL PHONES ======== */
 @media(max-width:480px){
   :root{--container:min(100% - 16px,1700px)}
   .section-title{font-size:34px !important;line-height:1.1}
-  .hero-title{font-size:clamp(46px,14vw,74px) !important}
-  .hero-title span{font-size:clamp(30px,10vw,50px) !important}
+  .hero-title{font-size:clamp(38px,11vw,62px) !important;letter-spacing:-.03em}
+  .hero-title span{font-size:clamp(26px,8vw,44px) !important}
+  .hero-center{inset:96px 14px 120px}
+  .hero-sub{font-size:14px}
   .contact-lead{font-size:36px !important}
   .hero-features{flex-direction:column;gap:12px}
-  .why-title{font-size:clamp(46px,14vw,74px) !important}
+  .why-title{font-size:clamp(38px,11vw,62px) !important}
   .testimonial-slide p{font-size:18px !important}
   .tiny-stat strong{font-size:38px !important}
+
+  /* CTA button — stack vertically, no overflow */
+  .pill-cta{display:flex;flex-direction:column;border-radius:20px;overflow:hidden;width:100%;max-width:340px}
+  .pill-cta .main{min-width:auto;width:100%;padding:18px 24px;text-align:center}
+  .pill-cta .arrow{display:none}
 
   /* AI panel — fits screen */
   .ai-panel{
