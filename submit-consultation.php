@@ -153,6 +153,8 @@ function createMailer(): PHPMailer
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     $mail->Port       = (int) $_ENV['SMTP_PORT'];
     $mail->CharSet    = 'UTF-8';
+    return $mail;
+}
 
 try {
     $mail = createMailer();
