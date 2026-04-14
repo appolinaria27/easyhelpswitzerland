@@ -3769,106 +3769,109 @@
   }
 
   function checkRelocation() {
-    const lang = document.documentElement.lang || localStorage.getItem(‘siteLanguage’) || ‘en’;
-    const tr = (key) => (window.translations && window.translations[lang] && window.translations[lang][key]) || (window.translations && window.translations[‘en’] && window.translations[‘en’][key]) || key;
+  const lang = document.documentElement.lang || localStorage.getItem('siteLanguage') || 'en';
+  const tr = (key) =>
+    (window.translations && window.translations[lang] && window.translations[lang][key]) ||
+    (window.translations && window.translations['en'] && window.translations['en'][key]) ||
+    key;
 
-    const nationality = document.getElementById(‘rc-nationality’)?.value || ‘’;
-    const reason = document.getElementById(‘rc-reason’)?.value || ‘’;
-    const finance = document.getElementById(‘rc-finance’)?.value || ‘’;
-    const guarantor = document.getElementById(‘rc-guarantor’)?.value || ‘’;
-    const roots = document.getElementById(‘rc-roots’)?.value || ‘’;
+  const nationality = document.getElementById('rc-nationality')?.value || '';
+  const reason = document.getElementById('rc-reason')?.value || '';
+  const finance = document.getElementById('rc-finance')?.value || '';
+  const guarantor = document.getElementById('rc-guarantor')?.value || '';
+  const roots = document.getElementById('rc-roots')?.value || '';
 
-    if (!nationality || !reason || !finance || !guarantor || !roots) {
-      openAssessmentModal(
-        tr(‘rc_incomplete_title’),
-        `<div class="assessment-highlight">${tr(‘rc_incomplete_msg’)}</div>`,
-        ‘#relocation-check’,
-        tr(‘rc_return_btn’)
-      );
-      return;
-    }
-
-    let score = 35;
-    let routeName = ‘’;
-    let summary = ‘’;
-    let detail = ‘’;
-    let ctaHref = ‘booking.php’;
-    let ctaText = tr(‘rc_cta_book’);
-
-    if (nationality === ‘eu’) score += 18;
-    if (nationality === ‘non-eu’) score += 6;
-    if (finance === ‘yes’) score += 15;
-    if (guarantor === ‘yes’) score += 12;
-    if (roots === ‘yes’) score += 10;
-
-    switch (reason) {
-      case ‘job’:
-        routeName = tr(‘rc_route_job’);
-        score += nationality === ‘eu’ ? 20 : 14;
-        summary = tr(‘rc_summary_job’);
-        detail = tr(‘rc_detail_job’);
-        break;
-
-      case ‘study’:
-        routeName = tr(‘rc_route_study’);
-        score += 14;
-        summary = tr(‘rc_summary_study’);
-        detail = tr(‘rc_detail_study’);
-        break;
-
-      case ‘family’:
-        routeName = tr(‘rc_route_family’);
-        score += 18;
-        summary = tr(‘rc_summary_family’);
-        detail = tr(‘rc_detail_family’);
-        break;
-
-      case ‘marriage’:
-        routeName = tr(‘rc_route_marriage’);
-        score += 16;
-        summary = tr(‘rc_summary_marriage’);
-        detail = tr(‘rc_detail_marriage’);
-        break;
-
-      case ‘business’:
-        routeName = tr(‘rc_route_business’);
-        score += 12;
-        summary = tr(‘rc_summary_business’);
-        detail = tr(‘rc_detail_business’);
-        break;
-
-      case ‘refugee’:
-        routeName = tr(‘rc_route_refugee’);
-        score += 8;
-        summary = tr(‘rc_summary_refugee’);
-        detail = tr(‘rc_detail_refugee’);
-        ctaHref = ‘free-consultation.php’;
-        ctaText = tr(‘rc_cta_consult’);
-        break;
-    }
-
-    if (finance === ‘no’) score -= 12;
-    if (guarantor === ‘no’) score -= 6;
-    if (roots === ‘no’) score -= 8;
-
-    score = Math.max(18, Math.min(92, score));
-
-    let chanceLabel = ‘’;
-    if (score >= 75) chanceLabel = tr(‘rc_chance_strong’);
-    else if (score >= 55) chanceLabel = tr(‘rc_chance_moderate’);
-    else chanceLabel = tr(‘rc_chance_low’);
-
-    const html = `
-      <div class="assessment-score">${score}%</div><br>
-      <span class="assessment-route">${routeName}</span>
-      <div class="assessment-highlight"><strong>${chanceLabel}</strong><br>${summary}</div>
-      <p>${detail}</p>
-      <p><strong>${tr(‘rc_why_result’)}</strong> ${finance === ‘yes’ ? tr(‘rc_finance_yes’) : tr(‘rc_finance_no’)}, ${guarantor === ‘yes’ ? tr(‘rc_guarantor_yes’) : tr(‘rc_guarantor_no’)}, ${roots === ‘yes’ ? tr(‘rc_roots_yes’) : tr(‘rc_roots_no’)}, and <strong>${nationality === ‘eu’ ? tr(‘rc_eu’) : tr(‘rc_noneu’)}</strong> ${tr(‘rc_all_influence’)}</p>
-      <p>${tr(‘rc_precise’)}</p>
-    `;
-
-    openAssessmentModal(tr(‘rc_modal_title’), html, ctaHref, ctaText);
+  if (!nationality || !reason || !finance || !guarantor || !roots) {
+    openAssessmentModal(
+      tr('rc_incomplete_title'),
+      `<div class="assessment-highlight">${tr('rc_incomplete_msg')}</div>`,
+      '#relocation-check',
+      tr('rc_return_btn')
+    );
+    return;
   }
+
+  let score = 35;
+  let routeName = '';
+  let summary = '';
+  let detail = '';
+  let ctaHref = 'booking.php';
+  let ctaText = tr('rc_cta_book');
+
+  if (nationality === 'eu') score += 18;
+  if (nationality === 'non-eu') score += 6;
+  if (finance === 'yes') score += 15;
+  if (guarantor === 'yes') score += 12;
+  if (roots === 'yes') score += 10;
+
+  switch (reason) {
+    case 'job':
+      routeName = tr('rc_route_job');
+      score += nationality === 'eu' ? 20 : 14;
+      summary = tr('rc_summary_job');
+      detail = tr('rc_detail_job');
+      break;
+
+    case 'study':
+      routeName = tr('rc_route_study');
+      score += 14;
+      summary = tr('rc_summary_study');
+      detail = tr('rc_detail_study');
+      break;
+
+    case 'family':
+      routeName = tr('rc_route_family');
+      score += 18;
+      summary = tr('rc_summary_family');
+      detail = tr('rc_detail_family');
+      break;
+
+    case 'marriage':
+      routeName = tr('rc_route_marriage');
+      score += 16;
+      summary = tr('rc_summary_marriage');
+      detail = tr('rc_detail_marriage');
+      break;
+
+    case 'business':
+      routeName = tr('rc_route_business');
+      score += 12;
+      summary = tr('rc_summary_business');
+      detail = tr('rc_detail_business');
+      break;
+
+    case 'refugee':
+      routeName = tr('rc_route_refugee');
+      score += 8;
+      summary = tr('rc_summary_refugee');
+      detail = tr('rc_detail_refugee');
+      ctaHref = 'free-consultation.php';
+      ctaText = tr('rc_cta_consult');
+      break;
+  }
+
+  if (finance === 'no') score -= 12;
+  if (guarantor === 'no') score -= 6;
+  if (roots === 'no') score -= 8;
+
+  score = Math.max(18, Math.min(92, score));
+
+  let chanceLabel = '';
+  if (score >= 75) chanceLabel = tr('rc_chance_strong');
+  else if (score >= 55) chanceLabel = tr('rc_chance_moderate');
+  else chanceLabel = tr('rc_chance_low');
+
+  const html = `
+    <div class="assessment-score">${score}%</div><br>
+    <span class="assessment-route">${routeName}</span>
+    <div class="assessment-highlight"><strong>${chanceLabel}</strong><br>${summary}</div>
+    <p>${detail}</p>
+    <p><strong>${tr('rc_why_result')}</strong> ${finance === 'yes' ? tr('rc_finance_yes') : tr('rc_finance_no')}, ${guarantor === 'yes' ? tr('rc_guarantor_yes') : tr('rc_guarantor_no')}, ${roots === 'yes' ? tr('rc_roots_yes') : tr('rc_roots_no')}, and <strong>${nationality === 'eu' ? tr('rc_eu') : tr('rc_noneu')}</strong> ${tr('rc_all_influence')}</p>
+    <p>${tr('rc_precise')}</p>
+  `;
+
+  openAssessmentModal(tr('rc_modal_title'), html, ctaHref, ctaText);
+}
 
   (() => {
     const topClose = document.getElementById('assessmentModalClose');
