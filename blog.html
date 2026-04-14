@@ -36,6 +36,7 @@
       font-family:"Manrope",system-ui,sans-serif;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
+      overflow-x:hidden;
     }
     img{display:block;max-width:100%}
     a{text-decoration:none;color:inherit}
@@ -299,7 +300,7 @@
       .hero-top{grid-template-columns:1fr;justify-items:start}
       .nav{justify-content:flex-start;gap:18px}
       .hero-right{justify-self:start;flex-wrap:wrap}
-      .hero-center{position:relative;inset:auto;display:block;text-align:left;padding-top:140px}
+      .hero-center{position:relative;inset:auto;transform:none;display:block;text-align:left;padding-top:140px}
       .hero-bottom{position:relative;left:auto;right:auto;bottom:auto;margin-top:90px;flex-direction:column;align-items:flex-start}
       .hero-wrap{min-height:auto;padding-bottom:34px}
       .blog-layout,.cta-band{grid-template-columns:1fr}
@@ -349,9 +350,20 @@
   .nav a::after{display:none}
   .nav a:last-child{border-bottom:0}
   .hero-right{display:none}
+  .hero-center{padding-top:60px}
+  .hero-title{font-size:clamp(48px,12vw,80px) !important}
+  .hero-title span{font-size:clamp(32px,8vw,56px) !important}
+  .hero-sub{font-size:15px;max-width:100%}
+  .hero-years{display:none}
+  .hero-bottom{margin-top:28px}
+  .hero-features{gap:14px}
+  .hero-feature{font-size:15px}
 }
 @media(max-width:480px){
   :root{--container:min(100% - 16px,1700px)}
+  .hero-title{font-size:clamp(38px,11vw,58px) !important}
+  .hero-title span{font-size:clamp(26px,8vw,44px) !important}
+  .hero-sub{font-size:14px}
   .whatsapp-float span:last-child{display:none}
   .whatsapp-float{padding:14px;border-radius:50%;gap:0;width:52px;height:52px;justify-content:center}
 }
@@ -378,7 +390,7 @@
           <a href="index.html" data-i18n="blog_brand_country">Home</a>
           <a href="#permits" data-i18n="blog_nav_guides">Guides</a>
           <a href="index.html#services" data-i18n="blog_nav_guides">Services</a>
-          <a href="free-consultation.html" data-i18n="blog_nav_consultation">Consultation</a>
+          <a href="free-consultation.php" data-i18n="blog_nav_consultation">Consultation</a>
           <a href="index.html#contact" data-i18n="blog_nav_consultation">Contacts</a>
         </nav>
 
@@ -452,7 +464,7 @@
                 <p data-i18n="blog_permits_p4">The permit process is rarely about one single form. It is about sequencing: housing, registration, insurance, and employment paperwork often interact. The earlier you organize them together, the easier your first weeks in Switzerland become.</p>
                 <div class="article-footer">
                   <div class="tag-row"><span class="tag" data-i18n="blog_permits_tag1">Permits</span><span class="tag" data-i18n="blog_permits_tag2">Arrival</span><span class="tag" data-i18n="blog_permits_tag3">Administration</span></div>
-                  <a href="free-consultation.html" class="btn-blue" data-i18n="blog_permits_cta">Need personal guidance?</a>
+                  <a href="free-consultation.php" class="btn-blue" data-i18n="blog_permits_cta">Need personal guidance?</a>
                 </div>
               </div>
             </article>
@@ -583,7 +595,7 @@
             <div class="micro" data-i18n="sidebar_related_label">Related services</div>
             <h3 data-i18n="sidebar_related_title">How we can help</h3>
             <div class="related-list">
-              <a href="free-consultation.html" class="related-item"><span data-i18n="sidebar_related_consultation_label">Consultation</span><strong>Book a free consultation for your relocation plan</strong></a>
+              <a href="free-consultation.php" class="related-item"><span data-i18n="sidebar_related_consultation_label">Consultation</span><strong>Book a free consultation for your relocation plan</strong></a>
               <a href="index.html#services" class="related-item"><span data-i18n="sidebar_related_permits_label">Permits</span><strong>Support with residence permits and registration steps</strong></a>
               <a href="index.html#services" class="related-item"><span data-i18n="sidebar_related_insurance_label">Insurance</span><strong>Get help choosing the right health insurance setup</strong></a>
             </div>
@@ -593,7 +605,7 @@
             <div class="micro" data-i18n="sidebar_support_label">Need support?</div>
             <h3 data-i18n="sidebar_support_title">Prefer personal guidance?</h3>
             <p data-i18n="sidebar_support_text">If you want help with registration, permits, housing documents, or health insurance, book a consultation and get a clear step-by-step plan.</p>
-            <div style="margin-top:18px"><a href="free-consultation.html" class="btn-blue" data-i18n="sidebar_support_cta">Book consultation</a></div>
+            <div style="margin-top:18px"><a href="free-consultation.php" class="btn-blue" data-i18n="sidebar_support_cta">Book consultation</a></div>
           </div>
         </aside>
       </div>
@@ -605,7 +617,7 @@
           <p data-i18n="cta_text">Save time, avoid missed deadlines, and move through permits, registration, and insurance with a clear structure and personal support.</p>
         </div>
         <div class="cta-actions">
-          <a href="free-consultation.html" class="btn-blue" data-i18n="cta_book">Book consultation</a>
+          <a href="free-consultation.php" class="btn-blue" data-i18n="cta_book">Book consultation</a>
           <a href="index.html" class="btn-outline" data-i18n="cta_home">Back to homepage</a>
         </div>
       </section>
