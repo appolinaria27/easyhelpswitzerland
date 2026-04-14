@@ -38,17 +38,128 @@ try {
         exit;
     }
 
-    $bookingData = [
-    'stripe_session_id' => $session->id,
-    'payment_status'    => $session->payment_status,
-    'package'           => $session->metadata->package ?? '',
-    'package_name'      => $session->metadata->package_name ?? '',
-    'price_chf'         => $session->metadata->price_chf ?? '',
-    'created_at'        => date('Y-m-d H:i:s'),
-];
+    $internalBookingId = $session->metadata->internal_booking_id ?? '';
+    $safeId = preg_replace('/[^a-zA-Z0-9_-]/', '', $internalBookingId);
+
+    $pendingFile = __DIR__ . '/pending-bookings/booking-' . $safeId . '.json';
+    $archiveFile = __DIR__ . '/bookings/booking-' . preg_replace('/[^a-zA-Z0-9_-]/', '', $session->id) . '.json';
+
+    // Load full booking data (pending file has name/email/phone etc.)
+    $pendingBooking = [];
+    if ($safeId !== '' && file_exists($pendingFile)) {
+        $decoded = json_decode(file_get_contents($pendingFile), true);
+        if (is_array($decoded)) {
+            $pendingBooking = $decoded;
+        }
+    }
+
+    // Build canonical booking record
+    if (file_exists($archiveFile)) {
+        $bookingData = json_decode(file_get_contents($archiveFile), true) ?: [];
+    } else {
+        $bookingData = [
+            'internal_booking_id' => $internalBookingId,
+            'stripe_session_id'   => $session->id,
+            'payment_status'      => $session->payment_status,
+            'package'             => $pendingBooking['package']      ?? ($session->metadata->package ?? ''),
+            'package_name'        => $pendingBooking['package_name'] ?? ($session->metadata->package_name ?? ''),
+            'price_chf'           => $pendingBooking['price_chf']    ?? ($session->metadata->price_chf ?? ''),
+            'name'                => $pendingBooking['name']     ?? '',
+            'email'               => $pendingBooking['email']    ?? '',
+            'phone'               => $pendingBooking['phone']    ?? '',
+            'location'            => $pendingBooking['location'] ?? '',
+            'preferred'           => $pendingBooking['preferred'] ?? '',
+            'message'             => $pendingBooking['message']  ?? '',
+            'created_at'          => $pendingBooking['created_at'] ?? date('c'),
+            'paid_at'             => date('c'),
+            'admin_email_sent'    => false,
+            'client_email_sent'   => false,
+        ];
+
+        // Save archive
+        if (!is_dir(__DIR__ . '/bookings')) {
+            mkdir(__DIR__ . '/bookings', 0750, true);
+        }
+        file_put_contents($archiveFile, json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
+    }
+
+    // Send emails if not already sent by webhook
+    if (!empty($bookingData['email']) && (($bookingData['admin_email_sent'] ?? false) !== true || ($bookingData['client_email_sent'] ?? false) !== true)) {
+        function successMailer(): \PHPMailer\PHPMailer\PHPMailer {
+            $m = new \PHPMailer\PHPMailer\PHPMailer(true);
+            $m->isSMTP();
+            $m->Host       = $_ENV['SMTP_HOST'];
+            $m->SMTPAuth   = true;
+            $m->Username   = $_ENV['SMTP_USER'];
+            $m->Password   = $_ENV['SMTP_PASS'];
+            $m->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $m->Port       = (int) $_ENV['SMTP_PORT'];
+            $m->CharSet    = 'UTF-8';
+            $m->setFrom($_ENV['MAIL_FROM'], 'Easy Help Switzerland');
+            return $m;
+        }
+
+        $safeName = str_replace(["\r", "\n"], ' ', $bookingData['name'] ?: 'Client');
+
+        // Admin email
+        if (($bookingData['admin_email_sent'] ?? false) !== true) {
+            try {
+                $m = successMailer();
+                $m->addAddress($_ENV['ADMIN_EMAIL']);
+                $m->addReplyTo($bookingData['email'], $safeName);
+                $m->Subject = 'New Paid Booking: ' . $bookingData['package_name'];
+                $m->Body =
+                    "New paid booking received.\n\n" .
+                    "Package: {$bookingData['package_name']}\n" .
+                    "Price: CHF {$bookingData['price_chf']}\n" .
+                    "Name: {$bookingData['name']}\n" .
+                    "Email: {$bookingData['email']}\n" .
+                    "Phone: {$bookingData['phone']}\n" .
+                    "Location: {$bookingData['location']}\n" .
+                    "Format: {$bookingData['preferred']}\n\n" .
+                    "Message:\n{$bookingData['message']}\n\n" .
+                    "Stripe session: {$bookingData['stripe_session_id']}\n" .
+                    "Paid at: {$bookingData['paid_at']}\n";
+                $m->send();
+                $bookingData['admin_email_sent'] = true;
+            } catch (Exception $e) {
+                error_log('success.php admin mail error: ' . $e->getMessage());
+            }
+        }
+
+        // Client email
+        if (($bookingData['client_email_sent'] ?? false) !== true) {
+            try {
+                $m = successMailer();
+                $m->addAddress($bookingData['email'], $safeName);
+                $m->Subject = 'Your booking is confirmed — Easy Help Switzerland';
+                $m->Body =
+                    "Hello {$safeName},\n\n" .
+                    "Your paid booking has been received successfully.\n\n" .
+                    "Package: {$bookingData['package_name']}\n" .
+                    "Price: CHF {$bookingData['price_chf']}\n" .
+                    "Format: {$bookingData['preferred']}\n" .
+                    "Paid at: {$bookingData['paid_at']}\n\n" .
+                    "We will contact you shortly with next steps.\n\n" .
+                    "Best regards,\nPolina Kravtsova\nEasy Help Switzerland";
+                $m->send();
+                $bookingData['client_email_sent'] = true;
+            } catch (Exception $e) {
+                error_log('success.php client mail error: ' . $e->getMessage());
+            }
+        }
+
+        // Update archive with email sent flags
+        file_put_contents($archiveFile, json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
+
+        // Remove pending file
+        if (file_exists($pendingFile)) {
+            unlink($pendingFile);
+        }
+    }
 
     unset($_SESSION['last_checkout_session_id']);
-unset($_SESSION['booking']);
+    unset($_SESSION['booking']);
 
 } catch (Exception $e) {
     error_log('Stripe session error: ' . $e->getMessage());
