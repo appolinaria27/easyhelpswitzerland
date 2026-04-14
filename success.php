@@ -1,6 +1,10 @@
 <?php
 require_once __DIR__ . '/security.php';
 require 'vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 session_set_cookie_params([
     'lifetime' => 0,
     'path' => '/',
@@ -213,7 +217,7 @@ try {
       background:
         linear-gradient(180deg, rgba(9,12,15,.48), rgba(9,12,15,.66)),
         radial-gradient(circle at 50% 40%, rgba(255,255,255,.03), transparent 35%),
-        url('https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+        url('/img/lugano.jpg') center/cover no-repeat;
     }
 
     .hero-top{
