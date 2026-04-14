@@ -2584,20 +2584,56 @@
     flex-direction:column;
     gap:0;
     justify-content:flex-start;
-    background:rgba(13,16,20,.97);
-    border-radius:16px;
-    padding:8px 0;
-    margin-top:8px;
+    background:rgba(10,14,20,.55);
+    backdrop-filter:blur(18px) saturate(160%);
+    -webkit-backdrop-filter:blur(18px) saturate(160%);
+    border:1px solid rgba(255,255,255,.10);
+    border-radius:20px;
+    padding:6px 0 12px;
+    margin-top:10px;
+    box-shadow:0 8px 32px rgba(0,0,0,.28);
   }
   .nav.open{display:flex}
   .nav a{
     padding:14px 22px;
     font-size:15px;
-    color:rgba(255,255,255,.85);
+    color:rgba(255,255,255,.88);
     border-bottom:1px solid rgba(255,255,255,.07);
+    letter-spacing:.01em;
+    transition:color .2s, background .2s;
   }
+  .nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
   .nav a::after{display:none}
-  .nav a:last-child{border-bottom:0}
+  .nav a:last-child{border-bottom:1px solid rgba(255,255,255,.07)}
+  /* Language switcher inside mobile nav */
+  .nav-lang-mobile{
+    display:flex;
+    gap:6px;
+    padding:12px 22px 2px;
+    align-items:center;
+  }
+  .nav-lang-mobile button{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:8px;
+    color:rgba(255,255,255,.6);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.06em;
+    padding:5px 11px;
+    cursor:pointer;
+    transition:all .2s;
+    font-family:inherit;
+  }
+  .nav-lang-mobile button:hover{
+    background:rgba(255,255,255,.15);
+    color:#fff;
+  }
+  .nav-lang-mobile button.active{
+    background:var(--blue);
+    border-color:var(--blue);
+    color:#fff;
+  }
   .hero-right{display:none}
 
   /* Hero sizing */
@@ -2694,6 +2730,12 @@
           <a href="#services" data-i18n="nav_objects">Services</a>
           <a href="#about" data-i18n="nav_about">About us</a>
           <a href="#contact" data-i18n="nav_contact">Contacts</a>
+          <div class="nav-lang-mobile">
+            <button type="button" data-lang="en" class="active">EN</button>
+            <button type="button" data-lang="es">ES</button>
+            <button type="button" data-lang="de">DE</button>
+            <button type="button" data-lang="uk">UA</button>
+          </div>
         </nav>
 
         <div class="hero-right">
@@ -3599,11 +3641,13 @@
     });
   })();
 
-  // language dropdown placeholder
-  document.querySelectorAll('.lang-switch button').forEach(btn => {
+  // Close mobile nav when a lang button is picked (translation handled by site.js)
+  document.querySelectorAll('.nav-lang-mobile button').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      const nav = document.getElementById('mainNav');
+      const burger = document.getElementById('burgerBtn');
+      if (nav) nav.classList.remove('open');
+      if (burger) burger.classList.remove('open');
     });
   });
 
