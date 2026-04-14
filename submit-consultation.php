@@ -205,4 +205,3 @@ try {
     http_response_code(500);
     echo 'Request is not sent, please try again later.';
 }
-}
