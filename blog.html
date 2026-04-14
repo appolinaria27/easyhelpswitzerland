@@ -350,10 +350,10 @@
   .nav a:hover{color:rgba(255,255,255,.75);letter-spacing:.03em}
   .nav a::after{display:none}
   .nav a:last-child{border-bottom:1px solid rgba(255,255,255,.15)}
-  .nav-lang-mobile{display:flex;gap:8px;padding:14px 4px 2px;align-items:center}
-  .nav-lang-mobile button{background:transparent;border:1px solid rgba(255,255,255,.30);border-radius:8px;color:rgba(255,255,255,.65);font-size:12px;font-weight:600;letter-spacing:.06em;padding:5px 12px;cursor:pointer;transition:all .2s;font-family:inherit;text-shadow:0 1px 6px rgba(0,0,0,.4)}
-  .nav-lang-mobile button:hover{border-color:rgba(255,255,255,.7);color:#fff}
-  .nav-lang-mobile button.active{background:var(--blue);border-color:var(--blue);color:#fff;text-shadow:none}
+  .lang-switch{display:flex;gap:8px;padding:14px 4px 2px;align-items:center}
+  .lang-switch button{background:transparent;border:1px solid rgba(255,255,255,.30);border-radius:8px;color:rgba(255,255,255,.65);font-size:12px;font-weight:600;letter-spacing:.06em;padding:5px 12px;cursor:pointer;transition:all .2s;font-family:inherit;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+  .lang-switch button:hover{border-color:rgba(255,255,255,.7);color:#fff}
+  .lang-switch button.active{background:var(--blue);border-color:var(--blue);color:#fff;text-shadow:none}
   .hero-right{display:none}
   .hero-center{padding-top:60px}
   .hero-title{font-size:clamp(48px,12vw,80px) !important}
@@ -394,19 +394,14 @@
         <nav class="nav" id="mainNav">
           <a href="index.html" data-i18n="blog_brand_country">Home</a>
           <a href="#permits" data-i18n="blog_nav_guides">Guides</a>
-          <a href="index.html#services" data-i18n="blog_nav_guides">Services</a>
+          <a href="index.html#services" data-i18n="blog_nav_services">Services</a>
           <a href="free-consultation.php" data-i18n="blog_nav_consultation">Consultation</a>
-          <a href="index.html#contact" data-i18n="blog_nav_consultation">Contacts</a>
-          <div class="nav-lang-mobile">
-            <button type="button" data-lang="en" class="active">EN</button>
-            <button type="button" data-lang="es">ES</button>
-            <button type="button" data-lang="de">DE</button>
-            <button type="button" data-lang="uk">UA</button>
-          </div>
+          <a href="index.html#contact" data-i18n="blog_nav_contacts">Contacts</a>
+          
         </nav>
 
         <div class="hero-right">
-          <a href="tel:+41764497581" data-i18n="blog_phone">+41 76 449 75 81</a>
+          
           <div class="lang-switch">
   <button type="button" data-lang="en" class="active">EN</button>
   <button type="button" data-lang="es">ES</button>

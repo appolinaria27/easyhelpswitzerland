@@ -391,7 +391,7 @@ if (empty($_SESSION['csrf_token'])) {
         </nav>
 
         <div class="hero-right">
-          <a href="tel:+41764497581">+41 76 449 75 81</a>
+          
           <div class="lang-switch">
   <button type="button" data-lang="en" class="active">EN</button>
   <button type="button" data-lang="es">ES</button>

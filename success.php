@@ -509,16 +509,11 @@ try {
           <a href="blog.html" data-i18n="success_nav_guides">Guides</a>
           <a href="free-consultation.php" data-i18n="success_nav_free_consultation">Free consultation</a>
           <a href="index.html#contact" data-i18n="success_nav_contacts">Contacts</a>
-          <div class="nav-lang-mobile">
-            <button type="button" data-lang="en" class="active">EN</button>
-            <button type="button" data-lang="es">ES</button>
-            <button type="button" data-lang="de">DE</button>
-            <button type="button" data-lang="uk">UA</button>
-          </div>
+          
         </nav>
 
         <div class="hero-right">
-          <a href="tel:+41764497581">+41 76 449 75 81</a>
+          
           <div class="lang-switch">
             <button type="button" data-lang="en" class="active">EN</button>
             <button type="button" data-lang="es">ES</button>
