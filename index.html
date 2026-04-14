@@ -2638,10 +2638,18 @@
   .ai-panel{
     width:calc(100vw - 16px) !important;
     right:8px !important;
-    bottom:76px !important;
+    bottom:72px !important;
     border-radius:20px;
+    max-height:calc(100vh - 96px);
+    overflow-y:auto;
   }
-  .ai-messages{max-height:180px}
+  .ai-header{padding:12px 14px 10px}
+  .ai-header h3{font-size:17px}
+  .ai-header p{font-size:12px}
+  .ai-body{padding:10px 12px}
+  .ai-messages{max-height:130px}
+  .ai-footer{padding:10px 12px}
+  .ai-disclaimer{font-size:11px;margin-bottom:10px}
 
   /* Floating buttons — icon only on tiny screens */
   .ai-launcher span:last-child{display:none}
