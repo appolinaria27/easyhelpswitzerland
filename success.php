@@ -315,7 +315,7 @@ unset($_SESSION['booking']);
     @media (max-width:1180px){
       .hero-top{grid-template-columns:1fr;justify-items:start}
       .nav{justify-content:flex-start;gap:18px}
-      .hero-center{position:relative;inset:auto;display:block;text-align:left;padding-top:140px}
+      .hero-center{position:relative;inset:auto;transform:none;display:block;text-align:left;padding-top:140px}
       .hero-bottom{position:relative;left:auto;right:auto;bottom:auto;margin-top:90px;flex-direction:column;align-items:flex-start}
       .hero-wrap{min-height:auto;padding-bottom:34px}
       .success-layout,.cta-band{grid-template-columns:1fr}
@@ -351,9 +351,17 @@ unset($_SESSION['booking']);
       .nav a::after{display:none}
       .nav a:last-child{border-bottom:0}
       .hero-right{display:none}
+      .hero-center{padding-top:60px}
+      .hero-title{font-size:clamp(44px,11vw,76px) !important}
+      .hero-title span{font-size:clamp(30px,8vw,52px) !important}
+      .hero-sub{font-size:15px;max-width:100%}
+      .hero-years{display:none}
+      .hero-bottom{margin-top:28px}
     }
     @media(max-width:480px){
       :root{--container:min(100% - 16px,1700px)}
+      .hero-title{font-size:clamp(36px,10vw,56px) !important}
+      .hero-title span{font-size:clamp(24px,7vw,40px) !important}
       .whatsapp-float span:last-child{display:none}
       .whatsapp-float{padding:14px;border-radius:50%;gap:0;width:52px;height:52px;justify-content:center}
     }
@@ -430,37 +438,7 @@ unset($_SESSION['booking']);
             </div>
             <div style="font-size:28px;line-height:1.02;letter-spacing:-.05em;font-weight:500;"><?= htmlspecialchars($bookingData['package_name'] ?: 'Consultation booking') ?></div>
           </div>
-
-          <div class="details">
-            <div class="detail">
-              <span class="label" data-i18n="success_label_name">Full name</span>
-              <div class="value"><?= htmlspecialchars($bookingData['name'] ?: '—') ?></div>
-            </div>
-            <div class="detail">
-              <span class="label" data-i18n="success_label_email">Email</span>
-              <div class="value"><?= htmlspecialchars($bookingData['email'] ?: '—') ?></div>
-            </div>
-            <div class="detail">
-              <span class="label" data-i18n="success_label_phone">Phone / WhatsApp</span>
-              <div class="value"><?= htmlspecialchars($bookingData['phone'] ?: '—') ?></div>
-            </div>
-            <div class="detail">
-              <span class="label" data-i18n="success_label_location">Current location</span>
-              <div class="value"><?= htmlspecialchars($bookingData['location'] ?: '—') ?></div>
-            </div>
-            <div class="detail">
-              <span class="label" data-i18n="success_label_format">Preferred format</span>
-              <div class="value"><?= htmlspecialchars($bookingData['preferred'] ?: '—') ?></div>
-            </div>
-            <div class="detail">
-              <span class="label" data-i18n="success_label_message">Short description</span>
-              <div class="value"><?= nl2br(htmlspecialchars($bookingData['message'] ?: '—')) ?></div>
-            </div>
-            <div class="detail">
-              <span class="label" data-i18n="success_label_submitted">Submitted at</span>
-              <div class="value"><?= htmlspecialchars($bookingData['created_at'] ?: '—') ?></div>
-            </div>
-          </div>
+      
 
           <div class="notice" data-i18n="success_notice">
             Your consultation request has been received successfully. You should now be contacted to confirm the format and next practical steps.

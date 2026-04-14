@@ -120,6 +120,7 @@ exit;
       font-family:"Manrope",system-ui,sans-serif;
       -webkit-font-smoothing:antialiased;
       text-rendering:optimizeLegibility;
+      overflow-x:hidden;
     }
     a{text-decoration:none;color:inherit}
     button,input,select,textarea{font:inherit}
@@ -364,7 +365,7 @@ exit;
     @media (max-width:1180px){
       .hero-top{grid-template-columns:1fr;justify-items:start}
       .nav{justify-content:flex-start;gap:18px}
-      .hero-center{position:relative;inset:auto;display:block;text-align:left;padding-top:140px}
+      .hero-center{position:relative;inset:auto;transform:none;display:block;text-align:left;padding-top:140px}
       .hero-bottom{position:relative;left:auto;right:auto;bottom:auto;margin-top:90px;flex-direction:column;align-items:flex-start}
       .hero-wrap{min-height:auto;padding-bottom:34px}
       .payment-layout{grid-template-columns:1fr}
@@ -394,9 +395,17 @@ exit;
       .nav a::after{display:none}
       .nav a:last-child{border-bottom:0}
       .hero-right{display:none}
+      .hero-center{padding-top:60px}
+      .hero-title{font-size:clamp(44px,11vw,76px) !important}
+      .hero-title span{font-size:clamp(30px,8vw,52px) !important}
+      .hero-sub{font-size:15px;max-width:100%}
+      .hero-years{display:none}
+      .hero-bottom{margin-top:28px}
     }
     @media(max-width:480px){
       :root{--container:min(100% - 16px,1700px)}
+      .hero-title{font-size:clamp(36px,10vw,56px) !important}
+      .hero-title span{font-size:clamp(24px,7vw,40px) !important}
       .whatsapp-float span:last-child{display:none}
       .whatsapp-float{padding:14px;border-radius:50%;gap:0;width:52px;height:52px;justify-content:center}
     }
@@ -462,7 +471,7 @@ exit;
       <div class="hero-center">
         <div>
           <div class="micro" data-i18n="payment_micro">Payment review</div>
-          <h1 class="hero-title" data-i18n="payment_hero_title">Review your <span data-i18n="payment_hero_title_span">consultation</span></h1>
+          <h1 class="hero-title" data-i18n="payment_hero_title" data-i18n-html>Review your <span data-i18n="payment_hero_title_span">consultation</span></h1>
           <div class="hero-sub" data-i18n="payment_hero_sub">Confirm your selected package and your details before continuing to secure payment.</div>
         </div>
       </div>
