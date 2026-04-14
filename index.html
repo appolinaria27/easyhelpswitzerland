@@ -2993,6 +2993,8 @@
       <div class="why-desc" data-i18n="why_1_desc">Clear agreements and practical support make the process more seamless and less stressful.</div>
       <button class="why-arrow" type="button"
   data-title="Legal clarity"
+  data-i18n-title="why_1_title"
+  data-i18n-content="why_1_content"
   data-content="<p>Legal clarity means understanding your real options before taking action.</p><ul><li>We explain which route is realistic for your case</li><li>We show what documents and steps matter first</li><li>We help you avoid delays, refusals and unnecessary costs</li></ul><p><strong>Result:</strong> you move forward with a clear and structured plan.</p>"
 >↗</button>
 
@@ -3004,6 +3006,8 @@
       <div class="why-desc" data-i18n="why_2_desc">Complex Swiss procedures are explained simply, with practical next steps you can actually follow.</div>
       <button class="why-arrow" type="button"
   data-title="Clear communication"
+  data-i18n-title="why_2_title"
+  data-i18n-content="why_2_content"
   data-content="<p>Swiss procedures can feel complex, especially when information is formal or in German.</p><ul><li>We explain things in simple language</li><li>You get practical next steps instead of vague theory</li><li>You know what to do, when to do it, and why it matters</li></ul><p><strong>Result:</strong> less confusion and more confidence.</p>"
 >↗</button>
 
@@ -3015,6 +3019,8 @@
       <div class="why-desc" data-i18n="why_3_desc">Support with permits, registrations, documents, and authority communication in one structured process.</div>
       <button class="why-arrow" type="button"
   data-title="Practical support"
+  data-i18n-title="why_3_title"
+  data-i18n-content="why_3_content"
   data-content="<p>This is hands-on help, not only general advice.</p><ul><li>Support with permits, registration and documents</li><li>Help preparing forms and authority communication</li><li>Structured guidance through each stage of the process</li></ul><p><strong>Result:</strong> your case moves faster and with less stress.</p>"
 >↗</button>
 
@@ -3026,6 +3032,8 @@
       <div class="why-desc" data-i18n="why_4_desc">Get clarity and direction before spending unnecessarily on a full legal mandate.</div>
       <button class="why-arrow" type="button"
   data-title="Cost-efficient help"
+  data-i18n-title="why_4_title"
+  data-i18n-content="why_4_content"
   data-content="<p>Not every situation requires a full legal mandate from the beginning.</p><ul><li>Get clarity before paying for unnecessary legal work</li><li>Understand the smartest first step for your case</li><li>Use targeted support where it brings the most value</li></ul><p><strong>Result:</strong> better decisions with better budget control.</p>"
 >↗</button>
 
@@ -3551,6 +3559,10 @@
         html += '</ul>';
       }
 
+      if (!html && card.dataset.content) {
+        html = card.dataset.content;
+      }
+
       if (!html) {
         html = '<p>More information coming soon.</p>';
       }
@@ -3624,102 +3636,105 @@
   }
 
   function checkRelocation() {
-    const nationality = document.getElementById('rc-nationality')?.value || '';
-    const reason = document.getElementById('rc-reason')?.value || '';
-    const finance = document.getElementById('rc-finance')?.value || '';
-    const guarantor = document.getElementById('rc-guarantor')?.value || '';
-    const roots = document.getElementById('rc-roots')?.value || '';
+    const lang = document.documentElement.lang || localStorage.getItem(‘siteLanguage’) || ‘en’;
+    const tr = (key) => (window.translations && window.translations[lang] && window.translations[lang][key]) || (window.translations && window.translations[‘en’] && window.translations[‘en’][key]) || key;
+
+    const nationality = document.getElementById(‘rc-nationality’)?.value || ‘’;
+    const reason = document.getElementById(‘rc-reason’)?.value || ‘’;
+    const finance = document.getElementById(‘rc-finance’)?.value || ‘’;
+    const guarantor = document.getElementById(‘rc-guarantor’)?.value || ‘’;
+    const roots = document.getElementById(‘rc-roots’)?.value || ‘’;
 
     if (!nationality || !reason || !finance || !guarantor || !roots) {
       openAssessmentModal(
-        'Complete all answers',
-        `<div class="assessment-highlight">Please answer all five questions first, and then we can show your initial route and estimated chances.</div>`,
-        '#relocation-check',
-        'Return to check'
+        tr(‘rc_incomplete_title’),
+        `<div class="assessment-highlight">${tr(‘rc_incomplete_msg’)}</div>`,
+        ‘#relocation-check’,
+        tr(‘rc_return_btn’)
       );
       return;
     }
 
     let score = 35;
-    let routeName = '';
-    let summary = '';
-    let detail = '';
-    let ctaHref = 'booking.php';
-    let ctaText = 'Book consultation';
+    let routeName = ‘’;
+    let summary = ‘’;
+    let detail = ‘’;
+    let ctaHref = ‘booking.php’;
+    let ctaText = tr(‘rc_cta_book’);
 
-    if (nationality === 'eu') score += 18;
-    if (nationality === 'non-eu') score += 6;
-    if (finance === 'yes') score += 15;
-    if (guarantor === 'yes') score += 12;
-    if (roots === 'yes') score += 10;
+    if (nationality === ‘eu’) score += 18;
+    if (nationality === ‘non-eu’) score += 6;
+    if (finance === ‘yes’) score += 15;
+    if (guarantor === ‘yes’) score += 12;
+    if (roots === ‘yes’) score += 10;
 
     switch (reason) {
-      case 'job':
-        routeName = 'Work / Employment Route';
-        score += nationality === 'eu' ? 20 : 14;
-        summary = 'Yes, you may have an option to arrive through a work-related route.';
-        detail = 'A job offer is one of the strongest practical grounds, especially if combined with financial means and a stable background.';
+      case ‘job’:
+        routeName = tr(‘rc_route_job’);
+        score += nationality === ‘eu’ ? 20 : 14;
+        summary = tr(‘rc_summary_job’);
+        detail = tr(‘rc_detail_job’);
         break;
 
-      case 'study':
-        routeName = 'Study Route';
+      case ‘study’:
+        routeName = tr(‘rc_route_study’);
         score += 14;
-        summary = 'Yes, studying can be a valid route to come to Switzerland.';
-        detail = 'This route becomes more realistic when you can show sufficient financial means, a structured study plan, and overall credibility of stay.';
+        summary = tr(‘rc_summary_study’);
+        detail = tr(‘rc_detail_study’);
         break;
 
-      case 'family':
-        routeName = 'Family Reunification Route';
+      case ‘family’:
+        routeName = tr(‘rc_route_family’);
         score += 18;
-        summary = 'Yes, family reunification may be a relevant route in your case.';
-        detail = 'Your chances are usually stronger if there is already a family member in Switzerland and financial / accommodation conditions can be supported.';
+        summary = tr(‘rc_summary_family’);
+        detail = tr(‘rc_detail_family’);
         break;
 
-      case 'marriage':
-        routeName = 'Marriage / Future Family Route';
+      case ‘marriage’:
+        routeName = tr(‘rc_route_marriage’);
         score += 16;
-        summary = 'Yes, marriage-related residence options may be possible.';
-        detail = 'This route depends heavily on the real family situation, the partner’s status in Switzerland and the quality of documentary preparation.';
+        summary = tr(‘rc_summary_marriage’);
+        detail = tr(‘rc_detail_marriage’);
         break;
 
-      case 'business':
-        routeName = 'Business / Entrepreneur Route';
+      case ‘business’:
+        routeName = tr(‘rc_route_business’);
         score += 12;
-        summary = 'Yes, a business-based route may be possible.';
-        detail = 'This option is more individual and usually requires stronger preparation, financial credibility and a more tailored legal review.';
+        summary = tr(‘rc_summary_business’);
+        detail = tr(‘rc_detail_business’);
         break;
 
-      case 'refugee':
-        routeName = 'Protection / Refugee Route';
+      case ‘refugee’:
+        routeName = tr(‘rc_route_refugee’);
         score += 8;
-        summary = 'This route cannot be assessed reliably by a simple online tool.';
-        detail = 'Protection-based cases depend on very specific legal and factual circumstances. A private individual review is strongly recommended.';
-        ctaHref = 'free-consultation.php';
-        ctaText = 'Request private consultation';
+        summary = tr(‘rc_summary_refugee’);
+        detail = tr(‘rc_detail_refugee’);
+        ctaHref = ‘free-consultation.php’;
+        ctaText = tr(‘rc_cta_consult’);
         break;
     }
 
-    if (finance === 'no') score -= 12;
-    if (guarantor === 'no') score -= 6;
-    if (roots === 'no') score -= 8;
+    if (finance === ‘no’) score -= 12;
+    if (guarantor === ‘no’) score -= 6;
+    if (roots === ‘no’) score -= 8;
 
     score = Math.max(18, Math.min(92, score));
 
-    let chanceLabel = '';
-    if (score >= 75) chanceLabel = 'Strong initial chances';
-    else if (score >= 55) chanceLabel = 'Moderate but realistic chances';
-    else chanceLabel = 'Possible, but requires stronger individual review';
+    let chanceLabel = ‘’;
+    if (score >= 75) chanceLabel = tr(‘rc_chance_strong’);
+    else if (score >= 55) chanceLabel = tr(‘rc_chance_moderate’);
+    else chanceLabel = tr(‘rc_chance_low’);
 
     const html = `
       <div class="assessment-score">${score}%</div><br>
       <span class="assessment-route">${routeName}</span>
       <div class="assessment-highlight"><strong>${chanceLabel}</strong><br>${summary}</div>
       <p>${detail}</p>
-      <p><strong>Why this result:</strong> ${finance === 'yes' ? 'financial means' : 'limited financial means'}, ${guarantor === 'yes' ? 'guarantor in Switzerland' : 'no guarantor'}, ${roots === 'yes' ? 'stable home-country ties' : 'limited home-country ties'}, and <strong>${nationality === 'eu' ? 'EU citizenship' : 'non-EU citizenship'}</strong> all influence the initial picture.</p>
-      <p>For a precise answer, your documents, purpose of stay, family status, timeline and canton must be reviewed individually.</p>
+      <p><strong>${tr(‘rc_why_result’)}</strong> ${finance === ‘yes’ ? tr(‘rc_finance_yes’) : tr(‘rc_finance_no’)}, ${guarantor === ‘yes’ ? tr(‘rc_guarantor_yes’) : tr(‘rc_guarantor_no’)}, ${roots === ‘yes’ ? tr(‘rc_roots_yes’) : tr(‘rc_roots_no’)}, and <strong>${nationality === ‘eu’ ? tr(‘rc_eu’) : tr(‘rc_noneu’)}</strong> ${tr(‘rc_all_influence’)}</p>
+      <p>${tr(‘rc_precise’)}</p>
     `;
 
-    openAssessmentModal('Your current chances', html, ctaHref, ctaText);
+    openAssessmentModal(tr(‘rc_modal_title’), html, ctaHref, ctaText);
   }
 
   (() => {
