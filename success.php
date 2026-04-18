@@ -236,6 +236,7 @@ try {
     .nav a::after{content:"";position:absolute;left:0;right:0;bottom:-6px;height:1px;background:rgba(255,255,255,.8);transform:scaleX(0);transition:.25s ease}
     .nav a:hover::after{transform:scaleX(1)}
     .hero-right{display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:16px;flex-wrap:wrap}
+    .nav-lang-mobile{display:none}
     .lang-switch{display:flex;gap:10px;align-items:center}
     .lang-switch button{background:transparent;border:none;font-size:14px;font-weight:500;color:rgba(255,255,255,.65);cursor:pointer;padding:0;transition:.2s ease}
     .lang-switch button:hover{color:#fff}

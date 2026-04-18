@@ -92,6 +92,7 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
     .hero-right{display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:16px;flex-wrap:wrap}
 
     /* LANGUAGE SWITCH — same as index */
+    .nav-lang-mobile{display:none}
 
 .lang-switch{
   display:flex;

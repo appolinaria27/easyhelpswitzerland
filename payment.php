@@ -166,6 +166,7 @@ exit;
   flex-wrap:wrap;
 }
 
+.nav-lang-mobile{display:none}
 .lang-switch{
   display:flex;
   gap:8px;
