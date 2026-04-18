@@ -453,11 +453,11 @@ exit;
 
         <button class="burger" id="burgerBtn" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
         <nav class="nav" id="mainNav">
-          <a href="index.html" data-i18n="payment_home">Home</a>
-          <a href="booking.php" data-i18n="payment_booking_nav">Booking</a>
-          <a href="blog.html" data-i18n="payment_guides">Guides</a>
-          <a href="free-consultation.php" data-i18n="payment_free_consultation">Free consultation</a>
-          <a href="index.html#contact" data-i18n="payment_contacts">Contacts</a>
+          <a href="index.html" data-i18n="nav_home">Home</a>
+          <a href="index.html#services" data-i18n="nav_objects">Services</a>
+          <a href="blog.html" data-i18n="blog_nav_guides">Guides</a>
+          <a href="free-consultation.php" data-i18n="booking_nav_free_consultation">Free consultation</a>
+          <a href="index.html#contact" data-i18n="nav_contact">Contacts</a>
           
         </nav>
 
@@ -604,7 +604,7 @@ exit;
   <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  const bookingData = <?php echo json_encode($bookingData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>;
+  const bookingData = <?php echo json_encode($bookingData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP); ?>;
 
   const packages = {
     initial: { name: "Quick consultation", price: "CHF 79" },

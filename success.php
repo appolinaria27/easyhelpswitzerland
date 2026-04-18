@@ -506,10 +506,10 @@ try {
         <button class="burger" id="burgerBtn" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
         <nav class="nav" id="mainNav">
           <a href="index.html" data-i18n="nav_home">Home</a>
-          <a href="booking.php" data-i18n="success_nav_booking">Booking</a>
-          <a href="blog.html" data-i18n="success_nav_guides">Guides</a>
-          <a href="free-consultation.php" data-i18n="success_nav_free_consultation">Free consultation</a>
-          <a href="index.html#contact" data-i18n="success_nav_contacts">Contacts</a>
+          <a href="index.html#services" data-i18n="nav_objects">Services</a>
+          <a href="blog.html" data-i18n="blog_nav_guides">Guides</a>
+          <a href="free-consultation.php" data-i18n="booking_nav_free_consultation">Free consultation</a>
+          <a href="index.html#contact" data-i18n="nav_contact">Contacts</a>
           
         </nav>
 
