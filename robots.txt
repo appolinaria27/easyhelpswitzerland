@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /logs/
+Disallow: /pending-bookings/
+Disallow: /bookings/
+Disallow: /rate-limit/
+Disallow: /vendor/
+Disallow: /create-checkout-session.php
+Disallow: /submit-consultation.php
+Disallow: /stripe-webhook.php
+Disallow: /security.php
+
+Sitemap: https://easyhelpswiss.com/sitemap.xml

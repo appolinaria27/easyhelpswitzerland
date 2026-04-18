@@ -196,33 +196,39 @@ if ($result === false) {
     checkoutFail('failed to write pending booking file: ' . $pendingFile, $baseUrl . '/payment.php?error=system_error');
 }
 
-$checkout_session = \Stripe\Checkout\Session::create([
-  'payment_method_types' => ['card'],
-  'mode' => 'payment',
-
-  'customer_email' => $email ?: null,
-
-  'line_items' => [[
-    'price_data' => [
-      'currency' => 'chf',
-      'product_data' => [
-        'name' => $selectedPackage['name'],
-      ],
-      'unit_amount' => $selectedPackage['amount'],
-    ],
-    'quantity' => 1,
-  ]],
-
-  'metadata' => [
-    'internal_booking_id' => $internalBookingId,
-    'package' => $package,
-    'package_name' => $selectedPackage['name'],
-    'price_chf' => number_format($selectedPackage['amount'] / 100, 2, '.', ''),
-],
-
-  'success_url' => $baseUrl . '/success.php?session_id={CHECKOUT_SESSION_ID}',
-  'cancel_url' => $baseUrl . '/payment.php',
-]);
+try {
+    $checkout_session = \Stripe\Checkout\Session::create([
+        'payment_method_types' => ['card'],
+        'mode' => 'payment',
+        'customer_email' => $email ?: null,
+        'line_items' => [[
+            'price_data' => [
+                'currency' => 'chf',
+                'product_data' => ['name' => $selectedPackage['name']],
+                'unit_amount' => $selectedPackage['amount'],
+            ],
+            'quantity' => 1,
+        ]],
+        'metadata' => [
+            'internal_booking_id' => $internalBookingId,
+            'package' => $package,
+            'package_name' => $selectedPackage['name'],
+            'price_chf' => number_format($selectedPackage['amount'] / 100, 2, '.', ''),
+        ],
+        'success_url' => $baseUrl . '/success.php?session_id={CHECKOUT_SESSION_ID}',
+        'cancel_url'  => $baseUrl . '/payment.php',
+    ]);
+} catch (\Stripe\Exception\ApiErrorException $e) {
+    error_log('Stripe API error: ' . $e->getMessage());
+    // Clean up pending booking file since Stripe session was not created
+    if (file_exists($pendingFile)) {
+        unlink($pendingFile);
+    }
+    checkoutFail('stripe api error', $baseUrl . '/payment.php?error=payment_unavailable');
+} catch (\Exception $e) {
+    error_log('Checkout unexpected error: ' . $e->getMessage());
+    checkoutFail('unexpected checkout error', $baseUrl . '/payment.php?error=system_error');
+}
 
 $_SESSION['last_checkout_session_id'] = $checkout_session->id;
 

@@ -146,18 +146,24 @@ if ($event->type === 'checkout.session.completed') {
             }
         }
 
-        // Admin email - separate try/catch so a failure does not block the client email
+        // Helper: persist booking state immediately after each change (idempotency)
+        $saveBooking = function () use (&$bookingData, $archiveFile) {
+            file_put_contents(
+                $archiveFile,
+                json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
+                LOCK_EX
+            );
+        };
+
+        // Admin email
         if (($bookingData['admin_email_sent'] ?? false) !== true) {
             try {
                 $mail = createWebhookMailer();
                 $mail->addAddress($_ENV['ADMIN_EMAIL']);
-
                 if (!empty($bookingData['email'])) {
-                    // Strip newlines from name to prevent email header injection
                     $safeName = str_replace(["\r", "\n"], ' ', $bookingData['name'] ?: 'Client');
                     $mail->addReplyTo($bookingData['email'], $safeName);
                 }
-
                 $mail->Subject = 'New Paid Booking Received';
                 $mail->Body =
                     "A new paid consultation booking has been received.\n\n" .
@@ -173,19 +179,16 @@ if ($event->type === 'checkout.session.completed') {
                     "Payment status: {$bookingData['payment_status']}\n" .
                     "Submitted at: {$bookingData['created_at']}\n" .
                     "Paid at: {$bookingData['paid_at']}\n";
-
                 $mail->send();
                 $bookingData['admin_email_sent'] = true;
+                $saveBooking(); // persist flag immediately so retries don't resend
             } catch (Exception $e) {
                 error_log('Webhook admin mail error: ' . $e->getMessage());
             }
         }
 
-        // Client confirmation email - separate try/catch so it always runs
-        if (
-            !empty($bookingData['email']) &&
-            ($bookingData['client_email_sent'] ?? false) !== true
-        ) {
+        // Client confirmation email
+        if (!empty($bookingData['email']) && ($bookingData['client_email_sent'] ?? false) !== true) {
             try {
                 $clientMail = createWebhookMailer();
                 $clientMail->addAddress($bookingData['email'], $bookingData['name'] ?: 'Client');
@@ -200,29 +203,16 @@ if ($event->type === 'checkout.session.completed') {
                     "Submitted at: {$bookingData['created_at']}\n" .
                     "Paid at: {$bookingData['paid_at']}\n\n" .
                     "We will contact you shortly regarding the next steps.\n\n" .
-                    "Best regards,\n" .
-                    "Polina Kravtsova";
-
+                    "Best regards,\nPolina Kravtsova";
                 $clientMail->send();
                 $bookingData['client_email_sent'] = true;
+                $saveBooking(); // persist flag immediately so retries don't resend
             } catch (Exception $e) {
                 error_log('Webhook client mail error: ' . $e->getMessage());
             }
         }
 
-        // Save final booking state and clean up pending file
-        $saved = file_put_contents(
-            $archiveFile,
-            json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
-            LOCK_EX
-        );
-
-        if ($saved === false) {
-            error_log('Webhook archive update error: ' . $archiveFile);
-            http_response_code(500);
-            exit();
-        }
-
+        // Clean up pending file
         if (file_exists($pendingFile)) {
             unlink($pendingFile);
         }

@@ -157,11 +157,11 @@ function createMailer(): PHPMailer
 }
 
 try {
+    // Admin notification
     $mail = createMailer();
     $mail->setFrom($_ENV['MAIL_FROM'], 'Easy Help Switzerland');
     $mail->addAddress($_ENV['ADMIN_EMAIL']);
     $mail->addReplyTo($email, $safeName);
-
     $mail->Subject = 'New Free Consultation Request';
     $mail->Body =
         "New free consultation request received\n\n" .
@@ -171,23 +171,19 @@ try {
         "Current location: $location\n" .
         "Topic: $topic\n" .
         "Message:\n$messageText\n";
-
     $mail->send();
+} catch (Exception $e) {
+    error_log('Consultation admin mail error: ' . $e->getMessage());
+    http_response_code(500);
+    echo 'Request is not sent, please try again later.';
+    exit;
+}
 
-    // Send confirmation email to the customer
-    $confirmation = new PHPMailer(true);
-    $confirmation->isSMTP();
-    $confirmation->Host       = $_ENV['SMTP_HOST'];
-    $confirmation->SMTPAuth   = true;
-    $confirmation->Username   = $_ENV['SMTP_USER'];
-    $confirmation->Password   = $_ENV['SMTP_PASS'];
-    $confirmation->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $confirmation->Port       = (int) $_ENV['SMTP_PORT'];
-    $confirmation->CharSet    = 'UTF-8';
-
+// Customer confirmation (non-critical — log failure but still confirm to user)
+try {
+    $confirmation = createMailer();
     $confirmation->setFrom($_ENV['MAIL_FROM'], 'Easy Help Switzerland');
     $confirmation->addAddress($email, $safeName);
-
     $confirmation->Subject = 'We received your consultation request';
     $confirmation->Body =
         "Dear $safeName,\n\n" .
@@ -196,12 +192,10 @@ try {
         "Topic: $topic\n" .
         "Message:\n$messageText\n\n" .
         "Best regards,\nPolina Kravtsova\nEasy Help Switzerland";
-
     $confirmation->send();
-
-    echo 'Request is sent. Thank you!';
 } catch (Exception $e) {
-    error_log('Consultation mail error: ' . $mail->ErrorInfo);
-    http_response_code(500);
-    echo 'Request is not sent, please try again later.';
+    error_log('Consultation confirmation mail error: ' . $e->getMessage());
 }
+
+http_response_code(200);
+echo 'Request is sent. Thank you!';

@@ -179,6 +179,12 @@ try {
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Payment Successful | Easy Help Switzerland</title>
   <meta name="description" content="Your consultation booking has been received successfully." />
+  <link rel="canonical" href="https://easyhelpswiss.com/success.php" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://easyhelpswiss.com/success.php" />
+  <meta property="og:title" content="Booking Confirmed — Easy Help Switzerland" />
+  <meta property="og:description" content="Your consultation booking has been received. We will be in touch shortly." />
+  <meta property="og:image" content="https://easyhelpswiss.com/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -609,7 +615,7 @@ try {
         <svg viewBox="0 0 32 48" aria-hidden="true"><path d="M4 44V10l10-8 10 8v34"></path><path d="M14 44V22l10-8v30"></path></svg>
         <span>Easy Help Switzerland</span>
       </div>
-      <div class="footer-center" data-i18n="booking_footer_copy">© 2026 Easy Help Switzerland - all rights reserved.</div>
+      <div class="footer-center">© 2026 Easy Help Switzerland - all rights reserved.<br><a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a></div>
       <div class="footer-right" data-i18n="success_footer_page">Confirmation page</div>
     </footer>
   </div>

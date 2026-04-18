@@ -92,6 +92,12 @@ exit;
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Review & Payment | Easy Help Switzerland</title>
   <meta name="description" content="Review your booking details and continue to secure payment in a premium, consistent checkout step." />
+  <link rel="canonical" href="https://easyhelpswiss.com/payment.php" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://easyhelpswiss.com/payment.php" />
+  <meta property="og:title" content="Review & Payment — Easy Help Switzerland" />
+  <meta property="og:description" content="Secure payment for your relocation consultation package." />
+  <meta property="og:image" content="https://easyhelpswiss.com/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -591,7 +597,7 @@ exit;
         <svg viewBox="0 0 32 48" aria-hidden="true"><path d="M4 44V10l10-8 10 8v34"></path><path d="M14 44V22l10-8v30"></path></svg>
         <span>Easy Help Switzerland</span>
       </div>
-      <div class="footer-center" data-i18n="payment_footer_rights">© 2026 Easy Help Switzerland - all rights reserved.</div>
+      <div class="footer-center">© 2026 Easy Help Switzerland - all rights reserved.<br><a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a></div>
       <div class="footer-right" data-i18n="payment_footer_page">Payment page</div>
     </footer>
   </div>

@@ -476,6 +476,7 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
   footer_brand: "Easy Help Switzerland",
   footer_copy: "© 2026 Easy Help Switzerland - all rights reserved.",
   footer_tagline: "Practical relocation support in Switzerland",
+  footer_privacy: "Privacy Policy",
 
 
   //Free Consultation
@@ -1337,6 +1338,7 @@ footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.
   footer_brand: "Easy Help Switzerland",
   footer_copy: "© 2026 Easy Help Switzerland — Todos los derechos reservados.",
   footer_tagline: "Apoyo práctico de reubicación en Suiza",
+  footer_privacy: "Política de privacidad",
 
 
 //Free Consultation
@@ -2162,6 +2164,7 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   footer_brand: "Easy Help Switzerland",
   footer_copy: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   footer_tagline: "Praktische Umzugsunterstützung in der Schweiz",
+  footer_privacy: "Datenschutzerklärung",
 
 
 //Free Consultation
@@ -3067,6 +3070,7 @@ payment_note: "Оплата підтверджує ваш запит на кон
   footer_brand: "Easy Help Switzerland",
   footer_copy: "© 2026 Easy Help Switzerland — Усі права захищені.",
   footer_tagline: "Практична підтримка з релокації у Швейцарії",
+  footer_privacy: "Політика конфіденційності",
 
 
   //Free Consultation
