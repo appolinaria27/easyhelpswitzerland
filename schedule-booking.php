@@ -27,11 +27,12 @@ if (empty($_SESSION['admin_csrf']) || !hash_equals($_SESSION['admin_csrf'], $csr
     exit;
 }
 
-$id       = preg_replace('/[^a-f0-9]/', '', $body['id'] ?? '');
-$datetime = trim($body['datetime'] ?? '');
-$sendMail = !empty($body['send_mail']);
+$id        = preg_replace('/[^a-f0-9]/', '', $body['id'] ?? '');
+$datetime  = trim($body['datetime'] ?? '');
+$sendMail  = !empty($body['send_mail']);
+$emailOnly = !empty($body['email_only']); // send email using already-saved termin, no datetime required
 
-if (!$id || !$datetime) {
+if (!$id || (!$datetime && !$emailOnly)) {
     echo json_encode(['ok' => false, 'error' => 'Missing data']);
     exit;
 }
@@ -63,31 +64,43 @@ if (!$booking) {
     exit;
 }
 
-// Parse datetime
-try {
-    $dt = new DateTime($datetime);
-    $terminFormatted = $dt->format('d.m.Y \u\m H:i \U\h\r');
-    $terminDay = $dt->format('l, d.m.Y');
-    $terminTime = $dt->format('H:i');
-    $terminISO = $dt->format('c');
-} catch (Exception $e) {
-    echo json_encode(['ok' => false, 'error' => 'Invalid datetime']);
-    exit;
-}
-
-// Save to admin-data
+// Load/save admin-data note
 $dataDir = __DIR__ . '/admin-data';
 if (!is_dir($dataDir)) mkdir($dataDir, 0700, true);
 $noteFile = $dataDir . '/' . $id . '.json';
+$note = file_exists($noteFile) ? (json_decode(file_get_contents($noteFile), true) ?? []) : [];
 
-$note = [];
-if (file_exists($noteFile)) {
-    $note = json_decode(file_get_contents($noteFile), true) ?? [];
+if (!$emailOnly) {
+    // Parse and save the datetime
+    try {
+        $dt = new DateTime($datetime);
+        $terminISO  = $dt->format('c');
+        $terminDay  = $dt->format('l, d.m.Y');
+        $terminTime = $dt->format('H:i');
+    } catch (Exception $e) {
+        echo json_encode(['ok' => false, 'error' => 'Invalid datetime']);
+        exit;
+    }
+    $note['termin']     = $terminISO;
+    $note['status']     = $note['status'] ?? 'confirmed';
+    $note['updated_at'] = date('c');
+    file_put_contents($noteFile, json_encode($note, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+} else {
+    // Email-only: read saved termin
+    $savedTermin = $note['termin'] ?? '';
+    if (!$savedTermin) {
+        echo json_encode(['ok' => false, 'error' => 'No saved termin found']);
+        exit;
+    }
+    try {
+        $dt = new DateTime($savedTermin);
+        $terminDay  = $dt->format('l, d.m.Y');
+        $terminTime = $dt->format('H:i');
+    } catch (Exception $e) {
+        echo json_encode(['ok' => false, 'error' => 'Invalid saved termin']);
+        exit;
+    }
 }
-$note['termin']     = $terminISO;
-$note['status']     = $note['status'] ?? 'confirmed';
-$note['updated_at'] = date('c');
-file_put_contents($noteFile, json_encode($note, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
 
 // Send confirmation email
 if ($sendMail && !empty($booking['email'])) {

@@ -289,6 +289,13 @@ foreach (array_merge($paid, $pending) as $b) {
     .btn-cancel-booking { padding: 10px 18px; background: transparent; color: #c0392b; border: 1px solid #c0392b; border-radius: 8px; font-size: 12px; font-family: inherit; font-weight: 500; letter-spacing: .06em; cursor: pointer; text-transform: uppercase; transition: all .2s; }
     .btn-cancel-booking:hover { background: #c0392b; color: #fff; }
 
+    /* Save calendar toolbar */
+    .cal-toolbar-extra { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .btn-save-calendar { padding: 10px 24px; background: var(--dark); color: #fff; border: none; border-radius: 8px; font-family: inherit; font-size: 12px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: opacity .2s; }
+    .btn-save-calendar:hover { opacity: .8; }
+    .btn-save-calendar:disabled { opacity: .4; cursor: default; }
+    .save-status { font-size: 12px; color: var(--muted); letter-spacing: .02em; }
+
     /* Toast */
     .toast {
       position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(12px);
@@ -385,6 +392,12 @@ foreach (array_merge($paid, $pending) as $b) {
 
       <!-- Calendar -->
       <div class="cal-main">
+        <div class="cal-toolbar-extra">
+          <button class="btn-save-calendar" id="btnSaveCalendar" onclick="saveAllEvents()">
+            &#10003; Save calendar
+          </button>
+          <span class="save-status" id="saveStatus"></span>
+        </div>
         <div id="calendar"></div>
       </div>
 
@@ -552,18 +565,14 @@ foreach (array_merge($paid, $pending) as $b) {
 
 </div><!-- /container -->
 
-<!-- Confirm modal -->
+<!-- Email modal (fires after auto-save on drop) -->
 <div class="modal-overlay" id="scheduleModal">
   <div class="modal">
-    <h3>Confirm appointment</h3>
-    <p id="modalText">Schedule this consultation?</p>
-    <label class="mail-toggle">
-      <input type="checkbox" id="sendMailCheck" checked>
-      Send confirmation email to client
-    </label>
+    <h3>Send email?</h3>
+    <p id="modalText">Send a confirmation email to the client?</p>
     <div class="modal-actions">
-      <button class="btn-confirm" id="modalConfirm">Confirm &amp; Schedule</button>
-      <button class="btn-cancel-modal" id="modalCancel">Cancel</button>
+      <button class="btn-confirm" id="modalConfirm">Yes, send email</button>
+      <button class="btn-cancel-modal" id="modalCancel">No, skip</button>
     </div>
   </div>
 </div>
@@ -600,63 +609,95 @@ function showToast(msg, type) {
   setTimeout(() => t.classList.remove('show'), 3500);
 }
 
-// ── Modal ──────────────────────────────────────────────────────
-let pendingDrop = null;
-let pendingEl   = null;
-let pendingRevert = null;
+// ── Modal (email-only, after auto-save) ───────────────────────
+let pendingEmailId = null;
 
 document.getElementById('modalCancel').addEventListener('click', () => {
-  closeModal(true);
+  document.getElementById('scheduleModal').classList.remove('visible');
+  pendingEmailId = null;
 });
 
 document.getElementById('modalConfirm').addEventListener('click', () => {
-  if (!pendingDrop) return;
-  const sendMail = document.getElementById('sendMailCheck').checked;
-  closeModal(false);
-  scheduleBooking(pendingDrop.id, pendingDrop.datetime, pendingEl, sendMail);
-});
-
-function openModal(name, datetimeStr, el, revertFn) {
-  const dt = new Date(datetimeStr);
-  const formatted = dt.toLocaleDateString('de-CH', { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' })
-    + ' at ' + dt.toLocaleTimeString('de-CH', { hour: '2-digit', minute: '2-digit' });
-  document.getElementById('modalText').innerHTML =
-    'Schedule <span class="highlight">' + name + '</span> for<br><span class="highlight">' + formatted + '</span>?';
-  pendingDrop = { id: el.dataset.id, datetime: datetimeStr };
-  pendingEl   = el;
-  pendingRevert = revertFn;
-  document.getElementById('scheduleModal').classList.add('visible');
-}
-
-function closeModal(revert) {
+  if (!pendingEmailId) return;
   document.getElementById('scheduleModal').classList.remove('visible');
-  if (revert && pendingRevert) pendingRevert();
-  pendingDrop = pendingEl = pendingRevert = null;
-}
-
-// ── Schedule booking via AJAX ──────────────────────────────────
-function scheduleBooking(id, datetime, el, sendMail) {
+  const id = pendingEmailId;
+  pendingEmailId = null;
   fetch('schedule-booking.php', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ id, datetime, csrf: CSRF, send_mail: sendMail })
+    body: JSON.stringify({ id, datetime: null, csrf: CSRF, send_mail: true, email_only: true })
+  })
+  .then(r => r.json())
+  .then(d => showToast(d.email_sent ? 'Confirmation email sent!' : 'Email failed: ' + (d.email_error || '?'), d.email_sent ? 'success' : 'error'))
+  .catch(() => showToast('Network error', 'error'));
+});
+
+function openEmailModal(name, id) {
+  document.getElementById('modalText').innerHTML =
+    'Appointment saved. Send confirmation email to <span class="highlight">' + name + '</span>?';
+  pendingEmailId = id;
+  document.getElementById('scheduleModal').classList.add('visible');
+}
+
+// ── Schedule booking via AJAX ──────────────────────────────────
+function scheduleBooking(id, datetime, el) {
+  setSaveStatus('Saving…');
+  fetch('schedule-booking.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id, datetime, csrf: CSRF, send_mail: false })
   })
   .then(r => r.json())
   .then(data => {
     if (data.ok) {
+      // Remove from unscheduled sidebar
       if (el && el.parentNode) el.remove();
       const count = document.querySelector('.sidebar-label .count');
-      if (count) count.textContent = parseInt(count.textContent) - 1;
-      if (data.email_sent) {
-        showToast('Scheduled & confirmation email sent!', 'success');
-      } else {
-        showToast('Scheduled. ' + (sendMail ? 'Email failed: ' + (data.email_error || '?') : 'No email sent.'), sendMail ? 'error' : 'success');
-      }
+      if (count) { const n = parseInt(count.textContent) - 1; count.textContent = n; }
+      setSaveStatus('Saved ✓');
+      // Ask about email
+      const name = el ? (el.dataset.name || '') : '';
+      openEmailModal(name, id);
     } else {
-      showToast('Error: ' + (data.error || 'Unknown'), 'error');
+      setSaveStatus('Save failed ✗');
+      showToast('Error saving: ' + (data.error || 'Unknown'), 'error');
     }
   })
-  .catch(() => showToast('Network error — please retry.', 'error'));
+  .catch(() => { setSaveStatus('Network error ✗'); showToast('Network error — retry.', 'error'); });
+}
+
+// ── Save ALL calendar events ───────────────────────────────────
+function saveAllEvents() {
+  const events = calendar.getEvents();
+  if (!events.length) { showToast('No events on calendar.', ''); return; }
+  const btn = document.getElementById('btnSaveCalendar');
+  btn.disabled = true;
+  setSaveStatus('Saving ' + events.length + ' events…');
+
+  const promises = events.map(ev =>
+    fetch('schedule-booking.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ id: ev.id, datetime: ev.start.toISOString(), csrf: CSRF, send_mail: false })
+    }).then(r => r.json())
+  );
+
+  Promise.all(promises).then(results => {
+    btn.disabled = false;
+    const failed = results.filter(r => !r.ok).length;
+    if (failed === 0) {
+      setSaveStatus('All ' + events.length + ' saved ✓');
+      showToast('Calendar saved!', 'success');
+    } else {
+      setSaveStatus(failed + ' failed ✗');
+      showToast(failed + ' event(s) failed to save.', 'error');
+    }
+  }).catch(() => { btn.disabled = false; showToast('Network error', 'error'); });
+}
+
+function setSaveStatus(msg) {
+  const el = document.getElementById('saveStatus');
+  if (el) el.textContent = msg;
 }
 
 // ── FullCalendar ───────────────────────────────────────────────
@@ -691,11 +732,11 @@ document.addEventListener('DOMContentLoaded', function () {
     droppable: true,
     events: CALENDAR_EVENTS,
 
-    // Drop from sidebar onto calendar
+    // Drop from sidebar onto calendar — save immediately, ask about email after
     drop: function (info) {
       const el = info.draggedEl;
       const dt = info.date.toISOString();
-      openModal(el.dataset.name, dt, el, null);
+      scheduleBooking(el.dataset.id, dt, el);
     },
 
     // Move existing event on calendar
