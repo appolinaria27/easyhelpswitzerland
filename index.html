@@ -1726,18 +1726,8 @@
       :root{ --container:min(100% - 18px, 1700px); }
       .panel{padding:20px;border-radius:26px}
       #clients-map{border-radius:0}
-
       .hero-wrap{padding:18px 18px 22px;border-radius:28px}
       .section-title{font-size:52px}
-      .cards-3,
-      .cards-4,
-      .minimal-grid-4,
-      .process-steps,
-      .pricing-grid,
-      .blog-grid,
-      .about-content{
-        grid-template-columns:1fr;
-      }
       .hero-features{gap:20px}
       .hero-feature{max-width:100%}
       .tiny-stat strong{font-size:48px}
@@ -1750,6 +1740,18 @@
       .contact-lead{font-size:56px}
       .hero-right{flex-wrap:wrap}
       .nav{gap:14px;font-size:14px}
+    }
+    /* Collapse to 1-column only on phones (≤640px) */
+    @media (max-width:640px){
+      .cards-3,
+      .cards-4,
+      .minimal-grid-4,
+      .process-steps,
+      .pricing-grid,
+      .blog-grid,
+      .about-content{
+        grid-template-columns:1fr;
+      }
     }
 
 #why{
@@ -2577,8 +2579,31 @@
 .burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* ======== 768px — HAMBURGER NAV ======== */
-@media(max-width:768px){
+/* ======== TABLET 641–900px ======== */
+@media(min-width:641px) and (max-width:900px){
+  .burger{display:none !important}
+  .hero-right{display:none !important}
+  .nav-lang-mobile{display:none !important}
+  .hero-top{grid-template-columns:auto 1fr;gap:20px;align-items:center}
+  .nav{display:flex !important;gap:28px;font-size:14px;flex-wrap:nowrap;justify-content:flex-end;overflow:visible}
+  .hero-center{position:relative;inset:auto;min-height:auto;display:block;text-align:left;padding-top:80px}
+  .hero-wrap{min-height:auto;padding-bottom:80px}
+  .hero-bottom{position:relative;left:auto;right:auto;bottom:auto;margin-top:50px;flex-direction:column;align-items:flex-start}
+  .hero-title{font-size:clamp(58px,9vw,100px) !important;letter-spacing:-.05em}
+  .hero-title span{font-size:clamp(40px,6.5vw,72px) !important}
+  .hero-sub{font-size:15px}
+  .cards-3,.pricing-grid,.blog-grid{grid-template-columns:repeat(2,1fr) !important}
+  .cards-4,.minimal-grid-4,.process-steps{grid-template-columns:repeat(2,1fr) !important}
+  .three-top{grid-template-columns:1fr auto;gap:24px}
+  .three-top .side-copy{display:none}
+  .listing-intro{grid-template-columns:1fr 1fr;gap:24px}
+  .listing-intro .logo-block:last-child{display:none}
+  .section-title{font-size:clamp(40px,6.5vw,68px)}
+  .tiny-stat strong{font-size:50px}
+}
+
+/* ======== 640px — HAMBURGER NAV ======== */
+@media(max-width:640px){
   .burger{display:flex}
   .hero-top{
     display:flex !important;
@@ -3540,9 +3565,9 @@
     <span data-i18n="footer_brand">Easy Help Switzerland</span>
   </div>
 
-  <div class="footer-center" data-i18n="footer_rights">
-    © 2026 Easy Help Switzerland — All rights reserved.
-    <br><a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a>
+  <div class="footer-center">
+    <span data-i18n="footer_copy">© 2026 Easy Help Switzerland - all rights reserved.</span><br>
+    <a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a>
   </div>
 
   <div class="footer-right social">
