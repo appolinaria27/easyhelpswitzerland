@@ -20,6 +20,9 @@ backups/
 pending-bookings/
 rate-limit/
 
+# PHP server config (server-specific, no secrets but not needed in repo)
+.user.ini
+
 # local tools
 .claude/
 
