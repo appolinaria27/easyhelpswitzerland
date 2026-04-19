@@ -4,6 +4,14 @@ const translations = {
     nav_about: "About",
     nav_objects: "Services",
     nav_contact: "Contact",
+    nav_areas: "Areas",
+
+    brand_name: "Easy Help",
+    brand_sub: "Switzerland",
+
+    modal_book_free: "Book free consultation",
+    modal_whatsapp: "Ask on WhatsApp",
+    modal_close: "Close",
 
     
   hero_title_main: "Easy Help",
@@ -468,6 +476,7 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
   footer_brand: "Easy Help Switzerland",
   footer_copy: "© 2026 Easy Help Switzerland - all rights reserved.",
   footer_tagline: "Practical relocation support in Switzerland",
+  footer_privacy: "Privacy Policy",
 
 
   //Free Consultation
@@ -857,6 +866,14 @@ area_3_modal_content: `
     nav_about: "Sobre mí",
     nav_objects: "Servicios",
     nav_contact: "Contacto",
+    nav_areas: "Áreas",
+
+    brand_name: "Easy Help",
+    brand_sub: "Suiza",
+
+    modal_book_free: "Solicitar consulta gratuita",
+    modal_whatsapp: "Preguntar por WhatsApp",
+    modal_close: "Cerrar",
 
   hero_title_main: "Easy Help",
   hero_title_sub: "Suiza",
@@ -1321,6 +1338,7 @@ footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.
   footer_brand: "Easy Help Switzerland",
   footer_copy: "© 2026 Easy Help Switzerland — Todos los derechos reservados.",
   footer_tagline: "Apoyo práctico de reubicación en Suiza",
+  footer_privacy: "Política de privacidad",
 
 
 //Free Consultation
@@ -1675,6 +1693,14 @@ service_documents_modal_item_8: "Soporte completo de documentos",
     nav_about: "Über mich",
     nav_objects: "Leistungen",
     nav_contact: "Kontakt",
+    nav_areas: "Gebiete",
+
+    brand_name: "Easy Help",
+    brand_sub: "Schweiz",
+
+    modal_book_free: "Kostenlose Beratung buchen",
+    modal_whatsapp: "WhatsApp-Nachricht senden",
+    modal_close: "Schließen",
 
   hero_title_main: "Easy Help",
   hero_title_sub: "Schweiz",
@@ -2138,6 +2164,7 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   footer_brand: "Easy Help Switzerland",
   footer_copy: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   footer_tagline: "Praktische Umzugsunterstützung in der Schweiz",
+  footer_privacy: "Datenschutzerklärung",
 
 
 //Free Consultation
@@ -2486,7 +2513,16 @@ service_documents_modal_item_8: "Komplette Dokumentenunterstützung",
     nav_about: "Про мене",
     nav_objects: "Послуги",
     nav_contact: "Контакти",
-    
+    nav_areas: "Напрями",
+
+    brand_name: "Easy Help",
+    brand_sub: "Швейцарія",
+
+    modal_book_free: "Безкоштовна консультація",
+    modal_whatsapp: "Написати у WhatsApp",
+    modal_close: "Закрити",
+
+
 
   hero_title_main: "Easy Help",
   hero_title_sub: "Швейцарія",
@@ -3034,6 +3070,7 @@ payment_note: "Оплата підтверджує ваш запит на кон
   footer_brand: "Easy Help Switzerland",
   footer_copy: "© 2026 Easy Help Switzerland — Усі права захищені.",
   footer_tagline: "Практична підтримка з релокації у Швейцарії",
+  footer_privacy: "Політика конфіденційності",
 
 
   //Free Consultation

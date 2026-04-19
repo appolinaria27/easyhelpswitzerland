@@ -250,6 +250,7 @@
       font-size:18px;
     }
 
+    .nav-lang-mobile{display:none}
     .lang-switch{
       display:flex;
       gap:8px;
@@ -1716,18 +1717,8 @@
       :root{ --container:min(100% - 18px, 1700px); }
       .panel{padding:20px;border-radius:26px}
       #clients-map{border-radius:0}
-
       .hero-wrap{padding:18px 18px 22px;border-radius:28px}
       .section-title{font-size:52px}
-      .cards-3,
-      .cards-4,
-      .minimal-grid-4,
-      .process-steps,
-      .pricing-grid,
-      .blog-grid,
-      .about-content{
-        grid-template-columns:1fr;
-      }
       .hero-features{gap:20px}
       .hero-feature{max-width:100%}
       .tiny-stat strong{font-size:48px}
@@ -1740,6 +1731,18 @@
       .contact-lead{font-size:56px}
       .hero-right{flex-wrap:wrap}
       .nav{gap:14px;font-size:14px}
+    }
+    /* Collapse to 1-column only on phones (≤640px) */
+    @media (max-width:640px){
+      .cards-3,
+      .cards-4,
+      .minimal-grid-4,
+      .process-steps,
+      .pricing-grid,
+      .blog-grid,
+      .about-content{
+        grid-template-columns:1fr;
+      }
     }
 
 #why{
@@ -2567,8 +2570,67 @@
 .burger.open span:nth-child(2){opacity:0;transform:scaleX(0)}
 .burger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 
-/* ======== 768px — HAMBURGER NAV ======== */
-@media(max-width:768px){
+/* ======== TABLET 641–900px ======== */
+@media(min-width:641px) and (max-width:900px){
+  /* No burger — horizontal nav */
+  .burger{display:none !important}
+  .hero-right{display:none !important}   /* hide lang-switch; use nav only */
+  .nav-lang-mobile{display:none !important}
+
+  /* Nav fills the space next to logo */
+  .hero-top{
+    grid-template-columns:auto 1fr;
+    gap:20px;
+    align-items:center;
+  }
+  .nav{
+    display:flex !important;
+    gap:28px;
+    font-size:14px;
+    flex-wrap:nowrap;
+    justify-content:flex-end;
+    overflow:visible;
+  }
+
+  /* Hero content */
+  .hero-center{
+    position:relative;
+    inset:auto;
+    min-height:auto;
+    display:block;
+    text-align:left;
+    padding-top:80px;
+  }
+  .hero-wrap{min-height:auto;padding-bottom:80px}
+  .hero-bottom{
+    position:relative;
+    left:auto;right:auto;bottom:auto;
+    margin-top:50px;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .hero-title{font-size:clamp(58px,9vw,100px) !important;letter-spacing:-.05em}
+  .hero-title span{font-size:clamp(40px,6.5vw,72px) !important}
+  .hero-sub{font-size:15px}
+
+  /* Grids — 2 columns on tablet */
+  .cards-3,.pricing-grid,.blog-grid{grid-template-columns:repeat(2,1fr) !important}
+  .cards-4,.minimal-grid-4,.process-steps{grid-template-columns:repeat(2,1fr) !important}
+
+  /* three-top: 2 cols, hide side copy */
+  .three-top{grid-template-columns:1fr auto;gap:24px}
+  .three-top .side-copy{display:none}
+
+  /* listing-intro */
+  .listing-intro{grid-template-columns:1fr 1fr;gap:24px}
+  .listing-intro .logo-block:last-child{display:none}
+
+  .section-title{font-size:clamp(40px,6.5vw,68px)}
+  .tiny-stat strong{font-size:50px}
+}
+
+/* ======== 640px — HAMBURGER NAV ======== */
+@media(max-width:640px){
   .burger{display:flex}
   .hero-top{
     display:flex !important;
@@ -2584,20 +2646,60 @@
     flex-direction:column;
     gap:0;
     justify-content:flex-start;
-    background:rgba(13,16,20,.97);
-    border-radius:16px;
-    padding:8px 0;
-    margin-top:8px;
+    background:none;
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+    border:none;
+    border-radius:0;
+    padding:4px 0 8px;
+    margin-top:6px;
+    box-shadow:none;
   }
   .nav.open{display:flex}
   .nav a{
-    padding:14px 22px;
-    font-size:15px;
-    color:rgba(255,255,255,.85);
-    border-bottom:1px solid rgba(255,255,255,.07);
+    padding:13px 4px;
+    font-size:17px;
+    font-weight:500;
+    color:#fff;
+    border-bottom:1px solid rgba(255,255,255,.15);
+    letter-spacing:.01em;
+    text-shadow:0 1px 10px rgba(0,0,0,.55);
+    transition:color .2s, letter-spacing .2s;
   }
+  .nav a:hover{color:rgba(255,255,255,.75);letter-spacing:.03em}
   .nav a::after{display:none}
-  .nav a:last-child{border-bottom:0}
+  .nav a:last-child{border-bottom:1px solid rgba(255,255,255,.15)}
+  /* Language switcher inside mobile nav */
+  .nav-lang-mobile{
+    display:flex;
+    gap:8px;
+    padding:14px 4px 2px;
+    align-items:center;
+  }
+  .nav-lang-mobile button{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.30);
+    border-radius:8px;
+    color:rgba(255,255,255,.65);
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:.06em;
+    padding:5px 12px;
+    cursor:pointer;
+    transition:all .2s;
+    font-family:inherit;
+    text-shadow:0 1px 6px rgba(0,0,0,.4);
+  }
+  .nav-lang-mobile button:hover{
+    border-color:rgba(255,255,255,.7);
+    color:#fff;
+  }
+  .nav-lang-mobile button.active{
+    background:var(--blue);
+    border-color:var(--blue);
+    color:#fff;
+    text-shadow:none;
+  }
   .hero-right{display:none}
 
   /* Hero sizing */
@@ -2656,6 +2758,15 @@
   .ai-launcher{padding:14px;border-radius:50%;gap:0}
   .whatsapp-float span:last-child{display:none}
   .whatsapp-float{padding:14px;border-radius:50%;gap:0;width:52px;height:52px;justify-content:center}
+
+  /* Testimonials CTA — full width so long translated text doesn't overflow */
+  .testimonial-right .btn-blue,
+  .testimonial-right .btn-outline{
+    display:block;
+    width:100%;
+    text-align:center;
+    box-sizing:border-box;
+  }
 }
 
   </style>
@@ -2672,7 +2783,7 @@
           </svg>
           <div>
             <div style="font-size:18px" data-i18n="brand_name">Easy Help</div>
-            <div style="font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase" data-i18n="brand_name">Switzerland</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase" data-i18n="brand_sub">Switzerland</div>
           </div>
         </div>
 
@@ -2685,10 +2796,15 @@
           <a href="#services" data-i18n="nav_objects">Services</a>
           <a href="#about" data-i18n="nav_about">About us</a>
           <a href="#contact" data-i18n="nav_contact">Contacts</a>
+          <div class="nav-lang-mobile">
+            <button type="button" data-lang="en" class="active">EN</button>
+            <button type="button" data-lang="es">ES</button>
+            <button type="button" data-lang="de">DE</button>
+            <button type="button" data-lang="uk">UA</button>
+          </div>
         </nav>
 
         <div class="hero-right">
-          <a href="tel:+41764497581">+41 76 449 75 81</a>
           <div class="lang-switch">
             <button type="button" data-lang="en" class="active">EN</button>
             <button type="button" data-lang="es">ES</button>
@@ -3476,12 +3592,13 @@
     <span data-i18n="footer_brand">Easy Help Switzerland</span>
   </div>
 
-  <div class="footer-center" data-i18n="footer_rights">
-    © 2026 Easy Help Switzerland — All rights reserved.
+  <div class="footer-center">
+    <span data-i18n="footer_copy">© 2026 Easy Help Switzerland - all rights reserved.</span><br>
+    <a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a>
   </div>
 
   <div class="footer-right social">
-  <a href="#" aria-label="Instagram">
+  <a href="https://www.instagram.com/easy.helpswitzerland?igsh=MW5jNW9zbXNtdW96OA%3D%3D&utm_source=qr" aria-label="Instagram">
     <svg viewBox="0 0 24 24">
       <rect x="3" y="3" width="18" height="18" rx="5"></rect>
       <circle cx="12" cy="12" r="4"></circle>
@@ -3489,24 +3606,12 @@
     </svg>
   </a>
 
-  <a href="#" aria-label="Telegram">
+  <a href="https://t.me/easyhelpswitzerland" aria-label="Telegram">
     <svg viewBox="0 0 24 24">
       <path d="M22 3L2 11l6 2 2 6 12-16z"></path>
     </svg>
   </a>
 
-  <a href="#" aria-label="Facebook">
-    <svg viewBox="0 0 24 24">
-      <path d="M14 9h3V6h-3c-2.2 0-4 1.8-4 4v2H7v3h3v6h3v-6h3l1-3h-4v-2c0-.6.4-1 1-1z"></path>
-    </svg>
-  </a>
-
-  <a href="#" aria-label="WhatsApp">
-    <svg viewBox="0 0 24 24">
-      <path d="M20 12a8 8 0 1 0-14.5 4.7L4 21l4.5-1.4A8 8 0 1 0 20 12z"></path>
-      <path d="M9.5 9.5c.3-.6.6-.6.9-.6h.7c.2 0 .4 0 .6.5.2.5.7 1.7.8 1.8.1.1.1.3 0 .5s-.2.3-.3.4c-.1.1-.3.3-.4.4-.1.1-.2.3 0 .6.2.3.8 1.3 1.8 2 .3.3.6.4.8.2.2-.2.4-.5.5-.7.1-.2.3-.2.5-.1.2.1 1.4.7 1.6.8.2.1.3.2.3.3 0 .1 0 .7-.4 1.3-.4.6-1.1 1.2-1.6 1.3-.4.1-1 .2-2.6-.5-2-.9-3.4-3.2-3.5-3.3-.1-.1-.8-1.1-.8-2.1 0-1 .5-1.5.7-1.7z"></path>
-    </svg>
-  </a>
 </div>
 </footer>
 </section>
@@ -3520,8 +3625,8 @@
     </div>
     <div class="modal-body" id="modalBody"></div>
     <div class="modal-actions">
-      <a href="free-consultation.php" class="btn-blue">Book free consultation</a>
-      <a href="https://wa.me/41764497581" target="_blank" rel="noopener" class="btn-outline">Ask on WhatsApp</a>
+      <a href="free-consultation.php" class="btn-blue" data-i18n="modal_book_free">Book free consultation</a>
+      <a href="https://wa.me/41764497581" target="_blank" rel="noopener" class="btn-outline" data-i18n="modal_whatsapp">Ask on WhatsApp</a>
     </div>
   </div>
 </div>
@@ -3529,12 +3634,12 @@
   <div class="assessment-modal" id="assessmentModal" aria-hidden="true">
     <div class="assessment-modal-panel">
       <button class="assessment-modal-close" id="assessmentModalClose" type="button">×</button>
-      <div class="micro">Initial assessment</div>
+      <div class="micro" data-i18n="check_micro">Initial assessment</div>
       <h3 class="assessment-modal-title" id="assessmentModalTitle">Your relocation chances</h3>
       <div class="assessment-modal-text" id="assessmentModalText"></div>
       <div class="assessment-modal-actions">
-        <a href="booking.php" class="btn-blue" id="assessmentModalCta">Book consultation</a>
-        <button type="button" class="btn-outline" id="assessmentModalCloseBottom">Close</button>
+        <a href="booking.php" class="btn-blue" id="assessmentModalCta" data-i18n="rc_cta_book">Book consultation</a>
+        <button type="button" class="btn-outline" id="assessmentModalCloseBottom" data-i18n="modal_close">Close</button>
       </div>
     </div>
   </div>
@@ -3557,8 +3662,8 @@
       <div class="ai-footer">
         <p class="ai-disclaimer">AI provides general orientation only and does not replace an individual legal assessment.</p>
         <div class="ai-actions">
-          <a href="free-consultation.php" class="btn-outline" id="aiBookBtn">Book consultation</a>
-          <a href="https://wa.me/41764497581" class="btn-blue" target="_blank" rel="noopener" id="aiWhatsappBtn">Open WhatsApp</a>
+          <a href="free-consultation.php" class="btn-outline" id="aiBookBtn" data-i18n="rc_cta_book">Book consultation</a>
+          <a href="https://wa.me/41764497581" class="btn-blue" target="_blank" rel="noopener" id="aiWhatsappBtn" data-i18n="modal_whatsapp">Open WhatsApp</a>
         </div>
       </div>
     </div>
@@ -3590,11 +3695,13 @@
     });
   })();
 
-  // language dropdown placeholder
+  // Close mobile nav when a lang button is picked (translation handled by site.js)
   document.querySelectorAll('.lang-switch button').forEach(btn => {
     btn.addEventListener('click', () => {
-      document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
+      const nav = document.getElementById('mainNav');
+      const burger = document.getElementById('burgerBtn');
+      if (nav) nav.classList.remove('open');
+      if (burger) burger.classList.remove('open');
     });
   });
 

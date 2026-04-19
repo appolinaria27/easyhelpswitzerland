@@ -92,6 +92,7 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
     .hero-right{display:flex;align-items:center;gap:18px;white-space:nowrap;font-size:16px;flex-wrap:wrap}
 
     /* LANGUAGE SWITCH — same as index */
+    .nav-lang-mobile{display:none}
 
 .lang-switch{
   display:flex;
@@ -330,11 +331,16 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
     @media(max-width:768px){
       .burger{display:flex}
       .hero-top{display:flex !important;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:0;position:relative}
-      .nav{display:none;flex-basis:100%;flex-direction:column;gap:0;background:rgba(13,16,20,.97);border-radius:16px;padding:8px 0;margin-top:8px}
+      .nav{display:none;flex-basis:100%;flex-direction:column;gap:0;background:none;border:none;border-radius:0;padding:4px 0 8px;margin-top:6px;box-shadow:none}
       .nav.open{display:flex}
-      .nav a{padding:14px 22px;font-size:15px;color:rgba(255,255,255,.85);border-bottom:1px solid rgba(255,255,255,.07)}
+      .nav a{padding:13px 4px;font-size:17px;font-weight:500;color:#fff;border-bottom:1px solid rgba(255,255,255,.15);letter-spacing:.01em;text-shadow:0 1px 10px rgba(0,0,0,.55);transition:color .2s,letter-spacing .2s}
+      .nav a:hover{color:rgba(255,255,255,.75);letter-spacing:.03em}
       .nav a::after{display:none}
-      .nav a:last-child{border-bottom:0}
+      .nav a:last-child{border-bottom:1px solid rgba(255,255,255,.15)}
+      .nav-lang-mobile{display:flex;gap:8px;padding:14px 4px 2px;align-items:center}
+      .nav-lang-mobile button{background:transparent;border:1px solid rgba(255,255,255,.30);border-radius:8px;color:rgba(255,255,255,.65);font-size:12px;font-weight:600;letter-spacing:.06em;padding:5px 12px;cursor:pointer;transition:all .2s;font-family:inherit;text-shadow:0 1px 6px rgba(0,0,0,.4)}
+      .nav-lang-mobile button:hover{border-color:rgba(255,255,255,.7);color:#fff}
+      .nav-lang-mobile button.active{background:var(--blue);border-color:var(--blue);color:#fff;text-shadow:none}
       .hero-right{display:none}
       .hero-center{padding-top:60px}
       .hero-title{font-size:clamp(44px,11vw,76px) !important}
@@ -381,10 +387,11 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
           <a href="blog.html" data-i18n="consult_nav_guides">Guides</a>
           <a href="booking.php" data-i18n="consult_nav_booking">Booking</a>
           <a href="index.html#contact" data-i18n="nav_contact">Contacts</a>
+          
         </nav>
 
         <div class="hero-right">
-          <a href="tel:+41764497581">+41 76 449 75 81</a>
+          
           <div class="lang-switch">
   <button type="button" data-lang="en" class="active">EN</button>
   <button type="button" data-lang="es">ES</button>
@@ -546,7 +553,7 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
         <svg viewBox="0 0 32 48" aria-hidden="true"><path d="M4 44V10l10-8 10 8v34"></path><path d="M14 44V22l10-8v30"></path></svg>
         <span data-i18n="footer_brand">Easy Help Switzerland</span>
       </div>
-      <div class="footer-center" data-i18n="consult_footer_copy">© 2026 Easy Help Switzerland - all rights preserved.</div>
+      <div class="footer-center">© 2026 Easy Help Switzerland - all rights reserved.<br><a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a></div>
       <div class="footer-right" data-i18n="consult_footer_right">Free consultation page aligned to the main website</div>
     </footer>
   </div>
