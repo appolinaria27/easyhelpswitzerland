@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__ . '/security.php';
+require_once __DIR__ . '/vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+
 session_start();
 
 header('Content-Type: application/json');
@@ -48,9 +52,6 @@ file_put_contents($noteFile, json_encode($note, JSON_PRETTY_PRINT | JSON_UNESCAP
 // Send cancellation email
 $emailSent = false;
 if (!empty($booking['email'])) {
-    require_once __DIR__ . '/vendor/autoload.php';
-    use PHPMailer\PHPMailer\PHPMailer;
-
     $name    = $booking['name'] ?? 'Client';
     $email   = $booking['email'];
     $package = $booking['package_name'] ?? $booking['package'] ?? '';

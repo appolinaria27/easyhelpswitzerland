@@ -1,5 +1,9 @@
 <?php
 require_once __DIR__ . '/security.php';
+require_once __DIR__ . '/vendor/autoload.php';
+
+use PHPMailer\PHPMailer\PHPMailer;
+
 session_start();
 
 header('Content-Type: application/json');
@@ -87,8 +91,6 @@ file_put_contents($noteFile, json_encode($note, JSON_PRETTY_PRINT | JSON_UNESCAP
 
 // Send confirmation email
 if ($sendMail && !empty($booking['email'])) {
-    require_once __DIR__ . '/vendor/autoload.php';
-    use PHPMailer\PHPMailer\PHPMailer;
 
     $clientName  = $booking['name'] ?? 'Client';
     $clientEmail = $booking['email'];
