@@ -41,8 +41,7 @@
   <p class="updated">Last updated: April 2026</p>
 
   <h2>1. Who we are</h2>
-  <p>Easy Help Switzerland is a personal relocation consulting service operated by Polina Kravtsova, based in Zürich, Switzerland. We help individuals and families relocate to Switzerland and navigate Swiss administrative procedures.</p>
-  <p>Contact: <a href="mailto:yungpollyy@gmail.com">yungpollyy@gmail.com</a> | <a href="tel:+41764497581">+41 76 449 75 81</a></p>
+  <p>Easy Help Switzerland is a personal relocation consulting service based in Zürich, Switzerland. We help individuals and families relocate to Switzerland and navigate Swiss administrative procedures.</p>
 
   <h2>2. What data we collect</h2>
   <p>We collect personal data only when you actively provide it through our forms:</p>
@@ -53,14 +52,8 @@
   </ul>
   <p>We do not use cookies for tracking or advertising. We do not use Google Analytics or any third-party tracking tools.</p>
 
-  <h2>3. Why we collect your data (legal basis)</h2>
-  <ul>
-    <li><strong>Contract performance (Art. 6(1)(b) GDPR):</strong> to respond to your consultation request and deliver the service you booked.</li>
-    <li><strong>Legitimate interest (Art. 6(1)(f) GDPR):</strong> to protect our website against spam and abuse (rate limiting by IP address).</li>
-    <li><strong>Consent (Art. 6(1)(a) GDPR):</strong> when you tick the consent checkbox on our forms, you consent to us contacting you regarding your request.</li>
-  </ul>
-
-  <h2>4. How we use your data</h2>
+  <h2>3. How we use your data</h2>
+  <p>All personal information you provide is used exclusively to respond to your request and deliver the service you asked for. We handle your data in accordance with the Swiss Datenschutzgesetz (DSG).</p>
   <ul>
     <li>To respond to your consultation or booking request by email or phone.</li>
     <li>To send you a confirmation email after your request or payment.</li>
@@ -68,43 +61,28 @@
   </ul>
   <p>We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
 
-  <h2>5. Third-party processors</h2>
+  <h2>4. Third-party processors</h2>
   <ul>
     <li><strong>Stripe</strong> — payment processing. Your card data is processed by Stripe, Inc. and never stored on our servers. Stripe's privacy policy: <a href="https://stripe.com/privacy" target="_blank" rel="noopener">stripe.com/privacy</a></li>
     <li><strong>Google Fonts</strong> — fonts are loaded from Google's servers. Google may collect IP addresses in this process.</li>
   </ul>
 
-  <h2>6. How long we keep your data</h2>
+  <h2>5. How long we keep your data</h2>
   <ul>
     <li>Consultation form submissions are retained for up to 12 months.</li>
-    <li>Booking records are retained for up to 7 years for accounting and legal compliance purposes.</li>
+    <li>Booking records are retained for up to 7 years.</li>
     <li>Rate-limiting records (hashed IP addresses) are automatically purged after 15 minutes.</li>
   </ul>
 
-  <h2>7. Your rights under GDPR</h2>
-  <p>You have the right to:</p>
-  <ul>
-    <li><strong>Access</strong> the personal data we hold about you.</li>
-    <li><strong>Correct</strong> inaccurate data.</li>
-    <li><strong>Delete</strong> your data (right to be forgotten), unless we are legally required to retain it.</li>
-    <li><strong>Restrict</strong> or <strong>object</strong> to processing.</li>
-    <li><strong>Data portability</strong> — receive your data in a machine-readable format.</li>
-    <li><strong>Withdraw consent</strong> at any time (this does not affect the lawfulness of processing before withdrawal).</li>
-  </ul>
-  <p>To exercise any of these rights, please contact us at <a href="mailto:yungpollyy@gmail.com">yungpollyy@gmail.com</a>. We will respond within 30 days.</p>
-  <p>You also have the right to lodge a complaint with the Swiss Federal Data Protection and Information Commissioner (FDPIC) at <a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener">edoeb.admin.ch</a>.</p>
+  <h2>6. Your rights</h2>
+  <p>You have the right to access, correct, or delete the personal data we hold about you. To make a request, please reach out to us via the contact form on our website. We will respond within 30 days.</p>
+  <p>You also have the right to contact the Swiss Federal Data Protection and Information Commissioner (FDPIC) at <a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener">edoeb.admin.ch</a>.</p>
 
-  <h2>8. Data security</h2>
+  <h2>7. Data security</h2>
   <p>We implement appropriate technical measures to protect your data, including HTTPS encryption, server-side access controls, and CSRF protection on all forms. Booking files are stored in directories not accessible via the web.</p>
 
-  <h2>9. Changes to this policy</h2>
-  <p>We may update this Privacy Policy from time to time. The date at the top of this page shows when it was last revised. Continued use of our website after changes constitutes acceptance of the updated policy.</p>
-
-  <h2>10. Contact</h2>
-  <p>For any privacy-related questions, please contact:<br>
-  Polina Kravtsova — Easy Help Switzerland<br>
-  Email: <a href="mailto:yungpollyy@gmail.com">yungpollyy@gmail.com</a><br>
-  Phone: <a href="tel:+41764497581">+41 76 449 75 81</a></p>
+  <h2>8. Changes to this policy</h2>
+  <p>We may update this Privacy Policy from time to time. The date at the top of this page shows when it was last revised.</p>
 </main>
 
 <footer>
