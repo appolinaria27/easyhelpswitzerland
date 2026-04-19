@@ -179,6 +179,27 @@ try {
     exit;
 }
 
+// Save consultation to file for admin panel
+$consultDir = __DIR__ . '/free-consultations';
+if (!is_dir($consultDir)) mkdir($consultDir, 0750, true);
+$consultId = bin2hex(random_bytes(16));
+$consultData = [
+    'internal_booking_id' => $consultId,
+    'type'       => 'free',
+    'name'       => $safeName,
+    'email'      => $email,
+    'phone'      => $phone,
+    'location'   => $location,
+    'topic'      => $topic,
+    'message'    => $messageText,
+    'created_at' => date('c'),
+];
+file_put_contents(
+    $consultDir . '/consult-' . $consultId . '.json',
+    json_encode($consultData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
+    LOCK_EX
+);
+
 // Customer confirmation (non-critical — log failure but still confirm to user)
 try {
     $confirmation = createMailer();

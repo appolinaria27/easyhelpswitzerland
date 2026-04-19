@@ -29,13 +29,14 @@ if (empty($_SESSION['admin_csrf'])) {
 $csrf = $_SESSION['admin_csrf'];
 
 // ── Load bookings ──────────────────────────────────────────────────────────
-$bookingsDir = __DIR__ . '/bookings';
-$pendingDir  = __DIR__ . '/pending-bookings';
-$dataDir     = __DIR__ . '/admin-data';
+$bookingsDir  = __DIR__ . '/bookings';
+$pendingDir   = __DIR__ . '/pending-bookings';
+$consultDir   = __DIR__ . '/free-consultations';
+$dataDir      = __DIR__ . '/admin-data';
 
-function loadBookings(string $dir, string $type): array {
+function loadBookings(string $dir, string $type, string $pattern = 'booking-*.json'): array {
     $items = [];
-    foreach (glob($dir . '/booking-*.json') as $f) {
+    foreach (glob($dir . '/' . $pattern) as $f) {
         $data = json_decode(file_get_contents($f), true);
         if (!$data) continue;
         $data['_type'] = $type;
@@ -53,12 +54,14 @@ function loadNote(string $id): array {
     return json_decode(file_get_contents($f), true) ?? [];
 }
 
-$paid    = loadBookings($bookingsDir, 'paid');
-$pending = loadBookings($pendingDir, 'pending');
+$paid     = loadBookings($bookingsDir, 'paid');
+$pending  = loadBookings($pendingDir, 'pending');
+$freeConsults = loadBookings($consultDir, 'free', 'consult-*.json');
 
-$totalRevenue = array_sum(array_map(fn($b) => (float)($b['price_chf'] ?? 0), $paid));
-$totalPaid    = count($paid);
-$totalPending = count($pending);
+$totalRevenue  = array_sum(array_map(fn($b) => (float)($b['price_chf'] ?? 0), $paid));
+$totalPaid     = count($paid);
+$totalPending  = count($pending);
+$totalFree     = count($freeConsults);
 
 function fmtDate(string $iso): string {
     try { return (new DateTime($iso))->format('d.m.Y H:i'); }
@@ -78,12 +81,15 @@ $statusLabels = [
 $calendarEvents  = [];
 $unscheduled     = [];
 
-foreach (array_merge($paid, $pending) as $b) {
-    $id    = $b['internal_booking_id'] ?? '';
-    $note  = loadNote($id);
+$colorMap = ['paid' => '#4693e8', 'pending' => '#f39c12', 'free' => '#2ecc71'];
+
+foreach (array_merge($paid, $pending, $freeConsults) as $b) {
+    $id     = $b['internal_booking_id'] ?? '';
+    $note   = loadNote($id);
     $termin = $note['termin'] ?? '';
-    $name  = $b['name'] ?? 'Unknown';
-    $color = $b['_type'] === 'paid' ? '#4693e8' : '#f39c12';
+    $name   = $b['name'] ?? 'Unknown';
+    $type   = $b['_type'];
+    $color  = $colorMap[$type] ?? '#aaa';
 
     if ($termin) {
         try {
@@ -91,15 +97,15 @@ foreach (array_merge($paid, $pending) as $b) {
             $end = (clone $dt)->modify('+60 minutes');
             $calendarEvents[] = [
                 'id'    => $id,
-                'title' => $name,
+                'title' => $name . ($type === 'free' ? ' (Free)' : ''),
                 'start' => $dt->format('c'),
                 'end'   => $end->format('c'),
                 'color' => $color,
                 'extendedProps' => [
                     'email'   => $b['email'] ?? '',
-                    'package' => $b['package_name'] ?? $b['package'] ?? '',
+                    'package' => $b['package_name'] ?? $b['package'] ?? $b['topic'] ?? '',
                     'status'  => $note['status'] ?? '',
-                    'type'    => $b['_type'],
+                    'type'    => $type,
                 ],
             ];
         } catch (Exception $e) {}
@@ -108,8 +114,8 @@ foreach (array_merge($paid, $pending) as $b) {
             'id'      => $id,
             'name'    => $name,
             'email'   => $b['email'] ?? '',
-            'package' => $b['package_name'] ?? $b['package'] ?? '',
-            'type'    => $b['_type'],
+            'package' => $b['package_name'] ?? $b['package'] ?? $b['topic'] ?? '',
+            'type'    => $type,
         ];
     }
 }
@@ -148,7 +154,7 @@ foreach (array_merge($paid, $pending) as $b) {
     .container { max-width: 1240px; margin: 0 auto; padding: 36px 28px 80px; }
 
     /* Stats */
-    .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 36px; }
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-bottom: 36px; }
     .stat-card { background: var(--card); border-radius: 16px; padding: 28px 28px 24px; border: 1px solid var(--border); }
     .stat-label { font-size: 11px; text-transform: uppercase; letter-spacing: .16em; color: var(--muted); margin-bottom: 10px; font-weight: 500; }
     .stat-value { font-family: "Cormorant Garamond", serif; font-size: 48px; font-weight: 300; color: var(--text); line-height: 1; letter-spacing: -.04em; }
@@ -349,6 +355,10 @@ foreach (array_merge($paid, $pending) as $b) {
     <div class="stat-card">
       <div class="stat-label">Pending (not paid)</div>
       <div class="stat-value"><?= $totalPending ?></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">Free consultations</div>
+      <div class="stat-value" style="color:var(--green)"><?= $totalFree ?></div>
     </div>
   </div>
 
@@ -553,6 +563,91 @@ foreach (array_merge($paid, $pending) as $b) {
               <input type="hidden" name="booking_type" value="pending">
               <div class="form-actions">
                 <button type="submit" class="btn-delete" onclick="return confirm('Delete this pending booking?')">Delete</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <?php endforeach; ?>
+      <?php endif; ?>
+    </div>
+
+    <!-- Free Consultations -->
+    <div class="section">
+      <div class="section-title" style="justify-content:space-between">
+        <span>Free Consultations <span class="badge" style="background:var(--green)"><?= $totalFree ?></span></span>
+      </div>
+      <?php if (empty($freeConsults)): ?>
+        <div class="empty">No free consultation requests yet.</div>
+      <?php else: ?>
+        <?php foreach ($freeConsults as $b):
+          $id   = $b['internal_booking_id'] ?? '';
+          $note = loadNote($id);
+          $st   = $note['status'] ?? 'pending';
+          $dot  = $statusColors[$st] ?? '#2ecc71';
+          $termin = $note['termin'] ?? '';
+        ?>
+        <div class="booking-card" id="card-<?= htmlspecialchars($id) ?>">
+          <div class="booking-header" onclick="toggleCard('<?= htmlspecialchars($id) ?>')">
+            <div class="booking-main">
+              <div class="status-dot" style="background:var(--green)" data-status="<?= htmlspecialchars($st) ?>"></div>
+              <div>
+                <div class="booking-name"><?= htmlspecialchars($b['name'] ?? '—') ?></div>
+                <div class="booking-sub"><?= htmlspecialchars($b['email'] ?? '') ?><?= $termin ? ' · &#128197; ' . htmlspecialchars(fmtDate($termin)) : ' · Free consultation' ?></div>
+              </div>
+            </div>
+            <div class="booking-meta">
+              <?php if (!empty($b['topic'])): ?>
+              <span class="package-tag" style="background:#efffef;color:#1a8a3a"><?= htmlspecialchars($b['topic']) ?></span>
+              <?php endif; ?>
+              <span class="date-tag"><?= fmtDate($b['created_at'] ?? '') ?></span>
+            </div>
+            <span class="chevron">&#9660;</span>
+          </div>
+          <div class="booking-body">
+            <div class="details-grid">
+              <div class="detail-item"><label>Name</label><div class="val"><?= htmlspecialchars($b['name'] ?? '—') ?></div></div>
+              <div class="detail-item"><label>Email</label><div class="val"><a href="mailto:<?= htmlspecialchars($b['email'] ?? '') ?>"><?= htmlspecialchars($b['email'] ?? '—') ?></a></div></div>
+              <div class="detail-item"><label>Phone</label><div class="val"><?= htmlspecialchars($b['phone'] ?? '—') ?: '—' ?></div></div>
+              <div class="detail-item"><label>Location</label><div class="val"><?= htmlspecialchars($b['location'] ?? '—') ?: '—' ?></div></div>
+              <div class="detail-item"><label>Topic</label><div class="val"><?= htmlspecialchars($b['topic'] ?? '—') ?: '—' ?></div></div>
+              <div class="detail-item"><label>Requested</label><div class="val"><?= fmtDate($b['created_at'] ?? '') ?></div></div>
+              <?php if (!empty($b['message'])): ?>
+              <div class="detail-item" style="grid-column:1/-1"><label>Message</label><div class="val"><?= nl2br(htmlspecialchars($b['message'])) ?></div></div>
+              <?php endif; ?>
+              <?php if (!empty($note['admin_note'])): ?>
+              <div class="detail-item" style="grid-column:1/-1"><label>Your note</label><div class="val"><?= nl2br(htmlspecialchars($note['admin_note'])) ?></div></div>
+              <?php endif; ?>
+            </div>
+            <form method="POST" action="admin-action.php">
+              <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($csrf) ?>">
+              <input type="hidden" name="action" value="save_note">
+              <input type="hidden" name="booking_id" value="<?= htmlspecialchars($id) ?>">
+              <input type="hidden" name="booking_type" value="free">
+              <div class="admin-form">
+                <div class="form-group">
+                  <label>Termin</label>
+                  <input type="datetime-local" name="termin"
+                    value="<?= htmlspecialchars($termin ? (new DateTime($termin))->format('Y-m-d\TH:i') : '') ?>">
+                </div>
+                <div class="form-group">
+                  <label>Status</label>
+                  <select name="status">
+                    <?php foreach ($statusLabels as $val => $lbl): ?>
+                      <option value="<?= $val ?>" <?= ($st === $val) ? 'selected' : '' ?>><?= $lbl ?></option>
+                    <?php endforeach; ?>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Notes</label>
+                  <textarea name="admin_note" placeholder="Add notes..."><?= htmlspecialchars($note['admin_note'] ?? '') ?></textarea>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button type="submit" class="btn-save">Save</button>
+                <button type="submit" class="btn-delete"
+                  onclick="this.form.querySelector('[name=action]').value='delete'; return confirm('Delete this consultation request?')">
+                  Delete
+                </button>
               </div>
             </form>
           </div>

@@ -71,6 +71,10 @@ if ($action === 'save_note') {
         $pendingDir = __DIR__ . '/pending-bookings';
         $f = $pendingDir . '/booking-' . $id . '.json';
         if (file_exists($f)) unlink($f);
+    } elseif ($type === 'free') {
+        $consultDir = __DIR__ . '/free-consultations';
+        $f = $consultDir . '/consult-' . $id . '.json';
+        if (file_exists($f)) unlink($f);
     }
     // Also delete admin note
     if (file_exists($noteFile)) unlink($noteFile);

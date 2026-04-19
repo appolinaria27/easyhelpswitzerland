@@ -49,8 +49,13 @@ if (file_exists($dotenv)) {
 
 // Find the booking
 $booking = null;
-foreach ([__DIR__ . '/bookings', __DIR__ . '/pending-bookings'] as $dir) {
-    foreach (glob($dir . '/booking-*.json') as $f) {
+$searchDirs = [
+    __DIR__ . '/bookings'          => 'booking-*.json',
+    __DIR__ . '/pending-bookings'  => 'booking-*.json',
+    __DIR__ . '/free-consultations'=> 'consult-*.json',
+];
+foreach ($searchDirs as $dir => $pattern) {
+    foreach (glob($dir . '/' . $pattern) as $f) {
         $data = json_decode(file_get_contents($f), true);
         if (($data['internal_booking_id'] ?? '') === $id) {
             $booking = $data;
