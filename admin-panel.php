@@ -276,6 +276,19 @@ foreach (array_merge($paid, $pending) as $b) {
     .btn-delete:hover { background: var(--red); color: #fff; }
     .empty { background: var(--card); border: 1px dashed var(--border); border-radius: 16px; padding: 48px; text-align: center; color: var(--muted); font-size: 13px; letter-spacing: .02em; }
 
+    /* Search/filter toolbar */
+    .filter-bar { display: flex; gap: 12px; align-items: center; margin-bottom: 20px; flex-wrap: wrap; }
+    .filter-input { flex: 1; min-width: 200px; padding: 10px 16px; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; font-size: 13px; font-weight: 400; outline: none; color: var(--text); background: var(--card); transition: border-color .2s; }
+    .filter-input:focus { border-color: rgba(17,17,17,.4); }
+    .filter-status { display: flex; gap: 6px; flex-wrap: wrap; }
+    .filter-btn { padding: 8px 14px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; cursor: pointer; background: var(--card); color: var(--muted); transition: all .15s; }
+    .filter-btn:hover { border-color: #bbb; color: var(--text); }
+    .filter-btn.active { background: var(--dark); color: #fff; border-color: var(--dark); }
+    .export-btn { padding: 9px 18px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit; font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; background: var(--card); color: var(--muted); transition: all .15s; white-space: nowrap; }
+    .export-btn:hover { border-color: #bbb; color: var(--text); }
+    .btn-cancel-booking { padding: 10px 18px; background: transparent; color: #c0392b; border: 1px solid #c0392b; border-radius: 8px; font-size: 12px; font-family: inherit; font-weight: 500; letter-spacing: .06em; cursor: pointer; text-transform: uppercase; transition: all .2s; }
+    .btn-cancel-booking:hover { background: #c0392b; color: #fff; }
+
     /* Toast */
     .toast {
       position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(12px);
@@ -381,10 +394,23 @@ foreach (array_merge($paid, $pending) as $b) {
   <!-- ── BOOKINGS TAB ── -->
   <div id="tab-bookings" class="tab-panel">
 
+    <!-- Filter bar -->
+    <div class="filter-bar">
+      <input class="filter-input" type="search" id="searchInput" placeholder="Search by name, email or package…" oninput="applyFilters()">
+      <div class="filter-status">
+        <button class="filter-btn active" onclick="setStatus(this,'all')">All</button>
+        <button class="filter-btn" onclick="setStatus(this,'confirmed')">Confirmed</button>
+        <button class="filter-btn" onclick="setStatus(this,'completed')">Completed</button>
+        <button class="filter-btn" onclick="setStatus(this,'pending')">Pending</button>
+        <button class="filter-btn" onclick="setStatus(this,'cancelled')">Cancelled</button>
+      </div>
+    </div>
+
     <!-- Paid -->
     <div class="section">
-      <div class="section-title">
-        Paid Bookings <span class="badge"><?= $totalPaid ?></span>
+      <div class="section-title" style="justify-content:space-between">
+        <span>Paid Bookings <span class="badge"><?= $totalPaid ?></span></span>
+        <button class="export-btn" onclick="exportCSV()">↓ Export CSV</button>
       </div>
       <?php if (empty($paid)): ?>
         <div class="empty">No paid bookings yet.</div>
@@ -399,7 +425,7 @@ foreach (array_merge($paid, $pending) as $b) {
         <div class="booking-card" id="card-<?= htmlspecialchars($id) ?>">
           <div class="booking-header" onclick="toggleCard('<?= htmlspecialchars($id) ?>')">
             <div class="booking-main">
-              <div class="status-dot" style="background:<?= $dot ?>"></div>
+              <div class="status-dot" style="background:<?= $dot ?>" data-status="<?= htmlspecialchars($st) ?>"></div>
               <div>
                 <div class="booking-name"><?= htmlspecialchars($b['name'] ?? '—') ?></div>
                 <div class="booking-sub"><?= htmlspecialchars($b['email'] ?? '') ?><?= $termin ? ' · &#128197; ' . htmlspecialchars(fmtDate($termin)) : '' ?></div>
@@ -454,6 +480,10 @@ foreach (array_merge($paid, $pending) as $b) {
               </div>
               <div class="form-actions">
                 <button type="submit" class="btn-save">Save</button>
+                <button type="button" class="btn-cancel-booking"
+                  onclick="cancelBooking('<?= htmlspecialchars($id) ?>','<?= htmlspecialchars(addslashes($b['name'] ?? '')) ?>')">
+                  Cancel &amp; Email
+                </button>
                 <button type="submit" class="btn-delete"
                   onclick="this.form.querySelector('[name=action]').value='delete'; return confirm('Delete this booking?')">
                   Delete
@@ -707,6 +737,83 @@ document.addEventListener('DOMContentLoaded', function () {
 
   calendar.render();
 });
+
+// ── Search / filter ────────────────────────────────────────────
+let activeStatus = 'all';
+
+function setStatus(btn, status) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeStatus = status;
+  applyFilters();
+}
+
+function applyFilters() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  document.querySelectorAll('.booking-card').forEach(card => {
+    const text = card.textContent.toLowerCase();
+    const statusDot = card.querySelector('.status-dot');
+    const cardStatus = statusDot ? statusDot.dataset.status || '' : '';
+    const matchesText = !q || text.includes(q);
+    const matchesStatus = activeStatus === 'all' || cardStatus === activeStatus;
+    card.style.display = (matchesText && matchesStatus) ? '' : 'none';
+  });
+}
+
+// ── CSV Export ─────────────────────────────────────────────────
+function exportCSV() {
+  const rows = [['Name','Email','Phone','Package','Price CHF','Status','Termin','Created','Paid at','Location','Format','Message']];
+  document.querySelectorAll('.booking-card').forEach(card => {
+    if (card.style.display === 'none') return;
+    const get = label => {
+      const items = card.querySelectorAll('.detail-item');
+      for (const item of items) {
+        if (item.querySelector('label')?.textContent.trim().toLowerCase() === label.toLowerCase()) {
+          return item.querySelector('.val')?.textContent.trim() || '';
+        }
+      }
+      return '';
+    };
+    const name    = card.querySelector('.booking-name')?.textContent.trim() || '';
+    const sub     = card.querySelector('.booking-sub')?.textContent.trim() || '';
+    const pkg     = card.querySelector('.package-tag')?.textContent.trim() || '';
+    const price   = card.querySelector('.price-tag')?.textContent.replace('CHF','').trim() || '';
+    const date    = card.querySelector('.date-tag')?.textContent.trim() || '';
+    const status  = card.querySelector('.status-dot')?.dataset.status || '';
+    rows.push([name, get('email'), get('phone'), pkg, price, status, get('termin') || sub, date, get('paid at'), get('location'), get('format'), get('client message')]);
+  });
+  const csv = rows.map(r => r.map(v => '"' + String(v).replace(/"/g,'""') + '"').join(',')).join('\n');
+  const blob = new Blob(['\uFEFF' + csv], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'bookings-' + new Date().toISOString().slice(0,10) + '.csv';
+  a.click();
+}
+
+// ── Cancel & Email ─────────────────────────────────────────────
+function cancelBooking(id, name) {
+  if (!confirm('Cancel booking for "' + name + '" and send a cancellation email to the client?')) return;
+  fetch('cancel-booking.php', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ id, csrf: CSRF })
+  })
+  .then(r => r.json())
+  .then(d => {
+    if (d.ok) {
+      showToast('Booking cancelled' + (d.email_sent ? ' & email sent.' : ' (email failed).'), d.email_sent ? 'success' : 'error');
+      // Update status dot color
+      const card = document.getElementById('card-' + id);
+      if (card) {
+        const dot = card.querySelector('.status-dot');
+        if (dot) { dot.style.background = '#e74c3c'; dot.dataset.status = 'cancelled'; }
+      }
+    } else {
+      showToast('Error: ' + (d.error || 'Unknown'), 'error');
+    }
+  })
+  .catch(() => showToast('Network error', 'error'));
+}
 </script>
 </body>
 </html>

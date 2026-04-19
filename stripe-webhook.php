@@ -190,23 +190,77 @@ if ($event->type === 'checkout.session.completed') {
         // Client confirmation email
         if (!empty($bookingData['email']) && ($bookingData['client_email_sent'] ?? false) !== true) {
             try {
+                $clientName    = $bookingData['name'] ?: 'Client';
+                $clientPackage = $bookingData['package_name'] ?? '';
+                $clientPrice   = $bookingData['price_chf'] ?? '';
+                $clientFormat  = $bookingData['preferred'] ?? '';
+
+                $packageLine = $clientPackage ? "<tr><td style='padding:8px 0'><p style='margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em'>Service</p><p style='margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e'>" . htmlspecialchars($clientPackage) . "</p></td></tr>" : '';
+                $priceLineTxt = $clientPrice ? "<tr><td style='padding:8px 0'><p style='margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em'>Amount paid</p><p style='margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e'>CHF " . htmlspecialchars($clientPrice) . "</p></td></tr>" : '';
+                $formatLine   = $clientFormat ? "<tr><td style='padding:8px 0'><p style='margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em'>Format</p><p style='margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e'>" . htmlspecialchars($clientFormat) . "</p></td></tr>" : '';
+
                 $clientMail = createWebhookMailer();
-                $clientMail->addAddress($bookingData['email'], $bookingData['name'] ?: 'Client');
-                $clientMail->Subject = 'Your booking is confirmed';
-                $clientMail->Body =
-                    "Hello " . ($bookingData['name'] ?: 'Client') . ",\n\n" .
-                    "Thank you. Your paid booking has been received successfully.\n\n" .
-                    "Booking details:\n" .
-                    "Package: {$bookingData['package_name']}\n" .
-                    "Price: CHF {$bookingData['price_chf']}\n" .
-                    "Preferred consultation format: {$bookingData['preferred']}\n" .
-                    "Submitted at: {$bookingData['created_at']}\n" .
-                    "Paid at: {$bookingData['paid_at']}\n\n" .
-                    "We will contact you shortly regarding the next steps.\n\n" .
-                    "Best regards,\nPolina Kravtsova";
+                $clientMail->addAddress($bookingData['email'], $clientName);
+                $clientMail->Subject = 'Booking confirmed — Easy Help Switzerland';
+                $clientMail->isHTML(true);
+                $clientMail->CharSet = 'UTF-8';
+                $clientMail->Body = <<<HTML
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f4f6f9;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f9;padding:40px 0;">
+    <tr><td align="center">
+      <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08);">
+        <tr>
+          <td style="background:#0a0e14;padding:28px 36px;">
+            <p style="margin:0;color:#ffffff;font-family:'Georgia',serif;font-size:22px;font-weight:400;letter-spacing:.02em;">Easy Help Switzerland</p>
+            <p style="margin:4px 0 0;color:rgba(255,255,255,.5);font-size:12px;letter-spacing:.1em;text-transform:uppercase;">Booking Confirmed</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:36px 36px 28px;">
+            <p style="margin:0 0 20px;font-size:16px;color:#1a1a2e;">Dear <strong>{$clientName}</strong>,</p>
+            <p style="margin:0 0 28px;font-size:15px;color:#444;line-height:1.6;">
+              Thank you — your payment was received and your consultation request is confirmed. I will be in touch shortly to schedule a time that works for you.
+            </p>
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f5ff;border-radius:12px;padding:20px 24px;margin-bottom:28px;">
+              {$packageLine}
+              {$priceLineTxt}
+              {$formatLine}
+            </table>
+            <p style="margin:0 0 12px;font-size:14px;color:#555;line-height:1.6;">
+              If you have any questions in the meantime, simply reply to this email.
+            </p>
+            <p style="margin:0;font-size:14px;color:#555;line-height:1.6;">
+              Looking forward to speaking with you.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#f8f9fb;padding:20px 36px;border-top:1px solid #eee;">
+            <p style="margin:0;font-size:12px;color:#aaa;text-align:center;">
+              Easy Help Switzerland · Zürich · <a href="https://easyhelp.ch" style="color:#4693e8;text-decoration:none;">easyhelp.ch</a>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
+HTML;
+                $clientMail->AltBody =
+                    "Dear {$clientName},\n\n" .
+                    "Your payment was received and your consultation is confirmed.\n\n" .
+                    ($clientPackage ? "Service: {$clientPackage}\n" : '') .
+                    ($clientPrice   ? "Amount paid: CHF {$clientPrice}\n" : '') .
+                    ($clientFormat  ? "Format: {$clientFormat}\n" : '') .
+                    "\nI will be in touch shortly to arrange a time.\n\n" .
+                    "Best regards,\nPolina Kravtsova\nEasy Help Switzerland";
                 $clientMail->send();
                 $bookingData['client_email_sent'] = true;
-                $saveBooking(); // persist flag immediately so retries don't resend
+                $saveBooking();
             } catch (Exception $e) {
                 error_log('Webhook client mail error: ' . $e->getMessage());
             }
