@@ -53,3 +53,6 @@ ehthumbs.db
 
 bookings/*.json
 !bookings/.htaccess
+
+# Admin runtime data (Termine, notes) — not for repo
+admin-data/
