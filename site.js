@@ -24,8 +24,8 @@ const translations = {
   hero_years: "clients guided through Swiss administrative procedures",
 
   clients_micro: "With whom we work",
-areas_stat: "days to get your next apartment step sorted",
-areas_side: "We support migrants, students, families and professionals with practical relocation steps, permits, registrations and life setup in Switzerland.",
+areas_stat: "days to get a clear action plan for your situation",
+areas_side: "We work with expats, migrants, students, families and professionals who need practical guidance through Swiss permits, registrations, housing and administrative procedures.",
 areas_intro: "We help clients move through Zürich and other Swiss cantons with a clear strategy, realistic route, and support for the everyday bureaucracy that follows arrival.",
 areas_side_2: "Browse our focus areas covering permits, municipality registration, housing, insurance and settlement planning for clients from many different countries.",
 
@@ -154,7 +154,7 @@ about_kicker: "About",
 
     services_title: "Services",
     services_stat: "main support categories",
-    services_side: "Everything you had in the previous project is kept here, but rebuilt in a completely new visual language.",
+    services_side: "We offer six key areas of support — from residence permits and relocation to employment, insurance, documents and study assistance.",
 
     service_residence_title: "Residence permits",
     service_residence_desc: "Permits, extensions, migration procedures and case support.",
@@ -958,8 +958,8 @@ area_3_modal_content: `
   hero_years: "clientes guiados en procesos administrativos suizos",
 
   clients_micro: "Con quién trabajamos",
-areas_stat: "días para resolver el siguiente paso con su apartamento",
-areas_side: "Apoyamos a migrantes, estudiantes, familias y profesionales con pasos prácticos de reubicación, permisos, registros y organización de la vida en Suiza.",
+areas_stat: "días para obtener un plan de acción claro para tu situación",
+areas_side: "Trabajamos con expatriados, migrantes, estudiantes, familias y profesionales que necesitan orientación práctica en permisos, registros, vivienda y procedimientos administrativos suizos.",
 areas_intro: "Ayudamos a los clientes en Zúrich y otros cantones suizos con una estrategia clara, una ruta realista y apoyo para la burocracia cotidiana que sigue a la llegada.",
 areas_side_2: "Explore nuestras áreas de enfoque sobre permisos, registro municipal, vivienda, seguro y planificación de establecimiento para clientes de muchos países distintos.",
 
@@ -1088,7 +1088,7 @@ about_kicker: "Sobre mí",
 
     services_title: "Servicios",
     services_stat: "categorías principales",
-    services_side: "Todo del proyecto anterior se mantiene, pero con un nuevo lenguaje visual.",
+    services_side: "Ofrecemos seis áreas clave de apoyo: desde permisos de residencia y reubicación hasta empleo, seguros, documentos y asistencia para estudios.",
 
     service_residence_title: "Permisos de residencia",
     service_residence_desc: "Permisos, extensiones y procedimientos migratorios.",
@@ -1858,8 +1858,8 @@ service_documents_modal_item_8: "Soporte completo de documentos",
   hero_years: "Klient:innen durch Schweizer Verwaltungsverfahren begleitet",
 
   clients_micro: "Mit wem wir arbeiten",
-areas_stat: "Tage, um Ihren nächsten Wohnungsschritt zu klären",
-areas_side: "Wir unterstützen Migranten, Studierende, Familien und Fachkräfte mit praktischen Relocation-Schritten, Bewilligungen, Anmeldungen und dem Aufbau des Lebens in der Schweiz.",
+areas_stat: "Tage, um einen klaren Aktionsplan für Ihre Situation zu erhalten",
+areas_side: "Wir arbeiten mit Expats, Migranten, Studierenden, Familien und Fachkräften, die praktische Begleitung bei Bewilligungen, Anmeldungen, Wohnungssuche und Behördengängen in der Schweiz benötigen.",
 areas_intro: "Wir helfen Klienten in Zürich und anderen Schweizer Kantonen mit einer klaren Strategie, einem realistischen Weg und Unterstützung bei der alltäglichen Bürokratie nach der Ankunft.",
 areas_side_2: "Entdecken Sie unsere Schwerpunktbereiche rund um Bewilligungen, Gemeindeanmeldung, Wohnen, Versicherung und Niederlassungsplanung für Klienten aus vielen verschiedenen Ländern.",
 
@@ -1988,7 +1988,7 @@ about_kicker: "Über mich",
 
     services_title: "Dienstleistungen",
     services_stat: "Hauptkategorien",
-    services_side: "Alles aus dem vorherigen Projekt ist erhalten geblieben, jedoch in einer neuen visuellen Sprache gestaltet.",
+    services_side: "Wir bieten sechs Kernbereiche der Unterstützung — von Aufenthaltsbewilligungen und Relocation bis hin zu Beschäftigung, Versicherung, Dokumenten und Studienbegleitung.",
 
     service_residence_title: "Aufenthaltsbewilligungen",
     service_residence_desc: "Bewilligungen, Verlängerungen und Migrationsverfahren.",
@@ -2753,8 +2753,8 @@ service_documents_modal_item_8: "Komplette Dokumentenunterstützung",
   hero_years: "клієнтів супроводжено через швейцарські адміністративні процедури",
 
   clients_micro: "З ким ми працюємо",
-areas_stat: "днів, щоб вирішити ваш наступний крок з житлом",
-areas_side: "Ми допомагаємо мігрантам, студентам, сім'ям і фахівцям з практичними кроками релокації, дозволами, реєстрацією та облаштуванням життя у Швейцарії.",
+areas_stat: "днів, щоб отримати чіткий план дій для вашої ситуації",
+areas_side: "Ми працюємо з експатами, мігрантами, студентами, сім'ями та фахівцями, яким потрібна практична допомога з дозволами, реєстрацією, житлом та адміністративними процедурами в Швейцарії.",
 areas_intro: "Ми допомагаємо клієнтам у Цюриху та інших кантонах Швейцарії з чіткою стратегією, реалістичним маршрутом і підтримкою в щоденній бюрократії після приїзду.",
 areas_side_2: "Ознайомтеся з нашими напрямами підтримки щодо дозволів, реєстрації в громаді, житла, страхування та планування облаштування для клієнтів з різних країн.",
 
@@ -2884,7 +2884,7 @@ about_kicker: "Про мене",
 
     services_title: "Послуги",
     services_stat: "основні категорії",
-    services_side: "Усе з попереднього проєкту збережено, але в новому візуальному стилі.",
+    services_side: "Ми пропонуємо шість ключових напрямків підтримки — від дозволів на проживання та релокації до працевлаштування, страхування, документів та супроводу щодо навчання.",
 
     service_residence_title: "Дозволи на проживання",
     service_residence_desc: "Дозволи, продовження та міграційні процедури.",
