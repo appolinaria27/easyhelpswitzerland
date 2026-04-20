@@ -177,9 +177,9 @@ try {
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow" />
   <title>Payment Successful | Easy Help Switzerland</title>
   <meta name="description" content="Your consultation booking has been received successfully." />
-  <link rel="canonical" href="https://easyhelpswiss.com/success.php" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://easyhelpswiss.com/success.php" />
   <meta property="og:title" content="Booking Confirmed — Easy Help Switzerland" />

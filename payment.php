@@ -90,8 +90,14 @@ exit;
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
   <title>Review & Payment | Easy Help Switzerland</title>
   <meta name="description" content="Review your booking details and continue to secure payment in a premium, consistent checkout step." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://easyhelpswiss.com/payment.php" />
+  <meta property="og:title" content="Review & Payment — Easy Help Switzerland" />
+  <meta property="og:description" content="Secure payment for your relocation consultation package." />
+  <meta property="og:image" content="https://easyhelpswiss.com/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -453,11 +459,11 @@ exit;
 
         <button class="burger" id="burgerBtn" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
         <nav class="nav" id="mainNav">
-          <a href="index.html" data-i18n="payment_home">Home</a>
-          <a href="booking.php" data-i18n="payment_booking_nav">Booking</a>
-          <a href="blog.html" data-i18n="payment_guides">Guides</a>
-          <a href="free-consultation.php" data-i18n="payment_free_consultation">Free consultation</a>
-          <a href="index.html#contact" data-i18n="payment_contacts">Contacts</a>
+          <a href="index.html" data-i18n="nav_home">Home</a>
+          <a href="index.html#services" data-i18n="nav_objects">Services</a>
+          <a href="blog.html" data-i18n="blog_nav_guides">Guides</a>
+          <a href="free-consultation.php" data-i18n="booking_nav_free_consultation">Free consultation</a>
+          <a href="index.html#contact" data-i18n="nav_contact">Contacts</a>
           
         </nav>
 
@@ -604,7 +610,7 @@ exit;
   <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  const bookingData = <?php echo json_encode($bookingData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES); ?>;
+  const bookingData = <?php echo json_encode($bookingData, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP); ?>;
 
   const packages = {
     initial: { name: "Quick consultation", price: "CHF 79" },

@@ -57,16 +57,25 @@ try {
 }
 
 if ($event->type === 'checkout.session.completed') {
-    // Idempotency: skip if this Stripe event was already processed
+    // Idempotency: use flock to prevent duplicate processing if Stripe retries
     $eventsDir = __DIR__ . '/stripe-events';
     if (!is_dir($eventsDir)) mkdir($eventsDir, 0700, true);
     $eventFlagFile = $eventsDir . '/' . preg_replace('/[^a-zA-Z0-9_-]/', '', $event->id) . '.lock';
-    if (file_exists($eventFlagFile)) {
+    $lockFp = fopen($eventFlagFile, 'c');
+    if (!$lockFp || !flock($lockFp, LOCK_EX | LOCK_NB)) {
+        // Another process is handling this event right now
+        if ($lockFp) fclose($lockFp);
         http_response_code(200);
-        exit(); // already handled
+        exit();
     }
-    // Mark event as in-progress before processing
-    file_put_contents($eventFlagFile, date('c'), LOCK_EX);
+    // Check if it was already fully processed (file has content)
+    fseek($lockFp, 0);
+    if (fread($lockFp, 4) !== '') {
+        flock($lockFp, LOCK_UN);
+        fclose($lockFp);
+        http_response_code(200);
+        exit();
+    }
     chmod($eventFlagFile, 0600);
 
     $session = $event->data->object;
@@ -368,6 +377,11 @@ HTML;
         if (file_exists($pendingFile)) {
             unlink($pendingFile);
         }
+
+        // Mark idempotency lock as fully processed
+        fwrite($lockFp, date('c'));
+        flock($lockFp, LOCK_UN);
+        fclose($lockFp);
     }
 }
 

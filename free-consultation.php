@@ -484,7 +484,7 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
 
                 <div class="field">
                   <label data-i18n="phone">Phone / WhatsApp</label>
-                  <input type="text" name="phone" value="<?= $pre_phone ?>">
+                  <input type="tel" name="phone" value="<?= $pre_phone ?>">
                 </div>
 
                 <div class="field">

@@ -511,7 +511,7 @@ foreach (array_merge($paid, $pending, $freeConsults) as $b) {
               <div class="form-actions">
                 <button type="submit" class="btn-save">Save</button>
                 <button type="button" class="btn-cancel-booking"
-                  onclick="cancelBooking('<?= htmlspecialchars($id) ?>','<?= htmlspecialchars(addslashes($b['name'] ?? '')) ?>')">
+                  onclick="cancelBooking('<?= htmlspecialchars($id) ?>',<?= json_encode($b['name'] ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_HEX_APOS) ?>)">
                   Cancel &amp; Email
                 </button>
                 <button type="submit" class="btn-delete"
@@ -735,8 +735,13 @@ document.getElementById('modalConfirm').addEventListener('click', () => {
 });
 
 function openEmailModal(name, id) {
-  document.getElementById('modalText').innerHTML =
-    'Appointment saved. Send confirmation email to <span class="highlight">' + name + '</span>?';
+  const modalEl = document.getElementById('modalText');
+  modalEl.textContent = 'Appointment saved. Send confirmation email to ';
+  const span = document.createElement('span');
+  span.className = 'highlight';
+  span.textContent = name;
+  modalEl.appendChild(span);
+  modalEl.appendChild(document.createTextNode('?'));
   pendingEmailId = id;
   document.getElementById('scheduleModal').classList.add('visible');
 }

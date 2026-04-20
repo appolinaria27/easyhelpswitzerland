@@ -6,6 +6,7 @@ require_once __DIR__ . '/security.php';
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow" />
   <title>Request Received — Easy Help Switzerland</title>
   <meta name="description" content="Your free consultation request has been received. We will be in touch within 24 hours." />
   <link rel="preconnect" href="https://fonts.googleapis.com">

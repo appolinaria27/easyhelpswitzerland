@@ -204,7 +204,7 @@ process_title: "How we work",
       process_side: "A structured process designed to reduce uncertainty and keep every stage simple, visible and manageable.",
 
       process_discoverTitle: "Discover",
-      process_iscoverItem1: "First case review",
+      process_discoverItem1: "First case review",
       process_discoverItem2: "Clarify your route",
       process_discoverItem3: "Check urgency",
 
@@ -225,19 +225,26 @@ process_title: "How we work",
 
 
 testimonials_label: "Client feedback",
-testimonials_title: "What clients say",
+testimonials_micro_left: "Client feedback",
+testimonials_title: "Practical support before unnecessary costs",
 
 testimonial_1_text: "I was completely confused when I arrived in Zürich. I did not know where to go first, what papers I needed, or how the registration worked. After the consultation, everything finally felt clear and much less stressful.",
 testimonial_1_from: "Moved from Brazil",
+testimonial_1_meta: "Moved from Brazil — lives in Zürich",
 
 testimonial_2_text: "I was worried about my permit and some letters from the authorities. Everything was explained to me in a very simple way, and I felt much calmer after that.",
 testimonial_2_from: "Moved from Ukraine",
+testimonial_2_meta: "Moved from Ukraine",
 
 testimonial_3_text: "What helped me most was that I could ask normal questions and get clear answers. I did not feel rushed, and I finally understood what to do next.",
 testimonial_3_from: "Moved from Spain",
+testimonial_3_meta: "Moved from Spain",
 
 testimonial_next_aria: "Next testimonial",
 
+testimonials_micro_right: "Why clients start here",
+testimonials_text_1: "Many people first need clarity, structure, and help with documents or communication — not a full legal mandate from the beginning.",
+testimonials_text_2: "A short consultation can often save time, reduce stress, and help you avoid expensive mistakes or delays.",
 testimonials_why_label: "Why clients start here",
 testimonials_why_title: "Practical support before unnecessary costs",
 testimonials_why_p1: "Many people first need clarity, structure, and help with documents or communication — not a full legal mandate from the beginning.",
@@ -897,6 +904,11 @@ area_3_modal_content: `
   wa_label: "WhatsApp",
   wa_write: "Write to us",
   aria_open_menu: "Open menu",
+
+  notfound_title: "Page not found",
+  notfound_message: "The page you were looking for doesn't exist or has been moved.",
+  notfound_home: "Go to home page",
+  notfound_consult: "Free consultation",
 
   privacy_title: "Privacy Policy",
   privacy_updated: "Last updated: April 2026",
@@ -1798,6 +1810,11 @@ service_documents_modal_item_8: "Soporte completo de documentos",
   wa_write: "Escríbenos",
   aria_open_menu: "Abrir menú",
 
+  notfound_title: "Página no encontrada",
+  notfound_message: "La página que buscabas no existe o ha sido movida.",
+  notfound_home: "Ir a la página principal",
+  notfound_consult: "Consulta gratuita",
+
   privacy_title: "Política de privacidad",
   privacy_updated: "Última actualización: abril de 2026",
   privacy_back: "← Volver al inicio",
@@ -2178,6 +2195,7 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
 
   blog_hero_micro: "Ratgeber & Blog",
   blog_hero_title_main: "Easy Guide Switzerland",
+  blog_hero_title_sub: "Umzug in die Schweiz",
   blog_hero_sub: "Klare praktische Artikel zu Bewilligungen, Anmeldung, Krankenversicherung, Studium, Heirat und Familiennachzug — neu gestaltet im hochwertigen redaktionellen Stil Ihrer Hauptwebsite.",
 
   blog_hero_feature_1: "Lange Artikel leicht erfassbar",
@@ -2691,6 +2709,11 @@ service_documents_modal_item_8: "Komplette Dokumentenunterstützung",
   wa_write: "Schreiben Sie uns",
   aria_open_menu: "Menü öffnen",
 
+  notfound_title: "Seite nicht gefunden",
+  notfound_message: "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+  notfound_home: "Zur Startseite",
+  notfound_consult: "Kostenlose Beratung",
+
   privacy_title: "Datenschutzerklärung",
   privacy_updated: "Zuletzt aktualisiert: April 2026",
   privacy_back: "← Zurück zur Startseite",
@@ -3157,6 +3180,7 @@ payment_note: "Оплата підтверджує ваш запит на кон
 
   blog_hero_micro: "Гіди та блог",
   blog_hero_title_main: "Easy Guide Switzerland",
+  blog_hero_title_sub: "переїзд до Швейцарії",
   blog_hero_sub: "Чіткі практичні статті про дозволи, реєстрацію, медичне страхування, навчання, шлюб і возз'єднання сім'ї — у преміальному редакційному стилі вашого основного сайту.",
 
   blog_hero_feature_1: "Зручно читати довгі статті",
@@ -3379,6 +3403,7 @@ consult_whatsapp_aria: "WhatsApp",
     nav_contacts: "Контакти",
     back: "← Назад",
 
+    booking_brand_main: "Easy Help Switzerland",
     booking_micro: "Бронювання",
     booking_title: "Забронюйте <span>консультацію</span>",
     booking_subtitle: "Оберіть пакет і перейдіть до оплати.",
@@ -3669,6 +3694,11 @@ service_documents_modal_item_8: "Повний супровід документ�
   wa_label: "WhatsApp",
   wa_write: "Написати нам",
   aria_open_menu: "Відкрити меню",
+
+  notfound_title: "Сторінку не знайдено",
+  notfound_message: "Сторінка, яку ви шукаєте, не існує або була переміщена.",
+  notfound_home: "На головну",
+  notfound_consult: "Безкоштовна консультація",
 
   privacy_title: "Політика конфіденційності",
   privacy_updated: "Останнє оновлення: квітень 2026",
