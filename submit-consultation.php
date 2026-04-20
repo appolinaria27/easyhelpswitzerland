@@ -157,51 +157,172 @@ function createMailer(): PHPMailer
 }
 
 try {
+    // Admin notification
     $mail = createMailer();
     $mail->setFrom($_ENV['MAIL_FROM'], 'Easy Help Switzerland');
     $mail->addAddress($_ENV['ADMIN_EMAIL']);
     $mail->addReplyTo($email, $safeName);
-
     $mail->Subject = 'New Free Consultation Request';
-    $mail->Body =
+    $mail->isHTML(true);
+    $mail->Body = <<<HTML
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f4f6f9;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f9;padding:40px 0;">
+    <tr><td align="center">
+      <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08);">
+        <tr>
+          <td style="background:#0a0e14;padding:28px 36px;">
+            <p style="margin:0;color:#ffffff;font-family:'Georgia',serif;font-size:22px;font-weight:400;letter-spacing:.02em;">Easy Help Switzerland</p>
+            <p style="margin:4px 0 0;color:rgba(255,255,255,.5);font-size:12px;letter-spacing:.1em;text-transform:uppercase;">New Free Consultation Request</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:36px 36px 28px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f5ff;border-radius:12px;padding:20px 24px;">
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Name</p>
+                <p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e;">{$safeName}</p>
+              </td></tr>
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Email</p>
+                <p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e;">{$email}</p>
+              </td></tr>
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Phone / WhatsApp</p>
+                <p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e;">{$phone}</p>
+              </td></tr>
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Current Location</p>
+                <p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e;">{$location}</p>
+              </td></tr>
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Topic</p>
+                <p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e;">{$topic}</p>
+              </td></tr>
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Message</p>
+                <p style="margin:4px 0 0;font-size:15px;color:#1a1a2e;line-height:1.6;">{$messageText}</p>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#f8f9fb;padding:20px 36px;border-top:1px solid #eee;">
+            <p style="margin:0;font-size:12px;color:#aaa;text-align:center;">
+              Easy Help Switzerland · Zürich · <a href="https://easyhelp.ch" style="color:#4693e8;text-decoration:none;">easyhelp.ch</a>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
+HTML;
+    $mail->AltBody =
         "New free consultation request received\n\n" .
-        "Name: $safeName\n" .
-        "Email: $email\n" .
-        "Phone / WhatsApp: $phone\n" .
-        "Current location: $location\n" .
-        "Topic: $topic\n" .
-        "Message:\n$messageText\n";
-
+        "Name: {$safeName}\n" .
+        "Email: {$email}\n" .
+        "Phone / WhatsApp: {$phone}\n" .
+        "Current location: {$location}\n" .
+        "Topic: {$topic}\n" .
+        "Message:\n{$messageText}\n";
     $mail->send();
-
-    // Send confirmation email to the customer
-    $confirmation = new PHPMailer(true);
-    $confirmation->isSMTP();
-    $confirmation->Host       = $_ENV['SMTP_HOST'];
-    $confirmation->SMTPAuth   = true;
-    $confirmation->Username   = $_ENV['SMTP_USER'];
-    $confirmation->Password   = $_ENV['SMTP_PASS'];
-    $confirmation->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $confirmation->Port       = (int) $_ENV['SMTP_PORT'];
-    $confirmation->CharSet    = 'UTF-8';
-
-    $confirmation->setFrom($_ENV['MAIL_FROM'], 'Easy Help Switzerland');
-    $confirmation->addAddress($email, $safeName);
-
-    $confirmation->Subject = 'We received your consultation request';
-    $confirmation->Body =
-        "Dear $safeName,\n\n" .
-        "Thank you for reaching out! We have received your free consultation request and will get back to you within 24 hours.\n\n" .
-        "Here is a summary of your request:\n" .
-        "Topic: $topic\n" .
-        "Message:\n$messageText\n\n" .
-        "Best regards,\nPolina Kravtsova\nEasy Help Switzerland";
-
-    $confirmation->send();
-
-    echo 'Request is sent. Thank you!';
 } catch (Exception $e) {
-    error_log('Consultation mail error: ' . $mail->ErrorInfo);
+    error_log('Consultation admin mail error: ' . $e->getMessage());
     http_response_code(500);
     echo 'Request is not sent, please try again later.';
+    exit;
 }
+
+// Save consultation to file for admin panel
+$consultDir = __DIR__ . '/free-consultations';
+if (!is_dir($consultDir)) mkdir($consultDir, 0750, true);
+$consultId = bin2hex(random_bytes(16));
+$consultData = [
+    'internal_booking_id' => $consultId,
+    'type'       => 'free',
+    'name'       => $safeName,
+    'email'      => $email,
+    'phone'      => $phone,
+    'location'   => $location,
+    'topic'      => $topic,
+    'message'    => $messageText,
+    'created_at' => date('c'),
+];
+file_put_contents(
+    $consultDir . '/consult-' . $consultId . '.json',
+    json_encode($consultData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
+    LOCK_EX
+);
+
+// Customer confirmation (non-critical — log failure but still confirm to user)
+try {
+    $confirmation = createMailer();
+    $confirmation->setFrom($_ENV['MAIL_FROM'], 'Easy Help Switzerland');
+    $confirmation->addAddress($email, $safeName);
+    $confirmation->Subject = 'We received your consultation request';
+    $confirmation->isHTML(true);
+    $confirmation->Body = <<<HTML
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f4f6f9;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f9;padding:40px 0;">
+    <tr><td align="center">
+      <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08);">
+        <tr>
+          <td style="background:#0a0e14;padding:28px 36px;">
+            <p style="margin:0;color:#ffffff;font-family:'Georgia',serif;font-size:22px;font-weight:400;letter-spacing:.02em;">Easy Help Switzerland</p>
+            <p style="margin:4px 0 0;color:rgba(255,255,255,.5);font-size:12px;letter-spacing:.1em;text-transform:uppercase;">Request Received</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:36px 36px 28px;">
+            <p style="margin:0 0 20px;font-size:16px;color:#1a1a2e;">Dear <strong>{$safeName}</strong>,</p>
+            <p style="margin:0 0 28px;font-size:15px;color:#444;line-height:1.6;">
+              Thank you for reaching out! We have received your free consultation request and will get back to you within 24 hours.
+            </p>
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f5ff;border-radius:12px;padding:20px 24px;margin-bottom:28px;">
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Topic</p>
+                <p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e;">{$topic}</p>
+              </td></tr>
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Message</p>
+                <p style="margin:4px 0 0;font-size:15px;color:#1a1a2e;line-height:1.6;">{$messageText}</p>
+              </td></tr>
+            </table>
+            <p style="margin:0;font-size:14px;color:#555;line-height:1.6;">
+              Looking forward to speaking with you.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#f8f9fb;padding:20px 36px;border-top:1px solid #eee;">
+            <p style="margin:0;font-size:12px;color:#aaa;text-align:center;">
+              Easy Help Switzerland · Zürich · <a href="https://easyhelp.ch" style="color:#4693e8;text-decoration:none;">easyhelp.ch</a>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
+HTML;
+    $confirmation->AltBody =
+        "Dear {$safeName},\n\n" .
+        "Thank you for reaching out! We have received your free consultation request and will get back to you within 24 hours.\n\n" .
+        "Topic: {$topic}\n" .
+        "Message:\n{$messageText}\n\n" .
+        "Looking forward to speaking with you.\n\nBest regards,\nPolina Kravtsova\nEasy Help Switzerland";
+    $confirmation->send();
+} catch (Exception $e) {
+    error_log('Consultation confirmation mail error: ' . $e->getMessage());
+}
+
+http_response_code(200);
+echo 'Request is sent. Thank you!';

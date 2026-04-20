@@ -3,8 +3,17 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Polina Kravtsova — Relocation & Legal Support</title>
-  <meta name="description" content="Relocation, migration, documents and practical support in Switzerland." />
+  <title>Easy Help Switzerland — Relocation &amp; Migration Support in Zürich</title>
+  <meta name="description" content="Practical relocation support, migration guidance and document help in Switzerland. Free first consultation. Based in Zürich." />
+  <link rel="canonical" href="https://easyhelpswiss.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://easyhelpswiss.com/" />
+  <meta property="og:title" content="Easy Help Switzerland — Relocation &amp; Migration Support" />
+  <meta property="og:description" content="Practical relocation support, migration guidance and document help in Switzerland. Free first consultation. Based in Zürich." />
+  <meta property="og:image" content="https://easyhelpswiss.com/og-image.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Easy Help Switzerland" />
+  <meta name="twitter:description" content="Practical relocation support in Switzerland. Free first consultation." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -2575,62 +2584,25 @@
 
 /* ======== TABLET 641–900px ======== */
 @media(min-width:641px) and (max-width:900px){
-  /* No burger — horizontal nav */
   .burger{display:none !important}
-  .hero-right{display:none !important}   /* hide lang-switch; use nav only */
+  .hero-right{display:none !important}
   .nav-lang-mobile{display:none !important}
-
-  /* Nav fills the space next to logo */
-  .hero-top{
-    grid-template-columns:auto 1fr;
-    gap:20px;
-    align-items:center;
-  }
-  .nav{
-    display:flex !important;
-    gap:28px;
-    font-size:14px;
-    flex-wrap:nowrap;
-    justify-content:flex-end;
-    overflow:visible;
-  }
-
-  /* Hero content */
-  .hero-center{
-    position:relative;
-    inset:auto;
-    min-height:auto;
-    display:block;
-    text-align:left;
-    padding-top:80px;
-  }
+  .hero-top{grid-template-columns:auto 1fr;gap:20px;align-items:center}
+  .nav{display:flex !important;gap:28px;font-size:14px;flex-wrap:nowrap;justify-content:flex-end;overflow:visible}
+  .hero-center{position:relative;inset:auto;min-height:auto;display:block;text-align:left;padding-top:80px}
   .hero-wrap{min-height:auto;padding-bottom:80px}
-  .hero-bottom{
-    position:relative;
-    left:auto;right:auto;bottom:auto;
-    margin-top:50px;
-    flex-direction:column;
-    align-items:flex-start;
-  }
+  .hero-bottom{position:relative;left:auto;right:auto;bottom:auto;margin-top:50px;flex-direction:column;align-items:flex-start}
   .hero-title{font-size:clamp(58px,9vw,100px) !important;letter-spacing:-.05em}
   .hero-title span{font-size:clamp(40px,6.5vw,72px) !important}
   .hero-sub{font-size:15px}
-
-  /* Grids — 2 columns on tablet */
   .cards-3,.pricing-grid,.blog-grid{grid-template-columns:repeat(2,1fr) !important}
   .cards-4,.minimal-grid-4,.process-steps{grid-template-columns:repeat(2,1fr) !important}
-
-  /* three-top: 2 cols, hide side copy */
   .three-top{grid-template-columns:1fr auto;gap:24px}
   .three-top .side-copy{display:none}
-
-  /* listing-intro */
   .listing-intro{grid-template-columns:1fr 1fr;gap:24px}
   .listing-intro .logo-block:last-child{display:none}
-
   .section-title{font-size:clamp(40px,6.5vw,68px)}
   .tiny-stat strong{font-size:50px}
-  /* Hide decorative circle that overlaps text on tablet */
   .why-grid::after{display:none !important}
   .why-topline{grid-template-columns:1fr}
   .why-note{display:none}
@@ -3570,21 +3542,36 @@
       </p>
 
       <div class="contact-form">
-  <input type="text" placeholder="YOUR NAME" data-i18n-placeholder="contact_name" />
-  <input type="email" placeholder="YOUR EMAIL" data-i18n-placeholder="contact_email" />
-  <input type="tel" placeholder="+41 00 000 00 00" data-i18n-placeholder="contact_phone" />
+  <input type="text" id="contact-name" placeholder="YOUR NAME" data-i18n-placeholder="contact_name" />
+  <input type="email" id="contact-email" placeholder="YOUR EMAIL" data-i18n-placeholder="contact_email" />
+  <input type="tel" id="contact-phone" placeholder="+41 00 000 00 00" data-i18n-placeholder="contact_phone" />
 
   <label class="contact-check">
-    <input type="checkbox" />
+    <input type="checkbox" id="contact-policy" />
     <span data-i18n="contact_policy">
       By clicking the button, you accept the privacy policy and consent to the processing of personal data.
     </span>
   </label>
 
-  <a href="free-consultation.php" class="contact-btn" data-i18n="contact_cta">
+  <a href="free-consultation.php" class="contact-btn" data-i18n="contact_cta" onclick="return goToConsult(event)">
     Get A Free Consultation
     <span>›</span>
   </a>
+
+  <script>
+  function goToConsult(e) {
+    e.preventDefault();
+    const name  = document.getElementById('contact-name').value.trim();
+    const email = document.getElementById('contact-email').value.trim();
+    const phone = document.getElementById('contact-phone').value.trim();
+    const params = new URLSearchParams();
+    if (name)  params.set('name', name);
+    if (email) params.set('email', email);
+    if (phone) params.set('phone', phone);
+    window.location.href = 'free-consultation.php' + (params.toString() ? '?' + params.toString() : '');
+    return false;
+  }
+  </script>
 </div>
     </div>
   </div>
@@ -3602,6 +3589,8 @@
   <div class="footer-center">
     <span data-i18n="footer_copy">© 2026 Easy Help Switzerland - all rights reserved.</span><br>
     <a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a>
+    &nbsp;·&nbsp;
+    <a href="admin.php" style="color:rgba(255,255,255,.2);font-size:11px;text-decoration:none">Admin</a>
   </div>
 
   <div class="footer-right social">
@@ -3655,8 +3644,8 @@
     <div class="ai-panel" id="aiPanel">
       <div class="ai-header">
         <div>
-          <h3>AI route assistant</h3>
-          <p>Quick route guidance, case qualification and WhatsApp handoff.</p>
+          <h3 data-i18n="ai_title">AI route assistant</h3>
+          <p data-i18n="ai_subtitle">Quick route guidance, case qualification and WhatsApp handoff.</p>
         </div>
         <button class="ai-close" type="button" id="aiClose">×</button>
       </div>
@@ -3667,7 +3656,7 @@
       </div>
 
       <div class="ai-footer">
-        <p class="ai-disclaimer">AI provides general orientation only and does not replace an individual legal assessment.</p>
+        <p class="ai-disclaimer" data-i18n="ai_disclaimer">AI provides general orientation only and does not replace a personal consultation.</p>
         <div class="ai-actions">
           <a href="free-consultation.php" class="btn-outline" id="aiBookBtn" data-i18n="rc_cta_book">Book consultation</a>
           <a href="https://wa.me/41764497581" class="btn-blue" target="_blank" rel="noopener" id="aiWhatsappBtn" data-i18n="modal_whatsapp">Open WhatsApp</a>
@@ -4025,52 +4014,241 @@
 
     const state = { route: '', location: '', nationality: '', urgency: '', goal: '' };
 
-    const flow = {
-      start: {
-        text: `Hi — I’m the AI assistant for Polina’s website.\n\nI can help with:\n• choosing the right service\n• quick route orientation\n• preparing a WhatsApp message for your case\n\nWhat best describes your situation?`,
-        chips: [
-          { label: 'Work / Job offer', value: 'work', next: 'location' },
-          { label: 'Study', value: 'study', next: 'location' },
-          { label: 'Marriage / Family', value: 'family', next: 'location' },
-          { label: 'Permit / Documents', value: 'documents', next: 'location' }
-        ],
-        saveAs: 'route'
+    const aiFlows = {
+      en: {
+        start: {
+          text: `Hi — I'm the AI assistant for Polina's website.\n\nI can help with:\n• choosing the right service\n• quick route orientation\n• preparing a WhatsApp message for your case\n\nWhat best describes your situation?`,
+          chips: [
+            { label: 'Work / Job offer', value: 'work', next: 'location' },
+            { label: 'Study', value: 'study', next: 'location' },
+            { label: 'Marriage / Family', value: 'family', next: 'location' },
+            { label: 'Permit / Documents', value: 'documents', next: 'location' }
+          ], saveAs: 'route'
+        },
+        location: {
+          text: 'Are you already in Switzerland, or are you planning the move from abroad?',
+          chips: [
+            { label: 'Already in Switzerland', value: 'already in Switzerland', next: 'nationality' },
+            { label: 'Planning from abroad', value: 'planning from abroad', next: 'nationality' }
+          ], saveAs: 'location'
+        },
+        nationality: {
+          text: 'Are you an EU citizen or a non-EU citizen?',
+          chips: [
+            { label: 'EU citizen', value: 'EU citizen', next: 'urgency' },
+            { label: 'Non-EU citizen', value: 'Non-EU citizen', next: 'urgency' }
+          ], saveAs: 'nationality'
+        },
+        urgency: {
+          text: 'How urgent is your situation?',
+          chips: [
+            { label: 'Urgent — this week', value: 'urgent this week', next: 'goal' },
+            { label: 'Soon — this month', value: 'this month', next: 'goal' },
+            { label: 'Planning ahead', value: 'planning ahead', next: 'result' }
+          ], saveAs: 'urgency'
+        },
+        goal: {
+          text: 'What would you prefer as the next step?',
+          chips: [
+            { label: 'WhatsApp first', value: 'WhatsApp first', next: 'result' },
+            { label: 'Book consultation', value: 'Book consultation', next: 'result' },
+            { label: 'I need more information', value: 'Need more information', next: 'result' }
+          ], saveAs: 'goal'
+        },
+        routeLabels: { work: 'Work / Job offer', study: 'Study', family: 'Marriage / Family', documents: 'Permit / Documents' },
+        recommendations: {
+          work: 'Your route looks best suited for a focused consultation on employment-based relocation, employer communication, and permit preparation.',
+          study: 'Your route looks best suited for a student relocation review with documents, finances, and canton-specific preparation.',
+          family: 'Your route looks best suited for a family / marriage consultation with document strategy and timeline review.',
+          documents: 'Your route looks best suited for a practical document and authority communication review.',
+          default: 'A short consultation would help clarify your next best route.'
+        },
+        nextStep: {
+          whatsapp: 'Best next step: send your case summary on WhatsApp for a quick first review.',
+          book: 'Best next step: book a consultation so your documents and timeline can be reviewed properly.',
+          default: 'Best next step: start with WhatsApp or a consultation, depending on how detailed your case is.'
+        },
+        summary: 'Case summary:',
+        summaryLabels: { topic: 'Topic', situation: 'Situation', status: 'Status', urgency: 'Urgency' },
+        whatsappGreeting: 'Hello Polina,\nI came from your website and I would like help with relocation to Switzerland.'
       },
-      location: {
-        text: 'Are you already in Switzerland, or are you planning the move from abroad?',
-        chips: [
-          { label: 'Already in Switzerland', value: 'already in Switzerland', next: 'nationality' },
-          { label: 'Planning from abroad', value: 'planning from abroad', next: 'nationality' }
-        ],
-        saveAs: 'location'
+      de: {
+        start: {
+          text: `Hallo — ich bin der KI-Assistent auf Polinas Website.\n\nIch kann helfen bei:\n• der Wahl des richtigen Services\n• einer schnellen Routenorientierung\n• der Vorbereitung einer WhatsApp-Nachricht für Ihren Fall\n\nWas beschreibt Ihre Situation am besten?`,
+          chips: [
+            { label: 'Arbeit / Jobangebot', value: 'Arbeit', next: 'location' },
+            { label: 'Studium', value: 'Studium', next: 'location' },
+            { label: 'Ehe / Familie', value: 'Familie', next: 'location' },
+            { label: 'Bewilligung / Dokumente', value: 'Dokumente', next: 'location' }
+          ], saveAs: 'route'
+        },
+        location: {
+          text: 'Befinden Sie sich bereits in der Schweiz oder planen Sie den Umzug aus dem Ausland?',
+          chips: [
+            { label: 'Bereits in der Schweiz', value: 'bereits in der Schweiz', next: 'nationality' },
+            { label: 'Planung aus dem Ausland', value: 'Planung aus dem Ausland', next: 'nationality' }
+          ], saveAs: 'location'
+        },
+        nationality: {
+          text: 'Sind Sie EU-Bürger oder Nicht-EU-Bürger?',
+          chips: [
+            { label: 'EU-Bürger', value: 'EU-Bürger', next: 'urgency' },
+            { label: 'Nicht-EU-Bürger', value: 'Nicht-EU-Bürger', next: 'urgency' }
+          ], saveAs: 'nationality'
+        },
+        urgency: {
+          text: 'Wie dringend ist Ihre Situation?',
+          chips: [
+            { label: 'Dringend — diese Woche', value: 'dringend diese Woche', next: 'goal' },
+            { label: 'Bald — diesen Monat', value: 'diesen Monat', next: 'goal' },
+            { label: 'Planung im Voraus', value: 'Planung im Voraus', next: 'result' }
+          ], saveAs: 'urgency'
+        },
+        goal: {
+          text: 'Was würden Sie als nächsten Schritt bevorzugen?',
+          chips: [
+            { label: 'Erst WhatsApp', value: 'erst WhatsApp', next: 'result' },
+            { label: 'Beratung buchen', value: 'Beratung buchen', next: 'result' },
+            { label: 'Mehr Informationen', value: 'mehr Informationen', next: 'result' }
+          ], saveAs: 'goal'
+        },
+        routeLabels: { Arbeit: 'Arbeit / Jobangebot', Studium: 'Studium', Familie: 'Ehe / Familie', Dokumente: 'Bewilligung / Dokumente' },
+        recommendations: {
+          Arbeit: 'Ihre Route eignet sich am besten für eine Beratung zur beschäftigungsbasierten Relocation, Arbeitgeberkommunikation und Bewilligungsvorbereitung.',
+          Studium: 'Ihre Route eignet sich am besten für eine Studenten-Relocation-Beratung mit Dokumenten, Finanzen und kantonsspezifischer Vorbereitung.',
+          Familie: 'Ihre Route eignet sich am besten für eine Familien- / Eheberatung mit Dokumentenstrategie und Zeitplanung.',
+          Dokumente: 'Ihre Route eignet sich am besten für eine praktische Dokument- und Behördenkommunikationsberatung.',
+          default: 'Eine kurze Beratung würde helfen, Ihre beste nächste Route zu klären.'
+        },
+        nextStep: {
+          whatsapp: 'Nächster Schritt: Senden Sie Ihre Fallzusammenfassung auf WhatsApp für eine schnelle erste Prüfung.',
+          book: 'Nächster Schritt: Buchen Sie eine Beratung, damit Ihre Dokumente und Ihr Zeitplan richtig geprüft werden können.',
+          default: 'Nächster Schritt: Beginnen Sie mit WhatsApp oder einer Beratung, je nachdem, wie detailliert Ihr Fall ist.'
+        },
+        summary: 'Fallzusammenfassung:',
+        summaryLabels: { topic: 'Thema', situation: 'Situation', status: 'Status', urgency: 'Dringlichkeit' },
+        whatsappGreeting: 'Hallo Polina,\nIch komme von Ihrer Website und benötige Hilfe bei der Relocation in die Schweiz.'
       },
-      nationality: {
-        text: 'Are you an EU citizen or a non-EU citizen?',
-        chips: [
-          { label: 'EU citizen', value: 'EU citizen', next: 'urgency' },
-          { label: 'Non-EU citizen', value: 'Non-EU citizen', next: 'urgency' }
-        ],
-        saveAs: 'nationality'
+      uk: {
+        start: {
+          text: `Привіт — я AI-асистент на сайті Поліни.\n\nЯ можу допомогти:\n• обрати правильну послугу\n• зорієнтуватися у вашому маршруті\n• підготувати повідомлення WhatsApp для вашого випадку\n\nЩо найкраще описує вашу ситуацію?`,
+          chips: [
+            { label: 'Робота / Пропозиція роботи', value: 'робота', next: 'location' },
+            { label: 'Навчання', value: 'навчання', next: 'location' },
+            { label: 'Шлюб / Сім\'я', value: 'сімя', next: 'location' },
+            { label: 'Дозвіл / Документи', value: 'документи', next: 'location' }
+          ], saveAs: 'route'
+        },
+        location: {
+          text: 'Ви вже у Швейцарії чи плануєте переїзд з-за кордону?',
+          chips: [
+            { label: 'Вже у Швейцарії', value: 'вже у Швейцарії', next: 'nationality' },
+            { label: 'Планую переїзд з-за кордону', value: 'планую з-за кордону', next: 'nationality' }
+          ], saveAs: 'location'
+        },
+        nationality: {
+          text: 'Ви громадянин ЄС чи не ЄС?',
+          chips: [
+            { label: 'Громадянин ЄС', value: 'громадянин ЄС', next: 'urgency' },
+            { label: 'Не громадянин ЄС', value: 'не громадянин ЄС', next: 'urgency' }
+          ], saveAs: 'nationality'
+        },
+        urgency: {
+          text: 'Наскільки термінова ваша ситуація?',
+          chips: [
+            { label: 'Терміново — цього тижня', value: 'терміново цього тижня', next: 'goal' },
+            { label: 'Незабаром — цього місяця', value: 'цього місяця', next: 'goal' },
+            { label: 'Планую заздалегідь', value: 'планую заздалегідь', next: 'result' }
+          ], saveAs: 'urgency'
+        },
+        goal: {
+          text: 'Що б ви вважали за краще як наступний крок?',
+          chips: [
+            { label: 'Спочатку WhatsApp', value: 'спочатку WhatsApp', next: 'result' },
+            { label: 'Записатись на консультацію', value: 'записатись на консультацію', next: 'result' },
+            { label: 'Потрібно більше інформації', value: 'потрібно більше інформації', next: 'result' }
+          ], saveAs: 'goal'
+        },
+        routeLabels: { робота: 'Робота / Пропозиція роботи', навчання: 'Навчання', сімя: 'Шлюб / Сім\'я', документи: 'Дозвіл / Документи' },
+        recommendations: {
+          робота: 'Ваш маршрут найкраще підходить для консультації щодо переїзду на основі роботи, спілкування з роботодавцем та підготовки дозволу.',
+          навчання: 'Ваш маршрут найкраще підходить для огляду студентського переїзду з документами, фінансами та підготовкою для конкретного кантону.',
+          сімя: 'Ваш маршрут найкраще підходить для сімейної / шлюбної консультації зі стратегією документів та переглядом термінів.',
+          документи: 'Ваш маршрут найкраще підходить для практичного огляду документів та комунікації з органами влади.',
+          default: 'Коротка консультація допоможе визначити ваш найкращий наступний маршрут.'
+        },
+        nextStep: {
+          whatsapp: 'Наступний крок: надішліть короткий опис вашої ситуації у WhatsApp для швидкого першого огляду.',
+          book: 'Наступний крок: запишіться на консультацію, щоб ваші документи та терміни були належним чином перевірені.',
+          default: 'Наступний крок: почніть з WhatsApp або консультації, залежно від того, наскільки детальний ваш випадок.'
+        },
+        summary: 'Короткий опис:',
+        summaryLabels: { topic: 'Тема', situation: 'Ситуація', status: 'Статус', urgency: 'Терміновість' },
+        whatsappGreeting: 'Привіт Поліно,\nЯ зайшов/зайшла з вашого сайту і хотів/хотіла б допомоги з переїздом до Швейцарії.'
       },
-      urgency: {
-        text: 'How urgent is your situation?',
-        chips: [
-          { label: 'Urgent — this week', value: 'urgent this week', next: 'goal' },
-          { label: 'Soon — this month', value: 'this month', next: 'goal' },
-          { label: 'Planning ahead', value: 'planning ahead', next: 'result' }
-        ],
-        saveAs: 'urgency'
-      },
-      goal: {
-        text: 'What would you prefer as the next step?',
-        chips: [
-          { label: 'WhatsApp first', value: 'WhatsApp first', next: 'result' },
-          { label: 'Book consultation', value: 'Book consultation', next: 'result' },
-          { label: 'I need more information', value: 'Need more information', next: 'result' }
-        ],
-        saveAs: 'goal'
+      es: {
+        start: {
+          text: `Hola — soy el asistente de IA del sitio de Polina.\n\nPuedo ayudarte con:\n• elegir el servicio adecuado\n• orientación rápida sobre tu ruta\n• preparar un mensaje de WhatsApp para tu caso\n\n¿Qué describe mejor tu situación?`,
+          chips: [
+            { label: 'Trabajo / Oferta laboral', value: 'trabajo', next: 'location' },
+            { label: 'Estudios', value: 'estudios', next: 'location' },
+            { label: 'Matrimonio / Familia', value: 'familia', next: 'location' },
+            { label: 'Permiso / Documentos', value: 'documentos', next: 'location' }
+          ], saveAs: 'route'
+        },
+        location: {
+          text: '¿Ya estás en Suiza o estás planeando el traslado desde el extranjero?',
+          chips: [
+            { label: 'Ya estoy en Suiza', value: 'ya en Suiza', next: 'nationality' },
+            { label: 'Planificando desde el extranjero', value: 'planificando desde el extranjero', next: 'nationality' }
+          ], saveAs: 'location'
+        },
+        nationality: {
+          text: '¿Eres ciudadano de la UE o no perteneces a la UE?',
+          chips: [
+            { label: 'Ciudadano de la UE', value: 'ciudadano UE', next: 'urgency' },
+            { label: 'No ciudadano de la UE', value: 'no ciudadano UE', next: 'urgency' }
+          ], saveAs: 'nationality'
+        },
+        urgency: {
+          text: '¿Qué tan urgente es tu situación?',
+          chips: [
+            { label: 'Urgente — esta semana', value: 'urgente esta semana', next: 'goal' },
+            { label: 'Pronto — este mes', value: 'este mes', next: 'goal' },
+            { label: 'Planificando con anticipación', value: 'planificando con anticipación', next: 'result' }
+          ], saveAs: 'urgency'
+        },
+        goal: {
+          text: '¿Qué preferirías como próximo paso?',
+          chips: [
+            { label: 'Primero WhatsApp', value: 'primero WhatsApp', next: 'result' },
+            { label: 'Reservar consulta', value: 'reservar consulta', next: 'result' },
+            { label: 'Necesito más información', value: 'más información', next: 'result' }
+          ], saveAs: 'goal'
+        },
+        routeLabels: { trabajo: 'Trabajo / Oferta laboral', estudios: 'Estudios', familia: 'Matrimonio / Familia', documentos: 'Permiso / Documentos' },
+        recommendations: {
+          trabajo: 'Tu ruta es más adecuada para una consulta enfocada en reubicación laboral, comunicación con empleadores y preparación de permisos.',
+          estudios: 'Tu ruta es más adecuada para una revisión de reubicación de estudiantes con documentos, finanzas y preparación específica del cantón.',
+          familia: 'Tu ruta es más adecuada para una consulta familiar / matrimonial con estrategia de documentos y revisión de plazos.',
+          documentos: 'Tu ruta es más adecuada para una revisión práctica de documentos y comunicación con autoridades.',
+          default: 'Una breve consulta ayudaría a aclarar tu mejor ruta a seguir.'
+        },
+        nextStep: {
+          whatsapp: 'Próximo paso: envía el resumen de tu caso por WhatsApp para una primera revisión rápida.',
+          book: 'Próximo paso: reserva una consulta para que tus documentos y plazos puedan revisarse correctamente.',
+          default: 'Próximo paso: comienza con WhatsApp o una consulta, dependiendo de cuán detallado sea tu caso.'
+        },
+        summary: 'Resumen del caso:',
+        summaryLabels: { topic: 'Tema', situation: 'Situación', status: 'Estado', urgency: 'Urgencia' },
+        whatsappGreeting: 'Hola Polina,\nVine desde tu sitio web y me gustaría ayuda con la reubicación a Suiza.'
       }
     };
+
+    function getCurrentFlow() {
+      const lang = localStorage.getItem('siteLanguage') || 'en';
+      return aiFlows[lang] || aiFlows['en'];
+    }
 
     function openPanel() {
       panel.classList.add('open');
@@ -4095,7 +4273,7 @@
 
     function renderChoices(stepName) {
       choices.innerHTML = '';
-      const step = flow[stepName];
+      const step = getCurrentFlow()[stepName];
       if (!step || !step.chips) return;
 
       step.chips.forEach(chip => {
@@ -4123,7 +4301,7 @@
     }
 
     function goToStep(stepName) {
-      const step = flow[stepName];
+      const step = getCurrentFlow()[stepName];
       if (!step) return;
 
       addMessage('bot', step.text);
@@ -4131,64 +4309,52 @@
     }
 
     function routeLabel(value) {
-      const labels = {
-        work: 'Work / Job offer',
-        study: 'Study',
-        family: 'Marriage / Family',
-        documents: 'Permit / Documents'
-      };
-
-      return labels[value] || value;
+      return getCurrentFlow().routeLabels[value] || value;
     }
 
     function recommendationText() {
-      const map = {
-        work: 'Your route looks best suited for a focused consultation on employment-based relocation, employer communication, and permit preparation.',
-        study: 'Your route looks best suited for a student relocation review with documents, finances, and canton-specific preparation.',
-        family: 'Your route looks best suited for a family / marriage consultation with document strategy and timeline review.',
-        documents: 'Your route looks best suited for a practical document and authority communication review.'
-      };
-
-      return map[state.route] || 'A short consultation would help clarify your next best route.';
+      const rec = getCurrentFlow().recommendations;
+      return rec[state.route] || rec.default;
     }
 
     function nextStepAdvice() {
-      if (state.goal === 'WhatsApp first') {
-        return 'Best next step: send your case summary on WhatsApp for a quick first review.';
+      const ns = getCurrentFlow().nextStep;
+      const g = state.goal || '';
+      if (g.includes('WhatsApp') || g.includes('WhatsApp')) {
+        return ns.whatsapp;
+      }
+      if (g.includes('consul') || g.includes('консульт') || g.includes('Beratung') || g.includes('reservar')) {
+        return ns.book;
       }
 
-      if (state.goal === 'Book consultation') {
-        return 'Best next step: book a consultation so your documents and timeline can be reviewed properly.';
-      }
-
-      return 'Best next step: start with WhatsApp or a consultation, depending on how detailed your case is.';
+      return ns.default;
     }
 
     function buildWhatsappText() {
+      const f = getCurrentFlow();
       const parts = [
-        'Hello Polina,',
-        'I came from your website and I would like help with relocation to Switzerland.',
-        `Topic: ${routeLabel(state.route)}.`,
-        `Situation: ${state.location}.`,
-        `Status: ${state.nationality}.`,
-        `Urgency: ${state.urgency}.`,
-        `Preferred next step: ${state.goal || 'not specified'}.`
+        f.whatsappGreeting,
+        `${f.summaryLabels.topic}: ${routeLabel(state.route)}.`,
+        `${f.summaryLabels.situation}: ${state.location}.`,
+        `${f.summaryLabels.status}: ${state.nationality}.`,
+        `${f.summaryLabels.urgency}: ${state.urgency}.`
       ];
-
       return encodeURIComponent(parts.join('\n'));
     }
 
     function showResult() {
       choices.innerHTML = '';
+      const f = getCurrentFlow();
+      const sl = f.summaryLabels;
 
       const summary =
 `${recommendationText()}
 
-Case summary:
-• Topic: ${routeLabel(state.route)}
-• Situation: ${state.location}
-• Status: ${state.nationality}
-• Urgency: ${state.urgency}
+${f.summary}
+• ${sl.topic}: ${routeLabel(state.route)}
+• ${sl.situation}: ${state.location}
+• ${sl.status}: ${state.nationality}
+• ${sl.urgency}: ${state.urgency}
 
 ${nextStepAdvice()}`;
 
@@ -4201,6 +4367,7 @@ ${nextStepAdvice()}`;
     function startChat() {
       messages.innerHTML = '';
       choices.innerHTML = '';
+      delete messages.dataset.started;
       state.route = '';
       state.location = '';
       state.nationality = '';
@@ -4208,6 +4375,16 @@ ${nextStepAdvice()}`;
       state.goal = '';
       goToStep('start');
     }
+
+    // Reset chat when language changes so it restarts in new language
+    document.querySelectorAll('[data-lang]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        if (messages.dataset.started) {
+          startChat();
+          messages.dataset.started = 'true';
+        }
+      });
+    });
 
     launcher.addEventListener('click', function () {
       if (panel.classList.contains('open')) closePanel();

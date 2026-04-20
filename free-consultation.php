@@ -30,8 +30,14 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Free Consultation | Easy Help Switzerland</title>
+  <title>Free Consultation — Easy Help Switzerland</title>
   <meta name="description" content="Request a free initial consultation for permits, relocation, documents, and practical support in Switzerland." />
+  <link rel="canonical" href="https://easyhelpswiss.com/free-consultation.php" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://easyhelpswiss.com/free-consultation.php" />
+  <meta property="og:title" content="Free Consultation — Easy Help Switzerland" />
+  <meta property="og:description" content="Request a free initial consultation for permits, relocation, documents, and practical support in Switzerland." />
+  <meta property="og:image" content="https://easyhelpswiss.com/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -384,8 +390,8 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
         <nav class="nav" id="mainNav">
           <a href="index.html" data-i18n="nav_home">Home</a>
           <a href="index.html#services" data-i18n="nav_objects">Services</a>
-          <a href="blog.html" data-i18n="consult_nav_guides">Guides</a>
-          <a href="booking.php" data-i18n="consult_nav_booking">Booking</a>
+          <a href="blog.html" data-i18n="blog_nav_guides">Guides</a>
+          <a href="free-consultation.php" data-i18n="booking_nav_free_consultation">Free consultation</a>
           <a href="index.html#contact" data-i18n="nav_contact">Contacts</a>
           
         </nav>
@@ -455,6 +461,11 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
               <p data-i18n="consult_form_text" data-i18n-html>This form still posts to <code>submit-consultation.php</code> and keeps the same topic options: residence permit, work permit, relocation to Zürich, legal consultation, and other. </p>
             </div>
 
+            <?php
+              $pre_name  = htmlspecialchars(substr(trim($_GET['name']  ?? ''), 0, 100), ENT_QUOTES, 'UTF-8');
+              $pre_email = htmlspecialchars(substr(trim($_GET['email'] ?? ''), 0, 200), ENT_QUOTES, 'UTF-8');
+              $pre_phone = htmlspecialchars(substr(trim($_GET['phone'] ?? ''), 0, 50),  ENT_QUOTES, 'UTF-8');
+            ?>
             <form action="submit-consultation.php" method="POST">
               <input type="text" name="website" style="display:none">
               <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
@@ -463,17 +474,17 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
               <div class="form-grid">
                 <div class="field">
                   <label data-i18n="name">Full name</label>
-                  <input type="text" name="name" required>
+                  <input type="text" name="name" required value="<?= $pre_name ?>">
                 </div>
 
                 <div class="field">
                   <label data-i18n="email">Email</label>
-                  <input type="email" name="email" required>
+                  <input type="email" name="email" required value="<?= $pre_email ?>">
                 </div>
 
                 <div class="field">
                   <label data-i18n="phone">Phone / WhatsApp</label>
-                  <input type="text" name="phone">
+                  <input type="text" name="phone" value="<?= $pre_phone ?>">
                 </div>
 
                 <div class="field">
