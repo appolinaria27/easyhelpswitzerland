@@ -8,6 +8,13 @@ if (empty($_SESSION['admin_logged_in'])) {
     exit;
 }
 
+// Validate session integrity — detect session hijacking
+if (empty($_SESSION['admin_ip']) || $_SESSION['admin_ip'] !== ($_SERVER['REMOTE_ADDR'] ?? '')) {
+    session_destroy();
+    header('Location: admin.php?error=session_invalid');
+    exit;
+}
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     header('Location: admin-panel.php');
     exit;
@@ -22,7 +29,13 @@ if (empty($_POST['csrf_token']) || empty($_SESSION['admin_csrf']) ||
 
 $action  = $_POST['action'] ?? '';
 $id      = preg_replace('/[^a-f0-9]/', '', $_POST['booking_id'] ?? '');
-$type    = $_POST['booking_type'] ?? 'paid'; // 'paid' or 'pending'
+
+// Whitelist booking_type — never trust user input directly
+$type = $_POST['booking_type'] ?? 'paid';
+if (!in_array($type, ['paid', 'pending', 'free'], true)) {
+    header('Location: admin-panel.php?error=invalid_type');
+    exit;
+}
 $dataDir = __DIR__ . '/admin-data';
 
 if (!is_dir($dataDir)) mkdir($dataDir, 0700, true);
@@ -35,7 +48,21 @@ function loadNote(string $file): array {
 }
 
 function saveNote(string $file, array $data): void {
-    file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+    file_put_contents($file, json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
+    chmod($file, 0600);
+}
+
+function auditLog(string $action, string $id, string $type): void {
+    $logDir = __DIR__ . '/logs';
+    if (!is_dir($logDir)) mkdir($logDir, 0700, true);
+    $entry = json_encode([
+        'time'   => date('c'),
+        'ip'     => $_SERVER['REMOTE_ADDR'] ?? 'unknown',
+        'action' => $action,
+        'id'     => $id,
+        'type'   => $type,
+    ]) . "\n";
+    file_put_contents($logDir . '/admin-actions.log', $entry, FILE_APPEND | LOCK_EX);
 }
 
 if ($action === 'save_note') {
@@ -54,6 +81,7 @@ if ($action === 'save_note') {
     $note['admin_note'] = $admin_note;
     $note['updated_at'] = date('c');
     saveNote($noteFile, $note);
+    auditLog('save_note', $id, $type);
 
 } elseif ($action === 'delete') {
     // Delete the booking JSON file
@@ -78,6 +106,7 @@ if ($action === 'save_note') {
     }
     // Also delete admin note
     if (file_exists($noteFile)) unlink($noteFile);
+    auditLog('delete', $id, $type);
 }
 
 header('Location: admin-panel.php');

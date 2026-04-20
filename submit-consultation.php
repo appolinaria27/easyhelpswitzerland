@@ -52,7 +52,7 @@ $rateLimitFile = $rateLimitDir . '/' . $rateLimitKey . '.json';
 
 $now = time();
 $windowSeconds = 600; // 10 минут
-$maxRequests = 5;     // максимум 5 отправок за 10 минут
+$maxRequests = 3;     // максимум 3 отправки за 10 минут
 
 $requests = [];
 
@@ -324,5 +324,5 @@ HTML;
     error_log('Consultation confirmation mail error: ' . $e->getMessage());
 }
 
-http_response_code(200);
-echo 'Request is sent. Thank you!';
+header('Location: consultation-success.php');
+exit;

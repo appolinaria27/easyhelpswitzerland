@@ -1,20 +1,58 @@
 Options -Indexes
 
-# Запрет доступа к .env
+# ── Deny sensitive files ──────────────────────────────────────────
 <Files ".env">
   Require all denied
 </Files>
-
-# Запрет composer файлов
 <Files "composer.json">
   Require all denied
 </Files>
-
 <Files "composer.lock">
   Require all denied
 </Files>
-
-# Запрет всех скрытых файлов (.git, .env, и т.д.)
 <FilesMatch "^\.">
   Require all denied
 </FilesMatch>
+<FilesMatch "\.(log|json|lock|sh|bak|sql|md)$">
+  Require all denied
+</FilesMatch>
+
+# ── Block direct access to PHP backend scripts ────────────────────
+<FilesMatch "^(submit-consultation|create-checkout-session|stripe-webhook|security)\.php$">
+  Require all denied
+</FilesMatch>
+
+# ── Gzip compression ─────────────────────────────────────────────
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json text/plain
+</IfModule>
+
+# ── Browser caching for static assets ────────────────────────────
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/x-icon "access plus 1 year"
+</IfModule>
+
+# ── Force HTTPS ──────────────────────────────────────────────────
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+
+# ── Custom error pages ────────────────────────────────────────────
+ErrorDocument 404 /404.php
+ErrorDocument 500 /404.php
+
+# ── Security headers (fallback if PHP headers not sent) ──────────
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "DENY"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>

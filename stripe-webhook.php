@@ -57,6 +57,18 @@ try {
 }
 
 if ($event->type === 'checkout.session.completed') {
+    // Idempotency: skip if this Stripe event was already processed
+    $eventsDir = __DIR__ . '/stripe-events';
+    if (!is_dir($eventsDir)) mkdir($eventsDir, 0700, true);
+    $eventFlagFile = $eventsDir . '/' . preg_replace('/[^a-zA-Z0-9_-]/', '', $event->id) . '.lock';
+    if (file_exists($eventFlagFile)) {
+        http_response_code(200);
+        exit(); // already handled
+    }
+    // Mark event as in-progress before processing
+    file_put_contents($eventFlagFile, date('c'), LOCK_EX);
+    chmod($eventFlagFile, 0600);
+
     $session = $event->data->object;
     $metadata = $session->metadata;
 
@@ -136,7 +148,8 @@ if ($event->type === 'checkout.session.completed') {
 
             $saved = file_put_contents(
                 $archiveFile,
-                json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
+                json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE),
+                LOCK_EX
             );
 
             if ($saved === false) {
@@ -144,6 +157,7 @@ if ($event->type === 'checkout.session.completed') {
                 http_response_code(500);
                 exit();
             }
+            chmod($archiveFile, 0600);
         }
 
         // Helper: persist booking state immediately after each change (idempotency)

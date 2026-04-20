@@ -27,19 +27,20 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         !hash_equals($_SESSION['admin_csrf'], $_POST['csrf_token'])) {
         $error = 'Invalid request. Please try again.';
     } else {
-        // Rate limit: 5 attempts per 15 min per IP
+        // Rate limit: 3 attempts per 30 min per IP
         $ip = $_SERVER['REMOTE_ADDR'] ?? '0.0.0.0';
         $rlKey = hash('sha256', 'admin_login:' . $ip);
         $rlFile = $rateLimitDir . '/' . $rlKey . '.json';
         $now = time();
-        $window = 15 * 60;
+        $window = 30 * 60;
         $attempts = [];
         if (file_exists($rlFile)) {
-            $attempts = json_decode(file_get_contents($rlFile), true) ?? [];
-            $attempts = array_filter($attempts, fn($t) => ($now - $t) < $window);
+            $decoded = json_decode(file_get_contents($rlFile), true);
+            $attempts = is_array($decoded) ? $decoded : [];
+            $attempts = array_filter($attempts, fn($t) => is_int($t) && ($now - $t) < $window);
         }
-        if (count($attempts) >= 5) {
-            $error = 'Too many attempts. Please wait 15 minutes.';
+        if (count($attempts) >= 3) {
+            $error = 'Too many attempts. Please wait 30 minutes.';
         } else {
             $attempts[] = $now;
             file_put_contents($rlFile, json_encode(array_values($attempts)));
