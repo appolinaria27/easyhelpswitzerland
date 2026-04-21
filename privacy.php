@@ -1,4 +1,6 @@
-<?php http_response_code(200); ?>
+<?php
+require_once __DIR__ . '/security.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

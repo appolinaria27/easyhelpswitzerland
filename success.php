@@ -1,6 +1,6 @@
 <?php
 require_once __DIR__ . '/security.php';
-require 'vendor/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -75,7 +75,9 @@ try {
         if (!is_dir(__DIR__ . '/bookings')) {
             mkdir(__DIR__ . '/bookings', 0750, true);
         }
-        file_put_contents($archiveFile, json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
+        if (file_put_contents($archiveFile, json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX) === false) {
+            error_log('success.php: failed to write booking archive: ' . $archiveFile);
+        }
     }
 
     // Send emails if not already sent by webhook
@@ -145,7 +147,9 @@ try {
         }
 
         // Update archive with email sent flags
-        file_put_contents($archiveFile, json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
+        if (file_put_contents($archiveFile, json_encode($bookingData, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX) === false) {
+            error_log('success.php: failed to update booking archive: ' . $archiveFile);
+        }
 
         // Remove pending file
         if (file_exists($pendingFile)) {

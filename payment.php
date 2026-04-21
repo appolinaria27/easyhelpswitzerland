@@ -8,7 +8,15 @@ if (empty($_SESSION['csrf_token'])) {
 
 $errors = [];
 
-$bookingData = $_SESSION['booking'] ?? [
+$bookingData = $_SESSION['booking'] ?? null;
+
+// Redirect to booking form if no booking session exists (direct URL access)
+if (empty($bookingData) && $_SERVER['REQUEST_METHOD'] !== 'POST') {
+    header('Location: booking.php');
+    exit;
+}
+
+$bookingData = $bookingData ?? [
     'package' => 'initial',
     'name' => '',
     'email' => '',

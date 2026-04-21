@@ -1,4 +1,7 @@
-<?php http_response_code(404); ?>
+<?php
+require_once __DIR__ . '/security.php';
+http_response_code(404);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
