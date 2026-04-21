@@ -611,7 +611,7 @@ $errorCode = $_GET['error'] ?? '';
         <svg viewBox="0 0 32 48" aria-hidden="true"><path d="M4 44V10l10-8 10 8v34"></path><path d="M14 44V22l10-8v30"></path></svg>
         <span>Easy Help Switzerland</span>
       </div>
-      <div class="footer-center">© 2026 Easy Help Switzerland - all rights reserved.<br><a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a></div>
+      <div class="footer-center"><span data-i18n="payment_footer_rights">© 2026 Easy Help Switzerland - all rights reserved.</span><br><a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a></div>
       <div class="footer-right" data-i18n="payment_footer_page">Payment page</div>
     </footer>
   </div>
