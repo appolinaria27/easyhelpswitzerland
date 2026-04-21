@@ -1,24 +1,42 @@
 # macOS
 .DS_Store
+**/.DS_Store
 
-# env
+# env / secrets
 .env
 .env.local
 .env.*.local
+.htpasswd
+*.key
+*.pem
+*.p12
+*.pfx
 
 # dependencies
 vendor/
+node_modules/
 
 # logs
 logs/
 *.log
+error_log
+php_errors.log
 
 # backups
 backups/
 
-# temp data
+# temp / runtime data
 pending-bookings/
 rate-limit/
+*.tmp
+*.bak
+*.swp
+*.swo
+*~
+
+# PHP server config (server-specific, no secrets but not needed in repo)
+.user.ini
+php.ini
 
 # local tools
 .claude/
@@ -26,7 +44,29 @@ rate-limit/
 # editor
 .vscode/
 .idea/
+*.sublime-project
+*.sublime-workspace
 
+# OS
+Thumbs.db
+ehthumbs.db
 
+# Booking data — JSON files are private client data, keep only .htaccess
 bookings/*.json
 !bookings/.htaccess
+free-consultations/*.json
+!free-consultations/.htaccess
+
+# Admin runtime data (appointments, notes) — private, not for repo
+admin-data/
+
+# Stripe webhook idempotency lock files — runtime only, keep .htaccess
+stripe-events/*.lock
+stripe-events/*.json
+
+# Rate-limit state files
+rate-limit/
+
+# PHP session files
+/tmp/sess_*
+sess_*

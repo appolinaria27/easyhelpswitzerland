@@ -1,16 +1,7 @@
 <?php
 require_once __DIR__ . '/security.php';
 require 'vendor/autoload.php';
-session_set_cookie_params([
-    'lifetime' => 0,
-    'path' => '/',
-    'domain' => '',
-    'secure' => !empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off',
-    'httponly' => true,
-    'samesite' => 'Lax',
-]);
 
-ini_set('session.use_strict_mode', '1');
 
 session_start();
 
@@ -26,6 +17,8 @@ $baseUrl = rtrim($_ENV['APP_URL'], '/');
 
 function checkoutFail(string $reason, string $redirectUrl): void
 {
+    $logMsg = '[' . date('c') . '] Checkout rejected: ' . $reason . PHP_EOL;
+    file_put_contents(__DIR__ . '/logs/checkout-errors.log', $logMsg, FILE_APPEND | LOCK_EX);
     error_log('Checkout rejected: ' . $reason);
     header('Location: ' . $redirectUrl);
     exit;
@@ -45,54 +38,46 @@ if (
 $booking = $_SESSION['booking'] ?? [];
 
 if (empty($booking)) {
-    header('Location: ' . $baseUrl . '/booking.php');
-    exit;
+    checkoutFail('session booking empty', $baseUrl . '/payment.php?error=invalid_request');
 }
 
-$package = $booking['package'] ?? 'initial';
-$name = $booking['name'] ?? '';
-$email = $booking['email'] ?? '';
-$phone = $booking['phone'] ?? '';
-$location = $booking['location'] ?? '';
-$preferred = $booking['preferred'] ?? '';
-$message = $booking['message'] ?? '';
+$package  = $booking['package']   ?? 'initial';
+$name     = $booking['name']      ?? '';
+$email    = $booking['email']     ?? '';
+$phone    = $booking['phone']     ?? '';
+$location = $booking['location']  ?? '';
+$preferred= $booking['preferred'] ?? '';
+$message  = $booking['message']   ?? '';
 
-$allowedPackages = ['initial', 'review', 'support'];
+$allowedPackages  = ['initial', 'review', 'support'];
 $allowedPreferred = ['', 'online', 'zurich', 'phone'];
 
 if (!in_array($package, $allowedPackages, true)) {
-    header('Location: ' . $baseUrl . '/booking.php');
-    exit;
+    checkoutFail('invalid package: ' . $package, $baseUrl . '/booking.php');
 }
 
 if ($name === '' || mb_strlen($name) < 2 || mb_strlen($name) > 100) {
-    header('Location: ' . $baseUrl . '/payment.php');
-    exit;
+    checkoutFail('invalid name: ' . $name, $baseUrl . '/payment.php?error=invalid_request');
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header('Location: ' . $baseUrl . '/payment.php');
-    exit;
+    checkoutFail('invalid email: ' . $email, $baseUrl . '/payment.php?error=invalid_request');
 }
 
 if (mb_strlen($phone) > 50) {
-    header('Location: ' . $baseUrl . '/payment.php');
-    exit;
+    checkoutFail('phone too long', $baseUrl . '/payment.php?error=invalid_request');
 }
 
 if (mb_strlen($location) > 100) {
-    header('Location: ' . $baseUrl . '/payment.php');
-    exit;
+    checkoutFail('location too long', $baseUrl . '/payment.php?error=invalid_request');
 }
 
 if (!in_array($preferred, $allowedPreferred, true)) {
-    header('Location: ' . $baseUrl . '/payment.php');
-    exit;
+    checkoutFail('invalid preferred: [' . $preferred . ']', $baseUrl . '/payment.php?error=invalid_request');
 }
 
 if (mb_strlen($message) > 2000) {
-    header('Location: ' . $baseUrl . '/payment.php');
-    exit;
+    checkoutFail('message too long', $baseUrl . '/payment.php?error=invalid_request');
 }
 
 $packages = [
@@ -123,8 +108,8 @@ $rateLimitKey = hash('sha256', 'checkout:' . $ip);
 $rateLimitFile = $rateLimitDir . '/' . $rateLimitKey . '.json';
 
 $now = time();
-$windowSeconds = 900; // 15 минут
-$maxRequests = 5;     // максимум 5 checkout-сессий за 15 минут
+$windowSeconds = 3600; // 1 hour
+$maxRequests = 10;     // max 10 checkout attempts per hour
 
 $requests = [];
 
@@ -219,14 +204,14 @@ try {
         'cancel_url'  => $baseUrl . '/payment.php',
     ]);
 } catch (\Stripe\Exception\ApiErrorException $e) {
-    error_log('Stripe API error: ' . $e->getMessage());
+    error_log('Stripe API error: ' . $e->getMessage() . ' | Code: ' . $e->getStripeCode() . ' | HTTP: ' . $e->getHttpStatus());
     // Clean up pending booking file since Stripe session was not created
     if (file_exists($pendingFile)) {
         unlink($pendingFile);
     }
     checkoutFail('stripe api error', $baseUrl . '/payment.php?error=payment_unavailable');
 } catch (\Exception $e) {
-    error_log('Checkout unexpected error: ' . $e->getMessage());
+    error_log('Checkout unexpected error [' . get_class($e) . ']: ' . $e->getMessage() . ' in ' . $e->getFile() . ':' . $e->getLine());
     checkoutFail('unexpected checkout error', $baseUrl . '/payment.php?error=system_error');
 }
 

@@ -425,9 +425,18 @@ exit;
 </head>
 <body>
 
-<?php if (!empty($_GET['error'])): ?>
+<?php
+$errorMessages = [
+    'invalid_request'    => 'Session expired or invalid request. Please go back and try again.',
+    'rate_limited'       => 'Too many attempts. Please wait a few minutes and try again.',
+    'payment_unavailable'=> 'Payment service is temporarily unavailable. Please try again shortly.',
+    'system_error'       => 'A system error occurred. Please try again.',
+];
+$errorCode = $_GET['error'] ?? '';
+?>
+<?php if ($errorCode): ?>
   <div style="margin:20px;padding:15px;border:1px solid #e0b4b4;background:#fff6f6;border-radius:10px;color:#9f3a38;">
-    Something went wrong. Please try again.
+    <?= htmlspecialchars($errorMessages[$errorCode] ?? 'Something went wrong. Please try again.', ENT_QUOTES, 'UTF-8') ?>
   </div>
 <?php endif; ?>
 
@@ -561,18 +570,15 @@ exit;
 
             <form id="checkoutForm" action="create-checkout-session.php" method="POST">
               <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
-  <input type="hidden" name="package" id="checkoutPackage">
-  <input type="hidden" name="name" id="checkoutName">
-  <input type="hidden" name="email" id="checkoutEmail">
-  <input type="hidden" name="phone" id="checkoutPhone">
-  <input type="hidden" name="location" id="checkoutLocation">
-  <input type="hidden" name="preferred" id="checkoutPreferred">
-  <input type="hidden" name="message" id="checkoutMessage">
-
-  <button type="submit" class="btn primary" data-i18n="payment_pay_now">
-    Pay now
-  </button>
-</form>
+              <input type="hidden" name="package"  id="checkoutPackage"  value="<?= htmlspecialchars($bookingData['package']  ?? '', ENT_QUOTES, 'UTF-8') ?>">
+              <input type="hidden" name="name"     id="checkoutName"     value="<?= htmlspecialchars($bookingData['name']     ?? '', ENT_QUOTES, 'UTF-8') ?>">
+              <input type="hidden" name="email"    id="checkoutEmail"    value="<?= htmlspecialchars($bookingData['email']    ?? '', ENT_QUOTES, 'UTF-8') ?>">
+              <input type="hidden" name="phone"    id="checkoutPhone"    value="<?= htmlspecialchars($bookingData['phone']    ?? '', ENT_QUOTES, 'UTF-8') ?>">
+              <input type="hidden" name="location" id="checkoutLocation" value="<?= htmlspecialchars($bookingData['location'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+              <input type="hidden" name="preferred" id="checkoutPreferred" value="<?= htmlspecialchars($bookingData['preferred'] ?? '', ENT_QUOTES, 'UTF-8') ?>">
+              <input type="hidden" name="message"  id="checkoutMessage"  value="<?= htmlspecialchars($bookingData['message']  ?? '', ENT_QUOTES, 'UTF-8') ?>">
+              <button type="submit" class="btn primary" data-i18n="payment_pay_now">Pay now</button>
+            </form>
             <a class="btn secondary" href="booking.php" data-i18n="payment_edit">Edit booking</a>
 
             <p class="small" data-i18n="payment_note">Payment confirms your consultation request. If your matter requires formal legal representation, you may be referred to a licensed lawyer where appropriate.</p>
