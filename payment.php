@@ -470,7 +470,7 @@ $errorCode = $_GET['error'] ?? '';
           </svg>
           <div>
             <div style="font-size:18px">Easy Help</div>
-            <div style="font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase">Switzerland</div>
+            <div style="font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase" data-i18n="brand_sub">Switzerland</div>
           </div>
         </a>
 
