@@ -353,9 +353,9 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
   blog_hero_title_sub: "guides",
   blog_hero_sub: "Clear practical articles on permits, registration, health insurance, study, marriage and family reunification — redesigned to match the editorial premium style of your main website.",
 
-  blog_hero_feature_1: "Easy to scan long-form articles",
-  blog_hero_feature_2: "Premium editorial layout",
-  blog_hero_feature_3: "Same visual language as homepage",
+  blog_hero_feature_1: "Permits, registration & insurance guides",
+  blog_hero_feature_2: "Written by relocation experts",
+  blog_hero_feature_3: "Updated with new articles regularly",
 
   blog_hero_guides_count: "6",
   blog_hero_guides_label: "guides structured in one destination",
@@ -1293,9 +1293,9 @@ footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.
   blog_hero_title_sub: "reubicación en Suiza",
   blog_hero_sub: "Artículos claros y prácticos sobre permisos, registro, seguro médico, estudios, matrimonio y reunificación familiar, rediseñados para encajar con el estilo editorial premium de su sitio web principal.",
 
-  blog_hero_feature_1: "Artículos largos fáciles de leer",
-  blog_hero_feature_2: "Diseño editorial premium",
-  blog_hero_feature_3: "Mismo lenguaje visual que la página principal",
+  blog_hero_feature_1: "Guías sobre permisos, registro y seguros",
+  blog_hero_feature_2: "Escrito por expertos en reubicación",
+  blog_hero_feature_3: "Actualizado regularmente con nuevos artículos",
 
   blog_hero_guides_count: "6",
   blog_hero_guides_label: "guías estructuradas en un solo lugar",
@@ -2198,9 +2198,9 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   blog_hero_title_sub: "Umzug in die Schweiz",
   blog_hero_sub: "Klare praktische Artikel zu Bewilligungen, Anmeldung, Krankenversicherung, Studium, Heirat und Familiennachzug — neu gestaltet im hochwertigen redaktionellen Stil Ihrer Hauptwebsite.",
 
-  blog_hero_feature_1: "Lange Artikel leicht erfassbar",
-  blog_hero_feature_2: "Hochwertiges redaktionelles Layout",
-  blog_hero_feature_3: "Gleiche visuelle Sprache wie die Startseite",
+  blog_hero_feature_1: "Ratgeber zu Bewilligungen, Anmeldung & Versicherung",
+  blog_hero_feature_2: "Verfasst von Umzugsexperten",
+  blog_hero_feature_3: "Regelmäßig mit neuen Artikeln aktualisiert",
 
   blog_hero_guides_count: "6",
   blog_hero_guides_label: "Ratgeber an einem Ort gebündelt",
@@ -3183,9 +3183,9 @@ payment_note: "Оплата підтверджує ваш запит на кон
   blog_hero_title_sub: "переїзд до Швейцарії",
   blog_hero_sub: "Чіткі практичні статті про дозволи, реєстрацію, медичне страхування, навчання, шлюб і возз'єднання сім'ї — у преміальному редакційному стилі вашого основного сайту.",
 
-  blog_hero_feature_1: "Зручно читати довгі статті",
-  blog_hero_feature_2: "Преміальний редакційний дизайн",
-  blog_hero_feature_3: "Той самий візуальний стиль, що й на головній сторінці",
+  blog_hero_feature_1: "Посібники з дозволів, реєстрації та страхування",
+  blog_hero_feature_2: "Написано експертами з переїзду",
+  blog_hero_feature_3: "Регулярно оновлюється новими статтями",
 
   blog_hero_guides_count: "6",
   blog_hero_guides_label: "гідів, зібраних в одному місці",
