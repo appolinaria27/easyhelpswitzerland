@@ -71,7 +71,8 @@ if ($action === 'save_note') {
     $status     = trim($_POST['status'] ?? '');
     $admin_note = trim($_POST['admin_note'] ?? '');
 
-    // Sanitize
+    // Sanitize: strip CRLF injection then truncate
+    $admin_note = str_replace(["\r\n", "\r"], "\n", $admin_note);
     if (mb_strlen($admin_note) > 1000) $admin_note = mb_substr($admin_note, 0, 1000);
     $allowed_statuses = ['confirmed', 'completed', 'cancelled', 'pending'];
     if (!in_array($status, $allowed_statuses, true)) $status = 'confirmed';

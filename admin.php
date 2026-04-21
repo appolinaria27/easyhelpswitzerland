@@ -47,7 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             $password = $_POST['password'] ?? '';
             $hash = $_ENV['ADMIN_PASSWORD_HASH'] ?? '';
-            if ($hash && password_verify($password, $hash)) {
+            if (!$hash || !preg_match('/^\$2[aby]\$/', $hash)) {
+                error_log('Admin login: ADMIN_PASSWORD_HASH missing or invalid format in .env');
+                $error = 'System configuration error. Please contact support.';
+            } elseif (password_verify($password, $hash)) {
                 session_regenerate_id(true);
                 $_SESSION['admin_logged_in'] = true;
                 $_SESSION['admin_ip'] = $ip;

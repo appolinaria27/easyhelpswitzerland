@@ -37,7 +37,12 @@ function createWebhookMailer(): PHPMailer
     return $mail;
 }
 
-$endpoint_secret = $_ENV['STRIPE_WEBHOOK_SECRET'];
+$endpoint_secret = $_ENV['STRIPE_WEBHOOK_SECRET'] ?? '';
+if (!$endpoint_secret) {
+    error_log('Stripe webhook: STRIPE_WEBHOOK_SECRET not configured');
+    http_response_code(500);
+    exit;
+}
 
 $payload = file_get_contents('php://input');
 $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'] ?? '';

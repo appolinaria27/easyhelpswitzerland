@@ -123,9 +123,9 @@ if (!$emailOnly) {
 }
 
 // Send confirmation email
-if ($sendMail && !empty($booking['email'])) {
+if ($sendMail && !empty($booking['email']) && filter_var($booking['email'], FILTER_VALIDATE_EMAIL)) {
 
-    $clientName  = $booking['name'] ?? 'Client';
+    $clientName  = str_replace(["\r", "\n"], ' ', $booking['name'] ?? 'Client');
     $clientEmail = $booking['email'];
     $package     = $booking['package_name'] ?? $booking['package'] ?? '';
     $format      = $booking['preferred'] ?? '';
@@ -143,6 +143,8 @@ if ($sendMail && !empty($booking['email'])) {
         $mail->setFrom($_ENV['MAIL_FROM'] ?? $_ENV['SMTP_USER'], 'Easy Help Switzerland');
         $mail->addAddress($clientEmail, $clientName);
 
+        $terminDay  = str_replace(["\r", "\n"], '', $terminDay);
+        $terminTime = str_replace(["\r", "\n"], '', $terminTime);
         $mail->Subject = "Your consultation is confirmed — {$terminDay} at {$terminTime}";
 
         $formatLine = $format ? "<p><strong>Format:</strong> " . htmlspecialchars($format) . "</p>" : '';

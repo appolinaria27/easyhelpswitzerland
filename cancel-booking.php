@@ -66,8 +66,8 @@ chmod($noteFile, 0600);
 
 // Send cancellation email
 $emailSent = false;
-if (!empty($booking['email'])) {
-    $name    = $booking['name'] ?? 'Client';
+if (!empty($booking['email']) && filter_var($booking['email'], FILTER_VALIDATE_EMAIL)) {
+    $name    = str_replace(["\r", "\n"], ' ', $booking['name'] ?? 'Client');
     $email   = $booking['email'];
     $package = $booking['package_name'] ?? $booking['package'] ?? '';
 
