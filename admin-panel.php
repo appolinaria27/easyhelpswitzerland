@@ -17,6 +17,13 @@ if (empty($_SESSION['admin_logged_in'])) {
     exit;
 }
 
+// Validate session integrity — detect session hijacking
+if (empty($_SESSION['admin_ip']) || $_SESSION['admin_ip'] !== ($_SERVER['REMOTE_ADDR'] ?? '')) {
+    session_destroy();
+    header('Location: admin.php?error=session_invalid');
+    exit;
+}
+
 if (isset($_GET['logout'])) {
     session_destroy();
     header('Location: admin.php');
@@ -504,7 +511,7 @@ foreach (array_merge($paid, $pending, $freeConsults) as $b) {
               <div class="form-actions">
                 <button type="submit" class="btn-save">Save</button>
                 <button type="button" class="btn-cancel-booking"
-                  onclick="cancelBooking('<?= htmlspecialchars($id) ?>','<?= htmlspecialchars(addslashes($b['name'] ?? '')) ?>')">
+                  onclick="cancelBooking('<?= htmlspecialchars($id) ?>',<?= json_encode($b['name'] ?? '', JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_QUOT | JSON_HEX_APOS) ?>)">
                   Cancel &amp; Email
                 </button>
                 <button type="submit" class="btn-delete"
@@ -719,7 +726,7 @@ document.getElementById('modalConfirm').addEventListener('click', () => {
   pendingEmailId = null;
   fetch('schedule-booking.php', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
     body: JSON.stringify({ id, datetime: null, csrf: CSRF, send_mail: true, email_only: true })
   })
   .then(r => r.json())
@@ -728,8 +735,13 @@ document.getElementById('modalConfirm').addEventListener('click', () => {
 });
 
 function openEmailModal(name, id) {
-  document.getElementById('modalText').innerHTML =
-    'Appointment saved. Send confirmation email to <span class="highlight">' + name + '</span>?';
+  const modalEl = document.getElementById('modalText');
+  modalEl.textContent = 'Appointment saved. Send confirmation email to ';
+  const span = document.createElement('span');
+  span.className = 'highlight';
+  span.textContent = name;
+  modalEl.appendChild(span);
+  modalEl.appendChild(document.createTextNode('?'));
   pendingEmailId = id;
   document.getElementById('scheduleModal').classList.add('visible');
 }
@@ -739,7 +751,7 @@ function scheduleBooking(id, datetime, el) {
   setSaveStatus('Saving…');
   fetch('schedule-booking.php', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
     body: JSON.stringify({ id, datetime, csrf: CSRF, send_mail: false })
   })
   .then(r => r.json())
@@ -772,7 +784,7 @@ function saveAllEvents() {
   const promises = events.map(ev =>
     fetch('schedule-booking.php', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
       body: JSON.stringify({ id: ev.id, datetime: ev.start.toISOString(), csrf: CSRF, send_mail: false })
     }).then(r => r.json())
   );
@@ -844,7 +856,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
       fetch('schedule-booking.php', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
         body: JSON.stringify({ id, datetime: dt, csrf: CSRF, send_mail: false })
       })
       .then(r => r.json())
@@ -931,7 +943,7 @@ function cancelBooking(id, name) {
   if (!confirm('Cancel booking for "' + name + '" and send a cancellation email to the client?')) return;
   fetch('cancel-booking.php', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'X-Requested-With': 'XMLHttpRequest' },
     body: JSON.stringify({ id, csrf: CSRF })
   })
   .then(r => r.json())

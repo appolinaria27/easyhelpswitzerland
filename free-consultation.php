@@ -30,6 +30,7 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <title>Free Consultation — Easy Help Switzerland</title>
   <meta name="description" content="Request a free initial consultation for permits, relocation, documents, and practical support in Switzerland." />
   <link rel="canonical" href="https://easyhelpswiss.com/free-consultation.php" />
@@ -386,7 +387,7 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
           </div>
         </a>
 
-        <button class="burger" id="burgerBtn" type="button" aria-label="Open menu"><span></span><span></span><span></span></button>
+        <button class="burger" id="burgerBtn" type="button" data-i18n-aria-label="aria_open_menu" aria-label="Open menu"><span></span><span></span><span></span></button>
         <nav class="nav" id="mainNav">
           <a href="index.html" data-i18n="nav_home">Home</a>
           <a href="index.html#services" data-i18n="nav_objects">Services</a>
@@ -461,6 +462,11 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
               <p data-i18n="consult_form_text" data-i18n-html>This form still posts to <code>submit-consultation.php</code> and keeps the same topic options: residence permit, work permit, relocation to Zürich, legal consultation, and other. </p>
             </div>
 
+            <?php
+              $pre_name  = htmlspecialchars(substr(trim($_GET['name']  ?? ''), 0, 100), ENT_QUOTES, 'UTF-8');
+              $pre_email = htmlspecialchars(substr(trim($_GET['email'] ?? ''), 0, 200), ENT_QUOTES, 'UTF-8');
+              $pre_phone = htmlspecialchars(substr(trim($_GET['phone'] ?? ''), 0, 50),  ENT_QUOTES, 'UTF-8');
+            ?>
             <form action="submit-consultation.php" method="POST">
               <input type="text" name="website" style="display:none">
               <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
@@ -469,17 +475,17 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
               <div class="form-grid">
                 <div class="field">
                   <label data-i18n="name">Full name</label>
-                  <input type="text" name="name" required>
+                  <input type="text" name="name" required value="<?= $pre_name ?>">
                 </div>
 
                 <div class="field">
                   <label data-i18n="email">Email</label>
-                  <input type="email" name="email" required>
+                  <input type="email" name="email" required value="<?= $pre_email ?>">
                 </div>
 
                 <div class="field">
                   <label data-i18n="phone">Phone / WhatsApp</label>
-                  <input type="text" name="phone">
+                  <input type="tel" name="phone" value="<?= $pre_phone ?>">
                 </div>
 
                 <div class="field">
@@ -559,14 +565,14 @@ $errorMessage = $errorMessages[$errorCode] ?? '';
         <svg viewBox="0 0 32 48" aria-hidden="true"><path d="M4 44V10l10-8 10 8v34"></path><path d="M14 44V22l10-8v30"></path></svg>
         <span data-i18n="footer_brand">Easy Help Switzerland</span>
       </div>
-      <div class="footer-center">© 2026 Easy Help Switzerland - all rights reserved.<br><a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a></div>
+      <div class="footer-center"><span data-i18n="consult_footer_copy">© 2026 Easy Help Switzerland - all rights reserved.</span><br><a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a></div>
       <div class="footer-right" data-i18n="consult_footer_right">Free consultation page aligned to the main website</div>
     </footer>
   </div>
 
   <a class="whatsapp-float" href="https://wa.me/41764497581" target="_blank" rel="noopener" aria-label="WhatsApp">
     <span class="wa-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
-    <span><strong style="display:block;font-size:14px">WhatsApp</strong><small style="opacity:.75;font-size:12px">Write to us</small></span>
+    <span><strong style="display:block;font-size:14px" data-i18n="wa_label">WhatsApp</strong><small style="opacity:.75;font-size:12px" data-i18n="wa_write">Write to us</small></span>
   </a>
 
   <script src="site.js"></script>

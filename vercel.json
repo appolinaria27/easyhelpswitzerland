@@ -1,0 +1,19 @@
+{
+  "installCommand": "composer install --no-dev --optimize-autoloader",
+  "functions": {
+    "*.php": {
+      "runtime": "vercel-community/php@0.0.8"
+    }
+  },
+  "routes": [
+    { "src": "/blog",                  "dest": "/blog.php" },
+    { "src": "/booking",               "dest": "/booking.php" },
+    { "src": "/free-consultation",     "dest": "/free-consultation.php" },
+    { "src": "/success",               "dest": "/success.php" },
+    { "src": "/consultation-success",  "dest": "/consultation-success.php" },
+    { "src": "/privacy",               "dest": "/privacy.php" },
+    { "src": "/terms",                 "dest": "/terms.php" },
+    { "src": "/refund-policy",         "dest": "/refund-policy.php" },
+    { "src": "/(.*)",                  "dest": "/$1" }
+  ]
+}

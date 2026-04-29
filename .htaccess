@@ -53,6 +53,6 @@ ErrorDocument 500 /404.php
 # ── Security headers (fallback if PHP headers not sent) ──────────
 <IfModule mod_headers.c>
   Header always set X-Content-Type-Options "nosniff"
-  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set X-Frame-Options "DENY"
   Header always set Referrer-Policy "strict-origin-when-cross-origin"
 </IfModule>

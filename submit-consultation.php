@@ -52,7 +52,7 @@ $rateLimitFile = $rateLimitDir . '/' . $rateLimitKey . '.json';
 
 $now = time();
 $windowSeconds = 600; // 10 минут
-$maxRequests = 5;     // максимум 5 отправок за 10 минут
+$maxRequests = 3;     // максимум 3 отправки за 10 минут
 
 $requests = [];
 
@@ -142,6 +142,33 @@ if ($messageText !== '' && mb_strlen($messageText) > 2000) {
 $name = str_replace(["\r", "\n"], ' ', $name);
 $email = str_replace(["\r", "\n"], '', $email);
 
+function airtableInsert(string $tableEnvKey, array $fields): void
+{
+    $apiKey = $_ENV['AIRTABLE_API_KEY']  ?? '';
+    $baseId = $_ENV['AIRTABLE_BASE_ID']  ?? '';
+    $table  = $_ENV[$tableEnvKey]        ?? '';
+    if (!$apiKey || !$baseId || !$table) return;
+
+    $url  = "https://api.airtable.com/v0/{$baseId}/" . rawurlencode($table);
+    $body = json_encode(['fields' => $fields]);
+    $ctx  = stream_context_create([
+        'http' => [
+            'method'  => 'POST',
+            'header'  => implode("\r\n", [
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . $apiKey,
+            ]),
+            'content' => $body,
+            'ignore_errors' => true,
+            'timeout' => 5,
+        ],
+    ]);
+    $result = @file_get_contents($url, false, $ctx);
+    if ($result === false) {
+        error_log('Airtable insert failed for table env key: ' . $tableEnvKey);
+    }
+}
+
 function createMailer(): PHPMailer
 {
     $mail = new PHPMailer(true);
@@ -163,14 +190,72 @@ try {
     $mail->addAddress($_ENV['ADMIN_EMAIL']);
     $mail->addReplyTo($email, $safeName);
     $mail->Subject = 'New Free Consultation Request';
-    $mail->Body =
+    $mail->isHTML(true);
+    $mail->Body = <<<HTML
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f4f6f9;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f9;padding:40px 0;">
+    <tr><td align="center">
+      <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08);">
+        <tr>
+          <td style="background:#0a0e14;padding:28px 36px;">
+            <p style="margin:0;color:#ffffff;font-family:'Georgia',serif;font-size:22px;font-weight:400;letter-spacing:.02em;">Easy Help Switzerland</p>
+            <p style="margin:4px 0 0;color:rgba(255,255,255,.5);font-size:12px;letter-spacing:.1em;text-transform:uppercase;">New Free Consultation Request</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:36px 36px 28px;">
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f5ff;border-radius:12px;padding:20px 24px;">
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Name</p>
+                <p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e;">{$safeName}</p>
+              </td></tr>
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Email</p>
+                <p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e;">{$email}</p>
+              </td></tr>
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Phone / WhatsApp</p>
+                <p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e;">{$phone}</p>
+              </td></tr>
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Current Location</p>
+                <p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e;">{$location}</p>
+              </td></tr>
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Topic</p>
+                <p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e;">{$topic}</p>
+              </td></tr>
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Message</p>
+                <p style="margin:4px 0 0;font-size:15px;color:#1a1a2e;line-height:1.6;">{$messageText}</p>
+              </td></tr>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#f8f9fb;padding:20px 36px;border-top:1px solid #eee;">
+            <p style="margin:0;font-size:12px;color:#aaa;text-align:center;">
+              Easy Help Switzerland · Zürich · <a href="https://easyhelp.ch" style="color:#4693e8;text-decoration:none;">easyhelp.ch</a>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
+HTML;
+    $mail->AltBody =
         "New free consultation request received\n\n" .
-        "Name: $safeName\n" .
-        "Email: $email\n" .
-        "Phone / WhatsApp: $phone\n" .
-        "Current location: $location\n" .
-        "Topic: $topic\n" .
-        "Message:\n$messageText\n";
+        "Name: {$safeName}\n" .
+        "Email: {$email}\n" .
+        "Phone / WhatsApp: {$phone}\n" .
+        "Current location: {$location}\n" .
+        "Topic: {$topic}\n" .
+        "Message:\n{$messageText}\n";
     $mail->send();
 } catch (Exception $e) {
     error_log('Consultation admin mail error: ' . $e->getMessage());
@@ -200,23 +285,84 @@ file_put_contents(
     LOCK_EX
 );
 
+// Sync to Airtable
+airtableInsert('AIRTABLE_TABLE_CONSULTATIONS', [
+    'Name'       => $safeName,
+    'Email'      => $email,
+    'Phone'      => $phone,
+    'Location'   => $location,
+    'Topic'      => $topic,
+    'Message'    => $messageText,
+    'Booking ID' => $consultId,
+    'Created At' => date('c'),
+    'Status'     => 'new',
+]);
+
 // Customer confirmation (non-critical — log failure but still confirm to user)
 try {
     $confirmation = createMailer();
     $confirmation->setFrom($_ENV['MAIL_FROM'], 'Easy Help Switzerland');
     $confirmation->addAddress($email, $safeName);
     $confirmation->Subject = 'We received your consultation request';
-    $confirmation->Body =
-        "Dear $safeName,\n\n" .
+    $confirmation->isHTML(true);
+    $confirmation->Body = <<<HTML
+<!DOCTYPE html>
+<html>
+<head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f4f6f9;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;">
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f9;padding:40px 0;">
+    <tr><td align="center">
+      <table width="560" cellpadding="0" cellspacing="0" style="background:#ffffff;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08);">
+        <tr>
+          <td style="background:#0a0e14;padding:28px 36px;">
+            <p style="margin:0;color:#ffffff;font-family:'Georgia',serif;font-size:22px;font-weight:400;letter-spacing:.02em;">Easy Help Switzerland</p>
+            <p style="margin:4px 0 0;color:rgba(255,255,255,.5);font-size:12px;letter-spacing:.1em;text-transform:uppercase;">Request Received</p>
+          </td>
+        </tr>
+        <tr>
+          <td style="padding:36px 36px 28px;">
+            <p style="margin:0 0 20px;font-size:16px;color:#1a1a2e;">Dear <strong>{$safeName}</strong>,</p>
+            <p style="margin:0 0 28px;font-size:15px;color:#444;line-height:1.6;">
+              Thank you for reaching out! We have received your free consultation request and will get back to you within 24 hours.
+            </p>
+            <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f5ff;border-radius:12px;padding:20px 24px;margin-bottom:28px;">
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Topic</p>
+                <p style="margin:4px 0 0;font-size:15px;font-weight:600;color:#1a1a2e;">{$topic}</p>
+              </td></tr>
+              <tr><td style="padding:8px 0;">
+                <p style="margin:0;font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.08em;">Message</p>
+                <p style="margin:4px 0 0;font-size:15px;color:#1a1a2e;line-height:1.6;">{$messageText}</p>
+              </td></tr>
+            </table>
+            <p style="margin:0;font-size:14px;color:#555;line-height:1.6;">
+              Looking forward to speaking with you.
+            </p>
+          </td>
+        </tr>
+        <tr>
+          <td style="background:#f8f9fb;padding:20px 36px;border-top:1px solid #eee;">
+            <p style="margin:0;font-size:12px;color:#aaa;text-align:center;">
+              Easy Help Switzerland · Zürich · <a href="https://easyhelp.ch" style="color:#4693e8;text-decoration:none;">easyhelp.ch</a>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>
+HTML;
+    $confirmation->AltBody =
+        "Dear {$safeName},\n\n" .
         "Thank you for reaching out! We have received your free consultation request and will get back to you within 24 hours.\n\n" .
-        "Here is a summary of your request:\n" .
-        "Topic: $topic\n" .
-        "Message:\n$messageText\n\n" .
-        "Best regards,\nPolina Kravtsova\nEasy Help Switzerland";
+        "Topic: {$topic}\n" .
+        "Message:\n{$messageText}\n\n" .
+        "Looking forward to speaking with you.\n\nBest regards,\nPolina Kravtsova\nEasy Help Switzerland";
     $confirmation->send();
 } catch (Exception $e) {
     error_log('Consultation confirmation mail error: ' . $e->getMessage());
 }
 
-http_response_code(200);
-echo 'Request is sent. Thank you!';
+header('Location: consultation-success.php');
+exit;

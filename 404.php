@@ -1,9 +1,14 @@
-<?php http_response_code(404); ?>
+<?php
+require_once __DIR__ . '/security.php';
+http_response_code(404);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="robots" content="noindex,nofollow" />
   <title>Page not found — Easy Help Switzerland</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -65,15 +70,38 @@
     a.btn-blue:hover{background:#317bcd}
     a.btn-outline{border:1px solid rgba(255,255,255,.25);color:rgba(255,255,255,.8)}
     a.btn-outline:hover{border-color:#fff;color:#fff}
+    .lang-switch{display:flex;gap:8px;position:fixed;top:20px;right:20px;}
+    .lang-switch button{background:transparent;border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);border-radius:6px;padding:5px 10px;font-size:12px;cursor:pointer;font-family:inherit;transition:.2s;}
+    .lang-switch button:hover,.lang-switch button.active{border-color:#fff;color:#fff;}
   </style>
 </head>
 <body>
-  <div class="code">404</div>
-  <h1>Page not found</h1>
-  <p>The page you were looking for doesn't exist or has been moved.</p>
-  <div class="actions">
-    <a href="/" class="btn btn-blue">Go to home page</a>
-    <a href="/free-consultation.php" class="btn btn-outline">Free consultation</a>
+  <div class="lang-switch">
+    <button onclick="setLang('en')" id="lb-en">EN</button>
+    <button onclick="setLang('es')" id="lb-es">ES</button>
+    <button onclick="setLang('de')" id="lb-de">DE</button>
+    <button onclick="setLang('uk')" id="lb-uk">UA</button>
   </div>
+  <div class="code">404</div>
+  <h1 data-i18n="notfound_title">Page not found</h1>
+  <p data-i18n="notfound_message">The page you were looking for doesn't exist or has been moved.</p>
+  <div class="actions">
+    <a href="/" class="btn btn-blue" data-i18n="notfound_home">Go to home page</a>
+    <a href="/free-consultation.php" class="btn btn-outline" data-i18n="notfound_consult">Free consultation</a>
+  </div>
+  <script src="site.js"></script>
+  <script>
+    function setLang(lang) {
+      localStorage.setItem('lang', lang);
+      document.querySelectorAll('.lang-switch button').forEach(b => b.classList.remove('active'));
+      const btn = document.getElementById('lb-' + lang);
+      if (btn) btn.classList.add('active');
+      if (window.applyTranslations) applyTranslations(lang);
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      const lang = localStorage.getItem('lang') || 'en';
+      setLang(lang);
+    });
+  </script>
 </body>
 </html>

@@ -4,6 +4,9 @@
  * Sets secure session cookie flags and HTTP security headers.
  */
 
+// Set timezone to Switzerland (CET/CEST) for all date/time output
+date_default_timezone_set('Europe/Zurich');
+
 // Detect HTTPS (works behind reverse proxies too)
 $isHttps = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off')
         || (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
@@ -43,8 +46,7 @@ header(
     "frame-src https://js.stripe.com; " .
     "connect-src 'self' https://api.stripe.com; " .
     "object-src 'none'; " .
-    "base-uri 'self'; " .
-    "form-action 'self'"
+    "base-uri 'self'"
 );
 
 // Prevent browser features from being abused

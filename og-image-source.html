@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      font-family: 'Manrope', sans-serif;
+    }
+
+    .card {
+      width: 1200px;
+      height: 630px;
+      position: relative;
+      background: #1c2340;
+    }
+
+    .bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=80');
+      background-size: cover;
+      background-position: center 40%;
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(20, 27, 55, 0.92) 0%,
+        rgba(20, 27, 55, 0.76) 50%,
+        rgba(20, 27, 55, 0.52) 100%
+      );
+    }
+
+    .content {
+      position: absolute;
+      inset: 0;
+      padding: 64px 72px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .logo-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .logo-row svg {
+      width: 52px;
+      height: 78px;
+      flex-shrink: 0;
+    }
+
+    .brand {
+      color: #fff;
+    }
+
+    .brand-main {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 26px;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      font-style: normal;
+    }
+
+    .brand-sub {
+      font-family: 'Manrope', sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      color: rgba(255,255,255,0.6);
+      text-transform: uppercase;
+      margin-top: 4px;
+      font-weight: 400;
+    }
+
+    .middle {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: 20px;
+    }
+
+    .micro {
+      font-family: 'Manrope', sans-serif;
+      font-size: 12px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      margin-bottom: 22px;
+      font-weight: 400;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 80px;
+      font-weight: 500;
+      font-style: normal;
+      color: #fff;
+      line-height: 1.0;
+      letter-spacing: -0.01em;
+    }
+
+    .sub {
+      font-family: 'Manrope', sans-serif;
+      font-size: 19px;
+      color: rgba(255,255,255,0.68);
+      margin-top: 26px;
+      font-weight: 300;
+      line-height: 1.55;
+      max-width: 580px;
+    }
+
+    .bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .features {
+      display: flex;
+      gap: 32px;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.72);
+    }
+
+    .check {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(255,255,255,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .url {
+      font-family: 'Manrope', sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.06em;
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="bg"></div>
+  <div class="overlay"></div>
+  <div class="content">
+
+    <div class="logo-row">
+      <svg viewBox="0 0 32 48" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M4 44V10l10-8 10 8v34"/>
+        <path d="M14 44V22l10-8v30"/>
+      </svg>
+      <div class="brand">
+        <div class="brand-main">Easy Help</div>
+        <div class="brand-sub">Switzerland</div>
+      </div>
+    </div>
+
+    <div class="middle">
+      <div class="micro">Relocation consulting &middot; Z&uuml;rich</div>
+      <h1>Move to Switzerland<br>with confidence.</h1>
+      <p class="sub">Permits, registration, documents and practical guidance &mdash; structured support for every step of your relocation.</p>
+    </div>
+
+    <div class="bottom">
+      <div class="features">
+        <div class="feature">
+          <div class="check">&#10003;</div>
+          Free first consultation
+        </div>
+        <div class="feature">
+          <div class="check">&#10003;</div>
+          4 languages
+        </div>
+        <div class="feature">
+          <div class="check">&#10003;</div>
+          Based in Z&uuml;rich
+        </div>
+      </div>
+      <div class="url">easyhelpswiss.com</div>
+    </div>
+
+  </div>
+</div>
+</body>
+</html>

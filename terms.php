@@ -7,9 +7,9 @@ require_once __DIR__ . '/security.php';
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>Privacy Policy — Easy Help Switzerland</title>
-  <meta name="description" content="Privacy Policy for Easy Help Switzerland — how we collect, use, and protect your personal data." />
-  <link rel="canonical" href="https://easyhelpswiss.com/privacy.php" />
+  <title>Terms of Service — Easy Help Switzerland</title>
+  <meta name="description" content="Terms of Service for Easy Help Switzerland — your rights and obligations when using our relocation consulting services." />
+  <link rel="canonical" href="https://easyhelpswiss.com/terms.php" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -20,8 +20,8 @@ require_once __DIR__ . '/security.php';
       --muted:#4f4f4f;
       --line:rgba(17,17,17,.08);
       --blue:#4693e8;
-      --container:min(100% - 38px,1700px);
-      --content:min(100% - 90px,960px);
+      --container:min(100% - 38px, 1700px);
+      --content:min(100% - 90px, 960px);
     }
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
@@ -40,7 +40,7 @@ require_once __DIR__ . '/security.php';
       padding:26px 36px 34px;
       background:
         linear-gradient(180deg,rgba(9,12,15,.52),rgba(9,12,15,.72)),
-        url('https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
     }
     .hero-top{
       display:grid;
@@ -86,6 +86,7 @@ require_once __DIR__ . '/security.php';
     .hero-feature{display:flex;gap:12px;font-size:17px;line-height:1.1;max-width:240px}
     .hero-feature .dot{width:15px;height:15px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-size:10px;flex:0 0 auto;margin-top:2px}
 
+    /* Content */
     .content-zone{padding:56px 0 0;background:#fff}
     .content-wrap{width:var(--content);margin:0 auto;display:grid;gap:24px}
 
@@ -99,9 +100,19 @@ require_once __DIR__ . '/security.php';
       backdrop-filter:blur(18px);
       -webkit-backdrop-filter:blur(18px);
     }
+
     .section-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7a8a99;margin:0 0 10px}
     .card-inner{padding:38px 44px}
-    .updated-note{font-size:13px;color:#999;margin-bottom:24px}
+    .card-inner h2{font-family:"Cormorant Garamond",serif;font-size:clamp(28px,3vw,42px);font-weight:500;margin:0 0 14px;letter-spacing:-.03em;color:#111;line-height:1}
+    .card-inner p{font-size:15px;color:#404040;line-height:1.65;margin:0 0 12px}
+    .card-inner p:last-child{margin-bottom:0}
+    .card-inner ul{padding-left:20px;margin:10px 0 0;display:grid;gap:10px}
+    .card-inner li{font-size:15px;color:#404040;line-height:1.6}
+    .card-inner a{color:var(--blue);text-decoration:none}
+    .card-inner a:hover{text-decoration:underline}
+
+    .summary-box{background:rgba(70,147,232,.08);border-left:3px solid var(--blue);border-radius:0 12px 12px 0;padding:18px 22px;margin:0 0 24px}
+    .summary-box p{margin:0;font-weight:600;color:#1a2e5a;font-size:15px;line-height:1.5}
 
     .sections-grid{display:grid;gap:0}
     .policy-section{padding:28px 0;border-bottom:1px solid rgba(17,17,17,.07)}
@@ -109,11 +120,13 @@ require_once __DIR__ . '/security.php';
     .policy-section:last-child{border-bottom:none;padding-bottom:0}
     .policy-section h2{font-family:"Cormorant Garamond",serif;font-size:22px;font-weight:500;margin:0 0 10px;color:#111}
     .policy-section p,.policy-section li{font-size:15px;color:#444;line-height:1.65;margin:0 0 8px}
-    .policy-section p:last-child{margin-bottom:0}
     .policy-section ul{padding-left:20px;margin:10px 0 0;display:grid;gap:8px}
     .policy-section a{color:var(--blue)}
     .policy-section a:hover{text-decoration:underline}
 
+    .updated-note{font-size:13px;color:#999;margin-bottom:24px}
+
+    /* Footer */
     .contact-footer{
       width:100%;margin-top:28px;padding:28px 32px;
       background:#02070d;color:#fff;
@@ -211,17 +224,17 @@ require_once __DIR__ . '/security.php';
 
     <div class="hero-center">
       <div>
-        <div class="micro" data-i18n="privacy_micro">Privacy</div>
-        <h1 class="hero-title" data-i18n-html data-i18n="privacy_hero_title">Privacy <span>Policy</span></h1>
-        <div class="hero-sub" data-i18n="privacy_hero_sub">How we collect, use, and protect your personal data.</div>
+        <div class="micro" data-i18n="terms_micro">Legal</div>
+        <h1 class="hero-title" data-i18n-html data-i18n="terms_hero_title">Terms of <span>Service</span></h1>
+        <div class="hero-sub" data-i18n="terms_hero_sub">Your rights and obligations when using Easy Help Switzerland consulting services.</div>
       </div>
     </div>
 
     <div class="hero-bottom">
       <div class="hero-features">
-        <div class="hero-feature"><div class="dot">✓</div><div data-i18n="privacy_feature_1">No tracking or ad cookies</div></div>
-        <div class="hero-feature"><div class="dot">✓</div><div data-i18n="privacy_feature_2">Stripe handles all payments</div></div>
-        <div class="hero-feature"><div class="dot">✓</div><div data-i18n="privacy_feature_3">Swiss DSG compliant</div></div>
+        <div class="hero-feature"><div class="dot">✓</div><div data-i18n="terms_feature_1">Transparent service terms</div></div>
+        <div class="hero-feature"><div class="dot">✓</div><div data-i18n="terms_feature_2">Governed by Swiss law</div></div>
+        <div class="hero-feature"><div class="dot">✓</div><div data-i18n="terms_feature_3">Clear cancellation rules</div></div>
       </div>
     </div>
   </section>
@@ -229,73 +242,63 @@ require_once __DIR__ . '/security.php';
   <section class="content-zone">
     <div class="content-wrap">
       <div class="glass-card card-inner">
-        <p class="section-label" data-i18n="privacy_label">Privacy Policy</p>
-        <p class="updated-note" data-i18n="privacy_updated">Last updated: April 2026</p>
+        <p class="section-label" data-i18n="terms_label">Terms of Service</p>
+        <p class="updated-note" data-i18n="terms_updated">Last updated: April 2026</p>
 
         <div class="sections-grid">
           <div class="policy-section">
-            <h2 data-i18n="privacy_s1_title">1. Who we are</h2>
-            <p data-i18n="privacy_s1_text">Easy Help Switzerland is a personal relocation consulting service based in Zürich, Switzerland. We help individuals and families relocate to Switzerland and navigate Swiss administrative procedures.</p>
+            <h2 data-i18n="terms_s1_title">1. About the service</h2>
+            <p data-i18n="terms_s1_text">Easy Help Switzerland is a personal relocation consulting service operated by Polina Kravtsova, based in Zürich, Switzerland. We provide guidance on Swiss administrative procedures, permit types, and relocation planning. By booking a consultation or submitting a request, you agree to these Terms of Service.</p>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s2_title">2. What data we collect</h2>
-            <p data-i18n="privacy_s2_intro">We collect personal data only when you actively provide it through our forms:</p>
-            <ul>
-              <li data-i18n="privacy_s2_li1" data-i18n-html><strong>Free consultation form:</strong> name, email address, phone number, current location, and message content.</li>
-              <li data-i18n="privacy_s2_li2" data-i18n-html><strong>Paid booking form:</strong> name, email address, phone number, current location, preferred consultation format, and message content.</li>
-              <li data-i18n="privacy_s2_li3" data-i18n-html><strong>Payment processing:</strong> payment is handled entirely by Stripe. We do not collect or store your card details. We receive confirmation of the payment amount, currency, and status from Stripe.</li>
-            </ul>
-            <p data-i18n="privacy_s2_note" style="margin-top:10px">We do not use cookies for tracking or advertising. We do not use Google Analytics or any third-party tracking tools.</p>
+            <h2 data-i18n="terms_s2_title">2. Not legal advice</h2>
+            <p data-i18n="terms_s2_text">Our services are informational and advisory in nature. Easy Help Switzerland is not a law firm and does not provide legal representation. If your situation requires formal legal representation before a Swiss authority or court, we will refer you to a licensed lawyer. Any information we provide does not constitute legal advice.</p>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s3_title">3. How we use your data</h2>
-            <p data-i18n="privacy_s3_text">All personal information you provide is used exclusively to respond to your request and deliver the service you asked for. We handle your data in accordance with the Swiss Datenschutzgesetz (DSG).</p>
+            <h2 data-i18n="terms_s3_title">3. Consultations and bookings</h2>
             <ul>
-              <li data-i18n="privacy_s3_li1">To respond to your consultation or booking request by email or phone.</li>
-              <li data-i18n="privacy_s3_li2">To send you a confirmation email after your request or payment.</li>
-              <li data-i18n="privacy_s3_li3">To record your booking for our internal records.</li>
-            </ul>
-            <p data-i18n="privacy_s3_note" style="margin-top:10px">We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
-          </div>
-
-          <div class="policy-section">
-            <h2 data-i18n="privacy_s4_title">4. Third-party processors</h2>
-            <ul>
-              <li data-i18n="privacy_s4_li1" data-i18n-html><strong>Stripe</strong> — payment processing. Your card data is processed by Stripe, Inc. and never stored on our servers. Stripe's privacy policy: <a href="https://stripe.com/privacy" target="_blank" rel="noopener">stripe.com/privacy</a></li>
-              <li data-i18n="privacy_s4_li2" data-i18n-html><strong>Google Fonts</strong> — fonts are loaded from Google's servers. Google may collect IP addresses in this process.</li>
+              <li data-i18n="terms_s3_li1">Consultations are conducted online, by phone, or in person in Zürich, depending on the option you select at booking.</li>
+              <li data-i18n="terms_s3_li2">After payment, you will receive a confirmation email. A specific date and time will be arranged with you individually.</li>
+              <li data-i18n="terms_s3_li3">Free consultations are subject to availability and may be scheduled within 1–3 business days.</li>
+              <li data-i18n="terms_s3_li4">We reserve the right to decline or reschedule a consultation at our discretion, in which case a full refund will be issued if payment was made.</li>
             </ul>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s5_title">5. How long we keep your data</h2>
-            <ul>
-              <li data-i18n="privacy_s5_li1">Consultation form submissions are retained for up to 12 months.</li>
-              <li data-i18n="privacy_s5_li2">Booking records are retained for up to 7 years.</li>
-              <li data-i18n="privacy_s5_li3">Rate-limiting records (hashed IP addresses) are automatically purged after 15 minutes.</li>
-            </ul>
+            <h2 data-i18n="terms_s4_title">4. Payments</h2>
+            <p data-i18n="terms_s4_text">All payments are processed securely through Stripe. Prices are listed in Swiss Francs (CHF) and are inclusive of any applicable fees. Payment is due at the time of booking. We do not store your card information.</p>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s6_title">6. Your rights</h2>
-            <p data-i18n="privacy_s6_text1">You have the right to access, correct, or delete the personal data we hold about you. To make a request, please reach out to us via the contact form on our website. We will respond within 30 days.</p>
-            <p data-i18n="privacy_s6_text2" data-i18n-html>You also have the right to contact the Swiss Federal Data Protection and Information Commissioner (FDPIC) at <a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener">edoeb.admin.ch</a>.</p>
+            <h2 data-i18n="terms_s5_title">5. Cancellations and refunds</h2>
+            <p data-i18n="terms_s5_text">Please see our <a href="refund-policy.php">Refund &amp; Cancellation Policy</a> for full details. In summary: cancellations made at least 24 hours before the scheduled consultation receive a full refund. Cancellations within 24 hours are non-refundable. If we assess that we cannot assist with your case, a 10% assessment fee applies and the remainder is refunded.</p>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s7_title">7. Data security</h2>
-            <p data-i18n="privacy_s7_text">We implement appropriate technical measures to protect your data, including HTTPS encryption, server-side access controls, and CSRF protection on all forms. Booking files are stored in directories not accessible via the web.</p>
+            <h2 data-i18n="terms_s6_title">6. Accuracy of information</h2>
+            <p data-i18n="terms_s6_text">Swiss laws and administrative procedures change regularly. While we make every effort to provide current and accurate information, we cannot guarantee that all content is fully up to date at the time of your consultation. You are responsible for verifying any information with the relevant Swiss authority.</p>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s8_title">8. Changes to this policy</h2>
-            <p data-i18n="privacy_s8_text">We may update this Privacy Policy from time to time. The date at the top of this page shows when it was last revised.</p>
+            <h2 data-i18n="terms_s7_title">7. Limitation of liability</h2>
+            <p data-i18n="terms_s7_text">Easy Help Switzerland shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services. Our total liability in connection with any service is limited to the amount paid for that service.</p>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s9_title">9. Cookies and local storage</h2>
-            <p data-i18n="privacy_s9_text">We do not use tracking or advertising cookies. Our website uses browser local storage for two purposes only: to remember your language preference (so the site loads in the correct language on your next visit), and to store your cookie consent choice. No data stored locally is ever sent to third parties. You can clear this data at any time by clearing your browser's site data for this domain.</p>
+            <h2 data-i18n="terms_s8_title">8. Governing law</h2>
+            <p data-i18n="terms_s8_text">These Terms are governed by the laws of Switzerland. Any disputes shall be subject to the exclusive jurisdiction of the courts of the Canton of Zürich, Switzerland.</p>
+          </div>
+
+          <div class="policy-section">
+            <h2 data-i18n="terms_s9_title">9. Changes to these terms</h2>
+            <p data-i18n="terms_s9_text">We may update these Terms of Service from time to time. The date at the top of this page shows when they were last revised. Continued use of our services after changes constitutes acceptance of the revised terms.</p>
+          </div>
+
+          <div class="policy-section">
+            <h2 data-i18n="terms_s10_title">10. Contact</h2>
+            <p data-i18n="terms_s10_text">If you have any questions about these Terms, please reach out through the contact form on our website or by email to the address shown in your booking confirmation.</p>
           </div>
         </div>
       </div>
@@ -309,11 +312,11 @@ require_once __DIR__ . '/security.php';
     </div>
     <div class="footer-center">
       <span data-i18n="footer_copy">© 2026 Easy Help Switzerland — all rights reserved.</span><br>
-      <a href="terms.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_terms">Terms of Service</a>
+      <a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a>
       &nbsp;·&nbsp;
       <a href="refund-policy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_refund">Refund Policy</a>
     </div>
-    <div class="footer-right" style="color:rgba(255,255,255,.35);font-size:12px">
+    <div class="footer-right">
       <a href="admin.php" style="color:rgba(255,255,255,.2);text-decoration:none;font-size:11px">Admin</a>
     </div>
   </footer>

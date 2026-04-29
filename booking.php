@@ -12,6 +12,7 @@ if (empty($_SESSION['csrf_token'])) {
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <title>Book Your Consultation | Easy Help Switzerland</title>
   <meta name="description" content="Choose your package, share your details, and continue to payment with a clear premium booking flow." />
   <link rel="canonical" href="https://easyhelpswiss.com/booking.php" />
@@ -372,7 +373,7 @@ if (empty($_SESSION['csrf_token'])) {
 <body>
 
 <?php if (!empty($_GET['error'])): ?>
-  <div style="margin:20px 0;padding:14px 18px;border:1px solid #e5c2c2;background:#fff6f6;border-radius:12px;color:#8a2d2d;">
+  <div data-i18n="booking_error_msg" style="margin:20px 0;padding:14px 18px;border:1px solid #e5c2c2;background:#fff6f6;border-radius:12px;color:#8a2d2d;">
     Something went wrong. Please try again.
   </div>
 <?php endif; ?>
@@ -388,7 +389,7 @@ if (empty($_SESSION['csrf_token'])) {
           <div>
             <div>
   <div style="font-size:18px">Easy Help</div>
-  <div style="font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase">Switzerland</div>
+  <div style="font-size:12px;color:rgba(255,255,255,.65);letter-spacing:.12em;text-transform:uppercase" data-i18n="brand_sub">Switzerland</div>
 </div>
           </div>
         </a>
@@ -519,7 +520,7 @@ if (empty($_SESSION['csrf_token'])) {
 
                 <div class="field">
                   <label for="phone" data-i18n="booking_phone">Phone / WhatsApp</label>
-                  <input id="phone" name="phone" type="text" placeholder="+41 …" data-i18n-placeholder="booking_placeholder_phone">
+                  <input id="phone" name="phone" type="tel" placeholder="+41 …" data-i18n-placeholder="booking_placeholder_phone">
                 </div>
 
                 <div class="field">
@@ -600,7 +601,7 @@ if (empty($_SESSION['csrf_token'])) {
         <svg viewBox="0 0 32 48" aria-hidden="true"><path d="M4 44V10l10-8 10 8v34"></path><path d="M14 44V22l10-8v30"></path></svg>
         <span>Easy Help Switzerland</span>
       </div>
-      <div class="footer-center">© 2026 Easy Help Switzerland - all rights reserved.<br><a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a></div>
+      <div class="footer-center"><span data-i18n="booking_footer_copy">© 2026 Easy Help Switzerland - all rights reserved.</span><br><a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a></div>
       <div class="footer-right" data-i18n="booking_footer_right">Premium booking flow aligned to the main website</div>
     </footer>
   </div>

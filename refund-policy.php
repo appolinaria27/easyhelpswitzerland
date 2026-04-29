@@ -7,9 +7,9 @@ require_once __DIR__ . '/security.php';
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-  <title>Privacy Policy — Easy Help Switzerland</title>
-  <meta name="description" content="Privacy Policy for Easy Help Switzerland — how we collect, use, and protect your personal data." />
-  <link rel="canonical" href="https://easyhelpswiss.com/privacy.php" />
+  <title>Refund &amp; Cancellation Policy — Easy Help Switzerland</title>
+  <meta name="description" content="Refund and cancellation policy for Easy Help Switzerland consultations. Cancel 24 hours in advance for a full refund." />
+  <link rel="canonical" href="https://easyhelpswiss.com/refund-policy.php" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -40,7 +40,7 @@ require_once __DIR__ . '/security.php';
       padding:26px 36px 34px;
       background:
         linear-gradient(180deg,rgba(9,12,15,.52),rgba(9,12,15,.72)),
-        url('https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
+        url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1800&q=80') center/cover no-repeat;
     }
     .hero-top{
       display:grid;
@@ -73,8 +73,8 @@ require_once __DIR__ . '/security.php';
       z-index:1;
     }
     .micro{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.72);display:inline-flex;align-items:center;gap:8px;margin-bottom:20px}
-    .hero-title{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(64px,8vw,130px);line-height:.85;letter-spacing:-.06em;margin:0}
-    .hero-title span{display:block;font-size:clamp(40px,4.5vw,82px);margin-top:8px}
+    .hero-title{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:clamp(56px,7vw,112px);line-height:.85;letter-spacing:-.06em;margin:0}
+    .hero-title span{display:block;font-size:clamp(38px,4vw,72px);margin-top:8px}
     .hero-sub{margin-top:22px;font-size:17px;color:rgba(255,255,255,.84);max-width:56ch}
 
     .hero-bottom{
@@ -86,6 +86,7 @@ require_once __DIR__ . '/security.php';
     .hero-feature{display:flex;gap:12px;font-size:17px;line-height:1.1;max-width:240px}
     .hero-feature .dot{width:15px;height:15px;border-radius:50%;background:#fff;color:#111;display:grid;place-items:center;font-size:10px;flex:0 0 auto;margin-top:2px}
 
+    /* Content */
     .content-zone{padding:56px 0 0;background:#fff}
     .content-wrap{width:var(--content);margin:0 auto;display:grid;gap:24px}
 
@@ -101,7 +102,16 @@ require_once __DIR__ . '/security.php';
     }
     .section-label{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7a8a99;margin:0 0 10px}
     .card-inner{padding:38px 44px}
-    .updated-note{font-size:13px;color:#999;margin-bottom:24px}
+    .updated-note{font-size:13px;color:#999;margin-bottom:0}
+
+    .summary-box{
+      background:rgba(70,147,232,.09);
+      border-left:3px solid var(--blue);
+      border-radius:0 14px 14px 0;
+      padding:20px 24px;
+      margin:24px 0 8px;
+    }
+    .summary-box p{margin:0;font-weight:600;color:#1a2e5a;font-size:16px;line-height:1.5}
 
     .sections-grid{display:grid;gap:0}
     .policy-section{padding:28px 0;border-bottom:1px solid rgba(17,17,17,.07)}
@@ -114,6 +124,7 @@ require_once __DIR__ . '/security.php';
     .policy-section a{color:var(--blue)}
     .policy-section a:hover{text-decoration:underline}
 
+    /* Footer */
     .contact-footer{
       width:100%;margin-top:28px;padding:28px 32px;
       background:#02070d;color:#fff;
@@ -161,8 +172,8 @@ require_once __DIR__ . '/security.php';
       .nav-lang-mobile button.active{background:var(--blue);border-color:var(--blue);color:#fff}
       .hero-right{display:none}
       .hero-center{padding-top:60px}
-      .hero-title{font-size:clamp(44px,11vw,76px) !important}
-      .hero-title span{font-size:clamp(28px,7vw,48px) !important}
+      .hero-title{font-size:clamp(40px,10vw,68px) !important}
+      .hero-title span{font-size:clamp(26px,6.5vw,44px) !important}
     }
     @media(max-width:480px){
       .whatsapp-float span:last-child{display:none}
@@ -211,17 +222,17 @@ require_once __DIR__ . '/security.php';
 
     <div class="hero-center">
       <div>
-        <div class="micro" data-i18n="privacy_micro">Privacy</div>
-        <h1 class="hero-title" data-i18n-html data-i18n="privacy_hero_title">Privacy <span>Policy</span></h1>
-        <div class="hero-sub" data-i18n="privacy_hero_sub">How we collect, use, and protect your personal data.</div>
+        <div class="micro" data-i18n="refund_micro">Policy</div>
+        <h1 class="hero-title" data-i18n-html data-i18n="refund_hero_title">Refund &amp; <span>Cancellation</span></h1>
+        <div class="hero-sub" data-i18n="refund_hero_sub">Simple, fair rules for cancellations and refunds — no surprises.</div>
       </div>
     </div>
 
     <div class="hero-bottom">
       <div class="hero-features">
-        <div class="hero-feature"><div class="dot">✓</div><div data-i18n="privacy_feature_1">No tracking or ad cookies</div></div>
-        <div class="hero-feature"><div class="dot">✓</div><div data-i18n="privacy_feature_2">Stripe handles all payments</div></div>
-        <div class="hero-feature"><div class="dot">✓</div><div data-i18n="privacy_feature_3">Swiss DSG compliant</div></div>
+        <div class="hero-feature"><div class="dot">✓</div><div data-i18n="refund_feature_1">Full refund if cancelled 24h+ before</div></div>
+        <div class="hero-feature"><div class="dot">✓</div><div data-i18n="refund_feature_2">10% rule if case is unworkable</div></div>
+        <div class="hero-feature"><div class="dot">✓</div><div data-i18n="refund_feature_3">Refund processed within 5–10 days</div></div>
       </div>
     </div>
   </section>
@@ -229,73 +240,51 @@ require_once __DIR__ . '/security.php';
   <section class="content-zone">
     <div class="content-wrap">
       <div class="glass-card card-inner">
-        <p class="section-label" data-i18n="privacy_label">Privacy Policy</p>
-        <p class="updated-note" data-i18n="privacy_updated">Last updated: April 2026</p>
+        <p class="section-label" data-i18n="refund_label">Refund &amp; Cancellation Policy</p>
+        <p class="updated-note" data-i18n="refund_updated">Last updated: April 2026</p>
+
+        <div class="summary-box">
+          <p data-i18n="refund_summary">In short: cancel at least 24 hours before your consultation for a full refund. No questions asked.</p>
+        </div>
 
         <div class="sections-grid">
           <div class="policy-section">
-            <h2 data-i18n="privacy_s1_title">1. Who we are</h2>
-            <p data-i18n="privacy_s1_text">Easy Help Switzerland is a personal relocation consulting service based in Zürich, Switzerland. We help individuals and families relocate to Switzerland and navigate Swiss administrative procedures.</p>
+            <h2 data-i18n="refund_s1_title">1. Free consultations</h2>
+            <p data-i18n="refund_s1_text">Free consultations are complimentary and require no payment. You may cancel or not attend at any time without any charge.</p>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s2_title">2. What data we collect</h2>
-            <p data-i18n="privacy_s2_intro">We collect personal data only when you actively provide it through our forms:</p>
+            <h2 data-i18n="refund_s2_title">2. Paid consultations — cancellation window</h2>
             <ul>
-              <li data-i18n="privacy_s2_li1" data-i18n-html><strong>Free consultation form:</strong> name, email address, phone number, current location, and message content.</li>
-              <li data-i18n="privacy_s2_li2" data-i18n-html><strong>Paid booking form:</strong> name, email address, phone number, current location, preferred consultation format, and message content.</li>
-              <li data-i18n="privacy_s2_li3" data-i18n-html><strong>Payment processing:</strong> payment is handled entirely by Stripe. We do not collect or store your card details. We receive confirmation of the payment amount, currency, and status from Stripe.</li>
-            </ul>
-            <p data-i18n="privacy_s2_note" style="margin-top:10px">We do not use cookies for tracking or advertising. We do not use Google Analytics or any third-party tracking tools.</p>
-          </div>
-
-          <div class="policy-section">
-            <h2 data-i18n="privacy_s3_title">3. How we use your data</h2>
-            <p data-i18n="privacy_s3_text">All personal information you provide is used exclusively to respond to your request and deliver the service you asked for. We handle your data in accordance with the Swiss Datenschutzgesetz (DSG).</p>
-            <ul>
-              <li data-i18n="privacy_s3_li1">To respond to your consultation or booking request by email or phone.</li>
-              <li data-i18n="privacy_s3_li2">To send you a confirmation email after your request or payment.</li>
-              <li data-i18n="privacy_s3_li3">To record your booking for our internal records.</li>
-            </ul>
-            <p data-i18n="privacy_s3_note" style="margin-top:10px">We do not sell, rent, or share your personal data with third parties for marketing purposes.</p>
-          </div>
-
-          <div class="policy-section">
-            <h2 data-i18n="privacy_s4_title">4. Third-party processors</h2>
-            <ul>
-              <li data-i18n="privacy_s4_li1" data-i18n-html><strong>Stripe</strong> — payment processing. Your card data is processed by Stripe, Inc. and never stored on our servers. Stripe's privacy policy: <a href="https://stripe.com/privacy" target="_blank" rel="noopener">stripe.com/privacy</a></li>
-              <li data-i18n="privacy_s4_li2" data-i18n-html><strong>Google Fonts</strong> — fonts are loaded from Google's servers. Google may collect IP addresses in this process.</li>
+              <li data-i18n="refund_s2_li1">More than 24 hours before the scheduled time: full refund, no fee.</li>
+              <li data-i18n="refund_s2_li2">Less than 24 hours before the scheduled time: non-refundable. If you need to reschedule, contact us and we will do our best to find an alternative time.</li>
+              <li data-i18n="refund_s2_li3">No-show (no prior notice): non-refundable.</li>
             </ul>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s5_title">5. How long we keep your data</h2>
-            <ul>
-              <li data-i18n="privacy_s5_li1">Consultation form submissions are retained for up to 12 months.</li>
-              <li data-i18n="privacy_s5_li2">Booking records are retained for up to 7 years.</li>
-              <li data-i18n="privacy_s5_li3">Rate-limiting records (hashed IP addresses) are automatically purged after 15 minutes.</li>
-            </ul>
+            <h2 data-i18n="refund_s3_title">3. Cancellations by Easy Help Switzerland</h2>
+            <p data-i18n="refund_s3_text">If we need to cancel or reschedule your consultation for any reason, you will receive a full refund or an alternative time slot — your choice. We will notify you as early as possible.</p>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s6_title">6. Your rights</h2>
-            <p data-i18n="privacy_s6_text1">You have the right to access, correct, or delete the personal data we hold about you. To make a request, please reach out to us via the contact form on our website. We will respond within 30 days.</p>
-            <p data-i18n="privacy_s6_text2" data-i18n-html>You also have the right to contact the Swiss Federal Data Protection and Information Commissioner (FDPIC) at <a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener">edoeb.admin.ch</a>.</p>
+            <h2 data-i18n="refund_s4_title">4. Case assessment — 10% rule</h2>
+            <p data-i18n="refund_s4_text">If, during or after your paid consultation, we determine that your case is outside the scope of our services and we are unable to assist you, we will charge a 10% assessment fee and refund the remaining 90%. This covers the time spent reviewing your situation.</p>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s7_title">7. Data security</h2>
-            <p data-i18n="privacy_s7_text">We implement appropriate technical measures to protect your data, including HTTPS encryption, server-side access controls, and CSRF protection on all forms. Booking files are stored in directories not accessible via the web.</p>
+            <h2 data-i18n="refund_s5_title">5. How to request a refund or cancellation</h2>
+            <p data-i18n="refund_s5_text">To cancel or request a refund, reply to your booking confirmation email or contact us through the form on our website. Please include your name and the date of your booking. We process refunds within 5–10 business days via the original payment method (Stripe).</p>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s8_title">8. Changes to this policy</h2>
-            <p data-i18n="privacy_s8_text">We may update this Privacy Policy from time to time. The date at the top of this page shows when it was last revised.</p>
+            <h2 data-i18n="refund_s6_title">6. Refund processing time</h2>
+            <p data-i18n="refund_s6_text">Approved refunds are returned to your original payment method within 5–10 business days, depending on your bank or card issuer. We issue the refund immediately on our side — the processing delay is set by your financial institution.</p>
           </div>
 
           <div class="policy-section">
-            <h2 data-i18n="privacy_s9_title">9. Cookies and local storage</h2>
-            <p data-i18n="privacy_s9_text">We do not use tracking or advertising cookies. Our website uses browser local storage for two purposes only: to remember your language preference (so the site loads in the correct language on your next visit), and to store your cookie consent choice. No data stored locally is ever sent to third parties. You can clear this data at any time by clearing your browser's site data for this domain.</p>
+            <h2 data-i18n="refund_s7_title">7. Contact</h2>
+            <p data-i18n="refund_s7_text">Questions about this policy? Contact us through the form on our website or reply to any email you have received from Easy Help Switzerland.</p>
           </div>
         </div>
       </div>
@@ -309,11 +298,11 @@ require_once __DIR__ . '/security.php';
     </div>
     <div class="footer-center">
       <span data-i18n="footer_copy">© 2026 Easy Help Switzerland — all rights reserved.</span><br>
-      <a href="terms.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_terms">Terms of Service</a>
+      <a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a>
       &nbsp;·&nbsp;
-      <a href="refund-policy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_refund">Refund Policy</a>
+      <a href="terms.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_terms">Terms of Service</a>
     </div>
-    <div class="footer-right" style="color:rgba(255,255,255,.35);font-size:12px">
+    <div class="footer-right">
       <a href="admin.php" style="color:rgba(255,255,255,.2);text-decoration:none;font-size:11px">Admin</a>
     </div>
   </footer>

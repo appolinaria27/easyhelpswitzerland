@@ -24,8 +24,8 @@ const translations = {
   hero_years: "clients guided through Swiss administrative procedures",
 
   clients_micro: "With whom we work",
-areas_stat: "days to get your next apartment step sorted",
-areas_side: "We support migrants, students, families and professionals with practical relocation steps, permits, registrations and life setup in Switzerland.",
+areas_stat: "days to get a clear action plan for your situation",
+areas_side: "We work with expats, migrants, students, families and professionals who need practical guidance through Swiss permits, registrations, housing and administrative procedures.",
 areas_intro: "We help clients move through Zürich and other Swiss cantons with a clear strategy, realistic route, and support for the everyday bureaucracy that follows arrival.",
 areas_side_2: "Browse our focus areas covering permits, municipality registration, housing, insurance and settlement planning for clients from many different countries.",
 
@@ -154,7 +154,7 @@ about_kicker: "About",
 
     services_title: "Services",
     services_stat: "main support categories",
-    services_side: "Everything you had in the previous project is kept here, but rebuilt in a completely new visual language.",
+    services_side: "We offer six key areas of support — from residence permits and relocation to employment, insurance, documents and study assistance.",
 
     service_residence_title: "Residence permits",
     service_residence_desc: "Permits, extensions, migration procedures and case support.",
@@ -204,7 +204,7 @@ process_title: "How we work",
       process_side: "A structured process designed to reduce uncertainty and keep every stage simple, visible and manageable.",
 
       process_discoverTitle: "Discover",
-      process_iscoverItem1: "First case review",
+      process_discoverItem1: "First case review",
       process_discoverItem2: "Clarify your route",
       process_discoverItem3: "Check urgency",
 
@@ -225,19 +225,26 @@ process_title: "How we work",
 
 
 testimonials_label: "Client feedback",
-testimonials_title: "What clients say",
+testimonials_micro_left: "Client feedback",
+testimonials_title: "Practical support before unnecessary costs",
 
 testimonial_1_text: "I was completely confused when I arrived in Zürich. I did not know where to go first, what papers I needed, or how the registration worked. After the consultation, everything finally felt clear and much less stressful.",
 testimonial_1_from: "Moved from Brazil",
+testimonial_1_meta: "Moved from Brazil — lives in Zürich",
 
 testimonial_2_text: "I was worried about my permit and some letters from the authorities. Everything was explained to me in a very simple way, and I felt much calmer after that.",
 testimonial_2_from: "Moved from Ukraine",
+testimonial_2_meta: "Moved from Ukraine",
 
 testimonial_3_text: "What helped me most was that I could ask normal questions and get clear answers. I did not feel rushed, and I finally understood what to do next.",
 testimonial_3_from: "Moved from Spain",
+testimonial_3_meta: "Moved from Spain",
 
 testimonial_next_aria: "Next testimonial",
 
+testimonials_micro_right: "Why clients start here",
+testimonials_text_1: "Many people first need clarity, structure, and help with documents or communication — not a full legal mandate from the beginning.",
+testimonials_text_2: "A short consultation can often save time, reduce stress, and help you avoid expensive mistakes or delays.",
 testimonials_why_label: "Why clients start here",
 testimonials_why_title: "Practical support before unnecessary costs",
 testimonials_why_p1: "Many people first need clarity, structure, and help with documents or communication — not a full legal mandate from the beginning.",
@@ -344,11 +351,11 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
   blog_hero_micro: "Guides & Blog",
   blog_hero_title_main: "Easy Guide Switzerland",
   blog_hero_title_sub: "guides",
-  blog_hero_sub: "Clear practical articles on permits, registration, health insurance, study, marriage and family reunification — redesigned to match the editorial premium style of your main website.",
+  blog_hero_sub: "Practical, up-to-date guides on Swiss permits, registration, health insurance, taxes, and family reunification — written by relocation experts.",
 
-  blog_hero_feature_1: "Easy to scan long-form articles",
-  blog_hero_feature_2: "Premium editorial layout",
-  blog_hero_feature_3: "Same visual language as homepage",
+  blog_hero_feature_1: "Permits, registration & insurance guides",
+  blog_hero_feature_2: "Written by relocation experts",
+  blog_hero_feature_3: "Updated with new articles regularly",
 
   blog_hero_guides_count: "6",
   blog_hero_guides_label: "guides structured in one destination",
@@ -481,6 +488,86 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
   footer_copy: "© 2026 Easy Help Switzerland - all rights reserved.",
   footer_tagline: "Practical relocation support in Switzerland",
   footer_privacy: "Privacy Policy",
+  footer_terms: "Terms of Service",
+  footer_refund: "Refund Policy",
+
+  // Privacy Policy hero
+  privacy_micro: "Privacy",
+  privacy_hero_title: "Privacy <span>Policy</span>",
+  privacy_hero_sub: "How we collect, use, and protect your personal data.",
+  privacy_feature_1: "No tracking or ad cookies",
+  privacy_feature_2: "Stripe handles all payments",
+  privacy_feature_3: "Swiss DSG compliant",
+  privacy_label: "Privacy Policy",
+
+  // Terms of Service
+  terms_micro: "Legal",
+  terms_hero_title: "Terms of <span>Service</span>",
+  terms_hero_sub: "Your rights and obligations when using Easy Help Switzerland consulting services.",
+  terms_feature_1: "Transparent service terms",
+  terms_feature_2: "Governed by Swiss law",
+  terms_feature_3: "Clear cancellation rules",
+  terms_label: "Terms of Service",
+
+  // Refund Policy hero
+  refund_micro: "Policy",
+  refund_hero_title: "Refund &amp; <span>Cancellation</span>",
+  refund_hero_sub: "Simple, fair rules for cancellations and refunds — no surprises.",
+  refund_feature_1: "Full refund if cancelled 24h+ before",
+  refund_feature_2: "10% rule if case is unworkable",
+  refund_feature_3: "Refund processed within 5–10 days",
+  refund_label: "Refund &amp; Cancellation Policy",
+
+  terms_h1: "Terms of Service",
+  terms_updated: "Last updated: April 2026",
+  terms_s1_title: "1. About the service",
+  terms_s1_text: "Easy Help Switzerland is a personal relocation consulting service operated by Polina Kravtsova, based in Zürich, Switzerland. We provide guidance on Swiss administrative procedures, permit types, and relocation planning. By booking a consultation or submitting a request, you agree to these Terms of Service.",
+  terms_s2_title: "2. Not legal advice",
+  terms_s2_text: "Our services are informational and advisory in nature. Easy Help Switzerland is not a law firm and does not provide legal representation. If your situation requires formal legal representation before a Swiss authority or court, we will refer you to a licensed lawyer. Any information we provide does not constitute legal advice.",
+  terms_s3_title: "3. Consultations and bookings",
+  terms_s3_li1: "Consultations are conducted online, by phone, or in person in Zürich, depending on the option you select at booking.",
+  terms_s3_li2: "After payment, you will receive a confirmation email. A specific date and time will be arranged with you individually.",
+  terms_s3_li3: "Free consultations are subject to availability and may be scheduled within 1–3 business days.",
+  terms_s3_li4: "We reserve the right to decline or reschedule a consultation at our discretion, in which case a full refund will be issued if payment was made.",
+  terms_s4_title: "4. Payments",
+  terms_s4_text: "All payments are processed securely through Stripe. Prices are listed in Swiss Francs (CHF) and are inclusive of any applicable fees. Payment is due at the time of booking. We do not store your card information.",
+  terms_s5_title: "5. Cancellations and refunds",
+  terms_s5_text: "Please see our Refund & Cancellation Policy for full details. In summary: cancellations made at least 24 hours before the scheduled consultation receive a full refund. Cancellations within 24 hours are non-refundable. If we assess that we cannot assist with your case, a 10% assessment fee applies and the remainder is refunded.",
+  terms_s6_title: "6. Accuracy of information",
+  terms_s6_text: "Swiss laws and administrative procedures change regularly. While we make every effort to provide current and accurate information, we cannot guarantee that all content is fully up to date at the time of your consultation. You are responsible for verifying any information with the relevant Swiss authority.",
+  terms_s7_title: "7. Limitation of liability",
+  terms_s7_text: "Easy Help Switzerland shall not be liable for any indirect, incidental, or consequential damages arising from the use of our services. Our total liability in connection with any service is limited to the amount paid for that service.",
+  terms_s8_title: "8. Governing law",
+  terms_s8_text: "These Terms are governed by the laws of Switzerland. Any disputes shall be subject to the exclusive jurisdiction of the courts of the Canton of Zürich, Switzerland.",
+  terms_s9_title: "9. Changes to these terms",
+  terms_s9_text: "We may update these Terms of Service from time to time. The date at the top of this page shows when they were last revised. Continued use of our services after changes constitutes acceptance of the revised terms.",
+  terms_s10_title: "10. Contact",
+  terms_s10_text: "If you have any questions about these Terms, please reach out through the contact form on our website or by email to the address shown in your booking confirmation.",
+
+  // Refund & Cancellation Policy
+  refund_h1: "Refund & Cancellation Policy",
+  refund_updated: "Last updated: April 2026",
+  refund_summary: "In short: cancel at least 24 hours before your consultation for a full refund. No questions asked.",
+  refund_s1_title: "1. Free consultations",
+  refund_s1_text: "Free consultations are complimentary and require no payment. You may cancel or not attend at any time without any charge.",
+  refund_s2_title: "2. Paid consultations — cancellation window",
+  refund_s2_li1: "More than 24 hours before the scheduled time: full refund, no fee.",
+  refund_s2_li2: "Less than 24 hours before the scheduled time: non-refundable. If you need to reschedule, contact us and we will do our best to find an alternative time.",
+  refund_s2_li3: "No-show (no prior notice): non-refundable.",
+  refund_s3_title: "3. Cancellations by Easy Help Switzerland",
+  refund_s3_text: "If we need to cancel or reschedule your consultation for any reason, you will receive a full refund or an alternative time slot — your choice. We will notify you as early as possible.",
+  refund_s4_title: "4. Case assessment — 10% rule",
+  refund_s4_text: "If, during or after your paid consultation, we determine that your case is outside the scope of our services and we are unable to assist you, we will charge a 10% assessment fee and refund the remaining 90%. This covers the time spent reviewing your situation.",
+  refund_s5_title: "5. How to request a refund or cancellation",
+  refund_s5_text: "To cancel or request a refund, reply to your booking confirmation email or contact us through the form on our website. Please include your name and the date of your booking. We process refunds within 5–10 business days via the original payment method (Stripe).",
+  refund_s6_title: "6. Refund processing time",
+  refund_s6_text: "Approved refunds are returned to your original payment method within 5–10 business days, depending on your bank or card issuer. We issue the refund immediately on our side — the processing delay is set by your financial institution.",
+  refund_s7_title: "7. Contact",
+  refund_s7_text: "Questions about this policy? Contact us through the form on our website or reply to any email you have received from Easy Help Switzerland.",
+
+  // Privacy — cookie section
+  privacy_s9_title: "9. Cookies and local storage",
+  privacy_s9_text: "We do not use tracking or advertising cookies. Our website uses browser local storage for two purposes only: to remember your language preference (so the site loads in the correct language on your next visit), and to store your cookie consent choice. No data stored locally is ever sent to third parties. You can clear this data at any time by clearing your browser's site data for this domain.",
 
 
   //Free Consultation
@@ -561,7 +648,7 @@ booking_brand_main: "Easy Help Switzerland",
     booking_hero_packages: "packages available to start",
 
     booking_flow_title: "Booking flow",
-    booking_flow_text: "Payment will be booked from your card. You can cancel free of charge a booking up to 1 day to the start of the service. The late cancelation fee is half of the price of one package. Any Storno is to order per E-mail. If other services will be needed, they are to be paid separately. ",
+    booking_flow_text: "Payment is charged to your card at checkout. You may cancel free of charge up to 24 hours before the scheduled session. Cancellations within 24 hours incur a fee equal to half the package price. All cancellation requests must be submitted by email. Any additional services beyond the selected package are billed separately.",
     booking_info_1: "Online or in-person in Zürich",
     booking_info_2: "Structured practical guidance",
     booking_info_3: "Designed to save time and reduce uncertainty",
@@ -595,9 +682,9 @@ booking_placeholder_message: "Briefly describe your situation or question.",
     booking_preferred_phone: "Phone / WhatsApp",
 
     booking_message: "Short description",
-    booking_placeholder_message: "Briefly describe your situation or question.",
 
     booking_note: "Payment confirms your request.",
+    booking_error_msg: "Something went wrong. Please try again.",
     booking_continue_payment: "Continue to payment",
     booking_back: "← Back",
 
@@ -694,6 +781,10 @@ payment_note: "Payment confirms your consultation request. If your matter requir
   package_initial: "Quick consultation — CHF 79",
   package_review: "Relocation support — CHF 189",
   package_relocation: "Settlement strategy — CHF 349",
+
+  payment_refund_kicker: "Cancellation policy",
+  payment_refund_title: "Refund & cancellation",
+  payment_refund_text: "You may cancel up to 24 hours before your scheduled consultation for a full refund. Cancellations within 24 hours are non-refundable. If we determine we cannot help with your case, we charge 10% and refund the rest.",
 
   payment_footer_rights: "© 2026 Easy Help Switzerland - all rights reserved.",
   payment_footer_page: "Payment page",
@@ -860,8 +951,82 @@ area_3_modal_content: `
   success_cta_text: "If you got an e-mail confirmation your booking was successful and we got the information. In case of any questions or mistakes contact us or we will contact you. Await our call within next 24 hours.",
   success_cta_btn_home: "Return home",
   success_cta_btn_book: "Book another consultation",
-  success_footer_copy: "© 2026 Zurich Relocation",
+  success_footer_copy: "© 2026 Easy Help Switzerland — all rights reserved.",
   success_footer_page: "Confirmation page",
+
+  consult_success_micro: "Request received",
+  consult_success_hero_title: "Request <span>confirmed</span>",
+  consult_success_hero_sub: "Your free consultation request has been received. We will get back to you within 24 hours.",
+  consult_success_feature_1: "Request submitted",
+  consult_success_feature_2: "Confirmation email sent",
+  consult_success_feature_3: "Team notified",
+  consult_success_hero_hours: "hours target for follow-up contact",
+  consult_success_section_label: "Confirmation",
+  consult_success_title: "Thank you for reaching out",
+  consult_success_subtitle: "We have received your free consultation request and will be in touch shortly. Check your inbox for a confirmation email.",
+  consult_success_status: "Request received",
+  consult_success_type: "Free initial consultation",
+  consult_success_notice: "We typically respond within 24 hours. If you have an urgent matter, feel free to reach out via WhatsApp.",
+  consult_success_btn_home: "Back to homepage",
+  consult_success_btn_guides: "Read relocation guides",
+  consult_success_side_1_label: "What happens next",
+  consult_success_side_1_title: "Next steps",
+  consult_success_step_1: "We review your request and prepare for your consultation.",
+  consult_success_step_2: "We contact you within 24 hours to arrange a time.",
+  consult_success_step_3: "You receive personalised advice on your situation in Switzerland.",
+  consult_success_side_2_label: "Good to know",
+  consult_success_side_2_title: "Free consultation",
+  consult_success_side_2_text: "The initial consultation is completely free — no commitment needed. We are here to help you understand your options and next steps.",
+  consult_success_cta_label: "Need more help?",
+  consult_success_cta_title: "We are here for you",
+  consult_success_cta_text: "If you need comprehensive support, you can also book a full paid consultation at any time. We offer permit assistance, relocation support, and document help across Switzerland.",
+  consult_success_cta_btn_home: "Return home",
+  consult_success_cta_btn_book: "Book full consultation",
+  consult_success_footer_copy: "© 2026 Easy Help Switzerland — all rights reserved.",
+  consult_success_footer_page: "Confirmation page",
+
+  wa_label: "WhatsApp",
+  wa_write: "Write to us",
+  aria_open_menu: "Open menu",
+
+  notfound_title: "Page not found",
+  notfound_message: "The page you were looking for doesn't exist or has been moved.",
+  notfound_home: "Go to home page",
+  notfound_consult: "Free consultation",
+
+  privacy_title: "Privacy Policy",
+  privacy_updated: "Last updated: April 2026",
+  privacy_back: "← Back to home",
+  privacy_h1: "Privacy Policy",
+  privacy_s1_title: "1. Who we are",
+  privacy_s1_text: "Easy Help Switzerland is a personal relocation consulting service based in Zürich, Switzerland. We help individuals and families relocate to Switzerland and navigate Swiss administrative procedures.",
+  privacy_s2_title: "2. What data we collect",
+  privacy_s2_intro: "We collect personal data only when you actively provide it through our forms:",
+  privacy_s2_li1: "<strong>Free consultation form:</strong> name, email address, phone number, current location, and message content.",
+  privacy_s2_li2: "<strong>Paid booking form:</strong> name, email address, phone number, current location, preferred consultation format, and message content.",
+  privacy_s2_li3: "<strong>Payment processing:</strong> payment is handled entirely by Stripe. We do not collect or store your card details. We receive confirmation of the payment amount, currency, and status from Stripe.",
+  privacy_s2_note: "We do not use cookies for tracking or advertising. We do not use Google Analytics or any third-party tracking tools.",
+  privacy_s3_title: "3. How we use your data",
+  privacy_s3_text: "All personal information you provide is used exclusively to respond to your request and deliver the service you asked for. We handle your data in accordance with the Swiss Datenschutzgesetz (DSG).",
+  privacy_s3_li1: "To respond to your consultation or booking request by email or phone.",
+  privacy_s3_li2: "To send you a confirmation email after your request or payment.",
+  privacy_s3_li3: "To record your booking for our internal records.",
+  privacy_s3_note: "We do not sell, rent, or share your personal data with third parties for marketing purposes.",
+  privacy_s4_title: "4. Third-party processors",
+  privacy_s4_li1: "<strong>Stripe</strong> — payment processing. Your card data is processed by Stripe, Inc. and never stored on our servers. Stripe's privacy policy: <a href=\"https://stripe.com/privacy\" target=\"_blank\" rel=\"noopener\">stripe.com/privacy</a>",
+  privacy_s4_li2: "<strong>Google Fonts</strong> — fonts are loaded from Google's servers. Google may collect IP addresses in this process.",
+  privacy_s5_title: "5. How long we keep your data",
+  privacy_s5_li1: "Consultation form submissions are retained for up to 12 months.",
+  privacy_s5_li2: "Booking records are retained for up to 7 years.",
+  privacy_s5_li3: "Rate-limiting records (hashed IP addresses) are automatically purged after 15 minutes.",
+  privacy_s6_title: "6. Your rights",
+  privacy_s6_text1: "You have the right to access, correct, or delete the personal data we hold about you. To make a request, please reach out to us via the contact form on our website. We will respond within 30 days.",
+  privacy_s6_text2: "You also have the right to contact the Swiss Federal Data Protection and Information Commissioner (FDPIC) at <a href=\"https://www.edoeb.admin.ch\" target=\"_blank\" rel=\"noopener\">edoeb.admin.ch</a>.",
+  privacy_s7_title: "7. Data security",
+  privacy_s7_text: "We implement appropriate technical measures to protect your data, including HTTPS encryption, server-side access controls, and CSRF protection on all forms. Booking files are stored in directories not accessible via the web.",
+  privacy_s8_title: "8. Changes to this policy",
+  privacy_s8_text: "We may update this Privacy Policy from time to time. The date at the top of this page shows when it was last revised.",
+  privacy_footer: "© 2026 Easy Help Switzerland — all rights reserved.",
 
   },
 
@@ -889,8 +1054,8 @@ area_3_modal_content: `
   hero_years: "clientes guiados en procesos administrativos suizos",
 
   clients_micro: "Con quién trabajamos",
-areas_stat: "días para resolver el siguiente paso con su apartamento",
-areas_side: "Apoyamos a migrantes, estudiantes, familias y profesionales con pasos prácticos de reubicación, permisos, registros y organización de la vida en Suiza.",
+areas_stat: "días para obtener un plan de acción claro para tu situación",
+areas_side: "Trabajamos con expatriados, migrantes, estudiantes, familias y profesionales que necesitan orientación práctica en permisos, registros, vivienda y procedimientos administrativos suizos.",
 areas_intro: "Ayudamos a los clientes en Zúrich y otros cantones suizos con una estrategia clara, una ruta realista y apoyo para la burocracia cotidiana que sigue a la llegada.",
 areas_side_2: "Explore nuestras áreas de enfoque sobre permisos, registro municipal, vivienda, seguro y planificación de establecimiento para clientes de muchos países distintos.",
 
@@ -1019,7 +1184,7 @@ about_kicker: "Sobre mí",
 
     services_title: "Servicios",
     services_stat: "categorías principales",
-    services_side: "Todo del proyecto anterior se mantiene, pero con un nuevo lenguaje visual.",
+    services_side: "Ofrecemos seis áreas clave de apoyo: desde permisos de residencia y reubicación hasta empleo, seguros, documentos y asistencia para estudios.",
 
     service_residence_title: "Permisos de residencia",
     service_residence_desc: "Permisos, extensiones y procedimientos migratorios.",
@@ -1210,11 +1375,11 @@ footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.
   blog_hero_micro: "Guías y Blog",
   blog_hero_title_main: "Easy Guide Switzerland",
   blog_hero_title_sub: "reubicación en Suiza",
-  blog_hero_sub: "Artículos claros y prácticos sobre permisos, registro, seguro médico, estudios, matrimonio y reunificación familiar, rediseñados para encajar con el estilo editorial premium de su sitio web principal.",
+  blog_hero_sub: "Guías prácticas y actualizadas sobre permisos suizos, registro, seguro médico, impuestos y reunificación familiar — redactadas por expertos en reubicación.",
 
-  blog_hero_feature_1: "Artículos largos fáciles de leer",
-  blog_hero_feature_2: "Diseño editorial premium",
-  blog_hero_feature_3: "Mismo lenguaje visual que la página principal",
+  blog_hero_feature_1: "Guías sobre permisos, registro y seguros",
+  blog_hero_feature_2: "Escrito por expertos en reubicación",
+  blog_hero_feature_3: "Actualizado regularmente con nuevos artículos",
 
   blog_hero_guides_count: "6",
   blog_hero_guides_label: "guías estructuradas en un solo lugar",
@@ -1347,6 +1512,83 @@ footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.
   footer_copy: "© 2026 Easy Help Switzerland — Todos los derechos reservados.",
   footer_tagline: "Apoyo práctico de reubicación en Suiza",
   footer_privacy: "Política de privacidad",
+  footer_terms: "Términos de servicio",
+  footer_refund: "Política de reembolso",
+
+  // Privacy Policy hero — ES
+  privacy_micro: "Privacidad",
+  privacy_hero_title: "Política de <span>Privacidad</span>",
+  privacy_hero_sub: "Cómo recopilamos, usamos y protegemos tus datos personales.",
+  privacy_feature_1: "Sin cookies de seguimiento ni publicidad",
+  privacy_feature_2: "Stripe gestiona todos los pagos",
+  privacy_feature_3: "Cumple con la DSG suiza",
+  privacy_label: "Política de Privacidad",
+
+  // Terms of Service — ES
+  terms_micro: "Legal",
+  terms_hero_title: "Términos de <span>Servicio</span>",
+  terms_hero_sub: "Tus derechos y obligaciones al utilizar los servicios de consultoría de Easy Help Switzerland.",
+  terms_feature_1: "Condiciones de servicio transparentes",
+  terms_feature_2: "Regido por la ley suiza",
+  terms_feature_3: "Reglas de cancelación claras",
+  terms_label: "Términos de Servicio",
+  refund_micro: "Política",
+  refund_hero_title: "Reembolso y <span>Cancelación</span>",
+  refund_hero_sub: "Reglas simples y justas para cancelaciones y reembolsos — sin sorpresas.",
+  refund_feature_1: "Reembolso completo si cancelas 24h+ antes",
+  refund_feature_2: "Regla del 10% si el caso no es viable",
+  refund_feature_3: "Reembolso procesado en 5–10 días",
+  refund_label: "Política de reembolso y cancelación",
+  terms_h1: "Términos de servicio",
+  terms_updated: "Última actualización: abril de 2026",
+  terms_s1_title: "1. Sobre el servicio",
+  terms_s1_text: "Easy Help Switzerland es un servicio personal de consultoría de reubicación operado por Polina Kravtsova, con sede en Zúrich, Suiza. Proporcionamos orientación sobre procedimientos administrativos suizos, tipos de permisos y planificación de reubicación. Al reservar una consulta o enviar una solicitud, aceptas estos Términos de servicio.",
+  terms_s2_title: "2. No es asesoramiento legal",
+  terms_s2_text: "Nuestros servicios son de naturaleza informativa y consultiva. Easy Help Switzerland no es un bufete de abogados y no proporciona representación legal. Si tu situación requiere representación legal formal ante una autoridad u tribunal suizo, te remitiremos a un abogado con licencia. Ninguna información que proporcionemos constituye asesoramiento legal.",
+  terms_s3_title: "3. Consultas y reservas",
+  terms_s3_li1: "Las consultas se realizan en línea, por teléfono o en persona en Zúrich, según la opción que selecciones al reservar.",
+  terms_s3_li2: "Después del pago, recibirás un correo de confirmación. Se coordinará contigo una fecha y hora específicas de forma individual.",
+  terms_s3_li3: "Las consultas gratuitas están sujetas a disponibilidad y pueden programarse en un plazo de 1 a 3 días hábiles.",
+  terms_s3_li4: "Nos reservamos el derecho de rechazar o reprogramar una consulta a nuestra discreción; en ese caso, se emitirá un reembolso completo si se realizó el pago.",
+  terms_s4_title: "4. Pagos",
+  terms_s4_text: "Todos los pagos se procesan de forma segura a través de Stripe. Los precios se indican en francos suizos (CHF) e incluyen cualquier tarifa aplicable. El pago se realiza en el momento de la reserva. No almacenamos tu información de tarjeta.",
+  terms_s5_title: "5. Cancelaciones y reembolsos",
+  terms_s5_text: "Consulta nuestra Política de reembolso y cancelación para obtener todos los detalles. En resumen: las cancelaciones realizadas al menos 24 horas antes de la consulta programada reciben un reembolso completo. Las cancelaciones con menos de 24 horas de antelación no son reembolsables. Si determinamos que no podemos ayudar con tu caso, se aplica una tarifa de evaluación del 10 % y se reembolsa el resto.",
+  terms_s6_title: "6. Exactitud de la información",
+  terms_s6_text: "Las leyes y los procedimientos administrativos suizos cambian regularmente. Aunque hacemos todo lo posible por proporcionar información actualizada y precisa, no podemos garantizar que todo el contenido esté completamente actualizado en el momento de tu consulta. Eres responsable de verificar cualquier información con la autoridad suiza correspondiente.",
+  terms_s7_title: "7. Limitación de responsabilidad",
+  terms_s7_text: "Easy Help Switzerland no será responsable de ningún daño indirecto, incidental o consecuente derivado del uso de nuestros servicios. Nuestra responsabilidad total en relación con cualquier servicio se limita al importe pagado por ese servicio.",
+  terms_s8_title: "8. Ley aplicable",
+  terms_s8_text: "Estos Términos se rigen por las leyes de Suiza. Cualquier disputa estará sujeta a la jurisdicción exclusiva de los tribunales del cantón de Zúrich, Suiza.",
+  terms_s9_title: "9. Cambios en estos términos",
+  terms_s9_text: "Podemos actualizar estos Términos de servicio de vez en cuando. La fecha en la parte superior de esta página indica cuándo fueron revisados por última vez. El uso continuado de nuestros servicios tras los cambios implica la aceptación de los términos revisados.",
+  terms_s10_title: "10. Contacto",
+  terms_s10_text: "Si tienes alguna pregunta sobre estos Términos, ponte en contacto con nosotros a través del formulario de contacto de nuestro sitio web o por correo electrónico a la dirección indicada en tu confirmación de reserva.",
+
+  // Refund Policy — ES
+  refund_h1: "Política de reembolso y cancelación",
+  refund_updated: "Última actualización: abril de 2026",
+  refund_summary: "En resumen: cancela al menos 24 horas antes de tu consulta para obtener un reembolso completo. Sin preguntas.",
+  refund_s1_title: "1. Consultas gratuitas",
+  refund_s1_text: "Las consultas gratuitas son gratuitas y no requieren pago. Puedes cancelar o no asistir en cualquier momento sin ningún cargo.",
+  refund_s2_title: "2. Consultas de pago — plazo de cancelación",
+  refund_s2_li1: "Más de 24 horas antes de la hora programada: reembolso completo, sin cargo.",
+  refund_s2_li2: "Menos de 24 horas antes de la hora programada: no reembolsable. Si necesitas reprogramar, contáctanos y haremos lo posible por encontrar un horario alternativo.",
+  refund_s2_li3: "No presentarse (sin aviso previo): no reembolsable.",
+  refund_s3_title: "3. Cancelaciones por parte de Easy Help Switzerland",
+  refund_s3_text: "Si necesitamos cancelar o reprogramar tu consulta por cualquier motivo, recibirás un reembolso completo o un horario alternativo, según tu elección. Te notificaremos lo antes posible.",
+  refund_s4_title: "4. Evaluación del caso — regla del 10%",
+  refund_s4_text: "Si, durante o después de tu consulta de pago, determinamos que tu caso está fuera del alcance de nuestros servicios y no podemos ayudarte, cobraremos una tarifa de evaluación del 10% y reembolsaremos el 90% restante.",
+  refund_s5_title: "5. Cómo solicitar un reembolso o cancelación",
+  refund_s5_text: "Para cancelar o solicitar un reembolso, responde al correo de confirmación de tu reserva o contáctanos a través del formulario de nuestro sitio web. Incluye tu nombre y la fecha de tu reserva. Procesamos los reembolsos en un plazo de 5 a 10 días hábiles mediante el método de pago original (Stripe).",
+  refund_s6_title: "6. Tiempo de procesamiento del reembolso",
+  refund_s6_text: "Los reembolsos aprobados se devuelven al método de pago original en un plazo de 5 a 10 días hábiles, según tu banco o emisor de tarjeta. Emitimos el reembolso de inmediato por nuestra parte; el retraso en el procesamiento lo establece tu entidad financiera.",
+  refund_s7_title: "7. Contacto",
+  refund_s7_text: "¿Tienes preguntas sobre esta política? Contáctanos a través del formulario de nuestro sitio web o responde a cualquier correo electrónico que hayas recibido de Easy Help Switzerland.",
+
+  // Privacy cookie section — ES
+  privacy_s9_title: "9. Cookies y almacenamiento local",
+  privacy_s9_text: "No utilizamos cookies de seguimiento ni publicidad. Nuestro sitio web utiliza el almacenamiento local del navegador únicamente para dos fines: recordar tu preferencia de idioma y almacenar tu elección de consentimiento de cookies. Los datos almacenados localmente nunca se envían a terceros.",
 
 
 //Free Consultation
@@ -1470,12 +1712,6 @@ booking_brand_main: "Easy Help Switzerland",
   booking_placeholder_location: "País o ciudad",
   booking_placeholder_message: "Describe brevemente tu situación, tus documentos o la pregunta principal que quieres tratar.",
 
-  booking_placeholder_name: "Ihr vollständiger Name",
-  booking_placeholder_email: "ihre@email.com",
-  booking_placeholder_phone: "+41 …",
-  booking_placeholder_location: "Land oder Stadt",
-  booking_placeholder_message: "Beschreiben Sie kurz Ihre Situation, Ihre Unterlagen oder die wichtigste Frage, die Sie besprechen möchten.",
-
     booking_preferred_label: "Formato preferido",
     booking_preferred_default: "Selecciona una opción",
     booking_preferred_online: "Consulta online",
@@ -1483,9 +1719,9 @@ booking_brand_main: "Easy Help Switzerland",
     booking_preferred_phone: "Teléfono / WhatsApp",
 
     booking_message: "Descripción breve",
-    booking_placeholder_message: "Describe tu situación brevemente.",
 
     booking_note: "El pago confirma tu solicitud.",
+    booking_error_msg: "Algo salió mal. Por favor, inténtalo de nuevo.",
     booking_continue_payment: "Continuar al pago",
     booking_back: "← Volver",
 
@@ -1561,6 +1797,10 @@ booking_brand_main: "Easy Help Switzerland",
   package_initial: "Consulta rápida — CHF 79",
   package_review: "Apoyo en reubicación — CHF 189",
   package_relocation: "Estrategia de establecimiento — CHF 349",
+
+  payment_refund_kicker: "Política de cancelación",
+  payment_refund_title: "Reembolso y cancelación",
+  payment_refund_text: "Puedes cancelar hasta 24 horas antes de tu consulta para recibir un reembolso completo. Las cancelaciones con menos de 24 horas de antelación no son reembolsables. Si determinamos que no podemos ayudarte con tu caso, cobraremos el 10 % y te devolveremos el resto.",
 
   payment_footer_rights: "© 2026 Easy Help Switzerland - todos los derechos reservados.",
   payment_footer_page: "Página de pago",
@@ -1691,8 +1931,82 @@ service_documents_modal_item_8: "Soporte completo de documentos",
   success_cta_text: "Si recibiste una confirmación por correo, tu reserva fue exitosa. Ante cualquier duda contáctanos. Te contactaremos en las próximas 24 horas.",
   success_cta_btn_home: "Volver al inicio",
   success_cta_btn_book: "Reservar otra consulta",
-  success_footer_copy: "© 2026 Zurich Relocation",
+  success_footer_copy: "© 2026 Easy Help Switzerland — Todos los derechos reservados.",
   success_footer_page: "Página de confirmación",
+
+  consult_success_micro: "Solicitud recibida",
+  consult_success_hero_title: "Solicitud <span>confirmada</span>",
+  consult_success_hero_sub: "Hemos recibido tu solicitud de consulta gratuita. Te responderemos en un plazo de 24 horas.",
+  consult_success_feature_1: "Solicitud enviada",
+  consult_success_feature_2: "Correo de confirmación enviado",
+  consult_success_feature_3: "Equipo notificado",
+  consult_success_hero_hours: "horas objetivo para el seguimiento",
+  consult_success_section_label: "Confirmación",
+  consult_success_title: "Gracias por contactarnos",
+  consult_success_subtitle: "Hemos recibido tu solicitud de consulta gratuita y nos pondremos en contacto pronto. Revisa tu correo electrónico para la confirmación.",
+  consult_success_status: "Solicitud recibida",
+  consult_success_type: "Consulta inicial gratuita",
+  consult_success_notice: "Normalmente respondemos en 24 horas. Si tienes un asunto urgente, contáctanos por WhatsApp.",
+  consult_success_btn_home: "Volver al inicio",
+  consult_success_btn_guides: "Leer guías de reubicación",
+  consult_success_side_1_label: "Próximos pasos",
+  consult_success_side_1_title: "Qué sucede ahora",
+  consult_success_step_1: "Revisamos tu solicitud y nos preparamos para la consulta.",
+  consult_success_step_2: "Te contactamos en 24 horas para acordar un horario.",
+  consult_success_step_3: "Recibirás asesoramiento personalizado sobre tu situación en Suiza.",
+  consult_success_side_2_label: "Bueno saber",
+  consult_success_side_2_title: "Consulta gratuita",
+  consult_success_side_2_text: "La consulta inicial es completamente gratuita, sin compromiso. Estamos aquí para ayudarte a entender tus opciones y próximos pasos.",
+  consult_success_cta_label: "¿Necesitas más ayuda?",
+  consult_success_cta_title: "Estamos aquí para ti",
+  consult_success_cta_text: "Si necesitas apoyo integral, también puedes reservar una consulta de pago en cualquier momento. Ofrecemos asistencia con permisos, apoyo en reubicación y ayuda con documentos en toda Suiza.",
+  consult_success_cta_btn_home: "Volver al inicio",
+  consult_success_cta_btn_book: "Reservar consulta completa",
+  consult_success_footer_copy: "© 2026 Easy Help Switzerland — Todos los derechos reservados.",
+  consult_success_footer_page: "Página de confirmación",
+
+  wa_label: "WhatsApp",
+  wa_write: "Escríbenos",
+  aria_open_menu: "Abrir menú",
+
+  notfound_title: "Página no encontrada",
+  notfound_message: "La página que buscabas no existe o ha sido movida.",
+  notfound_home: "Ir a la página principal",
+  notfound_consult: "Consulta gratuita",
+
+  privacy_title: "Política de privacidad",
+  privacy_updated: "Última actualización: abril de 2026",
+  privacy_back: "← Volver al inicio",
+  privacy_h1: "Política de privacidad",
+  privacy_s1_title: "1. Quiénes somos",
+  privacy_s1_text: "Easy Help Switzerland es un servicio personal de consultoría de reubicación con sede en Zúrich, Suiza. Ayudamos a personas y familias a reubicarse en Suiza y a navegar los procedimientos administrativos suizos.",
+  privacy_s2_title: "2. Qué datos recopilamos",
+  privacy_s2_intro: "Recopilamos datos personales únicamente cuando los proporcionas activamente a través de nuestros formularios:",
+  privacy_s2_li1: "<strong>Formulario de consulta gratuita:</strong> nombre, dirección de correo electrónico, número de teléfono, ubicación actual y contenido del mensaje.",
+  privacy_s2_li2: "<strong>Formulario de reserva de pago:</strong> nombre, correo electrónico, teléfono, ubicación actual, formato de consulta preferido y mensaje.",
+  privacy_s2_li3: "<strong>Procesamiento de pagos:</strong> el pago lo gestiona completamente Stripe. No recopilamos ni almacenamos los datos de tu tarjeta. Recibimos de Stripe la confirmación del importe, la moneda y el estado del pago.",
+  privacy_s2_note: "No utilizamos cookies para seguimiento ni publicidad. No utilizamos Google Analytics ni ninguna herramienta de seguimiento de terceros.",
+  privacy_s3_title: "3. Cómo utilizamos tus datos",
+  privacy_s3_text: "Toda la información personal que proporcionas se usa exclusivamente para responder a tu solicitud y prestar el servicio solicitado. Tratamos tus datos de acuerdo con la Ley Federal Suiza de Protección de Datos (DSG).",
+  privacy_s3_li1: "Para responder a tu solicitud de consulta o reserva por correo electrónico o teléfono.",
+  privacy_s3_li2: "Para enviarte un correo de confirmación tras tu solicitud o pago.",
+  privacy_s3_li3: "Para registrar tu reserva en nuestros archivos internos.",
+  privacy_s3_note: "No vendemos, alquilamos ni compartimos tus datos personales con terceros con fines de marketing.",
+  privacy_s4_title: "4. Procesadores externos",
+  privacy_s4_li1: "<strong>Stripe</strong> — procesamiento de pagos. Tus datos de tarjeta son procesados por Stripe, Inc. y nunca se almacenan en nuestros servidores. Política de privacidad de Stripe: <a href=\"https://stripe.com/privacy\" target=\"_blank\" rel=\"noopener\">stripe.com/privacy</a>",
+  privacy_s4_li2: "<strong>Google Fonts</strong> — las fuentes se cargan desde los servidores de Google. Google puede recopilar direcciones IP durante este proceso.",
+  privacy_s5_title: "5. Cuánto tiempo conservamos tus datos",
+  privacy_s5_li1: "Los envíos del formulario de consulta se conservan hasta 12 meses.",
+  privacy_s5_li2: "Los registros de reservas se conservan hasta 7 años.",
+  privacy_s5_li3: "Los registros de limitación de velocidad (direcciones IP con hash) se eliminan automáticamente después de 15 minutos.",
+  privacy_s6_title: "6. Tus derechos",
+  privacy_s6_text1: "Tienes derecho a acceder, corregir o eliminar los datos personales que tenemos sobre ti. Para hacerlo, contáctanos a través del formulario de contacto en nuestro sitio web. Responderemos en 30 días.",
+  privacy_s6_text2: "También tienes derecho a contactar al Comisionado Federal Suizo de Protección de Datos e Información (FDPIC) en <a href=\"https://www.edoeb.admin.ch\" target=\"_blank\" rel=\"noopener\">edoeb.admin.ch</a>.",
+  privacy_s7_title: "7. Seguridad de datos",
+  privacy_s7_text: "Implementamos medidas técnicas apropiadas para proteger tus datos, incluido el cifrado HTTPS, controles de acceso en el servidor y protección CSRF en todos los formularios. Los archivos de reservas se almacenan en directorios no accesibles desde la web.",
+  privacy_s8_title: "8. Cambios en esta política",
+  privacy_s8_text: "Podemos actualizar esta Política de privacidad periódicamente. La fecha en la parte superior de esta página indica cuándo fue revisada por última vez.",
+  privacy_footer: "© 2026 Easy Help Switzerland — Todos los derechos reservados.",
 
 },
 
@@ -1720,8 +2034,8 @@ service_documents_modal_item_8: "Soporte completo de documentos",
   hero_years: "Klient:innen durch Schweizer Verwaltungsverfahren begleitet",
 
   clients_micro: "Mit wem wir arbeiten",
-areas_stat: "Tage, um Ihren nächsten Wohnungsschritt zu klären",
-areas_side: "Wir unterstützen Migranten, Studierende, Familien und Fachkräfte mit praktischen Relocation-Schritten, Bewilligungen, Anmeldungen und dem Aufbau des Lebens in der Schweiz.",
+areas_stat: "Tage, um einen klaren Aktionsplan für Ihre Situation zu erhalten",
+areas_side: "Wir arbeiten mit Expats, Migranten, Studierenden, Familien und Fachkräften, die praktische Begleitung bei Bewilligungen, Anmeldungen, Wohnungssuche und Behördengängen in der Schweiz benötigen.",
 areas_intro: "Wir helfen Klienten in Zürich und anderen Schweizer Kantonen mit einer klaren Strategie, einem realistischen Weg und Unterstützung bei der alltäglichen Bürokratie nach der Ankunft.",
 areas_side_2: "Entdecken Sie unsere Schwerpunktbereiche rund um Bewilligungen, Gemeindeanmeldung, Wohnen, Versicherung und Niederlassungsplanung für Klienten aus vielen verschiedenen Ländern.",
 
@@ -1850,7 +2164,7 @@ about_kicker: "Über mich",
 
     services_title: "Dienstleistungen",
     services_stat: "Hauptkategorien",
-    services_side: "Alles aus dem vorherigen Projekt ist erhalten geblieben, jedoch in einer neuen visuellen Sprache gestaltet.",
+    services_side: "Wir bieten sechs Kernbereiche der Unterstützung — von Aufenthaltsbewilligungen und Relocation bis hin zu Beschäftigung, Versicherung, Dokumenten und Studienbegleitung.",
 
     service_residence_title: "Aufenthaltsbewilligungen",
     service_residence_desc: "Bewilligungen, Verlängerungen und Migrationsverfahren.",
@@ -2040,11 +2354,12 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
 
   blog_hero_micro: "Ratgeber & Blog",
   blog_hero_title_main: "Easy Guide Switzerland",
-  blog_hero_sub: "Klare praktische Artikel zu Bewilligungen, Anmeldung, Krankenversicherung, Studium, Heirat und Familiennachzug — neu gestaltet im hochwertigen redaktionellen Stil Ihrer Hauptwebsite.",
+  blog_hero_title_sub: "Umzug in die Schweiz",
+  blog_hero_sub: "Praxisnahe, aktuelle Ratgeber zu Schweizer Aufenthaltsbewilligungen, Anmeldung, Krankenversicherung, Steuern und Familiennachzug — verfasst von Umzugsexperten.",
 
-  blog_hero_feature_1: "Lange Artikel leicht erfassbar",
-  blog_hero_feature_2: "Hochwertiges redaktionelles Layout",
-  blog_hero_feature_3: "Gleiche visuelle Sprache wie die Startseite",
+  blog_hero_feature_1: "Ratgeber zu Bewilligungen, Anmeldung & Versicherung",
+  blog_hero_feature_2: "Verfasst von Umzugsexperten",
+  blog_hero_feature_3: "Regelmäßig mit neuen Artikeln aktualisiert",
 
   blog_hero_guides_count: "6",
   blog_hero_guides_label: "Ratgeber an einem Ort gebündelt",
@@ -2177,6 +2492,83 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   footer_copy: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   footer_tagline: "Praktische Umzugsunterstützung in der Schweiz",
   footer_privacy: "Datenschutzerklärung",
+  footer_terms: "Nutzungsbedingungen",
+  footer_refund: "Rückgaberecht",
+
+  // Privacy Policy hero — DE
+  privacy_micro: "Datenschutz",
+  privacy_hero_title: "Datenschutz<span>erklärung</span>",
+  privacy_hero_sub: "Wie wir Ihre persönlichen Daten erfassen, verwenden und schützen.",
+  privacy_feature_1: "Keine Tracking- oder Werbe-Cookies",
+  privacy_feature_2: "Stripe wickelt alle Zahlungen ab",
+  privacy_feature_3: "Konform mit dem Schweizer DSG",
+  privacy_label: "Datenschutzerklärung",
+
+  // Terms of Service — DE
+  terms_micro: "Rechtliches",
+  terms_hero_title: "Nutzungs<span>bedingungen</span>",
+  terms_hero_sub: "Ihre Rechte und Pflichten bei der Nutzung der Beratungsdienstleistungen von Easy Help Switzerland.",
+  terms_feature_1: "Transparente Servicebedingungen",
+  terms_feature_2: "Schweizer Recht gilt",
+  terms_feature_3: "Klare Stornierungsregeln",
+  terms_label: "Nutzungsbedingungen",
+  refund_micro: "Richtlinie",
+  refund_hero_title: "Rückgabe &amp; <span>Stornierung</span>",
+  refund_hero_sub: "Einfache, faire Regeln für Stornierungen und Rückerstattungen — keine Überraschungen.",
+  refund_feature_1: "Volle Rückerstattung bei Stornierung 24h+ vorher",
+  refund_feature_2: "10%-Regel bei aussichtslosem Fall",
+  refund_feature_3: "Rückerstattung innerhalb von 5–10 Tagen",
+  refund_label: "Rückgabe- und Stornierungsrichtlinie",
+  terms_h1: "Nutzungsbedingungen",
+  terms_updated: "Zuletzt aktualisiert: April 2026",
+  terms_s1_title: "1. Über den Dienst",
+  terms_s1_text: "Easy Help Switzerland ist ein persönlicher Relocation-Beratungsservice, betrieben von Polina Kravtsova mit Sitz in Zürich, Schweiz. Wir bieten Orientierung zu Schweizer Verwaltungsverfahren, Aufenthaltsbewilligungstypen und Umzugsplanung. Mit der Buchung einer Beratung oder dem Absenden einer Anfrage stimmen Sie diesen Nutzungsbedingungen zu.",
+  terms_s2_title: "2. Keine Rechtsberatung",
+  terms_s2_text: "Unsere Leistungen sind informatorischer und beratender Natur. Easy Help Switzerland ist keine Anwaltskanzlei und bietet keine rechtliche Vertretung an. Wenn Ihre Situation eine formelle Rechtsvertretung vor einer Schweizer Behörde oder einem Gericht erfordert, verweisen wir Sie an einen zugelassenen Anwalt. Alle von uns bereitgestellten Informationen stellen keine Rechtsberatung dar.",
+  terms_s3_title: "3. Beratungen und Buchungen",
+  terms_s3_li1: "Beratungen werden online, telefonisch oder persönlich in Zürich durchgeführt, je nach der bei der Buchung gewählten Option.",
+  terms_s3_li2: "Nach der Zahlung erhalten Sie eine Bestätigungs-E-Mail. Ein spezifisches Datum und eine Uhrzeit werden individuell mit Ihnen vereinbart.",
+  terms_s3_li3: "Kostenlose Beratungen sind von der Verfügbarkeit abhängig und können innerhalb von 1–3 Werktagen geplant werden.",
+  terms_s3_li4: "Wir behalten uns das Recht vor, eine Beratung nach eigenem Ermessen abzulehnen oder zu verschieben; in diesem Fall wird eine vollständige Rückerstattung geleistet, wenn eine Zahlung erfolgt ist.",
+  terms_s4_title: "4. Zahlungen",
+  terms_s4_text: "Alle Zahlungen werden sicher über Stripe abgewickelt. Preise sind in Schweizer Franken (CHF) angegeben und enthalten alle anfallenden Gebühren. Die Zahlung erfolgt zum Zeitpunkt der Buchung. Wir speichern Ihre Kartendaten nicht.",
+  terms_s5_title: "5. Stornierungen und Rückerstattungen",
+  terms_s5_text: "Einzelheiten finden Sie in unserer Rückgabe- und Stornierungsrichtlinie. Zusammenfassend: Stornierungen, die mindestens 24 Stunden vor der geplanten Beratung eingehen, erhalten eine vollständige Rückerstattung. Stornierungen innerhalb von 24 Stunden sind nicht erstattungsfähig. Wenn wir feststellen, dass wir Ihnen in Ihrem Fall nicht helfen können, wird eine Bewertungsgebühr von 10 % erhoben und der Rest erstattet.",
+  terms_s6_title: "6. Aktualität der Informationen",
+  terms_s6_text: "Schweizer Gesetze und Verwaltungsverfahren ändern sich regelmäßig. Obwohl wir alles daransetzen, aktuelle und genaue Informationen bereitzustellen, können wir nicht garantieren, dass alle Inhalte zum Zeitpunkt Ihrer Beratung vollständig auf dem neuesten Stand sind. Sie sind dafür verantwortlich, Informationen bei der zuständigen Schweizer Behörde zu verifizieren.",
+  terms_s7_title: "7. Haftungsbeschränkung",
+  terms_s7_text: "Easy Help Switzerland haftet nicht für indirekte, zufällige oder Folgeschäden, die aus der Nutzung unserer Dienste entstehen. Unsere Gesamthaftung im Zusammenhang mit einem Dienst ist auf den für diesen Dienst gezahlten Betrag begrenzt.",
+  terms_s8_title: "8. Anwendbares Recht",
+  terms_s8_text: "Diese Bedingungen unterliegen dem Recht der Schweiz. Alle Streitigkeiten unterliegen der ausschließlichen Zuständigkeit der Gerichte des Kantons Zürich, Schweiz.",
+  terms_s9_title: "9. Änderungen dieser Bedingungen",
+  terms_s9_text: "Wir können diese Nutzungsbedingungen von Zeit zu Zeit aktualisieren. Das Datum oben auf dieser Seite zeigt an, wann sie zuletzt überarbeitet wurden. Die weitere Nutzung unserer Dienste nach Änderungen gilt als Zustimmung zu den überarbeiteten Bedingungen.",
+  terms_s10_title: "10. Kontakt",
+  terms_s10_text: "Wenn Sie Fragen zu diesen Bedingungen haben, wenden Sie sich bitte über das Kontaktformular auf unserer Website oder per E-Mail an die in Ihrer Buchungsbestätigung angegebene Adresse.",
+
+  // Refund Policy — DE
+  refund_h1: "Rückgabe- und Stornierungsrichtlinie",
+  refund_updated: "Zuletzt aktualisiert: April 2026",
+  refund_summary: "Kurz gesagt: Stornieren Sie mindestens 24 Stunden vor Ihrer Beratung für eine vollständige Rückerstattung. Keine Fragen gestellt.",
+  refund_s1_title: "1. Kostenlose Beratungen",
+  refund_s1_text: "Kostenlose Beratungen sind kostenfrei und erfordern keine Zahlung. Sie können jederzeit absagen oder nicht erscheinen, ohne dass Kosten entstehen.",
+  refund_s2_title: "2. Bezahlte Beratungen — Stornierungsfenster",
+  refund_s2_li1: "Mehr als 24 Stunden vor dem geplanten Termin: vollständige Rückerstattung, keine Gebühr.",
+  refund_s2_li2: "Weniger als 24 Stunden vor dem geplanten Termin: nicht erstattungsfähig. Wenn Sie einen neuen Termin benötigen, kontaktieren Sie uns und wir werden unser Bestes tun, um eine Alternative zu finden.",
+  refund_s2_li3: "Nichterscheinen (ohne vorherige Benachrichtigung): nicht erstattungsfähig.",
+  refund_s3_title: "3. Stornierungen durch Easy Help Switzerland",
+  refund_s3_text: "Wenn wir Ihre Beratung aus irgendeinem Grund absagen oder verschieben müssen, erhalten Sie eine vollständige Rückerstattung oder einen alternativen Termin — Ihre Wahl. Wir werden Sie so früh wie möglich benachrichtigen.",
+  refund_s4_title: "4. Fallbewertung — 10%-Regel",
+  refund_s4_text: "Wenn wir während oder nach Ihrer bezahlten Beratung feststellen, dass Ihr Fall außerhalb des Umfangs unserer Dienste liegt und wir Ihnen nicht helfen können, berechnen wir eine Bewertungsgebühr von 10 % und erstatten die verbleibenden 90 %.",
+  refund_s5_title: "5. Rückerstattung oder Stornierung beantragen",
+  refund_s5_text: "Um zu stornieren oder eine Rückerstattung zu beantragen, antworten Sie auf Ihre Buchungsbestätigungs-E-Mail oder kontaktieren Sie uns über das Formular auf unserer Website. Bitte geben Sie Ihren Namen und das Datum Ihrer Buchung an. Wir bearbeiten Rückerstattungen innerhalb von 5–10 Werktagen über die ursprüngliche Zahlungsmethode (Stripe).",
+  refund_s6_title: "6. Bearbeitungszeit für Rückerstattungen",
+  refund_s6_text: "Genehmigte Rückerstattungen werden innerhalb von 5–10 Werktagen an Ihre ursprüngliche Zahlungsmethode zurückgebucht, abhängig von Ihrer Bank oder Ihrem Kartenaussteller. Wir veranlassen die Rückerstattung sofort auf unserer Seite — die Bearbeitungsverzögerung wird von Ihrem Finanzinstitut festgelegt.",
+  refund_s7_title: "7. Kontakt",
+  refund_s7_text: "Fragen zu dieser Richtlinie? Kontaktieren Sie uns über das Formular auf unserer Website oder antworten Sie auf eine E-Mail, die Sie von Easy Help Switzerland erhalten haben.",
+
+  // Privacy cookie section — DE
+  privacy_s9_title: "9. Cookies und lokaler Speicher",
+  privacy_s9_text: "Wir verwenden keine Tracking- oder Werbe-Cookies. Unsere Website verwendet den lokalen Browser-Speicher ausschließlich für zwei Zwecke: um Ihre Sprachpräferenz zu speichern und Ihre Cookie-Einwilligung zu vermerken. Lokal gespeicherte Daten werden niemals an Dritte weitergegeben.",
 
 
 //Free Consultation
@@ -2307,9 +2699,9 @@ booking_brand_main: "Easy Help Switzerland",
     booking_preferred_phone: "Telefon",
 
     booking_message: "Beschreibung",
-    booking_placeholder_message: "Kurz beschreiben.",
 
     booking_note: "Zahlung bestätigt Anfrage.",
+    booking_error_msg: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
     booking_continue_payment: "Zur Zahlung",
     booking_back: "← Zurück",
 
@@ -2385,6 +2777,10 @@ booking_brand_main: "Easy Help Switzerland",
   package_initial: "Kurze Beratung — CHF 79",
   package_review: "Umzugsunterstützung — CHF 189",
   package_relocation: "Ansiedlungsstrategie — CHF 349",
+
+  payment_refund_kicker: "Stornierungsrichtlinie",
+  payment_refund_title: "Rückerstattung & Stornierung",
+  payment_refund_text: "Sie können bis zu 24 Stunden vor Ihrer gebuchten Beratung kostenlos stornieren. Stornierungen innerhalb von 24 Stunden sind nicht erstattungsfähig. Wenn wir feststellen, dass wir Ihnen nicht helfen können, berechnen wir 10 % und erstatten den Rest.",
 
   payment_footer_rights: "© 2026 Easy Help Switzerland - alle Rechte vorbehalten.",
   payment_footer_page: "Zahlungsseite",
@@ -2515,8 +2911,82 @@ service_documents_modal_item_8: "Komplette Dokumentenunterstützung",
   success_cta_text: "Wenn Sie eine E-Mail-Bestätigung erhalten haben, war Ihre Buchung erfolgreich. Bei Fragen oder Fehlern kontaktieren Sie uns. Wir melden uns innerhalb von 24 Stunden.",
   success_cta_btn_home: "Zurück zur Startseite",
   success_cta_btn_book: "Weitere Beratung buchen",
-  success_footer_copy: "© 2026 Zurich Relocation",
+  success_footer_copy: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   success_footer_page: "Bestätigungsseite",
+
+  consult_success_micro: "Anfrage erhalten",
+  consult_success_hero_title: "Anfrage <span>bestätigt</span>",
+  consult_success_hero_sub: "Ihre kostenlose Beratungsanfrage ist bei uns eingegangen. Wir melden uns innerhalb von 24 Stunden.",
+  consult_success_feature_1: "Anfrage eingereicht",
+  consult_success_feature_2: "Bestätigungs-E-Mail gesendet",
+  consult_success_feature_3: "Team benachrichtigt",
+  consult_success_hero_hours: "Stunden Ziel für Rückmeldung",
+  consult_success_section_label: "Bestätigung",
+  consult_success_title: "Vielen Dank für Ihre Kontaktaufnahme",
+  consult_success_subtitle: "Wir haben Ihre kostenlose Beratungsanfrage erhalten und melden uns in Kürze. Bitte prüfen Sie Ihren Posteingang auf eine Bestätigungs-E-Mail.",
+  consult_success_status: "Anfrage erhalten",
+  consult_success_type: "Kostenlose Erstberatung",
+  consult_success_notice: "Wir antworten in der Regel innerhalb von 24 Stunden. Bei dringenden Anliegen können Sie uns gerne über WhatsApp kontaktieren.",
+  consult_success_btn_home: "Zurück zur Startseite",
+  consult_success_btn_guides: "Ratgeber zur Relocation lesen",
+  consult_success_side_1_label: "Was als nächstes passiert",
+  consult_success_side_1_title: "Nächste Schritte",
+  consult_success_step_1: "Wir prüfen Ihre Anfrage und bereiten uns auf die Beratung vor.",
+  consult_success_step_2: "Wir melden uns innerhalb von 24 Stunden, um einen Termin zu vereinbaren.",
+  consult_success_step_3: "Sie erhalten eine persönliche Beratung zu Ihrer Situation in der Schweiz.",
+  consult_success_side_2_label: "Gut zu wissen",
+  consult_success_side_2_title: "Kostenlose Beratung",
+  consult_success_side_2_text: "Die Erstberatung ist völlig kostenlos — ohne jede Verpflichtung. Wir helfen Ihnen dabei, Ihre Optionen und nächsten Schritte zu verstehen.",
+  consult_success_cta_label: "Benötigen Sie mehr Hilfe?",
+  consult_success_cta_title: "Wir sind für Sie da",
+  consult_success_cta_text: "Wenn Sie umfassende Unterstützung benötigen, können Sie jederzeit eine kostenpflichtige Beratung buchen. Wir bieten Hilfe bei Aufenthaltsbewilligungen, Relocation-Support und Dokumentenassistenz in der ganzen Schweiz.",
+  consult_success_cta_btn_home: "Zur Startseite",
+  consult_success_cta_btn_book: "Vollständige Beratung buchen",
+  consult_success_footer_copy: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
+  consult_success_footer_page: "Bestätigungsseite",
+
+  wa_label: "WhatsApp",
+  wa_write: "Schreiben Sie uns",
+  aria_open_menu: "Menü öffnen",
+
+  notfound_title: "Seite nicht gefunden",
+  notfound_message: "Die gesuchte Seite existiert nicht oder wurde verschoben.",
+  notfound_home: "Zur Startseite",
+  notfound_consult: "Kostenlose Beratung",
+
+  privacy_title: "Datenschutzerklärung",
+  privacy_updated: "Zuletzt aktualisiert: April 2026",
+  privacy_back: "← Zurück zur Startseite",
+  privacy_h1: "Datenschutzerklärung",
+  privacy_s1_title: "1. Wer wir sind",
+  privacy_s1_text: "Easy Help Switzerland ist ein persönlicher Relocation-Beratungsservice mit Sitz in Zürich. Wir helfen Einzelpersonen und Familien beim Umzug in die Schweiz und beim Navigieren der schweizerischen Verwaltungsverfahren.",
+  privacy_s2_title: "2. Welche Daten wir erheben",
+  privacy_s2_intro: "Wir erheben personenbezogene Daten nur, wenn Sie diese aktiv über unsere Formulare bereitstellen:",
+  privacy_s2_li1: "<strong>Kostenloses Beratungsformular:</strong> Name, E-Mail-Adresse, Telefonnummer, aktueller Aufenthaltsort und Nachrichteninhalt.",
+  privacy_s2_li2: "<strong>Buchungsformular:</strong> Name, E-Mail-Adresse, Telefonnummer, aktueller Aufenthaltsort, bevorzugtes Beratungsformat und Nachrichteninhalt.",
+  privacy_s2_li3: "<strong>Zahlungsverarbeitung:</strong> Zahlungen werden vollständig über Stripe abgewickelt. Wir erheben oder speichern keine Kartendaten. Wir erhalten von Stripe lediglich die Bestätigung über Betrag, Währung und Zahlungsstatus.",
+  privacy_s2_note: "Wir verwenden keine Cookies für Tracking oder Werbung. Wir verwenden weder Google Analytics noch andere Drittanbieter-Tracking-Tools.",
+  privacy_s3_title: "3. Wie wir Ihre Daten verwenden",
+  privacy_s3_text: "Alle von Ihnen bereitgestellten personenbezogenen Daten werden ausschließlich verwendet, um auf Ihre Anfrage zu reagieren und den gewünschten Dienst zu erbringen. Wir verarbeiten Ihre Daten gemäß dem Schweizer Datenschutzgesetz (DSG).",
+  privacy_s3_li1: "Um auf Ihre Beratungs- oder Buchungsanfrage per E-Mail oder Telefon zu reagieren.",
+  privacy_s3_li2: "Um Ihnen nach Ihrer Anfrage oder Zahlung eine Bestätigungs-E-Mail zu senden.",
+  privacy_s3_li3: "Um Ihre Buchung für unsere internen Aufzeichnungen zu erfassen.",
+  privacy_s3_note: "Wir verkaufen, vermieten oder teilen Ihre personenbezogenen Daten nicht mit Dritten zu Marketingzwecken.",
+  privacy_s4_title: "4. Drittanbieter-Dienstleister",
+  privacy_s4_li1: "<strong>Stripe</strong> — Zahlungsverarbeitung. Ihre Kartendaten werden von Stripe, Inc. verarbeitet und niemals auf unseren Servern gespeichert. Datenschutzrichtlinie von Stripe: <a href=\"https://stripe.com/privacy\" target=\"_blank\" rel=\"noopener\">stripe.com/privacy</a>",
+  privacy_s4_li2: "<strong>Google Fonts</strong> — Schriftarten werden von Google-Servern geladen. Google kann dabei IP-Adressen erfassen.",
+  privacy_s5_title: "5. Wie lange wir Ihre Daten aufbewahren",
+  privacy_s5_li1: "Beratungsformular-Einsendungen werden bis zu 12 Monate aufbewahrt.",
+  privacy_s5_li2: "Buchungsunterlagen werden bis zu 7 Jahre aufbewahrt.",
+  privacy_s5_li3: "Rate-Limiting-Aufzeichnungen (gehashte IP-Adressen) werden automatisch nach 15 Minuten gelöscht.",
+  privacy_s6_title: "6. Ihre Rechte",
+  privacy_s6_text1: "Sie haben das Recht, auf die von uns gespeicherten personenbezogenen Daten zuzugreifen, diese zu berichtigen oder zu löschen. Bitte kontaktieren Sie uns über das Kontaktformular auf unserer Website. Wir werden innerhalb von 30 Tagen antworten.",
+  privacy_s6_text2: "Sie haben auch das Recht, den Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) zu kontaktieren: <a href=\"https://www.edoeb.admin.ch\" target=\"_blank\" rel=\"noopener\">edoeb.admin.ch</a>.",
+  privacy_s7_title: "7. Datensicherheit",
+  privacy_s7_text: "Wir implementieren geeignete technische Massnahmen zum Schutz Ihrer Daten, darunter HTTPS-Verschlüsselung, serverseitige Zugriffskontrollen und CSRF-Schutz auf allen Formularen. Buchungsdateien werden in Verzeichnissen gespeichert, die nicht über das Web zugänglich sind.",
+  privacy_s8_title: "8. Änderungen dieser Richtlinie",
+  privacy_s8_text: "Wir können diese Datenschutzerklärung von Zeit zu Zeit aktualisieren. Das Datum oben auf dieser Seite zeigt an, wann sie zuletzt überarbeitet wurde.",
+  privacy_footer: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
 
   },
 
@@ -2546,8 +3016,8 @@ service_documents_modal_item_8: "Komplette Dokumentenunterstützung",
   hero_years: "клієнтів супроводжено через швейцарські адміністративні процедури",
 
   clients_micro: "З ким ми працюємо",
-areas_stat: "днів, щоб вирішити ваш наступний крок з житлом",
-areas_side: "Ми допомагаємо мігрантам, студентам, сім'ям і фахівцям з практичними кроками релокації, дозволами, реєстрацією та облаштуванням життя у Швейцарії.",
+areas_stat: "днів, щоб отримати чіткий план дій для вашої ситуації",
+areas_side: "Ми працюємо з експатами, мігрантами, студентами, сім'ями та фахівцями, яким потрібна практична допомога з дозволами, реєстрацією, житлом та адміністративними процедурами в Швейцарії.",
 areas_intro: "Ми допомагаємо клієнтам у Цюриху та інших кантонах Швейцарії з чіткою стратегією, реалістичним маршрутом і підтримкою в щоденній бюрократії після приїзду.",
 areas_side_2: "Ознайомтеся з нашими напрямами підтримки щодо дозволів, реєстрації в громаді, житла, страхування та планування облаштування для клієнтів з різних країн.",
 
@@ -2677,7 +3147,7 @@ about_kicker: "Про мене",
 
     services_title: "Послуги",
     services_stat: "основні категорії",
-    services_side: "Усе з попереднього проєкту збережено, але в новому візуальному стилі.",
+    services_side: "Ми пропонуємо шість ключових напрямків підтримки — від дозволів на проживання та релокації до працевлаштування, страхування, документів та супроводу щодо навчання.",
 
     service_residence_title: "Дозволи на проживання",
     service_residence_desc: "Дозволи, продовження та міграційні процедури.",
@@ -2950,11 +3420,12 @@ payment_note: "Оплата підтверджує ваш запит на кон
 
   blog_hero_micro: "Гіди та блог",
   blog_hero_title_main: "Easy Guide Switzerland",
-  blog_hero_sub: "Чіткі практичні статті про дозволи, реєстрацію, медичне страхування, навчання, шлюб і возз'єднання сім'ї — у преміальному редакційному стилі вашого основного сайту.",
+  blog_hero_title_sub: "переїзд до Швейцарії",
+  blog_hero_sub: "Практичні актуальні посібники зі швейцарських дозволів, реєстрації, медичного страхування, податків і возз'єднання сім'ї — написані експертами з переїзду.",
 
-  blog_hero_feature_1: "Зручно читати довгі статті",
-  blog_hero_feature_2: "Преміальний редакційний дизайн",
-  blog_hero_feature_3: "Той самий візуальний стиль, що й на головній сторінці",
+  blog_hero_feature_1: "Посібники з дозволів, реєстрації та страхування",
+  blog_hero_feature_2: "Написано експертами з переїзду",
+  blog_hero_feature_3: "Регулярно оновлюється новими статтями",
 
   blog_hero_guides_count: "6",
   blog_hero_guides_label: "гідів, зібраних в одному місці",
@@ -3087,6 +3558,83 @@ payment_note: "Оплата підтверджує ваш запит на кон
   footer_copy: "© 2026 Easy Help Switzerland — Усі права захищені.",
   footer_tagline: "Практична підтримка з релокації у Швейцарії",
   footer_privacy: "Політика конфіденційності",
+  footer_terms: "Умови використання",
+  footer_refund: "Політика повернення",
+
+  // Privacy Policy hero — UK
+  privacy_micro: "Конфіденційність",
+  privacy_hero_title: "Політика <span>конфіденційності</span>",
+  privacy_hero_sub: "Як ми збираємо, використовуємо та захищаємо ваші персональні дані.",
+  privacy_feature_1: "Без файлів cookie для відстеження",
+  privacy_feature_2: "Stripe обробляє всі платежі",
+  privacy_feature_3: "Відповідає швейцарському DSG",
+  privacy_label: "Політика конфіденційності",
+
+  // Terms of Service — UK
+  terms_micro: "Правова інформація",
+  terms_hero_title: "Умови <span>використання</span>",
+  terms_hero_sub: "Ваші права та обов'язки при використанні консультаційних послуг Easy Help Switzerland.",
+  terms_feature_1: "Прозорі умови обслуговування",
+  terms_feature_2: "Регулюється законодавством Швейцарії",
+  terms_feature_3: "Чіткі правила скасування",
+  terms_label: "Умови використання",
+  refund_micro: "Політика",
+  refund_hero_title: "Повернення та <span>скасування</span>",
+  refund_hero_sub: "Прості та справедливі правила для скасувань і повернень — без сюрпризів.",
+  refund_feature_1: "Повне повернення при скасуванні за 24г+",
+  refund_feature_2: "Правило 10% якщо справа безперспективна",
+  refund_feature_3: "Повернення обробляється за 5–10 днів",
+  refund_label: "Політика повернення та скасування",
+  terms_h1: "Умови використання",
+  terms_updated: "Останнє оновлення: квітень 2026",
+  terms_s1_title: "1. Про сервіс",
+  terms_s1_text: "Easy Help Switzerland — це персональний сервіс консультацій з переїзду, яким керує Поліна Кравцова, розташований у Цюриху, Швейцарія. Ми надаємо рекомендації щодо швейцарських адміністративних процедур, типів дозволів на проживання та планування переїзду. Замовляючи консультацію або надсилаючи запит, ви погоджуєтеся з цими Умовами використання.",
+  terms_s2_title: "2. Не є юридичною порадою",
+  terms_s2_text: "Наші послуги мають інформаційний та консультативний характер. Easy Help Switzerland не є юридичною фірмою та не надає юридичного представництва. Якщо ваша ситуація вимагає офіційного юридичного представництва перед швейцарським органом влади або судом, ми направимо вас до ліцензованого адвоката. Жодна інформація, яку ми надаємо, не є юридичною порадою.",
+  terms_s3_title: "3. Консультації та бронювання",
+  terms_s3_li1: "Консультації проводяться онлайн, по телефону або особисто в Цюриху, залежно від обраного вами при бронюванні формату.",
+  terms_s3_li2: "Після оплати ви отримаєте лист-підтвердження. Конкретна дата та час будуть узгоджені з вами індивідуально.",
+  terms_s3_li3: "Безкоштовні консультації залежать від наявності вільного часу і можуть бути заплановані протягом 1–3 робочих днів.",
+  terms_s3_li4: "Ми залишаємо за собою право відмовити або перенести консультацію на власний розсуд; у такому разі, якщо оплата була здійснена, буде оформлено повне повернення коштів.",
+  terms_s4_title: "4. Оплата",
+  terms_s4_text: "Усі платежі обробляються безпечно через Stripe. Ціни вказані у швейцарських франках (CHF) і включають усі застосовні збори. Оплата здійснюється під час бронювання. Ми не зберігаємо дані вашої картки.",
+  terms_s5_title: "5. Скасування та повернення коштів",
+  terms_s5_text: "Будь ласка, ознайомтеся з нашою Політикою повернення та скасування. Коротко: скасування, здійснені не менш ніж за 24 години до запланованої консультації, отримують повне повернення коштів. Скасування менш ніж за 24 години не підлягають відшкодуванню. Якщо ми визначимо, що не можемо допомогти у вашому випадку, стягується оціночний збір у розмірі 10%, а решта повертається.",
+  terms_s6_title: "6. Точність інформації",
+  terms_s6_text: "Швейцарське законодавство та адміністративні процедури регулярно змінюються. Незважаючи на всі наші зусилля надавати актуальну та точну інформацію, ми не можемо гарантувати, що весь контент є повністю актуальним на момент вашої консультації. Ви несете відповідальність за перевірку будь-якої інформації у відповідному швейцарському органі.",
+  terms_s7_title: "7. Обмеження відповідальності",
+  terms_s7_text: "Easy Help Switzerland не несе відповідальності за будь-які непрямі, випадкові або послідовні збитки, що виникають внаслідок використання наших послуг. Наша загальна відповідальність у зв'язку з будь-якою послугою обмежується сумою, сплаченою за цю послугу.",
+  terms_s8_title: "8. Застосовне право",
+  terms_s8_text: "Ці Умови регулюються законодавством Швейцарії. Будь-які спори підлягають виключній юрисдикції судів кантону Цюрих, Швейцарія.",
+  terms_s9_title: "9. Зміни до цих умов",
+  terms_s9_text: "Ми можемо час від часу оновлювати ці Умови використання. Дата у верхній частині цієї сторінки показує, коли вони були востаннє переглянуті. Продовження використання наших послуг після змін означає прийняття оновлених умов.",
+  terms_s10_title: "10. Контакти",
+  terms_s10_text: "Якщо у вас є запитання щодо цих Умов, зверніться до нас через форму зворотного зв'язку на нашому сайті або електронною поштою на адресу, вказану у вашому підтвердженні бронювання.",
+
+  // Refund Policy — UK
+  refund_h1: "Політика повернення та скасування",
+  refund_updated: "Останнє оновлення: квітень 2026",
+  refund_summary: "Коротко: скасуйте принаймні за 24 години до консультації — отримаєте повне повернення коштів. Без жодних питань.",
+  refund_s1_title: "1. Безкоштовні консультації",
+  refund_s1_text: "Безкоштовні консультації є безоплатними і не вимагають оплати. Ви можете скасувати або не з'явитися в будь-який час без будь-яких витрат.",
+  refund_s2_title: "2. Платні консультації — вікно скасування",
+  refund_s2_li1: "Більш ніж за 24 години до запланованого часу: повне повернення коштів, без збору.",
+  refund_s2_li2: "Менш ніж за 24 години до запланованого часу: кошти не повертаються. Якщо вам потрібно перенести консультацію, зв'яжіться з нами, і ми зробимо все можливе, щоб знайти альтернативний час.",
+  refund_s2_li3: "Неявка (без попереднього повідомлення): кошти не повертаються.",
+  refund_s3_title: "3. Скасування з боку Easy Help Switzerland",
+  refund_s3_text: "Якщо нам потрібно скасувати або перенести вашу консультацію з будь-якої причини, ви отримаєте повне повернення коштів або альтернативний час — за вашим вибором. Ми повідомимо вас якомога раніше.",
+  refund_s4_title: "4. Оцінка справи — правило 10%",
+  refund_s4_text: "Якщо під час або після вашої платної консультації ми визначимо, що ваша справа виходить за межі наших послуг і ми не можемо вам допомогти, ми утримаємо оціночний збір у розмірі 10% і повернемо решту 90%.",
+  refund_s5_title: "5. Як подати запит на повернення або скасування",
+  refund_s5_text: "Щоб скасувати або запросити повернення коштів, відповідайте на лист-підтвердження бронювання або зв'яжіться з нами через форму на нашому сайті. Вкажіть своє ім'я та дату бронювання. Ми обробляємо повернення протягом 5–10 робочих днів через початковий спосіб оплати (Stripe).",
+  refund_s6_title: "6. Термін обробки повернення",
+  refund_s6_text: "Схвалені повернення надходять на ваш початковий спосіб оплати протягом 5–10 робочих днів, залежно від вашого банку або емітента картки. Ми ініціюємо повернення коштів негайно з нашого боку — затримка обробки встановлена вашою фінансовою установою.",
+  refund_s7_title: "7. Контакти",
+  refund_s7_text: "Є запитання щодо цієї політики? Зв'яжіться з нами через форму на нашому сайті або відповідайте на будь-який лист, отриманий від Easy Help Switzerland.",
+
+  // Privacy cookie section — UK
+  privacy_s9_title: "9. Файли cookie та локальне сховище",
+  privacy_s9_text: "Ми не використовуємо файли cookie для відстеження або реклами. Наш сайт використовує локальне сховище браузера виключно для двох цілей: запам'ятати ваші мовні налаштування та зберегти ваш вибір щодо файлів cookie. Дані, збережені локально, ніколи не передаються третім особам.",
 
 
   //Free Consultation
@@ -3172,6 +3720,7 @@ consult_whatsapp_aria: "WhatsApp",
     nav_contacts: "Контакти",
     back: "← Назад",
 
+    booking_brand_main: "Easy Help Switzerland",
     booking_micro: "Бронювання",
     booking_title: "Забронюйте <span>консультацію</span>",
     booking_subtitle: "Оберіть пакет і перейдіть до оплати.",
@@ -3217,9 +3766,9 @@ consult_whatsapp_aria: "WhatsApp",
     booking_preferred_phone: "Телефон",
 
     booking_message: "Опис",
-    booking_placeholder_message: "Коротко опишіть ситуацію.",
 
     booking_note: "Оплата підтверджує заявку.",
+    booking_error_msg: "Щось пішло не так. Будь ласка, спробуйте ще раз.",
     booking_continue_payment: "До оплати",
     booking_back: "← Назад",
 
@@ -3295,6 +3844,10 @@ consult_whatsapp_aria: "WhatsApp",
   package_initial: "Швидка консультація — CHF 79",
   package_review: "Підтримка переїзду — CHF 189",
   package_relocation: "Стратегія поселення — CHF 349",
+
+  payment_refund_kicker: "Політика скасування",
+  payment_refund_title: "Повернення коштів і скасування",
+  payment_refund_text: "Ви можете скасувати бронювання за 24 години до консультації та отримати повне повернення коштів. Скасування менш ніж за 24 години не відшкодовується. Якщо ми не зможемо допомогти у вашій справі, утримаємо 10 % і повернемо решту.",
 
   payment_footer_rights: "© 2026 Easy Help Switzerland — Усі права захищені.",
   payment_footer_page: "Сторінка оплати",
@@ -3425,8 +3978,82 @@ service_documents_modal_item_8: "Повний супровід документ�
   success_cta_text: "Якщо ви отримали підтвердження на email — бронювання успішне. У разі питань зв'яжіться з нами. Очікуйте дзвінка протягом 24 годин.",
   success_cta_btn_home: "На головну",
   success_cta_btn_book: "Забронювати ще консультацію",
-  success_footer_copy: "© 2026 Zurich Relocation",
+  success_footer_copy: "© 2026 Easy Help Switzerland — Усі права захищені.",
   success_footer_page: "Сторінка підтвердження",
+
+  consult_success_micro: "Запит отримано",
+  consult_success_hero_title: "Запит <span>підтверджено</span>",
+  consult_success_hero_sub: "Ваш запит на безкоштовну консультацію отримано. Ми зв'яжемося з вами протягом 24 годин.",
+  consult_success_feature_1: "Запит надіслано",
+  consult_success_feature_2: "Лист-підтвердження надіслано",
+  consult_success_feature_3: "Команду повідомлено",
+  consult_success_hero_hours: "годин — ціль для зворотного зв'язку",
+  consult_success_section_label: "Підтвердження",
+  consult_success_title: "Дякуємо, що звернулися до нас",
+  consult_success_subtitle: "Ми отримали ваш запит на безкоштовну консультацію і невдовзі зв'яжемося з вами. Перевірте свою поштову скриньку для отримання підтвердження.",
+  consult_success_status: "Запит отримано",
+  consult_success_type: "Безкоштовна початкова консультація",
+  consult_success_notice: "Зазвичай ми відповідаємо протягом 24 годин. Якщо у вас термінова справа, будь ласка, зв'яжіться з нами через WhatsApp.",
+  consult_success_btn_home: "На головну",
+  consult_success_btn_guides: "Читати гіди з переїзду",
+  consult_success_side_1_label: "Що буде далі",
+  consult_success_side_1_title: "Наступні кроки",
+  consult_success_step_1: "Ми розглядаємо ваш запит і готуємося до консультації.",
+  consult_success_step_2: "Ми зв'яжемося з вами протягом 24 годин для узгодження часу.",
+  consult_success_step_3: "Ви отримаєте персональну пораду щодо вашої ситуації у Швейцарії.",
+  consult_success_side_2_label: "Корисно знати",
+  consult_success_side_2_title: "Безкоштовна консультація",
+  consult_success_side_2_text: "Початкова консультація абсолютно безкоштовна — без жодних зобов'язань. Ми тут, щоб допомогти вам зрозуміти ваші варіанти та наступні кроки.",
+  consult_success_cta_label: "Потрібна більша допомога?",
+  consult_success_cta_title: "Ми тут для вас",
+  consult_success_cta_text: "Якщо вам потрібна комплексна підтримка, ви також можете у будь-який час замовити повну платну консультацію. Ми пропонуємо допомогу з дозволами, підтримку при переїзді та допомогу з документами по всій Швейцарії.",
+  consult_success_cta_btn_home: "На головну",
+  consult_success_cta_btn_book: "Замовити повну консультацію",
+  consult_success_footer_copy: "© 2026 Easy Help Switzerland — Усі права захищені.",
+  consult_success_footer_page: "Сторінка підтвердження",
+
+  wa_label: "WhatsApp",
+  wa_write: "Написати нам",
+  aria_open_menu: "Відкрити меню",
+
+  notfound_title: "Сторінку не знайдено",
+  notfound_message: "Сторінка, яку ви шукаєте, не існує або була переміщена.",
+  notfound_home: "На головну",
+  notfound_consult: "Безкоштовна консультація",
+
+  privacy_title: "Політика конфіденційності",
+  privacy_updated: "Останнє оновлення: квітень 2026",
+  privacy_back: "← На головну",
+  privacy_h1: "Політика конфіденційності",
+  privacy_s1_title: "1. Хто ми",
+  privacy_s1_text: "Easy Help Switzerland — це особистий консалтинговий сервіс з переїзду, розташований у Цюриху, Швейцарія. Ми допомагаємо фізичним особам та сім'ям переїхати до Швейцарії та орієнтуватися в швейцарських адміністративних процедурах.",
+  privacy_s2_title: "2. Які дані ми збираємо",
+  privacy_s2_intro: "Ми збираємо персональні дані лише тоді, коли ви самі надаєте їх через наші форми:",
+  privacy_s2_li1: "<strong>Форма безкоштовної консультації:</strong> ім'я, адреса електронної пошти, номер телефону, поточне місцезнаходження та вміст повідомлення.",
+  privacy_s2_li2: "<strong>Форма платного бронювання:</strong> ім'я, електронна пошта, телефон, поточне місцезнаходження, бажаний формат консультації та повідомлення.",
+  privacy_s2_li3: "<strong>Обробка платежів:</strong> платежі повністю обробляються через Stripe. Ми не збираємо та не зберігаємо дані вашої картки. Від Stripe ми отримуємо лише підтвердження суми, валюти та статусу платежу.",
+  privacy_s2_note: "Ми не використовуємо файли cookie для відстеження або реклами. Ми не використовуємо Google Analytics та жодних інших сторонніх інструментів відстеження.",
+  privacy_s3_title: "3. Як ми використовуємо ваші дані",
+  privacy_s3_text: "Вся особиста інформація, яку ви надаєте, використовується виключно для відповіді на ваш запит і надання запитуваної послуги. Ми обробляємо ваші дані відповідно до Швейцарського закону про захист даних (DSG).",
+  privacy_s3_li1: "Щоб відповісти на ваш запит на консультацію або бронювання електронною поштою або телефоном.",
+  privacy_s3_li2: "Щоб надіслати вам підтвердження на email після вашого запиту або оплати.",
+  privacy_s3_li3: "Щоб зафіксувати ваше бронювання у наших внутрішніх записах.",
+  privacy_s3_note: "Ми не продаємо, не здаємо в оренду та не передаємо ваші персональні дані третім особам для маркетингових цілей.",
+  privacy_s4_title: "4. Сторонні обробники",
+  privacy_s4_li1: "<strong>Stripe</strong> — обробка платежів. Ваші дані картки обробляються Stripe, Inc. і ніколи не зберігаються на наших серверах. Політика конфіденційності Stripe: <a href=\"https://stripe.com/privacy\" target=\"_blank\" rel=\"noopener\">stripe.com/privacy</a>",
+  privacy_s4_li2: "<strong>Google Fonts</strong> — шрифти завантажуються з серверів Google. Google може збирати IP-адреси в цьому процесі.",
+  privacy_s5_title: "5. Як довго ми зберігаємо ваші дані",
+  privacy_s5_li1: "Дані форм консультацій зберігаються до 12 місяців.",
+  privacy_s5_li2: "Записи про бронювання зберігаються до 7 років.",
+  privacy_s5_li3: "Записи обмеження запитів (хешовані IP-адреси) автоматично видаляються через 15 хвилин.",
+  privacy_s6_title: "6. Ваші права",
+  privacy_s6_text1: "Ви маєте право на доступ, виправлення або видалення персональних даних, які ми зберігаємо про вас. Щоб зробити запит, зверніться до нас через контактну форму на нашому сайті. Ми відповімо протягом 30 днів.",
+  privacy_s6_text2: "Ви також маєте право звернутися до Федерального уповноваженого Швейцарії з питань захисту даних та інформації (FDPIC): <a href=\"https://www.edoeb.admin.ch\" target=\"_blank\" rel=\"noopener\">edoeb.admin.ch</a>.",
+  privacy_s7_title: "7. Безпека даних",
+  privacy_s7_text: "Ми впроваджуємо відповідні технічні заходи для захисту ваших даних, включаючи шифрування HTTPS, серверний контроль доступу та захист CSRF у всіх формах. Файли бронювань зберігаються в каталогах, недоступних через Інтернет.",
+  privacy_s8_title: "8. Зміни до цієї політики",
+  privacy_s8_text: "Ми можемо час від часу оновлювати цю Політику конфіденційності. Дата вгорі сторінки показує, коли вона востаннє редагувалась.",
+  privacy_footer: "© 2026 Easy Help Switzerland — Усі права захищені.",
 
   },
 
@@ -3538,3 +4165,87 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+
+// ─── Cookie consent banner ────────────────────────────────────────────────────
+(function () {
+  const COOKIE_KEY = 'cookie_consent';
+
+  const labels = {
+    en: {
+      text: 'We use cookies to ensure the website works correctly and to analyse traffic. No personal data is shared with third parties.',
+      accept: 'Accept',
+      decline: 'Decline',
+    },
+    de: {
+      text: 'Wir verwenden Cookies, damit die Website korrekt funktioniert und um den Datenverkehr zu analysieren. Es werden keine personenbezogenen Daten an Dritte weitergegeben.',
+      accept: 'Akzeptieren',
+      decline: 'Ablehnen',
+    },
+    uk: {
+      text: 'Ми використовуємо файли cookie для коректної роботи сайту та аналізу трафіку. Особисті дані не передаються третім особам.',
+      accept: 'Прийняти',
+      decline: 'Відхилити',
+    },
+    es: {
+      text: 'Utilizamos cookies para garantizar el correcto funcionamiento del sitio web y analizar el tráfico. No se comparten datos personales con terceros.',
+      accept: 'Aceptar',
+      decline: 'Rechazar',
+    },
+  };
+
+  if (localStorage.getItem(COOKIE_KEY)) return;
+
+  const lang = localStorage.getItem('siteLanguage') || 'en';
+  const l = labels[lang] || labels.en;
+
+  const banner = document.createElement('div');
+  banner.id = 'cookie-banner';
+  banner.setAttribute('role', 'dialog');
+  banner.setAttribute('aria-live', 'polite');
+  banner.style.cssText = [
+    'position:fixed', 'bottom:0', 'left:0', 'right:0', 'z-index:9999',
+    'background:#1a2030', 'color:#e8e8e8',
+    'padding:16px 24px', 'display:flex', 'align-items:center',
+    'gap:20px', 'flex-wrap:wrap', 'font-family:Manrope,system-ui,sans-serif',
+    'font-size:13px', 'line-height:1.5',
+    'box-shadow:0 -2px 16px rgba(0,0,0,.35)',
+  ].join(';');
+
+  const textNode = document.createElement('span');
+  textNode.style.flex = '1';
+  textNode.textContent = l.text;
+
+  const btnWrap = document.createElement('div');
+  btnWrap.style.cssText = 'display:flex;gap:10px;flex-shrink:0';
+
+  function makeBtn(label, primary) {
+    const b = document.createElement('button');
+    b.textContent = label;
+    b.style.cssText = [
+      'padding:8px 20px', 'border-radius:8px', 'font-size:13px',
+      'font-family:inherit', 'font-weight:600', 'cursor:pointer',
+      'border:none', 'transition:opacity .2s',
+      primary
+        ? 'background:#4693e8;color:#fff'
+        : 'background:rgba(255,255,255,.1);color:#e8e8e8',
+    ].join(';');
+    return b;
+  }
+
+  const acceptBtn  = makeBtn(l.accept,  true);
+  const declineBtn = makeBtn(l.decline, false);
+
+  function dismiss(choice) {
+    localStorage.setItem(COOKIE_KEY, choice);
+    banner.remove();
+  }
+
+  acceptBtn.addEventListener('click',  () => dismiss('accepted'));
+  declineBtn.addEventListener('click', () => dismiss('declined'));
+
+  btnWrap.appendChild(acceptBtn);
+  btnWrap.appendChild(declineBtn);
+  banner.appendChild(textNode);
+  banner.appendChild(btnWrap);
+  document.body.appendChild(banner);
+}());

@@ -13,6 +13,20 @@ if (empty($_SESSION['admin_logged_in'])) {
     exit;
 }
 
+// Detect session hijacking
+if (empty($_SESSION['admin_ip']) || $_SESSION['admin_ip'] !== ($_SERVER['REMOTE_ADDR'] ?? '')) {
+    session_destroy();
+    echo json_encode(['ok' => false, 'error' => 'Session invalid']);
+    exit;
+}
+
+// Require AJAX header — blocks cross-site form submissions
+if (($_SERVER['HTTP_X_REQUESTED_WITH'] ?? '') !== 'XMLHttpRequest') {
+    http_response_code(400);
+    echo json_encode(['ok' => false, 'error' => 'Bad request']);
+    exit;
+}
+
 $body = json_decode(file_get_contents('php://input'), true);
 if (!$body) { echo json_encode(['ok' => false, 'error' => 'Invalid request']); exit; }
 
@@ -47,12 +61,13 @@ $noteFile = $dataDir . '/' . $id . '.json';
 $note     = file_exists($noteFile) ? (json_decode(file_get_contents($noteFile), true) ?? []) : [];
 $note['status']     = 'cancelled';
 $note['updated_at'] = date('c');
-file_put_contents($noteFile, json_encode($note, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE));
+file_put_contents($noteFile, json_encode($note, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE), LOCK_EX);
+chmod($noteFile, 0600);
 
 // Send cancellation email
 $emailSent = false;
-if (!empty($booking['email'])) {
-    $name    = $booking['name'] ?? 'Client';
+if (!empty($booking['email']) && filter_var($booking['email'], FILTER_VALIDATE_EMAIL)) {
+    $name    = str_replace(["\r", "\n"], ' ', $booking['name'] ?? 'Client');
     $email   = $booking['email'];
     $package = $booking['package_name'] ?? $booking['package'] ?? '';
 

@@ -2,11 +2,23 @@ User-agent: *
 Disallow: /logs/
 Disallow: /pending-bookings/
 Disallow: /bookings/
+Disallow: /free-consultations/
+Disallow: /admin-data/
 Disallow: /rate-limit/
+Disallow: /stripe-events/
 Disallow: /vendor/
+Disallow: /.well-known/
 Disallow: /create-checkout-session.php
 Disallow: /submit-consultation.php
 Disallow: /stripe-webhook.php
 Disallow: /security.php
+Disallow: /payment.php
+Disallow: /success.php
+Disallow: /consultation-success.php
+Disallow: /admin.php
+Disallow: /admin-panel.php
+Disallow: /admin-action.php
+Disallow: /schedule-booking.php
+Disallow: /cancel-booking.php
 
 Sitemap: https://easyhelpswiss.com/sitemap.xml

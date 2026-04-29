@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <title>Easy Help Switzerland — Relocation &amp; Migration Support in Zürich</title>
   <meta name="description" content="Practical relocation support, migration guidance and document help in Switzerland. Free first consultation. Based in Zürich." />
   <link rel="canonical" href="https://easyhelpswiss.com/" />
@@ -930,7 +931,7 @@
       margin:0 0 18px;
       font-size:18px;
       line-height:1.45;
-      color: #111(255,255,255,.8);
+      color: rgba(17,17,17,.8);
     }
 
     .pricing-grid{
@@ -986,7 +987,7 @@
       color:rgba(17,17,17,.55);
       margin-bottom:16px;
     }
-    .price-card.featured .plan{color:#111(255,255,255,.65)}
+    .price-card.featured .plan{color:rgba(17,17,17,.65)}
     .price-card h3{
       margin:0 0 14px;
       font-size:36px;
@@ -1006,7 +1007,7 @@
       line-height:1.45;
       color:#363636;
     }
-    .price-card.featured p{color:#111(255,255,255,.8)}
+    .price-card.featured p{color:rgba(17,17,17,.8)}
     .price-points{
       list-style:none;margin:0 0 28px;padding:0;display:grid;gap:12px
     }
@@ -2766,7 +2767,7 @@
           </div>
         </div>
 
-        <button class="burger" id="burgerBtn" type="button" aria-label="Open menu">
+        <button class="burger" id="burgerBtn" type="button" data-i18n-aria-label="aria_open_menu" aria-label="Open menu">
           <span></span><span></span><span></span>
         </button>
 
@@ -3428,7 +3429,7 @@
           <div class="content">
             <h3 data-i18n="blog_1_title">Residence permits in Switzerland: where to start</h3>
             <p data-i18n="blog_1_desc">A practical overview of the first steps, required documents and common mistakes when applying.</p>
-            <a href="blog.html#permits" class="blog-link" data-i18n="blog_read">Read more <span>→</span></a>
+            <a href="blog.php" class="blog-link" data-i18n="blog_read">Read more <span>→</span></a>
           </div>
         </article>
 
@@ -3436,8 +3437,8 @@
           <img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1200&q=80" alt="Registration guide">
           <div class="content">
             <h3 data-i18n="blog_2_title">Anmeldung in Zürich: what you need to prepare</h3>
-            <p data-i18n="blog_2_title">Learn what to bring, how the process works and how to avoid delays when registering.</p>
-            <a href="blog.html#anmeldung" class="blog-link" data-i18n="blog_read">Read more <span>→</span></a>
+            <p data-i18n="blog_2_desc">Learn what to bring, how the process works and how to avoid delays when registering.</p>
+            <a href="blog.php" class="blog-link" data-i18n="blog_read">Read more <span>→</span></a>
           </div>
         </article>
 
@@ -3446,7 +3447,7 @@
           <div class="content">
             <h3 data-i18n="blog_3_title">Health insurance in Switzerland: deadlines and obligations</h3>
             <p data-i18n="blog_3_desc">Understand the legal requirements, time limits and basics of choosing coverage after arrival.</p>
-            <a href="blog.html#insurance" class="blog-link" data-i18n="blog_read">Read more <span>→</span></a>
+            <a href="blog.php" class="blog-link" data-i18n="blog_read">Read more <span>→</span></a>
           </div>
         </article>
       </div>
@@ -3542,21 +3543,36 @@
       </p>
 
       <div class="contact-form">
-  <input type="text" placeholder="YOUR NAME" data-i18n-placeholder="contact_name" />
-  <input type="email" placeholder="YOUR EMAIL" data-i18n-placeholder="contact_email" />
-  <input type="tel" placeholder="+41 00 000 00 00" data-i18n-placeholder="contact_phone" />
+  <input type="text" id="contact-name" placeholder="YOUR NAME" data-i18n-placeholder="contact_name" />
+  <input type="email" id="contact-email" placeholder="YOUR EMAIL" data-i18n-placeholder="contact_email" />
+  <input type="tel" id="contact-phone" placeholder="+41 00 000 00 00" data-i18n-placeholder="contact_phone" />
 
   <label class="contact-check">
-    <input type="checkbox" />
+    <input type="checkbox" id="contact-policy" />
     <span data-i18n="contact_policy">
       By clicking the button, you accept the privacy policy and consent to the processing of personal data.
     </span>
   </label>
 
-  <a href="free-consultation.php" class="contact-btn" data-i18n="contact_cta">
+  <a href="free-consultation.php" class="contact-btn" data-i18n="contact_cta" onclick="return goToConsult(event)">
     Get A Free Consultation
     <span>›</span>
   </a>
+
+  <script>
+  function goToConsult(e) {
+    e.preventDefault();
+    const name  = document.getElementById('contact-name').value.trim();
+    const email = document.getElementById('contact-email').value.trim();
+    const phone = document.getElementById('contact-phone').value.trim();
+    const params = new URLSearchParams();
+    if (name)  params.set('name', name);
+    if (email) params.set('email', email);
+    if (phone) params.set('phone', phone);
+    window.location.href = 'free-consultation.php' + (params.toString() ? '?' + params.toString() : '');
+    return false;
+  }
+  </script>
 </div>
     </div>
   </div>
@@ -3574,6 +3590,10 @@
   <div class="footer-center">
     <span data-i18n="footer_copy">© 2026 Easy Help Switzerland - all rights reserved.</span><br>
     <a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a>
+    &nbsp;·&nbsp;
+    <a href="terms.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_terms">Terms of Service</a>
+    &nbsp;·&nbsp;
+    <a href="refund-policy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_refund">Refund Policy</a>
     &nbsp;·&nbsp;
     <a href="admin.php" style="color:rgba(255,255,255,.2);font-size:11px;text-decoration:none">Admin</a>
   </div>
@@ -4477,7 +4497,7 @@ ${nextStepAdvice()}`;
 
   <a class="whatsapp-float" href="https://wa.me/41764497581" target="_blank" rel="noopener" aria-label="WhatsApp">
     <span class="wa-icon-wrap"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></span>
-    <span><strong style="display:block;font-size:14px">WhatsApp</strong><small style="opacity:.75;font-size:12px">Write to us</small></span>
+    <span><strong style="display:block;font-size:14px" data-i18n="wa_label">WhatsApp</strong><small style="opacity:.75;font-size:12px" data-i18n="wa_write">Write to us</small></span>
   </a>
   <style>
     .whatsapp-float{position:fixed;left:18px;bottom:18px;z-index:999;display:flex;align-items:center;gap:12px;padding:14px 20px;border-radius:999px;background:#25D366;color:#fff;text-decoration:none;box-shadow:0 14px 32px rgba(0,0,0,.18);transition:transform .2s,box-shadow .2s}
