@@ -1,19 +1,25 @@
 {
   "installCommand": "composer install --no-dev --optimize-autoloader",
   "functions": {
-    "*.php": {
+    "api/*.php": {
       "runtime": "vercel-community/php@0.0.8"
     }
   },
-  "routes": [
-    { "src": "/blog",                  "dest": "/blog.php" },
-    { "src": "/booking",               "dest": "/booking.php" },
-    { "src": "/free-consultation",     "dest": "/free-consultation.php" },
-    { "src": "/success",               "dest": "/success.php" },
-    { "src": "/consultation-success",  "dest": "/consultation-success.php" },
-    { "src": "/privacy",               "dest": "/privacy.php" },
-    { "src": "/terms",                 "dest": "/terms.php" },
-    { "src": "/refund-policy",         "dest": "/refund-policy.php" },
-    { "src": "/(.*)",                  "dest": "/$1" }
+  "rewrites": [
+    { "source": "/blog.php",                 "destination": "/api/blog.php" },
+    { "source": "/blog",                     "destination": "/api/blog.php" },
+    { "source": "/booking.php",              "destination": "/api/booking.php" },
+    { "source": "/booking",                  "destination": "/api/booking.php" },
+    { "source": "/payment.php",              "destination": "/api/payment.php" },
+    { "source": "/free-consultation.php",    "destination": "/api/free-consultation.php" },
+    { "source": "/free-consultation",        "destination": "/api/free-consultation.php" },
+    { "source": "/success.php",              "destination": "/api/success.php" },
+    { "source": "/consultation-success.php", "destination": "/api/consultation-success.php" },
+    { "source": "/privacy.php",              "destination": "/api/privacy.php" },
+    { "source": "/privacy",                  "destination": "/api/privacy.php" },
+    { "source": "/terms.php",               "destination": "/api/terms.php" },
+    { "source": "/terms",                    "destination": "/api/terms.php" },
+    { "source": "/refund-policy.php",        "destination": "/api/refund-policy.php" },
+    { "source": "/refund-policy",            "destination": "/api/refund-policy.php" }
   ]
 }
