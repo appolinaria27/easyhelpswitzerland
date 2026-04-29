@@ -478,6 +478,9 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
   sidebar_support_text: "If you want help with registration, permits, housing documents, or health insurance, book a consultation and get a clear step-by-step plan.",
   sidebar_support_cta: "Book consultation",
 
+  news_section_title: "Latest news",
+  news_section_sub: "Fresh news from Switzerland — updated daily. Articles in English.",
+
   cta_label: "Next step",
   cta_title: "Make your relocation easier from day one",
   cta_text: "Save time, avoid missed deadlines, and move through permits, registration, and insurance with a clear structure and personal support.",
@@ -1502,6 +1505,9 @@ footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.
   sidebar_support_text: "Si quieres ayuda con registro, permisos, documentos de vivienda o seguro médico, reserva una consulta y obtén un plan claro paso a paso.",
   sidebar_support_cta: "Reservar consulta",
 
+  news_section_title: "Últimas noticias",
+  news_section_sub: "Noticias frescas de Suiza — actualizadas diariamente. Artículos en inglés.",
+
   cta_label: "Siguiente paso",
   cta_title: "Haz tu reubicación más fácil desde el primer día",
   cta_text: "Ahorra tiempo, evita plazos perdidos y avanza con permisos, registro y seguro con una estructura clara y apoyo personal.",
@@ -2481,6 +2487,9 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   sidebar_support_title: "Bevorzugen Sie persönliche Begleitung?",
   sidebar_support_text: "Wenn Sie Hilfe bei Anmeldung, Bewilligungen, Wohnungsunterlagen oder Krankenversicherung möchten, buchen Sie eine Beratung und erhalten Sie einen klaren Schritt-für-Schritt-Plan.",
   sidebar_support_cta: "Beratung buchen",
+
+  news_section_title: "Aktuelle Nachrichten",
+  news_section_sub: "Frische Nachrichten aus der Schweiz — täglich aktualisiert. Artikel auf Englisch.",
 
   cta_label: "Nächster Schritt",
   cta_title: "Machen Sie Ihren Umzug vom ersten Tag an einfacher",
@@ -3547,6 +3556,9 @@ payment_note: "Оплата підтверджує ваш запит на кон
   sidebar_support_title: "Хочете персональний супровід?",
   sidebar_support_text: "Якщо вам потрібна допомога з реєстрацією, дозволами, документами на житло або медичним страхуванням, запишіться на консультацію та отримайте чіткий покроковий план.",
   sidebar_support_cta: "Записатися на консультацію",
+
+  news_section_title: "Останні новини",
+  news_section_sub: "Свіжі новини зі Швейцарії — оновлюються щодня. Статті англійською.",
 
   cta_label: "Наступний крок",
   cta_title: "Зробіть вашу релокацію простішою з першого дня",

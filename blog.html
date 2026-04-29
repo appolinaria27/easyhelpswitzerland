@@ -601,6 +601,24 @@
         </aside>
       </div>
 
+      <!-- Latest News Section -->
+      <section id="latest-news" style="padding:60px 0 20px">
+        <div style="width:var(--content);margin:0 auto">
+          <div class="section-heading-bracket" style="margin-bottom:36px">
+            <span class="section-bracket section-bracket-left"></span>
+            <h2 class="section-title" data-i18n="news_section_title">Latest news</h2>
+            <span class="section-bracket section-bracket-right"></span>
+          </div>
+          <p style="margin:-20px 0 32px;color:var(--muted);font-size:15px" data-i18n="news_section_sub">Fresh news from Switzerland — updated daily. Articles in English.</p>
+          <div id="newsGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+            <!-- skeleton -->
+            <div class="news-skeleton"></div>
+            <div class="news-skeleton"></div>
+            <div class="news-skeleton"></div>
+          </div>
+        </div>
+      </section>
+
       <section class="cta-band">
         <div>
           <div class="micro" data-i18n="cta_label">Next step</div>
@@ -640,6 +658,39 @@
     .whatsapp-float:hover{transform:translateY(-2px);box-shadow:0 18px 40px rgba(37,211,102,.4)}
     .wa-icon-wrap{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0}
   </style>
+  <style>
+    .news-card{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:24px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      transition:transform .2s,box-shadow .2s;
+    }
+    .news-card:hover{transform:translateY(-3px);box-shadow:0 18px 40px rgba(0,0,0,.08)}
+    .news-card-img{width:100%;height:180px;object-fit:cover;background:#e8edf2;display:block}
+    .news-card-img-placeholder{width:100%;height:180px;background:linear-gradient(135deg,#e8edf2,#d0dce8);display:block}
+    .news-card-body{padding:20px 22px;flex:1;display:flex;flex-direction:column;gap:10px}
+    .news-card-source{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:600}
+    .news-card-title{font-size:16px;font-weight:600;line-height:1.4;color:var(--text)}
+    .news-card-desc{font-size:14px;color:var(--muted);line-height:1.55;flex:1}
+    .news-card-link{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;color:var(--blue);margin-top:6px}
+    .news-card-link:hover{color:var(--blue-dark)}
+    .news-en-badge{display:inline-block;font-size:10px;letter-spacing:.12em;text-transform:uppercase;background:#f0f5ff;color:#4693e8;border:1px solid rgba(70,147,232,.2);border-radius:6px;padding:2px 8px;margin-left:6px;vertical-align:middle}
+    .news-skeleton{
+      height:320px;
+      border-radius:24px;
+      background:linear-gradient(90deg,#f0f0f0 25%,#e0e0e0 50%,#f0f0f0 75%);
+      background-size:200% 100%;
+      animation:shimmer 1.4s infinite;
+    }
+    @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    @media(max-width:1180px){#newsGrid{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:640px){#newsGrid{grid-template-columns:1fr}}
+  </style>
+
   <script src="site.js"></script>
   <script>
     (() => {
@@ -649,6 +700,42 @@
       burger.addEventListener('click', () => { burger.classList.toggle('open'); nav.classList.toggle('open'); });
       nav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => { burger.classList.remove('open'); nav.classList.remove('open'); }));
     })();
+  </script>
+
+  <script>
+  (async function loadNews() {
+    const grid = document.getElementById('newsGrid');
+    if (!grid) return;
+    try {
+      const res = await fetch('/api/news');
+      const { articles } = await res.json();
+      if (!articles || !articles.length) { grid.innerHTML = ''; return; }
+      grid.innerHTML = articles.map(a => {
+        const img = a.image
+          ? `<img class="news-card-img" src="${escHtml(a.image)}" alt="${escHtml(a.title)}" loading="lazy" onerror="this.style.display='none'">`
+          : `<div class="news-card-img-placeholder"></div>`;
+        const date = a.publishedAt ? new Date(a.publishedAt).toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'}) : '';
+        return `<div class="news-card">
+          ${img}
+          <div class="news-card-body">
+            <div><span class="news-card-source">${escHtml(a.source || 'News')}</span><span class="news-en-badge">EN</span></div>
+            <div class="news-card-title">${escHtml(a.title)}</div>
+            <div class="news-card-desc">${escHtml((a.description || '').slice(0, 120))}${(a.description||'').length > 120 ? '…' : ''}</div>
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto">
+              <span style="font-size:12px;color:#aaa">${date}</span>
+              <a class="news-card-link" href="${escHtml(a.url)}" target="_blank" rel="noopener noreferrer">Read more →</a>
+            </div>
+          </div>
+        </div>`;
+      }).join('');
+    } catch(e) {
+      grid.innerHTML = '';
+    }
+  })();
+
+  function escHtml(str) {
+    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
   </script>
 </body>
 </html>
