@@ -1,25 +1,27 @@
 {
-  "installCommand": "composer install --no-dev --optimize-autoloader",
   "functions": {
-    "api/*.php": {
-      "runtime": "vercel-community/php@0.0.8"
-    }
+    "api/checkout.js":    { "memory": 256 },
+    "api/webhook.js":     { "memory": 256 },
+    "api/consultation.js": { "memory": 256 }
   },
   "rewrites": [
-    { "source": "/blog.php",                 "destination": "/api/blog.php" },
-    { "source": "/blog",                     "destination": "/api/blog.php" },
-    { "source": "/booking.php",              "destination": "/api/booking.php" },
-    { "source": "/booking",                  "destination": "/api/booking.php" },
-    { "source": "/payment.php",              "destination": "/api/payment.php" },
-    { "source": "/free-consultation.php",    "destination": "/api/free-consultation.php" },
-    { "source": "/free-consultation",        "destination": "/api/free-consultation.php" },
-    { "source": "/success.php",              "destination": "/api/success.php" },
-    { "source": "/consultation-success.php", "destination": "/api/consultation-success.php" },
-    { "source": "/privacy.php",              "destination": "/api/privacy.php" },
-    { "source": "/privacy",                  "destination": "/api/privacy.php" },
-    { "source": "/terms.php",               "destination": "/api/terms.php" },
-    { "source": "/terms",                    "destination": "/api/terms.php" },
-    { "source": "/refund-policy.php",        "destination": "/api/refund-policy.php" },
-    { "source": "/refund-policy",            "destination": "/api/refund-policy.php" }
+    { "source": "/api/checkout",     "destination": "/api/checkout.js" },
+    { "source": "/api/webhook",      "destination": "/api/webhook.js" },
+    { "source": "/api/consultation", "destination": "/api/consultation.js" },
+    { "source": "/blog.php",                  "destination": "/blog.html" },
+    { "source": "/blog",                      "destination": "/blog.html" },
+    { "source": "/booking.php",               "destination": "/booking.html" },
+    { "source": "/booking",                   "destination": "/booking.html" },
+    { "source": "/free-consultation.php",     "destination": "/free-consultation.html" },
+    { "source": "/free-consultation",         "destination": "/free-consultation.html" },
+    { "source": "/privacy.php",               "destination": "/privacy.html" },
+    { "source": "/privacy",                   "destination": "/privacy.html" },
+    { "source": "/terms.php",                 "destination": "/terms.html" },
+    { "source": "/terms",                     "destination": "/terms.html" },
+    { "source": "/refund-policy.php",         "destination": "/refund-policy.html" },
+    { "source": "/refund-policy",             "destination": "/refund-policy.html" },
+    { "source": "/success.php",               "destination": "/consultation-success.html" },
+    { "source": "/consultation-success.php",  "destination": "/consultation-success.html" },
+    { "source": "/404.php",                   "destination": "/404.html" }
   ]
 }

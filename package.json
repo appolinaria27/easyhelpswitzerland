@@ -1,0 +1,9 @@
+{
+  "name": "easyhelpswitzerland",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "nodemailer": "^6.9.13",
+    "stripe": "^16.0.0"
+  }
+}
