@@ -22,6 +22,7 @@
     { "source": "/refund-policy",             "destination": "/refund-policy.html" },
     { "source": "/success.php",               "destination": "/consultation-success.html" },
     { "source": "/consultation-success.php",  "destination": "/consultation-success.html" },
+    { "source": "/consultation-success",      "destination": "/consultation-success.html" },
     { "source": "/404.php",                   "destination": "/404.html" }
   ]
 }
