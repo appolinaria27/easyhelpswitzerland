@@ -2,7 +2,7 @@ const Stripe  = require('stripe');
 const nodemailer = require('nodemailer');
 
 // Vercel requires raw body for Stripe signature verification
-export const config = { api: { bodyParser: false } };
+module.exports.config = { api: { bodyParser: false } };
 
 function getRawBody(req) {
   return new Promise((resolve, reject) => {
