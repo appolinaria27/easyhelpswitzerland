@@ -537,6 +537,8 @@
                 <label for="gdprConsent">I agree to the processing of my personal data in accordance with the <a href="/privacy" style="color:#4693e8;text-decoration:underline">Privacy Policy</a>. My data will only be used to process this booking.</label>
               </div>
 
+              <div id="bookingError" style="display:none;margin-top:14px;padding:12px 16px;background:#fff0f0;border:1px solid #fcc;border-radius:12px;color:#c00;font-size:14px"></div>
+
               <div class="actions">
                 <button class="btn-blue" type="submit" data-i18n="booking_continue_payment">Continue to payment</button>
                 <a class="btn-outline" href="index.html" data-i18n="booking_back">Back</a>
@@ -618,6 +620,7 @@
       e.preventDefault();
       var form = e.target;
       var btn = form.querySelector('button[type="submit"]');
+      var errorBox = document.getElementById('bookingError');
       var origText = btn.textContent;
       var pkgInput = form.querySelector('[name="package"]:checked');
       var data = {
@@ -629,6 +632,7 @@
         preferred: (form.querySelector('[name="preferred"]') || {}).value || '',
         message:   (form.querySelector('[name="message"]')   || {}).value || ''
       };
+      errorBox.style.display = 'none';
       btn.disabled = true;
       btn.textContent = '...';
       try {
@@ -641,12 +645,14 @@
         if (res.ok && json.url) {
           window.location.href = json.url;
         } else {
-          alert(json.error || 'Something went wrong. Please try again.');
+          errorBox.textContent = json.error || 'Something went wrong. Please try again.';
+          errorBox.style.display = 'block';
           btn.disabled = false;
           btn.textContent = origText;
         }
       } catch (ex) {
-        alert('Network error. Please try again.');
+        errorBox.textContent = 'Network error. Please check your connection and try again.';
+        errorBox.style.display = 'block';
         btn.disabled = false;
         btn.textContent = origText;
       }

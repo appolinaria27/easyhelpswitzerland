@@ -477,6 +477,8 @@
                 <label for="gdprConsent">I agree to the processing of my personal data in accordance with the <a href="/privacy" style="color:#4693e8;text-decoration:underline">Privacy Policy</a>. My data will only be used to respond to this consultation request.</label>
               </div>
 
+              <div id="formError" style="display:none;margin-top:14px;padding:12px 16px;background:#fff0f0;border:1px solid #fcc;border-radius:12px;color:#c00;font-size:14px"></div>
+
               <div class="btn-row">
                 <button class="btn-blue" type="submit" data-i18n="submit">Request consultation</button>
                 <a class="btn-outline" href="booking.php" data-i18n="consult_paid_booking">Go to paid booking</a>
@@ -558,6 +560,7 @@
     e.preventDefault();
     var form = e.target;
     var btn = form.querySelector('button[type="submit"]');
+    var errorBox = document.getElementById('formError');
     var origText = btn.textContent;
     var data = {
       name:     (form.querySelector('[name="name"]')     || {}).value || '',
@@ -567,6 +570,7 @@
       topic:    (form.querySelector('[name="topic"]')    || {}).value || '',
       message:  (form.querySelector('[name="message"]')  || {}).value || ''
     };
+    errorBox.style.display = 'none';
     btn.disabled = true;
     btn.textContent = '...';
     try {
@@ -579,12 +583,14 @@
         window.location.href = '/consultation-success.html';
       } else {
         var err = await res.json().catch(function() { return {}; });
-        alert(err.error || 'Something went wrong. Please try again.');
+        errorBox.textContent = err.error || 'Something went wrong. Please try again.';
+        errorBox.style.display = 'block';
         btn.disabled = false;
         btn.textContent = origText;
       }
     } catch (ex) {
-      alert('Network error. Please try again.');
+      errorBox.textContent = 'Network error. Please check your connection and try again.';
+      errorBox.style.display = 'block';
       btn.disabled = false;
       btn.textContent = origText;
     }
