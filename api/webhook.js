@@ -1,8 +1,7 @@
 const Stripe  = require('stripe');
 const nodemailer = require('nodemailer');
 
-// Vercel requires raw body for Stripe signature verification
-module.exports.config = { api: { bodyParser: false } };
+// config is attached to the handler below after it is defined
 
 function getRawBody(req) {
   return new Promise((resolve, reject) => {
@@ -114,3 +113,6 @@ module.exports = async (req, res) => {
 
   return res.status(200).json({ received: true });
 };
+
+// Must be set AFTER module.exports assignment, otherwise it gets overwritten
+module.exports.config = { api: { bodyParser: false } };
