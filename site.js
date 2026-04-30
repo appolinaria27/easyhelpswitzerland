@@ -360,6 +360,13 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
   blog_hero_guides_count: "6",
   blog_hero_guides_label: "guides structured in one destination",
 
+  blog_cat_permits: "Permits & Residence",
+  blog_cat_registration: "Registration",
+  blog_cat_insurance: "Health Insurance",
+  blog_cat_housing: "Housing",
+  blog_cat_work: "Work & Employment",
+  blog_cat_family: "Family & Relocation",
+
   blog_permits_meta_category: "Residence permits",
   blog_permits_meta_time: "5 min read",
   blog_permits_title: "Residence permits in Switzerland: where to start",
@@ -1492,6 +1499,13 @@ footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.
   blog_hero_guides_count: "6",
   blog_hero_guides_label: "guías estructuradas en un solo lugar",
 
+  blog_cat_permits: "Permisos y Residencia",
+  blog_cat_registration: "Registro",
+  blog_cat_insurance: "Seguro de salud",
+  blog_cat_housing: "Vivienda",
+  blog_cat_work: "Trabajo y Empleo",
+  blog_cat_family: "Familia y Mudanza",
+
   blog_permits_meta_category: "Permisos de residencia",
   blog_permits_meta_time: "5 min de lectura",
   blog_permits_title: "Permisos de residencia en Suiza: por dónde empezar",
@@ -2579,6 +2593,13 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
 
   blog_hero_guides_count: "6",
   blog_hero_guides_label: "Ratgeber an einem Ort gebündelt",
+
+  blog_cat_permits: "Aufenthalt & Genehmigungen",
+  blog_cat_registration: "Anmeldung",
+  blog_cat_insurance: "Krankenversicherung",
+  blog_cat_housing: "Wohnen",
+  blog_cat_work: "Arbeit & Beschäftigung",
+  blog_cat_family: "Familie & Umzug",
 
   blog_permits_meta_category: "Aufenthaltsbewilligungen",
   blog_permits_meta_time: "5 Min. Lesezeit",
@@ -3753,6 +3774,13 @@ payment_note: "Оплата підтверджує ваш запит на кон
 
   blog_hero_guides_count: "6",
   blog_hero_guides_label: "гідів, зібраних в одному місці",
+
+  blog_cat_permits: "Дозволи та проживання",
+  blog_cat_registration: "Реєстрація",
+  blog_cat_insurance: "Медичне страхування",
+  blog_cat_housing: "Житло",
+  blog_cat_work: "Робота та зайнятість",
+  blog_cat_family: "Сім'я та переїзд",
 
   blog_permits_meta_category: "Дозволи на проживання",
   blog_permits_meta_time: "5 хв читання",
