@@ -606,6 +606,7 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
   footer_terms: "Terms of Service",
   footer_refund: "Refund Policy",
   gdpr_consent: `I agree to the processing of my personal data in accordance with the <a href="/privacy" style="color:#4693e8;text-decoration:underline">Privacy Policy</a>. My data will only be used to respond to this consultation request.`,
+  gdpr_consent_booking: `I agree to the processing of my personal data in accordance with the <a href="/privacy" style="color:#4693e8;text-decoration:underline">Privacy Policy</a>. My data will only be used to process this booking.`,
 
   // Privacy Policy hero
   privacy_micro: "Privacy",
@@ -1746,6 +1747,7 @@ footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.
   footer_terms: "Términos de servicio",
   footer_refund: "Política de reembolso",
   gdpr_consent: `Acepto el tratamiento de mis datos personales de acuerdo con la <a href="/privacy" style="color:#4693e8;text-decoration:underline">Política de privacidad</a>. Mis datos sólo se utilizarán para responder a esta solicitud de consulta.`,
+  gdpr_consent_booking: `Acepto el tratamiento de mis datos personales de acuerdo con la <a href="/privacy" style="color:#4693e8;text-decoration:underline">Política de privacidad</a>. Mis datos sólo se utilizarán para procesar esta reserva.`,
 
   // Privacy Policy hero — ES
   privacy_micro: "Privacidad",
@@ -2842,6 +2844,7 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   footer_terms: "Nutzungsbedingungen",
   footer_refund: "Rückgaberecht",
   gdpr_consent: `Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der <a href="/privacy" style="color:#4693e8;text-decoration:underline">Datenschutzerklärung</a> zu. Meine Daten werden ausschließlich zur Beantwortung dieser Beratungsanfrage verwendet.`,
+  gdpr_consent_booking: `Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der <a href="/privacy" style="color:#4693e8;text-decoration:underline">Datenschutzerklärung</a> zu. Meine Daten werden ausschließlich zur Verarbeitung dieser Buchung verwendet.`,
 
   // Privacy Policy hero — DE
   privacy_micro: "Datenschutz",
@@ -4024,6 +4027,7 @@ payment_note: "Оплата підтверджує ваш запит на кон
   footer_terms: "Умови використання",
   footer_refund: "Політика повернення",
   gdpr_consent: `Я погоджуюся на обробку моїх персональних даних відповідно до <a href="/privacy" style="color:#4693e8;text-decoration:underline">Політики конфіденційності</a>. Мої дані використовуватимуться виключно для відповіді на цей запит щодо консультації.`,
+  gdpr_consent_booking: `Я погоджуюся на обробку моїх персональних даних відповідно до <a href="/privacy" style="color:#4693e8;text-decoration:underline">Політики конфіденційності</a>. Мої дані використовуватимуться виключно для обробки цього бронювання.`,
 
   // Privacy Policy hero — UK
   privacy_micro: "Конфіденційність",

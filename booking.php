@@ -544,6 +544,11 @@ if (empty($_SESSION['csrf_token'])) {
                 </div>
               </div>
 
+              <div style="margin-top:16px;display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#555;line-height:1.5">
+                <input type="checkbox" id="gdprConsent" name="gdpr" required style="margin-top:3px;flex-shrink:0;accent-color:#4693e8">
+                <label for="gdprConsent" data-i18n="gdpr_consent_booking" data-i18n-html>I agree to the processing of my personal data in accordance with the <a href="/privacy" style="color:#4693e8;text-decoration:underline">Privacy Policy</a>. My data will only be used to process this booking.</label>
+              </div>
+
               <p class="note" data-i18n="booking_note">Payment confirms your request. If your matter requires formal legal representation, you may be referred to a licensed lawyer where appropriate.</p>
 
               <div class="actions">
