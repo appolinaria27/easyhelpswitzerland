@@ -622,7 +622,7 @@
             <span class="section-bracket section-bracket-right"></span>
           </div>
           <p style="margin:-20px 0 32px;color:var(--muted);font-size:15px" data-i18n="news_section_sub">Fresh news from Switzerland — updated daily. Articles in English.</p>
-          <div id="newsGrid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px">
+          <div id="newsGrid">
             <!-- skeleton -->
             <div class="news-skeleton"></div>
             <div class="news-skeleton"></div>
@@ -699,9 +699,10 @@
       animation:shimmer 1.4s infinite;
     }
     @keyframes shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+    #newsGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
     @media(max-width:1180px){#newsGrid{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:768px){
-      #newsGrid{grid-template-columns:1fr;gap:16px}
+    @media(max-width:740px){#newsGrid{grid-template-columns:1fr !important;gap:16px}}
+    @media(max-width:740px){
       .news-card{flex-direction:column;border-radius:18px}
       .news-card-img{width:100%;height:160px}
       .news-card-img-placeholder{width:100%;height:160px}
