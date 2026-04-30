@@ -13,7 +13,10 @@ module.exports = async (req, res) => {
   if (req.method !== 'GET') return res.status(405).end();
 
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Cache-Control', 's-maxage=21600, stale-while-revalidate');
+  // Tell Vercel's CDN to cache this response for 6 hours (21600s).
+  // stale-while-revalidate=3600 means it serves stale while refreshing in the background.
+  // This survives serverless cold starts — the CDN serves the cached response.
+  res.setHeader('Cache-Control', 's-maxage=21600, stale-while-revalidate=3600');
 
   if (cache.data && Date.now() - cache.at < TTL) {
     return res.status(200).json(cache.data);

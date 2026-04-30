@@ -729,18 +729,32 @@
   </script>
 
   <script>
+  function escHtml(str) {
+    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
   (async function loadNews() {
-    const grid = document.getElementById('newsGrid');
-    if (!grid) return;
+    const section = document.getElementById('latest-news');
+    const grid    = document.getElementById('newsGrid');
+    if (!grid || !section) return;
+
     try {
       const res = await fetch('/api/news');
+      if (!res.ok) throw new Error('API error');
       const { articles } = await res.json();
-      if (!articles || !articles.length) { grid.innerHTML = ''; return; }
+
+      if (!articles || !articles.length) {
+        section.style.display = 'none';
+        return;
+      }
+
       grid.innerHTML = articles.map(a => {
         const img = a.image
-          ? `<img class="news-card-img" src="${escHtml(a.image)}" alt="${escHtml(a.title)}" loading="lazy" onerror="this.style.display='none'">`
+          ? `<img class="news-card-img" src="${escHtml(a.image)}" alt="${escHtml(a.title)}" loading="lazy" onerror="this.parentElement.querySelector('.news-card-img-placeholder') && (this.style.display='none') || (this.outerHTML='<div class=news-card-img-placeholder></div>')">`
           : `<div class="news-card-img-placeholder"></div>`;
-        const date = a.publishedAt ? new Date(a.publishedAt).toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'}) : '';
+        const date = a.publishedAt
+          ? new Date(a.publishedAt).toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'})
+          : '';
         return `<div class="news-card">
           ${img}
           <div class="news-card-body">
@@ -754,14 +768,12 @@
           </div>
         </div>`;
       }).join('');
+
     } catch(e) {
-      grid.innerHTML = '';
+      // Hide the whole section so it doesn't show an empty gap
+      section.style.display = 'none';
     }
   })();
-
-  function escHtml(str) {
-    return String(str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
-  }
   </script>
 </body>
 </html>
