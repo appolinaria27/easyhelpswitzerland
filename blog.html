@@ -735,9 +735,8 @@
   }
 
   (async function loadNews() {
-    const section = document.getElementById('latest-news');
-    const grid    = document.getElementById('newsGrid');
-    if (!grid || !section) return;
+    const grid = document.getElementById('newsGrid');
+    if (!grid) return;
 
     try {
       const res = await fetch('/api/news');
@@ -745,13 +744,13 @@
       const { articles } = await res.json();
 
       if (!articles || !articles.length) {
-        section.style.display = 'none';
+        grid.innerHTML = '';
         return;
       }
 
       grid.innerHTML = articles.map(a => {
         const img = a.image
-          ? `<img class="news-card-img" src="${escHtml(a.image)}" alt="${escHtml(a.title)}" loading="lazy" onerror="this.parentElement.querySelector('.news-card-img-placeholder') && (this.style.display='none') || (this.outerHTML='<div class=news-card-img-placeholder></div>')">`
+          ? `<img class="news-card-img" src="${escHtml(a.image)}" alt="${escHtml(a.title)}" loading="lazy" onerror="this.style.display='none'">`
           : `<div class="news-card-img-placeholder"></div>`;
         const date = a.publishedAt
           ? new Date(a.publishedAt).toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'})
@@ -771,8 +770,7 @@
       }).join('');
 
     } catch(e) {
-      // Hide the whole section so it doesn't show an empty gap
-      section.style.display = 'none';
+      grid.innerHTML = '';
     }
   })();
   </script>

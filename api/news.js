@@ -5,8 +5,9 @@ module.exports = async (req, res) => {
   if (req.method !== 'GET') return res.status(405).end();
 
   res.setHeader('Access-Control-Allow-Origin', '*');
-  // Tell Vercel CDN to cache for 6 hours — survives cold starts
-  res.setHeader('Cache-Control', 's-maxage=21600, stale-while-revalidate=3600');
+  // No CDN caching — previous s-maxage locked in an empty response for 6h.
+  // In-process cache (TTL variable) handles deduplication within a warm instance.
+  res.setHeader('Cache-Control', 'no-store');
 
   if (cache.data && Date.now() - cache.at < TTL) {
     return res.status(200).json(cache.data);
