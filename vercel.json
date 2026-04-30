@@ -5,26 +5,28 @@
     "api/consultation.js": { "memory": 256 },
     "api/news.js":         { "memory": 256 }
   },
+  "redirects": [
+    { "source": "/blog.php",                  "destination": "/blog.html",                  "permanent": true },
+    { "source": "/booking.php",               "destination": "/booking.html",               "permanent": true },
+    { "source": "/free-consultation.php",     "destination": "/free-consultation.html",     "permanent": true },
+    { "source": "/privacy.php",               "destination": "/privacy.html",               "permanent": true },
+    { "source": "/terms.php",                 "destination": "/terms.html",                 "permanent": true },
+    { "source": "/refund-policy.php",         "destination": "/refund-policy.html",         "permanent": true },
+    { "source": "/success.php",               "destination": "/consultation-success.html",  "permanent": true },
+    { "source": "/consultation-success.php",  "destination": "/consultation-success.html",  "permanent": true },
+    { "source": "/404.php",                   "destination": "/404.html",                   "permanent": true }
+  ],
   "rewrites": [
-    { "source": "/api/checkout",     "destination": "/api/checkout.js" },
-    { "source": "/api/webhook",      "destination": "/api/webhook.js" },
-    { "source": "/api/consultation", "destination": "/api/consultation.js" },
-    { "source": "/api/news",         "destination": "/api/news.js" },
-    { "source": "/blog.php",                  "destination": "/blog.html" },
-    { "source": "/blog",                      "destination": "/blog.html" },
-    { "source": "/booking.php",               "destination": "/booking.html" },
-    { "source": "/booking",                   "destination": "/booking.html" },
-    { "source": "/free-consultation.php",     "destination": "/free-consultation.html" },
-    { "source": "/free-consultation",         "destination": "/free-consultation.html" },
-    { "source": "/privacy.php",               "destination": "/privacy.html" },
-    { "source": "/privacy",                   "destination": "/privacy.html" },
-    { "source": "/terms.php",                 "destination": "/terms.html" },
-    { "source": "/terms",                     "destination": "/terms.html" },
-    { "source": "/refund-policy.php",         "destination": "/refund-policy.html" },
-    { "source": "/refund-policy",             "destination": "/refund-policy.html" },
-    { "source": "/success.php",               "destination": "/consultation-success.html" },
-    { "source": "/consultation-success.php",  "destination": "/consultation-success.html" },
-    { "source": "/consultation-success",      "destination": "/consultation-success.html" },
-    { "source": "/404.php",                   "destination": "/404.html" }
+    { "source": "/api/checkout",          "destination": "/api/checkout.js" },
+    { "source": "/api/webhook",           "destination": "/api/webhook.js" },
+    { "source": "/api/consultation",      "destination": "/api/consultation.js" },
+    { "source": "/api/news",              "destination": "/api/news.js" },
+    { "source": "/blog",                  "destination": "/blog.html" },
+    { "source": "/booking",               "destination": "/booking.html" },
+    { "source": "/free-consultation",     "destination": "/free-consultation.html" },
+    { "source": "/privacy",               "destination": "/privacy.html" },
+    { "source": "/terms",                 "destination": "/terms.html" },
+    { "source": "/refund-policy",         "destination": "/refund-policy.html" },
+    { "source": "/consultation-success",  "destination": "/consultation-success.html" }
   ]
 }
