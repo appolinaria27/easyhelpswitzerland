@@ -481,6 +481,94 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
 
   blog_article_en_notice: "",
 
+  blog_permits_body: `<h3>The permit depends on your situation, not just your nationality</h3>
+<p>Switzerland has several permit categories. The most common for newcomers are the <strong>L permit</strong> (short-stay, up to one year), the <strong>B permit</strong> (residence permit, renewable annually), and the <strong>C permit</strong> (settlement permit, after 5–10 years). Which one you receive depends on your employment contract, your country of origin, and whether you are coming as an employee, a student, or through family reunification.</p>
+<p>EU and EFTA citizens have a simplified path under the Agreement on Free Movement of Persons. Non-EU citizens face a stricter quota system and typically need a confirmed job offer from an employer who has demonstrated that no suitable local candidate was found first.</p>
+<h3>The most common mistakes people make</h3>
+<ul>
+  <li>Waiting too long to register after arrival. You must register at the local Einwohnerkontrolle within 14 days of moving into your address.</li>
+  <li>Assuming the employer handles everything. Many companies do not — you are responsible for showing up with the right documents.</li>
+  <li>Not knowing that a rental contract is required before you can register — which creates a chicken-and-egg problem for those arriving without pre-arranged housing.</li>
+  <li>Underestimating canton-specific differences. Zürich, Geneva, and Basel each have slightly different processes and timelines.</li>
+</ul>
+<h3>What documents you will typically need</h3>
+<p>For most first-time applicants: a valid passport, a rental contract or housing confirmation, an employment contract or proof of sufficient financial means, passport photos, and the completed registration form from the local municipality. For family reunification cases, additional proof of the relationship and the sponsor's permit is required.</p>
+<p>The process sounds manageable — but in practice, getting all these documents aligned, translated where required, and submitted in the right order is where most people lose time. A single missing document sends you back to square one.</p>`,
+
+  blog_anmeldung_body: `<h3>What Anmeldung actually is</h3>
+<p>Anmeldung means registration with the municipality where you live. In Zürich, this is done at the Stadthaus or the local Kreisbüro (district office) depending on your neighbourhood. You are registering your place of residence officially with the Swiss state — and this is the act that starts your legal life in Switzerland.</p>
+<p>Without Anmeldung you cannot apply for a residence permit, open a bank account, sign a long-term rental contract, or enrol children in school. Everything else waits for this step.</p>
+<h3>What you need to bring</h3>
+<ul>
+  <li>Valid passport or national ID (EU citizens)</li>
+  <li>Rental contract or a signed confirmation from your landlord</li>
+  <li>Employment contract or proof of financial means (for non-working applicants)</li>
+  <li>For families: birth certificates and marriage certificate if applicable</li>
+  <li>For non-EU citizens: a visa or relevant entry documentation</li>
+</ul>
+<h3>The 14-day rule</h3>
+<p>You have 14 days from the moment you move into your address to complete the Anmeldung. This is not advisory — it is a legal obligation. Arriving on a Friday and not registering until the following week is fine. Waiting three weeks because you were busy is not, and can result in a fine.</p>
+<h3>What happens after the appointment</h3>
+<p>You receive a Meldebestätigung (confirmation of registration). This is one of the most important documents you will carry in Switzerland. Keep several copies. You will need it when setting up utilities, opening a bank account, registering a child at school, and in some cases when visiting a doctor for the first time. Your permit application, if needed, usually follows within days or weeks after this step.</p>`,
+
+  blog_insurance_body: `<h3>How the Swiss health insurance system works</h3>
+<p>Switzerland uses a system of mandatory basic health insurance (Grundversicherung / assurance de base). Every resident must have it — there is no public option. You choose a private insurer from an approved list, and all basic coverage is legally standardised: the same treatments are covered regardless of which company you choose. What differs is the premium, the deductible (franchise), and the additional model (standard, HMO, Telmed, etc.).</p>
+<h3>Choosing your franchise</h3>
+<p>The annual deductible (franchise) is the amount you pay out of pocket before insurance covers the rest. It ranges from CHF 300 to CHF 2,500. A higher franchise means lower monthly premiums — which works well if you are generally healthy and do not plan to use medical services often. A lower franchise means you pay less when you do need care, but more each month.</p>
+<ul>
+  <li>CHF 300 franchise — lowest deductible, highest monthly premium</li>
+  <li>CHF 2,500 franchise — highest deductible, lowest monthly premium</li>
+  <li>The break-even point is typically around CHF 700–900 in annual medical costs</li>
+</ul>
+<h3>Supplementary insurance (Zusatzversicherung)</h3>
+<p>Basic insurance covers core treatments, but not dental care, private hospital rooms, glasses, or many complementary therapies. If you want these, you need to purchase supplementary insurance separately. This is optional but worth comparing before signing up for basic coverage, as some insurers offer bundled deals.</p>
+<h3>Premiums vary by canton and region</h3>
+<p>The same plan at the same insurer can cost CHF 450/month in Zürich and CHF 310/month in a rural canton. This is because premiums are set by geographic region based on local healthcare costs. When comparing options, always use your postcode as the reference point. The federal comparison tool Priminfo.admin.ch lets you compare all approved insurers side by side.</p>`,
+
+  blog_housing_body: `<h3>What landlords actually look for</h3>
+<p>Swiss landlords are risk-averse. Their primary concern is reliable, on-time payment — not personality. The documents they review first are your Betreibungsregisterauszug (debt collection extract), your employment contract, your three most recent salary slips, and a copy of your identity document. A clean debt register and a stable employment contract outweigh almost everything else.</p>
+<h3>The documents you need ready before you start</h3>
+<ul>
+  <li>Debt collection extract (Betreibungsregisterauszug) — request this from the local debt enforcement office (Betreibungsamt) as soon as you register</li>
+  <li>Employment contract or a letter from your employer confirming your salary and contract type</li>
+  <li>Last 3 months of payslips (or bank statements if self-employed)</li>
+  <li>Passport or residence permit</li>
+  <li>A short personal cover letter — 5–8 sentences, in German if at all possible</li>
+</ul>
+<h3>Common mistakes that eliminate applications immediately</h3>
+<p>Submitting an incomplete dossier is the fastest way to be rejected. Landlords are reviewing dozens of files at once — any missing document means your file goes in the discard pile. Send everything in a single PDF, in the order they expect: cover letter, ID, permit, employment confirmation, payslips, debt extract.</p>
+<p>Another common error: applying for an apartment that costs more than one-third of your net monthly income. Landlords apply this rule strictly. If your net salary is CHF 5,000 and the rent is CHF 2,000, expect rejection even with perfect documents.</p>
+<h3>Temporary housing as a strategy</h3>
+<p>If you are arriving before you have a rental contract, furnished temporary housing (serviced apartments, expat housing platforms, or furnished sublets) gives you a legal address for Anmeldung while you search more calmly. Trying to apartment-hunt from abroad, under time pressure, in a language you may not speak, is one of the most stressful and inefficient approaches. Arriving, settling, registering, then searching — in that order — gives you a much stronger position.</p>`,
+
+  blog_work_body: `<h3>EU/EFTA citizens: the simplified path</h3>
+<p>If you hold a passport from an EU or EFTA country, you have the right to work in Switzerland under the Agreement on Free Movement of Persons. You register at the municipality, your employer notifies the cantonal authorities, and within a few weeks you receive your B permit (or L permit for contracts under one year). You do not need a separate work permit — your residence permit covers both.</p>
+<h3>Non-EU citizens: the quota system</h3>
+<p>If you are coming from outside the EU/EFTA zone, your employer must prove that no suitable candidate from Switzerland or the EU was available for the position before sponsoring you. This is called the priority order (Inländervorrang). If the cantonal labour market authority approves the request, a work and residence permit is issued — but the process can take several months and is subject to annual quotas set by the federal government.</p>
+<h3>Your employment contract: what to check</h3>
+<ul>
+  <li>Gross versus net salary — the difference in Switzerland is significant. Social security deductions (AHV/AVS, pension, unemployment insurance) reduce gross salary by approximately 12–15%</li>
+  <li>The 13th month salary — standard in Switzerland but not automatic. Check whether it is included in your monthly salary or paid separately in December</li>
+  <li>Probation period — typically 1 to 3 months, during which either party can terminate with 7 days notice</li>
+  <li>Non-compete clauses — check the scope and duration carefully, especially in technical or specialist roles</li>
+</ul>
+<h3>Taxes in your first years</h3>
+<p>Most foreign workers in Switzerland are subject to Quellensteuer (withholding tax) — deducted directly from the salary by the employer and paid to the canton. The rate depends on your gross salary, your canton of residence, your civil status, and whether your partner also works. You do not file a tax return in the traditional sense unless your gross income exceeds CHF 120,000 or you have significant outside income. This simplifies life considerably — but also means it is worth checking whether your deduction rate is being calculated correctly from the start.</p>`,
+
+  blog_family_body: `<h3>Register the whole family together</h3>
+<p>Every family member — including children — must be registered at the Einwohnerkontrolle. Bring the passports and birth certificates for all children. If you are married, bring the marriage certificate. Depending on the canton, these documents may need to be officially translated or apostilled — this is worth checking in advance, as it can add days to your timeline.</p>
+<h3>School enrolment for children</h3>
+<p>In Switzerland, education is mandatory and free in the public system. Children are assigned to a school based on the family's registered address — which is one more reason to complete the Anmeldung before anything else. The school year typically starts in August, but children can join at any point during the year. The school administration will assess which class level is appropriate, which may involve a brief evaluation session, especially for older children.</p>
+<ul>
+  <li>Primary school (Primarschule): ages 6–12</li>
+  <li>Secondary school (Sekundarschule): ages 12–15/16</li>
+  <li>Language support: most cantons offer free German (or French/Italian depending on region) integration classes for children who are not yet fluent</li>
+</ul>
+<h3>Family reunification for non-EU citizens</h3>
+<p>If the main permit holder is a non-EU/EFTA citizen, family members joining them in Switzerland must apply for family reunification. The conditions include: the main permit holder must have a B or C permit, the family must have suitable housing (a large enough apartment), and there must be proof of sufficient financial means for the whole family. This process can take several weeks and it is essential to start it before booking flights.</p>
+<h3>Healthcare for children</h3>
+<p>Each child must have their own health insurance policy — they cannot be added to a parent's plan. Children under 18 pay a reduced premium, and many cantons provide additional subsidies for families with lower incomes. The same 3-month enrolment window applies: register your children with an insurer within 3 months of their official registration date.</p>`,
+
   sidebar_related_label: "Related services",
   sidebar_related_title: "How we can help",
   sidebar_related_consultation_label: "Consultation",
@@ -1525,6 +1613,94 @@ footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.
 
   blog_article_en_notice: "Artículo completo en inglés",
 
+  blog_permits_body: `<h3>El permiso depende de tu situación, no solo de tu nacionalidad</h3>
+<p>Suiza tiene varias categorías de permisos. Los más comunes para los recién llegados son el <strong>permiso L</strong> (estancia corta, hasta un año), el <strong>permiso B</strong> (permiso de residencia, renovable anualmente) y el <strong>permiso C</strong> (permiso de establecimiento, después de 5 a 10 años). El que recibes depende de tu contrato de trabajo, tu país de origen y si llegas como empleado, estudiante o por reagrupación familiar.</p>
+<p>Los ciudadanos de la UE y la AELE tienen una vía simplificada en virtud del Acuerdo sobre la Libre Circulación de Personas. Los ciudadanos no comunitarios se enfrentan a un sistema de cuotas más estricto y generalmente necesitan una oferta de trabajo confirmada de un empleador que haya demostrado que no había ningún candidato local adecuado disponible.</p>
+<h3>Los errores más comunes</h3>
+<ul>
+  <li>Esperar demasiado para registrarse tras la llegada. Debes registrarte en el Einwohnerkontrolle local dentro de los 14 días desde tu llegada a tu dirección.</li>
+  <li>Asumir que el empleador se encarga de todo. Muchas empresas no lo hacen — tú eres responsable de presentarte con los documentos correctos.</li>
+  <li>No saber que se necesita un contrato de alquiler antes de poder registrarse — lo que crea un problema de huevo y gallina para quienes llegan sin alojamiento prearreglado.</li>
+  <li>Subestimar las diferencias entre cantones. Zúrich, Ginebra y Basilea tienen procesos y plazos ligeramente diferentes.</li>
+</ul>
+<h3>Documentos que normalmente necesitarás</h3>
+<p>Para la mayoría de los solicitantes por primera vez: pasaporte válido, contrato de alquiler o confirmación de alojamiento, contrato de trabajo o prueba de medios financieros suficientes, fotos de pasaporte y el formulario de registro cumplimentado del municipio local. En los casos de reagrupación familiar, se requiere prueba adicional de la relación y el permiso del patrocinador.</p>
+<p>El proceso parece manejable — pero en la práctica, alinear todos estos documentos, traducirlos cuando sea necesario y presentarlos en el orden correcto es donde la mayoría de la gente pierde el tiempo. Un único documento que falta te manda de vuelta al principio.</p>`,
+
+  blog_anmeldung_body: `<h3>Qué es realmente la Anmeldung</h3>
+<p>Anmeldung significa registro en el municipio donde vives. En Zúrich, esto se hace en el Stadthaus o en la Kreisbüro local (oficina de distrito) según tu barrio. Estás registrando tu lugar de residencia oficialmente ante el Estado suizo — y este es el acto que inicia tu vida legal en Suiza.</p>
+<p>Sin Anmeldung no puedes solicitar un permiso de residencia, abrir una cuenta bancaria, firmar un contrato de alquiler a largo plazo ni matricular a tus hijos en la escuela. Todo lo demás espera a este paso.</p>
+<h3>Qué debes llevar</h3>
+<ul>
+  <li>Pasaporte válido o documento de identidad nacional (ciudadanos de la UE)</li>
+  <li>Contrato de alquiler o confirmación firmada de tu propietario</li>
+  <li>Contrato de trabajo o prueba de medios económicos (para solicitantes que no trabajan)</li>
+  <li>Para familias: actas de nacimiento y certificado de matrimonio si corresponde</li>
+  <li>Para ciudadanos no comunitarios: visado o documentación de entrada relevante</li>
+</ul>
+<h3>La regla de los 14 días</h3>
+<p>Tienes 14 días desde el momento en que te instalas en tu dirección para completar la Anmeldung. Esto no es orientativo — es una obligación legal. Llegar un viernes y no registrarse hasta la semana siguiente está bien. Esperar tres semanas porque estabas ocupado no lo está, y puede resultar en una multa.</p>
+<h3>Qué ocurre después de la cita</h3>
+<p>Recibes una Meldebestätigung (confirmación de registro). Este es uno de los documentos más importantes que llevarás en Suiza. Guarda varias copias. Lo necesitarás al contratar servicios, abrir una cuenta bancaria, matricular a un hijo en la escuela y en algunos casos al visitar al médico por primera vez. La solicitud de permiso, si es necesaria, suele seguir en días o semanas después de este paso.</p>`,
+
+  blog_insurance_body: `<h3>Cómo funciona el sistema de seguro médico suizo</h3>
+<p>Suiza utiliza un sistema de seguro médico básico obligatorio (Grundversicherung / assurance de base). Todos los residentes deben tenerlo — no hay opción pública. Eliges un asegurador privado de una lista aprobada, y toda la cobertura básica está legalmente estandarizada: los mismos tratamientos están cubiertos independientemente de la compañía que elijas. Lo que varía es la prima, la franquicia y el modelo adicional (estándar, HMO, Telmed, etc.).</p>
+<h3>Elegir tu franquicia</h3>
+<p>La franquicia anual es la cantidad que pagas de tu bolsillo antes de que el seguro cubra el resto. Va de CHF 300 a CHF 2.500. Una franquicia más alta significa primas mensuales más bajas — lo que funciona bien si eres generalmente sano y no planeas usar los servicios médicos a menudo. Una franquicia más baja significa que pagas menos cuando necesitas atención, pero más cada mes.</p>
+<ul>
+  <li>Franquicia de CHF 300 — menor deducible, prima mensual más alta</li>
+  <li>Franquicia de CHF 2.500 — mayor deducible, prima mensual más baja</li>
+  <li>El punto de equilibrio suele estar alrededor de CHF 700–900 en costes médicos anuales</li>
+</ul>
+<h3>Seguro complementario (Zusatzversicherung)</h3>
+<p>El seguro básico cubre tratamientos esenciales, pero no cuidado dental, habitaciones privadas de hospital, gafas ni muchas terapias complementarias. Si los quieres, debes contratar un seguro complementario por separado. Es opcional pero vale la pena compararlo antes de contratar la cobertura básica, ya que algunos aseguradores ofrecen paquetes combinados.</p>
+<h3>Las primas varían según el cantón y la región</h3>
+<p>El mismo plan con el mismo asegurador puede costar CHF 450/mes en Zúrich y CHF 310/mes en un cantón rural. Esto se debe a que las primas se fijan por región geográfica según los costes sanitarios locales. Al comparar opciones, usa siempre tu código postal como referencia. La herramienta federal de comparación Priminfo.admin.ch te permite comparar todos los aseguradores aprobados uno al lado del otro.</p>`,
+
+  blog_housing_body: `<h3>Qué buscan realmente los propietarios</h3>
+<p>Los propietarios suizos son aversos al riesgo. Su principal preocupación es el pago puntual y fiable — no la personalidad. Los documentos que revisan primero son tu Betreibungsregisterauszug (extracto del registro de deudas), tu contrato de trabajo, tus tres últimas nóminas y una copia de tu documento de identidad. Un registro de deudas limpio y un contrato de trabajo estable pesan más que casi todo lo demás.</p>
+<h3>Los documentos que necesitas tener listos antes de empezar</h3>
+<ul>
+  <li>Extracto del registro de deudas (Betreibungsregisterauszug) — solicítalo en la oficina local de ejecución de deudas (Betreibungsamt) tan pronto como te registres</li>
+  <li>Contrato de trabajo o carta de tu empleador confirmando tu salario y tipo de contrato</li>
+  <li>Últimas 3 nóminas (o extractos bancarios si eres autónomo)</li>
+  <li>Pasaporte o permiso de residencia</li>
+  <li>Una carta de presentación personal breve — 5 a 8 frases, en alemán si es posible</li>
+</ul>
+<h3>Errores comunes que eliminan solicitudes de inmediato</h3>
+<p>Presentar un dossier incompleto es la forma más rápida de ser rechazado. Los propietarios revisan docenas de expedientes a la vez — cualquier documento que falte significa que tu expediente va a la pila de descarte. Envía todo en un único PDF, en el orden que esperan: carta de presentación, DNI, permiso, confirmación de empleo, nóminas, extracto de deudas.</p>
+<p>Otro error común: solicitar un apartamento que cuesta más de un tercio de tu salario neto mensual. Los propietarios aplican esta regla de forma estricta. Si tu salario neto es CHF 5.000 y el alquiler es CHF 2.000, espera rechazo incluso con documentos perfectos.</p>
+<h3>El alojamiento temporal como estrategia</h3>
+<p>Si llegas antes de tener un contrato de alquiler, el alojamiento temporal amueblado (apartamentos con servicios, plataformas de alojamiento para expatriados o subarriendos amueblados) te proporciona una dirección legal para la Anmeldung mientras buscas con más calma. Intentar buscar piso desde el extranjero, bajo presión de tiempo, en un idioma que quizás no hablas, es uno de los enfoques más estresantes e ineficientes. Llegar, instalarse, registrarse y luego buscar — en ese orden — te da una posición mucho más fuerte.</p>`,
+
+  blog_work_body: `<h3>Ciudadanos de la UE/AELE: la vía simplificada</h3>
+<p>Si tienes pasaporte de un país de la UE o la AELE, tienes derecho a trabajar en Suiza en virtud del Acuerdo sobre la Libre Circulación de Personas. Te registras en el municipio, tu empleador notifica a las autoridades cantonales y en pocas semanas recibes tu permiso B (o permiso L para contratos de menos de un año). No necesitas un permiso de trabajo separado — tu permiso de residencia cubre ambos.</p>
+<h3>Ciudadanos no comunitarios: el sistema de cuotas</h3>
+<p>Si vienes de fuera de la zona UE/AELE, tu empleador debe demostrar que no había ningún candidato adecuado de Suiza o la UE disponible para el puesto antes de patrocinarte. Esto se llama el orden de prioridad (Inländervorrang). Si la autoridad cantonal del mercado laboral aprueba la solicitud, se expide un permiso de trabajo y residencia — pero el proceso puede tardar varios meses y está sujeto a cuotas anuales fijadas por el gobierno federal.</p>
+<h3>Tu contrato de trabajo: qué revisar</h3>
+<ul>
+  <li>Salario bruto frente a neto — la diferencia en Suiza es significativa. Las deducciones de la seguridad social (AHV/AVS, pensión, seguro de desempleo) reducen el salario bruto aproximadamente un 12–15%</li>
+  <li>El salario del mes 13 — estándar en Suiza pero no automático. Comprueba si está incluido en tu salario mensual o si se paga por separado en diciembre</li>
+  <li>Período de prueba — normalmente de 1 a 3 meses, durante el cual cualquiera de las partes puede rescindir con 7 días de preaviso</li>
+  <li>Cláusulas de no competencia — revisa el alcance y la duración con cuidado, especialmente en puestos técnicos o especializados</li>
+</ul>
+<h3>Impuestos en tus primeros años</h3>
+<p>La mayoría de los trabajadores extranjeros en Suiza están sujetos al Quellensteuer (impuesto en la fuente) — deducido directamente del salario por el empleador y pagado al cantón. La tasa depende de tu salario bruto, tu cantón de residencia, tu estado civil y si tu pareja también trabaja. No presentas una declaración de la renta en el sentido tradicional a menos que tus ingresos brutos superen CHF 120.000 o tengas ingresos externos significativos. Esto simplifica considerablemente la vida — pero también significa que vale la pena verificar desde el principio si tu tasa de deducción se está calculando correctamente.</p>`,
+
+  blog_family_body: `<h3>Registrar a toda la familia juntos</h3>
+<p>Todos los miembros de la familia — incluidos los hijos — deben registrarse en el Einwohnerkontrolle. Lleva los pasaportes y actas de nacimiento de todos los hijos. Si estás casado, lleva el certificado de matrimonio. Dependiendo del cantón, estos documentos pueden necesitar traducción oficial o apostilla — vale la pena comprobarlo con antelación, ya que puede añadir días a tu calendario.</p>
+<h3>Matriculación escolar de los hijos</h3>
+<p>En Suiza, la educación es obligatoria y gratuita en el sistema público. Los hijos son asignados a una escuela según la dirección registrada de la familia — lo que es una razón más para completar la Anmeldung antes que cualquier otra cosa. El curso escolar suele comenzar en agosto, pero los hijos pueden incorporarse en cualquier momento del año. La administración escolar evaluará qué nivel es el adecuado, lo que puede implicar una breve sesión de evaluación, especialmente para los hijos mayores.</p>
+<ul>
+  <li>Escuela primaria (Primarschule): de 6 a 12 años</li>
+  <li>Escuela secundaria (Sekundarschule): de 12 a 15/16 años</li>
+  <li>Apoyo lingüístico: la mayoría de los cantones ofrecen clases de integración gratuitas de alemán (o francés/italiano según la región) para los hijos que aún no hablan el idioma</li>
+</ul>
+<h3>Reagrupación familiar para ciudadanos no comunitarios</h3>
+<p>Si el titular principal del permiso es ciudadano no comunitario, los familiares que se unan a él en Suiza deben solicitar la reagrupación familiar. Las condiciones incluyen: el titular principal debe tener un permiso B o C, la familia debe disponer de alojamiento adecuado (un apartamento suficientemente grande) y debe haber prueba de medios económicos suficientes para toda la familia. Este proceso puede tardar varias semanas y es fundamental iniciarlo antes de reservar vuelos.</p>
+<h3>Atención sanitaria para los hijos</h3>
+<p>Cada hijo debe tener su propia póliza de seguro médico — no pueden añadirse al plan de los padres. Los menores de 18 años pagan una prima reducida, y muchos cantones ofrecen subsidios adicionales para familias con ingresos más bajos. Se aplica la misma ventana de inscripción de 3 meses: registra a tus hijos con un asegurador dentro de los 3 meses desde su fecha de registro oficial.</p>`,
+
   sidebar_related_label: "Servicios relacionados",
   sidebar_related_title: "Cómo podemos ayudar",
   sidebar_related_consultation_label: "Consulta",
@@ -2524,6 +2700,94 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   blog_family_lead: "Alleine umzuziehen ist schon komplex. Mit Partner und Kindern kommen mehrere weitere Ebenen hinzu — jede Person muss sich anmelden, jedes Kind muss in der Schule eingeschrieben werden, und die Reihenfolge der Schritte ist wichtiger als die meisten Familien ahnen.",
 
   blog_article_en_notice: "Vollständiger Artikel auf Englisch",
+
+  blog_permits_body: `<h3>Die Bewilligung hängt von Ihrer Situation ab, nicht nur von Ihrer Nationalität</h3>
+<p>Die Schweiz hat mehrere Bewilligungskategorien. Die häufigsten für Neuankömmlinge sind die <strong>L-Bewilligung</strong> (Kurzaufenthalt, bis zu einem Jahr), die <strong>B-Bewilligung</strong> (Aufenthaltsbewilligung, jährlich erneuerbar) und die <strong>C-Bewilligung</strong> (Niederlassungsbewilligung, nach 5 bis 10 Jahren). Welche Sie erhalten, hängt von Ihrem Arbeitsvertrag, Ihrem Herkunftsland und davon ab, ob Sie als Arbeitnehmer, Student oder im Rahmen des Familiennachzugs kommen.</p>
+<p>EU- und EFTA-Bürger haben einen vereinfachten Weg gemäß dem Abkommen über die Personenfreizügigkeit. Nicht-EU-Bürger sehen sich einem strengeren Kontingentsystem gegenüber und benötigen in der Regel ein bestätigtes Stellenangebot von einem Arbeitgeber, der nachgewiesen hat, dass kein geeigneter lokaler Kandidat gefunden werden konnte.</p>
+<h3>Die häufigsten Fehler</h3>
+<ul>
+  <li>Zu lange mit der Anmeldung nach der Ankunft warten. Sie müssen sich innerhalb von 14 Tagen nach dem Einzug beim lokalen Einwohnerkontrolle anmelden.</li>
+  <li>Annehmen, dass der Arbeitgeber alles regelt. Viele Unternehmen tun das nicht — Sie sind dafür verantwortlich, mit den richtigen Dokumenten zu erscheinen.</li>
+  <li>Nicht wissen, dass ein Mietvertrag vor der Anmeldung erforderlich ist — was für diejenigen, die ohne vorgeplante Unterkunft ankommen, ein Henne-Ei-Problem schafft.</li>
+  <li>Die kantonsspezifischen Unterschiede unterschätzen. Zürich, Genf und Basel haben jeweils leicht unterschiedliche Abläufe und Fristen.</li>
+</ul>
+<h3>Dokumente, die Sie in der Regel benötigen</h3>
+<p>Für die meisten Erstantragsteller: ein gültiger Reisepass, ein Mietvertrag oder eine Wohnbestätigung, ein Arbeitsvertrag oder Nachweis ausreichender finanzieller Mittel, Passfotos und das ausgefüllte Anmeldeformular der Gemeinde. Bei Familiennachzugsfällen ist ein zusätzlicher Nachweis der Beziehung sowie die Bewilligung des Sponsors erforderlich.</p>
+<p>Der Prozess klingt handhabbar — aber in der Praxis verlieren die meisten Menschen Zeit damit, alle diese Dokumente abzustimmen, wo nötig zu übersetzen und in der richtigen Reihenfolge einzureichen. Ein einziges fehlendes Dokument schickt Sie wieder auf Anfang.</p>`,
+
+  blog_anmeldung_body: `<h3>Was die Anmeldung eigentlich ist</h3>
+<p>Anmeldung bedeutet Registrierung bei der Gemeinde, in der Sie wohnen. In Zürich erfolgt dies im Stadthaus oder im lokalen Kreisbüro (Bezirksamt), je nach Ihrem Stadtteil. Sie melden Ihren Wohnsitz offiziell beim Schweizer Staat an — und dies ist der Akt, der Ihr rechtliches Leben in der Schweiz beginnt.</p>
+<p>Ohne Anmeldung können Sie keine Aufenthaltsbewilligung beantragen, kein Bankkonto eröffnen, keinen langfristigen Mietvertrag unterzeichnen und keine Kinder in der Schule anmelden. Alles andere wartet auf diesen Schritt.</p>
+<h3>Was Sie mitbringen müssen</h3>
+<ul>
+  <li>Gültiger Reisepass oder Personalausweis (EU-Bürger)</li>
+  <li>Mietvertrag oder schriftliche Bestätigung Ihres Vermieters</li>
+  <li>Arbeitsvertrag oder Nachweis über finanzielle Mittel (für nicht erwerbstätige Antragsteller)</li>
+  <li>Für Familien: Geburtsurkunden und Heiratsurkunde, falls zutreffend</li>
+  <li>Für Nicht-EU-Bürger: ein Visum oder relevante Einreisedokumente</li>
+</ul>
+<h3>Die 14-Tage-Regel</h3>
+<p>Sie haben 14 Tage ab dem Moment, in dem Sie in Ihre Adresse einziehen, um die Anmeldung abzuschließen. Dies ist keine Empfehlung — es ist eine gesetzliche Pflicht. An einem Freitag anzukommen und sich erst in der folgenden Woche anzumelden ist in Ordnung. Drei Wochen zu warten, weil Sie beschäftigt waren, ist es nicht und kann zu einer Buße führen.</p>
+<h3>Was nach dem Termin passiert</h3>
+<p>Sie erhalten eine Meldebestätigung. Dies ist eines der wichtigsten Dokumente, die Sie in der Schweiz bei sich tragen werden. Bewahren Sie mehrere Kopien auf. Sie benötigen es beim Einrichten von Versorgungsleistungen, beim Eröffnen eines Bankkontos, beim Anmelden eines Kindes in der Schule und in manchen Fällen beim ersten Arztbesuch. Ihr Bewilligungsantrag, falls erforderlich, folgt in der Regel innerhalb von Tagen oder Wochen nach diesem Schritt.</p>`,
+
+  blog_insurance_body: `<h3>Wie das Schweizer Krankenversicherungssystem funktioniert</h3>
+<p>Die Schweiz verwendet ein System der obligatorischen Grundkrankenversicherung (Grundversicherung / assurance de base). Jeder Einwohner muss sie haben — es gibt keine öffentliche Option. Sie wählen einen privaten Versicherer aus einer genehmigten Liste, und die gesamte Grundversorgung ist gesetzlich standardisiert: dieselben Behandlungen sind unabhängig davon abgedeckt, welches Unternehmen Sie wählen. Was sich unterscheidet, sind die Prämie, die Franchise und das Zusatzmodell (Standard, HMO, Telmed usw.).</p>
+<h3>Die Franchise wählen</h3>
+<p>Die jährliche Franchise ist der Betrag, den Sie aus eigener Tasche zahlen, bevor die Versicherung den Rest übernimmt. Sie reicht von CHF 300 bis CHF 2.500. Eine höhere Franchise bedeutet niedrigere monatliche Prämien — was gut funktioniert, wenn Sie generell gesund sind und die medizinischen Leistungen nicht häufig nutzen möchten. Eine niedrigere Franchise bedeutet, dass Sie weniger zahlen, wenn Sie Pflege benötigen, aber monatlich mehr.</p>
+<ul>
+  <li>CHF 300 Franchise — niedrigste Selbstbeteiligung, höchste Monatsprämie</li>
+  <li>CHF 2.500 Franchise — höchste Selbstbeteiligung, niedrigste Monatsprämie</li>
+  <li>Die Gewinnschwelle liegt typischerweise bei etwa CHF 700–900 an jährlichen Arztkosten</li>
+</ul>
+<h3>Zusatzversicherung</h3>
+<p>Die Grundversicherung deckt Kernbehandlungen ab, aber keine Zahnpflege, private Krankenzimmer, Brillen oder viele komplementäre Therapien. Wenn Sie diese wünschen, müssen Sie eine Zusatzversicherung separat abschließen. Dies ist optional, aber es lohnt sich, sie vor dem Abschluss der Grundversicherung zu vergleichen, da einige Versicherer Paketangebote machen.</p>
+<h3>Prämien variieren je nach Kanton und Region</h3>
+<p>Derselbe Plan beim selben Versicherer kann in Zürich CHF 450/Monat und in einem ländlichen Kanton CHF 310/Monat kosten. Dies liegt daran, dass die Prämien nach geografischer Region basierend auf den lokalen Gesundheitskosten festgelegt werden. Verwenden Sie beim Vergleich von Optionen immer Ihre Postleitzahl als Referenzpunkt. Das bundeseigene Vergleichstool Priminfo.admin.ch ermöglicht Ihnen den direkten Vergleich aller zugelassenen Versicherer.</p>`,
+
+  blog_housing_body: `<h3>Worauf Vermieter tatsächlich achten</h3>
+<p>Schweizer Vermieter sind risikoavers. Ihr vorrangiges Anliegen ist die zuverlässige, pünktliche Zahlung — nicht die Persönlichkeit. Die Dokumente, die sie zuerst prüfen, sind Ihr Betreibungsregisterauszug, Ihr Arbeitsvertrag, Ihre drei letzten Lohnabrechnungen und eine Kopie Ihres Ausweisdokuments. Ein sauberes Betreibungsregister und ein stabiler Arbeitsvertrag überwiegen fast alles andere.</p>
+<h3>Die Dokumente, die Sie vor Beginn bereit haben müssen</h3>
+<ul>
+  <li>Betreibungsregisterauszug — beantragen Sie diesen beim lokalen Betreibungsamt, sobald Sie sich angemeldet haben</li>
+  <li>Arbeitsvertrag oder ein Schreiben Ihres Arbeitgebers, das Ihr Gehalt und Ihren Vertragstyp bestätigt</li>
+  <li>Letzte 3 Lohnabrechnungen (oder Kontoauszüge bei Selbstständigkeit)</li>
+  <li>Reisepass oder Aufenthaltsbewilligung</li>
+  <li>Ein kurzes persönliches Anschreiben — 5 bis 8 Sätze, möglichst auf Deutsch</li>
+</ul>
+<h3>Häufige Fehler, die Bewerbungen sofort ausschließen</h3>
+<p>Ein unvollständiges Dossier einzureichen ist der schnellste Weg zur Ablehnung. Vermieter prüfen dutzende Unterlagen gleichzeitig — jedes fehlende Dokument bedeutet, dass Ihre Unterlagen ausgesondert werden. Schicken Sie alles in einer einzigen PDF-Datei, in der erwarteten Reihenfolge: Anschreiben, Ausweis, Bewilligung, Arbeitsbestätigung, Lohnabrechnungen, Betreibungsauszug.</p>
+<p>Ein weiterer häufiger Fehler: sich für eine Wohnung zu bewerben, die mehr als ein Drittel Ihres Nettomonatseinkommens kostet. Vermieter wenden diese Regel streng an. Wenn Ihr Nettolohn CHF 5.000 beträgt und die Miete CHF 2.000, rechnen Sie selbst bei perfekten Unterlagen mit einer Ablehnung.</p>
+<h3>Zwischenunterkunft als Strategie</h3>
+<p>Wenn Sie ankommen, bevor Sie einen Mietvertrag haben, bietet möbliertes Übergangswohnen (Serviced Apartments, Expat-Wohnplattformen oder möblierte Untermiete) eine legale Adresse für die Anmeldung, während Sie in Ruhe suchen. Vom Ausland aus auf Wohnungssuche zu gehen, unter Zeitdruck, in einer Sprache, die Sie möglicherweise nicht sprechen, ist einer der stressigsten und ineffizientesten Ansätze. Ankommen, sich einrichten, anmelden, dann suchen — in dieser Reihenfolge — verschafft Ihnen eine deutlich stärkere Position.</p>`,
+
+  blog_work_body: `<h3>EU/EFTA-Bürger: der vereinfachte Weg</h3>
+<p>Wenn Sie einen Pass eines EU- oder EFTA-Landes besitzen, haben Sie das Recht, in der Schweiz gemäß dem Abkommen über die Personenfreizügigkeit zu arbeiten. Sie melden sich bei der Gemeinde an, Ihr Arbeitgeber benachrichtigt die kantonalen Behörden, und innerhalb weniger Wochen erhalten Sie Ihre B-Bewilligung (oder L-Bewilligung für Verträge unter einem Jahr). Sie benötigen keine separate Arbeitsbewilligung — Ihre Aufenthaltsbewilligung deckt beides ab.</p>
+<h3>Nicht-EU-Bürger: das Kontingentsystem</h3>
+<p>Wenn Sie von außerhalb der EU/EFTA-Zone kommen, muss Ihr Arbeitgeber nachweisen, dass kein geeigneter Kandidat aus der Schweiz oder der EU für die Stelle verfügbar war, bevor er Sie unterstützt. Dies nennt sich Inländervorrang. Wenn die kantonale Arbeitsmarktbehörde dem Antrag zustimmt, wird eine Arbeits- und Aufenthaltsbewilligung erteilt — aber der Prozess kann mehrere Monate dauern und unterliegt jährlichen Kontingenten des Bundes.</p>
+<h3>Ihr Arbeitsvertrag: was zu prüfen ist</h3>
+<ul>
+  <li>Brutto- versus Nettolohn — der Unterschied ist in der Schweiz erheblich. Sozialversicherungsabzüge (AHV/AVS, Pensionskasse, Arbeitslosenversicherung) reduzieren den Bruttolohn um etwa 12–15%</li>
+  <li>Der 13. Monatslohn — in der Schweiz Standard, aber nicht automatisch. Prüfen Sie, ob er im Monatslohn enthalten oder separat im Dezember ausgezahlt wird</li>
+  <li>Probezeit — in der Regel 1 bis 3 Monate, während der beide Parteien mit 7 Tagen Kündigungsfrist kündigen können</li>
+  <li>Konkurrenzverbote — prüfen Sie Umfang und Dauer sorgfältig, insbesondere in technischen oder Spezialisten-Rollen</li>
+</ul>
+<h3>Steuern in Ihren ersten Jahren</h3>
+<p>Die meisten ausländischen Arbeitnehmer in der Schweiz unterliegen der Quellensteuer — direkt vom Arbeitgeber vom Lohn abgezogen und an den Kanton abgeführt. Der Satz hängt von Ihrem Bruttolohn, Ihrem Wohnkanton, Ihrem Zivilstand und davon ab, ob Ihr Partner ebenfalls arbeitet. Sie reichen im herkömmlichen Sinne keine Steuererklärung ein, es sei denn, Ihr Bruttoeinkommen übersteigt CHF 120.000 oder Sie haben wesentliche Nebeneinkünfte. Dies vereinfacht das Leben erheblich — bedeutet aber auch, dass es sich lohnt, von Anfang an zu prüfen, ob Ihr Abzugssatz korrekt berechnet wird.</p>`,
+
+  blog_family_body: `<h3>Die ganze Familie zusammen anmelden</h3>
+<p>Jedes Familienmitglied — einschließlich der Kinder — muss beim Einwohnerkontrolle angemeldet werden. Bringen Sie die Reisepässe und Geburtsurkunden aller Kinder mit. Wenn Sie verheiratet sind, bringen Sie die Heiratsurkunde. Je nach Kanton müssen diese Dokumente möglicherweise offiziell übersetzt oder apostilliert werden — das lohnt sich im Voraus zu prüfen, da es Ihren Zeitplan um Tage verlängern kann.</p>
+<h3>Schulanmeldung für Kinder</h3>
+<p>In der Schweiz ist Bildung im öffentlichen System obligatorisch und kostenlos. Kinder werden einer Schule basierend auf der gemeldeten Adresse der Familie zugeteilt — was ein weiterer Grund ist, die Anmeldung vor allem anderen abzuschließen. Das Schuljahr beginnt in der Regel im August, aber Kinder können jederzeit im Laufe des Jahres eintreten. Die Schulverwaltung wird beurteilen, welche Klassenstufe geeignet ist, was bei älteren Kindern eine kurze Einstufungssitzung umfassen kann.</p>
+<ul>
+  <li>Primarschule: Alter 6–12</li>
+  <li>Sekundarschule: Alter 12–15/16</li>
+  <li>Sprachunterstützung: Die meisten Kantone bieten kostenlose Integrationskurse in Deutsch (oder Französisch/Italienisch je nach Region) für Kinder an, die noch nicht fließend sprechen</li>
+</ul>
+<h3>Familiennachzug für Nicht-EU-Bürger</h3>
+<p>Wenn der Hauptbewilligungsinhaber kein EU/EFTA-Bürger ist, müssen Familienangehörige, die ihm in die Schweiz folgen, einen Familiennachzug beantragen. Die Bedingungen umfassen: Der Hauptbewilligungsinhaber muss eine B- oder C-Bewilligung haben, die Familie muss über geeigneten Wohnraum verfügen (eine ausreichend große Wohnung), und es muss ein Nachweis ausreichender finanzieller Mittel für die gesamte Familie vorliegen. Dieser Prozess kann mehrere Wochen dauern, und es ist unbedingt erforderlich, ihn vor der Buchung von Flügen zu starten.</p>
+<h3>Gesundheitsversorgung für Kinder</h3>
+<p>Jedes Kind muss eine eigene Krankenkassenpolice haben — es kann nicht in den Plan der Eltern aufgenommen werden. Kinder unter 18 Jahren zahlen eine reduzierte Prämie, und viele Kantone gewähren zusätzliche Subventionen für Familien mit niedrigerem Einkommen. Das gleiche 3-Monats-Anmeldefenster gilt: Melden Sie Ihre Kinder innerhalb von 3 Monaten nach ihrem offiziellen Anmeldedatum bei einem Versicherer an.</p>`,
 
   sidebar_related_label: "Verwandte Leistungen",
   sidebar_related_title: "Wie wir helfen können",
@@ -3610,6 +3874,94 @@ payment_note: "Оплата підтверджує ваш запит на кон
   blog_family_lead: "Переїзд самотужки вже складний. Переїзд з партнером і дітьми додає ще кілька рівнів — кожен має зареєструватися, кожну дитину треба записати до школи, і порядок кроків важливіший, ніж більшість сімей усвідомлює.",
 
   blog_article_en_notice: "Повна стаття англійською",
+
+  blog_permits_body: `<h3>Дозвіл залежить від вашої ситуації, а не лише від громадянства</h3>
+<p>У Швейцарії існує кілька категорій дозволів. Найпоширеніші для новоприбулих — <strong>дозвіл L</strong> (коротке перебування, до одного року), <strong>дозвіл B</strong> (дозвіл на проживання, поновлюється щорічно) та <strong>дозвіл C</strong> (дозвіл на постійне проживання, після 5–10 років). Який саме ви отримаєте — залежить від вашого трудового договору, країни походження та того, чи приїжджаєте ви як працівник, студент або в рамках возз'єднання сім'ї.</p>
+<p>Громадяни ЄС та ЄАВТ мають спрощений шлях відповідно до Угоди про вільний рух осіб. Громадяни, що не є членами ЄС, стикаються з жорсткішою системою квот і зазвичай потребують підтвердженої пропозиції роботи від роботодавця, який довів, що жодного придатного місцевого кандидата знайдено не було.</p>
+<h3>Найпоширеніші помилки</h3>
+<ul>
+  <li>Надто довге очікування з реєстрацією після приїзду. Ви зобов'язані зареєструватися в місцевому Einwohnerkontrolle протягом 14 днів після заселення за своєю адресою.</li>
+  <li>Припущення, що роботодавець займається всім. Багато компаній цього не роблять — ви самі відповідаєте за те, щоб з'явитися з правильними документами.</li>
+  <li>Незнання того, що для реєстрації потрібен договір оренди — що створює замкнуте коло для тих, хто приїжджає без заздалегідь знайденого житла.</li>
+  <li>Недооцінка кантональних відмінностей. Цюрих, Женева та Базель мають дещо різні процедури та строки.</li>
+</ul>
+<h3>Документи, які зазвичай потрібні</h3>
+<p>Для більшості заявників уперше: дійсний паспорт, договір оренди або підтвердження житла, трудовий договір або доказ достатніх фінансових засобів, фотографії для документів та заповнена реєстраційна форма місцевої громади. У випадках возз'єднання сім'ї потрібен додатковий доказ родинних стосунків та дозвіл спонсора.</p>
+<p>Процес здається керованим — але на практиці більшість людей витрачає час на те, щоб узгодити всі ці документи, перекласти їх там, де це необхідно, і подати у правильному порядку. Один-єдиний відсутній документ відкидає вас на початок.</p>`,
+
+  blog_anmeldung_body: `<h3>Що таке Anmeldung насправді</h3>
+<p>Anmeldung означає реєстрацію в громаді, де ви проживаєте. У Цюриху це робиться в Stadthaus або в місцевому Kreisbüro (районному офісі) залежно від вашого кварталу. Ви офіційно реєструєте своє місце проживання у швейцарській державі — і саме цей акт розпочинає ваше правове життя в Швейцарії.</p>
+<p>Без Anmeldung ви не можете подати заяву на дозвіл на проживання, відкрити банківський рахунок, підписати довгостроковий договір оренди або записати дітей до школи. Все інше чекає на цей крок.</p>
+<h3>Що потрібно взяти</h3>
+<ul>
+  <li>Дійсний паспорт або національне посвідчення особи (для громадян ЄС)</li>
+  <li>Договір оренди або підписане підтвердження від орендодавця</li>
+  <li>Трудовий договір або доказ фінансових засобів (для непрацюючих заявників)</li>
+  <li>Для сімей: свідоцтва про народження та свідоцтво про шлюб, якщо є</li>
+  <li>Для громадян, що не є членами ЄС: віза або відповідні документи для в'їзду</li>
+</ul>
+<h3>Правило 14 днів</h3>
+<p>У вас є 14 днів з моменту заселення за своєю адресою, щоб завершити Anmeldung. Це не рекомендація — це законний обов'язок. Приїхати в п'ятницю і не реєструватися до наступного тижня — нормально. Чекати три тижні через зайнятість — ні, і це може призвести до штрафу.</p>
+<h3>Що відбувається після прийому</h3>
+<p>Ви отримуєте Meldebestätigung (підтвердження реєстрації). Це один із найважливіших документів, який ви носитимете з собою в Швейцарії. Зробіть кілька копій. Він знадобиться вам при підключенні комунальних послуг, відкритті банківського рахунку, записі дитини до школи, а в деяких випадках — при першому візиті до лікаря. Якщо необхідно, заява на дозвіл зазвичай іде за цим кроком протягом кількох днів або тижнів.</p>`,
+
+  blog_insurance_body: `<h3>Як працює система медичного страхування в Швейцарії</h3>
+<p>Швейцарія використовує систему обов'язкового базового медичного страхування (Grundversicherung / assurance de base). Кожен житель зобов'язаний його мати — державного варіанту не існує. Ви обираєте приватного страховика зі затвердженого списку, і весь базовий захист законодавчо стандартизовано: одні й ті самі процедури покриваються незалежно від того, яку компанію ви обрали. Відрізняються премія, франшиза та додаткова модель (стандартна, HMO, Telmed тощо).</p>
+<h3>Вибір франшизи</h3>
+<p>Річна франшиза — це сума, яку ви платите з власної кишені до того, як страхування покриє решту. Вона коливається від CHF 300 до CHF 2 500. Вища франшиза означає нижчі щомісячні премії — що добре, якщо ви загалом здорові і не плануєте часто користуватися медичними послугами. Нижча франшиза означає, що ви менше платите, коли звертаєтеся за допомогою, але більше щомісяця.</p>
+<ul>
+  <li>Франшиза CHF 300 — найнижча власна участь, найвища щомісячна премія</li>
+  <li>Франшиза CHF 2 500 — найвища власна участь, найнижча щомісячна премія</li>
+  <li>Точка беззбитковості зазвичай становить близько CHF 700–900 річних медичних витрат</li>
+</ul>
+<h3>Додаткове страхування (Zusatzversicherung)</h3>
+<p>Базове страхування покриває основні процедури, але не стоматологію, приватні лікарняні палати, окуляри та багато додаткових видів лікування. Якщо вони вам потрібні, слід окремо оформити додаткове страхування. Це не обов'язково, але варто порівняти варіанти до підписання базового полісу, оскільки деякі страховики пропонують пакетні рішення.</p>
+<h3>Премії відрізняються залежно від кантону та регіону</h3>
+<p>Той самий план у того самого страховика може коштувати CHF 450/місяць у Цюриху і CHF 310/місяць у сільському кантоні. Це пов'язано з тим, що премії встановлюються за географічним регіоном на основі місцевих витрат на охорону здоров'я. Порівнюючи варіанти, завжди використовуйте свій поштовий індекс як орієнтир. Федеральний інструмент порівняння Priminfo.admin.ch дозволяє порівнювати всіх затверджених страховиків поруч.</p>`,
+
+  blog_housing_body: `<h3>Що насправді шукають орендодавці</h3>
+<p>Швейцарські орендодавці не схильні до ризику. Їхня головна турбота — надійна, своєчасна оплата, а не особистість орендаря. Першими вони перевіряють ваш Betreibungsregisterauszug (витяг з реєстру стягнень), трудовий договір, три останні розрахункові листки та копію документа, що посвідчує особу. Чистий реєстр і стабільний трудовий договір переважають майже все інше.</p>
+<h3>Документи, які мають бути готові до початку пошуку</h3>
+<ul>
+  <li>Витяг з реєстру стягнень (Betreibungsregisterauszug) — замовте його в місцевому Betreibungsamt одразу після реєстрації</li>
+  <li>Трудовий договір або лист від роботодавця із підтвердженням зарплати та типу контракту</li>
+  <li>Останні 3 розрахункові листки (або банківські виписки для самозайнятих)</li>
+  <li>Паспорт або дозвіл на проживання</li>
+  <li>Коротке особисте супровідне листо — 5–8 речень, бажано німецькою</li>
+</ul>
+<h3>Поширені помилки, які одразу виключають заявку</h3>
+<p>Надати неповне досьє — найшвидший спосіб отримати відмову. Орендодавці одночасно переглядають десятки файлів — будь-який відсутній документ означає, що ваш файл іде до стосу відхилених. Надсилайте все в одному PDF-файлі, у порядку, якого вони очікують: супровідний лист, посвідчення особи, дозвіл, підтвердження зайнятості, розрахункові листки, витяг з реєстру.</p>
+<p>Ще одна поширена помилка: подавати заявку на квартиру, яка коштує більше третини вашого чистого місячного доходу. Орендодавці суворо дотримуються цього правила. Якщо ваша чиста зарплата CHF 5 000, а оренда CHF 2 000 — очікуйте відмови навіть із бездоганними документами.</p>
+<h3>Тимчасове житло як стратегія</h3>
+<p>Якщо ви приїжджаєте без договору оренди, мебльоване тимчасове житло (апартаменти з обслуговуванням, платформи для expat-оренди або мебльована суборенда) надасть вам юридичну адресу для Anmeldung, поки ви спокійно шукаєте постійне. Шукати квартиру з-за кордону, під тиском часу, мовою, яку ви, можливо, не знаєте, — один із найстресовіших та найменш ефективних підходів. Приїхати, облаштуватися, зареєструватися, а потім шукати — у такому порядку — дає вам набагато міцнішу позицію.</p>`,
+
+  blog_work_body: `<h3>Громадяни ЄС/ЄАВТ: спрощений шлях</h3>
+<p>Якщо ви маєте паспорт країни ЄС або ЄАВТ, ви маєте право працювати в Швейцарії відповідно до Угоди про вільний рух осіб. Ви реєструєтеся в громаді, ваш роботодавець повідомляє кантональні органи, і через кілька тижнів ви отримуєте дозвіл B (або дозвіл L для контрактів терміном менше року). Вам не потрібен окремий дозвіл на роботу — ваш дозвіл на проживання охоплює обидва аспекти.</p>
+<h3>Громадяни, що не є членами ЄС: система квот</h3>
+<p>Якщо ви приїжджаєте з-за меж зони ЄС/ЄАВТ, ваш роботодавець повинен довести, що жоден придатний кандидат зі Швейцарії або ЄС не був доступний для цієї посади до того, як запропонувати її вам. Це називається пріоритетністю місцевих кандидатів (Inländervorrang). Якщо кантональний орган ринку праці схвалює запит, видається дозвіл на роботу та проживання — але процес може тривати кілька місяців і підлягає річним квотам, встановленим федеральним урядом.</p>
+<h3>Ваш трудовий договір: що перевірити</h3>
+<ul>
+  <li>Брутто проти нетто — різниця в Швейцарії суттєва. Відрахування соціального страхування (AHV/AVS, пенсія, страхування від безробіття) зменшують брутто-зарплату приблизно на 12–15%</li>
+  <li>13-та зарплата — стандарт у Швейцарії, але не автоматичний. Перевірте, чи вона включена до місячної зарплати або виплачується окремо в грудні</li>
+  <li>Випробувальний термін — зазвичай від 1 до 3 місяців, протягом якого будь-яка зі сторін може розірвати договір з 7-денним попередженням</li>
+  <li>Застереження про неконкуренцію — уважно перевірте обсяг та тривалість, особливо в технічних або спеціалізованих ролях</li>
+</ul>
+<h3>Податки в перші роки</h3>
+<p>Більшість іноземних працівників у Швейцарії підлягають Quellensteuer (податку у джерела) — він утримується безпосередньо з зарплати роботодавцем і перераховується до кантону. Ставка залежить від вашої брутто-зарплати, кантону проживання, сімейного стану та того, чи працює також ваш партнер. Ви не подаєте декларацію про доходи в традиційному розумінні, якщо ваш брутто-дохід не перевищує CHF 120 000 або у вас немає значних зовнішніх доходів. Це значно спрощує життя — але також означає, що варто з самого початку перевірити, чи правильно розраховується ваша ставка утримання.</p>`,
+
+  blog_family_body: `<h3>Зареєструвати всю сім'ю разом</h3>
+<p>Кожен член сім'ї — включно з дітьми — повинен бути зареєстрований в Einwohnerkontrolle. Візьміть паспорти та свідоцтва про народження всіх дітей. Якщо ви одружені — свідоцтво про шлюб. Залежно від кантону, ці документи може знадобитися офіційно перекласти або апостилювати — варто перевірити це заздалегідь, оскільки це може додати днів до вашого графіку.</p>
+<h3>Зарахування дітей до школи</h3>
+<p>У Швейцарії освіта є обов'язковою та безкоштовною в державній системі. Дітей закріплюють за школою на основі зареєстрованої адреси сім'ї — ще одна причина завершити Anmeldung насамперед. Навчальний рік зазвичай починається в серпні, але діти можуть приєднатися в будь-який момент протягом року. Шкільна адміністрація оцінить, який рівень класу підходить, що може включати коротке тестування, особливо для старших дітей.</p>
+<ul>
+  <li>Початкова школа (Primarschule): вік 6–12 років</li>
+  <li>Середня школа (Sekundarschule): вік 12–15/16 років</li>
+  <li>Мовна підтримка: більшість кантонів пропонують безкоштовні інтеграційні заняття з німецької (або французької/італійської залежно від регіону) для дітей, які ще не знають мови</li>
+</ul>
+<h3>Возз'єднання сім'ї для громадян, що не є членами ЄС</h3>
+<p>Якщо основний власник дозволу є громадянином, що не є членом ЄС/ЄАВТ, члени сім'ї, що приєднуються до нього в Швейцарії, повинні подати заяву на возз'єднання сім'ї. Умови включають: основний власник дозволу повинен мати дозвіл B або C, сім'я повинна мати відповідне житло (достатньо велику квартиру), і має бути надано доказ достатніх фінансових засобів для всієї сім'ї. Цей процес може тривати кілька тижнів, і вкрай важливо розпочати його до бронювання квитків.</p>
+<h3>Медичне обслуговування дітей</h3>
+<p>Кожна дитина повинна мати власний поліс медичного страхування — її не можна додати до плану батьків. Діти до 18 років платять знижену премію, і багато кантонів надають додаткові субсидії для сімей з нижчим доходом. Те саме 3-місячне вікно реєстрації застосовується: зареєструйте своїх дітей у страховика протягом 3 місяців від їхньої офіційної дати реєстрації.</p>`,
 
   sidebar_related_label: "Пов'язані послуги",
   sidebar_related_title: "Як ми можемо допомогти",
