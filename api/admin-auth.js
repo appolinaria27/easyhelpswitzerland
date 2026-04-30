@@ -4,6 +4,15 @@ const crypto = require('crypto');
 // Token is valid for 8 hours
 const TTL = 8 * 60 * 60 * 1000;
 
+function getRawBody(req) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    req.on('data', c => chunks.push(typeof c === 'string' ? Buffer.from(c) : c));
+    req.on('end',  () => resolve(Buffer.concat(chunks)));
+    req.on('error', reject);
+  });
+}
+
 function makeToken(password) {
   const ts = Date.now();
   const sig = crypto.createHmac('sha256', password).update(String(ts)).digest('hex');
@@ -17,17 +26,24 @@ function verifyToken(token, password) {
   const [ts, sig] = parts;
   if (Date.now() - parseInt(ts) > TTL) return false;
   const expected = crypto.createHmac('sha256', password).update(ts).digest('hex');
-  return crypto.timingSafeEqual(Buffer.from(sig, 'hex'), Buffer.from(expected, 'hex'));
+  try {
+    return crypto.timingSafeEqual(Buffer.from(sig, 'hex'), Buffer.from(expected, 'hex'));
+  } catch { return false; }
 }
 
 module.exports = async (req, res) => {
-  const password = process.env.ADMIN_PASSWORD;
+  const password = (process.env.ADMIN_PASSWORD || '').trim();
   if (!password) return res.status(500).json({ error: 'Admin not configured' });
 
   // POST /api/admin-auth — login
   if (req.method === 'POST') {
-    const body = typeof req.body === 'string' ? JSON.parse(req.body || '{}') : (req.body || {});
-    if (body.password !== password) {
+    let body = {};
+    try {
+      const raw = await getRawBody(req);
+      if (raw.length > 0) body = JSON.parse(raw.toString('utf8'));
+    } catch { /* malformed body — body stays {} */ }
+
+    if (!body.password || body.password.trim() !== password) {
       return res.status(401).json({ error: 'Wrong password' });
     }
     const token = makeToken(password);
@@ -54,3 +70,6 @@ module.exports = async (req, res) => {
 
   return res.status(405).end();
 };
+
+// Disable Vercel's automatic body parser so we can read the raw stream
+module.exports.config = { api: { bodyParser: false } };
