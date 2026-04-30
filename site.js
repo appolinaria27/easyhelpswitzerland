@@ -479,7 +479,7 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
   blog_family_title: "Moving to Switzerland with your family: school, registration and the first 30 days",
   blog_family_lead: "Relocating alone is complex. Moving with a partner and children adds several more layers — each person needs to register, each child needs to be enrolled in school, and the sequence of steps matters more than most families realise.",
 
-  blog_article_en_notice: "Full article in English",
+  blog_article_en_notice: "",
 
   sidebar_related_label: "Related services",
   sidebar_related_title: "How we can help",

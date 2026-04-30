@@ -2976,7 +2976,7 @@
 
           <div class="action-row">
             <button type="button" class="btn-blue" onclick="checkRelocation()" data-i18n="check_btn_primary">Get instant review</button>
-            <a href="booking.php" class="btn-outline" data-i18n="check_btn_secondary">Book consultation</a>
+            <a href="booking.html" class="btn-outline" data-i18n="check_btn_secondary">Book consultation</a>
           </div>
 
           <div class="check-footnote" data-i18n="check_footnote">
@@ -3375,7 +3375,7 @@
             <li data-i18n="pricing_qs_item3">One written clarification</li>
             <li data-i18n="pricing_qs_item4">WhatsApp follow-up for 3 days</li>
           </ul>
-          <a class="btn-outline" data-i18n="pricing_cta" href="booking.php">Book package</a>
+          <a class="btn-outline" data-i18n="pricing_cta" href="booking.html">Book package</a>
         </article>
 
         <article class="price-card featured">
@@ -3391,7 +3391,7 @@
             <li data-i18n="pricing_core_item4">Support with one admin step</li>
             <li data-i18n="pricing_core_item5">One follow-up document review</li>
           </ul>
-          <a class="btn-blue" data-i18n="pricing_cta" href="booking.php">Book package</a>
+          <a class="btn-blue" data-i18n="pricing_cta" href="booking.html">Book package</a>
         </article>
 
         <article class="price-card">
@@ -3406,7 +3406,7 @@
             <li data-i18n="pricing_premium_item4">Up to 5 written inquiries</li>
             <li data-i18n="pricing_premium_item5">Follow-up support for 2 weeks</li>
           </ul>
-          <a class="btn-outline" data-i18n="pricing_cta" href="booking.php">Book package</a>
+          <a class="btn-outline" data-i18n="pricing_cta" href="booking.html">Book package</a>
         </article>
       </div>
 
@@ -3639,7 +3639,7 @@
       <h3 class="assessment-modal-title" id="assessmentModalTitle">Your relocation chances</h3>
       <div class="assessment-modal-text" id="assessmentModalText"></div>
       <div class="assessment-modal-actions">
-        <a href="booking.php" class="btn-blue" id="assessmentModalCta" data-i18n="rc_cta_book">Book consultation</a>
+        <a href="booking.html" class="btn-blue" id="assessmentModalCta" data-i18n="rc_cta_book">Book consultation</a>
         <button type="button" class="btn-outline" id="assessmentModalCloseBottom" data-i18n="modal_close">Close</button>
       </div>
     </div>
@@ -3861,7 +3861,7 @@
 
     modalTitle.textContent = title;
     modalText.innerHTML = html;
-    modalCta.href = ctaHref || 'booking.php';
+    modalCta.href = ctaHref || 'booking.html';
     modalCta.textContent = ctaText || 'Book consultation';
 
     modal.classList.add('open');
@@ -3903,7 +3903,7 @@
   let routeName = '';
   let summary = '';
   let detail = '';
-  let ctaHref = 'booking.php';
+  let ctaHref = 'booking.html';
   let ctaText = tr('rc_cta_book');
 
   if (nationality === 'eu') score += 18;
