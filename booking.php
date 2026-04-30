@@ -601,7 +601,14 @@ if (empty($_SESSION['csrf_token'])) {
         <svg viewBox="0 0 32 48" aria-hidden="true"><path d="M4 44V10l10-8 10 8v34"></path><path d="M14 44V22l10-8v30"></path></svg>
         <span>Easy Help Switzerland</span>
       </div>
-      <div class="footer-center"><span data-i18n="booking_footer_copy">© 2026 Easy Help Switzerland - all rights reserved.</span><br><a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a></div>
+      <div class="footer-center">
+        <span data-i18n="booking_footer_copy">© 2026 Easy Help Switzerland - all rights reserved.</span><br>
+        <a href="privacy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_privacy">Privacy Policy</a>
+        &nbsp;·&nbsp;
+        <a href="terms.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_terms">Terms of Service</a>
+        &nbsp;·&nbsp;
+        <a href="refund-policy.php" style="color:rgba(255,255,255,.45);font-size:12px;text-decoration:none" data-i18n="footer_refund">Refund Policy</a>
+      </div>
       <div class="footer-right" data-i18n="booking_footer_right">Premium booking flow aligned to the main website</div>
     </footer>
   </div>

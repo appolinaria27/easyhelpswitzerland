@@ -605,6 +605,7 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
   footer_privacy: "Privacy Policy",
   footer_terms: "Terms of Service",
   footer_refund: "Refund Policy",
+  gdpr_consent: `I agree to the processing of my personal data in accordance with the <a href="/privacy" style="color:#4693e8;text-decoration:underline">Privacy Policy</a>. My data will only be used to respond to this consultation request.`,
 
   // Privacy Policy hero
   privacy_micro: "Privacy",
@@ -1744,6 +1745,7 @@ footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.
   footer_privacy: "Política de privacidad",
   footer_terms: "Términos de servicio",
   footer_refund: "Política de reembolso",
+  gdpr_consent: `Acepto el tratamiento de mis datos personales de acuerdo con la <a href="/privacy" style="color:#4693e8;text-decoration:underline">Política de privacidad</a>. Mis datos sólo se utilizarán para responder a esta solicitud de consulta.`,
 
   // Privacy Policy hero — ES
   privacy_micro: "Privacidad",
@@ -2839,6 +2841,7 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   footer_privacy: "Datenschutzerklärung",
   footer_terms: "Nutzungsbedingungen",
   footer_refund: "Rückgaberecht",
+  gdpr_consent: `Ich stimme der Verarbeitung meiner personenbezogenen Daten gemäß der <a href="/privacy" style="color:#4693e8;text-decoration:underline">Datenschutzerklärung</a> zu. Meine Daten werden ausschließlich zur Beantwortung dieser Beratungsanfrage verwendet.`,
 
   // Privacy Policy hero — DE
   privacy_micro: "Datenschutz",
@@ -4020,6 +4023,7 @@ payment_note: "Оплата підтверджує ваш запит на кон
   footer_privacy: "Політика конфіденційності",
   footer_terms: "Умови використання",
   footer_refund: "Політика повернення",
+  gdpr_consent: `Я погоджуюся на обробку моїх персональних даних відповідно до <a href="/privacy" style="color:#4693e8;text-decoration:underline">Політики конфіденційності</a>. Мої дані використовуватимуться виключно для відповіді на цей запит щодо консультації.`,
 
   // Privacy Policy hero — UK
   privacy_micro: "Конфіденційність",
