@@ -1,11 +1,15 @@
 {
   "functions": {
-    "api/checkout.js":     { "memory": 256 },
-    "api/webhook.js":      { "memory": 256 },
-    "api/consultation.js": { "memory": 256 },
-    "api/news.js":         { "memory": 256 }
+    "api/checkout.js":       { "memory": 256 },
+    "api/webhook.js":        { "memory": 256 },
+    "api/consultation.js":   { "memory": 256 },
+    "api/news.js":           { "memory": 256 },
+    "api/admin-auth.js":     { "memory": 128 },
+    "api/admin-entries.js":  { "memory": 128 }
   },
   "redirects": [
+    { "source": "/admin.php",                 "destination": "/admin.html",                 "permanent": true },
+    { "source": "/admin-panel.php",           "destination": "/admin.html",                 "permanent": true },
     { "source": "/blog.php",                  "destination": "/blog.html",                  "permanent": true },
     { "source": "/booking.php",               "destination": "/booking.html",               "permanent": true },
     { "source": "/free-consultation.php",     "destination": "/free-consultation.html",     "permanent": true },
@@ -21,6 +25,8 @@
     { "source": "/api/webhook",           "destination": "/api/webhook.js" },
     { "source": "/api/consultation",      "destination": "/api/consultation.js" },
     { "source": "/api/news",              "destination": "/api/news.js" },
+    { "source": "/api/admin-auth",        "destination": "/api/admin-auth.js" },
+    { "source": "/api/admin-entries",     "destination": "/api/admin-entries.js" },
     { "source": "/blog",                  "destination": "/blog.html" },
     { "source": "/booking",               "destination": "/booking.html" },
     { "source": "/free-consultation",     "destination": "/free-consultation.html" },
