@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
 
   // Pick a random query each call so we get variety over time
   const q = QUERIES[Math.floor(Math.random() * QUERIES.length)];
-  const url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(q)}&lang=en&country=ch&max=6&apikey=${apiKey}`;
+  const url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(q)}&lang=en&max=6&sortby=publishedAt&apikey=${apiKey}`;
 
   try {
     const r = await fetch(url);
