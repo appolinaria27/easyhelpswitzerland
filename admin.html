@@ -549,11 +549,15 @@ function initCalendar(events) {
     },
 
     eventDrop(info) {
-      const id = info.event.id;
-      const dt = info.event.start.toISOString();
+      const id   = info.event.id;
+      const dt   = info.event.start.toISOString();
+      const name = info.event.title;
       if (!confirm('Move to ' + info.event.start.toLocaleString('de-CH') + '?')) { info.revert(); return; }
       apiPost('/api/admin-action', { action:'schedule', booking_id:id, datetime:dt, send_mail:false })
-        .then(d => { if (d.ok) showToast('Moved ✓', 'success'); else { info.revert(); showToast('Error', 'error'); } })
+        .then(d => {
+          if (d.ok) { showToast('Moved ✓', 'success'); openEmailModal(name, id, 'resched_email'); }
+          else { info.revert(); showToast('Error', 'error'); }
+        })
         .catch(() => { info.revert(); showToast('Network error', 'error'); });
     },
 
@@ -613,15 +617,22 @@ document.getElementById('modalCancel').onclick = () => {
 document.getElementById('modalConfirm').onclick = () => {
   if (!pendingEmailId) return;
   document.getElementById('scheduleModal').classList.remove('visible');
-  const id = pendingEmailId; pendingEmailId = null;
-  apiPost('/api/admin-action', { action:'email_only', booking_id:id })
-    .then(d => showToast(d.email_sent ? 'Email sent! ✓' : 'Email failed: '+(d.email_error||'?'), d.email_sent?'success':'error'))
+  const id     = pendingEmailId;
+  const action = pendingEmailAction || 'email_only';
+  pendingEmailId = null; pendingEmailAction = null;
+  apiPost('/api/admin-action', { action, booking_id: id })
+    .then(d => showToast(d.email_sent ? 'Email sent ✓' : 'Email failed: '+(d.email_error||'?'), d.email_sent?'success':'error'))
     .catch(() => showToast('Network error', 'error'));
 };
-function openEmailModal(name, id) {
+let pendingEmailAction = null;
+function openEmailModal(name, id, action = 'email_only') {
+  const isResched = action === 'resched_email';
   const p = document.getElementById('modalText');
-  p.innerHTML = 'Appointment saved. Send confirmation email to <span class="hi">' + name + '</span>?';
-  pendingEmailId = id;
+  p.innerHTML = isResched
+    ? 'Appointment moved. Send rescheduling email to <span class="hi">' + name + '</span>?'
+    : 'Appointment saved. Send confirmation email to <span class="hi">' + name + '</span>?';
+  pendingEmailId     = id;
+  pendingEmailAction = action;
   document.getElementById('scheduleModal').classList.add('visible');
 }
 

@@ -78,6 +78,43 @@ function confirmationEmail(booking, terminISO) {
   };
 }
 
+function rescheduleEmail(booking, terminISO) {
+  const dt   = new Date(terminISO);
+  const day  = dt.toLocaleDateString('en-GB', { weekday:'long', day:'2-digit', month:'long', year:'numeric' });
+  const time = dt.toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' });
+  const name = booking.name || 'Client';
+  const pkg  = booking.package_name || booking.package || booking.topic || '';
+  const fmt  = booking.preferred || '';
+
+  return {
+    subject: `Your consultation has been rescheduled — ${day} at ${time}`,
+    html: `<!DOCTYPE html><html><head><meta charset="UTF-8"></head>
+<body style="margin:0;padding:0;background:#f4f6f9;font-family:'Helvetica Neue',Arial,sans-serif">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f6f9;padding:40px 0">
+<tr><td align="center">
+<table width="560" cellpadding="0" cellspacing="0" style="background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.08)">
+<tr><td style="background:#0a0e14;padding:28px 36px">
+  <p style="margin:0;color:#fff;font-size:22px">Easy Help Switzerland</p>
+  <p style="margin:4px 0 0;color:rgba(255,255,255,.5);font-size:12px;letter-spacing:.1em;text-transform:uppercase">Appointment Rescheduled</p>
+</td></tr>
+<tr><td style="padding:36px">
+  <p style="font-size:16px;color:#111">Dear <strong>${name}</strong>,</p>
+  <p style="font-size:15px;color:#444;line-height:1.6">Your consultation has been rescheduled. Here are your new appointment details:</p>
+  <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0f5ff;border-radius:12px;padding:24px;margin:20px 0">
+    <tr><td style="padding:8px 0"><p style="margin:0;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.08em">New date</p><p style="margin:4px 0 0;font-size:18px;font-weight:600;color:#111">${day}</p></td></tr>
+    <tr><td style="padding:8px 0"><p style="margin:0;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.08em">New time</p><p style="margin:4px 0 0;font-size:18px;font-weight:600;color:#111">${time}</p></td></tr>
+    ${pkg ? `<tr><td style="padding:8px 0"><p style="margin:0;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.08em">Service</p><p style="margin:4px 0 0;font-size:15px;color:#111">${pkg}</p></td></tr>` : ''}
+    ${fmt ? `<tr><td style="padding:8px 0"><p style="margin:0;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.08em">Format</p><p style="margin:4px 0 0;font-size:15px;color:#111">${fmt}</p></td></tr>` : ''}
+  </table>
+  <p style="font-size:14px;color:#555;line-height:1.6">If you would like to postpone your appointment again, simply reply to this email and let us know your preferred date and time — we will do our best to accommodate you.</p>
+</td></tr>
+<tr><td style="background:#f8f9fb;padding:20px 36px;border-top:1px solid #eee">
+  <p style="margin:0;font-size:12px;color:#aaa;text-align:center">Easy Help Switzerland · easyhelpswitzerland.ch</p>
+</td></tr>
+</table></td></tr></table></body></html>`,
+  };
+}
+
 function cancellationEmail(booking) {
   const name = booking.name || 'Client';
   const pkg  = booking.package_name || booking.package || booking.topic || '';
@@ -141,6 +178,23 @@ module.exports = async (req, res) => {
 
     try {
       const { subject, html } = confirmationEmail(found.data, note.termin);
+      const t = makeTransporter();
+      await t.sendMail({ from: process.env.SMTP_FROM || process.env.SMTP_USER, to: found.data.email, subject, html });
+      return res.status(200).json({ ok: true, email_sent: true });
+    } catch (e) {
+      return res.status(200).json({ ok: true, email_sent: false, email_error: e.message });
+    }
+  }
+
+  // ── resched_email — send rescheduling notification for already-saved termin ─
+  if (action === 'resched_email') {
+    const found = await findEntry(id);
+    if (!found) return res.status(404).json({ error: 'Booking not found' });
+    const note = await loadNote(id);
+    if (!note.termin) return res.status(400).json({ error: 'No termin saved yet' });
+
+    try {
+      const { subject, html } = rescheduleEmail(found.data, note.termin);
       const t = makeTransporter();
       await t.sendMail({ from: process.env.SMTP_FROM || process.env.SMTP_USER, to: found.data.email, subject, html });
       return res.status(200).json({ ok: true, email_sent: true });
