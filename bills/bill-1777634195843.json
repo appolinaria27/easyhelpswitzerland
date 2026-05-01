@@ -26,7 +26,14 @@
       "quantity": 1,
       "unit_price_chf": 59,
       "total_chf": 59
+    },
+    {
+      "position_number": 14,
+      "name": "Family reunification application",
+      "quantity": 1,
+      "unit_price_chf": 149,
+      "total_chf": 149
     }
   ],
-  "total_chf": 397
+  "total_chf": 546
 }
