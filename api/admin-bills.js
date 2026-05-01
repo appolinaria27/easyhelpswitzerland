@@ -53,29 +53,39 @@ function swissQrPayload(bill) {
   const amount = parseFloat(bill.total_chf).toFixed(2);
   const ref    = `INV-${bill.id}`;
 
-  // SPC format: each field separated by \n, exactly as specified
+  // SPC format — exactly 31 lines as per Swiss QR-Bill spec v2.3
   return [
-    'SPC',           // Swiss Payments Code
-    '0200',          // Version
-    '1',             // UTF-8
-    iban,            // Creditor IBAN
-    'S',             // Address type: structured
-    'Polina Kravtsova', // Creditor name
-    'Ackerstrasse 24',  // Street + number
-    '',              // (building number field empty — already in street line)
-    '8610',          // Postal code
-    'Uster',         // City
-    'CH',            // Country
-    '',              // Ultimate creditor (not used)
-    '', '', '', '', '',
-    amount,          // Amount
-    'CHF',           // Currency
-    '',              // Debtor address type (unknown)
-    '', '', '', '', '',
-    'NON',           // Reference type: no structured reference
-    '',              // Reference
-    ref,             // Unstructured message (invoice number)
-    'EPD',           // End Payment Data
+    'SPC',              //  1  Header
+    '0200',             //  2  Version
+    '1',                //  3  Coding type (UTF-8)
+    iban,               //  4  Creditor IBAN
+    'S',                //  5  Creditor address type (S = structured)
+    'Polina Kravtsova', //  6  Creditor name
+    'Ackerstrasse 24',  //  7  Creditor street + number
+    '',                 //  8  Creditor building number (already in field 7)
+    '8610',             //  9  Creditor postal code
+    'Uster',            // 10  Creditor city
+    'CH',               // 11  Creditor country
+    '',                 // 12  Ultimate creditor address type  (not used)
+    '',                 // 13  Ultimate creditor name
+    '',                 // 14  Ultimate creditor street
+    '',                 // 15  Ultimate creditor building
+    '',                 // 16  Ultimate creditor postal code
+    '',                 // 17  Ultimate creditor city
+    '',                 // 18  Ultimate creditor country       ← was missing
+    amount,             // 19  Amount
+    'CHF',              // 20  Currency
+    '',                 // 21  Debtor address type             (not used)
+    '',                 // 22  Debtor name
+    '',                 // 23  Debtor street
+    '',                 // 24  Debtor building
+    '',                 // 25  Debtor postal code
+    '',                 // 26  Debtor city
+    '',                 // 27  Debtor country                  ← was missing
+    'NON',              // 28  Reference type (no structured reference)
+    '',                 // 29  Reference
+    ref,                // 30  Unstructured message (invoice number)
+    'EPD',              // 31  End Payment Data
   ].join('\n');
 }
 

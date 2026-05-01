@@ -69,7 +69,7 @@ function confirmationEmail(booking, terminISO) {
     ${pkg ? `<tr><td style="padding:8px 0"><p style="margin:0;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.08em">Service</p><p style="margin:4px 0 0;font-size:15px;color:#111">${pkg}</p></td></tr>` : ''}
     ${fmt ? `<tr><td style="padding:8px 0"><p style="margin:0;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.08em">Format</p><p style="margin:4px 0 0;font-size:15px;color:#111">${fmt}</p></td></tr>` : ''}
   </table>
-  <p style="font-size:14px;color:#555;line-height:1.6">If you need to reschedule, simply reply to this email.</p>
+  <p style="font-size:14px;color:#555;line-height:1.6">If you would like to postpone your appointment, simply reply to this email and let us know your preferred date and time — we will do our best to accommodate you.</p>
 </td></tr>
 <tr><td style="background:#f8f9fb;padding:20px 36px;border-top:1px solid #eee">
   <p style="margin:0;font-size:12px;color:#aaa;text-align:center">Easy Help Switzerland · easyhelpswitzerland.ch</p>
