@@ -1,5 +1,6 @@
 const crypto     = require('crypto');
 const nodemailer = require('nodemailer');
+const Stripe     = require('stripe');
 const { loadBills, loadBill, saveBill, loadPositions } = require('../lib/github-storage');
 
 const TTL = 8 * 60 * 60 * 1000;
@@ -45,7 +46,7 @@ function makeTransporter() {
   });
 }
 
-function invoiceHtml(bill) {
+function invoiceHtml(bill, paymentUrl) {
   const billDate = new Date(bill.closed_at).toLocaleDateString('en-GB', { day:'2-digit', month:'long', year:'numeric' });
   const billNum  = `INV-${bill.id}`;
 
@@ -57,6 +58,20 @@ function invoiceHtml(bill) {
       <td style="padding:10px 14px;border-bottom:1px solid #f0f0f0;text-align:right">CHF ${parseFloat(p.unit_price_chf).toFixed(2)}</td>
       <td style="padding:10px 14px;border-bottom:1px solid #f0f0f0;text-align:right;font-weight:600">CHF ${parseFloat(p.total_chf).toFixed(2)}</td>
     </tr>`).join('');
+
+  // QR code via free public API — encodes the Stripe payment link
+  const qrBlock = paymentUrl ? `
+    <div style="padding:28px 40px;border-top:1px solid #eee;text-align:center">
+      <p style="margin:0 0 6px;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.05em">Pay online</p>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&margin=6&data=${encodeURIComponent(paymentUrl)}"
+           alt="Payment QR code" width="160" height="160"
+           style="display:block;margin:0 auto 12px;border:1px solid #eee;border-radius:8px">
+      <p style="margin:0;font-size:13px;color:#444">Scan to pay — or click the button below</p>
+      <a href="${paymentUrl}"
+         style="display:inline-block;margin-top:14px;padding:12px 28px;background:#4693e8;color:#fff;text-decoration:none;border-radius:8px;font-size:14px;font-weight:600">
+        Pay CHF ${parseFloat(bill.total_chf).toFixed(2)} now
+      </a>
+    </div>` : '';
 
   return `<!DOCTYPE html>
 <html>
@@ -104,6 +119,7 @@ function invoiceHtml(bill) {
         </div>
       </div>
     </div>
+    ${qrBlock}
     <div style="padding:24px 40px;background:#f8f9fb;border-top:1px solid #eee">
       <p style="margin:0;font-size:13px;color:#888;text-align:center">
         Questions? Contact us at <a href="mailto:info@easyhelpswitzerland.ch" style="color:#4693e8">info@easyhelpswitzerland.ch</a>
@@ -224,12 +240,38 @@ module.exports = async (req, res) => {
     if (action === 'close') {
       const { bill_id } = body;
       const bill = await loadBill(bill_id);
-      if (!bill)               return res.status(404).json({ error: 'Bill not found' });
-      if (bill.status !== 'open')     return res.status(400).json({ error: 'Bill is already closed' });
-      if (!bill.positions.length)     return res.status(400).json({ error: 'Add at least one position before closing' });
+      if (!bill)                  return res.status(404).json({ error: 'Bill not found' });
+      if (bill.status !== 'open') return res.status(400).json({ error: 'Bill is already closed' });
+      if (!bill.positions.length) return res.status(400).json({ error: 'Add at least one position before closing' });
 
       bill.status    = 'closed';
       bill.closed_at = new Date().toISOString();
+
+      // ── Create Stripe payment link for this bill ──────────────────────────
+      let paymentUrl = null;
+      try {
+        const stripe = new Stripe(process.env.STRIPE_SECRET_KEY, { apiVersion: '2024-06-20' });
+        // Create a one-time price attached to a product
+        const product = await stripe.products.create({
+          name: `Invoice INV-${bill.id} — ${bill.client_name}`,
+        });
+        const price = await stripe.prices.create({
+          product:     product.id,
+          unit_amount: Math.round(bill.total_chf * 100),
+          currency:    'chf',
+        });
+        const link = await stripe.paymentLinks.create({
+          line_items: [{ price: price.id, quantity: 1 }],
+        });
+        paymentUrl         = link.url;
+        bill.payment_link  = paymentUrl;
+        bill.stripe_price  = price.id;
+        bill.stripe_product = product.id;
+      } catch (e) {
+        console.error('Stripe payment link error:', e.message);
+        // Non-fatal — invoice is still sent, just without the QR / pay button
+      }
+
       await saveBill(bill);
 
       try {
@@ -238,11 +280,11 @@ module.exports = async (req, res) => {
           from:    process.env.SMTP_FROM || process.env.SMTP_USER,
           to:      bill.client_email,
           subject: `Your Invoice from Easy Help Switzerland — CHF ${parseFloat(bill.total_chf).toFixed(2)}`,
-          html:    invoiceHtml(bill),
+          html:    invoiceHtml(bill, paymentUrl),
         });
-        return res.status(200).json({ bill, email_sent: true });
+        return res.status(200).json({ bill, email_sent: true, payment_link: paymentUrl });
       } catch (e) {
-        return res.status(200).json({ bill, email_sent: false, email_error: e.message });
+        return res.status(200).json({ bill, email_sent: false, email_error: e.message, payment_link: paymentUrl });
       }
     }
 
