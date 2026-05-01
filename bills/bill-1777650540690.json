@@ -2,9 +2,9 @@
   "id": "1777650540690",
   "client_name": "nastya",
   "client_email": "nastyathe25@gmail.com",
-  "status": "open",
+  "status": "closed",
   "created_at": "2026-05-01T15:49:00.690Z",
-  "closed_at": null,
+  "closed_at": "2026-05-01T15:49:28.880Z",
   "positions": [
     {
       "position_number": 4,
@@ -28,5 +28,8 @@
       "total_chf": 447
     }
   ],
-  "total_chf": 655
+  "total_chf": 655,
+  "payment_link": "https://buy.stripe.com/fZu5kEffgav54ke6EEes001",
+  "stripe_price": "price_1TSJJlK6f0W67FQRf3P4eZpZ",
+  "stripe_product": "prod_URBhhv7ZQxhlNy"
 }
