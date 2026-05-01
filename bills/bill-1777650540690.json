@@ -12,7 +12,14 @@
       "quantity": 1,
       "unit_price_chf": 149,
       "total_chf": 149
+    },
+    {
+      "position_number": 6,
+      "name": "Quick review online consultation (15 min)",
+      "quantity": 1,
+      "unit_price_chf": 59,
+      "total_chf": 59
     }
   ],
-  "total_chf": 149
+  "total_chf": 208
 }
