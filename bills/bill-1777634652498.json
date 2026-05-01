@@ -12,7 +12,14 @@
       "quantity": 1,
       "unit_price_chf": 79,
       "total_chf": 79
+    },
+    {
+      "position_number": 5,
+      "name": "Consultation & document review (1h)",
+      "quantity": 1,
+      "unit_price_chf": 149,
+      "total_chf": 149
     }
   ],
-  "total_chf": 79
+  "total_chf": 228
 }
