@@ -2,9 +2,9 @@
   "id": "1777634652498",
   "client_name": "polina",
   "client_email": "yungpollyy@gmail.com",
-  "status": "open",
+  "status": "closed",
   "created_at": "2026-05-01T11:24:12.499Z",
-  "closed_at": null,
+  "closed_at": "2026-05-01T11:24:48.334Z",
   "positions": [
     {
       "position_number": 1,
@@ -28,5 +28,8 @@
       "total_chf": 97.5
     }
   ],
-  "total_chf": 325.5
+  "total_chf": 325.5,
+  "payment_link": "https://buy.stripe.com/7sY8wQ2su6ePbMGfbaes000",
+  "stripe_price": "price_1TSFBcK6f0W67FQRxyDzGLL4",
+  "stripe_product": "prod_UR7QEwvu76UxFX"
 }
