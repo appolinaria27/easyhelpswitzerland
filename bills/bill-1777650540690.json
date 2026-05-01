@@ -19,7 +19,14 @@
       "quantity": 1,
       "unit_price_chf": 59,
       "total_chf": 59
+    },
+    {
+      "position_number": 10,
+      "name": "Residence permit application",
+      "quantity": 3,
+      "unit_price_chf": 149,
+      "total_chf": 447
     }
   ],
-  "total_chf": 208
+  "total_chf": 655
 }
