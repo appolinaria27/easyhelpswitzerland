@@ -1,6 +1,5 @@
-const fs   = require('fs');
-const path = require('path');
 const crypto = require('crypto');
+const { loadDir, loadNote } = require('../lib/github-storage');
 
 const TTL = 8 * 60 * 60 * 1000;
 
@@ -16,34 +15,6 @@ function verifyToken(token, password) {
   } catch { return false; }
 }
 
-function loadNote(dataDir, id) {
-  if (!id) return {};
-  const clean = id.replace(/[^a-f0-9]/g, '');
-  if (!clean) return {};
-  const fp = path.join(dataDir, clean + '.json');
-  if (!fs.existsSync(fp)) return {};
-  try { return JSON.parse(fs.readFileSync(fp, 'utf8')); }
-  catch { return {}; }
-}
-
-function loadDir(dir, type, pattern) {
-  if (!fs.existsSync(dir)) return [];
-  try {
-    return fs.readdirSync(dir)
-      .filter(f => f.endsWith('.json') && (!pattern || f.startsWith(pattern)))
-      .map(f => {
-        try {
-          const d = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
-          d._type = type;
-          d._file = f;
-          return d;
-        } catch { return null; }
-      })
-      .filter(Boolean)
-      .sort((a, b) => (b.created_at || '').localeCompare(a.created_at || ''));
-  } catch { return []; }
-}
-
 module.exports = async (req, res) => {
   if (req.method !== 'GET') return res.status(405).end();
 
@@ -55,23 +26,31 @@ module.exports = async (req, res) => {
   const token  = match ? match[1] : '';
   if (!verifyToken(token, password)) return res.status(401).json({ error: 'Not authenticated' });
 
-  const root    = path.join(__dirname, '..');
-  const dataDir = path.join(root, 'admin-data');
+  // Load all three directories from GitHub in parallel
+  const [consultations, paid, pending] = await Promise.all([
+    loadDir('free-consultations', 'free'),
+    loadDir('bookings',           'paid'),
+    loadDir('pending-bookings',   'pending'),
+  ]);
 
-  const consultations = loadDir(path.join(root, 'free-consultations'), 'free',    'consult-');
-  const paid          = loadDir(path.join(root, 'bookings'),           'paid',    'booking-');
-  const pending       = loadDir(path.join(root, 'pending-bookings'),   'pending', 'booking-');
-
-  // Merge admin-data notes into each entry
-  const mergeNote = entry => {
-    const note = loadNote(dataDir, entry.internal_booking_id);
-    entry._termin     = note.termin     || null;
-    entry._status     = note.status     || (entry._type === 'pending' ? 'pending' : 'confirmed');
-    entry._admin_note = note.admin_note || '';
+  // Merge admin-data notes into each entry (in parallel)
+  const mergeNote = async entry => {
+    try {
+      const note = await loadNote(entry.internal_booking_id);
+      entry._termin     = note.termin     || null;
+      entry._status     = note.status     || (entry._type === 'pending' ? 'pending' : 'confirmed');
+      entry._admin_note = note.admin_note || '';
+    } catch {
+      entry._termin     = null;
+      entry._status     = entry._type === 'pending' ? 'pending' : 'confirmed';
+      entry._admin_note = '';
+    }
     return entry;
   };
 
-  const allEntries = [...consultations, ...paid, ...pending].map(mergeNote);
+  const allEntries = await Promise.all(
+    [...consultations, ...paid, ...pending].map(mergeNote)
+  );
 
   const totalRevenue = paid.reduce((s, b) => s + parseFloat(b.price_chf || 0), 0);
 

@@ -1,7 +1,7 @@
-const Stripe  = require('stripe');
+const Stripe     = require('stripe');
 const nodemailer = require('nodemailer');
-
-// config is attached to the handler below after it is defined
+const crypto     = require('crypto');
+const { saveEntry } = require('../lib/github-storage');
 
 function getRawBody(req) {
   return new Promise((resolve, reject) => {
@@ -27,7 +27,7 @@ function makeTransporter() {
 async function sendAdminEmail(meta, amountChf) {
   const t = makeTransporter();
   await t.sendMail({
-    from:    `"Easy Help Switzerland" <${process.env.MAIL_FROM}>`,
+    from:    `"Easy Help Switzerland" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
     to:      process.env.ADMIN_EMAIL,
     replyTo: meta.email,
     subject: `✅ New booking: ${meta.name} — ${meta.package} (CHF ${amountChf})`,
@@ -40,7 +40,7 @@ async function sendAdminEmail(meta, amountChf) {
         <div style="background:#f0f5ff;padding:24px 32px;border-radius:0 0 12px 12px">
           <table style="width:100%;border-collapse:collapse">
             <tr><td style="padding:8px 0;color:#888;font-size:13px;text-transform:uppercase;letter-spacing:.08em">Package</td>
-                <td style="padding:8px 0;font-weight:600">${meta.package} — CHF ${amountChf}</td></tr>
+                <td style="padding:8px 0;font-weight:600">${meta.package_name || meta.package} — CHF ${amountChf}</td></tr>
             <tr><td style="padding:8px 0;color:#888;font-size:13px;text-transform:uppercase;letter-spacing:.08em">Name</td>
                 <td style="padding:8px 0;font-weight:600">${meta.name}</td></tr>
             <tr><td style="padding:8px 0;color:#888;font-size:13px;text-transform:uppercase;letter-spacing:.08em">Email</td>
@@ -56,7 +56,7 @@ async function sendAdminEmail(meta, amountChf) {
           </table>
         </div>
       </div>`,
-    text: `New booking\nPackage: ${meta.package} CHF ${amountChf}\nName: ${meta.name}\nEmail: ${meta.email}\nPhone: ${meta.phone}\nLocation: ${meta.location}\nMessage: ${meta.message}`,
+    text: `New booking\nPackage: ${meta.package_name || meta.package} CHF ${amountChf}\nName: ${meta.name}\nEmail: ${meta.email}\nPhone: ${meta.phone}\nLocation: ${meta.location}\nMessage: ${meta.message}`,
   });
 }
 
@@ -64,7 +64,7 @@ async function sendClientEmail(meta) {
   if (!meta.email) return;
   const t = makeTransporter();
   await t.sendMail({
-    from:    `"Easy Help Switzerland" <${process.env.MAIL_FROM}>`,
+    from:    `"Easy Help Switzerland" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
     to:      meta.email,
     subject: 'Your booking is confirmed — Easy Help Switzerland',
     html: `
@@ -79,11 +79,11 @@ async function sendClientEmail(meta) {
             Your booking is confirmed. We will contact you within 24 hours to arrange the details of your consultation.
           </p>
           <p style="margin:0 0 8px;color:#888;font-size:13px;text-transform:uppercase;letter-spacing:.08em">Package</p>
-          <p style="margin:0 0 20px;font-weight:600">${meta.package}</p>
+          <p style="margin:0 0 20px;font-weight:600">${meta.package_name || meta.package}</p>
           <p style="margin:0;color:#555;line-height:1.6">Looking forward to speaking with you.<br><br>Polina Kravtsova<br>Easy Help Switzerland</p>
         </div>
       </div>`,
-    text: `Dear ${meta.name},\n\nYour booking is confirmed. We will contact you within 24 hours.\n\nPackage: ${meta.package}\n\nBest regards,\nPolina Kravtsova\nEasy Help Switzerland`,
+    text: `Dear ${meta.name},\n\nYour booking is confirmed. We will contact you within 24 hours.\n\nPackage: ${meta.package_name || meta.package}\n\nBest regards,\nPolina Kravtsova\nEasy Help Switzerland`,
   });
 }
 
@@ -103,9 +103,44 @@ module.exports = async (req, res) => {
   }
 
   if (event.type === 'checkout.session.completed') {
-    const session = event.data.object;
-    const meta    = session.metadata || {};
-    const amountChf = ((session.amount_total || 0) / 100).toFixed(2);
+    const session    = event.data.object;
+    const meta       = session.metadata || {};
+    const amountChf  = ((session.amount_total || 0) / 100).toFixed(2);
+    const stripeId   = session.id;
+
+    // ── Find and promote pending booking, or create new paid record ──────────
+    const id  = meta.pending_booking_id || crypto.randomBytes(16).toString('hex');
+    const now = new Date().toISOString();
+
+    try {
+      // Delete pending booking if it exists (we promoted it to paid)
+      if (meta.pending_booking_id) {
+        const { ghRead, ghDelete } = require('../lib/github-storage');
+        const pendingPath = `pending-bookings/booking-${meta.pending_booking_id}.json`;
+        const { sha: pendingSha } = await ghRead(pendingPath);
+        if (pendingSha) await ghDelete(pendingPath, pendingSha);
+      }
+
+      // Save as paid booking
+      const record = {
+        internal_booking_id: id,
+        type:         'paid',
+        stripe_session_id: stripeId,
+        package:      meta.package      || '',
+        package_name: meta.package_name || meta.package || '',
+        name:         meta.name         || '',
+        email:        meta.email        || '',
+        phone:        meta.phone        || '',
+        location:     meta.location     || '',
+        preferred:    meta.preferred    || '',
+        message:      meta.message      || '',
+        price_chf:    amountChf,
+        created_at:   now,
+      };
+      await saveEntry('bookings', `booking-${id}.json`, record);
+    } catch (err) {
+      console.error('GitHub save paid booking error:', err.message);
+    }
 
     try { await sendAdminEmail(meta, amountChf); } catch (e) { console.error('Admin email error:', e.message); }
     try { await sendClientEmail(meta); }          catch (e) { console.error('Client email error:', e.message); }
@@ -114,5 +149,4 @@ module.exports = async (req, res) => {
   return res.status(200).json({ received: true });
 };
 
-// Must be set AFTER module.exports assignment, otherwise it gets overwritten
 module.exports.config = { api: { bodyParser: false } };

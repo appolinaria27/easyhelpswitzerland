@@ -1,13 +1,13 @@
 {
   "functions": {
-    "api/checkout.js":       { "memory": 256 },
-    "api/webhook.js":        { "memory": 256 },
-    "api/consultation.js":   { "memory": 256 },
-    "api/news.js":           { "memory": 256 },
-    "api/admin-auth.js":     { "memory": 128 },
-    "api/admin-entries.js":   { "memory": 128 },
+    "api/checkout.js":        { "memory": 256 },
+    "api/webhook.js":         { "memory": 256 },
+    "api/consultation.js":    { "memory": 256 },
+    "api/news.js":            { "memory": 256 },
+    "api/admin-auth.js":      { "memory": 128 },
+    "api/admin-entries.js":   { "memory": 256 },
     "api/admin-bills.js":     { "memory": 256 },
-    "api/admin-positions.js": { "memory": 128 },
+    "api/admin-positions.js": { "memory": 256 },
     "api/admin-action.js":    { "memory": 256 }
   },
   "redirects": [

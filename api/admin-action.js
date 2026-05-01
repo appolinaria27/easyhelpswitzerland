@@ -1,10 +1,8 @@
-const fs         = require('fs');
-const path       = require('path');
 const crypto     = require('crypto');
 const nodemailer = require('nodemailer');
+const { loadNote, saveNote, findEntry, deleteEntry } = require('../lib/github-storage');
 
-const TTL  = 8 * 60 * 60 * 1000;
-const ROOT = path.join(__dirname, '..');
+const TTL = 8 * 60 * 60 * 1000;
 
 function getRawBody(req) {
   return new Promise((resolve, reject) => {
@@ -31,43 +29,6 @@ function isAuth(req, password) {
   const cookie = req.headers.cookie || '';
   const match  = cookie.match(/admin_token=([^;]+)/);
   return verifyToken(match ? match[1] : '', password);
-}
-
-// ── Admin-data helpers ────────────────────────────────────────────────────────
-function noteFile(id) {
-  const clean = (id || '').replace(/[^a-f0-9]/g, '');
-  return path.join(ROOT, 'admin-data', clean + '.json');
-}
-function loadNote(id) {
-  const fp = noteFile(id);
-  if (!fs.existsSync(fp)) return {};
-  try { return JSON.parse(fs.readFileSync(fp, 'utf8')); }
-  catch { return {}; }
-}
-function saveNote(id, note) {
-  const dir = path.join(ROOT, 'admin-data');
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-  fs.writeFileSync(noteFile(id), JSON.stringify({ ...note, updated_at: new Date().toISOString() }, null, 2));
-}
-
-// ── Find booking across all dirs ──────────────────────────────────────────────
-function findBooking(id) {
-  const clean = (id || '').replace(/[^a-f0-9]/g, '');
-  const dirs = [
-    { dir: path.join(ROOT, 'bookings'),           prefix: 'booking-', type: 'paid'    },
-    { dir: path.join(ROOT, 'pending-bookings'),   prefix: 'booking-', type: 'pending' },
-    { dir: path.join(ROOT, 'free-consultations'), prefix: 'consult-', type: 'free'    },
-  ];
-  for (const { dir, type } of dirs) {
-    if (!fs.existsSync(dir)) continue;
-    for (const f of fs.readdirSync(dir).filter(f => f.endsWith('.json'))) {
-      try {
-        const data = JSON.parse(fs.readFileSync(path.join(dir, f), 'utf8'));
-        if (data.internal_booking_id === clean) return { data, file: path.join(dir, f), type };
-      } catch {}
-    }
-  }
-  return null;
 }
 
 // ── Email ─────────────────────────────────────────────────────────────────────
@@ -163,19 +124,19 @@ module.exports = async (req, res) => {
 
   // ── save_note ─────────────────────────────────────────────────────────────
   if (action === 'save_note') {
-    const note = loadNote(id);
-    if (body.termin !== undefined) note.termin     = body.termin || null;
-    if (body.status !== undefined) note.status     = body.status;
-    if (body.admin_note !== undefined) note.admin_note = body.admin_note;
-    saveNote(id, note);
+    const note = await loadNote(id);
+    if (body.termin      !== undefined) note.termin     = body.termin || null;
+    if (body.status      !== undefined) note.status     = body.status;
+    if (body.admin_note  !== undefined) note.admin_note = body.admin_note;
+    await saveNote(id, note);
     return res.status(200).json({ ok: true, note });
   }
 
   // ── email_only — send confirmation for already-saved termin ───────────────
   if (action === 'email_only') {
-    const found = findBooking(id);
+    const found = await findEntry(id);
     if (!found) return res.status(404).json({ error: 'Booking not found' });
-    const note = loadNote(id);
+    const note = await loadNote(id);
     if (!note.termin) return res.status(400).json({ error: 'No termin saved yet' });
 
     try {
@@ -193,13 +154,13 @@ module.exports = async (req, res) => {
     const { datetime, send_mail } = body;
     if (!datetime) return res.status(400).json({ error: 'Missing datetime' });
 
-    const note = loadNote(id);
+    const note = await loadNote(id);
     note.termin = datetime;
     note.status = note.status || 'confirmed';
-    saveNote(id, note);
+    await saveNote(id, note);
 
     if (send_mail) {
-      const found = findBooking(id);
+      const found = await findEntry(id);
       if (found?.data?.email) {
         try {
           const { subject, html } = confirmationEmail(found.data, datetime);
@@ -216,12 +177,12 @@ module.exports = async (req, res) => {
 
   // ── cancel ────────────────────────────────────────────────────────────────
   if (action === 'cancel') {
-    const found = findBooking(id);
+    const found = await findEntry(id);
     if (!found) return res.status(404).json({ error: 'Booking not found' });
 
-    const note = loadNote(id);
+    const note = await loadNote(id);
     note.status = 'cancelled';
-    saveNote(id, note);
+    await saveNote(id, note);
 
     if (found.data.email) {
       try {
@@ -238,14 +199,20 @@ module.exports = async (req, res) => {
 
   // ── delete ────────────────────────────────────────────────────────────────
   if (action === 'delete') {
-    const found = findBooking(id);
+    const found = await findEntry(id);
     if (!found) return res.status(404).json({ error: 'Booking not found' });
     try {
-      fs.unlinkSync(found.file);
+      await deleteEntry(found.path, found.sha);
       // Also remove admin-data note
-      const nf = noteFile(id);
-      if (fs.existsSync(nf)) fs.unlinkSync(nf);
-    } catch {}
+      try {
+        const { ghRead, ghDelete } = require('../lib/github-storage');
+        const notePath = `admin-data/${id}.json`;
+        const { sha: noteSha } = await ghRead(notePath);
+        if (noteSha) await ghDelete(notePath, noteSha);
+      } catch {}
+    } catch (e) {
+      return res.status(500).json({ error: e.message });
+    }
     return res.status(200).json({ ok: true });
   }
 

@@ -1,7 +1,6 @@
-const fs         = require('fs');
-const path       = require('path');
 const crypto     = require('crypto');
 const nodemailer = require('nodemailer');
+const { loadBills, loadBill, saveBill, loadPositions } = require('../lib/github-storage');
 
 const TTL = 8 * 60 * 60 * 1000;
 
@@ -32,46 +31,6 @@ function isAuth(req, password) {
   return verifyToken(match ? match[1] : '', password);
 }
 
-const BILLS_DIR      = path.join(__dirname, '..', 'bills');
-const POSITIONS_FILE = path.join(__dirname, '..', 'data', 'positions.json');
-
-function ensureDir(dir) {
-  if (!fs.existsSync(dir)) fs.mkdirSync(dir, { recursive: true });
-}
-
-function loadPositions() {
-  if (!fs.existsSync(POSITIONS_FILE)) return [];
-  try { return JSON.parse(fs.readFileSync(POSITIONS_FILE, 'utf8')); }
-  catch { return []; }
-}
-
-function loadBills() {
-  ensureDir(BILLS_DIR);
-  return fs.readdirSync(BILLS_DIR)
-    .filter(f => f.endsWith('.json'))
-    .map(f => {
-      try { return JSON.parse(fs.readFileSync(path.join(BILLS_DIR, f), 'utf8')); }
-      catch { return null; }
-    })
-    .filter(Boolean)
-    .sort((a, b) => {
-      // Open bills first, then by date descending
-      if (a.status !== b.status) return a.status === 'open' ? -1 : 1;
-      return (b.created_at || '').localeCompare(a.created_at || '');
-    });
-}
-
-function loadBill(id) {
-  const fp = path.join(BILLS_DIR, `bill-${id}.json`);
-  if (!fs.existsSync(fp)) return null;
-  return JSON.parse(fs.readFileSync(fp, 'utf8'));
-}
-
-function saveBill(bill) {
-  ensureDir(BILLS_DIR);
-  fs.writeFileSync(path.join(BILLS_DIR, `bill-${bill.id}.json`), JSON.stringify(bill, null, 2));
-}
-
 function calcTotal(positions) {
   return +positions.reduce((s, p) => s + p.total_chf, 0).toFixed(2);
 }
@@ -87,8 +46,8 @@ function makeTransporter() {
 }
 
 function invoiceHtml(bill) {
-  const billDate  = new Date(bill.closed_at).toLocaleDateString('en-GB', { day:'2-digit', month:'long', year:'numeric' });
-  const billNum   = `INV-${bill.id}`;
+  const billDate = new Date(bill.closed_at).toLocaleDateString('en-GB', { day:'2-digit', month:'long', year:'numeric' });
+  const billNum  = `INV-${bill.id}`;
 
   const rows = bill.positions.map(p => `
     <tr>
@@ -104,33 +63,27 @@ function invoiceHtml(bill) {
 <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
 <body style="margin:0;padding:0;background:#f5f7fa;font-family:'Helvetica Neue',Arial,sans-serif">
   <div style="max-width:620px;margin:40px auto;background:#fff;border-radius:16px;overflow:hidden;box-shadow:0 4px 24px rgba(0,0,0,.08)">
-
-    <!-- Header -->
     <div style="background:#4693e8;padding:32px 40px">
       <h1 style="margin:0;color:#fff;font-size:22px;font-weight:700">Easy Help Switzerland</h1>
       <p style="margin:6px 0 0;color:rgba(255,255,255,.8);font-size:14px">Your Invoice</p>
     </div>
-
-    <!-- Invoice meta -->
-    <div style="padding:28px 40px 0;display:flex;justify-content:space-between">
-      <div>
-        <p style="margin:0;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.05em">Invoice number</p>
-        <p style="margin:4px 0 0;font-size:18px;font-weight:700;color:#111">${billNum}</p>
-      </div>
-      <div style="text-align:right">
-        <p style="margin:0;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.05em">Date</p>
-        <p style="margin:4px 0 0;font-size:15px;color:#333">${billDate}</p>
+    <div style="padding:28px 40px 0">
+      <div style="display:flex;justify-content:space-between">
+        <div>
+          <p style="margin:0;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.05em">Invoice number</p>
+          <p style="margin:4px 0 0;font-size:18px;font-weight:700;color:#111">${billNum}</p>
+        </div>
+        <div style="text-align:right">
+          <p style="margin:0;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.05em">Date</p>
+          <p style="margin:4px 0 0;font-size:15px;color:#333">${billDate}</p>
+        </div>
       </div>
     </div>
-
-    <!-- Client -->
     <div style="padding:20px 40px;border-bottom:1px solid #eee">
       <p style="margin:0;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.05em">Billed to</p>
       <p style="margin:6px 0 0;font-size:16px;font-weight:600;color:#111">${bill.client_name}</p>
       <p style="margin:2px 0 0;font-size:14px;color:#555">${bill.client_email}</p>
     </div>
-
-    <!-- Positions table -->
     <div style="padding:24px 40px">
       <table style="width:100%;border-collapse:collapse">
         <thead>
@@ -144,8 +97,6 @@ function invoiceHtml(bill) {
         </thead>
         <tbody>${rows}</tbody>
       </table>
-
-      <!-- Total -->
       <div style="display:flex;justify-content:flex-end;margin-top:20px;padding-top:16px;border-top:2px solid #111">
         <div style="text-align:right">
           <span style="font-size:13px;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-right:24px">Total due</span>
@@ -153,8 +104,6 @@ function invoiceHtml(bill) {
         </div>
       </div>
     </div>
-
-    <!-- Footer -->
     <div style="padding:24px 40px;background:#f8f9fb;border-top:1px solid #eee">
       <p style="margin:0;font-size:13px;color:#888;text-align:center">
         Questions? Contact us at <a href="mailto:info@easyhelpswitzerland.ch" style="color:#4693e8">info@easyhelpswitzerland.ch</a>
@@ -172,7 +121,6 @@ module.exports = async (req, res) => {
   if (!password)              return res.status(500).json({ error: 'Admin not configured' });
   if (!isAuth(req, password)) return res.status(401).json({ error: 'Not authenticated' });
 
-  // Parse body for write methods
   let body = {};
   if (req.method !== 'GET') {
     try {
@@ -186,11 +134,11 @@ module.exports = async (req, res) => {
     const qs = req.url.includes('?') ? req.url.split('?')[1] : '';
     const id = new URLSearchParams(qs).get('id');
     if (id) {
-      const bill = loadBill(id);
+      const bill = await loadBill(id);
       if (!bill) return res.status(404).json({ error: 'Not found' });
       return res.status(200).json(bill);
     }
-    return res.status(200).json(loadBills());
+    return res.status(200).json(await loadBills());
   }
 
   // POST — actions
@@ -212,18 +160,18 @@ module.exports = async (req, res) => {
         positions:    [],
         total_chf:    0,
       };
-      saveBill(bill);
+      await saveBill(bill);
       return res.status(200).json(bill);
     }
 
     // ── add_position ─────────────────────────────────────────────────────────
     if (action === 'add_position') {
       const { bill_id, position_number, quantity } = body;
-      const bill = loadBill(bill_id);
-      if (!bill)             return res.status(404).json({ error: 'Bill not found' });
+      const bill = await loadBill(bill_id);
+      if (!bill)               return res.status(404).json({ error: 'Bill not found' });
       if (bill.status !== 'open') return res.status(400).json({ error: 'Bill is closed' });
 
-      const positions = loadPositions();
+      const positions = await loadPositions();
       const pos = positions.find(p => p.number === parseInt(position_number));
       if (!pos) return res.status(404).json({ error: `Position #${position_number} not found in catalog` });
 
@@ -236,28 +184,28 @@ module.exports = async (req, res) => {
         total_chf:       +(pos.price_chf * qty).toFixed(2),
       });
       bill.total_chf = calcTotal(bill.positions);
-      saveBill(bill);
+      await saveBill(bill);
       return res.status(200).json(bill);
     }
 
     // ── remove_position ──────────────────────────────────────────────────────
     if (action === 'remove_position') {
       const { bill_id, position_index } = body;
-      const bill = loadBill(bill_id);
-      if (!bill)             return res.status(404).json({ error: 'Bill not found' });
+      const bill = await loadBill(bill_id);
+      if (!bill)               return res.status(404).json({ error: 'Bill not found' });
       if (bill.status !== 'open') return res.status(400).json({ error: 'Bill is closed' });
 
       bill.positions.splice(parseInt(position_index), 1);
       bill.total_chf = calcTotal(bill.positions);
-      saveBill(bill);
+      await saveBill(bill);
       return res.status(200).json(bill);
     }
 
     // ── update_position ──────────────────────────────────────────────────────
     if (action === 'update_position') {
       const { bill_id, position_index, quantity } = body;
-      const bill = loadBill(bill_id);
-      if (!bill)             return res.status(404).json({ error: 'Bill not found' });
+      const bill = await loadBill(bill_id);
+      if (!bill)               return res.status(404).json({ error: 'Bill not found' });
       if (bill.status !== 'open') return res.status(400).json({ error: 'Bill is closed' });
 
       const idx = parseInt(position_index);
@@ -268,23 +216,22 @@ module.exports = async (req, res) => {
       p.quantity  = qty;
       p.total_chf = +(p.unit_price_chf * qty).toFixed(2);
       bill.total_chf = calcTotal(bill.positions);
-      saveBill(bill);
+      await saveBill(bill);
       return res.status(200).json(bill);
     }
 
     // ── close ────────────────────────────────────────────────────────────────
     if (action === 'close') {
       const { bill_id } = body;
-      const bill = loadBill(bill_id);
-      if (!bill)             return res.status(404).json({ error: 'Bill not found' });
-      if (bill.status !== 'open') return res.status(400).json({ error: 'Bill is already closed' });
-      if (!bill.positions.length) return res.status(400).json({ error: 'Add at least one position before closing' });
+      const bill = await loadBill(bill_id);
+      if (!bill)               return res.status(404).json({ error: 'Bill not found' });
+      if (bill.status !== 'open')     return res.status(400).json({ error: 'Bill is already closed' });
+      if (!bill.positions.length)     return res.status(400).json({ error: 'Add at least one position before closing' });
 
       bill.status    = 'closed';
       bill.closed_at = new Date().toISOString();
-      saveBill(bill);
+      await saveBill(bill);
 
-      // Send invoice email
       try {
         const transporter = makeTransporter();
         await transporter.sendMail({

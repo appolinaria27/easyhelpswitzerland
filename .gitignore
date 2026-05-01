@@ -2,7 +2,7 @@
 .DS_Store
 **/.DS_Store
 
-# env / secrets
+# ── Secrets / environment ─────────────────────────────────────────────────────
 .env
 .env.local
 .env.*.local
@@ -12,21 +12,20 @@
 *.p12
 *.pfx
 
-# dependencies
+# ── Dependencies ──────────────────────────────────────────────────────────────
 vendor/
 node_modules/
 
-# logs
+# ── Logs — contain request details, IPs, errors ──────────────────────────────
 logs/
 *.log
 error_log
 php_errors.log
 
-# backups
+# ── Backups ───────────────────────────────────────────────────────────────────
 backups/
 
-# temp / runtime data
-pending-bookings/
+# ── Runtime / temp files ──────────────────────────────────────────────────────
 rate-limit/
 *.tmp
 *.bak
@@ -34,39 +33,52 @@ rate-limit/
 *.swo
 *~
 
-# PHP server config (server-specific, no secrets but not needed in repo)
+# ── PHP server config ─────────────────────────────────────────────────────────
 .user.ini
 php.ini
 
-# local tools
+# ── Local tooling ─────────────────────────────────────────────────────────────
 .claude/
 
-# editor
+# ── Editor ────────────────────────────────────────────────────────────────────
 .vscode/
 .idea/
 *.sublime-project
 *.sublime-workspace
 
-# OS
+# ── OS ────────────────────────────────────────────────────────────────────────
 Thumbs.db
 ehthumbs.db
 
-# Booking data — JSON files are private client data, keep only .htaccess
+# ── Client data — private PII, must never enter version control ──────────────
+# Paid bookings
 bookings/*.json
 !bookings/.htaccess
+
+# Pending bookings (pre-payment)
+pending-bookings/
+
+# Free consultation submissions
 free-consultations/*.json
 !free-consultations/.htaccess
 
-# Admin runtime data (appointments, notes) — private, not for repo
+# Admin notes, termin dates (per-booking)
 admin-data/
 
-# Stripe webhook idempotency lock files — runtime only, keep .htaccess
+# Bills / invoices — contain client name, email, price breakdown
+bills/*.json
+
+# ── Stripe webhook files ──────────────────────────────────────────────────────
 stripe-events/*.lock
 stripe-events/*.json
 
-# Rate-limit state files
-rate-limit/
+# ── Runtime cache ─────────────────────────────────────────────────────────────
+# News cache is rebuilt automatically — no need to track
+news-cache.json
 
-# PHP session files
+# ── Design scratch files ──────────────────────────────────────────────────────
+og-image-source.html
+
+# ── PHP session files ─────────────────────────────────────────────────────────
 /tmp/sess_*
 sess_*

@@ -1,4 +1,15 @@
 const nodemailer = require('nodemailer');
+const crypto     = require('crypto');
+const { saveEntry } = require('../lib/github-storage');
+
+function getRawBody(req) {
+  return new Promise((resolve, reject) => {
+    const chunks = [];
+    req.on('data', c => chunks.push(typeof c === 'string' ? Buffer.from(c) : c));
+    req.on('end',  () => resolve(Buffer.concat(chunks)));
+    req.on('error', reject);
+  });
+}
 
 function makeTransporter() {
   return nodemailer.createTransport({
@@ -12,10 +23,12 @@ function makeTransporter() {
 module.exports = async (req, res) => {
   if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-  let body = req.body;
-  if (typeof body === 'string') {
-    try { body = JSON.parse(body); } catch { body = {}; }
-  }
+  // Parse body manually (bodyParser: false)
+  let body = {};
+  try {
+    const raw = await getRawBody(req);
+    if (raw.length) body = JSON.parse(raw.toString('utf8'));
+  } catch {}
 
   const { name, email, phone, location, topic, message } = body || {};
 
@@ -27,13 +40,34 @@ module.exports = async (req, res) => {
   if (message && message.length > 2000) return res.status(400).json({ error: 'Message too long' });
 
   const safeName = String(name).replace(/[\r\n]/g, ' ');
+  const id       = crypto.randomBytes(16).toString('hex');
+  const now      = new Date().toISOString();
 
+  // ── Persist to GitHub ────────────────────────────────────────────────────────
+  try {
+    const record = {
+      internal_booking_id: id,
+      type:       'free',
+      name:       safeName,
+      email:      String(email).slice(0, 200),
+      phone:      String(phone    || '').slice(0, 50),
+      location:   String(location || '').slice(0, 100),
+      topic:      String(topic    || '').slice(0, 200),
+      message:    String(message  || '').slice(0, 2000),
+      created_at: now,
+    };
+    await saveEntry('free-consultations', `consult-${id}.json`, record);
+  } catch (err) {
+    console.error('GitHub save error:', err.message);
+    // Non-fatal — still send emails so client is not left without response
+  }
+
+  // ── Emails ───────────────────────────────────────────────────────────────────
   const t = makeTransporter();
 
-  // Admin email
   try {
     await t.sendMail({
-      from:    `"Easy Help Switzerland" <${process.env.MAIL_FROM}>`,
+      from:    `"Easy Help Switzerland" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
       to:      process.env.ADMIN_EMAIL,
       replyTo: email,
       subject: `New free consultation request — ${safeName}`,
@@ -67,10 +101,9 @@ module.exports = async (req, res) => {
     return res.status(500).json({ error: 'Could not send your request. Please try again.' });
   }
 
-  // Client confirmation (non-critical)
   try {
     await t.sendMail({
-      from:    `"Easy Help Switzerland" <${process.env.MAIL_FROM}>`,
+      from:    `"Easy Help Switzerland" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
       to:      email,
       subject: 'We received your consultation request — Easy Help Switzerland',
       html: `
@@ -94,3 +127,5 @@ module.exports = async (req, res) => {
 
   return res.status(200).json({ ok: true });
 };
+
+module.exports.config = { api: { bodyParser: false } };
