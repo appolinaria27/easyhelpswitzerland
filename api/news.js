@@ -1,101 +1,125 @@
 /**
  * api/news.js
- * Fetches Swiss-relevant news from GNews.
- * Cache is stored in GitHub so it survives Vercel cold starts and is
- * shared across all instances — GNews free plan = 100 req/day.
- *
- * Query strategy: try specific queries first, fall back to broader ones
- * so we always return at least 3 articles.
+ * Fetches Switzerland-related news from Google News RSS.
+ * No API key, no rate limits, always has relevant results.
+ * Cache stored in GitHub so it survives Vercel cold starts.
  */
 
 const { ghRead, ghWrite } = require('../lib/github-storage');
 
 const CACHE_PATH = 'data/news-cache.json';
-const TTL_MS     = 12 * 60 * 60 * 1000; // 12 hours
+const TTL_MS     = 6 * 60 * 60 * 1000; // 6 hours
 
-// In-process memory cache — shared within one warm Vercel instance
+// In-process fallback for repeated calls on the same warm instance
 let memCache = { data: null, at: 0 };
 
-// Queries tried in order until we get ≥ 3 articles
-const QUERIES = [
-  'Switzerland foreigners housing permit',
-  'Switzerland migration work',
-  'Switzerland news',
-];
+// Google News RSS — no auth required, excellent coverage
+const RSS_URL = 'https://news.google.com/rss/search?q=Switzerland+immigration+expat+permit&hl=en-US&gl=US&ceid=US:en';
 
-async function fetchFromGNews(apiKey) {
-  for (const q of QUERIES) {
-    const url = `https://gnews.io/api/v4/search?q=${encodeURIComponent(q)}&lang=en&max=3&sortby=publishedAt&apikey=${apiKey}`;
-    try {
-      const r    = await fetch(url);
-      const text = await r.text();
-      if (!r.ok) { console.error('GNews error:', r.status, text.slice(0, 100)); continue; }
-      const json = JSON.parse(text);
-      const arts = json.articles || [];
-      if (arts.length > 0) {
-        return arts.map(a => ({
-          title:       a.title,
-          description: a.description,
-          url:         a.url,
-          image:       a.image,
-          source:      a.source?.name || '',
-          publishedAt: a.publishedAt,
-        }));
-      }
-    } catch (e) { console.error('GNews fetch error:', e.message); }
+function decodeEntities(str) {
+  return str
+    .replace(/&amp;/g,  '&')
+    .replace(/&lt;/g,   '<')
+    .replace(/&gt;/g,   '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g,  "'")
+    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(parseInt(n)));
+}
+
+function parseRSS(xml) {
+  const articles = [];
+  const itemRe = /<item>([\s\S]*?)<\/item>/g;
+  let m;
+
+  while ((m = itemRe.exec(xml)) !== null && articles.length < 3) {
+    const chunk = m[1];
+
+    // Title
+    const titleM = chunk.match(/<title>([\s\S]*?)<\/title>/);
+    if (!titleM) continue;
+    let title = decodeEntities(titleM[1].trim());
+
+    // Source name
+    const srcM = chunk.match(/<source[^>]*>([\s\S]*?)<\/source>/);
+    const source = srcM ? decodeEntities(srcM[1].trim()) : '';
+
+    // Strip "- Source" suffix Google appends to titles
+    if (source && title.endsWith(' - ' + source)) {
+      title = title.slice(0, -(3 + source.length));
+    }
+
+    // URL — Google redirect link, fully functional
+    const linkM = chunk.match(/<link>([\s\S]*?)<\/link>/);
+    const url = linkM ? linkM[1].trim() : '';
+    if (!url) continue;
+
+    // Pub date
+    const pubM = chunk.match(/<pubDate>([\s\S]*?)<\/pubDate>/);
+    let publishedAt = null;
+    try { if (pubM) publishedAt = new Date(pubM[1].trim()).toISOString(); } catch {}
+
+    articles.push({ title, url, source, publishedAt, image: null, description: '' });
   }
-  return [];
+
+  return articles;
+}
+
+async function fetchArticles() {
+  const res = await fetch(RSS_URL, {
+    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EasyHelpBot/1.0)' },
+  });
+  if (!res.ok) throw new Error(`RSS fetch failed: ${res.status}`);
+  const xml = await res.text();
+  return parseRSS(xml);
 }
 
 module.exports = async (req, res) => {
   if (req.method !== 'GET') return res.status(405).end();
 
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Cache-Control', 'public, s-maxage=43200, stale-while-revalidate=3600');
+  res.setHeader('Cache-Control', 'public, s-maxage=21600, stale-while-revalidate=3600');
 
   const now = Date.now();
 
-  // 1. Serve from in-process memory if warm and fresh
+  // 1. In-process memory cache
   if (memCache.data && now - memCache.at < TTL_MS) {
     return res.status(200).json(memCache.data);
   }
 
-  // 2. Try GitHub persistent cache
+  // 2. GitHub persistent cache
   try {
     const { data } = await ghRead(CACHE_PATH);
-    if (data && data.fetched_at && now - data.fetched_at < TTL_MS && data.articles?.length) {
+    if (data && data.fetched_at && (now - data.fetched_at) < TTL_MS && data.articles?.length) {
       memCache = { data: { articles: data.articles }, at: data.fetched_at };
       return res.status(200).json({ articles: data.articles });
     }
   } catch (e) {
-    console.error('GitHub cache read error:', e.message);
+    console.error('GitHub cache read:', e.message);
   }
 
-  // 3. Fetch fresh from GNews
-  const apiKey = process.env.GNEWS_API_KEY;
-  if (!apiKey) {
-    console.error('GNEWS_API_KEY not set');
-    return res.status(200).json({ articles: [] });
+  // 3. Fetch fresh from Google News RSS
+  try {
+    const articles = await fetchArticles();
+
+    if (articles.length > 0) {
+      const payload = { articles, fetched_at: now };
+
+      // Save to GitHub cache (non-blocking)
+      (async () => {
+        try {
+          const { sha } = await ghRead(CACHE_PATH);
+          await ghWrite(CACHE_PATH, payload, sha);
+        } catch (e) { console.error('GitHub cache write:', e.message); }
+      })();
+
+      memCache = { data: { articles }, at: now };
+      return res.status(200).json({ articles });
+    }
+  } catch (e) {
+    console.error('RSS fetch error:', e.message);
   }
 
-  const articles = await fetchFromGNews(apiKey);
-
-  if (articles.length > 0) {
-    const payload = { articles, fetched_at: now };
-
-    // Save to GitHub cache (non-blocking)
-    (async () => {
-      try {
-        const { sha } = await ghRead(CACHE_PATH);
-        await ghWrite(CACHE_PATH, payload, sha);
-      } catch (e) { console.error('GitHub cache write error:', e.message); }
-    })();
-
-    memCache = { data: { articles }, at: now };
-    return res.status(200).json({ articles });
-  }
-
-  // 4. Return stale cache rather than empty if GNews failed completely
+  // 4. Return stale cache rather than nothing
   if (memCache.data) return res.status(200).json(memCache.data);
   return res.status(200).json({ articles: [] });
 };
