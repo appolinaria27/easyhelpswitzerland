@@ -5,6 +5,14 @@
   "status": "open",
   "created_at": "2026-05-01T15:49:00.690Z",
   "closed_at": null,
-  "positions": [],
-  "total_chf": 0
+  "positions": [
+    {
+      "position_number": 4,
+      "name": "General consultation & strategy building (1h)",
+      "quantity": 1,
+      "unit_price_chf": 149,
+      "total_chf": 149
+    }
+  ],
+  "total_chf": 149
 }
