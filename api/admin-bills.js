@@ -46,6 +46,45 @@ function makeTransporter() {
   });
 }
 
+// ── Swiss QR-Bill (QR-Rechnung) payload builder ───────────────────────────────
+// Spec: https://www.six-group.com/dam/download/banking-services/standardization/qr-bill/ig-qr-bill-v2.3-en.pdf
+function swissQrPayload(bill) {
+  const iban   = 'CH2980808007000620920';         // Polina Kravtsova — PostFinance
+  const amount = parseFloat(bill.total_chf).toFixed(2);
+  const ref    = `INV-${bill.id}`;
+
+  // SPC format: each field separated by \n, exactly as specified
+  return [
+    'SPC',           // Swiss Payments Code
+    '0200',          // Version
+    '1',             // UTF-8
+    iban,            // Creditor IBAN
+    'S',             // Address type: structured
+    'Polina Kravtsova', // Creditor name
+    'Ackerstrasse 24',  // Street + number
+    '',              // (building number field empty — already in street line)
+    '8610',          // Postal code
+    'Uster',         // City
+    'CH',            // Country
+    '',              // Ultimate creditor (not used)
+    '', '', '', '', '',
+    amount,          // Amount
+    'CHF',           // Currency
+    '',              // Debtor address type (unknown)
+    '', '', '', '', '',
+    'NON',           // Reference type: no structured reference
+    '',              // Reference
+    ref,             // Unstructured message (invoice number)
+    'EPD',           // End Payment Data
+  ].join('\n');
+}
+
+// QR code image URL — uses qrserver.com public API (no key needed)
+// Error correction M (15%) required for Swiss QR-Bills
+function swissQrImgUrl(payload) {
+  return `https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=4&ecc=M&data=${encodeURIComponent(payload)}`;
+}
+
 function invoiceHtml(bill, paymentUrl) {
   const billDate = new Date(bill.closed_at).toLocaleDateString('en-GB', { day:'2-digit', month:'long', year:'numeric' });
   const billNum  = `INV-${bill.id}`;
@@ -59,19 +98,16 @@ function invoiceHtml(bill, paymentUrl) {
       <td style="padding:10px 14px;border-bottom:1px solid #f0f0f0;text-align:right;font-weight:600">CHF ${parseFloat(p.total_chf).toFixed(2)}</td>
     </tr>`).join('');
 
-  // QR code via free public API — encodes the Stripe payment link
-  const qrBlock = paymentUrl ? `
-    <div style="padding:28px 40px;border-top:1px solid #eee;text-align:center">
-      <p style="margin:0 0 6px;font-size:12px;color:#888;text-transform:uppercase;letter-spacing:.05em">Pay online</p>
-      <img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&margin=6&data=${encodeURIComponent(paymentUrl)}"
-           alt="Payment QR code" width="160" height="160"
-           style="display:block;margin:0 auto 12px;border:1px solid #eee;border-radius:8px">
-      <p style="margin:0;font-size:13px;color:#444">Scan to pay — or click the button below</p>
+  // Swiss QR-Rechnung block — scannable by all Swiss banking apps
+  const qrPayload = swissQrPayload(bill);
+  const qrImgUrl  = swissQrImgUrl(qrPayload);
+
+  // Optional Stripe pay-now button (shown only if payment link was created)
+  const payButton = paymentUrl ? `
       <a href="${paymentUrl}"
-         style="display:inline-block;margin-top:14px;padding:12px 28px;background:#4693e8;color:#fff;text-decoration:none;border-radius:8px;font-size:14px;font-weight:600">
-        Pay CHF ${parseFloat(bill.total_chf).toFixed(2)} now
-      </a>
-    </div>` : '';
+         style="display:inline-block;margin-top:16px;padding:11px 26px;background:#4693e8;color:#fff;text-decoration:none;border-radius:8px;font-size:13px;font-weight:600">
+        Pay online — CHF ${parseFloat(bill.total_chf).toFixed(2)}
+      </a>` : '';
 
   return `<!DOCTYPE html>
 <html>
@@ -119,12 +155,24 @@ function invoiceHtml(bill, paymentUrl) {
         </div>
       </div>
     </div>
-    ${qrBlock}
-    <div style="padding:24px 40px;background:#f8f9fb;border-top:1px solid #eee">
+    <!-- Swiss QR-Rechnung payment section -->
+    <div style="padding:28px 40px;border-top:2px solid #eee;text-align:center">
+      <p style="margin:0 0 4px;font-size:13px;font-weight:600;color:#111">Payment</p>
+      <p style="margin:0 0 16px;font-size:12px;color:#888">Scan with your Swiss banking app (PostFinance, UBS, Neon, Raiffeisen&nbsp;…)</p>
+      <img src="${qrImgUrl}"
+           alt="Swiss QR-Rechnung" width="180" height="180"
+           style="display:block;margin:0 auto;border:1px solid #ddd;border-radius:6px">
+      <p style="margin:14px 0 2px;font-size:12px;color:#aaa;text-transform:uppercase;letter-spacing:.05em">IBAN</p>
+      <p style="margin:0;font-size:14px;font-family:monospace;color:#333;letter-spacing:.05em">CH29 8080 8007 0006 2092 0</p>
+      <p style="margin:14px 0 2px;font-size:12px;color:#aaa;text-transform:uppercase;letter-spacing:.05em">Beneficiary</p>
+      <p style="margin:0;font-size:14px;color:#333">Polina Kravtsova · Ackerstrasse 24 · 8610 Uster</p>
+      ${payButton}
+    </div>
+    <div style="padding:20px 40px;background:#f8f9fb;border-top:1px solid #eee">
       <p style="margin:0;font-size:13px;color:#888;text-align:center">
-        Questions? Contact us at <a href="mailto:info@easyhelpswitzerland.ch" style="color:#4693e8">info@easyhelpswitzerland.ch</a>
+        Questions? <a href="mailto:info@easyhelpswitzerland.ch" style="color:#4693e8">info@easyhelpswitzerland.ch</a>
       </p>
-      <p style="margin:8px 0 0;font-size:12px;color:#bbb;text-align:center">Easy Help Switzerland · easyhelpswitzerland.ch</p>
+      <p style="margin:6px 0 0;font-size:12px;color:#bbb;text-align:center">Easy Help Switzerland · easyhelpswitzerland.ch</p>
     </div>
   </div>
 </body>
