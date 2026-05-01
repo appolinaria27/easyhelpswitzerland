@@ -12,7 +12,14 @@
       "quantity": 1,
       "unit_price_chf": 189,
       "total_chf": 189
+    },
+    {
+      "position_number": 4,
+      "name": "General consultation & strategy building (1h)",
+      "quantity": 1,
+      "unit_price_chf": 149,
+      "total_chf": 149
     }
   ],
-  "total_chf": 189
+  "total_chf": 338
 }
