@@ -4618,6 +4618,9 @@ function setLanguage(lang) {
   document.querySelectorAll(`[data-lang="${safeLang}"]`).forEach((btn) => {
     btn.classList.add("active");
   });
+
+  // Notify dynamic components (e.g. news cards) that language changed
+  document.dispatchEvent(new CustomEvent('langChanged', { detail: { lang: safeLang } }));
 }
 
 document.addEventListener("DOMContentLoaded", () => {

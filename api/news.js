@@ -1,7 +1,7 @@
 /**
  * api/news.js
  * Fetches Switzerland-related news from Google News RSS.
- * No API key, no rate limits, always has relevant results.
+ * Translates titles + snippets into all site languages (EN/DE/ES/UK) via MyMemory (free, no key).
  * Cache stored in GitHub so it survives Vercel cold starts.
  */
 
@@ -13,9 +13,11 @@ const TTL_MS     = 6 * 60 * 60 * 1000; // 6 hours
 // In-process fallback for repeated calls on the same warm instance
 let memCache = { data: null, at: 0 };
 
-// Google News RSS — no auth required, excellent coverage
-// German-language query so articles arrive in German natively (no translation API needed)
-const RSS_URL = 'https://news.google.com/rss/search?q=Schweiz+Einwanderung+Aufenthaltsbewilligung+Expat+Ausländer&hl=de-CH&gl=CH&ceid=CH:de';
+// English RSS — best image coverage and source text for translation
+const RSS_URL = 'https://news.google.com/rss/search?q=Switzerland+immigration+expat+permit+relocation&hl=en-US&gl=US&ceid=US:en';
+
+// Site languages (English is source, the rest get translated)
+const TARGET_LANGS = ['de', 'es', 'uk'];
 
 function decodeEntities(str) {
   return str
@@ -59,18 +61,26 @@ function parseRSS(xml) {
     let publishedAt = null;
     try { if (pubM) publishedAt = new Date(pubM[1].trim()).toISOString(); } catch {}
 
-    // Image — Google News puts a thumbnail inside the <description> CDATA as an <img> tag
+    // Image + description — Google puts a thumbnail inside <description> as HTML
     let image = null;
     let description = '';
-    const descM = chunk.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/);
-    if (descM) {
-      const html = descM[1];
-      // Extract thumbnail URL
-      const imgM = html.match(/<img[^>]+src="([^"]+)"/);
-      if (imgM) image = imgM[1];
-      // Extract plain-text snippet (strip all tags)
-      description = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
+
+    // Try CDATA first, then fall back to entity-encoded content
+    let descHtml = '';
+    const cdataM = chunk.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/);
+    if (cdataM) {
+      descHtml = cdataM[1];
+    } else {
+      const rawDescM = chunk.match(/<description>([\s\S]*?)<\/description>/);
+      if (rawDescM) descHtml = decodeEntities(rawDescM[1]);
     }
+
+    if (descHtml) {
+      const imgM = descHtml.match(/<img[^>]+src="([^"]+)"/);
+      if (imgM) image = imgM[1];
+      description = descHtml.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
+    }
+
     // Fallback: <media:content url="...">
     if (!image) {
       const mediaM = chunk.match(/<media:content[^>]+url="([^"]+)"/);
@@ -90,6 +100,40 @@ async function fetchArticles() {
   if (!res.ok) throw new Error(`RSS fetch failed: ${res.status}`);
   const xml = await res.text();
   return parseRSS(xml);
+}
+
+// MyMemory: free, no API key, 500 words/day per IP
+// We use it only when writing a new cache (once per 6 hours)
+async function translateText(text, targetLang) {
+  if (!text) return '';
+  try {
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${targetLang}`;
+    const r = await fetch(url, { signal: AbortSignal.timeout(5000) });
+    if (!r.ok) return text;
+    const j = await r.json();
+    const translated = j?.responseData?.translatedText;
+    // MyMemory sometimes returns error strings — fall back to original
+    if (!translated || translated.toLowerCase().startsWith('mymemory')) return text;
+    return translated;
+  } catch {
+    return text;
+  }
+}
+
+async function addTranslations(articles) {
+  return Promise.all(articles.map(async (a) => {
+    // translations.en always = original English
+    const translations = { en: { title: a.title, description: a.description } };
+    // Translate into all target languages in parallel
+    await Promise.all(TARGET_LANGS.map(async (lang) => {
+      const [title, description] = await Promise.all([
+        translateText(a.title, lang),
+        translateText(a.description.slice(0, 150), lang),
+      ]);
+      translations[lang] = { title, description };
+    }));
+    return { ...a, translations };
+  }));
 }
 
 module.exports = async (req, res) => {
@@ -116,11 +160,13 @@ module.exports = async (req, res) => {
     console.error('GitHub cache read:', e.message);
   }
 
-  // 3. Fetch fresh from Google News RSS
+  // 3. Fetch fresh from Google News RSS + translate
   try {
-    const articles = await fetchArticles();
+    const raw = await fetchArticles();
 
-    if (articles.length > 0) {
+    if (raw.length > 0) {
+      // Translate titles + descriptions into all site languages
+      const articles = await addTranslations(raw);
       const payload = { articles, fetched_at: now };
 
       // Save to GitHub cache (non-blocking)
