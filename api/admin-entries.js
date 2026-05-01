@@ -16,6 +16,16 @@ function verifyToken(token, password) {
   } catch { return false; }
 }
 
+function loadNote(dataDir, id) {
+  if (!id) return {};
+  const clean = id.replace(/[^a-f0-9]/g, '');
+  if (!clean) return {};
+  const fp = path.join(dataDir, clean + '.json');
+  if (!fs.existsSync(fp)) return {};
+  try { return JSON.parse(fs.readFileSync(fp, 'utf8')); }
+  catch { return {}; }
+}
+
 function loadDir(dir, type, pattern) {
   if (!fs.existsSync(dir)) return [];
   try {
@@ -37,20 +47,31 @@ function loadDir(dir, type, pattern) {
 module.exports = async (req, res) => {
   if (req.method !== 'GET') return res.status(405).end();
 
-  const password = process.env.ADMIN_PASSWORD;
+  const password = (process.env.ADMIN_PASSWORD || '').trim();
   if (!password) return res.status(500).json({ error: 'Admin not configured' });
 
   const cookie = req.headers.cookie || '';
   const match  = cookie.match(/admin_token=([^;]+)/);
   const token  = match ? match[1] : '';
-  if (!verifyToken(token, password)) {
-    return res.status(401).json({ error: 'Not authenticated' });
-  }
+  if (!verifyToken(token, password)) return res.status(401).json({ error: 'Not authenticated' });
 
-  const root = path.join(__dirname, '..');
+  const root    = path.join(__dirname, '..');
+  const dataDir = path.join(root, 'admin-data');
+
   const consultations = loadDir(path.join(root, 'free-consultations'), 'free',    'consult-');
   const paid          = loadDir(path.join(root, 'bookings'),           'paid',    'booking-');
   const pending       = loadDir(path.join(root, 'pending-bookings'),   'pending', 'booking-');
+
+  // Merge admin-data notes into each entry
+  const mergeNote = entry => {
+    const note = loadNote(dataDir, entry.internal_booking_id);
+    entry._termin     = note.termin     || null;
+    entry._status     = note.status     || (entry._type === 'pending' ? 'pending' : 'confirmed');
+    entry._admin_note = note.admin_note || '';
+    return entry;
+  };
+
+  const allEntries = [...consultations, ...paid, ...pending].map(mergeNote);
 
   const totalRevenue = paid.reduce((s, b) => s + parseFloat(b.price_chf || 0), 0);
 
@@ -61,6 +82,6 @@ module.exports = async (req, res) => {
       pending:       pending.length,
       revenue:       totalRevenue.toFixed(2),
     },
-    entries: [...consultations, ...paid, ...pending],
+    entries: allEntries,
   });
 };

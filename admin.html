@@ -6,624 +6,1015 @@
   <title>Admin — Easy Help Switzerland</title>
   <meta name="robots" content="noindex,nofollow"/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <script src="/fullcalendar.min.js"></script>
   <style>
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:"Manrope",system-ui,sans-serif;background:#0a0e14;color:#e8edf2;min-height:100vh}
-    :root{--blue:#4693e8;--green:#2ecc71;--orange:#f39c12;--red:#e74c3c;--line:rgba(255,255,255,.1);--card:rgba(255,255,255,.05)}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --dark:#0a0e14;--blue:#4693e8;--green:#2ecc71;--orange:#f39c12;--red:#e74c3c;
+      --bg:#f2f4f7;--card:#fff;--border:#e4e8ee;--text:#111;--muted:rgba(17,17,17,.45);
+      --line:rgba(255,255,255,.1);
+    }
+    body{font-family:"Manrope",system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh;font-size:15px;line-height:1.65}
 
     /* ── Login ── */
-    #loginScreen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px}
+    #loginScreen{display:flex;align-items:center;justify-content:center;min-height:100vh;padding:24px;background:var(--dark)}
     .login-card{background:#fff;border-radius:20px;padding:48px 40px;width:100%;max-width:400px;box-shadow:0 24px 64px rgba(0,0,0,.5)}
-    .login-card h1{font-size:22px;color:#111;margin-bottom:6px}
+    .login-card h1{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:400;color:#111;margin-bottom:6px}
     .login-card p{font-size:14px;color:#888;margin-bottom:28px}
-    .login-card input{width:100%;border:1px solid #ddd;border-radius:10px;padding:12px 16px;font-size:15px;font-family:inherit;outline:none;transition:.2s}
-    .login-card input:focus{border-color:var(--blue);box-shadow:0 0 0 3px rgba(70,147,232,.15)}
-    .login-card button{width:100%;margin-top:14px;background:var(--blue);color:#fff;border:0;border-radius:10px;padding:13px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;transition:.2s}
-    .login-card button:hover{background:#317bcd}
+    .login-card input{width:100%;border:1.5px solid #ddd;border-radius:10px;padding:12px 16px;font-size:15px;font-family:inherit;outline:none;transition:.2s}
+    .login-card input:focus{border-color:var(--blue)}
+    .login-card button{width:100%;margin-top:14px;background:var(--dark);color:#fff;border:0;border-radius:10px;padding:13px;font-size:15px;font-weight:600;font-family:inherit;cursor:pointer;transition:.2s}
+    .login-card button:hover{background:#1a2030}
     .login-error{margin-top:12px;font-size:13px;color:#c00;text-align:center;display:none}
 
-    /* ── Dashboard shell ── */
-    #dashboard{display:none;padding:32px 24px;max-width:1100px;margin:0 auto}
-    .top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:24px}
-    .top-bar h1{font-size:22px;font-weight:600}
-    .logout-btn{background:transparent;border:1px solid var(--line);color:rgba(255,255,255,.6);border-radius:8px;padding:7px 16px;font-size:13px;cursor:pointer;font-family:inherit;transition:.2s}
-    .logout-btn:hover{border-color:#fff;color:#fff}
+    /* ── Topbar ── */
+    #dashboard{display:none}
+    .topbar{background:var(--dark);color:#fff;height:60px;padding:0 32px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:200}
+    .topbar-brand{font-family:"Cormorant Garamond",serif;font-size:20px;font-weight:400}
+    .topbar-brand span{font-family:"Manrope",sans-serif;font-size:10px;color:rgba(255,255,255,.4);margin-left:10px;letter-spacing:.14em;text-transform:uppercase}
+    .topbar-right{display:flex;gap:14px;align-items:center}
+    .topbar-right a{color:rgba(255,255,255,.5);text-decoration:none;font-size:12px;letter-spacing:.04em;transition:.2s}
+    .topbar-right a:hover{color:#fff}
+    .btn-logout{background:rgba(255,255,255,.08);color:#fff!important;padding:6px 16px;border-radius:6px;border:1px solid rgba(255,255,255,.12)!important;font-size:12px!important}
+    .btn-logout:hover{background:rgba(255,255,255,.16)!important}
 
-    /* ── Tabs ── */
-    .tabs{display:flex;gap:4px;margin-bottom:28px;border-bottom:1px solid var(--line)}
-    .tab-btn{background:transparent;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;color:rgba(255,255,255,.45);font-family:inherit;font-size:14px;font-weight:500;padding:10px 22px;cursor:pointer;transition:.2s}
-    .tab-btn:hover{color:#fff}
-    .tab-btn.active{color:#fff;border-bottom-color:var(--blue)}
+    /* ── Container ── */
+    .container{max-width:1240px;margin:0 auto;padding:32px 28px 80px}
 
     /* ── Stats ── */
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
-    .stat-card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px 20px}
-    .stat-card .num{font-size:36px;font-weight:700;color:var(--blue)}
-    .stat-card .lbl{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-top:4px}
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:32px}
+    .stat-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:26px 24px}
+    .stat-label{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);margin-bottom:10px;font-weight:500}
+    .stat-value{font-family:"Cormorant Garamond",serif;font-size:44px;font-weight:300;line-height:1;letter-spacing:-.04em}
+    .stat-value.green{color:var(--green)}.stat-value.blue{color:var(--blue)}
 
-    /* ── Section title ── */
-    .sec-title{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+    /* ── Tabs ── */
+    .tabs{display:flex;border-bottom:1px solid var(--border);margin-bottom:28px}
+    .tab-btn{background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;font-family:"Manrope",inherit;font-size:11px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;padding:12px 22px;transition:.18s}
+    .tab-btn:hover{color:var(--text)}
+    .tab-btn.active{color:var(--text);border-bottom-color:var(--text)}
+    .tab-panel{display:none}.tab-panel.active{display:block}
 
-    /* ── Badges ── */
-    .badge{font-size:10px;letter-spacing:.08em;text-transform:uppercase;border-radius:6px;padding:3px 10px;font-weight:600;white-space:nowrap}
-    .badge-free{background:rgba(70,147,232,.15);color:#4693e8}
-    .badge-paid{background:rgba(46,204,113,.15);color:#2ecc71}
-    .badge-pending{background:rgba(243,156,18,.15);color:#f39c12}
-    .badge-open{background:rgba(70,147,232,.15);color:#4693e8}
-    .badge-closed{background:rgba(46,204,113,.15);color:#2ecc71}
+    /* ── Calendar layout ── */
+    .cal-layout{display:grid;grid-template-columns:240px 1fr;gap:20px;align-items:start}
+    .cal-sidebar{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px;min-height:400px}
+    .sidebar-lbl{font-size:10px;text-transform:uppercase;letter-spacing:.14em;color:var(--muted);font-weight:500;margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+    .sidebar-lbl .count{background:var(--dark);color:#fff;border-radius:20px;padding:2px 9px;font-size:10px;letter-spacing:0}
+    .ext-event{background:#f0f5ff;border:1px solid #d0e2f8;border-left:3px solid var(--blue);border-radius:10px;padding:10px 12px;margin-bottom:8px;cursor:grab;transition:box-shadow .15s,transform .15s;user-select:none}
+    .ext-event.pend{background:#fffaf0;border-color:#f5e0b0;border-left-color:var(--orange)}
+    .ext-event.free{background:#f0fff4;border-color:#b0e8c0;border-left-color:var(--green)}
+    .ext-event:hover{box-shadow:0 4px 16px rgba(70,147,232,.15);transform:translateY(-1px)}
+    .ext-name{font-size:13px;font-weight:500;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .ext-sub{font-size:11px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .ext-badge{display:inline-block;font-size:10px;font-weight:500;padding:2px 8px;border-radius:4px;margin-top:5px;background:#e0ecff;color:var(--blue)}
+    .ext-badge.pend{background:#fdefc7;color:#946500}
+    .ext-badge.free{background:#d6f5e0;color:#1a7a3a}
+    .no-unsched{font-size:13px;color:var(--muted);text-align:center;padding:24px 0}
+    .cal-main{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:20px}
+    .cal-main .fc{font-family:"Manrope",sans-serif;font-size:13px}
+    .cal-main .fc-toolbar-title{font-family:"Cormorant Garamond",serif;font-size:26px;font-weight:300;letter-spacing:-.04em}
+    .cal-main .fc-col-header-cell-cushion{font-size:11px;text-transform:uppercase;letter-spacing:.1em;font-weight:500;color:var(--muted)}
+    .cal-main .fc-button{background:var(--dark)!important;border-color:var(--dark)!important;font-family:"Manrope",inherit!important;font-size:11px!important;letter-spacing:.06em!important;border-radius:6px!important;font-weight:500!important}
+    .cal-main .fc-button:hover{opacity:.8}
+    .cal-main .fc-event{border-radius:6px!important;font-size:12px!important;font-weight:500!important;cursor:pointer}
+    .cal-main .fc-timegrid-slot-label{font-size:11px;color:var(--muted)}
+    .cal-toolbar-extra{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+    .btn-save-cal{padding:9px 22px;background:var(--dark);color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:opacity .2s}
+    .btn-save-cal:hover{opacity:.8}
+    .btn-save-cal:disabled{opacity:.4;cursor:default}
+    .save-status{font-size:12px;color:var(--muted)}
 
-    /* ── Entry cards (existing) ── */
-    .entry-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:12px}
-    .entry-header{display:flex;align-items:center;gap:12px;margin-bottom:10px;flex-wrap:wrap}
-    .entry-name{font-weight:600;font-size:15px}
-    .entry-date{font-size:12px;color:rgba(255,255,255,.35);margin-left:auto}
-    .entry-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:6px 20px;font-size:13px;color:rgba(255,255,255,.65)}
-    .entry-grid a{color:var(--blue);text-decoration:none}
-    .entry-grid a:hover{text-decoration:underline}
-    .entry-label{color:rgba(255,255,255,.35);font-size:11px;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1px}
-    .empty{text-align:center;padding:48px;color:rgba(255,255,255,.3);font-size:14px}
+    /* ── Bookings tab ── */
+    .filter-bar{display:flex;gap:12px;align-items:center;margin-bottom:20px;flex-wrap:wrap}
+    .filter-input{flex:1;min-width:200px;padding:10px 16px;border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:13px;outline:none;color:var(--text);background:var(--card);transition:.2s}
+    .filter-input:focus{border-color:rgba(17,17,17,.4)}
+    .filter-status{display:flex;gap:6px;flex-wrap:wrap}
+    .filter-btn{padding:7px 13px;border:1px solid var(--border);border-radius:6px;font-family:inherit;font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;background:var(--card);color:var(--muted);transition:.15s}
+    .filter-btn:hover{border-color:#bbb;color:var(--text)}
+    .filter-btn.active{background:var(--dark);color:#fff;border-color:var(--dark)}
+    .export-btn{padding:8px 16px;border:1px solid var(--border);border-radius:6px;font-family:inherit;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;background:var(--card);color:var(--muted);transition:.15s;white-space:nowrap}
+    .export-btn:hover{border-color:#bbb;color:var(--text)}
 
-    /* ── Bill cards ── */
-    .bill-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px;margin-bottom:10px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:.15s}
-    .bill-card:hover{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.07)}
+    .section{margin-bottom:48px}
+    .section-title{font-family:"Cormorant Garamond",serif;font-size:36px;font-weight:300;letter-spacing:-.05em;margin-bottom:18px;display:flex;align-items:center;gap:14px;line-height:1}
+    .badge{font-family:"Manrope",sans-serif;font-size:10px;background:var(--dark);color:#fff;border-radius:20px;padding:3px 11px;font-weight:500;letter-spacing:.06em}
+    .badge.orange{background:var(--orange)}.badge.green{background:var(--green)}
+
+    .booking-card{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:10px;overflow:hidden}
+    .booking-header{padding:18px 24px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;user-select:none;gap:14px}
+    .booking-header:hover{background:#fafbfc}
+    .booking-main{display:flex;align-items:center;gap:16px;flex:1;min-width:0}
+    .status-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+    .booking-name{font-weight:500;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:-.01em}
+    .booking-sub{font-size:12px;color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;margin-top:2px}
+    .booking-meta{display:flex;align-items:center;gap:12px;flex-shrink:0;flex-wrap:wrap}
+    .pkg-tag{background:#f0f5ff;color:var(--blue);border-radius:5px;padding:3px 10px;font-size:11px;font-weight:500}
+    .price-tag{font-family:"Cormorant Garamond",serif;font-size:18px;letter-spacing:-.02em}
+    .date-tag{font-size:11px;color:var(--muted);letter-spacing:.02em}
+    .chevron{font-size:10px;color:var(--muted);transition:transform .2s;flex-shrink:0}
+    .booking-card.open .chevron{transform:rotate(180deg)}
+    .booking-body{display:none;border-top:1px solid var(--border);padding:24px}
+    .booking-card.open .booking-body{display:block}
+    .details-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:20px}
+    .detail-item label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:4px;font-weight:500}
+    .detail-item .val{font-size:14px;word-break:break-word}
+    .detail-item .val a{color:var(--blue);text-decoration:none}
+    .admin-form{background:#f8f9fb;border:1px solid var(--border);border-radius:12px;padding:18px;display:grid;grid-template-columns:1fr 1fr 2fr;gap:14px;align-items:end;margin-bottom:14px}
+    .fg label{display:block;font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-bottom:6px;font-weight:500}
+    .fg input,.fg select,.fg textarea{width:100%;padding:9px 12px;border:1px solid var(--border);border-radius:8px;font-size:13px;font-family:inherit;background:#fff;outline:none;transition:.2s;color:var(--text)}
+    .fg input:focus,.fg select:focus,.fg textarea:focus{border-color:rgba(17,17,17,.4)}
+    .fg textarea{resize:vertical;min-height:64px}
+    .form-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    .btn-save{padding:9px 20px;background:var(--dark);color:#fff;border:none;border-radius:8px;font-size:11px;font-family:inherit;font-weight:500;letter-spacing:.06em;cursor:pointer;text-transform:uppercase;transition:opacity .2s}
+    .btn-save:hover{opacity:.82}
+    .btn-cancel-bk{padding:9px 16px;background:transparent;color:#c0392b;border:1px solid #c0392b;border-radius:8px;font-size:11px;font-family:inherit;font-weight:500;letter-spacing:.06em;cursor:pointer;text-transform:uppercase;transition:.2s}
+    .btn-cancel-bk:hover{background:#c0392b;color:#fff}
+    .btn-delete{padding:9px 16px;background:transparent;color:var(--red);border:1px solid var(--red);border-radius:8px;font-size:11px;font-family:inherit;font-weight:500;letter-spacing:.06em;cursor:pointer;text-transform:uppercase;transition:.2s}
+    .btn-delete:hover{background:var(--red);color:#fff}
+    .save-ok{font-size:12px;color:var(--green);letter-spacing:.02em}
+
+    .empty-state{background:var(--card);border:1px dashed var(--border);border-radius:16px;padding:44px;text-align:center;color:var(--muted);font-size:13px}
+
+    /* ── Modal ── */
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:10000;display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .2s}
+    .modal-overlay.visible{opacity:1;pointer-events:all}
+    .modal{background:#fff;border-radius:18px;padding:36px 40px;max-width:420px;width:90%;box-shadow:0 20px 60px rgba(0,0,0,.15);transform:translateY(14px);transition:transform .2s}
+    .modal-overlay.visible .modal{transform:translateY(0)}
+    .modal h3{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:300;letter-spacing:-.05em;margin-bottom:10px}
+    .modal p{font-size:14px;color:rgba(17,17,17,.55);line-height:1.7;margin-bottom:20px}
+    .modal .hi{color:var(--dark);font-weight:500}
+    .modal-actions{display:flex;gap:10px}
+    .btn-modal-ok{flex:1;padding:12px;background:var(--dark);color:#fff;border:none;border-radius:8px;font-family:inherit;font-size:11px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;transition:opacity .2s}
+    .btn-modal-ok:hover{opacity:.82}
+    .btn-modal-cancel{flex:1;padding:12px;background:transparent;color:var(--muted);border:1px solid var(--border);border-radius:8px;font-family:inherit;font-size:11px;letter-spacing:.06em;text-transform:uppercase;cursor:pointer;transition:.2s}
+    .btn-modal-cancel:hover{border-color:#bbb;color:var(--text)}
+
+    /* ── Toast ── */
+    .toast{position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(12px);background:#111;color:#fff;padding:11px 26px;border-radius:8px;font-size:12px;font-weight:500;letter-spacing:.04em;opacity:0;pointer-events:none;z-index:99999;transition:all .3s;white-space:nowrap}
+    .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+    .toast.success{background:#1a4a2e}.toast.error{background:#5c1010}
+
+    /* ── Billing (dark section inside light page) ── */
+    .dark-section{background:#0a0e14;border-radius:16px;padding:28px;color:#e8edf2}
+    .dark-section .sec-title{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:14px;display:flex;align-items:center;justify-content:space-between}
+
+    /* Billing card */
+    .bill-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:14px;padding:14px 18px;margin-bottom:10px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:.15s}
+    .bill-card:hover{border-color:rgba(255,255,255,.25);background:rgba(255,255,255,.08)}
     .bill-info{flex:1;min-width:0}
-    .bill-client{font-weight:600;font-size:15px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .bill-client{font-weight:600;font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
     .bill-meta{font-size:12px;color:rgba(255,255,255,.4);margin-top:3px}
-    .bill-total{font-size:18px;font-weight:700;color:var(--blue);white-space:nowrap}
+    .bill-total{font-size:18px;font-weight:700;color:#4693e8;white-space:nowrap}
 
-    /* ── Buttons ── */
-    .btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;transition:.15s;text-decoration:none}
-    .btn-primary{background:var(--blue);color:#fff}
-    .btn-primary:hover{background:#317bcd}
-    .btn-ghost{background:transparent;color:rgba(255,255,255,.6);border:1px solid var(--line)}
-    .btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.3)}
-    .btn-success{background:rgba(46,204,113,.15);color:#2ecc71;border:1px solid rgba(46,204,113,.3)}
-    .btn-success:hover{background:rgba(46,204,113,.25)}
-    .btn-danger{background:rgba(231,76,60,.1);color:#e74c3c;border:1px solid rgba(231,76,60,.25)}
-    .btn-danger:hover{background:rgba(231,76,60,.2)}
-    .btn-sm{padding:5px 12px;font-size:12px}
+    /* Dark badges */
+    .dbadge{font-size:10px;letter-spacing:.08em;text-transform:uppercase;border-radius:6px;padding:3px 10px;font-weight:600;white-space:nowrap}
+    .dbadge-open{background:rgba(70,147,232,.15);color:#4693e8}
+    .dbadge-closed{background:rgba(46,204,113,.15);color:#2ecc71}
 
-    /* ── Forms ── */
-    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:16px}
-    .form-group{display:flex;flex-direction:column;gap:5px}
-    .form-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-    .form-input{background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:8px;padding:10px 12px;font-size:14px;font-family:inherit;color:#e8edf2;outline:none;transition:.2s;width:100%}
-    .form-input:focus{border-color:var(--blue);background:rgba(255,255,255,.1)}
-    .form-input[readonly]{opacity:.5;cursor:default}
-    .form-input[readonly]:focus{border-color:var(--line);background:rgba(255,255,255,.07)}
+    /* Dark forms */
+    .d-form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:14px}
+    .d-fg{display:flex;flex-direction:column;gap:5px}
+    .d-fg label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+    .d-input{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:10px 12px;font-size:14px;font-family:inherit;color:#e8edf2;outline:none;transition:.2s;width:100%}
+    .d-input:focus{border-color:#4693e8;background:rgba(255,255,255,.1)}
+    .d-input[readonly]{opacity:.5;cursor:default}
 
-    /* ── Bill editor ── */
-    .editor-back-row{display:flex;align-items:center;gap:12px;margin-bottom:22px;flex-wrap:wrap}
-    .editor-back-row h2{font-size:18px;font-weight:600}
-
-    /* ── Positions table (in bill) ── */
     .pos-table{width:100%;border-collapse:collapse;margin:12px 0}
-    .pos-table th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);padding:8px 10px;text-align:left;border-bottom:1px solid var(--line)}
+    .pos-table th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);padding:8px 10px;text-align:left;border-bottom:1px solid rgba(255,255,255,.1)}
     .pos-table td{padding:10px 10px;font-size:14px;border-bottom:1px solid rgba(255,255,255,.05);vertical-align:middle}
-    .pos-table .qty-input{width:70px;background:rgba(255,255,255,.07);border:1px solid var(--line);border-radius:6px;padding:5px 8px;font-size:13px;font-family:inherit;color:#e8edf2;outline:none;text-align:center}
-    .pos-table .qty-input:focus{border-color:var(--blue)}
-    .total-bar{display:flex;justify-content:flex-end;align-items:center;gap:16px;padding:14px 10px;border-top:1px solid var(--line)}
-    .total-lbl{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)}
-    .total-amt{font-size:26px;font-weight:700;color:var(--blue)}
-
-    /* ── Add position mini-form ── */
-    .add-pos-box{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:10px}
+    .qty-inp{width:70px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:5px 8px;font-size:13px;font-family:inherit;color:#e8edf2;outline:none;text-align:center}
+    .qty-inp:focus{border-color:#4693e8}
+    .total-bar{display:flex;justify-content:flex-end;align-items:center;gap:14px;padding:12px 10px;border-top:1px solid rgba(255,255,255,.1)}
+    .total-lbl{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.4)}
+    .total-amt{font-size:24px;font-weight:700;color:#4693e8}
+    .add-pos-box{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:14px 16px;margin-top:10px}
     .add-pos-box h4{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:12px}
     .add-pos-row{display:grid;grid-template-columns:80px 1fr 80px auto;gap:10px;align-items:end}
-    .pos-preview{font-size:12px;color:rgba(255,255,255,.35);margin-top:8px;min-height:16px}
+    .pos-preview{font-size:12px;color:rgba(255,255,255,.3);margin-top:8px;min-height:16px}
+    .d-alert-ok{background:rgba(46,204,113,.12);color:#2ecc71;border:1px solid rgba(46,204,113,.3);border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:12px;display:none}
+    .d-alert-err{background:rgba(231,76,60,.12);color:#e74c3c;border:1px solid rgba(231,76,60,.3);border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:12px;display:none}
 
-    /* ── Alert ── */
-    .alert{border-radius:8px;padding:10px 14px;font-size:13px;margin-bottom:14px;display:none}
-    .alert-ok{background:rgba(46,204,113,.12);color:#2ecc71;border:1px solid rgba(46,204,113,.3)}
-    .alert-err{background:rgba(231,76,60,.12);color:#e74c3c;border:1px solid rgba(231,76,60,.3)}
+    /* Dark buttons */
+    .d-btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:8px;padding:9px 18px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;transition:.15s}
+    .d-btn-primary{background:#4693e8;color:#fff}.d-btn-primary:hover{background:#317bcd}
+    .d-btn-ghost{background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.1)}.d-btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,.3)}
+    .d-btn-success{background:rgba(46,204,113,.15);color:#2ecc71;border:1px solid rgba(46,204,113,.3)}.d-btn-success:hover{background:rgba(46,204,113,.25)}
+    .d-btn-danger{background:rgba(231,76,60,.1);color:#e74c3c;border:1px solid rgba(231,76,60,.25)}.d-btn-danger:hover{background:rgba(231,76,60,.2)}
+    .d-btn-sm{padding:5px 10px;font-size:12px}
 
-    /* ── Services table ── */
+    /* Services tab */
     .svc-table{width:100%;border-collapse:collapse}
-    .svc-table th{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);padding:10px 16px;text-align:left;border-bottom:1px solid var(--line)}
-    .svc-table td{padding:13px 16px;font-size:14px;border-bottom:1px solid rgba(255,255,255,.05)}
+    .svc-table th{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding:10px 16px;text-align:left;border-bottom:1px solid var(--border)}
+    .svc-table td{padding:13px 16px;font-size:14px;border-bottom:1px solid #f0f0f0}
     .svc-table tbody tr:last-child td{border-bottom:none}
-    .svc-table tbody tr:hover td{background:rgba(255,255,255,.025)}
-    .svc-num{color:rgba(255,255,255,.4);font-size:13px}
+    .svc-table tbody tr:hover td{background:#fafbfc}
+    .add-svc-box{background:#f8f9fb;border:1px solid var(--border);border-radius:12px;padding:20px;margin-bottom:20px;display:none}
+    .svc-form-row{display:grid;grid-template-columns:80px 1fr 120px auto;gap:12px;align-items:end}
 
-    /* ── Add service form ── */
-    .add-svc-box{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:20px;margin-bottom:20px;display:none}
-    .add-svc-box .form-row{margin-bottom:0}
-
-    @media(max-width:740px){
-      .stats{grid-template-columns:repeat(2,1fr)}
-      .entry-grid,.form-row{grid-template-columns:1fr}
-      .add-pos-row{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
-      .bill-total{font-size:15px}
+    @media(max-width:900px){.cal-layout{grid-template-columns:1fr}.cal-sidebar{min-height:auto}}
+    @media(max-width:700px){
+      .stats{grid-template-columns:1fr 1fr}
+      .admin-form{grid-template-columns:1fr}
+      .booking-main{flex-direction:column;align-items:flex-start;gap:4px}
+      .booking-meta{flex-wrap:wrap}
+      .topbar{padding:0 16px}
+      .container{padding:20px 14px 60px}
+      .add-pos-row,.svc-form-row{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+      .d-form-row{grid-template-columns:1fr}
     }
   </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════ LOGIN ══════════════════════════════════ -->
+<!-- ═══════════ LOGIN ════════════ -->
 <div id="loginScreen">
   <div class="login-card">
     <h1>Easy Help Switzerland</h1>
-    <p>Admin access only</p>
+    <p>Admin panel — restricted access</p>
     <input type="password" id="pwdInput" placeholder="Password" autocomplete="current-password"/>
     <button id="loginBtn">Sign in</button>
     <div class="login-error" id="loginError">Wrong password. Please try again.</div>
   </div>
 </div>
 
-<!-- ══════════════════════════════ DASHBOARD ═══════════════════════════════ -->
+<!-- ═══════════ DASHBOARD ════════════ -->
 <div id="dashboard">
-  <div class="top-bar">
-    <h1>Admin Dashboard</h1>
-    <button class="logout-btn" id="logoutBtn">Sign out</button>
+  <div class="topbar">
+    <div class="topbar-brand">Easy Help Switzerland <span>Admin</span></div>
+    <div class="topbar-right">
+      <a href="/">← Website</a>
+      <a href="#" class="btn-logout" id="logoutBtn">Sign out</a>
+    </div>
   </div>
 
-  <!-- Tabs -->
-  <div class="tabs">
-    <button class="tab-btn active" data-tab="entries">Entries</button>
-    <button class="tab-btn" data-tab="billing">Billing</button>
-    <button class="tab-btn" data-tab="services">Services</button>
-  </div>
+  <div class="container">
 
-  <!-- ─────────────── TAB: Entries ─────────────── -->
-  <div id="tab-entries">
+    <!-- Stats -->
     <div class="stats">
-      <div class="stat-card"><div class="num" id="statFree">—</div><div class="lbl">Free consultations</div></div>
-      <div class="stat-card"><div class="num" id="statPaid">—</div><div class="lbl">Paid bookings</div></div>
-      <div class="stat-card"><div class="num" id="statPending">—</div><div class="lbl">Pending</div></div>
-      <div class="stat-card"><div class="num" id="statRevenue">—</div><div class="lbl">Revenue CHF</div></div>
-    </div>
-    <div class="sec-title">All entries (newest first)</div>
-    <div id="entriesList"></div>
-  </div>
-
-  <!-- ─────────────── TAB: Billing ─────────────── -->
-  <div id="tab-billing" style="display:none">
-
-    <!-- Bills list -->
-    <div id="billsListView">
-      <div class="sec-title">
-        <span>Bills</span>
-        <button class="btn btn-primary" id="newBillBtn">+ New Bill</button>
-      </div>
-      <div id="billsList"><div class="empty">Loading…</div></div>
+      <div class="stat-card"><div class="stat-label">Paid bookings</div><div class="stat-value green" id="statPaid">—</div></div>
+      <div class="stat-card"><div class="stat-label">Revenue</div><div class="stat-value blue" id="statRevenue">—</div></div>
+      <div class="stat-card"><div class="stat-label">Pending</div><div class="stat-value" id="statPending">—</div></div>
+      <div class="stat-card"><div class="stat-label">Free consultations</div><div class="stat-value green" id="statFree">—</div></div>
     </div>
 
-    <!-- Bill editor -->
-    <div id="billEditorView" style="display:none">
-      <div class="editor-back-row">
-        <button class="btn btn-ghost" id="backToBillsBtn">← Back</button>
-        <h2 id="editorTitle">Bill</h2>
-        <span id="editorBadge"></span>
-      </div>
-
-      <div class="alert alert-ok"  id="billAlertOk"></div>
-      <div class="alert alert-err" id="billAlertErr"></div>
-
-      <!-- Client -->
-      <div class="form-row">
-        <div class="form-group">
-          <label class="form-label">Client name</label>
-          <input class="form-input" type="text"  id="billClientName"  placeholder="Full name"/>
-        </div>
-        <div class="form-group">
-          <label class="form-label">Client email</label>
-          <input class="form-input" type="email" id="billClientEmail" placeholder="email@example.com"/>
-        </div>
-      </div>
-
-      <!-- Positions table -->
-      <div class="sec-title" style="margin-top:6px">Positions</div>
-      <table class="pos-table" id="posTable">
-        <thead>
-          <tr>
-            <th>#</th><th>Description</th><th>Qty</th>
-            <th>Unit CHF</th><th>Total CHF</th><th></th>
-          </tr>
-        </thead>
-        <tbody id="posTbody"></tbody>
-      </table>
-      <div class="total-bar">
-        <span class="total-lbl">Total</span>
-        <span class="total-amt" id="billTotal">CHF 0.00</span>
-      </div>
-
-      <!-- Add position (open bills only) -->
-      <div class="add-pos-box" id="addPosBox">
-        <h4>Add position</h4>
-        <div class="add-pos-row">
-          <div class="form-group">
-            <label class="form-label">Position #</label>
-            <input class="form-input" type="number" id="inPosNum" placeholder="1" min="1"/>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Name (auto)</label>
-            <input class="form-input" type="text" id="inPosName" readonly placeholder="—"/>
-          </div>
-          <div class="form-group">
-            <label class="form-label">Qty</label>
-            <input class="form-input" type="number" id="inPosQty" value="1" min="0.5" step="0.5"/>
-          </div>
-          <div class="form-group">
-            <label class="form-label">&nbsp;</label>
-            <button class="btn btn-primary" id="addPosBtn">+ Add</button>
-          </div>
-        </div>
-        <div class="pos-preview" id="posPreview"></div>
-      </div>
-
-      <!-- Bill actions -->
-      <div id="billActions" style="margin-top:22px;display:flex;gap:12px;flex-wrap:wrap">
-        <button class="btn btn-success" id="closeBillBtn">✓ Close &amp; Send Invoice</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- ─────────────── TAB: Services ─────────────── -->
-  <div id="tab-services" style="display:none">
-    <div class="sec-title">
-      <span>Service catalog</span>
-      <button class="btn btn-primary" id="showAddSvcBtn">+ Add service</button>
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" data-tab="calendar">📅 Calendar</button>
+      <button class="tab-btn" data-tab="bookings">📋 Bookings</button>
+      <button class="tab-btn" data-tab="billing">💶 Billing</button>
+      <button class="tab-btn" data-tab="services">⚙ Services</button>
     </div>
 
-    <!-- Add service form -->
-    <div class="add-svc-box" id="addSvcBox">
-      <div class="form-row" style="grid-template-columns:80px 1fr 120px auto;align-items:end;margin-bottom:0">
-        <div class="form-group">
-          <label class="form-label">Position #</label>
-          <input class="form-input" type="number" id="svcNum"   placeholder="9" min="1"/>
+    <!-- ───────── CALENDAR ───────── -->
+    <div id="tab-calendar" class="tab-panel active">
+      <div class="cal-layout">
+        <div class="cal-sidebar">
+          <div class="sidebar-lbl">Unscheduled <span class="count" id="unschedCount">0</span></div>
+          <div id="externalEvents"></div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Service name</label>
-          <input class="form-input" type="text"   id="svcName"  placeholder="e.g. Tax Consultation (1h)"/>
+        <div class="cal-main">
+          <div class="cal-toolbar-extra">
+            <button class="btn-save-cal" id="btnSaveCal" onclick="saveAllEvents()">✓ Save calendar</button>
+            <span class="save-status" id="saveStatus"></span>
+          </div>
+          <div id="calendar"></div>
         </div>
-        <div class="form-group">
-          <label class="form-label">Price CHF</label>
-          <input class="form-input" type="number" id="svcPrice" placeholder="150" min="0" step="0.01"/>
+      </div>
+    </div>
+
+    <!-- ───────── BOOKINGS ───────── -->
+    <div id="tab-bookings" class="tab-panel">
+      <div class="filter-bar">
+        <input class="filter-input" type="search" id="searchInput" placeholder="Search by name, email or package…" oninput="applyFilters()">
+        <div class="filter-status">
+          <button class="filter-btn active" onclick="setStatus(this,'all')">All</button>
+          <button class="filter-btn" onclick="setStatus(this,'confirmed')">Confirmed</button>
+          <button class="filter-btn" onclick="setStatus(this,'completed')">Completed</button>
+          <button class="filter-btn" onclick="setStatus(this,'pending')">Pending</button>
+          <button class="filter-btn" onclick="setStatus(this,'cancelled')">Cancelled</button>
         </div>
-        <div class="form-group">
-          <label class="form-label">&nbsp;</label>
-          <div style="display:flex;gap:8px">
-            <button class="btn btn-ghost"    id="cancelSvcBtn">Cancel</button>
-            <button class="btn btn-primary"  id="saveSvcBtn">Save</button>
+        <button class="export-btn" onclick="exportCSV()">↓ Export CSV</button>
+      </div>
+      <div id="bookingsList"></div>
+    </div>
+
+    <!-- ───────── BILLING ───────── -->
+    <div id="tab-billing" class="tab-panel">
+      <div class="dark-section">
+        <!-- Bills list -->
+        <div id="billsListView">
+          <div class="sec-title">
+            <span>Bills</span>
+            <button class="d-btn d-btn-primary" id="newBillBtn">+ New Bill</button>
+          </div>
+          <div id="billsList"><div style="text-align:center;padding:40px;color:rgba(255,255,255,.3)">Loading…</div></div>
+        </div>
+        <!-- Bill editor -->
+        <div id="billEditorView" style="display:none">
+          <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px;flex-wrap:wrap">
+            <button class="d-btn d-btn-ghost" id="backToBillsBtn">← Back</button>
+            <h2 id="editorTitle" style="font-size:18px;font-weight:600;color:#e8edf2"></h2>
+            <span id="editorBadge"></span>
+          </div>
+          <div class="d-alert-ok"  id="billAlertOk"></div>
+          <div class="d-alert-err" id="billAlertErr"></div>
+          <div class="d-form-row">
+            <div class="d-fg"><label>Client name</label><input class="d-input" type="text"  id="billClientName" placeholder="Full name"/></div>
+            <div class="d-fg"><label>Client email</label><input class="d-input" type="email" id="billClientEmail" placeholder="email@example.com"/></div>
+          </div>
+          <div class="sec-title" style="margin-top:6px">Positions</div>
+          <table class="pos-table">
+            <thead><tr><th>#</th><th>Description</th><th>Qty</th><th>Unit CHF</th><th>Total CHF</th><th></th></tr></thead>
+            <tbody id="posTbody"></tbody>
+          </table>
+          <div class="total-bar"><span class="total-lbl">Total</span><span class="total-amt" id="billTotal">CHF 0.00</span></div>
+          <div class="add-pos-box" id="addPosBox">
+            <h4>Add position</h4>
+            <div class="add-pos-row">
+              <div class="d-fg"><label>Position #</label><input class="d-input" type="number" id="inPosNum" placeholder="1" min="1"/></div>
+              <div class="d-fg"><label>Name (auto)</label><input class="d-input" type="text" id="inPosName" readonly placeholder="—"/></div>
+              <div class="d-fg"><label>Qty</label><input class="d-input" type="number" id="inPosQty" value="1" min="0.5" step="0.5"/></div>
+              <div class="d-fg"><label>&nbsp;</label><button class="d-btn d-btn-primary" id="addPosBtn">+ Add</button></div>
+            </div>
+            <div class="pos-preview" id="posPreview"></div>
+          </div>
+          <div id="billActions" style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+            <button class="d-btn d-btn-success" id="closeBillBtn">✓ Close &amp; Send Invoice</button>
           </div>
         </div>
       </div>
-      <div class="alert alert-err" id="svcErr" style="margin-top:12px"></div>
     </div>
 
-    <div style="background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden">
-      <table class="svc-table">
-        <thead>
-          <tr><th>#</th><th>Service name</th><th>Price CHF</th><th></th></tr>
-        </thead>
-        <tbody id="svcTbody">
-          <tr><td colspan="4" style="text-align:center;color:rgba(255,255,255,.3);padding:28px">Loading…</td></tr>
-        </tbody>
-      </table>
+    <!-- ───────── SERVICES ───────── -->
+    <div id="tab-services" class="tab-panel">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+        <h2 style="font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:300;letter-spacing:-.04em">Service catalog</h2>
+        <button class="btn-save" id="showAddSvcBtn" style="text-transform:uppercase;letter-spacing:.08em">+ Add service</button>
+      </div>
+      <div class="add-svc-box" id="addSvcBox">
+        <div class="svc-form-row">
+          <div class="fg"><label>Position #</label><input type="number" id="svcNum" placeholder="9" min="1"/></div>
+          <div class="fg"><label>Service name</label><input type="text" id="svcName" placeholder="e.g. Tax Consultation (1h)"/></div>
+          <div class="fg"><label>Price CHF</label><input type="number" id="svcPrice" placeholder="150" min="0" step="0.01"/></div>
+          <div class="fg"><label>&nbsp;</label><div style="display:flex;gap:8px">
+            <button class="btn-save" id="cancelSvcBtn" style="background:#ccc">Cancel</button>
+            <button class="btn-save" id="saveSvcBtn">Save</button>
+          </div></div>
+        </div>
+        <div style="color:var(--red);font-size:13px;margin-top:10px;display:none" id="svcErr"></div>
+      </div>
+      <div style="background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden">
+        <table class="svc-table">
+          <thead><tr><th>#</th><th>Service name</th><th>Price CHF</th><th></th></tr></thead>
+          <tbody id="svcTbody"><tr><td colspan="4" style="text-align:center;color:var(--muted);padding:28px">Loading…</td></tr></tbody>
+        </table>
+      </div>
     </div>
-  </div>
+
+  </div><!-- /container -->
 </div><!-- /dashboard -->
 
+<!-- Modal (email confirmation after calendar drop) -->
+<div class="modal-overlay" id="scheduleModal">
+  <div class="modal">
+    <h3>Send email?</h3>
+    <p id="modalText">Send confirmation email to the client?</p>
+    <div class="modal-actions">
+      <button class="btn-modal-ok"     id="modalConfirm">Yes, send email</button>
+      <button class="btn-modal-cancel" id="modalCancel">No, skip</button>
+    </div>
+  </div>
+</div>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
 <script>
-/* ════════════════════ UTILITIES ════════════════════ */
+/* ══════════════════════════════════════════════════════
+   GLOBALS & UTILITIES
+══════════════════════════════════════════════════════ */
+let allEntries = [];    // loaded once from /api/admin-entries
+let catalog    = [];    // service positions
+let currentBill = null;
+let calInstance = null;
+
 function fmtDate(iso) {
   if (!iso) return '—';
   try { return new Date(iso).toLocaleString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}); }
   catch { return iso; }
 }
-function badge(type) {
-  const map = {
-    free:    'badge-free',    paid:   'badge-paid',
-    pending: 'badge-pending', open:   'badge-open',
-    closed:  'badge-closed',
-  };
-  const labels = { free:'Free', paid:'Paid', pending:'Pending', open:'Open', closed:'Closed' };
-  return `<span class="badge ${map[type]||''}">${labels[type]||type}</span>`;
+
+function showToast(msg, type) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast ' + (type||'');
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3500);
 }
+
 async function apiPost(url, body) {
   const r = await fetch(url, {
-    method: 'POST', headers: {'Content-Type':'application/json'},
-    body: JSON.stringify(body),
+    method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(body)
   });
   const data = await r.json().catch(() => ({}));
   if (!r.ok) throw new Error(data.error || 'Server error');
   return data;
 }
 
-/* ════════════════════ TABS ════════════════════ */
-const tabBtns = document.querySelectorAll('.tab-btn');
-const tabPanes = { entries: document.getElementById('tab-entries'), billing: document.getElementById('tab-billing'), services: document.getElementById('tab-services') };
-tabBtns.forEach(btn => btn.addEventListener('click', () => {
-  tabBtns.forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  Object.values(tabPanes).forEach(p => p.style.display = 'none');
-  const key = btn.dataset.tab;
-  tabPanes[key].style.display = 'block';
-  if (key === 'billing')  refreshBillsList();
-  if (key === 'services') loadServices();
-}));
+/* ══════════════════════════════════════════════════════
+   TAB SWITCHING
+══════════════════════════════════════════════════════ */
+const tabBtns  = document.querySelectorAll('.tab-btn');
+const tabPanes = {};
+tabBtns.forEach(btn => {
+  tabPanes[btn.dataset.tab] = document.getElementById('tab-' + btn.dataset.tab);
+  btn.addEventListener('click', () => {
+    tabBtns.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    Object.values(tabPanes).forEach(p => p.classList.remove('active'));
+    tabPanes[btn.dataset.tab].classList.add('active');
+    if (btn.dataset.tab === 'calendar' && calInstance) calInstance.updateSize();
+    if (btn.dataset.tab === 'billing')  refreshBillsList();
+    if (btn.dataset.tab === 'services') loadServices();
+  });
+});
 
-/* ════════════════════ ENTRIES TAB ════════════════════ */
-function renderEntries(entries) {
-  const list = document.getElementById('entriesList');
-  if (!entries.length) { list.innerHTML = '<div class="empty">No entries yet.</div>'; return; }
-  list.innerHTML = entries.map(e => {
-    const fields = [
-      ['Email',    e.email    ? `<a href="mailto:${e.email}">${e.email}</a>` : '—'],
-      ['Phone',    e.phone    || '—'],
-      ['Location', e.location || e.city || '—'],
-      ['Package',  e.package  || e.topic || '—'],
-      ['Format',   e.preferred || '—'],
-      ['Message',  e.message  || '—'],
-    ];
-    return `<div class="entry-card">
-      <div class="entry-header">
-        ${badge(e._type)}
-        <span class="entry-name">${e.name||'—'}</span>
-        <span class="entry-date">${fmtDate(e.created_at)}</span>
-      </div>
-      <div class="entry-grid">
-        ${fields.map(([l,v]) => `<div><div class="entry-label">${l}</div><div>${v}</div></div>`).join('')}
-      </div>
-    </div>`;
-  }).join('');
-}
-async function loadDashboard() {
+/* ══════════════════════════════════════════════════════
+   LOAD ALL ENTRIES (runs once after login)
+══════════════════════════════════════════════════════ */
+async function loadAllData() {
   try {
     const r = await fetch('/api/admin-entries');
     if (!r.ok) throw new Error();
     const { stats, entries } = await r.json();
-    document.getElementById('statFree').textContent    = stats.consultations;
+    allEntries = entries;
+
     document.getElementById('statPaid').textContent    = stats.paid;
+    document.getElementById('statRevenue').textContent = 'CHF ' + parseInt(stats.revenue);
     document.getElementById('statPending').textContent = stats.pending;
-    document.getElementById('statRevenue').textContent = 'CHF ' + stats.revenue;
-    renderEntries(entries);
-  } catch { document.getElementById('entriesList').innerHTML = '<div class="empty">Could not load entries.</div>'; }
+    document.getElementById('statFree').textContent    = stats.consultations;
+
+    buildCalendarData();
+    buildBookingsList();
+  } catch {
+    showToast('Could not load entries', 'error');
+  }
+
+  // Pre-load service catalog
+  fetch('/api/admin-positions').then(r => r.json()).then(d => { catalog = d; }).catch(() => {});
 }
 
-/* ════════════════════ BILLING TAB ════════════════════ */
-let currentBill = null;
-let catalog     = [];   // loaded once, used for position lookup
+/* ══════════════════════════════════════════════════════
+   CALENDAR
+══════════════════════════════════════════════════════ */
+const statusColors = { confirmed:'#4693e8', completed:'#2ecc71', cancelled:'#e74c3c', pending:'#f39c12' };
+const typeColors   = { paid:'#4693e8', pending:'#f39c12', free:'#2ecc71' };
 
+let pendingEmailId = null;
+
+function buildCalendarData() {
+  const events      = [];
+  const unscheduled = [];
+
+  allEntries.forEach(e => {
+    const id     = e.internal_booking_id || '';
+    const termin = e._termin;
+    const name   = e.name || 'Unknown';
+    const color  = typeColors[e._type] || '#aaa';
+
+    if (termin) {
+      const start = new Date(termin);
+      const end   = new Date(start.getTime() + 60*60*1000);
+      events.push({
+        id, title: name + (e._type === 'free' ? ' (Free)' : ''),
+        start: start.toISOString(), end: end.toISOString(), color,
+        extendedProps: { email: e.email||'', pkg: e.package_name||e.package||e.topic||'', type: e._type },
+      });
+    } else {
+      unscheduled.push({ id, name, email: e.email||'', pkg: e.package_name||e.package||e.topic||'', type: e._type });
+    }
+  });
+
+  // Sidebar
+  const container = document.getElementById('externalEvents');
+  document.getElementById('unschedCount').textContent = unscheduled.length;
+  if (!unscheduled.length) {
+    container.innerHTML = '<div class="no-unsched">All bookings scheduled ✓</div>';
+  } else {
+    container.innerHTML = unscheduled.map(u => `
+      <div class="ext-event ${u.type==='pending'?'pend':u.type==='free'?'free':''}"
+           data-id="${u.id}" data-name="${u.name}" data-email="${u.email}" data-type="${u.type}">
+        <div class="ext-name">${u.name}</div>
+        <div class="ext-sub">${u.email}</div>
+        ${u.pkg ? `<span class="ext-badge ${u.type==='pending'?'pend':u.type==='free'?'free':''}">${u.pkg}</span>` : ''}
+      </div>`).join('');
+  }
+
+  initCalendar(events);
+}
+
+function initCalendar(events) {
+  if (calInstance) { calInstance.destroy(); calInstance = null; }
+
+  new FullCalendar.Draggable(document.getElementById('externalEvents'), {
+    itemSelector: '.ext-event',
+    eventData: el => ({
+      title:    el.dataset.name,
+      id:       el.dataset.id,
+      duration: '01:00',
+      color:    typeColors[el.dataset.type] || '#aaa',
+    }),
+  });
+
+  calInstance = new FullCalendar.Calendar(document.getElementById('calendar'), {
+    initialView: 'timeGridWeek',
+    locale: 'de',
+    firstDay: 1,
+    slotMinTime: '07:00:00',
+    slotMaxTime: '21:00:00',
+    slotDuration: '00:30:00',
+    headerToolbar: { left:'prev,next today', center:'title', right:'dayGridMonth,timeGridWeek,timeGridDay' },
+    editable: true,
+    droppable: true,
+    events,
+    height: 680,
+    nowIndicator: true,
+    weekNumbers: true,
+
+    drop(info) {
+      const el = info.draggedEl;
+      const dt = info.date.toISOString();
+      scheduleBooking(el.dataset.id, dt, el.dataset.name, el);
+    },
+
+    eventDrop(info) {
+      const id = info.event.id;
+      const dt = info.event.start.toISOString();
+      if (!confirm('Move to ' + info.event.start.toLocaleString('de-CH') + '?')) { info.revert(); return; }
+      apiPost('/api/admin-action', { action:'schedule', booking_id:id, datetime:dt, send_mail:false })
+        .then(d => { if (d.ok) showToast('Moved ✓', 'success'); else { info.revert(); showToast('Error', 'error'); } })
+        .catch(() => { info.revert(); showToast('Network error', 'error'); });
+    },
+
+    eventClick(info) {
+      const p  = info.event.extendedProps;
+      const dt = info.event.start;
+      showToast(`${info.event.title} · ${dt.toLocaleDateString('de-CH')} ${dt.toLocaleTimeString('de-CH',{hour:'2-digit',minute:'2-digit'})}`, '');
+    },
+
+    eventDidMount(info) {
+      info.el.title = info.event.title + '\n' + (info.event.extendedProps.email||'');
+    },
+  });
+
+  calInstance.render();
+}
+
+function scheduleBooking(id, dt, name, el) {
+  setSaveStatus('Saving…');
+  apiPost('/api/admin-action', { action:'schedule', booking_id:id, datetime:dt, send_mail:false })
+    .then(d => {
+      if (d.ok) {
+        if (el && el.parentNode) { el.remove(); }
+        const cnt = document.getElementById('unschedCount');
+        if (cnt) cnt.textContent = Math.max(0, parseInt(cnt.textContent)-1);
+        setSaveStatus('Saved ✓');
+        openEmailModal(name, id);
+      } else { setSaveStatus('Failed ✗'); showToast('Error saving', 'error'); }
+    })
+    .catch(() => { setSaveStatus('Network error ✗'); showToast('Network error', 'error'); });
+}
+
+function setSaveStatus(msg) { const el=document.getElementById('saveStatus'); if(el) el.textContent=msg; }
+
+function saveAllEvents() {
+  if (!calInstance) return;
+  const events = calInstance.getEvents();
+  if (!events.length) { showToast('No events on calendar.', ''); return; }
+  const btn = document.getElementById('btnSaveCal');
+  btn.disabled = true;
+  setSaveStatus('Saving ' + events.length + ' events…');
+  Promise.all(events.map(ev =>
+    apiPost('/api/admin-action', { action:'schedule', booking_id:ev.id, datetime:ev.start.toISOString(), send_mail:false })
+  )).then(results => {
+    btn.disabled = false;
+    const failed = results.filter(r => !r.ok).length;
+    if (!failed) { setSaveStatus('All saved ✓'); showToast('Calendar saved!', 'success'); }
+    else { setSaveStatus(failed+' failed ✗'); showToast(failed+' failed.', 'error'); }
+  }).catch(() => { btn.disabled=false; showToast('Network error', 'error'); });
+}
+
+// Email modal
+document.getElementById('modalCancel').onclick = () => {
+  document.getElementById('scheduleModal').classList.remove('visible');
+  pendingEmailId = null;
+};
+document.getElementById('modalConfirm').onclick = () => {
+  if (!pendingEmailId) return;
+  document.getElementById('scheduleModal').classList.remove('visible');
+  const id = pendingEmailId; pendingEmailId = null;
+  apiPost('/api/admin-action', { action:'email_only', booking_id:id })
+    .then(d => showToast(d.email_sent ? 'Email sent! ✓' : 'Email failed: '+(d.email_error||'?'), d.email_sent?'success':'error'))
+    .catch(() => showToast('Network error', 'error'));
+};
+function openEmailModal(name, id) {
+  const p = document.getElementById('modalText');
+  p.innerHTML = 'Appointment saved. Send confirmation email to <span class="hi">' + name + '</span>?';
+  pendingEmailId = id;
+  document.getElementById('scheduleModal').classList.add('visible');
+}
+
+/* ══════════════════════════════════════════════════════
+   BOOKINGS TAB
+══════════════════════════════════════════════════════ */
+const statusDotColor = { confirmed:'#4693e8', completed:'#2ecc71', cancelled:'#e74c3c', pending:'#f39c12', '':'#aaa' };
+const statusLabels   = { confirmed:'Confirmed', completed:'Completed', cancelled:'Cancelled', pending:'Pending' };
+
+function buildBookingsList() {
+  const paid    = allEntries.filter(e => e._type === 'paid');
+  const pending = allEntries.filter(e => e._type === 'pending');
+  const free    = allEntries.filter(e => e._type === 'free');
+
+  let html = '';
+
+  // Paid
+  html += `<div class="section">
+    <div class="section-title" style="justify-content:space-between">
+      <span>Paid Bookings <span class="badge">${paid.length}</span></span>
+    </div>`;
+  html += paid.length ? paid.map(b => bookingCardHtml(b)).join('') : '<div class="empty-state">No paid bookings yet.</div>';
+  html += '</div>';
+
+  // Pending
+  html += `<div class="section">
+    <div class="section-title">Pending (not paid) <span class="badge orange">${pending.length}</span></div>`;
+  html += pending.length ? pending.map(b => bookingCardHtml(b)).join('') : '<div class="empty-state">No pending bookings.</div>';
+  html += '</div>';
+
+  // Free
+  html += `<div class="section">
+    <div class="section-title">Free Consultations <span class="badge green">${free.length}</span></div>`;
+  html += free.length ? free.map(b => bookingCardHtml(b)).join('') : '<div class="empty-state">No free consultations yet.</div>';
+  html += '</div>';
+
+  document.getElementById('bookingsList').innerHTML = html;
+}
+
+function bookingCardHtml(b) {
+  const id      = b.internal_booking_id || '';
+  const status  = b._status || (b._type==='pending' ? 'pending' : 'confirmed');
+  const dot     = statusDotColor[status] || '#aaa';
+  const termin  = b._termin ? '📅 ' + fmtDate(b._termin) : '';
+  const pkg     = b.package_name || b.package || b.topic || '';
+  const price   = b.price_chf ? `<span class="price-tag">CHF ${b.price_chf}</span>` : '';
+  const terminVal = b._termin ? new Date(b._termin).toISOString().slice(0,16) : '';
+  const adminNote = (b._admin_note||'').replace(/"/g,'&quot;');
+
+  const statusOpts = Object.entries(statusLabels).map(([v,l]) =>
+    `<option value="${v}" ${status===v?'selected':''}>${l}</option>`).join('');
+
+  const cancelBtn = b._type === 'paid'
+    ? `<button class="btn-cancel-bk" onclick="cancelBooking('${id}','${(b.name||'').replace(/'/g,"\\'")}')">Cancel &amp; Email</button>` : '';
+
+  return `<div class="booking-card" id="card-${id}">
+    <div class="booking-header" onclick="toggleCard('${id}')">
+      <div class="booking-main">
+        <div class="status-dot" style="background:${dot}" data-status="${status}"></div>
+        <div>
+          <div class="booking-name">${b.name||'—'}</div>
+          <div class="booking-sub">${b.email||''}${termin ? ' · ' + termin : ''}</div>
+        </div>
+      </div>
+      <div class="booking-meta">
+        ${pkg ? `<span class="pkg-tag">${pkg}</span>` : ''}
+        ${price}
+        <span class="date-tag">${fmtDate(b.created_at)}</span>
+      </div>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="booking-body">
+      <div class="details-grid">
+        <div class="detail-item"><label>Name</label><div class="val">${b.name||'—'}</div></div>
+        <div class="detail-item"><label>Email</label><div class="val"><a href="mailto:${b.email||''}">${b.email||'—'}</a></div></div>
+        <div class="detail-item"><label>Phone</label><div class="val">${b.phone||'—'}</div></div>
+        <div class="detail-item"><label>Location</label><div class="val">${b.location||b.city||'—'}</div></div>
+        <div class="detail-item"><label>Format</label><div class="val">${b.preferred||'—'}</div></div>
+        ${b._type==='paid'?`<div class="detail-item"><label>Paid at</label><div class="val">${fmtDate(b.paid_at)}</div></div>`:''}
+        ${b.message?`<div class="detail-item" style="grid-column:1/-1"><label>Message</label><div class="val">${b.message}</div></div>`:''}
+        ${b._admin_note?`<div class="detail-item" style="grid-column:1/-1"><label>Your note</label><div class="val">${b._admin_note}</div></div>`:''}
+      </div>
+      <div class="admin-form">
+        <div class="fg">
+          <label>Termin</label>
+          <input type="datetime-local" id="termin-${id}" value="${terminVal}"/>
+        </div>
+        <div class="fg">
+          <label>Status</label>
+          <select id="status-${id}">${statusOpts}</select>
+        </div>
+        <div class="fg">
+          <label>Notes</label>
+          <textarea id="note-${id}" placeholder="Add notes…">${b._admin_note||''}</textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn-save" onclick="saveNote('${id}')">Save</button>
+        ${cancelBtn}
+        <button class="btn-delete" onclick="deleteBooking('${id}')">Delete</button>
+        <span class="save-ok" id="save-ok-${id}" style="display:none">Saved ✓</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function toggleCard(id) {
+  document.getElementById('card-'+id)?.classList.toggle('open');
+}
+
+async function saveNote(id) {
+  const termin = document.getElementById('termin-'+id)?.value || '';
+  const status = document.getElementById('status-'+id)?.value || '';
+  const note   = document.getElementById('note-'+id)?.value   || '';
+  try {
+    await apiPost('/api/admin-action', {
+      action:'save_note', booking_id:id,
+      termin: termin ? new Date(termin).toISOString() : '',
+      status, admin_note: note,
+    });
+    const ok = document.getElementById('save-ok-'+id);
+    if (ok) { ok.style.display=''; setTimeout(() => ok.style.display='none', 2500); }
+    showToast('Saved ✓', 'success');
+    // Update status dot
+    const dot = document.querySelector(`#card-${id} .status-dot`);
+    if (dot) { dot.style.background = statusDotColor[status]||'#aaa'; dot.dataset.status=status; }
+    // Update sub line with termin
+    const sub = document.querySelector(`#card-${id} .booking-sub`);
+    if (sub && termin) {
+      const email = sub.textContent.split(' · ')[0];
+      sub.textContent = email + ' · 📅 ' + fmtDate(new Date(termin).toISOString());
+    }
+  } catch(e) { showToast('Error: '+e.message, 'error'); }
+}
+
+async function cancelBooking(id, name) {
+  if (!confirm(`Cancel booking for "${name}" and send cancellation email?`)) return;
+  try {
+    const d = await apiPost('/api/admin-action', { action:'cancel', booking_id:id });
+    showToast(d.email_sent ? 'Cancelled & email sent ✓' : 'Cancelled (email failed)', d.email_sent?'success':'error');
+    const dot = document.querySelector(`#card-${id} .status-dot`);
+    if (dot) { dot.style.background='#e74c3c'; dot.dataset.status='cancelled'; }
+    const sel = document.getElementById('status-'+id);
+    if (sel) sel.value = 'cancelled';
+  } catch(e) { showToast('Error: '+e.message, 'error'); }
+}
+
+async function deleteBooking(id) {
+  if (!confirm('Permanently delete this booking?')) return;
+  try {
+    await apiPost('/api/admin-action', { action:'delete', booking_id:id });
+    document.getElementById('card-'+id)?.remove();
+    showToast('Deleted', '');
+  } catch(e) { showToast('Error: '+e.message, 'error'); }
+}
+
+// Search & filter
+let activeStatus = 'all';
+function setStatus(btn, s) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active'); activeStatus = s; applyFilters();
+}
+function applyFilters() {
+  const q = document.getElementById('searchInput').value.toLowerCase().trim();
+  document.querySelectorAll('.booking-card').forEach(card => {
+    const text = card.textContent.toLowerCase();
+    const dot  = card.querySelector('.status-dot');
+    const cs   = dot ? (dot.dataset.status||'') : '';
+    const matchText   = !q || text.includes(q);
+    const matchStatus = activeStatus==='all' || cs===activeStatus;
+    card.style.display = (matchText && matchStatus) ? '' : 'none';
+  });
+}
+
+// CSV Export
+function exportCSV() {
+  const rows = [['Name','Email','Phone','Package','Price CHF','Status','Termin','Created']];
+  document.querySelectorAll('.booking-card').forEach(card => {
+    if (card.style.display==='none') return;
+    const name  = card.querySelector('.booking-name')?.textContent.trim()||'';
+    const sub   = card.querySelector('.booking-sub')?.textContent.trim()||'';
+    const pkg   = card.querySelector('.pkg-tag')?.textContent.trim()||'';
+    const price = card.querySelector('.price-tag')?.textContent.replace('CHF','').trim()||'';
+    const date  = card.querySelector('.date-tag')?.textContent.trim()||'';
+    const st    = card.querySelector('.status-dot')?.dataset.status||'';
+    rows.push([name,'','','',pkg,price,st,'',date]);
+  });
+  const csv  = rows.map(r => r.map(v => '"'+String(v).replace(/"/g,'""')+'"').join(',')).join('\n');
+  const blob = new Blob(['﻿'+csv], { type:'text/csv;charset=utf-8;' });
+  const a    = Object.assign(document.createElement('a'), { href:URL.createObjectURL(blob), download:'bookings-'+new Date().toISOString().slice(0,10)+'.csv' });
+  a.click();
+}
+
+/* ══════════════════════════════════════════════════════
+   BILLING TAB
+══════════════════════════════════════════════════════ */
 function showBillsList()  { document.getElementById('billsListView').style.display='block'; document.getElementById('billEditorView').style.display='none'; }
 function showBillEditor() { document.getElementById('billsListView').style.display='none';  document.getElementById('billEditorView').style.display='block'; }
-function clearAlerts()    { ['billAlertOk','billAlertErr'].forEach(id => { const el=document.getElementById(id); el.style.display='none'; el.textContent=''; }); }
-function showOk(msg)  { const el=document.getElementById('billAlertOk');  el.textContent=msg; el.style.display='block'; }
-function showErr(msg) { const el=document.getElementById('billAlertErr'); el.textContent=msg; el.style.display='block'; }
+function clearBillAlerts(){ ['billAlertOk','billAlertErr'].forEach(id => { const e=document.getElementById(id); e.style.display='none'; e.textContent=''; }); }
+function showBillOk(m)    { const e=document.getElementById('billAlertOk');  e.textContent=m; e.style.display='block'; }
+function showBillErr(m)   { const e=document.getElementById('billAlertErr'); e.textContent=m; e.style.display='block'; }
+
+function dbadge(s) {
+  return s==='open'
+    ? '<span class="dbadge dbadge-open">Open</span>'
+    : '<span class="dbadge dbadge-closed">Closed</span>';
+}
 
 async function refreshBillsList() {
   showBillsList();
   const list = document.getElementById('billsList');
-  list.innerHTML = '<div class="empty">Loading…</div>';
+  list.innerHTML = '<div style="text-align:center;padding:40px;color:rgba(255,255,255,.3)">Loading…</div>';
   try {
     const bills = await fetch('/api/admin-bills').then(r => r.json());
-    if (!bills.length) { list.innerHTML = '<div class="empty">No bills yet. Click "+ New Bill" to start.</div>'; return; }
-    const open   = bills.filter(b => b.status === 'open');
-    const closed = bills.filter(b => b.status === 'closed');
-    let html = '';
-    const cardHtml = b => {
-      const n = b.positions.length;
-      const d = fmtDate(b.status === 'closed' ? b.closed_at : b.created_at);
+    if (!bills.length) { list.innerHTML='<div style="text-align:center;padding:40px;color:rgba(255,255,255,.3)">No bills yet. Click "+ New Bill" to start.</div>'; return; }
+    const open   = bills.filter(b => b.status==='open');
+    const closed = bills.filter(b => b.status==='closed');
+    const cardH  = b => {
+      const n=b.positions.length, d=fmtDate(b.status==='closed'?b.closed_at:b.created_at);
       return `<div class="bill-card" data-id="${b.id}">
-        ${badge(b.status)}
-        <div class="bill-info">
-          <div class="bill-client">${b.client_name}</div>
-          <div class="bill-meta">${b.client_email} · ${n} item${n!==1?'s':''} · ${d}</div>
-        </div>
+        ${dbadge(b.status)}
+        <div class="bill-info"><div class="bill-client">${b.client_name}</div><div class="bill-meta">${b.client_email} · ${n} item${n!==1?'s':''} · ${d}</div></div>
         <div class="bill-total">CHF ${parseFloat(b.total_chf||0).toFixed(2)}</div>
       </div>`;
     };
-    if (open.length)   html += `<div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px">Open (${open.length})</div>`   + open.map(cardHtml).join('');
-    if (closed.length) html += `<div style="font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:20px 0 10px">Closed (${closed.length})</div>` + closed.map(cardHtml).join('');
-    list.innerHTML = html;
+    let html='';
+    if (open.length)   html+=`<div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:10px">Open (${open.length})</div>`+open.map(cardH).join('');
+    if (closed.length) html+=`<div style="font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.3);margin:20px 0 10px">Closed (${closed.length})</div>`+closed.map(cardH).join('');
+    list.innerHTML=html;
     list.querySelectorAll('.bill-card').forEach(c => c.addEventListener('click', () => openBillEditor(c.dataset.id)));
-  } catch { list.innerHTML = '<div class="empty">Could not load bills.</div>'; }
+  } catch { list.innerHTML='<div style="text-align:center;padding:40px;color:rgba(255,255,255,.3)">Could not load bills.</div>'; }
 }
 
 async function openBillEditor(id) {
-  showBillEditor(); clearAlerts();
-  try {
-    const r = await fetch(`/api/admin-bills?id=${id}`);
-    if (!r.ok) throw new Error();
-    currentBill = await r.json();
-    renderEditor();
-  } catch { showErr('Could not load bill.'); }
+  showBillEditor(); clearBillAlerts();
+  const r = await fetch('/api/admin-bills?id='+id);
+  if (!r.ok) { showBillErr('Could not load bill.'); return; }
+  currentBill = await r.json();
+  renderBillEditor();
 }
 
-function renderEditor() {
-  const b = currentBill;
-  const open = b.status === 'open';
-  document.getElementById('editorTitle').textContent = `Bill #${b.id}`;
-  document.getElementById('editorBadge').innerHTML   = badge(b.status);
-  document.getElementById('billClientName').value    = b.client_name  || '';
-  document.getElementById('billClientEmail').value   = b.client_email || '';
+function renderBillEditor() {
+  const b=currentBill, open=b.status==='open';
+  document.getElementById('editorTitle').textContent = 'Bill #'+b.id;
+  document.getElementById('editorBadge').innerHTML   = dbadge(b.status);
+  document.getElementById('billClientName').value    = b.client_name||'';
+  document.getElementById('billClientEmail').value   = b.client_email||'';
   document.getElementById('billClientName').readOnly  = !open;
   document.getElementById('billClientEmail').readOnly = !open;
-  document.getElementById('addPosBox').style.display  = open ? 'block' : 'none';
-  document.getElementById('billActions').style.display = open ? 'flex'  : 'none';
+  document.getElementById('addPosBox').style.display  = open?'block':'none';
+  document.getElementById('billActions').style.display= open?'flex':'none';
   renderPosTable();
 }
 
 function renderPosTable() {
-  const b    = currentBill;
-  const open = b.status === 'open';
-  const tbody = document.getElementById('posTbody');
+  const b=currentBill, open=b.status==='open';
+  const tbody=document.getElementById('posTbody');
   if (!b.positions.length) {
-    tbody.innerHTML = '<tr><td colspan="6" style="text-align:center;color:rgba(255,255,255,.3);padding:20px">No positions yet</td></tr>';
+    tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:rgba(255,255,255,.3);padding:20px">No positions yet</td></tr>';
   } else {
-    tbody.innerHTML = b.positions.map((p, i) => `<tr>
+    tbody.innerHTML=b.positions.map((p,i) => `<tr>
       <td style="color:rgba(255,255,255,.4)">${p.position_number}</td>
       <td>${p.name}</td>
-      <td>${open
-        ? `<input class="qty-input" type="number" value="${p.quantity}" min="0.5" step="0.5" onchange="updateQty(${i},this.value)">`
-        : p.quantity}</td>
+      <td>${open?`<input class="qty-inp" type="number" value="${p.quantity}" min="0.5" step="0.5" onchange="updateQty(${i},this.value)">`:p.quantity}</td>
       <td>CHF ${parseFloat(p.unit_price_chf).toFixed(2)}</td>
       <td>CHF ${parseFloat(p.total_chf).toFixed(2)}</td>
-      <td>${open ? `<button class="btn btn-danger btn-sm" onclick="removePos(${i})">×</button>` : ''}</td>
+      <td>${open?`<button class="d-btn d-btn-danger d-btn-sm" onclick="removePos(${i})">×</button>`:''}</td>
     </tr>`).join('');
   }
-  document.getElementById('billTotal').textContent = `CHF ${parseFloat(b.total_chf||0).toFixed(2)}`;
+  document.getElementById('billTotal').textContent='CHF '+parseFloat(b.total_chf||0).toFixed(2);
 }
 
-/* New bill */
 document.getElementById('newBillBtn').addEventListener('click', async () => {
-  const name  = prompt('Client full name:');  if (!name?.trim())  return;
-  const email = prompt('Client email address:'); if (!email?.trim()) return;
+  const name=prompt('Client full name:'); if (!name?.trim()) return;
+  const email=prompt('Client email:');    if (!email?.trim()) return;
   try {
-    currentBill = await apiPost('/api/admin-bills', { action:'create', client_name: name.trim(), client_email: email.trim() });
-    showBillEditor(); clearAlerts(); renderEditor();
-  } catch(e) { alert('Error: ' + e.message); }
+    currentBill=await apiPost('/api/admin-bills',{action:'create',client_name:name.trim(),client_email:email.trim()});
+    showBillEditor(); clearBillAlerts(); renderBillEditor();
+  } catch(e) { alert('Error: '+e.message); }
 });
+document.getElementById('backToBillsBtn').addEventListener('click', () => { currentBill=null; refreshBillsList(); });
 
-document.getElementById('backToBillsBtn').addEventListener('click', () => { currentBill = null; refreshBillsList(); });
-
-/* Position lookup */
 document.getElementById('inPosNum').addEventListener('input', () => {
-  const num = parseInt(document.getElementById('inPosNum').value);
-  const pos = catalog.find(p => p.number === num);
-  if (pos) {
-    document.getElementById('inPosName').value = pos.name;
-    document.getElementById('posPreview').textContent = `Unit price: CHF ${parseFloat(pos.price_chf).toFixed(2)}`;
-  } else {
-    document.getElementById('inPosName').value = '';
-    document.getElementById('posPreview').textContent = num ? 'Position not found in catalog' : '';
-  }
+  const num=parseInt(document.getElementById('inPosNum').value);
+  const pos=catalog.find(p=>p.number===num);
+  document.getElementById('inPosName').value = pos?pos.name:'';
+  document.getElementById('posPreview').textContent = pos?`Unit price: CHF ${parseFloat(pos.price_chf).toFixed(2)}`:(num?'Not found in catalog':'');
 });
 
-/* Add position */
 document.getElementById('addPosBtn').addEventListener('click', async () => {
-  clearAlerts();
-  const num = document.getElementById('inPosNum').value;
-  const qty = document.getElementById('inPosQty').value;
-  if (!num) { showErr('Enter a position number.'); return; }
+  clearBillAlerts();
+  const num=document.getElementById('inPosNum').value, qty=document.getElementById('inPosQty').value;
+  if (!num) { showBillErr('Enter a position number.'); return; }
   try {
-    currentBill = await apiPost('/api/admin-bills', { action:'add_position', bill_id: currentBill.id, position_number: num, quantity: qty });
+    currentBill=await apiPost('/api/admin-bills',{action:'add_position',bill_id:currentBill.id,position_number:num,quantity:qty});
     renderPosTable();
-    document.getElementById('inPosNum').value  = '';
-    document.getElementById('inPosName').value = '';
-    document.getElementById('inPosQty').value  = '1';
-    document.getElementById('posPreview').textContent = '';
-  } catch(e) { showErr(e.message); }
+    ['inPosNum','inPosName'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('inPosQty').value='1';
+    document.getElementById('posPreview').textContent='';
+  } catch(e) { showBillErr(e.message); }
 });
 
-/* Remove position */
 async function removePos(idx) {
-  clearAlerts();
-  try { currentBill = await apiPost('/api/admin-bills', { action:'remove_position', bill_id: currentBill.id, position_index: idx }); renderPosTable(); }
-  catch(e) { showErr(e.message); }
+  clearBillAlerts();
+  try { currentBill=await apiPost('/api/admin-bills',{action:'remove_position',bill_id:currentBill.id,position_index:idx}); renderPosTable(); }
+  catch(e) { showBillErr(e.message); }
+}
+async function updateQty(idx,qty) {
+  try { currentBill=await apiPost('/api/admin-bills',{action:'update_position',bill_id:currentBill.id,position_index:idx,quantity:qty}); renderPosTable(); }
+  catch(e) { showBillErr(e.message); }
 }
 
-/* Update quantity */
-async function updateQty(idx, qty) {
-  try { currentBill = await apiPost('/api/admin-bills', { action:'update_position', bill_id: currentBill.id, position_index: idx, quantity: qty }); renderPosTable(); }
-  catch(e) { showErr(e.message); }
-}
-
-/* Close bill */
 document.getElementById('closeBillBtn').addEventListener('click', async () => {
-  if (!currentBill?.positions?.length) { showErr('Add at least one position before closing.'); return; }
-  if (!confirm(`Close this bill and send the invoice to ${currentBill.client_email}?`)) return;
-  clearAlerts();
-  const btn = document.getElementById('closeBillBtn');
-  btn.textContent = 'Sending…'; btn.disabled = true;
+  if (!currentBill?.positions?.length) { showBillErr('Add at least one position first.'); return; }
+  if (!confirm(`Close bill and send invoice to ${currentBill.client_email}?`)) return;
+  clearBillAlerts();
+  const btn=document.getElementById('closeBillBtn');
+  btn.textContent='Sending…'; btn.disabled=true;
   try {
-    const { bill, email_sent, email_error } = await apiPost('/api/admin-bills', { action:'close', bill_id: currentBill.id });
-    currentBill = bill;
-    renderEditor();
-    showOk(email_sent ? `✓ Invoice sent to ${bill.client_email}` : `Bill closed. Email error: ${email_error}`);
-  } catch(e) { showErr(e.message); btn.textContent = '✓ Close & Send Invoice'; btn.disabled = false; }
+    const {bill,email_sent,email_error}=await apiPost('/api/admin-bills',{action:'close',bill_id:currentBill.id});
+    currentBill=bill; renderBillEditor();
+    showBillOk(email_sent?`✓ Invoice sent to ${bill.client_email}`:`Bill closed. Email error: ${email_error}`);
+  } catch(e) { showBillErr(e.message); btn.textContent='✓ Close & Send Invoice'; btn.disabled=false; }
 });
 
-/* ════════════════════ SERVICES TAB ════════════════════ */
+/* ══════════════════════════════════════════════════════
+   SERVICES TAB
+══════════════════════════════════════════════════════ */
 async function loadServices() {
   try {
-    const r = await fetch('/api/admin-positions');
-    catalog = r.ok ? await r.json() : [];
+    catalog=await fetch('/api/admin-positions').then(r=>r.json());
     renderSvcTable();
-  } catch { document.getElementById('svcTbody').innerHTML = '<tr><td colspan="4" style="text-align:center;color:rgba(255,255,255,.3);padding:24px">Could not load services.</td></tr>'; }
+  } catch { document.getElementById('svcTbody').innerHTML='<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:24px">Could not load.</td></tr>'; }
 }
-
 function renderSvcTable() {
-  const tbody = document.getElementById('svcTbody');
-  if (!catalog.length) {
-    tbody.innerHTML = '<tr><td colspan="4" style="text-align:center;color:rgba(255,255,255,.3);padding:24px">No services yet. Click "+ Add service".</td></tr>';
-    return;
-  }
-  tbody.innerHTML = catalog.map(s => `<tr>
-    <td class="svc-num">${s.number}</td>
+  const tbody=document.getElementById('svcTbody');
+  if (!catalog.length) { tbody.innerHTML='<tr><td colspan="4" style="text-align:center;color:var(--muted);padding:24px">No services yet. Click "+ Add service".</td></tr>'; return; }
+  tbody.innerHTML=catalog.map(s=>`<tr>
+    <td style="color:var(--muted)">${s.number}</td>
     <td>${s.name}</td>
     <td>CHF ${parseFloat(s.price_chf).toFixed(2)}</td>
-    <td style="text-align:right"><button class="btn btn-danger btn-sm" onclick="deleteSvc(${s.number})">Delete</button></td>
+    <td style="text-align:right"><button class="btn-delete" style="padding:5px 12px;font-size:11px" onclick="deleteSvc(${s.number})">Delete</button></td>
   </tr>`).join('');
 }
-
-document.getElementById('showAddSvcBtn').addEventListener('click', () => { document.getElementById('addSvcBox').style.display='block'; document.getElementById('showAddSvcBtn').style.display='none'; });
-document.getElementById('cancelSvcBtn').addEventListener('click', () => { document.getElementById('addSvcBox').style.display='none'; document.getElementById('showAddSvcBtn').style.display=''; });
-document.getElementById('saveSvcBtn').addEventListener('click', async () => {
-  const number    = document.getElementById('svcNum').value;
-  const name      = document.getElementById('svcName').value.trim();
-  const price_chf = document.getElementById('svcPrice').value;
-  const errEl     = document.getElementById('svcErr');
-  errEl.style.display = 'none';
-  if (!number || !name || !price_chf) { errEl.textContent='All fields are required.'; errEl.style.display='block'; return; }
+document.getElementById('showAddSvcBtn').addEventListener('click', ()=>{ document.getElementById('addSvcBox').style.display='block'; document.getElementById('showAddSvcBtn').style.display='none'; });
+document.getElementById('cancelSvcBtn').addEventListener('click', ()=>{ document.getElementById('addSvcBox').style.display='none'; document.getElementById('showAddSvcBtn').style.display=''; });
+document.getElementById('saveSvcBtn').addEventListener('click', async ()=>{
+  const number=document.getElementById('svcNum').value, name=document.getElementById('svcName').value.trim(), price_chf=document.getElementById('svcPrice').value;
+  const errEl=document.getElementById('svcErr'); errEl.style.display='none';
+  if (!number||!name||!price_chf) { errEl.textContent='All fields required.'; errEl.style.display='block'; return; }
   try {
-    catalog = await apiPost('/api/admin-positions', { action:'create', number, name, price_chf });
+    catalog=await apiPost('/api/admin-positions',{action:'create',number,name,price_chf});
     renderSvcTable();
-    document.getElementById('addSvcBox').style.display = 'none';
-    document.getElementById('showAddSvcBtn').style.display = '';
-    ['svcNum','svcName','svcPrice'].forEach(id => document.getElementById(id).value = '');
+    document.getElementById('addSvcBox').style.display='none'; document.getElementById('showAddSvcBtn').style.display='';
+    ['svcNum','svcName','svcPrice'].forEach(id=>document.getElementById(id).value='');
   } catch(e) { errEl.textContent=e.message; errEl.style.display='block'; }
 });
-
 async function deleteSvc(number) {
-  if (!confirm('Delete this service from the catalog?')) return;
-  try { catalog = await apiPost('/api/admin-positions', { action:'delete', number }); renderSvcTable(); }
-  catch { alert('Could not delete service.'); }
+  if (!confirm('Delete this service?')) return;
+  try { catalog=await apiPost('/api/admin-positions',{action:'delete',number}); renderSvcTable(); }
+  catch { alert('Could not delete.'); }
 }
 
-/* ════════════════════ AUTH ════════════════════ */
-const loginScreen = document.getElementById('loginScreen');
-const dash        = document.getElementById('dashboard');
-const pwdInput    = document.getElementById('pwdInput');
-const loginBtn    = document.getElementById('loginBtn');
-const loginError  = document.getElementById('loginError');
+/* ══════════════════════════════════════════════════════
+   AUTH
+══════════════════════════════════════════════════════ */
+const loginScreen=document.getElementById('loginScreen');
+const dash=document.getElementById('dashboard');
+const pwdInput=document.getElementById('pwdInput');
+const loginBtn=document.getElementById('loginBtn');
+const loginError=document.getElementById('loginError');
 
 async function afterLogin() {
-  loginScreen.style.display = 'none';
-  dash.style.display        = 'block';
-  loadDashboard();
-  // Pre-load catalog so billing tab works immediately
-  fetch('/api/admin-positions').then(r => r.json()).then(d => { catalog = d; }).catch(() => {});
+  loginScreen.style.display='none'; dash.style.display='block';
+  await loadAllData();
 }
-
 async function init() {
   if ((await fetch('/api/admin-auth')).ok) afterLogin();
 }
-
-loginBtn.addEventListener('click', async () => {
-  loginError.style.display = 'none';
-  loginBtn.textContent = 'Signing in…';
+loginBtn.addEventListener('click', async ()=>{
+  loginError.style.display='none'; loginBtn.textContent='Signing in…';
   try {
-    const r = await fetch('/api/admin-auth', {
-      method: 'POST', headers: {'Content-Type':'application/json'},
-      body: JSON.stringify({ password: pwdInput.value }),
-    });
+    const r=await fetch('/api/admin-auth',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pwdInput.value})});
     if (!r.ok) { loginError.style.display='block'; loginBtn.textContent='Sign in'; return; }
-    loginBtn.textContent = 'Sign in';
-    afterLogin();
+    loginBtn.textContent='Sign in'; afterLogin();
   } catch { loginError.style.display='block'; loginBtn.textContent='Sign in'; }
 });
-
-pwdInput.addEventListener('keydown', e => { if (e.key==='Enter') loginBtn.click(); });
-
-document.getElementById('logoutBtn').addEventListener('click', async () => {
-  await fetch('/api/admin-auth', { method:'DELETE' });
-  dash.style.display        = 'none';
-  loginScreen.style.display = 'flex';
-  pwdInput.value = '';
+pwdInput.addEventListener('keydown', e=>{ if(e.key==='Enter') loginBtn.click(); });
+document.getElementById('logoutBtn').addEventListener('click', async e=>{
+  e.preventDefault();
+  await fetch('/api/admin-auth',{method:'DELETE'});
+  dash.style.display='none'; loginScreen.style.display='flex'; pwdInput.value='';
 });
-
 init();
 </script>
 </body>

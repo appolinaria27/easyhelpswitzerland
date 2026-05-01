@@ -7,7 +7,8 @@
     "api/admin-auth.js":     { "memory": 128 },
     "api/admin-entries.js":   { "memory": 128 },
     "api/admin-bills.js":     { "memory": 256 },
-    "api/admin-positions.js": { "memory": 128 }
+    "api/admin-positions.js": { "memory": 128 },
+    "api/admin-action.js":    { "memory": 256 }
   },
   "redirects": [
     { "source": "/admin.php",                 "destination": "/admin.html",                 "permanent": true },
@@ -31,6 +32,7 @@
     { "source": "/api/admin-entries",     "destination": "/api/admin-entries.js" },
     { "source": "/api/admin-bills",       "destination": "/api/admin-bills.js" },
     { "source": "/api/admin-positions",   "destination": "/api/admin-positions.js" },
+    { "source": "/api/admin-action",      "destination": "/api/admin-action.js" },
     { "source": "/blog",                  "destination": "/blog.html" },
     { "source": "/booking",               "destination": "/booking.html" },
     { "source": "/free-consultation",     "destination": "/free-consultation.html" },
