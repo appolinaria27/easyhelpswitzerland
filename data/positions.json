@@ -1,0 +1,10 @@
+[
+  { "number": 1, "name": "Initial Consultation (1h)", "price_chf": 150 },
+  { "number": 2, "name": "Follow-up Consultation (1h)", "price_chf": 120 },
+  { "number": 3, "name": "Document Preparation", "price_chf": 200 },
+  { "number": 4, "name": "Permit Application Support", "price_chf": 350 },
+  { "number": 5, "name": "Registration Assistance", "price_chf": 250 },
+  { "number": 6, "name": "Housing Search Support", "price_chf": 300 },
+  { "number": 7, "name": "Insurance Consultation", "price_chf": 180 },
+  { "number": 8, "name": "Work Permit Consultation", "price_chf": 300 }
+]
