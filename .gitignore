@@ -73,8 +73,9 @@ stripe-events/*.lock
 stripe-events/*.json
 
 # ── Runtime cache ─────────────────────────────────────────────────────────────
-# News cache is rebuilt automatically — no need to track
+# News cache is rebuilt automatically — stored in GitHub via API
 news-cache.json
+data/news-cache.json
 
 # ── Design scratch files ──────────────────────────────────────────────────────
 og-image-source.html

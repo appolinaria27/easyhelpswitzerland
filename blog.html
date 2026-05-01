@@ -739,7 +739,7 @@
     if (!grid) return;
 
     try {
-      const res = await fetch('/api/news?v=4');
+      const res = await fetch('/api/news?v=5');
       if (!res.ok) throw new Error('API error');
       const { articles } = await res.json();
 
