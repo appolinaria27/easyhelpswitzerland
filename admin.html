@@ -552,11 +552,20 @@ function initCalendar(events) {
       const id   = info.event.id;
       const dt   = info.event.start.toISOString();
       const name = info.event.title;
-      if (!confirm('Move to ' + info.event.start.toLocaleString('de-CH') + '?')) { info.revert(); return; }
+      if (!confirm('Move to ' + info.event.start.toLocaleString('de-CH') + '?\nA rescheduling email will be sent to the client automatically.')) {
+        info.revert(); return;
+      }
+      // Save new time, then immediately send rescheduling email
       apiPost('/api/admin-action', { action:'schedule', booking_id:id, datetime:dt, send_mail:false })
         .then(d => {
-          if (d.ok) { showToast('Moved ✓', 'success'); openEmailModal(name, id, 'resched_email'); }
-          else { info.revert(); showToast('Error', 'error'); }
+          if (!d.ok) { info.revert(); showToast('Error saving', 'error'); return; }
+          showToast('Moved ✓ · Sending email…', 'success');
+          return apiPost('/api/admin-action', { action:'resched_email', booking_id:id });
+        })
+        .then(d => {
+          if (!d) return; // already handled error above
+          if (d.email_sent) showToast('Rescheduling email sent ✓', 'success');
+          else showToast('Saved, but email failed: ' + (d.email_error || '?'), 'error');
         })
         .catch(() => { info.revert(); showToast('Network error', 'error'); });
     },
