@@ -621,7 +621,7 @@
             <h2 class="section-title" data-i18n="news_section_title">Latest news</h2>
             <span class="section-bracket section-bracket-right"></span>
           </div>
-          <p style="margin:-20px 0 32px;color:var(--muted);font-size:15px" data-i18n="news_section_sub">Fresh news from Switzerland — updated daily. Articles in English.</p>
+          <p style="margin:-20px 0 32px;color:var(--muted);font-size:15px" data-i18n="news_section_sub">Aktuelle Neuigkeiten aus der Schweiz — täglich aktualisiert.</p>
           <div id="newsGrid">
             <!-- skeleton -->
             <div class="news-skeleton"></div>
@@ -739,7 +739,7 @@
     if (!grid) return;
 
     try {
-      const res = await fetch('/api/news?v=5');
+      const res = await fetch('/api/news?v=6');
       if (!res.ok) throw new Error('API error');
       const { articles } = await res.json();
 
@@ -753,12 +753,12 @@
           ? `<img class="news-card-img" src="${escHtml(a.image)}" alt="${escHtml(a.title)}" loading="lazy" onerror="this.style.display='none'">`
           : `<div class="news-card-img-placeholder"></div>`;
         const date = a.publishedAt
-          ? new Date(a.publishedAt).toLocaleDateString('en-GB', {day:'numeric',month:'short',year:'numeric'})
+          ? new Date(a.publishedAt).toLocaleDateString('de-CH', {day:'numeric',month:'short',year:'numeric'})
           : '';
         return `<div class="news-card">
           ${img}
           <div class="news-card-body">
-            <div><span class="news-card-source">${escHtml(a.source || 'News')}</span><span class="news-en-badge">EN</span></div>
+            <div><span class="news-card-source">${escHtml(a.source || 'News')}</span></div>
             <div class="news-card-title">${escHtml(a.title)}</div>
             <div class="news-card-desc">${escHtml((a.description || '').slice(0, 120))}${(a.description||'').length > 120 ? '…' : ''}</div>
             <div style="display:flex;justify-content:space-between;align-items:center;margin-top:auto">

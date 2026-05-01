@@ -14,7 +14,8 @@ const TTL_MS     = 6 * 60 * 60 * 1000; // 6 hours
 let memCache = { data: null, at: 0 };
 
 // Google News RSS — no auth required, excellent coverage
-const RSS_URL = 'https://news.google.com/rss/search?q=Switzerland+immigration+expat+permit&hl=en-US&gl=US&ceid=US:en';
+// German-language query so articles arrive in German natively (no translation API needed)
+const RSS_URL = 'https://news.google.com/rss/search?q=Schweiz+Einwanderung+Aufenthaltsbewilligung+Expat+Ausländer&hl=de-CH&gl=CH&ceid=CH:de';
 
 function decodeEntities(str) {
   return str
@@ -58,7 +59,25 @@ function parseRSS(xml) {
     let publishedAt = null;
     try { if (pubM) publishedAt = new Date(pubM[1].trim()).toISOString(); } catch {}
 
-    articles.push({ title, url, source, publishedAt, image: null, description: '' });
+    // Image — Google News puts a thumbnail inside the <description> CDATA as an <img> tag
+    let image = null;
+    let description = '';
+    const descM = chunk.match(/<description><!\[CDATA\[([\s\S]*?)\]\]><\/description>/);
+    if (descM) {
+      const html = descM[1];
+      // Extract thumbnail URL
+      const imgM = html.match(/<img[^>]+src="([^"]+)"/);
+      if (imgM) image = imgM[1];
+      // Extract plain-text snippet (strip all tags)
+      description = html.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
+    }
+    // Fallback: <media:content url="...">
+    if (!image) {
+      const mediaM = chunk.match(/<media:content[^>]+url="([^"]+)"/);
+      if (mediaM) image = mediaM[1];
+    }
+
+    articles.push({ title, url, source, publishedAt, image, description });
   }
 
   return articles;
