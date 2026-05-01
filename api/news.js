@@ -8,7 +8,7 @@
 
 const { ghRead, ghWrite } = require('../lib/github-storage');
 
-const CACHE_PATH = 'data/news-cache.json';
+const CACHE_PATH = 'data/news-cache-v2.json';
 const TTL_MS     = 6 * 60 * 60 * 1000; // 6 hours
 
 let memCache = { data: null, at: 0 };
