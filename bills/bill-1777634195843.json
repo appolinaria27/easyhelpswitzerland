@@ -5,6 +5,14 @@
   "status": "open",
   "created_at": "2026-05-01T11:16:35.843Z",
   "closed_at": null,
-  "positions": [],
-  "total_chf": 0
+  "positions": [
+    {
+      "position_number": 2,
+      "name": "Relocation support package",
+      "quantity": 1,
+      "unit_price_chf": 189,
+      "total_chf": 189
+    }
+  ],
+  "total_chf": 189
 }
