@@ -19,7 +19,14 @@
       "quantity": 1,
       "unit_price_chf": 149,
       "total_chf": 149
+    },
+    {
+      "position_number": 7,
+      "name": "Additional information consultation (15 min)",
+      "quantity": 2.5,
+      "unit_price_chf": 39,
+      "total_chf": 97.5
     }
   ],
-  "total_chf": 228
+  "total_chf": 325.5
 }
