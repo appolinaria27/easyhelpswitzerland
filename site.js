@@ -591,7 +591,7 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
   sidebar_support_cta: "Book consultation",
 
   news_section_title: "Latest news",
-  news_section_sub: "Fresh news from Switzerland — updated daily. Articles in English.",
+  news_section_sub: "Fresh news from Switzerland on immigration, work &amp; living — updated daily.",
 
   cta_label: "Next step",
   cta_title: "Make your relocation easier from day one",
@@ -1732,7 +1732,7 @@ footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.
   sidebar_support_cta: "Reservar consulta",
 
   news_section_title: "Últimas noticias",
-  news_section_sub: "Noticias frescas de Suiza — actualizadas diariamente. Artículos en inglés.",
+  news_section_sub: "Noticias frescas de Suiza sobre inmigración, trabajo y vida — actualizadas diariamente.",
 
   cta_label: "Siguiente paso",
   cta_title: "Haz tu reubicación más fácil desde el primer día",
@@ -2829,7 +2829,7 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
   sidebar_support_cta: "Beratung buchen",
 
   news_section_title: "Aktuelle Nachrichten",
-  news_section_sub: "Frische Nachrichten aus der Schweiz — täglich aktualisiert. Artikel auf Englisch.",
+  news_section_sub: "Aktuelle Nachrichten aus der Schweiz zu Einwanderung, Arbeit &amp; Leben — täglich aktualisiert.",
 
   cta_label: "Nächster Schritt",
   cta_title: "Machen Sie Ihren Umzug vom ersten Tag an einfacher",
@@ -4012,7 +4012,7 @@ payment_note: "Оплата підтверджує ваш запит на кон
   sidebar_support_cta: "Записатися на консультацію",
 
   news_section_title: "Останні новини",
-  news_section_sub: "Свіжі новини зі Швейцарії — оновлюються щодня. Статті англійською.",
+  news_section_sub: "Свіжі новини зі Швейцарії про імміграцію, роботу та життя — оновлюються щодня.",
 
   cta_label: "Наступний крок",
   cta_title: "Зробіть вашу релокацію простішою з першого дня",

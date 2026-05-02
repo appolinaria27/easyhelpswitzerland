@@ -1,24 +1,30 @@
 /**
  * api/news.js
  * Fetches Switzerland-related news from Google News RSS.
- * Images:       fetched from each article's og:image (parallel, 5 s timeout).
- * Translations: via MyMemory free API EN→DE/ES/UK (parallel, 3 s timeout).
- * Both run simultaneously after RSS parse so total latency ≈ max(img, trans).
- * Cache stored in GitHub so it survives Vercel cold starts (6 h TTL).
+ * - RSS query uses a rolling 6-month `after:` filter for freshness
+ * - Parses up to 10 items, sorts by date, keeps 3 newest
+ * - Images via Microlink (free meta-scraper API, no key needed, 50 req/day)
+ * - Translations via MyMemory (EN→DE/ES/UK, parallel)
+ * - Cache stored in GitHub (6 h TTL), survives Vercel cold starts
  */
 
 const { ghRead, ghWrite } = require('../lib/github-storage');
 
-const CACHE_PATH = 'data/news-cache-v2.json';
+const CACHE_PATH = 'data/news-cache-v3.json';
 const TTL_MS     = 6 * 60 * 60 * 1000; // 6 hours
 
 let memCache = { data: null, at: 0 };
 
-const RSS_URL = 'https://news.google.com/rss/search?q=Switzerland+immigration+expat+permit+relocation&hl=en-US&gl=US&ceid=US:en';
-
 const TARGET_LANGS = ['de', 'es', 'uk'];
 
-// ── Helpers ──────────────────────────────────────────────────────────────────
+// Rolling "last 6 months" date for freshness
+function rssUrl() {
+  const d = new Date(Date.now() - 180 * 24 * 60 * 60 * 1000);
+  const after = d.toISOString().slice(0, 10); // YYYY-MM-DD
+  return `https://news.google.com/rss/search?q=Switzerland+immigration+work+permit+expat+residence+after:${after}&hl=en-US&gl=US&ceid=US:en`;
+}
+
+// ── Helpers ───────────────────────────────────────────────────────────────────
 
 function decodeEntities(str) {
   return str
@@ -35,7 +41,8 @@ function parseRSS(xml) {
   const itemRe = /<item>([\s\S]*?)<\/item>/g;
   let m;
 
-  while ((m = itemRe.exec(xml)) !== null && articles.length < 3) {
+  // Parse up to 10 items, sort by date below, keep 3 freshest
+  while ((m = itemRe.exec(xml)) !== null && articles.length < 10) {
     const chunk = m[1];
 
     const titleM = chunk.match(/<title>([\s\S]*?)<\/title>/);
@@ -56,7 +63,6 @@ function parseRSS(xml) {
     let publishedAt = null;
     try { if (pubM) publishedAt = new Date(pubM[1].trim()).toISOString(); } catch {}
 
-    // Plain-text description (entity-encoded HTML, no img tags in Google RSS)
     let description = '';
     const rawDescM = chunk.match(/<description>([\s\S]*?)<\/description>/);
     if (rawDescM) {
@@ -67,46 +73,40 @@ function parseRSS(xml) {
     articles.push({ title, url, source, publishedAt, image: null, description });
   }
 
-  return articles;
+  // Sort newest first, keep top 3
+  articles.sort((a, b) => {
+    const ta = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+    const tb = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+    return tb - ta;
+  });
+
+  return articles.slice(0, 3);
 }
 
-// ── og:image fetching ─────────────────────────────────────────────────────────
+// ── Image via Microlink (free, no key, handles JS/paywalls/redirects) ─────────
 
-async function fetchOgImage(url) {
+async function fetchImage(url) {
   try {
-    const res = await fetch(url, {
-      headers: { 'User-Agent': 'Twitterbot/1.0' },
-      signal: AbortSignal.timeout(5000),
-      redirect: 'follow',
+    const api = `https://api.microlink.io/?url=${encodeURIComponent(url)}&meta=false`;
+    const r = await fetch(api, {
+      headers: { 'User-Agent': 'Mozilla/5.0' },
+      signal: AbortSignal.timeout(6000),
     });
-    if (!res.ok) return null;
-
-    // Read only the first 20 KB — og:image is always in <head>
-    const reader = res.body.getReader();
-    const dec = new TextDecoder();
-    let html = '';
-    while (html.length < 20000) {
-      const { value, done } = await reader.read();
-      if (done) break;
-      html += dec.decode(value, { stream: true });
-    }
-    reader.cancel().catch(() => {});
-
-    const m = html.match(/<meta[^>]+property=["']og:image["'][^>]+content=["']([^"']+)["']/i)
-           || html.match(/<meta[^>]+content=["']([^"']+)["'][^>]+property=["']og:image["']/i);
-    return m ? m[1] : null;
+    if (!r.ok) return null;
+    const j = await r.json();
+    return j?.data?.image?.url || null;
   } catch {
     return null;
   }
 }
 
-// ── Translation ───────────────────────────────────────────────────────────────
+// ── Translation via MyMemory (free, no key) ───────────────────────────────────
 
-async function translateText(text, targetLang) {
+async function translateText(text, lang) {
   if (!text) return '';
   try {
-    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${targetLang}`;
-    const r = await fetch(url, { signal: AbortSignal.timeout(3000) });
+    const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=en|${lang}`;
+    const r = await fetch(url, { signal: AbortSignal.timeout(4000) });
     if (!r.ok) return text;
     const j = await r.json();
     const t = j?.responseData?.translatedText;
@@ -117,13 +117,12 @@ async function translateText(text, targetLang) {
   }
 }
 
-// ── Main enrichment: images + translations run in parallel ────────────────────
+// ── Enrich: images + translations fire simultaneously per article ──────────────
 
 async function enrichArticles(articles) {
   return Promise.all(articles.map(async (a) => {
-    // Fire og:image fetch and all translations simultaneously
-    const [image, ...langResults] = await Promise.all([
-      fetchOgImage(a.url),
+    const [image, ...langPairs] = await Promise.all([
+      fetchImage(a.url),
       ...TARGET_LANGS.map(lang =>
         Promise.all([
           translateText(a.title, lang),
@@ -134,7 +133,7 @@ async function enrichArticles(articles) {
 
     const translations = { en: { title: a.title, description: a.description } };
     TARGET_LANGS.forEach((lang, i) => {
-      translations[lang] = { title: langResults[i][0], description: langResults[i][1] };
+      translations[lang] = { title: langPairs[i][0], description: langPairs[i][1] };
     });
 
     return { ...a, image: image || null, translations };
@@ -144,13 +143,12 @@ async function enrichArticles(articles) {
 // ── RSS fetch ─────────────────────────────────────────────────────────────────
 
 async function fetchArticles() {
-  const res = await fetch(RSS_URL, {
+  const res = await fetch(rssUrl(), {
     headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EasyHelpBot/1.0)' },
     signal: AbortSignal.timeout(8000),
   });
   if (!res.ok) throw new Error(`RSS fetch failed: ${res.status}`);
-  const xml = await res.text();
-  return parseRSS(xml);
+  return parseRSS(await res.text());
 }
 
 // ── Handler ───────────────────────────────────────────────────────────────────
@@ -171,23 +169,20 @@ module.exports = async (req, res) => {
   // 2. GitHub persistent cache
   try {
     const { data } = await ghRead(CACHE_PATH);
-    if (data && data.fetched_at && (now - data.fetched_at) < TTL_MS && data.articles?.length) {
+    if (data?.fetched_at && (now - data.fetched_at) < TTL_MS && data.articles?.length) {
       memCache = { data: { articles: data.articles }, at: data.fetched_at };
       return res.status(200).json({ articles: data.articles });
     }
-  } catch (e) {
-    console.error('GitHub cache read:', e.message);
-  }
+  } catch (e) { console.error('GitHub cache read:', e.message); }
 
   // 3. Fetch RSS → enrich (images + translations in parallel)
   try {
     const raw = await fetchArticles();
-
     if (raw.length > 0) {
       const articles = await enrichArticles(raw);
       const payload  = { articles, fetched_at: now };
 
-      // Write to GitHub cache (non-blocking)
+      // Write GitHub cache (non-blocking)
       (async () => {
         try {
           const { sha } = await ghRead(CACHE_PATH);
@@ -198,11 +193,9 @@ module.exports = async (req, res) => {
       memCache = { data: { articles }, at: now };
       return res.status(200).json({ articles });
     }
-  } catch (e) {
-    console.error('Fetch error:', e.message);
-  }
+  } catch (e) { console.error('Fetch error:', e.message); }
 
-  // 4. Stale cache beats empty
+  // 4. Stale beats empty
   if (memCache.data) return res.status(200).json(memCache.data);
   return res.status(200).json({ articles: [] });
 };
