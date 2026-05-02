@@ -1,28 +1,27 @@
 /**
  * api/news.js
- * Fetches Switzerland-related news from Google News RSS.
- * - RSS query uses a rolling 6-month `after:` filter for freshness
- * - Parses up to 10 items, sorts by date, keeps 3 newest
- * - Images via Microlink (free meta-scraper API, no key needed, 50 req/day)
+ * Fetches Switzerland news from Bing News RSS.
+ * - Real article URLs decoded from Bing redirect links
+ * - Thumbnail images from <News:Image> tags (Bing CDN, works as <img src>)
  * - Translations via MyMemory (EN→DE/ES/UK, parallel)
  * - Cache stored in GitHub (6 h TTL), survives Vercel cold starts
  */
 
 const { ghRead, ghWrite } = require('../lib/github-storage');
 
-const CACHE_PATH = 'data/news-cache-v3.json';
+const CACHE_PATH = 'data/news-cache-v4.json';
 const TTL_MS     = 6 * 60 * 60 * 1000; // 6 hours
 
 let memCache = { data: null, at: 0 };
 
-const TARGET_LANGS = ['de', 'es', 'uk'];
+// Multiple queries — run all, merge, sort by date, keep 3 freshest
+const RSS_QUERIES = [
+  'Switzerland+immigration+permit',
+  'Switzerland+expat+work+visa',
+  'Switzerland+living+residence',
+];
 
-// Rolling "last 6 months" date for freshness
-function rssUrl() {
-  const d = new Date(Date.now() - 180 * 24 * 60 * 60 * 1000);
-  const after = d.toISOString().slice(0, 10); // YYYY-MM-DD
-  return `https://news.google.com/rss/search?q=Switzerland+immigration+work+permit+expat+residence+after:${after}&hl=en-US&gl=US&ceid=US:en`;
-}
+const TARGET_LANGS = ['de', 'es', 'uk'];
 
 // ── Helpers ───────────────────────────────────────────────────────────────────
 
@@ -41,66 +40,50 @@ function parseRSS(xml) {
   const itemRe = /<item>([\s\S]*?)<\/item>/g;
   let m;
 
-  // Parse up to 10 items, sort by date below, keep 3 freshest
-  while ((m = itemRe.exec(xml)) !== null && articles.length < 10) {
+  while ((m = itemRe.exec(xml)) !== null) {
     const chunk = m[1];
 
+    // Title
     const titleM = chunk.match(/<title>([\s\S]*?)<\/title>/);
     if (!titleM) continue;
-    let title = decodeEntities(titleM[1].trim());
+    const title = decodeEntities(titleM[1].trim());
 
-    const srcM = chunk.match(/<source[^>]*>([\s\S]*?)<\/source>/);
+    // Source
+    const srcM = chunk.match(/<News:Source>([\s\S]*?)<\/News:Source>/);
     const source = srcM ? decodeEntities(srcM[1].trim()) : '';
-    if (source && title.endsWith(' - ' + source)) {
-      title = title.slice(0, -(3 + source.length));
-    }
 
+    // Real URL — encoded in the Bing redirect link's ?url= param
     const linkM = chunk.match(/<link>([\s\S]*?)<\/link>/);
-    const url = linkM ? linkM[1].trim() : '';
+    let url = '';
+    if (linkM) {
+      const raw = decodeEntities(linkM[1].trim());
+      const urlParam = raw.match(/[?&]url=([^&]+)/);
+      url = urlParam ? decodeURIComponent(urlParam[1]) : raw;
+    }
     if (!url) continue;
 
+    // Pub date
     const pubM = chunk.match(/<pubDate>([\s\S]*?)<\/pubDate>/);
     let publishedAt = null;
     try { if (pubM) publishedAt = new Date(pubM[1].trim()).toISOString(); } catch {}
 
-    let description = '';
-    const rawDescM = chunk.match(/<description>([\s\S]*?)<\/description>/);
-    if (rawDescM) {
-      description = decodeEntities(rawDescM[1])
-        .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200);
-    }
+    // Image — Bing provides this directly in <News:Image>
+    const imgM = chunk.match(/<News:Image>([\s\S]*?)<\/News:Image>/);
+    const image = imgM ? decodeEntities(imgM[1].trim()) + '&w=600&h=338&c=14' : null;
 
-    articles.push({ title, url, source, publishedAt, image: null, description });
+    // Description — plain text
+    const descM = chunk.match(/<description>([\s\S]*?)<\/description>/);
+    const description = descM
+      ? decodeEntities(descM[1]).replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 200)
+      : '';
+
+    articles.push({ title, url, source, publishedAt, image, description });
   }
 
-  // Sort newest first, keep top 3
-  articles.sort((a, b) => {
-    const ta = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
-    const tb = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
-    return tb - ta;
-  });
-
-  return articles.slice(0, 3);
+  return articles;
 }
 
-// ── Image via Microlink (free, no key, handles JS/paywalls/redirects) ─────────
-
-async function fetchImage(url) {
-  try {
-    const api = `https://api.microlink.io/?url=${encodeURIComponent(url)}&meta=false`;
-    const r = await fetch(api, {
-      headers: { 'User-Agent': 'Mozilla/5.0' },
-      signal: AbortSignal.timeout(6000),
-    });
-    if (!r.ok) return null;
-    const j = await r.json();
-    return j?.data?.image?.url || null;
-  } catch {
-    return null;
-  }
-}
-
-// ── Translation via MyMemory (free, no key) ───────────────────────────────────
+// ── Translations ──────────────────────────────────────────────────────────────
 
 async function translateText(text, lang) {
   if (!text) return '';
@@ -117,38 +100,60 @@ async function translateText(text, lang) {
   }
 }
 
-// ── Enrich: images + translations fire simultaneously per article ──────────────
-
-async function enrichArticles(articles) {
+async function addTranslations(articles) {
   return Promise.all(articles.map(async (a) => {
-    const [image, ...langPairs] = await Promise.all([
-      fetchImage(a.url),
-      ...TARGET_LANGS.map(lang =>
+    const langPairs = await Promise.all(
+      TARGET_LANGS.map(lang =>
         Promise.all([
           translateText(a.title, lang),
           translateText(a.description.slice(0, 150), lang),
         ])
-      ),
-    ]);
-
+      )
+    );
     const translations = { en: { title: a.title, description: a.description } };
     TARGET_LANGS.forEach((lang, i) => {
       translations[lang] = { title: langPairs[i][0], description: langPairs[i][1] };
     });
-
-    return { ...a, image: image || null, translations };
+    return { ...a, translations };
   }));
 }
 
-// ── RSS fetch ─────────────────────────────────────────────────────────────────
+// ── Fetch from all queries, dedupe, sort newest first, keep 3 ─────────────────
 
 async function fetchArticles() {
-  const res = await fetch(rssUrl(), {
-    headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EasyHelpBot/1.0)' },
-    signal: AbortSignal.timeout(8000),
+  const results = await Promise.all(
+    RSS_QUERIES.map(async (q) => {
+      try {
+        const res = await fetch(
+          `https://www.bing.com/news/search?q=${q}&format=rss&mkt=en-US`,
+          {
+            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EasyHelpBot/1.0)' },
+            signal: AbortSignal.timeout(8000),
+          }
+        );
+        if (!res.ok) return [];
+        return parseRSS(await res.text());
+      } catch {
+        return [];
+      }
+    })
+  );
+
+  // Flatten, dedupe by URL, sort newest first, return top 3
+  const seen = new Set();
+  const all = results.flat().filter(a => {
+    if (seen.has(a.url)) return false;
+    seen.add(a.url);
+    return true;
   });
-  if (!res.ok) throw new Error(`RSS fetch failed: ${res.status}`);
-  return parseRSS(await res.text());
+
+  all.sort((a, b) => {
+    const ta = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+    const tb = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+    return tb - ta;
+  });
+
+  return all.slice(0, 3);
 }
 
 // ── Handler ───────────────────────────────────────────────────────────────────
@@ -175,11 +180,11 @@ module.exports = async (req, res) => {
     }
   } catch (e) { console.error('GitHub cache read:', e.message); }
 
-  // 3. Fetch RSS → enrich (images + translations in parallel)
+  // 3. Fetch + translate
   try {
     const raw = await fetchArticles();
     if (raw.length > 0) {
-      const articles = await enrichArticles(raw);
+      const articles = await addTranslations(raw);
       const payload  = { articles, fetched_at: now };
 
       // Write GitHub cache (non-blocking)
