@@ -44,5 +44,21 @@
   { "number": 60, "name": "University selection & strategy",               "price_chf": 99  },
   { "number": 61, "name": "Application review",                            "price_chf": 79  },
   { "number": 62, "name": "Student visa guidance",                         "price_chf": 99  },
-  { "number": 63, "name": "Full student administration support",           "price_chf": 249 }
+  { "number": 63, "name": "Full student administration support",           "price_chf": 249 },
+  {"number": 70, "name": "Quellensteuer explanation & registration", "price_chf": 89},
+  {"number": 71, "name": "Bank account opening assistance", "price_chf": 79},
+  {"number": 72, "name": "Simple tax declaration support", "price_chf": 149},
+  {"number": 73, "name": "AHV / pillar 2 & 3 guidance", "price_chf": 69},
+  {"number": 74, "name": "Tax number registration", "price_chf": 59},
+  {"number": 75, "name": "Switch from Quellensteuer to ordinary taxation", "price_chf": 99},
+  {"number": 80, "name": "German lesson — single (60 min)", "price_chf": 79},
+  {"number": 81, "name": "German lessons — package of 5", "price_chf": 349},
+  {"number": 82, "name": "German lessons — package of 10", "price_chf": 649},
+  {"number": 83, "name": "German B1 preparation (per lesson)", "price_chf": 89},
+  {"number": 90, "name": "Driving licence conversion support", "price_chf": 89},
+  {"number": 91, "name": "Kita / childcare search & registration", "price_chf": 99},
+  {"number": 92, "name": "School enrollment assistance", "price_chf": 79},
+  {"number": 93, "name": "Spouse / partner employment support", "price_chf": 99},
+  {"number": 94, "name": "Utility setup guidance", "price_chf": 49},
+  {"number": 95, "name": "Area & neighbourhood orientation", "price_chf": 69}
 ]
