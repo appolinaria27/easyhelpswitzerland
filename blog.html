@@ -120,20 +120,106 @@
     .btn-blue:hover{background:linear-gradient(135deg,#317bcd 0%,#5aa6ec 100%);transform:translateY(-1px)}
     .btn-outline{border:1px solid var(--line);background:#fff;color:#111}
 
-    .article-block{margin-bottom:36px;scroll-margin-top:100px}
-    .article-card{overflow:hidden;background:#fff;border-radius:34px;border:1px solid rgba(17,17,17,.06);box-shadow:0 14px 38px rgba(0,0,0,.05)}
-    .article-cover{position:relative;aspect-ratio:16/8;overflow:hidden;background:#d8e4ec}
-    .article-cover img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
-    .article-card:hover .article-cover img{transform:scale(1.04)}
-    .article-cover::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.06), rgba(0,0,0,.22))}
-    .article-body{padding:34px}
-    .article-meta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:16px;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:#7a8a99}
-    .article-body h2{margin:0 0 18px;font-size:clamp(30px,3vw,48px);line-height:.95;letter-spacing:-.06em;font-weight:400;font-family:"Cormorant Garamond",serif}
-    .article-lead{margin:0 0 26px;font-size:19px;line-height:1.72;color:var(--muted)}
-    .article-footer{margin-top:30px;padding-top:22px;border-top:1px solid rgba(17,17,17,.08);display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between}
     .tag-row{display:flex;flex-wrap:wrap;gap:10px}
     .tag{padding:8px 12px;border-radius:999px;background:rgba(17,17,17,.05);font-size:13px;color:#333}
     .source-badge{display:inline-flex;align-items:center;gap:6px;font-size:13px;color:#7a8a99;padding:6px 14px;border-radius:999px;border:1px solid rgba(17,17,17,.08)}
+
+    /* Guide cards grid */
+    .guides-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .guide-card {
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      border-radius: 28px;
+      border: 1px solid rgba(17,17,17,.06);
+      box-shadow: 0 10px 28px rgba(0,0,0,.05);
+      overflow: hidden;
+      text-decoration: none;
+      color: inherit;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .guide-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 44px rgba(0,0,0,.09);
+    }
+    .guide-card-img {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+      background: #d8e4ec;
+    }
+    .guide-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+      display: block;
+    }
+    .guide-card:hover .guide-card-img img {
+      transform: scale(1.04);
+    }
+    .guide-card-body {
+      padding: 28px 30px 30px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .guide-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+    .guide-card-cat {
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--blue);
+      font-weight: 600;
+    }
+    .guide-card-time {
+      font-size: 11px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .guide-card-time::before { content: "·"; margin-right: 10px; color: var(--muted); }
+    .guide-card-title {
+      font-family: "Cormorant Garamond", serif;
+      font-size: 26px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -.01em;
+      margin: 0 0 14px;
+      color: var(--text);
+    }
+    .guide-card-lead {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0 0 20px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      flex: 1;
+    }
+    .guide-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--blue);
+      margin-top: auto;
+    }
+    .guide-card:hover .guide-card-cta { color: var(--blue-dark); }
+    @media(max-width: 900px) {
+      .guides-grid { grid-template-columns: 1fr; gap: 20px; }
+    }
 
     .empty-state{padding:80px 40px;text-align:center;color:#7a8a99;border-radius:34px;border:1px dashed rgba(17,17,17,.10)}
     .empty-state h3{font-size:28px;font-weight:400;margin:0 0 12px}
@@ -274,282 +360,117 @@
     <section class="blog-shell">
       <div class="blog-layout">
         <main class="content-column">
+          <div class="guides-grid">
 
-          <section class="article-block" id="permits">
-            <article class="article-card">
-              <div class="article-cover">
-                <img
-                  src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
-                  alt="Your first Swiss residence permit: what nobody tells you before you arrive"
-                  loading="eager"
-                  onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80'"
-                >
+            <!-- Card 1: Permits -->
+            <a href="/blog/swiss-residence-permit" class="guide-card">
+              <div class="guide-card-img">
+                <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=800&q=80"
+                     alt="Swiss residence permit guide" loading="eager"
+                     onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'">
               </div>
-              <div class="article-body">
-                <div class="article-meta">
-                  <span data-i18n="blog_permits_meta_category">Permits &amp; Residence</span>
-                  <span>•</span>
-                  <span data-i18n="blog_permits_meta_time">5 min read</span>
+              <div class="guide-card-body">
+                <div class="guide-card-meta">
+                  <span class="guide-card-cat" data-i18n="blog_permits_meta_category">Permits &amp; Residence</span>
+                  <span class="guide-card-time" data-i18n="blog_permits_meta_time">5 min read</span>
                 </div>
-                <h2><a href="/blog/swiss-residence-permit" style="color:inherit;text-decoration:none" data-i18n="blog_permits_title">Your first Swiss residence permit: what nobody tells you before you arrive</a></h2>
-                <p class="article-lead" data-i18n="blog_permits_lead">Moving to Switzerland is one of the most exciting decisions you can make — and one of the most document-heavy. The question most people get wrong from the start is simple: which permit do I actually need? Getting it wrong means delays, fines, or having to restart the process from zero. Here is what you need to know before your first appointment.</p>
-                <div class="article-full-body" data-i18n="blog_permits_body" data-i18n-html style="line-height:1.75;font-size:17px;color:#2c2c2c;margin-bottom:28px">
-                  <span class="en-notice" data-i18n="blog_article_en_notice"></span>
+                <h2 class="guide-card-title" data-i18n="blog_permits_title">Your first Swiss residence permit: what nobody tells you before you arrive</h2>
+                <p class="guide-card-lead" data-i18n="blog_permits_lead">Moving to Switzerland is one of the most exciting decisions you can make...</p>
+                <span class="guide-card-cta" data-i18n="blog_read">Read more →</span>
+              </div>
+            </a>
 
-<h3>The permit depends on your situation, not just your nationality</h3>
-<p>Switzerland has several permit categories. The most common for newcomers are the <strong>L permit</strong> (short-stay, up to one year), the <strong>B permit</strong> (residence permit, renewable annually), and the <strong>C permit</strong> (settlement permit, after 5–10 years). Which one you receive depends on your employment contract, your country of origin, and whether you are coming as an employee, a student, or through family reunification.</p>
-<p>EU and EFTA citizens have a simplified path under the Agreement on Free Movement of Persons. Non-EU citizens face a stricter quota system and typically need a confirmed job offer from an employer who has demonstrated that no suitable local candidate was found first.</p>
-<h3>The most common mistakes people make</h3>
-<ul>
-  <li>Waiting too long to register after arrival. You must register at the local Einwohnerkontrolle within 14 days of moving into your address.</li>
-  <li>Assuming the employer handles everything. Many companies do not — you are responsible for showing up with the right documents.</li>
-  <li>Not knowing that a rental contract is required before you can register — which creates a chicken-and-egg problem for those arriving without pre-arranged housing.</li>
-  <li>Underestimating canton-specific differences. Zürich, Geneva, and Basel each have slightly different processes and timelines.</li>
-</ul>
-<h3>What documents you will typically need</h3>
-<p>For most first-time applicants: a valid passport, a rental contract or housing confirmation, an employment contract or proof of sufficient financial means, passport photos, and the completed registration form from the local municipality. For family reunification cases, additional proof of the relationship and the sponsor's permit is required.</p>
-<p>The process sounds manageable — but in practice, getting all these documents aligned, translated where required, and submitted in the right order is where most people lose time. A single missing document sends you back to square one.</p>                </div>
-                <div class="article-footer">
-                  <div class="tag-row">
-                    <span class="tag" data-i18n="blog_cat_permits">Permits &amp; Residence</span>
-                  </div>
-                  <a href="free-consultation.php" class="btn-blue" data-i18n="sidebar_support_cta">
-                    Book a free consultation →
-                  </a>
-                </div>
+            <!-- Card 2: Anmeldung -->
+            <a href="/blog/anmeldung-zurich" class="guide-card">
+              <div class="guide-card-img">
+                <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80"
+                     alt="Anmeldung Zürich guide" loading="lazy"
+                     onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'">
               </div>
-            </article>
-          </section>
-          <section class="article-block" id="anmeldung">
-            <article class="article-card">
-              <div class="article-cover">
-                <img
-                  src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
-                  alt="Anmeldung in Zürich: the one appointment that sets everything else in motion"
-                  loading="lazy"
-                  onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80'"
-                >
-              </div>
-              <div class="article-body">
-                <div class="article-meta">
-                  <span data-i18n="blog_anmeldung_meta_category">Registration</span>
-                  <span>•</span>
-                  <span data-i18n="blog_anmeldung_meta_time">4 min read</span>
+              <div class="guide-card-body">
+                <div class="guide-card-meta">
+                  <span class="guide-card-cat" data-i18n="blog_anmeldung_meta_category">Registration</span>
+                  <span class="guide-card-time" data-i18n="blog_anmeldung_meta_time">4 min read</span>
                 </div>
-                <h2><a href="/blog/anmeldung-zurich" style="color:inherit;text-decoration:none" data-i18n="blog_anmeldung_title">Anmeldung in Zürich: the one appointment that sets everything else in motion</a></h2>
-                <p class="article-lead" data-i18n="blog_anmeldung_lead">Most people moving to Switzerland know they need to register at the local office. What they do not realise is that this single appointment triggers a chain of deadlines — your permit, your health insurance window, your right to open a bank account, even your tax category. Get it right from day one and everything flows. Get it wrong and you spend the next three months untangling the consequences.</p>
-                <div class="article-full-body" data-i18n="blog_anmeldung_body" data-i18n-html style="line-height:1.75;font-size:17px;color:#2c2c2c;margin-bottom:28px">
-                  <span class="en-notice" data-i18n="blog_article_en_notice"></span>
+                <h2 class="guide-card-title" data-i18n="blog_anmeldung_title">Anmeldung in Zürich: the one appointment that sets everything else in motion</h2>
+                <p class="guide-card-lead" data-i18n="blog_anmeldung_lead">Most people moving to Switzerland know they need to register...</p>
+                <span class="guide-card-cta" data-i18n="blog_read">Read more →</span>
+              </div>
+            </a>
 
-<h3>What Anmeldung actually is</h3>
-<p>Anmeldung means registration with the municipality where you live. In Zürich, this is done at the Stadthaus or the local Kreisbüro (district office) depending on your neighbourhood. You are registering your place of residence officially with the Swiss state — and this is the act that starts your legal life in Switzerland.</p>
-<p>Without Anmeldung you cannot apply for a residence permit, open a bank account, sign a long-term rental contract, or enrol children in school. Everything else waits for this step.</p>
-<h3>What you need to bring</h3>
-<ul>
-  <li>Valid passport or national ID (EU citizens)</li>
-  <li>Rental contract or a signed confirmation from your landlord</li>
-  <li>Employment contract or proof of financial means (for non-working applicants)</li>
-  <li>For families: birth certificates and marriage certificate if applicable</li>
-  <li>For non-EU citizens: a visa or relevant entry documentation</li>
-</ul>
-<h3>The 14-day rule</h3>
-<p>You have 14 days from the moment you move into your address to complete the Anmeldung. This is not advisory — it is a legal obligation. Arriving on a Friday and not registering until the following week is fine. Waiting three weeks because you were busy is not, and can result in a fine.</p>
-<h3>What happens after the appointment</h3>
-<p>You receive a Meldebestätigung (confirmation of registration). This is one of the most important documents you will carry in Switzerland. Keep several copies. You will need it when setting up utilities, opening a bank account, registering a child at school, and in some cases when visiting a doctor for the first time. Your permit application, if needed, usually follows within days or weeks after this step.</p>                </div>
-                <div class="article-footer">
-                  <div class="tag-row">
-                    <span class="tag" data-i18n="blog_cat_registration">Registration</span>
-                  </div>
-                  <a href="free-consultation.php" class="btn-blue" data-i18n="sidebar_support_cta">
-                    Book a free consultation →
-                  </a>
-                </div>
+            <!-- Card 3: Health Insurance -->
+            <a href="/blog/swiss-health-insurance" class="guide-card">
+              <div class="guide-card-img">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=800&q=80"
+                     alt="Swiss health insurance guide" loading="lazy"
+                     onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'">
               </div>
-            </article>
-          </section>
-          <section class="article-block" id="health-insurance">
-            <article class="article-card">
-              <div class="article-cover">
-                <img
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
-                  alt="Swiss health insurance: you have exactly 3 months — and the clock starts the day you register"
-                  loading="lazy"
-                  onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80'"
-                >
-              </div>
-              <div class="article-body">
-                <div class="article-meta">
-                  <span data-i18n="blog_insurance_meta_category">Health Insurance</span>
-                  <span>•</span>
-                  <span data-i18n="blog_insurance_meta_time">5 min read</span>
+              <div class="guide-card-body">
+                <div class="guide-card-meta">
+                  <span class="guide-card-cat" data-i18n="blog_insurance_meta_category">Health Insurance</span>
+                  <span class="guide-card-time" data-i18n="blog_insurance_meta_time">5 min read</span>
                 </div>
-                <h2><a href="/blog/swiss-health-insurance" style="color:inherit;text-decoration:none" data-i18n="blog_insurance_title">Swiss health insurance: you have exactly 3 months — and the clock starts the day you register</a></h2>
-                <p class="article-lead" data-i18n="blog_insurance_lead">Switzerland has some of the best healthcare in the world. It also has one of the strictest enrolment rules. You have exactly three months from your official registration date to choose and sign up with a health insurer. Miss this window and the canton assigns you a plan — at a premium you did not choose, often higher than what you would have selected yourself. Here is how to choose correctly.</p>
-                <div class="article-full-body" data-i18n="blog_insurance_body" data-i18n-html style="line-height:1.75;font-size:17px;color:#2c2c2c;margin-bottom:28px">
-                  <span class="en-notice" data-i18n="blog_article_en_notice"></span>
+                <h2 class="guide-card-title" data-i18n="blog_insurance_title">Swiss health insurance: you have exactly 3 months</h2>
+                <p class="guide-card-lead" data-i18n="blog_insurance_lead">Switzerland has some of the best healthcare in the world...</p>
+                <span class="guide-card-cta" data-i18n="blog_read">Read more →</span>
+              </div>
+            </a>
 
-<h3>How the Swiss health insurance system works</h3>
-<p>Switzerland uses a system of mandatory basic health insurance (Grundversicherung / assurance de base). Every resident must have it — there is no public option. You choose a private insurer from an approved list, and all basic coverage is legally standardised: the same treatments are covered regardless of which company you choose. What differs is the premium, the deductible (franchise), and the additional model (standard, HMO, Telmed, etc.).</p>
-<h3>Choosing your franchise</h3>
-<p>The annual deductible (franchise) is the amount you pay out of pocket before insurance covers the rest. It ranges from CHF 300 to CHF 2,500. A higher franchise means lower monthly premiums — which works well if you are generally healthy and do not plan to use medical services often. A lower franchise means you pay less when you do need care, but more each month.</p>
-<ul>
-  <li>CHF 300 franchise — lowest deductible, highest monthly premium</li>
-  <li>CHF 2,500 franchise — highest deductible, lowest monthly premium</li>
-  <li>The break-even point is typically around CHF 700–900 in annual medical costs</li>
-</ul>
-<h3>Supplementary insurance (Zusatzversicherung)</h3>
-<p>Basic insurance covers core treatments, but not dental care, private hospital rooms, glasses, or many complementary therapies. If you want these, you need to purchase supplementary insurance separately. This is optional but worth comparing before signing up for basic coverage, as some insurers offer bundled deals.</p>
-<h3>Premiums vary by canton and region</h3>
-<p>The same plan at the same insurer can cost CHF 450/month in Zürich and CHF 310/month in a rural canton. This is because premiums are set by geographic region based on local healthcare costs. When comparing options, always use your postcode as the reference point. The federal comparison tool Priminfo.admin.ch lets you compare all approved insurers side by side.</p>                </div>
-                <div class="article-footer">
-                  <div class="tag-row">
-                    <span class="tag" data-i18n="blog_cat_insurance">Health Insurance</span>
-                  </div>
-                  <a href="free-consultation.php" class="btn-blue" data-i18n="sidebar_support_cta">
-                    Book a free consultation →
-                  </a>
-                </div>
+            <!-- Card 4: Housing -->
+            <a href="/blog/apartment-zurich" class="guide-card">
+              <div class="guide-card-img">
+                <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80"
+                     alt="Finding apartment in Zürich guide" loading="lazy"
+                     onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'">
               </div>
-            </article>
-          </section>
-          <section class="article-block" id="housing">
-            <article class="article-card">
-              <div class="article-cover">
-                <img
-                  src="https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
-                  alt="Finding an apartment in Zürich: the real competition and how to stand out"
-                  loading="lazy"
-                  onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80'"
-                >
-              </div>
-              <div class="article-body">
-                <div class="article-meta">
-                  <span data-i18n="blog_housing_meta_category">Housing</span>
-                  <span>•</span>
-                  <span data-i18n="blog_housing_meta_time">5 min read</span>
+              <div class="guide-card-body">
+                <div class="guide-card-meta">
+                  <span class="guide-card-cat" data-i18n="blog_housing_meta_category">Housing</span>
+                  <span class="guide-card-time" data-i18n="blog_housing_meta_time">5 min read</span>
                 </div>
-                <h2><a href="/blog/apartment-zurich" style="color:inherit;text-decoration:none" data-i18n="blog_housing_title">Finding an apartment in Zürich: the real competition and how to stand out</a></h2>
-                <p class="article-lead" data-i18n="blog_housing_lead">The Swiss rental market — especially in Zürich — is one of the most competitive in Europe. Vacancy rates in the city sit below 0.5%, and a single listing can receive 60 or more applications in the first 48 hours. Most newcomers spend weeks applying before they get a single viewing. But there is a method to this. Knowing how landlords think changes your chances completely.</p>
-                <div class="article-full-body" data-i18n="blog_housing_body" data-i18n-html style="line-height:1.75;font-size:17px;color:#2c2c2c;margin-bottom:28px">
-                  <span class="en-notice" data-i18n="blog_article_en_notice"></span>
+                <h2 class="guide-card-title" data-i18n="blog_housing_title">Finding an apartment in Zürich: the real competition and how to stand out</h2>
+                <p class="guide-card-lead" data-i18n="blog_housing_lead">The Swiss rental market — especially in Zürich — is one of the most competitive in Europe...</p>
+                <span class="guide-card-cta" data-i18n="blog_read">Read more →</span>
+              </div>
+            </a>
 
-<h3>What landlords actually look for</h3>
-<p>Swiss landlords are risk-averse. Their primary concern is reliable, on-time payment — not personality. The documents they review first are your Betreibungsregisterauszug (debt collection extract), your employment contract, your three most recent salary slips, and a copy of your identity document. A clean debt register and a stable employment contract outweigh almost everything else.</p>
-<h3>The documents you need ready before you start</h3>
-<ul>
-  <li>Debt collection extract (Betreibungsregisterauszug) — request this from the local debt enforcement office (Betreibungsamt) as soon as you register</li>
-  <li>Employment contract or a letter from your employer confirming your salary and contract type</li>
-  <li>Last 3 months of payslips (or bank statements if self-employed)</li>
-  <li>Passport or residence permit</li>
-  <li>A short personal cover letter — 5–8 sentences, in German if at all possible</li>
-</ul>
-<h3>Common mistakes that eliminate applications immediately</h3>
-<p>Submitting an incomplete dossier is the fastest way to be rejected. Landlords are reviewing dozens of files at once — any missing document means your file goes in the discard pile. Send everything in a single PDF, in the order they expect: cover letter, ID, permit, employment confirmation, payslips, debt extract.</p>
-<p>Another common error: applying for an apartment that costs more than one-third of your net monthly income. Landlords apply this rule strictly. If your net salary is CHF 5,000 and the rent is CHF 2,000, expect rejection even with perfect documents.</p>
-<h3>Temporary housing as a strategy</h3>
-<p>If you are arriving before you have a rental contract, furnished temporary housing (serviced apartments, expat housing platforms, or furnished sublets) gives you a legal address for Anmeldung while you search more calmly. Trying to apartment-hunt from abroad, under time pressure, in a language you may not speak, is one of the most stressful and inefficient approaches. Arriving, settling, registering, then searching — in that order — gives you a much stronger position.</p>                </div>
-                <div class="article-footer">
-                  <div class="tag-row">
-                    <span class="tag" data-i18n="blog_cat_housing">Housing</span>
-                  </div>
-                  <a href="free-consultation.php" class="btn-blue" data-i18n="sidebar_support_cta">
-                    Book a free consultation →
-                  </a>
-                </div>
+            <!-- Card 5: Work Permit -->
+            <a href="/blog/work-permit-switzerland" class="guide-card">
+              <div class="guide-card-img">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=800&q=80"
+                     alt="Work permit Switzerland guide" loading="lazy"
+                     onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'">
               </div>
-            </article>
-          </section>
-          <section class="article-block" id="work-permit">
-            <article class="article-card">
-              <div class="article-cover">
-                <img
-                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
-                  alt="Working in Switzerland as a foreigner: permits, contracts and what your HR department might not mention"
-                  loading="lazy"
-                  onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80'"
-                >
-              </div>
-              <div class="article-body">
-                <div class="article-meta">
-                  <span data-i18n="blog_work_meta_category">Work &amp; Employment</span>
-                  <span>•</span>
-                  <span data-i18n="blog_work_meta_time">5 min read</span>
+              <div class="guide-card-body">
+                <div class="guide-card-meta">
+                  <span class="guide-card-cat" data-i18n="blog_work_meta_category">Work &amp; Employment</span>
+                  <span class="guide-card-time" data-i18n="blog_work_meta_time">5 min read</span>
                 </div>
-                <h2><a href="/blog/work-permit-switzerland" style="color:inherit;text-decoration:none" data-i18n="blog_work_title">Working in Switzerland as a foreigner: permits, contracts and what your HR department might not mention</a></h2>
-                <p class="article-lead" data-i18n="blog_work_lead">Switzerland has one of the highest average salaries in the world. But the path from &quot;you&#039;ve got the job&quot; to &quot;first payslip deposited&quot; involves more steps than most new employees expect — especially if you are coming from outside the EU. The good news is that the process is predictable. The less good news is that it is entirely your responsibility to navigate it correctly.</p>
-                <div class="article-full-body" data-i18n="blog_work_body" data-i18n-html style="line-height:1.75;font-size:17px;color:#2c2c2c;margin-bottom:28px">
-                  <span class="en-notice" data-i18n="blog_article_en_notice"></span>
+                <h2 class="guide-card-title" data-i18n="blog_work_title">Working in Switzerland as a foreigner: permits, contracts and what your HR department might not mention</h2>
+                <p class="guide-card-lead" data-i18n="blog_work_lead">Switzerland has one of the highest average salaries in the world...</p>
+                <span class="guide-card-cta" data-i18n="blog_read">Read more →</span>
+              </div>
+            </a>
 
-<h3>EU/EFTA citizens: the simplified path</h3>
-<p>If you hold a passport from an EU or EFTA country, you have the right to work in Switzerland under the Agreement on Free Movement of Persons. You register at the municipality, your employer notifies the cantonal authorities, and within a few weeks you receive your B permit (or L permit for contracts under one year). You do not need a separate work permit — your residence permit covers both.</p>
-<h3>Non-EU citizens: the quota system</h3>
-<p>If you are coming from outside the EU/EFTA zone, your employer must prove that no suitable candidate from Switzerland or the EU was available for the position before sponsoring you. This is called the priority order (Inländervorrang). If the cantonal labour market authority approves the request, a work and residence permit is issued — but the process can take several months and is subject to annual quotas set by the federal government.</p>
-<h3>Your employment contract: what to check</h3>
-<ul>
-  <li>Gross versus net salary — the difference in Switzerland is significant. Social security deductions (AHV/AVS, pension, unemployment insurance) reduce gross salary by approximately 12–15%</li>
-  <li>The 13th month salary — standard in Switzerland but not automatic. Check whether it is included in your monthly salary or paid separately in December</li>
-  <li>Probation period — typically 1 to 3 months, during which either party can terminate with 7 days notice</li>
-  <li>Non-compete clauses — check the scope and duration carefully, especially in technical or specialist roles</li>
-</ul>
-<h3>Taxes in your first years</h3>
-<p>Most foreign workers in Switzerland are subject to Quellensteuer (withholding tax) — deducted directly from the salary by the employer and paid to the canton. The rate depends on your gross salary, your canton of residence, your civil status, and whether your partner also works. You do not file a tax return in the traditional sense unless your gross income exceeds CHF 120,000 or you have significant outside income. This simplifies life considerably — but also means it is worth checking whether your deduction rate is being calculated correctly from the start.</p>                </div>
-                <div class="article-footer">
-                  <div class="tag-row">
-                    <span class="tag" data-i18n="blog_cat_work">Work &amp; Employment</span>
-                  </div>
-                  <a href="free-consultation.php" class="btn-blue" data-i18n="sidebar_support_cta">
-                    Book a free consultation →
-                  </a>
-                </div>
+            <!-- Card 6: Family -->
+            <a href="/blog/moving-switzerland-family" class="guide-card">
+              <div class="guide-card-img">
+                <img src="https://images.unsplash.com/photo-1536105338741-2956a08f81e4?auto=format&fit=crop&w=800&q=80"
+                     alt="Moving to Switzerland with family guide" loading="lazy"
+                     onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80'">
               </div>
-            </article>
-          </section>
-          <section class="article-block" id="family">
-            <article class="article-card">
-              <div class="article-cover">
-                <img
-                  src="https://images.unsplash.com/photo-1536105338741-2956a08f81e4?auto=format&amp;fit=crop&amp;w=1200&amp;q=80"
-                  alt="Moving to Switzerland with your family: school, registration and the first 30 days"
-                  loading="lazy"
-                  onerror="this.src='https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=900&q=80'"
-                >
-              </div>
-              <div class="article-body">
-                <div class="article-meta">
-                  <span data-i18n="blog_family_meta_category">Family &amp; Relocation</span>
-                  <span>•</span>
-                  <span data-i18n="blog_family_meta_time">5 min read</span>
+              <div class="guide-card-body">
+                <div class="guide-card-meta">
+                  <span class="guide-card-cat" data-i18n="blog_family_meta_category">Family &amp; Relocation</span>
+                  <span class="guide-card-time" data-i18n="blog_family_meta_time">5 min read</span>
                 </div>
-                <h2><a href="/blog/moving-switzerland-family" style="color:inherit;text-decoration:none" data-i18n="blog_family_title">Moving to Switzerland with your family: school, registration and the first 30 days</a></h2>
-                <p class="article-lead" data-i18n="blog_family_lead">Relocating alone is complex. Moving with a partner and children adds several more layers — each person needs to register, each child needs to be enrolled in school, and the sequence of steps matters more than most families realise. If you plan the first 30 days correctly, everything else falls into place. If you do not, you spend weeks backtracking.</p>
-                <div class="article-full-body" data-i18n="blog_family_body" data-i18n-html style="line-height:1.75;font-size:17px;color:#2c2c2c;margin-bottom:28px">
-                  <span class="en-notice" data-i18n="blog_article_en_notice"></span>
+                <h2 class="guide-card-title" data-i18n="blog_family_title">Moving to Switzerland with your family: school, registration and the first 30 days</h2>
+                <p class="guide-card-lead" data-i18n="blog_family_lead">Relocating alone is complex. Moving with a partner and children adds several more layers...</p>
+                <span class="guide-card-cta" data-i18n="blog_read">Read more →</span>
+              </div>
+            </a>
 
-<h3>Register the whole family together</h3>
-<p>Every family member — including children — must be registered at the Einwohnerkontrolle. Bring the passports and birth certificates for all children. If you are married, bring the marriage certificate. Depending on the canton, these documents may need to be officially translated or apostilled — this is worth checking in advance, as it can add days to your timeline.</p>
-<h3>School enrolment for children</h3>
-<p>In Switzerland, education is mandatory and free in the public system. Children are assigned to a school based on the family's registered address — which is one more reason to complete the Anmeldung before anything else. The school year typically starts in August, but children can join at any point during the year. The school administration will assess which class level is appropriate, which may involve a brief evaluation session, especially for older children.</p>
-<ul>
-  <li>Primary school (Primarschule): ages 6–12</li>
-  <li>Secondary school (Sekundarschule): ages 12–15/16</li>
-  <li>Language support: most cantons offer free German (or French/Italian depending on region) integration classes for children who are not yet fluent</li>
-</ul>
-<h3>Family reunification for non-EU citizens</h3>
-<p>If the main permit holder is a non-EU/EFTA citizen, family members joining them in Switzerland must apply for family reunification. The conditions include: the main permit holder must have a B or C permit, the family must have suitable housing (a large enough apartment), and there must be proof of sufficient financial means for the whole family. This process can take several weeks and it is essential to start it before booking flights.</p>
-<h3>Healthcare for children</h3>
-<p>Each child must have their own health insurance policy — they cannot be added to a parent's plan. Children under 18 pay a reduced premium, and many cantons provide additional subsidies for families with lower incomes. The same 3-month enrolment window applies: register your children with an insurer within 3 months of their official registration date.</p>                </div>
-                <div class="article-footer">
-                  <div class="tag-row">
-                    <span class="tag" data-i18n="blog_cat_family">Family &amp; Relocation</span>
-                  </div>
-                  <a href="free-consultation.php" class="btn-blue" data-i18n="sidebar_support_cta">
-                    Book a free consultation →
-                  </a>
-                </div>
-              </div>
-            </article>
-          </section>
-
+          </div>
         </main>
 
         <aside class="sidebar">
