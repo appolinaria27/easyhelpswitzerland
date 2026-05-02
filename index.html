@@ -2986,28 +2986,58 @@
     </section>
 
     <section class="panel reveal" id="about">
-  <div class="container" style="max-width:800px; text-align:center; margin:0 auto;">
+  <div style="width:min(100% - 48px, 860px);margin:0 auto;">
 
     <div class="kicker" data-i18n="about_kicker">About</div>
 
-    <h2 class="section-title" data-i18n="about_title">
+    <h2 class="section-title" style="margin-bottom:36px" data-i18n="about_title">
       Who supports you in Switzerland?
     </h2>
 
-    <p data-i18n="about_text_1" style="font-size:18px; color:#555; margin-top:20px; line-height:1.6;">
-      My name is Polina Kravtsova. I support international clients with relocation, permits, and administrative processes in Switzerland.
-      My goal is simple — make complex procedures clear, structured and manageable.
-      I have been studying on a Master Degree in the university of Zurich. Ones of my fields are migration and administrave laws. 
-    </p>
+    <div style="display:grid;grid-template-columns:200px 1fr;gap:48px;align-items:start">
 
-    <p data-i18n="about_text_2" style="font-size:18px; color:#555; margin-top:16px; line-height:1.6;">
-      I understand, how hard can it be to move to new country. This is how i started. From zero. 
-      But, now i want to help others to save years of the life, just to understand and deal with the system. 
-      My experience as a law assistant in the law firm in Zürich, helps me to build the ways of how to support people. 
-      Instead of confusion and uncertainty, you get clear steps, practical support and a realistic path forward.
-    </p>
+      <!-- Photo -->
+      <div style="flex-shrink:0">
+        <img src="/img/polina.jpg" alt="Polina Kravtsova — Easy Help Switzerland"
+          style="width:200px;height:260px;object-fit:cover;object-position:center top;border-radius:12px;display:block;box-shadow:0 8px 32px rgba(0,0,0,.10)">
+        <p style="margin:12px 0 0;font-size:13px;font-weight:600;color:var(--text);letter-spacing:.04em">Polina Kravtsova</p>
+        <p style="margin:3px 0 0;font-size:12px;color:var(--muted);letter-spacing:.04em" data-i18n="about_role">Relocation Consultant · Zürich</p>
+      </div>
 
+      <!-- Text -->
+      <div>
+        <p data-i18n="about_text_1" style="font-size:17px;color:#444;line-height:1.7;margin:0 0 20px">
+          My name is Polina Kravtsova. I support international clients with relocation, permits, and administrative processes in Switzerland.
+          My goal is simple — make complex procedures clear, structured, and manageable.
+          I am studying for a Master's degree at the University of Zurich, with a focus on migration and administrative law.
+        </p>
+
+        <p data-i18n="about_text_2" style="font-size:17px;color:#444;line-height:1.7;margin:0">
+          I know how hard it can be to move to a new country — I started from zero myself.
+          Now I want to help others save time and avoid confusion when dealing with the Swiss system.
+          My experience as a legal assistant at a law firm in Zürich helps me find practical, realistic paths for each client.
+          Instead of uncertainty, you get clear steps and personal support.
+        </p>
+      </div>
+
+    </div>
   </div>
+
+  <style>
+    @media(max-width:640px){
+      #about [style*="grid-template-columns:200px"]{
+        grid-template-columns:1fr !important;
+      }
+      #about img{
+        width:140px !important;
+        height:180px !important;
+        margin:0 auto;
+      }
+      #about [style*="flex-shrink:0"]{
+        text-align:center;
+      }
+    }
+  </style>
 </section>
 
     <section class="panel reveal" id="services">
