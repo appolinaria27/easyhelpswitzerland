@@ -102,10 +102,10 @@ exit;
   <title>Review & Payment | Easy Help Switzerland</title>
   <meta name="description" content="Review your booking details and continue to secure payment in a premium, consistent checkout step." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://easyhelpswiss.com/payment.php" />
+  <meta property="og:url" content="https://easyhelpswitzerland.ch/payment.php" />
   <meta property="og:title" content="Review & Payment — Easy Help Switzerland" />
   <meta property="og:description" content="Secure payment for your relocation consultation package." />
-  <meta property="og:image" content="https://easyhelpswiss.com/og-image.jpg" />
+  <meta property="og:image" content="https://easyhelpswitzerland.ch/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">

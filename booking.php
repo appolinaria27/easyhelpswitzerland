@@ -15,12 +15,12 @@ if (empty($_SESSION['csrf_token'])) {
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <title>Book Your Consultation | Easy Help Switzerland</title>
   <meta name="description" content="Choose your package, share your details, and continue to payment with a clear premium booking flow." />
-  <link rel="canonical" href="https://easyhelpswiss.com/booking.php" />
+  <link rel="canonical" href="https://easyhelpswitzerland.ch/booking.php" />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://easyhelpswiss.com/booking.php" />
+  <meta property="og:url" content="https://easyhelpswitzerland.ch/booking.php" />
   <meta property="og:title" content="Book Your Consultation — Easy Help Switzerland" />
   <meta property="og:description" content="Choose your relocation consultation package and book your session with Easy Help Switzerland." />
-  <meta property="og:image" content="https://easyhelpswiss.com/og-image.jpg" />
+  <meta property="og:image" content="https://easyhelpswitzerland.ch/og-image.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
