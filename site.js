@@ -326,6 +326,10 @@ contact_message: "YOUR QUESTION",
 
 contact_policy: "By clicking the button, you accept the privacy policy and consent to the processing of personal data.",
 contact_cta: "Send Message",
+contact_err_required: "Please fill in your name and email.",
+contact_err_policy:   "Please accept the privacy policy.",
+contact_err_failed:   "Something went wrong. Please try again.",
+contact_err_network:  "Network error. Please try again.",
 
 footer_brand: "Easy Help Switzerland",
 footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
@@ -1467,6 +1471,10 @@ contact_message: "TU PREGUNTA",
 
 contact_policy: "Al hacer clic en el botón, aceptas la política de privacidad y el tratamiento de datos personales.",
 contact_cta: "Enviar mensaje",
+contact_err_required: "Por favor, completa tu nombre y correo electrónico.",
+contact_err_policy:   "Por favor, acepta la política de privacidad.",
+contact_err_failed:   "Algo salió mal. Por favor, inténtalo de nuevo.",
+contact_err_network:  "Error de red. Por favor, inténtalo de nuevo.",
 
 footer_brand: "Easy Help Switzerland",
 footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.",
@@ -2565,6 +2573,10 @@ contact_message: "IHRE FRAGE",
 
 contact_policy: "Durch Klicken auf den Button akzeptieren Sie die Datenschutzerklärung und die Verarbeitung Ihrer personenbezogenen Daten.",
 contact_cta: "Nachricht senden",
+contact_err_required: "Bitte geben Sie Ihren Namen und Ihre E-Mail-Adresse ein.",
+contact_err_policy:   "Bitte akzeptieren Sie die Datenschutzerklärung.",
+contact_err_failed:   "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut.",
+contact_err_network:  "Netzwerkfehler. Bitte versuchen Sie es erneut.",
 
 footer_brand: "Easy Help Switzerland",
 footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
@@ -3669,6 +3681,10 @@ contact_message: "ВАШЕ ПИТАННЯ",
 
 contact_policy: "Натискаючи кнопку, ви погоджуєтесь з політикою конфіденційності та обробкою персональних даних.",
 contact_cta: "Надіслати повідомлення",
+contact_err_required: "Будь ласка, вкажіть ваше ім'я та email.",
+contact_err_policy:   "Будь ласка, прийміть політику конфіденційності.",
+contact_err_failed:   "Щось пішло не так. Спробуйте ще раз.",
+contact_err_network:  "Помилка мережі. Спробуйте ще раз.",
 
 footer_brand: "Easy Help Switzerland",
 footer_rights: "© 2026 Easy Help Switzerland — Усі права захищені.",

@@ -3575,13 +3575,16 @@
 
     errEl.style.display = 'none';
 
+    const lang = localStorage.getItem('siteLanguage') || 'en';
+    const t = k => (window.getTranslation && window.getTranslation(lang, k)) || k;
+
     if (!name || !email) {
-      errEl.textContent = 'Please fill in your name and email.';
+      errEl.textContent = t('contact_err_required');
       errEl.style.display = 'block';
       return;
     }
     if (!policy) {
-      errEl.textContent = 'Please accept the privacy policy.';
+      errEl.textContent = t('contact_err_policy');
       errEl.style.display = 'block';
       return;
     }
@@ -3599,13 +3602,13 @@
         window.location.href = '/consultation-success.html?type=contact';
       } else {
         const j = await r.json().catch(() => ({}));
-        errEl.textContent = j.error || 'Something went wrong. Please try again.';
+        errEl.textContent = j.error || t('contact_err_failed');
         errEl.style.display = 'block';
         btn.disabled = false;
         btn.style.opacity = '';
       }
     } catch {
-      errEl.textContent = 'Network error. Please try again.';
+      errEl.textContent = t('contact_err_network');
       errEl.style.display = 'block';
       btn.disabled = false;
       btn.style.opacity = '';
