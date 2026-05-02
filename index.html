@@ -3546,6 +3546,8 @@
   <input type="text" id="contact-name" placeholder="YOUR NAME" data-i18n-placeholder="contact_name" />
   <input type="email" id="contact-email" placeholder="YOUR EMAIL" data-i18n-placeholder="contact_email" />
   <input type="tel" id="contact-phone" placeholder="+41 00 000 00 00" data-i18n-placeholder="contact_phone" />
+  <textarea id="contact-message" rows="3" placeholder="YOUR QUESTION" data-i18n-placeholder="contact_message"
+    style="background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.25);color:#fff;font-family:inherit;font-size:15px;letter-spacing:.08em;outline:none;padding:14px 0;resize:none;width:100%;margin-top:4px"></textarea>
 
   <label class="contact-check">
     <input type="checkbox" id="contact-policy" />
@@ -3554,23 +3556,60 @@
     </span>
   </label>
 
-  <a href="free-consultation.php" class="contact-btn" data-i18n="contact_cta" onclick="return goToConsult(event)">
-    Get A Free Consultation
+  <div id="contact-error" style="display:none;color:#f87171;font-size:13px;margin-top:8px"></div>
+
+  <button type="button" class="contact-btn" data-i18n="contact_cta" onclick="submitContactForm()">
+    Send Message
     <span>›</span>
-  </a>
+  </button>
 
   <script>
-  function goToConsult(e) {
-    e.preventDefault();
-    const name  = document.getElementById('contact-name').value.trim();
-    const email = document.getElementById('contact-email').value.trim();
-    const phone = document.getElementById('contact-phone').value.trim();
-    const params = new URLSearchParams();
-    if (name)  params.set('name', name);
-    if (email) params.set('email', email);
-    if (phone) params.set('phone', phone);
-    window.location.href = 'free-consultation.php' + (params.toString() ? '?' + params.toString() : '');
-    return false;
+  async function submitContactForm() {
+    const btn     = document.querySelector('.contact-btn');
+    const errEl   = document.getElementById('contact-error');
+    const name    = document.getElementById('contact-name').value.trim();
+    const email   = document.getElementById('contact-email').value.trim();
+    const phone   = document.getElementById('contact-phone').value.trim();
+    const message = document.getElementById('contact-message').value.trim();
+    const policy  = document.getElementById('contact-policy').checked;
+
+    errEl.style.display = 'none';
+
+    if (!name || !email) {
+      errEl.textContent = 'Please fill in your name and email.';
+      errEl.style.display = 'block';
+      return;
+    }
+    if (!policy) {
+      errEl.textContent = 'Please accept the privacy policy.';
+      errEl.style.display = 'block';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.style.opacity = '0.6';
+
+    try {
+      const r = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, phone, message }),
+      });
+      if (r.ok) {
+        window.location.href = '/consultation-success.html?type=contact';
+      } else {
+        const j = await r.json().catch(() => ({}));
+        errEl.textContent = j.error || 'Something went wrong. Please try again.';
+        errEl.style.display = 'block';
+        btn.disabled = false;
+        btn.style.opacity = '';
+      }
+    } catch {
+      errEl.textContent = 'Network error. Please try again.';
+      errEl.style.display = 'block';
+      btn.disabled = false;
+      btn.style.opacity = '';
+    }
   }
   </script>
 </div>

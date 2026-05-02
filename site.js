@@ -322,9 +322,10 @@ contact_text: "Leave your contact details, and I will get in touch to help you c
 contact_name: "YOUR NAME",
 contact_email: "YOUR EMAIL",
 contact_phone: "+41 00 000 00 00",
+contact_message: "YOUR QUESTION",
 
 contact_policy: "By clicking the button, you accept the privacy policy and consent to the processing of personal data.",
-contact_cta: "Get A Free Consultation",
+contact_cta: "Send Message",
 
 footer_brand: "Easy Help Switzerland",
 footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
@@ -1462,9 +1463,10 @@ contact_text: "Deja tus datos de contacto y me pondré en contacto contigo para 
 contact_name: "TU NOMBRE",
 contact_email: "TU EMAIL",
 contact_phone: "+41 00 000 00 00",
+contact_message: "TU PREGUNTA",
 
 contact_policy: "Al hacer clic en el botón, aceptas la política de privacidad y el tratamiento de datos personales.",
-contact_cta: "Solicitar consulta gratuita",
+contact_cta: "Enviar mensaje",
 
 footer_brand: "Easy Help Switzerland",
 footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.",
@@ -2559,9 +2561,10 @@ contact_text: "Hinterlassen Sie Ihre Kontaktdaten und ich melde mich, um Ihnen z
 contact_name: "IHR NAME",
 contact_email: "IHRE E-MAIL",
 contact_phone: "+41 00 000 00 00",
+contact_message: "IHRE FRAGE",
 
 contact_policy: "Durch Klicken auf den Button akzeptieren Sie die Datenschutzerklärung und die Verarbeitung Ihrer personenbezogenen Daten.",
-contact_cta: "Kostenlose Beratung anfragen",
+contact_cta: "Nachricht senden",
 
 footer_brand: "Easy Help Switzerland",
 footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
@@ -3662,9 +3665,10 @@ contact_text: "Залиште свої контактні дані, і я зв'�
 contact_name: "ВАШЕ ІМ'Я",
 contact_email: "ВАШ EMAIL",
 contact_phone: "+41 00 000 00 00",
+contact_message: "ВАШЕ ПИТАННЯ",
 
 contact_policy: "Натискаючи кнопку, ви погоджуєтесь з політикою конфіденційності та обробкою персональних даних.",
-contact_cta: "Отримати безкоштовну консультацію",
+contact_cta: "Надіслати повідомлення",
 
 footer_brand: "Easy Help Switzerland",
 footer_rights: "© 2026 Easy Help Switzerland — Усі права захищені.",
