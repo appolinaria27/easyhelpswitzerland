@@ -618,6 +618,117 @@ footer_rights: "© 2026 Easy Help Switzerland — All rights reserved.",
 <h3>Healthcare for children</h3>
 <p>Each child must have their own health insurance policy — they cannot be added to a parent's plan. Children under 18 pay a reduced premium, and many cantons provide additional subsidies for families with lower incomes. The same 3-month enrolment window applies: register your children with an insurer within 3 months of their official registration date.</p>`,
 
+  blog_cost_meta_category: "Living in Switzerland",
+  blog_cost_meta_time: "6 min read",
+  blog_cost_title: "The real cost of living in Switzerland: what newcomers need to budget for",
+  blog_cost_lead: "Switzerland is consistently ranked among the most expensive countries in the world. But the numbers that circulate online are often incomplete or misleading. Knowing what to actually budget for — and what costs most newcomers underestimate — makes the difference between arriving prepared and arriving overwhelmed.",
+  blog_cost_body: `<h3>Housing: your biggest monthly expense</h3>
+<p>In Zürich, a one-bedroom apartment in the city typically costs between CHF 1,800 and CHF 2,800 per month. A two-bedroom apartment ranges from CHF 2,500 to CHF 4,000 depending on the district. Furnished apartments and expat housing cost considerably more. Outside the city centre — in areas like Winterthur, Baden, or Schlieren — rents drop by 20–35%, which many newcomers find worthwhile once they discover that Swiss public transport makes commuting comfortable.</p>
+<p>Most landlords require a security deposit of two to three months' rent, held in a blocked bank account in your name. You will need this cash available before signing a lease.</p>
+
+<h3>Health insurance: mandatory and significant</h3>
+<p>Basic health insurance (Krankenkasse) is compulsory for all residents. The monthly premium in Zürich ranges from approximately CHF 380 to CHF 580 per adult, depending on the insurer, the deductible (franchise) you choose, and the insurance model. A CHF 2,500 annual deductible gives you the lowest monthly premium — but means you pay up to CHF 2,500 out of pocket before insurance covers the rest. Families with children pay additional premiums per child, though children's premiums are lower than adults.</p>
+<ul>
+  <li>Standard franchise options: CHF 300, 500, 1,000, 1,500, 2,000, 2,500</li>
+  <li>Lower franchise = higher monthly premium, less out-of-pocket risk per illness</li>
+  <li>Dental care is not covered by basic insurance — budget separately</li>
+</ul>
+
+<h3>Groceries and daily expenses</h3>
+<p>A realistic weekly grocery budget for one person is CHF 80–120 shopping at Migros or Coop. At Aldi or Lidl, costs drop by roughly 30%. Eating out regularly adds up quickly: a simple lunch in a restaurant costs CHF 20–30, a dinner for two CHF 80–150. Most working residents eat lunch from home or use their employer's subsidised canteen where available.</p>
+<p>Common monthly estimates for one person: groceries CHF 400–500, dining out CHF 150–300, personal care CHF 50–100, clothing CHF 50–150.</p>
+
+<h3>Transport</h3>
+<p>Switzerland's public transport system is excellent and widely used. A Zürich city zone monthly pass costs around CHF 90. A national Half-Fare Card (Halbtax) costs CHF 185 per year and halves the price of most train, bus, and boat tickets — it pays for itself quickly for anyone who travels beyond the city. Many employers offer transport subsidies or contribute to GA (general abonnement) annual passes.</p>
+<p>If you own a car, budget for mandatory liability insurance (CHF 600–1,200/year), road tax, vehicle inspection fees, and parking — which in Zürich can cost CHF 150–300/month for a private space.</p>
+
+<h3>Taxes</h3>
+<p>Most foreign employees in their first years are subject to Quellensteuer (withholding tax), deducted directly from their salary. The effective rate in Zürich for a single person earning CHF 80,000 gross is approximately 11–14%. For a couple where one partner works, the rate differs. Tax rates also vary by canton — Zug and Schwyz are significantly lower than Zürich or Geneva. Swiss income tax is progressive at federal level but varies widely at cantonal and municipal level.</p>
+
+<h3>A realistic monthly budget summary</h3>
+<ul>
+  <li>Rent (1-bedroom Zürich): CHF 2,000–2,600</li>
+  <li>Health insurance: CHF 380–580</li>
+  <li>Groceries: CHF 400–500</li>
+  <li>Transport (city pass): CHF 90</li>
+  <li>Utilities (electricity, internet): CHF 150–220</li>
+  <li>Dining out, leisure: CHF 300–600</li>
+  <li>Total estimate: CHF 3,400–4,600/month before tax</li>
+</ul>
+<p>These figures are for a single person in Zürich. Costs vary meaningfully by canton, family size, and lifestyle. The key is to budget conservatively for the first three months while you find permanent housing and get your insurance and banking set up.</p>`,
+
+  blog_bank_meta_category: "Banking & Finance",
+  blog_bank_meta_time: "4 min read",
+  blog_bank_title: "Opening a bank account in Switzerland as a foreigner: what you need and where to start",
+  blog_bank_lead: "One of the first practical tasks after registering in Switzerland is opening a local bank account. Without one, you cannot receive your salary, pay rent by bank transfer, or set up direct debits for insurance and utilities. The process is more straightforward than many newcomers expect — but the requirements and timelines differ depending on your permit status and chosen bank.",
+  blog_bank_body: `<h3>When can you open an account?</h3>
+<p>Most banks in Switzerland require you to have a registered address before they open an account for you. This means the Anmeldung (registration at your municipality) comes first. Some banks — particularly digital banks like Yuh, Neon, or Zak — are more flexible and allow account opening before full permit documentation is in place. Traditional banks (UBS, Credit Suisse, Raiffeisen, PostFinance, Cantonal banks) typically require your residence permit or at minimum a confirmation of your permit application in progress.</p>
+
+<h3>Documents typically required</h3>
+<ul>
+  <li>Valid passport or national ID</li>
+  <li>Proof of Swiss address (Meldebestätigung / registration confirmation)</li>
+  <li>Residence permit (or permit application confirmation for new arrivals)</li>
+  <li>Employment contract or proof of financial means (for some banks)</li>
+  <li>For non-EU citizens: additional identity verification may be required</li>
+</ul>
+
+<h3>Which bank to choose</h3>
+<p>The right bank depends on your situation. PostFinance is accessible to almost all residents including those with B permits and is a common first choice for newcomers. Cantonal banks (like ZKB in Zürich) are regionally rooted and offer reliable service. UBS and the major private banks have stricter onboarding for foreigners. Digital banks (Neon, Yuh) have become popular for their lower fees and English-language interfaces — they are a good option while you settle in, though they lack physical branches.</p>
+<p>Monthly account fees range from CHF 0 (some digital banks) to CHF 8–15 for standard current accounts at traditional banks. Most banks charge for international transfers, paper statements, and additional cards.</p>
+
+<h3>Salary account vs. private account</h3>
+<p>In Switzerland, many people maintain a salary account (where their employer deposits wages) and a separate savings account. Some employers work only with specific banks — worth asking your HR department before choosing. You can also use a foreign bank account to receive salary if needed, though this often creates complications with Quellensteuer deduction and monthly expense management.</p>
+
+<h3>Practical tips for new arrivals</h3>
+<ul>
+  <li>Open your account as soon as you have your Meldebestätigung — delays cost time when rent payments are due</li>
+  <li>Ask your employer which bank they use for payroll before committing</li>
+  <li>IBAN is the standard for all Swiss transfers — make sure you receive yours immediately after account opening</li>
+  <li>Most Swiss banks issue a Maestro or Debit Mastercard, not a credit card by default</li>
+  <li>Mobile banking apps are excellent at Swiss banks — set up e-banking from day one</li>
+</ul>
+
+<h3>AHV number and banking</h3>
+<p>Your AHV (social security) number is separate from your bank account but equally important to obtain early. It is needed for pension contributions, certain benefits, and tax filings. Your employer typically initiates this, but it is worth confirming that it has been applied for within your first weeks of employment.</p>`,
+
+  blog_licence_meta_category: "Daily Life",
+  blog_licence_meta_time: "4 min read",
+  blog_licence_title: "Exchanging your driving licence in Switzerland: rules, timelines and what can go wrong",
+  blog_licence_lead: "If you are moving to Switzerland with a foreign driving licence, you have a limited window to exchange it for a Swiss one. Miss the deadline and you may need to retake practical or theory tests — even if you have been driving for twenty years. The rules differ depending on where your licence was issued, and the process involves more steps than most people anticipate.",
+  blog_licence_body: `<h3>The 12-month rule</h3>
+<p>As a new resident in Switzerland, you are generally permitted to drive on your foreign licence for 12 months after registration. After this period, you must have either exchanged it for a Swiss licence or begun the exchange process. Driving on an expired foreign licence after this window can result in fines and complications with your insurance coverage.</p>
+
+<h3>EU/EFTA licences: simplified exchange</h3>
+<p>If your licence was issued by an EU or EFTA country, the exchange process is straightforward. You apply at your cantonal road traffic office (Strassenverkehrsamt), submit your foreign licence, a passport photo, a completed application form, and the fee (typically CHF 50–80). Your EU/EFTA licence is surrendered and a Swiss licence is issued, usually within a few weeks. No theory or practical test is required.</p>
+
+<h3>Non-EU licences: it depends on your country</h3>
+<p>Switzerland has bilateral agreements with several non-EU countries that allow direct exchange without tests. These include the United States, Canada, Australia, New Zealand, Japan, South Korea, and a number of others. For countries on the recognised list, the process is similar to the EU exchange — submit your documents, pay the fee, surrender your licence.</p>
+<p>For countries not on the recognised list, you will typically need to:</p>
+<ul>
+  <li>Pass a Swiss theory test (Theorieprüfung)</li>
+  <li>Complete a first aid course (if not already completed abroad)</li>
+  <li>Take a practical driving test</li>
+  <li>In some cases, complete a minimum number of driving lessons with a Swiss instructor</li>
+</ul>
+
+<h3>The practical steps</h3>
+<ul>
+  <li>Check your country's status on the ASTRA (Federal Roads Office) recognised list</li>
+  <li>Gather documents: foreign licence (original), passport, registration confirmation, passport photo</li>
+  <li>Book an appointment at your cantonal Strassenverkehrsamt — waiting times can be 4–8 weeks</li>
+  <li>If a translation is needed, ensure it is an official translation (not Google Translate)</li>
+  <li>If your licence category covers different vehicle types (motorcycle, truck), each category may require separate processing</li>
+</ul>
+
+<h3>What often goes wrong</h3>
+<p>The most common problem is leaving the exchange too late. The 12-month window passes quickly, particularly for people who arrive, get busy with work and housing, and forget about the licence. By the time they remember, they are either close to or past the deadline.</p>
+<p>A second common issue is assuming that because you come from a country with an agreement, the process is automatic. It is not — you must actively apply. The exchange does not happen without your submission.</p>
+<p>Finally, some licences issued in non-EU countries need to be verified with the issuing country's authorities before Switzerland will accept them. This verification can take weeks and is worth initiating early.</p>
+
+<h3>Provisional licence (Lernfahrausweis)</h3>
+<p>If you do need to take a Swiss practical test, you must first obtain a provisional licence (Lernfahrausweis). This allows you to practice driving accompanied by a person holding a valid Swiss licence. You can then book the practical test with the cantonal office once you feel ready.</p>`,
+
   sidebar_related_label: "Related services",
   sidebar_related_title: "How we can help",
   sidebar_related_consultation_label: "Consultation",
@@ -1801,6 +1912,24 @@ footer_rights: "© 2026 Easy Help Switzerland — Todos los derechos reservados.
 <h3>Atención sanitaria para los hijos</h3>
 <p>Cada hijo debe tener su propia póliza de seguro médico — no pueden añadirse al plan de los padres. Los menores de 18 años pagan una prima reducida, y muchos cantones ofrecen subsidios adicionales para familias con ingresos más bajos. Se aplica la misma ventana de inscripción de 3 meses: registra a tus hijos con un asegurador dentro de los 3 meses desde su fecha de registro oficial.</p>`,
 
+  blog_cost_meta_category: "Vivir en Suiza",
+  blog_cost_meta_time: "6 min de lectura",
+  blog_cost_title: "El costo de vida real en Suiza: en qué deben presupuestar los recién llegados",
+  blog_cost_lead: "Suiza es consistentemente uno de los países más caros del mundo. Pero los números que circulan en línea suelen ser incompletos o engañosos. Saber en qué presupuestar marca la diferencia entre llegar preparado o abrumado.",
+  blog_cost_body: `<h3>Vivienda: su mayor gasto mensual</h3><p>En Zúrich, un apartamento de una habitación en la ciudad cuesta entre CHF 1.800 y CHF 2.800 al mes. Uno de dos habitaciones varía entre CHF 2.500 y CHF 4.000 según el barrio. Fuera del centro – en Winterthur, Baden o Schlieren – los alquileres son un 20–35% más baratos.</p><p>La mayoría de propietarios exigen una fianza de dos a tres meses de alquiler en una cuenta bloqueada.</p><h3>Seguro médico: obligatorio y significativo</h3><p>El seguro básico (Krankenkasse) es obligatorio. La prima mensual en Zúrich oscila entre CHF 380 y CHF 580 por adulto.</p><ul><li>Opciones de franquicia: CHF 300, 500, 1.000, 1.500, 2.000, 2.500</li><li>Menor franquicia = mayor prima mensual, menor riesgo de gasto en caso de enfermedad</li><li>La atención dental no está cubierta por el seguro básico</li></ul><h3>Alimentación y gastos diarios</h3><p>Un presupuesto semanal realista para una persona es CHF 80–120 en Migros o Coop. En Aldi o Lidl se ahorra un 30%. Comer fuera es caro: un almuerzo sencillo cuesta CHF 20–30, una cena para dos CHF 80–150.</p><h3>Transporte</h3><p>El abono mensual de la ciudad de Zúrich cuesta unos CHF 90. El Halbtax (CHF 185/año) reduce a la mitad los precios del transporte público.</p><h3>Impuestos</h3><p>La mayoría de trabajadores extranjeros están sujetos al Quellensteuer, deducido directamente del salario. La tasa efectiva en Zúrich para una persona soltera con CHF 80.000 brutos es aproximadamente del 11–14%.</p><h3>Resumen mensual</h3><ul><li>Alquiler (1 hab. Zúrich): CHF 2.000–2.600</li><li>Seguro médico: CHF 380–580</li><li>Alimentación: CHF 400–500</li><li>Transporte: CHF 90</li><li>Servicios: CHF 150–220</li><li>Ocio y restaurantes: CHF 300–600</li><li>Total estimado: CHF 3.400–4.600/mes antes de impuestos</li></ul>`,
+
+  blog_bank_meta_category: "Banca y Finanzas",
+  blog_bank_meta_time: "4 min de lectura",
+  blog_bank_title: "Abrir una cuenta bancaria en Suiza como extranjero: lo que necesita y por dónde empezar",
+  blog_bank_lead: "Una de las primeras tareas prácticas tras registrarse en Suiza es abrir una cuenta bancaria local. Sin ella, no podrá recibir su salario, pagar el alquiler por transferencia bancaria ni configurar domiciliaciones para seguros y servicios.",
+  blog_bank_body: `<h3>¿Cuándo puede abrir una cuenta?</h3><p>La mayoría de bancos requieren una dirección registrada. El Anmeldung es el primer paso. Los bancos digitales como Neon o Yuh son más flexibles. Los bancos tradicionales (UBS, Raiffeisen, PostFinance) suelen requerir el permiso de residencia.</p><h3>Documentos habitualmente requeridos</h3><ul><li>Pasaporte válido o documento de identidad nacional</li><li>Prueba de domicilio suizo (Meldebestätigung)</li><li>Permiso de residencia o confirmación de solicitud</li><li>Contrato de trabajo o prueba de medios económicos</li></ul><h3>¿Qué banco elegir?</h3><p>PostFinance es accesible para casi todos los residentes. Los bancos cantonales (como ZKB en Zúrich) son una opción fiable. Los bancos digitales (Neon, Yuh) son populares por sus bajas comisiones e interfaz en inglés.</p><h3>Consejos prácticos</h3><ul><li>Abra su cuenta en cuanto tenga la Meldebestätigung</li><li>Pregunte a su empleador qué banco utiliza para el pago de nóminas</li><li>El IBAN es el estándar para todas las transferencias suizas</li><li>Configure la banca móvil desde el primer día</li></ul>`,
+
+  blog_licence_meta_category: "Vida Cotidiana",
+  blog_licence_meta_time: "4 min de lectura",
+  blog_licence_title: "Canjear el carnet de conducir en Suiza: reglas, plazos y errores frecuentes",
+  blog_licence_lead: "Si se muda a Suiza con un carnet de conducir extranjero, tiene un tiempo limitado para canjearlo por uno suizo. Si pierde el plazo, puede tener que realizar exámenes teóricos o prácticos, aunque lleve décadas conduciendo.",
+  blog_licence_body: `<h3>La regla de los 12 meses</h3><p>Como nuevo residente, generalmente puede conducir con su carnet extranjero durante 12 meses desde el registro. Después debe haber realizado el canje o iniciado el proceso.</p><h3>Carnets UE/AELE: canje simplificado</h3><p>Los carnets de la UE/AELE se pueden canjear directamente en la oficina cantonal de tráfico (Strassenverkehrsamt). No se requieren exámenes. La tasa es de aproximadamente CHF 50–80.</p><h3>Carnets de países no pertenecientes a la UE</h3><p>Algunos países tienen acuerdos bilaterales con Suiza (EE.UU., Canadá, Australia, Japón, etc.) que permiten el canje directo. Para países sin acuerdo, es necesario superar un examen teórico, un curso de primeros auxilios y un examen práctico de conducción.</p><h3>Pasos prácticos</h3><ul><li>Verificar el estado de su país en la lista reconocida por la ASTRA</li><li>Reunir documentos: carnet original, pasaporte, confirmación de registro, foto</li><li>Reservar cita en el Strassenverkehrsamt cantonal (espera de 4–8 semanas)</li></ul><h3>Errores más comunes</h3><p>El más frecuente es dejar pasar el plazo de 12 meses. Otro error habitual: asumir que el canje es automático. Debe solicitarse activamente.</p>`,
+
   sidebar_related_label: "Servicios relacionados",
   sidebar_related_title: "Cómo podemos ayudar",
   sidebar_related_consultation_label: "Consulta",
@@ -2939,6 +3068,24 @@ footer_rights: "© 2026 Easy Help Switzerland — Alle Rechte vorbehalten.",
 <p>Wenn der Hauptbewilligungsinhaber kein EU/EFTA-Bürger ist, müssen Familienangehörige, die ihm in die Schweiz folgen, einen Familiennachzug beantragen. Die Bedingungen umfassen: Der Hauptbewilligungsinhaber muss eine B- oder C-Bewilligung haben, die Familie muss über geeigneten Wohnraum verfügen (eine ausreichend große Wohnung), und es muss ein Nachweis ausreichender finanzieller Mittel für die gesamte Familie vorliegen. Dieser Prozess kann mehrere Wochen dauern, und es ist unbedingt erforderlich, ihn vor der Buchung von Flügen zu starten.</p>
 <h3>Gesundheitsversorgung für Kinder</h3>
 <p>Jedes Kind muss eine eigene Krankenkassenpolice haben — es kann nicht in den Plan der Eltern aufgenommen werden. Kinder unter 18 Jahren zahlen eine reduzierte Prämie, und viele Kantone gewähren zusätzliche Subventionen für Familien mit niedrigerem Einkommen. Das gleiche 3-Monats-Anmeldefenster gilt: Melden Sie Ihre Kinder innerhalb von 3 Monaten nach ihrem offiziellen Anmeldedatum bei einem Versicherer an.</p>`,
+
+  blog_cost_meta_category: "Leben in der Schweiz",
+  blog_cost_meta_time: "6 Min. Lesezeit",
+  blog_cost_title: "Die tatsächlichen Lebenshaltungskosten in der Schweiz: Was Neuankömmlinge einplanen müssen",
+  blog_cost_lead: "Die Schweiz gehört regelmässig zu den teuersten Ländern der Welt. Doch die im Internet kursierenden Zahlen sind oft unvollständig oder irreführend. Wer weiss, wofür er wirklich budgetieren muss, kommt vorbereitet an statt überfordert.",
+  blog_cost_body: `<h3>Wohnen: Ihre grösste monatliche Ausgabe</h3><p>In Zürich kostet eine 1-Zimmer-Wohnung in der Stadt typischerweise zwischen CHF 1.800 und CHF 2.800 pro Monat. Eine 2-Zimmer-Wohnung liegt je nach Quartier zwischen CHF 2.500 und CHF 4.000. Möblierte Wohnungen und Expat-Unterkünfte sind deutlich teurer. Ausserhalb der Stadt – in Winterthur, Baden oder Schlieren – sind die Mieten 20–35% günstiger.</p><p>Die meisten Vermieter verlangen eine Kaution von zwei bis drei Monatsmieten auf einem Sperrkonto.</p><h3>Krankenkasse: Pflicht und erheblicher Kostenfaktor</h3><p>Die Grundversicherung ist für alle Einwohner obligatorisch. Die monatliche Prämie in Zürich liegt zwischen CHF 380 und CHF 580 pro Erwachsener, abhängig von Versicherer, Franchise und Versicherungsmodell.</p><ul><li>Franchise-Optionen: CHF 300, 500, 1.000, 1.500, 2.000, 2.500</li><li>Niedrigere Franchise = höhere Monatsprämie, geringeres Kostenrisiko im Krankheitsfall</li><li>Zahnpflege ist nicht in der Grundversicherung enthalten</li></ul><h3>Lebensmittel und Alltagsausgaben</h3><p>Ein realistisches wöchentliches Lebensmittelbudget für eine Person beträgt CHF 80–120 bei Migros oder Coop. Bei Aldi oder Lidl sind es etwa 30% weniger. Auswärts essen ist teuer: Ein einfaches Mittagessen kostet CHF 20–30, ein Abendessen für zwei CHF 80–150.</p><h3>Verkehr</h3><p>Eine Monatskarte für das Stadtgebiet Zürich kostet ca. CHF 90. Das Halbtax-Abo (CHF 185/Jahr) halbiert die Preise für Bahn, Bus und Schiff – es amortisiert sich schnell.</p><h3>Steuern</h3><p>Die meisten ausländischen Arbeitnehmer unterliegen der Quellensteuer, die direkt vom Lohn abgezogen wird. Der effektive Satz in Zürich für eine alleinstehende Person mit CHF 80.000 Bruttolohn liegt bei ca. 11–14%.</p><h3>Monatliche Budgetübersicht</h3><ul><li>Miete (1-Zimmer Zürich): CHF 2.000–2.600</li><li>Krankenkasse: CHF 380–580</li><li>Lebensmittel: CHF 400–500</li><li>Verkehr: CHF 90</li><li>Nebenkosten: CHF 150–220</li><li>Freizeit, Gastronomie: CHF 300–600</li><li>Gesamtschätzung: CHF 3.400–4.600/Monat vor Steuern</li></ul>`,
+
+  blog_bank_meta_category: "Banking & Finanzen",
+  blog_bank_meta_time: "4 Min. Lesezeit",
+  blog_bank_title: "Bankkonto in der Schweiz als Ausländer eröffnen: Was Sie brauchen und wo Sie anfangen",
+  blog_bank_lead: "Eine der ersten praktischen Aufgaben nach der Anmeldung in der Schweiz ist die Eröffnung eines lokalen Bankkontos. Ohne ein solches können Sie Ihr Gehalt nicht empfangen, keine Miete per Banküberweisung bezahlen und keine Lastschriften für Versicherungen einrichten.",
+  blog_bank_body: `<h3>Wann können Sie ein Konto eröffnen?</h3><p>Die meisten Banken verlangen eine registrierte Adresse. Die Anmeldung kommt also zuerst. Digitalbanken wie Neon oder Yuh sind flexibler. Traditionelle Banken (UBS, Raiffeisen, PostFinance) benötigen in der Regel die Aufenthaltsbewilligung oder zumindest eine Bestätigung des laufenden Antrags.</p><h3>Üblicherweise erforderliche Dokumente</h3><ul><li>Gültiger Reisepass oder Personalausweis</li><li>Adressnachweis (Meldebestätigung)</li><li>Aufenthaltsbewilligung oder Antragbestätigung</li><li>Arbeitsvertrag oder Nachweis finanzieller Mittel</li></ul><h3>Welche Bank wählen?</h3><p>PostFinance ist für fast alle Einwohner zugänglich. Kantonalbanken (z.B. ZKB in Zürich) sind regional verankert. Digitalbanken (Neon, Yuh) sind beliebt wegen niedrigerer Gebühren und englischer Benutzeroberfläche.</p><h3>Praktische Tipps</h3><ul><li>Eröffnen Sie Ihr Konto sobald Sie die Meldebestätigung haben</li><li>Fragen Sie Ihren Arbeitgeber, welche Bank für die Lohnzahlung genutzt wird</li><li>Die IBAN ist der Standard für alle Schweizer Überweisungen</li><li>Mobile Banking Apps sind bei Schweizer Banken ausgezeichnet</li></ul>`,
+
+  blog_licence_meta_category: "Alltag",
+  blog_licence_meta_time: "4 Min. Lesezeit",
+  blog_licence_title: "Führerschein in der Schweiz umtauschen: Regeln, Fristen und häufige Fehler",
+  blog_licence_lead: "Wer mit einem ausländischen Führerschein in die Schweiz zieht, hat ein begrenztes Zeitfenster, um ihn gegen einen Schweizer Führerschein umzutauschen. Wer die Frist verpasst, muss möglicherweise Prüfungen ablegen – auch nach jahrzehntelanger Fahrpraxis.",
+  blog_licence_body: `<h3>Die 12-Monats-Regel</h3><p>Als neuer Einwohner dürfen Sie in der Regel 12 Monate nach der Anmeldung mit Ihrem ausländischen Führerschein fahren. Danach müssen Sie ihn umgetauscht oder den Prozess eingeleitet haben.</p><h3>EU/EFTA-Führerscheine: vereinfachter Umtausch</h3><p>EU/EFTA-Führerscheine können direkt beim kantonalen Strassenverkehrsamt umgetauscht werden. Keine Theorie- oder Fahrprüfung erforderlich. Gebühr: ca. CHF 50–80.</p><h3>Nicht-EU-Führerscheine</h3><p>Für bestimmte Länder (USA, Kanada, Australien, Japan u.a.) gibt es bilaterale Abkommen – direkter Umtausch ohne Prüfung möglich. Für Länder ohne Abkommen sind Theorieprüfung, Erste-Hilfe-Kurs und praktische Fahrprüfung erforderlich.</p><h3>Praktische Schritte</h3><ul><li>Status Ihres Landes auf der ASTRA-Anerkennungsliste prüfen</li><li>Dokumente bereitstellen: Führerschein (Original), Pass, Meldebestätigung, Passfoto</li><li>Termin beim kantonalen Strassenverkehrsamt buchen (4–8 Wochen Wartezeit)</li></ul><h3>Häufige Fehler</h3><p>Der häufigste Fehler ist das Verstreichen der 12-Monats-Frist. Ein weiteres Problem: anzunehmen, der Umtausch erfolge automatisch. Er muss aktiv beantragt werden.</p>`,
 
   sidebar_related_label: "Verwandte Leistungen",
   sidebar_related_title: "Wie wir helfen können",
@@ -4164,6 +4311,24 @@ payment_note: "Оплата підтверджує ваш запит на кон
 <p>Якщо основний власник дозволу є громадянином, що не є членом ЄС/ЄАВТ, члени сім'ї, що приєднуються до нього в Швейцарії, повинні подати заяву на возз'єднання сім'ї. Умови включають: основний власник дозволу повинен мати дозвіл B або C, сім'я повинна мати відповідне житло (достатньо велику квартиру), і має бути надано доказ достатніх фінансових засобів для всієї сім'ї. Цей процес може тривати кілька тижнів, і вкрай важливо розпочати його до бронювання квитків.</p>
 <h3>Медичне обслуговування дітей</h3>
 <p>Кожна дитина повинна мати власний поліс медичного страхування — її не можна додати до плану батьків. Діти до 18 років платять знижену премію, і багато кантонів надають додаткові субсидії для сімей з нижчим доходом. Те саме 3-місячне вікно реєстрації застосовується: зареєструйте своїх дітей у страховика протягом 3 місяців від їхньої офіційної дати реєстрації.</p>`,
+
+  blog_cost_meta_category: "Життя у Швейцарії",
+  blog_cost_meta_time: "6 хв читання",
+  blog_cost_title: "Реальна вартість життя у Швейцарії: що потрібно закласти у бюджет новачкам",
+  blog_cost_lead: "Швейцарія постійно входить до числа найдорожчих країн світу. Але цифри, що циркулюють в інтернеті, часто є неповними або оманливими. Знання того, на що насправді потрібно планувати бюджет, відрізняє тих, хто приїжджає підготовленим, від тих, хто приїжджає приголомшеним.",
+  blog_cost_body: `<h3>Житло: найбільша щомісячна витрата</h3><p>У Цюриху однокімнатна квартира в місті зазвичай коштує від 1 800 до 2 800 CHF на місяць. Двокімнатна — від 2 500 до 4 000 CHF залежно від району. За межами міста — у Вінтертурі, Бадені або Шлірені — орендна плата на 20–35% нижча.</p><p>Більшість орендодавців вимагають заставу у розмірі двох-трьох місячних орендних плат на заблокованому рахунку.</p><h3>Медичне страхування: обов'язкове і суттєве</h3><p>Базове медичне страхування є обов'язковим для всіх мешканців. Місячна премія у Цюриху становить приблизно від 380 до 580 CHF на дорослого.</p><ul><li>Варіанти франшизи: 300, 500, 1 000, 1 500, 2 000, 2 500 CHF</li><li>Нижча франшиза = вища місячна премія, менший ризик витрат при хворобі</li><li>Стоматологічна допомога не покривається базовим страхуванням</li></ul><h3>Продукти та щоденні витрати</h3><p>Реалістичний тижневий бюджет на продукти для однієї особи становить 80–120 CHF у Migros або Coop. У Aldi або Lidl — приблизно на 30% менше. Харчування в закладах є дорогим: простий обід коштує 20–30 CHF, вечеря на двох — 80–150 CHF.</p><h3>Транспорт</h3><p>Місячний абонемент для міської зони Цюриха коштує близько 90 CHF. Карта Halbtax (185 CHF/рік) вдвічі знижує ціни на громадський транспорт.</p><h3>Податки</h3><p>Більшість іноземних працівників сплачують Quellensteuer, що вираховується безпосередньо із зарплати. Ефективна ставка у Цюриху для самотньої особи з брутто-зарплатою 80 000 CHF становить приблизно 11–14%.</p><h3>Зведений щомісячний бюджет</h3><ul><li>Оренда (1-кімнатна, Цюрих): 2 000–2 600 CHF</li><li>Медичне страхування: 380–580 CHF</li><li>Продукти: 400–500 CHF</li><li>Транспорт: 90 CHF</li><li>Комунальні послуги: 150–220 CHF</li><li>Дозвілля та харчування: 300–600 CHF</li><li>Загальна оцінка: 3 400–4 600 CHF/місяць до сплати податків</li></ul>`,
+
+  blog_bank_meta_category: "Банківська справа та фінанси",
+  blog_bank_meta_time: "4 хв читання",
+  blog_bank_title: "Відкриття банківського рахунку у Швейцарії як іноземець: що потрібно і з чого почати",
+  blog_bank_lead: "Одне з перших практичних завдань після реєстрації у Швейцарії — відкрити місцевий банківський рахунок. Без нього ви не зможете отримувати зарплату, сплачувати оренду банківським переказом або налаштувати прямі дебети для страхування та комунальних послуг.",
+  blog_bank_body: `<h3>Коли можна відкрити рахунок?</h3><p>Більшість банків вимагають зареєстровану адресу. Спочатку — Anmeldung. Цифрові банки (Neon, Yuh) гнучкіші. Традиційні банки (UBS, Raiffeisen, PostFinance) зазвичай вимагають дозвіл на проживання або підтвердження заявки.</p><h3>Зазвичай необхідні документи</h3><ul><li>Дійсний паспорт або посвідчення особи</li><li>Підтвердження швейцарської адреси (Meldebestätigung)</li><li>Дозвіл на проживання або підтвердження заявки</li><li>Трудовий договір або підтвердження фінансових засобів</li></ul><h3>Який банк обрати?</h3><p>PostFinance доступний майже для всіх мешканців. Кантональні банки (наприклад, ZKB у Цюриху) надійні та регіонально орієнтовані. Цифрові банки (Neon, Yuh) популярні завдяки нижчим комісіям та англомовному інтерфейсу.</p><h3>Практичні поради</h3><ul><li>Відкрийте рахунок, щойно отримаєте Meldebestätigung</li><li>Дізнайтесь у роботодавця, який банк використовується для виплати зарплати</li><li>IBAN — стандарт для всіх швейцарських переказів</li><li>Налаштуйте мобільний банкінг з першого дня</li></ul>`,
+
+  blog_licence_meta_category: "Повсякденне життя",
+  blog_licence_meta_time: "4 хв читання",
+  blog_licence_title: "Обмін водійського посвідчення у Швейцарії: правила, строки та типові помилки",
+  blog_licence_lead: "Якщо ви переїжджаєте до Швейцарії з іноземним водійським посвідченням, у вас є обмежений термін для його обміну на швейцарське. Пропустіть строк — і вам можуть знадобитися іспити, навіть якщо ви водите вже двадцять років.",
+  blog_licence_body: `<h3>Правило 12 місяців</h3><p>Як новий мешканець, ви зазвичай можете керувати автомобілем з іноземним посвідченням протягом 12 місяців після реєстрації. Після цього потрібно обміняти його або розпочати процес обміну.</p><h3>Посвідчення ЄС/ЄАВТ: спрощений обмін</h3><p>Посвідчення ЄС/ЄАВТ обмінюються безпосередньо в кантональному відомстві дорожнього руху (Strassenverkehrsamt). Іспити не потрібні. Збір — близько 50–80 CHF.</p><h3>Посвідчення не з ЄС</h3><p>З деякими країнами (США, Канада, Австралія, Японія тощо) є двосторонні угоди — прямий обмін без іспитів. Для інших країн необхідні теоретичний іспит, курс першої допомоги та практичний іспит з водіння.</p><h3>Практичні кроки</h3><ul><li>Перевірте статус своєї країни у списку ASTRA</li><li>Підготуйте документи: оригінал посвідчення, паспорт, підтвердження реєстрації, фото</li><li>Запишіться на прийом до Strassenverkehrsamt (очікування 4–8 тижнів)</li></ul><h3>Типові помилки</h3><p>Найпоширеніша — зволікання з 12-місячним терміном. Інша помилка — припускати, що обмін відбувається автоматично. Його потрібно активно ініціювати.</p>`,
 
   sidebar_related_label: "Пов'язані послуги",
   sidebar_related_title: "Як ми можемо допомогти",
