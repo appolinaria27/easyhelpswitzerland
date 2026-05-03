@@ -1,38 +1,188 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
   <url>
     <loc>https://easyhelpswitzerland.ch/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://easyhelpswitzerland.ch/blog.html</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://easyhelpswitzerland.ch/free-consultation.php</loc>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/"/>
   </url>
+
+  <!-- Blog index -->
   <url>
-    <loc>https://easyhelpswitzerland.ch/booking.php</loc>
+    <loc>https://easyhelpswitzerland.ch/blog</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/blog"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/blog"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/blog"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/blog"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/blog"/>
+  </url>
+
+  <!-- Free consultation -->
+  <url>
+    <loc>https://easyhelpswitzerland.ch/free-consultation</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/free-consultation"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/free-consultation"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/free-consultation"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/free-consultation"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/free-consultation"/>
+  </url>
+
+  <!-- Booking -->
+  <url>
+    <loc>https://easyhelpswitzerland.ch/booking</loc>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/booking"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/booking"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/booking"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/booking"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/booking"/>
   </url>
+
+  <!-- Blog articles -->
   <url>
-    <loc>https://easyhelpswitzerland.ch/privacy.php</loc>
+    <loc>https://easyhelpswitzerland.ch/blog/swiss-residence-permit</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/blog/swiss-residence-permit"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/blog/swiss-residence-permit"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/blog/swiss-residence-permit"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/blog/swiss-residence-permit"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/blog/swiss-residence-permit"/>
+  </url>
+
+  <url>
+    <loc>https://easyhelpswitzerland.ch/blog/anmeldung-zurich</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/blog/anmeldung-zurich"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/blog/anmeldung-zurich"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/blog/anmeldung-zurich"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/blog/anmeldung-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/blog/anmeldung-zurich"/>
+  </url>
+
+  <url>
+    <loc>https://easyhelpswitzerland.ch/blog/swiss-health-insurance</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/blog/swiss-health-insurance"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/blog/swiss-health-insurance"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/blog/swiss-health-insurance"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/blog/swiss-health-insurance"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/blog/swiss-health-insurance"/>
+  </url>
+
+  <url>
+    <loc>https://easyhelpswitzerland.ch/blog/apartment-zurich</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/blog/apartment-zurich"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/blog/apartment-zurich"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/blog/apartment-zurich"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/blog/apartment-zurich"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/blog/apartment-zurich"/>
+  </url>
+
+  <url>
+    <loc>https://easyhelpswitzerland.ch/blog/work-permit-switzerland</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/blog/work-permit-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/blog/work-permit-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/blog/work-permit-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/blog/work-permit-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/blog/work-permit-switzerland"/>
+  </url>
+
+  <url>
+    <loc>https://easyhelpswitzerland.ch/blog/moving-switzerland-family</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/blog/moving-switzerland-family"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/blog/moving-switzerland-family"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/blog/moving-switzerland-family"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/blog/moving-switzerland-family"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/blog/moving-switzerland-family"/>
+  </url>
+
+  <url>
+    <loc>https://easyhelpswitzerland.ch/blog/cost-of-living-switzerland</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/blog/cost-of-living-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/blog/cost-of-living-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/blog/cost-of-living-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/blog/cost-of-living-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/blog/cost-of-living-switzerland"/>
+  </url>
+
+  <url>
+    <loc>https://easyhelpswitzerland.ch/blog/bank-account-switzerland</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/blog/bank-account-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/blog/bank-account-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/blog/bank-account-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/blog/bank-account-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/blog/bank-account-switzerland"/>
+  </url>
+
+  <url>
+    <loc>https://easyhelpswitzerland.ch/blog/driving-licence-switzerland</loc>
+    <lastmod>2026-05-03</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://easyhelpswitzerland.ch/blog/driving-licence-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="de"        href="https://easyhelpswitzerland.ch/blog/driving-licence-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://easyhelpswitzerland.ch/blog/driving-licence-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="uk"        href="https://easyhelpswitzerland.ch/blog/driving-licence-switzerland"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://easyhelpswitzerland.ch/blog/driving-licence-switzerland"/>
+  </url>
+
+  <!-- Legal pages -->
+  <url>
+    <loc>https://easyhelpswitzerland.ch/privacy</loc>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
   <url>
-    <loc>https://easyhelpswitzerland.ch/terms.php</loc>
+    <loc>https://easyhelpswitzerland.ch/terms</loc>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
   <url>
-    <loc>https://easyhelpswitzerland.ch/refund-policy.php</loc>
+    <loc>https://easyhelpswitzerland.ch/refund-policy</loc>
+    <lastmod>2026-05-03</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
+
 </urlset>
