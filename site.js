@@ -329,6 +329,13 @@ blog_3_title: "Health insurance in Switzerland: deadlines and obligations",
 blog_3_desc: "Understand the legal requirements, time limits and basics of choosing coverage after arrival.",
 
 blog_read: "Read more →",
+  article_back_guides: "← All guides",
+  article_by_author: "Polina Kravtsova",
+  article_cta_label: "Need help with this?",
+  article_cta_title: "Book a free consultation",
+  article_cta_text: "Get a personalised plan for your permit, registration, or relocation steps.",
+  article_more_guides: "More guides",
+  article_back_all: "← Back to all guides",
 
 
 faq_title: "Frequently asked questions",
@@ -1504,6 +1511,13 @@ blog_3_title: "Seguro de salud en Suiza: plazos y obligaciones",
 blog_3_desc: "Entiende los requisitos legales, plazos y cómo elegir cobertura.",
 
 blog_read: "Leer más →",
+  article_back_guides: "← Todas las guías",
+  article_by_author: "Polina Kravtsova",
+  article_cta_label: "¿Necesita ayuda?",
+  article_cta_title: "Reserve una consulta gratuita",
+  article_cta_text: "Obtenga un plan personalizado para su permiso, registro o pasos de reubicación.",
+  article_more_guides: "Más guías",
+  article_back_all: "← Volver a todas las guías",
 
 
 faq_title: "Preguntas frecuentes",
@@ -2636,6 +2650,13 @@ blog_3_title: "Krankenversicherung in der Schweiz: Fristen und Pflichten",
 blog_3_desc: "Verstehen Sie Anforderungen, Fristen und Grundlagen der Auswahl.",
 
 blog_read: "Mehr lesen →",
+  article_back_guides: "← Alle Ratgeber",
+  article_by_author: "Polina Kravtsova",
+  article_cta_label: "Benötigen Sie Hilfe?",
+  article_cta_title: "Kostenlose Beratung buchen",
+  article_cta_text: "Erhalten Sie einen individuellen Plan für Ihre Bewilligung, Anmeldung oder Umzugsschritte.",
+  article_more_guides: "Weitere Ratgeber",
+  article_back_all: "← Zurück zu allen Ratgebern",
 
 
 faq_title: "Häufig gestellte Fragen",
@@ -3774,6 +3795,13 @@ blog_3_title: "Медичне страхування у Швейцарії: ст
 blog_3_desc: "Зрозумійте вимоги, строки та вибір страхування.",
 
 blog_read: "Читати далі →",
+  article_back_guides: "← Всі посібники",
+  article_by_author: "Polina Kravtsova",
+  article_cta_label: "Потрібна допомога?",
+  article_cta_title: "Забронюйте безкоштовну консультацію",
+  article_cta_text: "Отримайте індивідуальний план для вашого дозволу, реєстрації або кроків переїзду.",
+  article_more_guides: "Більше посібників",
+  article_back_all: "← Назад до всіх посібників",
 
 
 faq_title: "Поширені запитання",
