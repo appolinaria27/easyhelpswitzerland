@@ -1,6 +1,6 @@
 /**
- * Morning post — English, slot 0
- * Cron: 0 8 * * * (08:00 UTC = 10:00 Zürich summer)
+ * Evening post — English, slot 2 (offset +10 so different topic from morning)
+ * Cron: 0 17 * * * (17:00 UTC = 19:00 Zürich summer)
  */
 import { POSTS_EN } from '../lib/posts.js';
 
@@ -32,9 +32,10 @@ export default async function handler(req, res) {
 
   try {
     const day = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86_400_000);
-    const post = POSTS_EN[day % POSTS_EN.length];
+    // Offset by 10 so evening post is always a different topic than morning
+    const post = POSTS_EN[(day + 10) % POSTS_EN.length];
     const result = await postToTelegram(post.text);
-    return res.status(200).json({ success: true, lang: 'en', topic: post.slug, message_id: result.message_id });
+    return res.status(200).json({ success: true, lang: 'en', slot: 'evening', topic: post.slug, message_id: result.message_id });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: err.message });

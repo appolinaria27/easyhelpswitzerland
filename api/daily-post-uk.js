@@ -1,8 +1,8 @@
 /**
- * Morning post — English, slot 0
- * Cron: 0 8 * * * (08:00 UTC = 10:00 Zürich summer)
+ * Afternoon post — Ukrainian, slot 1
+ * Cron: 0 13 * * * (13:00 UTC = 15:00 Zürich summer)
  */
-import { POSTS_EN } from '../lib/posts.js';
+import { POSTS_UK } from '../lib/posts.js';
 
 async function postToTelegram(text) {
   const url = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;
@@ -32,9 +32,9 @@ export default async function handler(req, res) {
 
   try {
     const day = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86_400_000);
-    const post = POSTS_EN[day % POSTS_EN.length];
+    const post = POSTS_UK[day % POSTS_UK.length];
     const result = await postToTelegram(post.text);
-    return res.status(200).json({ success: true, lang: 'en', topic: post.slug, message_id: result.message_id });
+    return res.status(200).json({ success: true, lang: 'uk', topic: post.slug, message_id: result.message_id });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: err.message });
