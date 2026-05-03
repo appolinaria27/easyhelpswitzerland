@@ -2,7 +2,7 @@
  * Morning post — English, slot 0
  * Cron: 0 8 * * * (08:00 UTC = 10:00 Zürich summer)
  */
-import { POSTS_EN } from '../lib/posts.js';
+import { POSTS_EN } from './_posts.js';
 
 async function postToTelegram(text) {
   const url = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;

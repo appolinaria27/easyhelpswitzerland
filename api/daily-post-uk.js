@@ -2,7 +2,7 @@
  * Afternoon post — Ukrainian, slot 1
  * Cron: 0 13 * * * (13:00 UTC = 15:00 Zürich summer)
  */
-import { POSTS_UK } from '../lib/posts.js';
+import { POSTS_UK } from './_posts.js';
 
 async function postToTelegram(text) {
   const url = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;
