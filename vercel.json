@@ -33,6 +33,9 @@
     { "source": "/404.php",                   "destination": "/404.html",                   "permanent": true }
   ],
   "rewrites": [
+    { "source": "/api/daily-post",          "destination": "/api/daily-post.js" },
+    { "source": "/api/daily-post-uk",      "destination": "/api/daily-post-uk.js" },
+    { "source": "/api/daily-post-eve",     "destination": "/api/daily-post-eve.js" },
     { "source": "/api/contact",            "destination": "/api/contact.js" },
     { "source": "/api/checkout",          "destination": "/api/checkout.js" },
     { "source": "/api/webhook",           "destination": "/api/webhook.js" },
