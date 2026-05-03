@@ -288,6 +288,8 @@ pricing_side: "Start with clarity — not with a large legal bill. Choose a leve
 
 pricing_badge: "Most popular",
 pricing_cta: "Book package",
+pricing_compare: "Swiss lawyers typically charge CHF 300–500 per hour. Our packages give you structured relocation support starting from CHF 79.",
+
   faq_title: "FAQ",
   faq_stat: "common questions",
   faq_side: "Answers to the questions we hear most often — before the first consultation.",
@@ -377,6 +379,7 @@ faq_6_answer: "Yes. The free consultation is a 20–30 minute call to understand
 
 contact_title: "Ready to discuss your future?",
 contact_text: "Leave your contact details, and I will get in touch to help you choose the right way to solve your matter as quickly as possible.",
+contact_response: "⏱ Typically replies within 2 hours",
 
 contact_name: "YOUR NAME",
 contact_email: "YOUR EMAIL",
@@ -1603,6 +1606,8 @@ pricing_side: "Empieza con claridad — no con una gran factura legal. Elige el 
 
 pricing_badge: "Más popular",
 pricing_cta: "Reservar paquete",
+pricing_compare: "Los abogados suizos suelen cobrar entre CHF 300 y 500 por hora. Nuestros paquetes ofrecen apoyo estructurado para tu reubicación desde CHF 79.",
+
   faq_title: "Preguntas frecuentes",
   faq_stat: "preguntas frecuentes",
   faq_side: "Respuestas a las preguntas que escuchamos con más frecuencia — antes de la primera consulta.",
@@ -1692,6 +1697,7 @@ faq_6_answer: "Sí. La consulta gratuita es una llamada de 20–30 minutos para 
 
 contact_title: "¿Listo para hablar sobre tu futuro?",
 contact_text: "Deja tus datos de contacto y me pondré en contacto contigo para ayudarte a elegir la mejor forma de resolver tu caso lo antes posible.",
+contact_response: "⏱ Normalmente responde en 2 horas",
 
 contact_name: "TU NOMBRE",
 contact_email: "TU EMAIL",
@@ -2782,6 +2788,8 @@ pricing_side: "Starten Sie mit Klarheit — nicht mit einer hohen Anwaltsrechnun
 
 pricing_badge: "Am beliebtesten",
 pricing_cta: "Paket buchen",
+pricing_compare: "Schweizer Anwälte berechnen in der Regel CHF 300–500 pro Stunde. Unsere Pakete bieten strukturierte Relocation-Beratung ab CHF 79.",
+
   faq_title: "Häufige Fragen",
   faq_stat: "häufige Fragen",
   faq_side: "Antworten auf die Fragen, die wir am häufigsten hören — vor der ersten Beratung.",
@@ -2871,6 +2879,7 @@ faq_6_answer: "Ja. Die kostenlose Beratung ist ein 20–30-minütiges Gespräch,
 
 contact_title: "Bereit, Ihre Zukunft zu besprechen?",
 contact_text: "Hinterlassen Sie Ihre Kontaktdaten und ich melde mich, um Ihnen zu helfen, den richtigen Weg zur Lösung Ihres Anliegens zu finden.",
+contact_response: "⏱ Antwortet in der Regel innerhalb von 2 Stunden",
 
 contact_name: "IHR NAME",
 contact_email: "IHRE E-MAIL",
@@ -3967,6 +3976,8 @@ pricing_side: "Почніть із ясності — не з великого �
 
 pricing_badge: "Найпопулярніше",
 pricing_cta: "Забронювати пакет",
+pricing_compare: "Швейцарські адвокати зазвичай беруть CHF 300–500 на годину. Наші пакети надають структуровану підтримку з переїзду від CHF 79.",
+
   faq_title: "Поширені запитання",
   faq_stat: "поширені запитання",
   faq_side: "Відповіді на запитання, які ми чуємо найчастіше — перед першою консультацією.",
@@ -4056,6 +4067,7 @@ faq_6_answer: "Так. Безкоштовна консультація — це 
 
 contact_title: "Готові обговорити ваше майбутнє?",
 contact_text: "Залиште свої контактні дані, і я зв'яжуся з вами, щоб допомогти обрати правильний шлях вирішення вашого питання якнайшвидше.",
+contact_response: "⏱ Зазвичай відповідає протягом 2 годин",
 
 contact_name: "ВАШЕ ІМ'Я",
 contact_email: "ВАШ EMAIL",

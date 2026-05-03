@@ -1063,11 +1063,22 @@
       color: rgba(17,17,17,.8);
     }
 
+    .pricing-compare{
+      font-size:14px;
+      color:var(--muted);
+      background:rgba(70,147,232,.07);
+      border-left:3px solid var(--blue);
+      border-radius:6px;
+      padding:10px 16px;
+      margin:24px 0 0;
+      line-height:1.55;
+    }
+
     .pricing-grid{
       display:grid;
       grid-template-columns:repeat(3,1fr);
       gap:24px;
-      margin-top:34px;
+      margin-top:24px;
     }
     .price-card{
       background:#f6f6f4;
@@ -1482,6 +1493,12 @@
   margin-top: -2px;
 }
 
+.contact-response{
+  margin:14px 0 0;
+  font-size:13px;
+  color:rgba(255,255,255,.55);
+  letter-spacing:.01em;
+}
 
 /* LEFT BRACKET */
 .contact-frame-left{
@@ -3631,6 +3648,8 @@
         <div class="side-copy" data-i18n="pricing_side">Start with clarity — not with a large legal bill. Choose a level of support that matches your case and urgency.</div>
       </div>
 
+      <p class="pricing-compare" data-i18n="pricing_compare">Swiss lawyers typically charge CHF 300–500 per hour. Our packages give you structured relocation support starting from CHF 79.</p>
+
       <div class="pricing-grid">
         <article class="price-card">
           <div class="plan" data-i18n="pricing_qs_plan">Quick Start</div>
@@ -3840,6 +3859,7 @@
     Send Message
     <span>›</span>
   </button>
+  <p class="contact-response" data-i18n="contact_response">⏱ Typically replies within 2 hours</p>
 
   <script>
   async function submitContactForm() {
