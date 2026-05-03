@@ -288,6 +288,21 @@ pricing_side: "Start with clarity — not with a large legal bill. Choose a leve
 
 pricing_badge: "Most popular",
 pricing_cta: "Book package",
+  faq_title: "FAQ",
+  faq_stat: "common questions",
+  faq_side: "Answers to the questions we hear most often — before the first consultation.",
+  faq_q1: "Do I need a lawyer to get a Swiss residence permit?",
+  faq_a1: "In most standard cases, no. EU/EFTA citizens have a straightforward process that does not require legal representation. Non-EU citizens with a confirmed job offer can also navigate the process with structured guidance and the right documents. A lawyer becomes necessary only in complex appeal situations or cases involving prior refusals.",
+  faq_q2: "How quickly do I need to register after arriving in Switzerland?",
+  faq_a2: "You must register at your local Einwohnerkontrolle (residents registration office) within 14 days of moving into your address. This is a legal obligation, not a suggestion. Missing the deadline can result in a fine and delays to your permit, health insurance and bank account setup.",
+  faq_q3: "Can you help me if I am not based in Zürich?",
+  faq_a3: "Yes. While we are based in Zürich, we work with clients across Switzerland remotely. All consultations can be conducted online via video call. We support clients in Basel, Bern, Geneva, Zug, Lucerne and other cantons with the same process.",
+  faq_q4: "How long does it take to get a B permit?",
+  faq_a4: "For EU/EFTA citizens, a B permit is typically issued within 2–6 weeks after registration, depending on the canton. For non-EU citizens, the process involves additional steps and can take 2–4 months or longer depending on whether the employer quota approval is already in place.",
+  faq_q5: "What is the difference between your service and a lawyer?",
+  faq_a5: "We provide practical relocation consulting — help with documents, registration steps, authority communication, and guidance on the process. We do not provide legal advice or represent clients in legal proceedings. If your situation involves a court appeal or a complex legal dispute, we will tell you clearly and refer you to the right specialist. For the majority of standard relocation cases, consulting support is sufficient and significantly more affordable.",
+  faq_q6: "Is the first consultation really free?",
+  faq_a6: "Yes. The free consultation is a 20–30 minute call to understand your situation, answer your most urgent questions, and tell you honestly what next steps make sense for your case. There is no obligation to book a paid service afterwards."
 
 pricing_qs_plan: "Quick Start",
 pricing_qs_title: "Quick consultation",
@@ -341,17 +356,23 @@ blog_read: "Read more →",
 
 faq_title: "Frequently asked questions",
 
-faq_1_question: "How long is the first consultation for free?",
-faq_1_answer: "As long as we can define our strategy, the questions we need to answer and the steps to do - it is free. Usually the first 30 minutes are enough to understand the matter and its solution.",
+faq_1_question: "Do I need a lawyer to get a Swiss residence permit?",
+faq_1_answer: "In most standard cases, no. EU/EFTA citizens have a straightforward process that does not require legal representation. Non-EU citizens with a confirmed job offer can also navigate the process with structured guidance and the right documents. A lawyer becomes necessary only in complex appeal situations or cases involving prior refusals.",
 
-faq_2_question: "I am not sure if I can write to you about my matter.",
-faq_2_answer: "There is an approximate list of my services on the page. You can always have a first free consultation to understand if your matter falls under my services. So just write me!",
+faq_2_question: "How quickly do I need to register after arriving in Switzerland?",
+faq_2_answer: "You must register at your local Einwohnerkontrolle within 14 days of moving into your address. This is a legal obligation, not a suggestion. Missing the deadline can result in a fine and delays to your permit, health insurance and bank account setup.",
 
-faq_3_question: "How long have you been studying and in which areas?",
-faq_3_answer: "I already have a Bachelor in Law. I am now in my second year of the Master's degree. I have studied many subjects, but my strongest areas are migration law, family law, tax law, criminal law, notary law, marriage and inheritance law, and administrative law.",
+faq_3_question: "Can you help me if I am not based in Zürich?",
+faq_3_answer: "Yes. While we are based in Zürich, we work with clients across Switzerland remotely. All consultations can be conducted online via video call. We support clients in Basel, Bern, Geneva, Zug, Lucerne and other cantons with the same process.",
 
-faq_4_question: "Which languages do you speak?",
-faq_4_answer: "I speak German, English, Ukrainian and Russian fluently. We can also communicate in Spanish. My husband, Kevin Garcia, speaks Italian, Portuguese and Spanish fluently and is ready to take part in a consultation.",
+faq_4_question: "How long does it take to get a B permit?",
+faq_4_answer: "For EU/EFTA citizens, a B permit is typically issued within 2–6 weeks after registration, depending on the canton. For non-EU citizens, the process involves additional steps and can take 2–4 months or longer depending on whether the employer quota approval is already in place.",
+
+faq_5_question: "What is the difference between your service and a lawyer?",
+faq_5_answer: "We provide practical relocation consulting — help with documents, registration steps, authority communication, and guidance on the process. We do not provide legal advice or represent clients in legal proceedings. If your situation involves a court appeal or a complex legal dispute, we will tell you clearly and refer you to the right specialist.",
+
+faq_6_question: "Is the first consultation really free?",
+faq_6_answer: "Yes. The free consultation is a 20–30 minute call to understand your situation, answer your most urgent questions, and tell you honestly what next steps make sense for your case. There is no obligation to book a paid service afterwards.",
 
 
 contact_title: "Ready to discuss your future?",
@@ -1582,6 +1603,21 @@ pricing_side: "Empieza con claridad — no con una gran factura legal. Elige el 
 
 pricing_badge: "Más popular",
 pricing_cta: "Reservar paquete",
+  faq_title: "Preguntas frecuentes",
+  faq_stat: "preguntas frecuentes",
+  faq_side: "Respuestas a las preguntas que escuchamos con más frecuencia — antes de la primera consulta.",
+  faq_q1: "¿Necesito un abogado para obtener un permiso de residencia suizo?",
+  faq_a1: "En la mayoría de los casos estándar, no. Los ciudadanos de la UE/AELE tienen un proceso sencillo que no requiere representación legal. Los ciudadanos no europeos con una oferta de trabajo confirmada también pueden gestionar el proceso con orientación estructurada y los documentos correctos.",
+  faq_q2: "¿Con qué rapidez debo registrarme tras llegar a Suiza?",
+  faq_a2: "Debe registrarse en la Einwohnerkontrolle local en un plazo de 14 días desde que se muda a su domicilio. Es una obligación legal. No cumplir el plazo puede resultar en una multa y retrasos en su permiso, seguro médico y apertura de cuenta bancaria.",
+  faq_q3: "¿Puede ayudarme si no estoy en Zúrich?",
+  faq_a3: "Sí. Aunque estamos basados en Zúrich, trabajamos con clientes de toda Suiza de forma remota. Todas las consultas pueden realizarse en línea por videollamada. Apoyamos a clientes en Basilea, Berna, Ginebra, Zug, Lucerna y otros cantones.",
+  faq_q4: "¿Cuánto tiempo se tarda en obtener un permiso B?",
+  faq_a4: "Para ciudadanos de la UE/AELE, el permiso B suele emitirse en 2–6 semanas tras el registro. Para ciudadanos no europeos, el proceso implica pasos adicionales y puede tardar 2–4 meses o más.",
+  faq_q5: "¿Cuál es la diferencia entre su servicio y un abogado?",
+  faq_a5: "Ofrecemos consultoría práctica de reubicación: ayuda con documentos, pasos de registro, comunicación con autoridades y orientación sobre el proceso. No proporcionamos asesoramiento jurídico ni representamos a clientes en procedimientos legales.",
+  faq_q6: "¿Es realmente gratuita la primera consulta?",
+  faq_a6: "Sí. La consulta gratuita es una llamada de 20–30 minutos para entender su situación, responder sus preguntas más urgentes y decirle honestamente cuáles son los próximos pasos. No hay ninguna obligación de contratar un servicio de pago posteriormente."
 
 pricing_qs_plan: "Inicio rápido",
 pricing_qs_title: "Consulta rápida",
@@ -1635,17 +1671,23 @@ blog_read: "Leer más →",
 
 faq_title: "Preguntas frecuentes",
 
-faq_1_question: "¿Cuánto tiempo dura la primera consulta gratuita?",
-faq_1_answer: "Mientras podamos definir la estrategia, las preguntas que debemos responder y los pasos a seguir, es gratuita. Normalmente, los primeros 30 minutos son suficientes para entender el asunto y su solución.",
+faq_1_question: "¿Necesito un abogado para obtener un permiso de residencia suizo?",
+faq_1_answer: "En la mayoría de los casos estándar, no. Los ciudadanos de la UE/AELE tienen un proceso sencillo que no requiere representación legal. Los ciudadanos no europeos con una oferta de trabajo confirmada también pueden gestionar el proceso con orientación estructurada y los documentos correctos. Se necesita un abogado únicamente en situaciones de recurso complejas o en casos con denegaciones previas.",
 
-faq_2_question: "No estoy seguro de si puedo escribirte sobre mi caso.",
-faq_2_answer: "Hay una lista aproximada de mis servicios en la página. Siempre puedes tener una primera consulta gratuita para entender si tu asunto entra dentro de mis servicios. Así que escríbeme.",
+faq_2_question: "¿Con qué rapidez debo registrarme tras llegar a Suiza?",
+faq_2_answer: "Debe registrarse en la Einwohnerkontrolle local en un plazo de 14 días desde que se muda a su domicilio. Es una obligación legal. No cumplir el plazo puede resultar en una multa y retrasos en su permiso, seguro médico y apertura de cuenta bancaria.",
 
-faq_3_question: "¿Cuánto tiempo llevas estudiando y en qué áreas?",
-faq_3_answer: "Ya tengo una Licenciatura en Derecho. Ahora estoy en mi segundo año de Máster. He estudiado muchas materias, pero mis áreas más fuertes son derecho migratorio, derecho de familia, derecho fiscal, derecho penal, derecho notarial, derecho matrimonial y sucesorio, y derecho administrativo.",
+faq_3_question: "¿Puede ayudarme si no estoy en Zúrich?",
+faq_3_answer: "Sí. Aunque estamos basados en Zúrich, trabajamos con clientes de toda Suiza de forma remota. Todas las consultas pueden realizarse en línea por videollamada. Apoyamos a clientes en Basilea, Berna, Ginebra, Zug, Lucerna y otros cantones con el mismo proceso.",
 
-faq_4_question: "¿Qué idiomas hablas?",
-faq_4_answer: "Hablo alemán, inglés, ucraniano y ruso con fluidez. También podemos comunicarnos en español. Mi esposo, Kevin Garcia, habla italiano, portugués y español con fluidez y está listo para participar en una consulta.",
+faq_4_question: "¿Cuánto tiempo se tarda en obtener un permiso B?",
+faq_4_answer: "Para ciudadanos de la UE/AELE, el permiso B suele emitirse en 2–6 semanas tras el registro. Para ciudadanos no europeos, el proceso implica pasos adicionales y puede tardar 2–4 meses o más.",
+
+faq_5_question: "¿Cuál es la diferencia entre su servicio y un abogado?",
+faq_5_answer: "Ofrecemos consultoría práctica de reubicación: ayuda con documentos, pasos de registro, comunicación con autoridades y orientación sobre el proceso. No proporcionamos asesoramiento jurídico ni representamos a clientes en procedimientos legales. Si su situación implica un recurso o un conflicto legal complejo, se lo diremos claramente y le derivaremos al especialista adecuado.",
+
+faq_6_question: "¿Es realmente gratuita la primera consulta?",
+faq_6_answer: "Sí. La consulta gratuita es una llamada de 20–30 minutos para entender su situación, responder sus preguntas más urgentes y decirle honestamente cuáles son los próximos pasos. No hay ninguna obligación de contratar un servicio de pago posteriormente.",
 
 
 contact_title: "¿Listo para hablar sobre tu futuro?",
@@ -2740,6 +2782,21 @@ pricing_side: "Starten Sie mit Klarheit — nicht mit einer hohen Anwaltsrechnun
 
 pricing_badge: "Am beliebtesten",
 pricing_cta: "Paket buchen",
+  faq_title: "Häufige Fragen",
+  faq_stat: "häufige Fragen",
+  faq_side: "Antworten auf die Fragen, die wir am häufigsten hören — vor der ersten Beratung.",
+  faq_q1: "Brauche ich einen Anwalt für eine Schweizer Aufenthaltsbewilligung?",
+  faq_a1: "In den meisten Standardfällen nein. EU/EFTA-Bürger haben einen unkomplizierten Prozess, der keine rechtliche Vertretung erfordert. Nicht-EU-Bürger mit einem bestätigten Jobangebot können den Prozess mit strukturierter Begleitung und den richtigen Dokumenten ebenfalls selbst navigieren.",
+  faq_q2: "Wie schnell muss ich mich nach der Einreise in die Schweiz anmelden?",
+  faq_a2: "Sie müssen sich innerhalb von 14 Tagen nach Einzug bei der lokalen Einwohnerkontrolle anmelden. Dies ist eine gesetzliche Pflicht. Eine Fristversäumnis kann zu einem Bussgelд und Verzögerungen bei Bewilligung, Krankenversicherung und Bankkonto führen.",
+  faq_q3: "Können Sie mir helfen, wenn ich nicht in Zürich wohne?",
+  faq_a3: "Ja. Obwohl wir in Zürich ansässig sind, arbeiten wir mit Klienten aus der ganzen Schweiz remote zusammen. Alle Beratungen können online per Videoanruf durchgeführt werden.",
+  faq_q4: "Wie lange dauert es, eine B-Bewilligung zu erhalten?",
+  faq_a4: "Für EU/EFTA-Bürger wird die B-Bewilligung in der Regel 2–6 Wochen nach der Anmeldung ausgestellt. Für Nicht-EU-Bürger kann der Prozess 2–4 Monate oder länger dauern.",
+  faq_q5: "Was ist der Unterschied zwischen Ihrem Service und einem Anwalt?",
+  faq_a5: "Wir bieten praktische Relocation-Beratung an: Hilfe mit Dokumenten, Anmeldeschritten, Behördenkommunikation und Prozessführung. Wir leisten keine Rechtsberatung und vertreten keine Mandanten in Gerichtsverfahren.",
+  faq_q6: "Ist die erste Beratung wirklich kostenlos?",
+  faq_a6: "Ja. Die kostenlose Beratung ist ein 20–30-minütiges Gespräch, um Ihre Situation zu verstehen, Ihre dringendsten Fragen zu beantworten und ehrlich zu sagen, welche nächsten Schritte für Ihren Fall sinnvoll sind."
 
 pricing_qs_plan: "Schnellstart",
 pricing_qs_title: "Kurze Beratung",
@@ -2793,17 +2850,23 @@ blog_read: "Mehr lesen →",
 
 faq_title: "Häufig gestellte Fragen",
 
-faq_1_question: "Wie lange ist die erste Beratung kostenlos?",
-faq_1_answer: "Solange wir unsere Strategie, die zu klärenden Fragen und die nächsten Schritte definieren können, ist sie kostenlos. In der Regel reichen die ersten 30 Minuten aus, um das Anliegen und die Lösung zu verstehen.",
+faq_1_question: "Brauche ich einen Anwalt für eine Schweizer Aufenthaltsbewilligung?",
+faq_1_answer: "In den meisten Standardfällen nein. EU/EFTA-Bürger haben einen unkomplizierten Prozess, der keine rechtliche Vertretung erfordert. Nicht-EU-Bürger mit einem bestätigten Jobangebot können den Prozess mit strukturierter Begleitung und den richtigen Dokumenten ebenfalls selbst navigieren. Ein Anwalt wird nur bei komplexen Beschwerdeverfahren oder früheren Ablehnungen notwendig.",
 
-faq_2_question: "Ich bin nicht sicher, ob ich Ihnen wegen meines Anliegens schreiben kann.",
-faq_2_answer: "Auf der Seite gibt es eine ungefähre Liste meiner Leistungen. Sie können immer eine erste kostenlose Beratung nutzen, um zu verstehen, ob Ihr Anliegen zu meinen Leistungen gehört. Schreiben Sie mir einfach.",
+faq_2_question: "Wie schnell muss ich mich nach der Einreise in die Schweiz anmelden?",
+faq_2_answer: "Sie müssen sich innerhalb von 14 Tagen nach Einzug bei der lokalen Einwohnerkontrolle anmelden. Dies ist eine gesetzliche Pflicht. Eine Fristversäumnis kann zu einem Bussgeld und Verzögerungen bei Bewilligung, Krankenversicherung und Bankkonto führen.",
 
-faq_3_question: "Wie lange studieren Sie schon und in welchen Bereichen?",
-faq_3_answer: "Ich habe bereits einen Bachelor of Law. Zurzeit bin ich im zweiten Jahr meines Masterstudiums. Ich habe viele Fächer studiert, aber meine stärksten Bereiche sind Migrationsrecht, Familienrecht, Steuerrecht, Strafrecht, Notarrecht, Ehe- und Erbrecht sowie Verwaltungsrecht.",
+faq_3_question: "Können Sie mir helfen, wenn ich nicht in Zürich wohne?",
+faq_3_answer: "Ja. Obwohl wir in Zürich ansässig sind, arbeiten wir mit Klienten aus der ganzen Schweiz remote zusammen. Alle Beratungen können online per Videoanruf durchgeführt werden. Wir unterstützen Klienten in Basel, Bern, Genf, Zug, Luzern und anderen Kantonen.",
 
-faq_4_question: "Welche Sprachen sprechen Sie?",
-faq_4_answer: "Ich spreche Deutsch, Englisch, Ukrainisch und Russisch fließend. Wir können auch auf Spanisch kommunizieren. Mein Mann, Kevin Garcia, spricht Italienisch, Portugiesisch und Spanisch fließend und kann ebenfalls an einer Beratung teilnehmen.",
+faq_4_question: "Wie lange dauert es, eine B-Bewilligung zu erhalten?",
+faq_4_answer: "Für EU/EFTA-Bürger wird die B-Bewilligung in der Regel 2–6 Wochen nach der Anmeldung ausgestellt. Für Nicht-EU-Bürger kann der Prozess 2–4 Monate oder länger dauern, je nachdem ob die Kontingentgenehmigung des Arbeitgebers bereits vorliegt.",
+
+faq_5_question: "Was ist der Unterschied zwischen Ihrem Service und einem Anwalt?",
+faq_5_answer: "Wir bieten praktische Relocation-Beratung — Hilfe mit Dokumenten, Anmeldeschritten, Behördenkommunikation und Prozessbegleitung. Wir erteilen keine Rechtsberatung und vertreten Klienten nicht in Gerichtsverfahren. Bei komplexen Rechtsfällen verweisen wir Sie klar an den richtigen Spezialisten.",
+
+faq_6_question: "Ist die erste Beratung wirklich kostenlos?",
+faq_6_answer: "Ja. Die kostenlose Beratung ist ein 20–30-minütiges Gespräch, um Ihre Situation zu verstehen, Ihre dringendsten Fragen zu beantworten und Ihnen ehrlich zu sagen, welche nächsten Schritte für Ihren Fall sinnvoll sind. Es besteht keine Verpflichtung, danach einen kostenpflichtigen Service zu buchen.",
 
 
 contact_title: "Bereit, Ihre Zukunft zu besprechen?",
@@ -3904,6 +3967,21 @@ pricing_side: "Почніть із ясності — не з великого �
 
 pricing_badge: "Найпопулярніше",
 pricing_cta: "Забронювати пакет",
+  faq_title: "Поширені запитання",
+  faq_stat: "поширені запитання",
+  faq_side: "Відповіді на запитання, які ми чуємо найчастіше — перед першою консультацією.",
+  faq_q1: "Чи потрібен мені адвокат для отримання швейцарського дозволу на проживання?",
+  faq_a1: "У більшості стандартних випадків — ні. Громадяни ЄС/ЄАВТ мають простий процес, який не вимагає юридичного представництва. Громадяни не з ЄС із підтвердженою пропозицією роботи також можуть впоратися з процесом за допомогою структурованого керівництва.",
+  faq_q2: "Як швидко потрібно зареєструватися після приїзду до Швейцарії?",
+  faq_a2: "Ви повинні зареєструватися в місцевому відомстві реєстрації мешканців протягом 14 днів після переїзду за адресою. Це законне зобов'язання. Пропуск терміну може призвести до штрафу та затримок із дозволом, медичним страхуванням та банківським рахунком.",
+  faq_q3: "Чи можете ви допомогти мені, якщо я не в Цюриху?",
+  faq_a3: "Так. Хоча ми базуємося в Цюриху, ми працюємо з клієнтами по всій Швейцарії дистанційно. Усі консультації можна проводити онлайн через відеодзвінок.",
+  faq_q4: "Скільки часу займає отримання дозволу B?",
+  faq_a4: "Для громадян ЄС/ЄАВТ дозвіл B зазвичай видається протягом 2–6 тижнів після реєстрації. Для громадян не з ЄС процес може тривати 2–4 місяці або довше.",
+  faq_q5: "У чому різниця між вашим сервісом та адвокатом?",
+  faq_a5: "Ми надаємо практичний консалтинг з переїзду: допомога з документами, кроками реєстрації, спілкуванням з органами влади та орієнтація в процесі. Ми не надаємо юридичні консультації та не представляємо клієнтів у судових провадженнях.",
+  faq_q6: "Чи справді перша консультація безкоштовна?",
+  faq_a6: "Так. Безкоштовна консультація — це 20–30-хвилинний дзвінок, щоб зрозуміти вашу ситуацію, відповісти на ваші найтерміновіші запитання та чесно сказати, які наступні кроки мають сенс для вашого випадку."
 
 pricing_qs_plan: "Швидкий старт",
 pricing_qs_title: "Швидка консультація",
@@ -3957,17 +4035,23 @@ blog_read: "Читати далі →",
 
 faq_title: "Поширені запитання",
 
-faq_1_question: "Скільки триває перша безкоштовна консультація?",
-faq_1_answer: "Поки ми можемо визначити стратегію, питання, на які треба відповісти, і наступні кроки — консультація є безкоштовною. Зазвичай перших 30 хвилин достатньо, щоб зрозуміти суть справи та її можливе вирішення.",
+faq_1_question: "Чи потрібен мені адвокат для отримання дозволу на проживання у Швейцарії?",
+faq_1_answer: "У більшості стандартних випадків — ні. Громадяни ЄС/ЄАВТ мають простий процес, який не потребує юридичного представництва. Громадяни не з ЄС з підтвердженою пропозицією роботи також можуть пройти процес із структурованою підтримкою та правильними документами. Адвокат потрібен лише у складних апеляційних ситуаціях або у випадках попередніх відмов.",
 
-faq_2_question: "Я не впевнений(а), чи можу написати вам зі своєю справою.",
-faq_2_answer: "На сторінці є орієнтовний список моїх послуг. Ви завжди можете скористатися першою безкоштовною консультацією, щоб зрозуміти, чи входить ваше питання до моїх послуг. Тож просто напишіть мені.",
+faq_2_question: "Як швидко потрібно зареєструватися після приїзду до Швейцарії?",
+faq_2_answer: "Ви зобов'язані зареєструватися в місцевому Einwohnerkontrolle протягом 14 днів після в'їзду за вашою адресою. Це законний обов'язок. Пропуск терміну може призвести до штрафу та затримок у отриманні дозволу, медичного страхування та відкриття банківського рахунку.",
 
-faq_3_question: "Скільки часу ви вже навчаєтесь і в яких сферах?",
-faq_3_answer: "Я вже маю ступінь бакалавра права. Зараз я на другому курсі магістратури. Я вивчала багато дисциплін, але мої найсильніші напрями — міграційне право, сімейне право, податкове право, кримінальне право, нотаріальне право, шлюбне та спадкове право, а також адміністративне право.",
+faq_3_question: "Чи можете ви допомогти, якщо я не перебуваю в Цюриху?",
+faq_3_answer: "Так. Хоча ми базуємося в Цюриху, ми працюємо з клієнтами по всій Швейцарії дистанційно. Всі консультації можна проводити онлайн через відеодзвінок. Ми підтримуємо клієнтів у Базелі, Берні, Женеві, Цузі, Люцерні та інших кантонах.",
 
-faq_4_question: "Якими мовами ви розмовляєте?",
-faq_4_answer: "Я вільно розмовляю німецькою, англійською, українською та російською. Також можемо спілкуватися іспанською. Мій чоловік, Kevin Garcia, вільно розмовляє італійською, португальською та іспанською і також може взяти участь у консультації.",
+faq_4_question: "Скільки часу займає отримання дозволу B?",
+faq_4_answer: "Для громадян ЄС/ЄАВТ дозвіл B зазвичай видається протягом 2–6 тижнів після реєстрації залежно від кантону. Для громадян не з ЄС процес передбачає додаткові кроки і може зайняти 2–4 місяці або більше.",
+
+faq_5_question: "Яка різниця між вашою послугою та адвокатом?",
+faq_5_answer: "Ми надаємо практичний консалтинг з переїзду — допомогу з документами, кроками реєстрації, спілкуванням з органами влади та супроводом процесу. Ми не надаємо юридичних консультацій і не представляємо клієнтів у судових провадженнях. У складних правових ситуаціях ми чітко повідомимо вас і направимо до відповідного фахівця.",
+
+faq_6_question: "Чи справді перша консультація безкоштовна?",
+faq_6_answer: "Так. Безкоштовна консультація — це дзвінок на 20–30 хвилин, щоб зрозуміти вашу ситуацію, відповісти на найнагальніші запитання та чесно сказати, які наступні кроки доцільні у вашому випадку. Жодних зобов'язань щодо платних послуг після цього немає.",
 
 
 contact_title: "Готові обговорити ваше майбутнє?",
