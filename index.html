@@ -87,6 +87,62 @@
     }
   }
   </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Do I need a lawyer to get a Swiss residence permit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "In most standard cases, no. EU/EFTA citizens have a straightforward process that does not require legal representation. Non-EU citizens with a confirmed job offer can also navigate the process with structured guidance and the right documents. A lawyer becomes necessary only in complex appeal situations or cases involving prior refusals."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How quickly do I need to register after arriving in Switzerland?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "You must register at your local Einwohnerkontrolle within 14 days of moving into your address. This is a legal obligation, not a suggestion. Missing the deadline can result in a fine and delays to your permit, health insurance and bank account setup."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can you help me if I am not based in Zürich?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. While we are based in Zürich, we work with clients across Switzerland remotely. All consultations can be conducted online via video call. We support clients in Basel, Bern, Geneva, Zug, Lucerne and other cantons with the same process."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How long does it take to get a B permit?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For EU/EFTA citizens, a B permit is typically issued within 2–6 weeks after registration, depending on the canton. For non-EU citizens, the process involves additional steps and can take 2–4 months or longer depending on whether the employer quota approval is already in place."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the difference between your service and a lawyer?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "We provide practical relocation consulting — help with documents, registration steps, authority communication, and guidance on the process. We do not provide legal advice or represent clients in legal proceedings. If your situation involves a court appeal or a complex legal dispute, we will tell you clearly and refer you to the right specialist."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Is the first consultation really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. The free consultation is a 20–30 minute call to understand your situation, answer your most urgent questions, and tell you honestly what next steps make sense for your case. There is no obligation to book a paid service afterwards."
+        }
+      }
+    ]
+  }
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -2818,7 +2874,64 @@
     text-align:center;
     box-sizing:border-box;
   }
+
+  /* FAQ accordion — mobile */
+  .faq-list { margin-top: 36px; }
+  .faq-q { font-size: 15px; padding: 18px 0; }
 }
+
+  /* ── FAQ accordion ─────────────────────────────────────── */
+  #faq { background: var(--panel-soft); }
+
+  .faq-list {
+    margin-top: 48px;
+    border-top: 1px solid var(--line);
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--line);
+  }
+
+  .faq-item summary {
+    list-style: none;
+  }
+  .faq-item summary::-webkit-details-marker { display: none; }
+
+  .faq-q {
+    cursor: pointer;
+    padding: 22px 0;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--text);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    line-height: 1.4;
+    user-select: none;
+  }
+
+  .faq-q::after {
+    content: '+';
+    font-size: 22px;
+    font-weight: 300;
+    color: var(--blue);
+    flex-shrink: 0;
+    line-height: 1;
+    transition: transform .2s ease;
+  }
+
+  .faq-item[open] > .faq-q::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-a {
+    padding: 0 0 22px;
+    font-size: 15px;
+    line-height: 1.72;
+    color: var(--muted);
+    max-width: 76ch;
+  }
 
   </style>
 </head>
@@ -3674,6 +3787,45 @@
 
   </div>
 </section>
+
+  <section class="panel reveal" id="faq">
+    <div class="three-top">
+      <div class="section-heading-bracket">
+        <span class="section-bracket section-bracket-left" aria-hidden="true"></span>
+        <h2 class="section-title title-reveal" data-i18n="faq_title">FAQ</h2>
+        <span class="section-bracket section-bracket-right" aria-hidden="true"></span>
+      </div>
+      <div class="tiny-stat"><strong>6</strong><span data-i18n="faq_stat">common questions</span></div>
+      <div class="side-copy" data-i18n="faq_side">Answers to the questions we hear most often — before the first consultation.</div>
+    </div>
+
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary class="faq-q" data-i18n="faq_q1">Do I need a lawyer to get a Swiss residence permit?</summary>
+        <div class="faq-a" data-i18n="faq_a1">In most standard cases, no. EU/EFTA citizens have a straightforward process that does not require legal representation. Non-EU citizens with a confirmed job offer can also navigate the process with structured guidance and the right documents. A lawyer becomes necessary only in complex appeal situations or cases involving prior refusals.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q" data-i18n="faq_q2">How quickly do I need to register after arriving in Switzerland?</summary>
+        <div class="faq-a" data-i18n="faq_a2">You must register at your local Einwohnerkontrolle within 14 days of moving into your address. This is a legal obligation, not a suggestion. Missing the deadline can result in a fine and delays to your permit, health insurance and bank account setup.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q" data-i18n="faq_q3">Can you help me if I am not based in Zürich?</summary>
+        <div class="faq-a" data-i18n="faq_a3">Yes. While we are based in Zürich, we work with clients across Switzerland remotely. All consultations can be conducted online via video call. We support clients in Basel, Bern, Geneva, Zug, Lucerne and other cantons with the same process.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q" data-i18n="faq_q4">How long does it take to get a B permit?</summary>
+        <div class="faq-a" data-i18n="faq_a4">For EU/EFTA citizens, a B permit is typically issued within 2–6 weeks after registration, depending on the canton. For non-EU citizens, the process involves additional steps and can take 2–4 months or longer depending on whether the employer quota approval is already in place.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q" data-i18n="faq_q5">What is the difference between your service and a lawyer?</summary>
+        <div class="faq-a" data-i18n="faq_a5">We provide practical relocation consulting — help with documents, registration steps, authority communication, and guidance on the process. We do not provide legal advice or represent clients in legal proceedings. If your situation involves a court appeal or a complex legal dispute, we will tell you clearly and refer you to the right specialist.</div>
+      </details>
+      <details class="faq-item">
+        <summary class="faq-q" data-i18n="faq_q6">Is the first consultation really free?</summary>
+        <div class="faq-a" data-i18n="faq_a6">Yes. The free consultation is a 20–30 minute call to understand your situation, answer your most urgent questions, and tell you honestly what next steps make sense for your case. There is no obligation to book a paid service afterwards.</div>
+      </details>
+    </div>
+  </section>
 
    <section id="contact">
   <div class="contact-bg"></div>
