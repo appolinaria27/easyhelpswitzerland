@@ -510,12 +510,21 @@ export default async function handler(req, res) {
 
   try {
     const day = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86_400_000);
-    const slot = req.query.slot || 'morning';
 
-    // Each slot picks a different topic: offsets 0, 7, 14 spread across 20 posts
-    const offset = slot === 'afternoon' ? 7 : slot === 'evening' ? 14 : 0;
+    // Determine slot by UTC hour (so cron paths need no query params)
+    // Override with ?slot= for manual testing
+    let slot, offset;
+    if (req.query.slot) {
+      slot = req.query.slot;
+    } else {
+      const hour = new Date().getUTCHours();
+      if (hour >= 6 && hour < 11)       slot = 'morning';
+      else if (hour >= 11 && hour < 16) slot = 'afternoon';
+      else                               slot = 'evening';
+    }
+    offset = slot === 'afternoon' ? 7 : slot === 'evening' ? 14 : 0;
+
     const post = POSTS_EN[(day + offset) % POSTS_EN.length];
-
     const result = await postToTelegram(post.text);
     return res.status(200).json({ success: true, lang: 'en', slot, topic: post.slug, message_id: result.message_id });
   } catch (err) {

@@ -1,8 +1,8 @@
 {
   "crons": [
-    { "path": "/api/daily-post?slot=morning",   "schedule": "0 8  * * *" },
-    { "path": "/api/daily-post?slot=afternoon", "schedule": "0 13 * * *" },
-    { "path": "/api/daily-post?slot=evening",   "schedule": "0 17 * * *" }
+    { "path": "/api/daily-post", "schedule": "0 8  * * *" },
+    { "path": "/api/daily-post", "schedule": "0 13 * * *" },
+    { "path": "/api/daily-post", "schedule": "0 17 * * *" }
   ],
   "functions": {
     "api/daily-post.js":      { "memory": 256 },
