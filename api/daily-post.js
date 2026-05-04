@@ -510,9 +510,14 @@ export default async function handler(req, res) {
 
   try {
     const day = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86_400_000);
-    const post = POSTS_EN[day % POSTS_EN.length];
+    const slot = req.query.slot || 'morning';
+
+    // Each slot picks a different topic: offsets 0, 7, 14 spread across 20 posts
+    const offset = slot === 'afternoon' ? 7 : slot === 'evening' ? 14 : 0;
+    const post = POSTS_EN[(day + offset) % POSTS_EN.length];
+
     const result = await postToTelegram(post.text);
-    return res.status(200).json({ success: true, lang: 'en', slot: 'morning', topic: post.slug, message_id: result.message_id });
+    return res.status(200).json({ success: true, lang: 'en', slot, topic: post.slug, message_id: result.message_id });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: err.message });

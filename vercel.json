@@ -1,11 +1,11 @@
 {
   "crons": [
-    { "path": "/api/bot?slot=morning",   "schedule": "0 8  * * *" },
-    { "path": "/api/bot?slot=afternoon", "schedule": "0 13 * * *" },
-    { "path": "/api/bot?slot=evening",   "schedule": "0 17 * * *" }
+    { "path": "/api/daily-post?slot=morning",   "schedule": "0 8  * * *" },
+    { "path": "/api/daily-post?slot=afternoon", "schedule": "0 13 * * *" },
+    { "path": "/api/daily-post?slot=evening",   "schedule": "0 17 * * *" }
   ],
   "functions": {
-    "api/bot.js":             { "memory": 256 },
+    "api/daily-post.js":      { "memory": 256 },
     "api/contact.js":         { "memory": 128 },
     "api/checkout.js":        { "memory": 256 },
     "api/webhook.js":         { "memory": 256 },
@@ -31,7 +31,6 @@
     { "source": "/404.php",                   "destination": "/404.html",                   "permanent": true }
   ],
   "rewrites": [
-    { "source": "/api/bot",                  "destination": "/api/bot.js" },
     { "source": "/api/contact",            "destination": "/api/contact.js" },
     { "source": "/api/checkout",          "destination": "/api/checkout.js" },
     { "source": "/api/webhook",           "destination": "/api/webhook.js" },
