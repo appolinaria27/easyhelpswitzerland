@@ -180,7 +180,7 @@ function invoiceHtml(bill, paymentUrl) {
     </div>
     <div style="padding:20px 40px;background:#f8f9fb;border-top:1px solid #eee">
       <p style="margin:0;font-size:13px;color:#888;text-align:center">
-        Questions? <a href="mailto:info@easyhelpswitzerland.ch" style="color:#4693e8">info@easyhelpswitzerland.ch</a>
+        Questions? <a href="mailto:p.kravtsova@easyhelpswitzerland.ch" style="color:#4693e8">p.kravtsova@easyhelpswitzerland.ch</a>
       </p>
       <p style="margin:6px 0 0;font-size:12px;color:#bbb;text-align:center">Easy Help Switzerland · easyhelpswitzerland.ch</p>
     </div>
