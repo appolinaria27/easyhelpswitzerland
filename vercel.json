@@ -1,11 +1,12 @@
 {
   "crons": [
-    { "path": "/api/daily-post", "schedule": "0 8  * * *" },
-    { "path": "/api/daily-post", "schedule": "0 13 * * *" },
-    { "path": "/api/daily-post", "schedule": "0 17 * * *" }
+    { "path": "/api/daily-post/morning",   "schedule": "0 8  * * *" },
+    { "path": "/api/daily-post/afternoon", "schedule": "0 13 * * *" },
+    { "path": "/api/daily-post/evening",   "schedule": "0 17 * * *" }
   ],
   "functions": {
-    "api/daily-post.js":      { "memory": 256 },
+    "api/daily-post/[slot].js": { "memory": 256 },
+    "api/daily-post.js":        { "memory": 256 },
     "api/contact.js":         { "memory": 128 },
     "api/checkout.js":        { "memory": 256 },
     "api/webhook.js":         { "memory": 256 },
