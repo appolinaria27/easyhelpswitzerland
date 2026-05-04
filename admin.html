@@ -508,6 +508,10 @@ function buildCalendarData() {
         <div class="ext-name">${u.name}</div>
         <div class="ext-sub">${u.email}</div>
         ${u.pkg ? `<span class="ext-badge ${u.type==='pending'?'pend':u.type==='free'?'free':''}">${u.pkg}</span>` : ''}
+        <div style="margin-top:8px;display:flex;gap:6px;align-items:center">
+          <input type="datetime-local" class="tap-dt" style="font-size:12px;padding:4px 6px;border:1px solid #ddd;border-radius:6px;flex:1;min-width:0"/>
+          <button onclick="tapSchedule('${u.id}','${u.name}',this)" style="font-size:12px;padding:4px 10px;background:#4693e8;color:#fff;border:none;border-radius:6px;cursor:pointer;white-space:nowrap">Set ✓</button>
+        </div>
       </div>`).join('');
   }
 
@@ -643,6 +647,33 @@ function openEmailModal(name, id, action = 'email_only') {
   pendingEmailId     = id;
   pendingEmailAction = action;
   document.getElementById('scheduleModal').classList.add('visible');
+}
+
+// Tap-to-schedule for mobile (no drag needed)
+function tapSchedule(id, name, btn) {
+  const input = btn.previousElementSibling;
+  const val   = input.value;
+  if (!val) { showToast('Please pick a date and time first', ''); return; }
+  const dt = new Date(val).toISOString();
+  btn.disabled = true;
+  btn.textContent = '…';
+  apiPost('/api/admin-action', { action:'schedule', booking_id:id, datetime:dt, send_mail:false })
+    .then(d => {
+      if (!d.ok) { btn.disabled=false; btn.textContent='Set ✓'; showToast('Error saving','error'); return; }
+      // Remove from sidebar
+      const el = btn.closest('.ext-event');
+      if (el) el.remove();
+      const cnt = document.getElementById('unschedCount');
+      if (cnt) cnt.textContent = Math.max(0, parseInt(cnt.textContent)-1);
+      // Add to calendar
+      if (calInstance) {
+        const start = new Date(dt);
+        const end   = new Date(start.getTime() + 60*60*1000);
+        calInstance.addEvent({ id, title: name, start: start.toISOString(), end: end.toISOString(), color:'#4693e8' });
+      }
+      openEmailModal(name, id);
+    })
+    .catch(() => { btn.disabled=false; btn.textContent='Set ✓'; showToast('Network error','error'); });
 }
 
 /* ══════════════════════════════════════════════════════

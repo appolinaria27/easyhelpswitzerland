@@ -179,7 +179,7 @@ module.exports = async (req, res) => {
     try {
       const { subject, html } = confirmationEmail(found.data, note.termin);
       const t = makeTransporter();
-      await t.sendMail({ from: process.env.SMTP_FROM || process.env.SMTP_USER, to: found.data.email, subject, html });
+      await t.sendMail({ from: process.env.MAIL_FROM || process.env.SMTP_USER, to: found.data.email, subject, html });
       return res.status(200).json({ ok: true, email_sent: true });
     } catch (e) {
       return res.status(200).json({ ok: true, email_sent: false, email_error: e.message });
@@ -196,7 +196,7 @@ module.exports = async (req, res) => {
     try {
       const { subject, html } = rescheduleEmail(found.data, note.termin);
       const t = makeTransporter();
-      await t.sendMail({ from: process.env.SMTP_FROM || process.env.SMTP_USER, to: found.data.email, subject, html });
+      await t.sendMail({ from: process.env.MAIL_FROM || process.env.SMTP_USER, to: found.data.email, subject, html });
       return res.status(200).json({ ok: true, email_sent: true });
     } catch (e) {
       return res.status(200).json({ ok: true, email_sent: false, email_error: e.message });
@@ -219,7 +219,7 @@ module.exports = async (req, res) => {
         try {
           const { subject, html } = confirmationEmail(found.data, datetime);
           const t = makeTransporter();
-          await t.sendMail({ from: process.env.SMTP_FROM || process.env.SMTP_USER, to: found.data.email, subject, html });
+          await t.sendMail({ from: process.env.MAIL_FROM || process.env.SMTP_USER, to: found.data.email, subject, html });
           return res.status(200).json({ ok: true, email_sent: true });
         } catch (e) {
           return res.status(200).json({ ok: true, email_sent: false, email_error: e.message });
@@ -242,7 +242,7 @@ module.exports = async (req, res) => {
       try {
         const { subject, html } = cancellationEmail(found.data);
         const t = makeTransporter();
-        await t.sendMail({ from: process.env.SMTP_FROM || process.env.SMTP_USER, to: found.data.email, subject, html });
+        await t.sendMail({ from: process.env.MAIL_FROM || process.env.SMTP_USER, to: found.data.email, subject, html });
         return res.status(200).json({ ok: true, email_sent: true });
       } catch (e) {
         return res.status(200).json({ ok: true, email_sent: false, email_error: e.message });

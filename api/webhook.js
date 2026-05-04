@@ -27,7 +27,7 @@ function makeTransporter() {
 async function sendAdminEmail(meta, amountChf) {
   const t = makeTransporter();
   await t.sendMail({
-    from:    `"Easy Help Switzerland" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+    from:    `"Easy Help Switzerland" <${process.env.MAIL_FROM || process.env.SMTP_USER}>`,
     to:      process.env.ADMIN_EMAIL,
     replyTo: meta.email,
     subject: `✅ New booking: ${meta.name} — ${meta.package} (CHF ${amountChf})`,
@@ -64,7 +64,7 @@ async function sendClientEmail(meta) {
   if (!meta.email) return;
   const t = makeTransporter();
   await t.sendMail({
-    from:    `"Easy Help Switzerland" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+    from:    `"Easy Help Switzerland" <${process.env.MAIL_FROM || process.env.SMTP_USER}>`,
     to:      meta.email,
     subject: 'Your booking is confirmed — Easy Help Switzerland',
     html: `
