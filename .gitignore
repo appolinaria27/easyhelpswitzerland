@@ -83,3 +83,4 @@ og-image-source.html
 # ── PHP session files ─────────────────────────────────────────────────────────
 /tmp/sess_*
 sess_*
+.vercel
