@@ -280,7 +280,7 @@ testimonials_why_title: "Practical support before unnecessary costs",
 testimonials_why_p1: "Many people first need clarity, structure, and help with documents or communication — not a full legal mandate from the beginning.",
 testimonials_why_p2: "A short consultation can often save time, reduce stress, and help you avoid expensive mistakes or delays.",
 testimonials_cta: "Request free consultation",
-  testimonials_feedback: "Leave feedback",
+  testimonials_feedback: "⭐ Leave a Google review",
 
 pricing_title: "Pricing",
 pricing_stat: "clear packages to begin",
@@ -1597,7 +1597,7 @@ testimonials_text_1: "Muchas personas primero necesitan claridad, estructura y a
 testimonials_text_2: "Una breve consulta puede ahorrar tiempo, reducir el estrés y evitar errores o retrasos costosos.",
 
 testimonials_cta: "Solicitar consulta gratuita",
-  testimonials_feedback: "Dejar comentario",
+  testimonials_feedback: "⭐ Dejar reseña en Google",
 
 
 pricing_title: "Precios",
@@ -2779,7 +2779,7 @@ testimonials_text_1: "Viele Menschen brauchen zunächst Klarheit, Struktur und H
 testimonials_text_2: "Eine kurze Beratung kann Zeit sparen, Stress reduzieren und teure Fehler oder Verzögerungen vermeiden.",
 
 testimonials_cta: "Kostenlose Beratung anfragen",
-  testimonials_feedback: "Feedback hinterlassen",
+  testimonials_feedback: "⭐ Google-Bewertung schreiben",
 
 
 pricing_title: "Preise",
@@ -3967,7 +3967,7 @@ testimonials_text_1: "Багатьом спочатку потрібні ясн�
 testimonials_text_2: "Коротка консультація може заощадити час, зменшити стрес і допомогти уникнути дорогих помилок або затримок.",
 
 testimonials_cta: "Записатися на безкоштовну консультацію",
-  testimonials_feedback: "Залишити відгук",
+  testimonials_feedback: "⭐ Залишити відгук у Google",
 
 
 pricing_title: "Ціни",
