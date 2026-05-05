@@ -4,7 +4,10 @@
  *                /api/daily-post/evening
  *
  * Vercel injects req.query.slot from the URL path — no query string needed.
+ * Deduplication: a /tmp lock file prevents duplicate posts if Vercel retries
+ * the cron (e.g. after a timeout). Lock is keyed by slot + UTC date.
  */
+import { existsSync, writeFileSync } from 'fs';
 
 const POSTS_EN = [
   { slug: 'b-permit', text: `Most people moving to Switzerland don't realise there are *4 different residence permits* — and picking the wrong one to apply for wastes weeks.
@@ -471,10 +474,22 @@ export default async function handler(req, res) {
   const slot = req.query.slot; // 'morning' | 'afternoon' | 'evening'
   const offset = slot === 'afternoon' ? 7 : slot === 'evening' ? 14 : 0;
 
+  // Deduplication: prevent double-posting if Vercel retries the cron
+  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD (UTC)
+  const lockFile = `/tmp/ehs_${slot}_${today}.lock`;
+  if (existsSync(lockFile)) {
+    console.log(`[daily-post] Duplicate prevented: ${slot} already posted on ${today}`);
+    return res.status(200).json({ success: true, skipped: true, reason: 'already_posted', slot, date: today });
+  }
+
   try {
     const day = Math.floor((Date.now() - new Date(new Date().getFullYear(), 0, 0)) / 86_400_000);
     const post = POSTS_EN[(day + offset) % POSTS_EN.length];
     const result = await postToTelegram(post.text);
+
+    // Write lock file AFTER successful post so a failed post can be retried
+    writeFileSync(lockFile, new Date().toISOString());
+
     return res.status(200).json({ success: true, lang: 'en', slot, topic: post.slug, message_id: result.message_id });
   } catch (err) {
     console.error(err);
