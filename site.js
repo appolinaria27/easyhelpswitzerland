@@ -1092,7 +1092,7 @@ service_residence_modal_item_1: "Residence permit application",
 service_residence_modal_item_2: "Permit renewal",
 service_residence_modal_item_3: "Registration at municipality",
 service_residence_modal_item_4: "Address change support",
-service_residence_modal_item_5: "Family reunification applivation",
+service_residence_modal_item_5: "Family reunification application",
 service_residence_modal_item_6: "Permit type change consultation",
 service_residence_modal_item_7: "EU / non-EU relocation guidance",
 service_residence_modal_item_8: "Full relocation support",
@@ -1114,10 +1114,10 @@ service_employment_modal_desc: "We help you find and secure jobs in Switzerland.
 
 service_employment_modal_item_1: "CV optimization & creation",
 service_employment_modal_item_2: "Motivation letter",
-service_employment_modal_item_3: "Job search strategie & guidance",
+service_employment_modal_item_3: "Job search strategy & guidance",
 service_employment_modal_item_4: "Job application",
 service_employment_modal_item_5: "Work permit application support",
-service_employment_modal_item_6: "Full employement support",
+service_employment_modal_item_6: "Full employment support",
 
 service_insurance_modal_title: "Insurance Services",
 service_insurance_modal_desc: "We help you choose and manage insurance.",
@@ -1147,7 +1147,7 @@ service_study_modal_title: "Study Support",
 service_study_modal_desc: "We help with education and university processes.",
 
 service_study_modal_item_1: "University selection & strategy",
-service_study_modal_item_2: "Application review review",
+service_study_modal_item_2: "Application review",
 service_study_modal_item_3: "Student visa guidance",
 service_study_modal_item_4: "Full administration support",
 
@@ -1157,13 +1157,13 @@ service_consultation_modal_desc: "Personal consultation for your situation.",
 service_consultation_modal_item_1: "General consultation and strategy building (1h)",
 service_consultation_modal_item_2: "Consultation and document review (1h)",
 service_consultation_modal_item_3: "Quick review online consultation (15min)",
-service_consultation_modal_item_4: "Additional informaion consultation (first 15min)",
+service_consultation_modal_item_4: "Additional information consultation (first 15min)",
 
 service_documents_modal_title: "Documents",
 service_documents_modal_desc: "We help with letters, applications, translations and document preparation.",
 
 service_documents_modal_item_1: "Document review & correction",
-service_documents_modal_item_2: "Proffesional letter writing",
+service_documents_modal_item_2: "Professional letter writing",
 service_documents_modal_item_3: "Response to official letter",
 service_documents_modal_item_4: "Certified translation coordination",
 service_documents_modal_item_5: "Document explanation & breakdown",
@@ -1579,22 +1579,33 @@ process_title: "Cómo trabajamos",
       process_followUpItem3: "Apoyo continuo",
     
 
+      testimonials_label: "Opiniones de clientes",
       testimonials_micro_left: "Opiniones de clientes",
 
 testimonial_1_text: "Estaba completamente confundida cuando llegué a Zúrich. Después de la consulta, todo finalmente se sintió claro y mucho menos estresante.",
+testimonial_1_from: "Llegó desde Brasil",
 testimonial_1_meta: "Mudada desde Brasil vive en Zúrich",
 
 testimonial_2_text: "Me preocupaba mi permiso y varias cartas de las autoridades. Todo me fue explicado de forma muy sencilla.",
+testimonial_2_from: "Llegó desde Ucrania",
 testimonial_2_meta: "Mudada desde Ucrania",
 
 testimonial_3_text: "Lo que más me ayudó fue poder hacer preguntas normales y recibir respuestas claras sin sentirme apresurado.",
+testimonial_3_from: "Llegó desde España",
 testimonial_3_meta: "Mudado desde España",
+
+testimonial_next_aria: "Siguiente testimonio",
 
 testimonials_micro_right: "Por qué empezar aquí",
 testimonials_title: "Apoyo práctico antes de costes innecesarios",
 
 testimonials_text_1: "Muchas personas primero necesitan claridad, estructura y ayuda con documentos o comunicación, no un mandato legal completo desde el principio.",
 testimonials_text_2: "Una breve consulta puede ahorrar tiempo, reducir el estrés y evitar errores o retrasos costosos.",
+
+testimonials_why_label: "Por qué empezar aquí",
+testimonials_why_title: "Apoyo práctico antes de costes innecesarios",
+testimonials_why_p1: "Muchas personas primero necesitan claridad, estructura y ayuda con documentos o comunicación, no un mandato legal completo desde el principio.",
+testimonials_why_p2: "Una breve consulta puede ahorrar tiempo, reducir el estrés y evitar errores o retrasos costosos.",
 
 testimonials_cta: "Solicitar consulta gratuita",
   testimonials_feedback: "⭐ Dejar reseña en Google",
@@ -2761,22 +2772,33 @@ process_title: "Wie wir arbeiten",
       process_followUpItem3: "Fortlaufende Unterstützung",
 
 
+      testimonials_label: "Kundenfeedback",
       testimonials_micro_left: "Kundenfeedback",
 
 testimonial_1_text: "Ich war völlig verwirrt, als ich in Zürich ankam. Nach der Beratung wurde alles endlich klar und viel weniger stressig.",
+testimonial_1_from: "Zugezogen aus Brasilien",
 testimonial_1_meta: "Aus Brasilien gezogen, lebt in Zürich",
 
 testimonial_2_text: "Ich machte mir Sorgen um meine Bewilligung und mehrere Briefe von Behörden. Alles wurde mir sehr einfach erklärt.",
+testimonial_2_from: "Zugezogen aus der Ukraine",
 testimonial_2_meta: "Aus der Ukraine gezogen",
 
 testimonial_3_text: "Am meisten hat mir geholfen, dass ich normale Fragen stellen konnte und klare Antworten bekam, ohne Zeitdruck.",
+testimonial_3_from: "Zugezogen aus Spanien",
 testimonial_3_meta: "Aus Spanien gezogen",
+
+testimonial_next_aria: "Nächstes Testimonial",
 
 testimonials_micro_right: "Warum hier starten",
 testimonials_title: "Praktische Unterstützung vor unnötigen Kosten",
 
 testimonials_text_1: "Viele Menschen brauchen zunächst Klarheit, Struktur und Hilfe bei Dokumenten oder Kommunikation — kein vollständiges Mandat von Anfang an.",
 testimonials_text_2: "Eine kurze Beratung kann Zeit sparen, Stress reduzieren und teure Fehler oder Verzögerungen vermeiden.",
+
+testimonials_why_label: "Warum hier starten",
+testimonials_why_title: "Praktische Unterstützung vor unnötigen Kosten",
+testimonials_why_p1: "Viele Menschen brauchen zunächst Klarheit, Struktur und Hilfe bei Dokumenten oder Kommunikation — kein vollständiges Mandat von Anfang an.",
+testimonials_why_p2: "Eine kurze Beratung kann Zeit sparen, Stress reduzieren und teure Fehler oder Verzögerungen vermeiden.",
 
 testimonials_cta: "Kostenlose Beratung anfragen",
   testimonials_feedback: "⭐ Google-Bewertung schreiben",
@@ -2796,7 +2818,7 @@ pricing_compare: "Schweizer Anwälte berechnen in der Regel CHF 300–500 pro St
   faq_q1: "Brauche ich einen Anwalt für eine Schweizer Aufenthaltsbewilligung?",
   faq_a1: "In den meisten Standardfällen nein. EU/EFTA-Bürger haben einen unkomplizierten Prozess, der keine rechtliche Vertretung erfordert. Nicht-EU-Bürger mit einem bestätigten Jobangebot können den Prozess mit strukturierter Begleitung und den richtigen Dokumenten ebenfalls selbst navigieren.",
   faq_q2: "Wie schnell muss ich mich nach der Einreise in die Schweiz anmelden?",
-  faq_a2: "Sie müssen sich innerhalb von 14 Tagen nach Einzug bei der lokalen Einwohnerkontrolle anmelden. Dies ist eine gesetzliche Pflicht. Eine Fristversäumnis kann zu einem Bussgelд und Verzögerungen bei Bewilligung, Krankenversicherung und Bankkonto führen.",
+  faq_a2: "Sie müssen sich innerhalb von 14 Tagen nach Einzug bei der lokalen Einwohnerkontrolle anmelden. Dies ist eine gesetzliche Pflicht. Eine Fristversäumnis kann zu einem Bussgeld und Verzögerungen bei Bewilligung, Krankenversicherung und Bankkonto führen.",
   faq_q3: "Können Sie mir helfen, wenn ich nicht in Zürich wohne?",
   faq_a3: "Ja. Obwohl wir in Zürich ansässig sind, arbeiten wir mit Klienten aus der ganzen Schweiz remote zusammen. Alle Beratungen können online per Videoanruf durchgeführt werden.",
   faq_q4: "Wie lange dauert es, eine B-Bewilligung zu erhalten?",
@@ -3946,25 +3968,33 @@ why_4_content: `<p>Не кожна ситуація потребує повно�
       process_followUpItem3: "Постійна підтримка",
 
 
-      testimonials_micro_left: "Client feedback",
-
-
+      testimonials_label: "Відгуки клієнтів",
       testimonials_micro_left: "Відгуки клієнтів",
 
 testimonial_1_text: "Я була повністю розгублена, коли приїхала до Цюриха. Після консультації все стало зрозумілим і значно менш стресовим.",
+testimonial_1_from: "Переїхала з Бразилії",
 testimonial_1_meta: "Переїхала з Бразилії, живе в Цюриху",
 
 testimonial_2_text: "Я хвилювалася щодо свого дозволу та листів від органів влади. Все пояснили дуже просто.",
+testimonial_2_from: "Переїхала з України",
 testimonial_2_meta: "Переїхала з України",
 
 testimonial_3_text: "Найбільше допомогло те, що я могла ставити звичайні питання і отримувати чіткі відповіді без поспіху.",
+testimonial_3_from: "Переїхав з Іспанії",
 testimonial_3_meta: "Переїхав з Іспанії",
+
+testimonial_next_aria: "Наступний відгук",
 
 testimonials_micro_right: "Чому починають тут",
 testimonials_title: "Практична підтримка без зайвих витрат",
 
 testimonials_text_1: "Багатьом спочатку потрібні ясність, структура та допомога з документами або комунікацією, а не повний юридичний супровід одразу.",
 testimonials_text_2: "Коротка консультація може заощадити час, зменшити стрес і допомогти уникнути дорогих помилок або затримок.",
+
+testimonials_why_label: "Чому починають тут",
+testimonials_why_title: "Практична підтримка без зайвих витрат",
+testimonials_why_p1: "Багатьом спочатку потрібні ясність, структура та допомога з документами або комунікацією, а не повний юридичний супровід одразу.",
+testimonials_why_p2: "Коротка консультація може заощадити час, зменшити стрес і допомогти уникнути дорогих помилок або затримок.",
 
 testimonials_cta: "Записатися на безкоштовну консультацію",
   testimonials_feedback: "⭐ Залишити відгук у Google",
