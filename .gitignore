@@ -84,3 +84,4 @@ og-image-source.html
 /tmp/sess_*
 sess_*
 .vercel
+.env*.local
