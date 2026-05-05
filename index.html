@@ -386,7 +386,8 @@
       height:1px;
       background:rgba(255,255,255,.8);
       transform:scaleX(0);
-      transition:.25s ease;
+      transform-origin:left center;
+      transition:transform .35s cubic-bezier(0.16,1,0.3,1);
     }
     .nav a:hover::after{transform:scaleX(1)}
 
@@ -917,11 +918,12 @@
 }
 
     .service-card:hover{
-  transform: translateY(-8px) scale(1.01);
+  transform: translateY(-10px) scale(1.015);
   box-shadow:
-    0 18px 40px rgba(0,0,0,.10),
-    inset 0 1px 0 rgba(255,255,255,.28);
-  border-color: rgba(255,255,255,.34);
+    0 24px 60px rgba(70,147,232,.18),
+    0 8px 24px rgba(0,0,0,.08),
+    inset 0 1px 0 rgba(255,255,255,.32);
+  border-color: rgba(255,255,255,.45);
 }
 
     .service-icon{
@@ -939,11 +941,12 @@
 }
 
 .service-icon{
-  transition: transform .35s ease;
+  transition: transform .5s cubic-bezier(0.16,1,0.3,1), box-shadow .5s ease;
 }
 
 .service-card:hover .service-icon{
-  transform: translateY(-4px) scale(1.04);
+  transform: translateY(-5px) scale(1.08) rotate(-4deg);
+  box-shadow: 0 10px 28px rgba(70,147,232,.22);
 }
 
     .service-icon svg{
@@ -1023,7 +1026,10 @@
       display:none;
       max-width:760px;
     }
-    .testimonial-slide.active{display:block}
+    .testimonial-slide.active{
+      display:block;
+      animation:fadeInSlide .5s cubic-bezier(0.16,1,0.3,1) both;
+    }
     .testimonial-slide p{
       margin:0 0 22px;
       font-size:28px;
@@ -1278,25 +1284,40 @@
   color: #fff;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition:
+    background .35s cubic-bezier(0.4,0,0.2,1),
+    transform .45s cubic-bezier(0.16,1,0.3,1),
+    box-shadow .35s ease;
+  flex-shrink: 0;
+}
+
+.faq-toggle:hover{
+  box-shadow: 0 4px 16px rgba(70,147,232,.25);
+  transform: scale(1.08);
 }
 
 /* ACTIVE STATE */
 .faq-item.active .faq-toggle {
   background: linear-gradient(135deg, #4693e8 0%, #6fb3f2 100%);
   color: #fff;
+  transform: rotate(45deg) scale(1.04);
+  box-shadow: 0 6px 20px rgba(70,147,232,.35);
 }
 
 /* CONTENT */
 .faq-content {
   max-height: 0;
+  opacity: 0;
   overflow: hidden;
-  transition: all 0.35s ease;
+  transition:
+    max-height .55s cubic-bezier(0.16,1,0.3,1),
+    opacity .4s ease,
+    margin-top .4s ease;
   padding-left: 64px;
 }
 
 .faq-content p {
-  font-size: 15px; /* same as body text */
+  font-size: 15px;
   color: #666;
   line-height: 1.6;
   max-width: 600px;
@@ -1304,7 +1325,8 @@
 
 /* OPEN STATE */
 .faq-item.active .faq-content {
-  max-height: 200px;
+  max-height: 250px;
+  opacity: 1;
   margin-top: 16px;
 }
 
@@ -2557,82 +2579,99 @@
   .nav,
   .hero-right{
     opacity:0;
-    transform:translateY(30px);
-    animation:fadeUp .9s ease forwards;
+    transform:translateY(36px);
+    filter:blur(6px);
+    animation:fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards;
   }
 
-  .brand{ animation-delay:.1s; }
-  .nav{ animation-delay:.2s; }
-  .hero-right{ animation-delay:.3s; }
-  .hero-title{ animation-delay:.45s; }
-  .hero-sub{ animation-delay:.65s; }
-  .pill-cta{ animation-delay:.85s; }
+  .brand{ animation-delay:.05s; }
+  .nav{ animation-delay:.15s; }
+  .hero-right{ animation-delay:.25s; }
+  .hero-title{ animation-delay:.4s; }
+  .hero-sub{ animation-delay:.6s; }
+  .pill-cta{ animation-delay:.82s; }
 
   .hero-title span{
-    animation:floatSoft 5s ease-in-out infinite;
+    animation:floatSoft 6s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
   }
 
   /* reveal on scroll */
   .reveal{
     opacity:0;
-    transform:translateY(40px);
-    transition:opacity .8s ease, transform .8s ease;
-    will-change:opacity, transform;
+    transform:translateY(52px);
+    filter:blur(5px);
+    transition:
+      opacity .9s cubic-bezier(0.16,1,0.3,1),
+      transform .9s cubic-bezier(0.16,1,0.3,1),
+      filter .7s cubic-bezier(0.16,1,0.3,1);
+    will-change:opacity, transform, filter;
   }
 
   .reveal.in-view{
     opacity:1;
     transform:translateY(0);
+    filter:blur(0);
   }
 
   .reveal-left{
     opacity:0;
-    transform:translateX(-40px);
-    transition:opacity .8s ease, transform .8s ease;
+    transform:translateX(-48px);
+    filter:blur(4px);
+    transition:
+      opacity .9s cubic-bezier(0.16,1,0.3,1),
+      transform .9s cubic-bezier(0.16,1,0.3,1),
+      filter .7s cubic-bezier(0.16,1,0.3,1);
   }
 
   .reveal-left.in-view{
     opacity:1;
     transform:translateX(0);
+    filter:blur(0);
   }
 
   .reveal-scale{
     opacity:0;
-    transform:scale(.96);
-    transition:opacity .8s ease, transform .8s ease;
+    transform:scale(.93);
+    filter:blur(4px);
+    transition:
+      opacity .9s cubic-bezier(0.16,1,0.3,1),
+      transform .9s cubic-bezier(0.16,1,0.3,1),
+      filter .7s cubic-bezier(0.16,1,0.3,1);
   }
 
   .reveal-scale.in-view{
     opacity:1;
     transform:scale(1);
+    filter:blur(0);
   }
 
   .title-reveal{
-  opacity: 0;
-  transform: translateY(26px);
-  letter-spacing: -.12em;
-  transition:
-    opacity .8s ease,
-    transform .8s ease,
-    letter-spacing .8s ease;
-}
+    opacity: 0;
+    transform: translateY(32px);
+    letter-spacing: -.14em;
+    transition:
+      opacity 1s cubic-bezier(0.16,1,0.3,1),
+      transform 1s cubic-bezier(0.16,1,0.3,1),
+      letter-spacing 1s cubic-bezier(0.16,1,0.3,1);
+  }
 
-.title-reveal.in-view{
-  opacity: 1;
-  transform: translateY(0);
-  letter-spacing: -.06em;
-}
+  .title-reveal.in-view{
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: -.06em;
+  }
 
   /* cards hover */
   .service-card,
-  .faq-item,
-  .testimonial-slide{
-    transition:transform .35s ease, box-shadow .35s ease;
+  .faq-item{
+    transition:
+      transform .5s cubic-bezier(0.16,1,0.3,1),
+      box-shadow .5s cubic-bezier(0.16,1,0.3,1),
+      border-color .3s ease;
   }
 
-  .service-card:hover,
   .faq-item:hover{
-    transform:translateY(-6px);
+    transform:translateY(-3px);
   }
 
   /* animated number */
@@ -2644,22 +2683,49 @@
   @keyframes fadeUp{
     from{
       opacity:0;
-      transform:translateY(30px);
+      transform:translateY(36px);
+      filter:blur(6px);
     }
     to{
       opacity:1;
       transform:translateY(0);
+      filter:blur(0);
     }
   }
 
   @keyframes floatSoft{
-    0%,100%{ transform:translateY(0); }
-    50%{ transform:translateY(-8px); }
+    0%,100%{ transform:translateY(0) rotate(0deg); }
+    30%{ transform:translateY(-11px) rotate(.6deg); }
+    65%{ transform:translateY(-5px) rotate(-.4deg); }
   }
 
   @keyframes heroGlow{
-    0%,100%{ transform:translateX(-50%) scale(1); opacity:.7; }
-    50%{ transform:translateX(-50%) scale(1.08); opacity:1; }
+    0%,100%{ transform:translateX(-50%) scale(1); opacity:.55; filter:blur(10px); }
+    50%{ transform:translateX(-50%) scale(1.18); opacity:.95; filter:blur(7px); }
+  }
+
+  @keyframes fadeInSlide{
+    from{ opacity:0; transform:translateY(14px); filter:blur(3px); }
+    to{   opacity:1; transform:translateY(0);    filter:blur(0);   }
+  }
+
+  /* button press micro-interaction */
+  .btn-blue:active,
+  button.main:active,
+  .btn-outline:active{
+    transform: scale(.96) translateY(1px);
+    transition-duration: .08s;
+  }
+
+  /* pricing card hover */
+  .price-card{
+    transition:
+      transform .5s cubic-bezier(0.16,1,0.3,1),
+      box-shadow .5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .price-card:hover{
+    transform: translateY(-10px) scale(1.01);
+    box-shadow: 0 28px 60px rgba(70,147,232,.14), 0 8px 24px rgba(0,0,0,.06);
   }
 
   /* accessibility */
@@ -2689,14 +2755,26 @@
   /* reveal animation */
 .card-reveal{
   opacity: 0;
-  transform: translateY(36px) scale(.985);
-  filter: blur(6px);
+  transform: translateY(44px) scale(.97);
+  filter: blur(8px);
+  transition:
+    opacity .7s cubic-bezier(0.16,1,0.3,1),
+    transform .7s cubic-bezier(0.16,1,0.3,1),
+    filter .6s cubic-bezier(0.16,1,0.3,1);
 }
 
 .card-reveal.in-view{
   opacity: 1;
   transform: translateY(0) scale(1);
   filter: blur(0);
+}
+
+.testimonial-next{
+  transition: transform .35s cubic-bezier(0.16,1,0.3,1), box-shadow .35s ease;
+}
+.testimonial-next:hover{
+  transform: scale(1.1);
+  box-shadow: 0 8px 28px rgba(0,0,0,.14);
 }
 
 /* smooth animation */
@@ -4772,29 +4850,27 @@ ${nextStepAdvice()}`;
 
 <script>
 
-  /* ===== COUNTER ===== */
+  /* ===== COUNTER — easeOut RAF ===== */
   const counters = document.querySelectorAll('.stat-number');
+
+  function easeOutExpo(t){ return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
 
   const counterObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
-
       const el = entry.target;
       const target = parseInt(el.dataset.target, 10) || 0;
-      let current = 0;
-      const duration = 1400;
-      const stepTime = Math.max(20, Math.floor(duration / Math.max(target, 1)));
+      const duration = 1800;
+      const start = performance.now();
 
-      const timer = setInterval(() => {
-        current += 1;
-        el.textContent = current;
-
-        if (current >= target) {
-          el.textContent = target;
-          clearInterval(timer);
-        }
-      }, stepTime);
-
+      function tick(now){
+        const elapsed = now - start;
+        const progress = Math.min(elapsed / duration, 1);
+        el.textContent = Math.round(easeOutExpo(progress) * target);
+        if (progress < 1) requestAnimationFrame(tick);
+        else el.textContent = target;
+      }
+      requestAnimationFrame(tick);
       counterObserver.unobserve(el);
     });
   }, { threshold: 0.5 });
@@ -4808,7 +4884,7 @@ ${nextStepAdvice()}`;
 
   cards.forEach((card, index) => {
     card.classList.add('card-reveal');
-    card.style.transitionDelay = `${Math.min(index % 4, 3) * 90}ms`;
+    card.style.transitionDelay = `${(index % 4) * 80}ms`;
   });
 
   const cardObserver = new IntersectionObserver((entries) => {
@@ -4818,11 +4894,35 @@ ${nextStepAdvice()}`;
         cardObserver.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.12
-  });
+  }, { threshold: 0.08 });
 
   cards.forEach(card => cardObserver.observe(card));
+
+  /* ===== PROCESS STEPS STAGGER ===== */
+  const processSteps = document.querySelectorAll('.process-step, .process-item, .step-item');
+  processSteps.forEach((step, i) => {
+    step.classList.add('card-reveal');
+    step.style.transitionDelay = `${i * 110}ms`;
+  });
+  const stepObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting){ e.target.classList.add('in-view'); stepObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  processSteps.forEach(s => stepObs.observe(s));
+
+  /* ===== WHY ITEMS STAGGER ===== */
+  const whyItems = document.querySelectorAll('.why-frame-left > *, .why-frame-right > *, .why-card, .why-4-item');
+  whyItems.forEach((item, i) => {
+    item.classList.add('card-reveal');
+    item.style.transitionDelay = `${i * 100}ms`;
+  });
+  const whyObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting){ e.target.classList.add('in-view'); whyObs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08 });
+  whyItems.forEach(w => whyObs.observe(w));
 
   /* ===== TITLE REVEAL ===== */
   const titleItems = document.querySelectorAll('.title-reveal');
