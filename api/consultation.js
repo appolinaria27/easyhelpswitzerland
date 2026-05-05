@@ -67,7 +67,7 @@ module.exports = async (req, res) => {
 
   try {
     await t.sendMail({
-      from:    `"Easy Help Switzerland" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+      from:    `"Easy Help Switzerland" <${process.env.MAIL_FROM || process.env.SMTP_USER}>`,
       to:      process.env.ADMIN_EMAIL,
       replyTo: email,
       subject: `New free consultation request — ${safeName}`,
@@ -103,7 +103,7 @@ module.exports = async (req, res) => {
 
   try {
     await t.sendMail({
-      from:    `"Easy Help Switzerland" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+      from:    `"Easy Help Switzerland" <${process.env.MAIL_FROM || process.env.SMTP_USER}>`,
       to:      email,
       subject: 'We received your consultation request — Easy Help Switzerland',
       html: `

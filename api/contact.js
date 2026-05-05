@@ -57,7 +57,7 @@ module.exports = async (req, res) => {
   try {
     // Email to admin
     await t.sendMail({
-      from:    `"Easy Help Switzerland" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+      from:    `"Easy Help Switzerland" <${process.env.MAIL_FROM || process.env.SMTP_USER}>`,
       to:      adminEmail,
       subject: `New inquiry — ${name}`,
       html: `
@@ -82,7 +82,7 @@ module.exports = async (req, res) => {
 
     // Confirmation to the person who wrote
     await t.sendMail({
-      from:    `"Easy Help Switzerland" <${process.env.SMTP_FROM || process.env.SMTP_USER}>`,
+      from:    `"Easy Help Switzerland" <${process.env.MAIL_FROM || process.env.SMTP_USER}>`,
       to:      email,
       subject: 'We received your message — Easy Help Switzerland',
       html: `

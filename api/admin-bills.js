@@ -335,7 +335,7 @@ module.exports = async (req, res) => {
       try {
         const transporter = makeTransporter();
         await transporter.sendMail({
-          from:    process.env.SMTP_FROM || process.env.SMTP_USER,
+          from:    process.env.MAIL_FROM || process.env.SMTP_USER,
           to:      bill.client_email,
           subject: `Your Invoice from Easy Help Switzerland — CHF ${parseFloat(bill.total_chf).toFixed(2)}`,
           html:    invoiceHtml(bill, paymentUrl),

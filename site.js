@@ -7,6 +7,7 @@ const translations = {
     nav_areas: "Areas",
 
     brand_name: "Easy Help",
+    brand_main: "Easy Help",
     brand_sub: "Switzerland",
 
     modal_book_free: "Book free consultation",
@@ -1333,6 +1334,7 @@ area_3_modal_content: `
     nav_areas: "Áreas",
 
     brand_name: "Easy Help",
+    brand_main: "Easy Help",
     brand_sub: "Suiza",
 
     modal_book_free: "Solicitar consulta gratuita",
@@ -2526,6 +2528,7 @@ service_documents_modal_item_8: "Soporte completo de documentos",
     nav_areas: "Gebiete",
 
     brand_name: "Easy Help",
+    brand_main: "Easy Help",
     brand_sub: "Schweiz",
 
     modal_book_free: "Kostenlose Beratung buchen",
@@ -3719,6 +3722,7 @@ service_documents_modal_item_8: "Komplette Dokumentenunterstützung",
     nav_areas: "Напрями",
 
     brand_name: "Easy Help",
+    brand_main: "Easy Help",
     brand_sub: "Швейцарія",
 
     modal_book_free: "Безкоштовна консультація",
