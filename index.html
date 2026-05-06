@@ -2533,11 +2533,11 @@
   max-height: 0;
   overflow: hidden;
   opacity: 0;
-  transform: translateY(-8px);
+  transform: translateY(-6px);
   transition:
-    max-height .35s ease,
-    opacity .35s ease,
-    transform .35s ease;
+    max-height .45s cubic-bezier(0.16,1,0.3,1),
+    opacity .35s cubic-bezier(0.16,1,0.3,1),
+    transform .35s cubic-bezier(0.16,1,0.3,1);
   padding-left: 60px;
 }
 
@@ -2598,12 +2598,12 @@
   /* reveal on scroll */
   .reveal{
     opacity:0;
-    transform:translateY(52px);
-    filter:blur(5px);
+    transform:translateY(34px);
+    filter:blur(3px);
     transition:
-      opacity .9s cubic-bezier(0.16,1,0.3,1),
-      transform .9s cubic-bezier(0.16,1,0.3,1),
-      filter .7s cubic-bezier(0.16,1,0.3,1);
+      opacity .7s cubic-bezier(0.16,1,0.3,1),
+      transform .7s cubic-bezier(0.16,1,0.3,1),
+      filter .5s cubic-bezier(0.16,1,0.3,1);
     will-change:opacity, transform, filter;
   }
 
@@ -2615,12 +2615,13 @@
 
   .reveal-left{
     opacity:0;
-    transform:translateX(-48px);
-    filter:blur(4px);
+    transform:translateX(-30px);
+    filter:blur(3px);
     transition:
-      opacity .9s cubic-bezier(0.16,1,0.3,1),
-      transform .9s cubic-bezier(0.16,1,0.3,1),
-      filter .7s cubic-bezier(0.16,1,0.3,1);
+      opacity .7s cubic-bezier(0.16,1,0.3,1),
+      transform .7s cubic-bezier(0.16,1,0.3,1),
+      filter .5s cubic-bezier(0.16,1,0.3,1);
+    will-change:opacity, transform, filter;
   }
 
   .reveal-left.in-view{
@@ -2631,12 +2632,13 @@
 
   .reveal-scale{
     opacity:0;
-    transform:scale(.93);
-    filter:blur(4px);
+    transform:scale(.95);
+    filter:blur(3px);
     transition:
-      opacity .9s cubic-bezier(0.16,1,0.3,1),
-      transform .9s cubic-bezier(0.16,1,0.3,1),
-      filter .7s cubic-bezier(0.16,1,0.3,1);
+      opacity .7s cubic-bezier(0.16,1,0.3,1),
+      transform .7s cubic-bezier(0.16,1,0.3,1),
+      filter .5s cubic-bezier(0.16,1,0.3,1);
+    will-change:opacity, transform, filter;
   }
 
   .reveal-scale.in-view{
@@ -2647,12 +2649,13 @@
 
   .title-reveal{
     opacity: 0;
-    transform: translateY(32px);
+    transform: translateY(24px);
     letter-spacing: -.14em;
+    will-change: opacity, transform, letter-spacing;
     transition:
-      opacity 1s cubic-bezier(0.16,1,0.3,1),
-      transform 1s cubic-bezier(0.16,1,0.3,1),
-      letter-spacing 1s cubic-bezier(0.16,1,0.3,1);
+      opacity .75s cubic-bezier(0.16,1,0.3,1),
+      transform .75s cubic-bezier(0.16,1,0.3,1),
+      letter-spacing .75s cubic-bezier(0.16,1,0.3,1);
   }
 
   .title-reveal.in-view{
@@ -2728,7 +2731,90 @@
     box-shadow: 0 28px 60px rgba(70,147,232,.14), 0 8px 24px rgba(0,0,0,.06);
   }
 
-  /* accessibility */
+  /* ── scroll progress bar ── */
+  #scroll-progress{
+    position:fixed;
+    top:0; left:0;
+    height:3px;
+    width:0%;
+    background:linear-gradient(90deg,#4693e8,#a8d4ff);
+    z-index:9999;
+    pointer-events:none;
+    transition:width .08s linear;
+    border-radius:0 2px 2px 0;
+  }
+
+  /* ── shimmer sweep on service & price cards ── */
+  .service-card,
+  .price-card{
+    position:relative;
+    overflow:hidden;
+  }
+  .service-card::before,
+  .price-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(
+      105deg,
+      transparent 35%,
+      rgba(255,255,255,.32) 50%,
+      transparent 65%
+    );
+    transform:translateX(-100%);
+    transition:transform 0s;
+    pointer-events:none;
+    z-index:1;
+  }
+  .service-card:hover::before,
+  .price-card:hover::before{
+    transform:translateX(100%);
+    transition:transform .55s cubic-bezier(0.16,1,0.3,1);
+  }
+
+  /* ── spotlight glow following cursor on service cards ── */
+  .service-card{
+    --mx:50%; --my:50%;
+  }
+  .service-card::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:radial-gradient(circle at var(--mx) var(--my),
+      rgba(70,147,232,.13) 0%,
+      transparent 65%);
+    opacity:0;
+    transition:opacity .3s ease;
+    pointer-events:none;
+    z-index:0;
+    border-radius:inherit;
+  }
+  .service-card:hover::after{
+    opacity:1;
+  }
+
+  /* ── CTA button attention pulse ── */
+  @keyframes ctaPulse{
+    0%,100%{ box-shadow:0 0 0 0 rgba(70,147,232,.45); }
+    50%{ box-shadow:0 0 0 12px rgba(70,147,232,0); }
+  }
+  .pill-cta button.main{
+    animation:ctaPulse 2.8s ease-out 2.5s 3;
+  }
+
+  /* ── gradient shift on primary CTA ── */
+  @keyframes gradShift{
+    0%{ background-position:0% 50%; }
+    50%{ background-position:100% 50%; }
+    100%{ background-position:0% 50%; }
+  }
+
+  /* ── section bracket line draw ── */
+  .section-bracket{
+    transition: width .8s cubic-bezier(0.16,1,0.3,1), opacity .5s ease;
+  }
+
+  /* ── accessibility ── */
   @media (prefers-reduced-motion: reduce){
     *,
     *::before,
@@ -2741,6 +2827,8 @@
     .reveal,
     .reveal-left,
     .reveal-scale,
+    .card-reveal,
+    .title-reveal,
     .hero-title,
     .hero-sub,
     .pill-cta,
@@ -2749,24 +2837,24 @@
     .hero-right{
       opacity:1 !important;
       transform:none !important;
+      filter:none !important;
     }
+    #scroll-progress{ display:none; }
   }
 
   /* reveal animation */
 .card-reveal{
   opacity: 0;
-  transform: translateY(44px) scale(.97);
-  filter: blur(8px);
+  transform: translateY(28px);
+  will-change: opacity, transform;
   transition:
-    opacity .7s cubic-bezier(0.16,1,0.3,1),
-    transform .7s cubic-bezier(0.16,1,0.3,1),
-    filter .6s cubic-bezier(0.16,1,0.3,1);
+    opacity .62s cubic-bezier(0.16,1,0.3,1),
+    transform .62s cubic-bezier(0.16,1,0.3,1);
 }
 
 .card-reveal.in-view{
   opacity: 1;
-  transform: translateY(0) scale(1);
-  filter: blur(0);
+  transform: translateY(0);
 }
 
 .testimonial-next{
@@ -3041,6 +3129,7 @@
   </style>
 </head>
 <body>
+  <div id="scroll-progress" aria-hidden="true"></div>
   <div class="shell">
 
     <section class="hero-wrap" id="home">
@@ -4830,9 +4919,10 @@ ${nextStepAdvice()}`;
 </script>
 
 <script>
-  /* ===== SCROLL REVEAL ===== */
-  const revealItems = document.querySelectorAll('.reveal, .reveal-left, .reveal-scale');
+  /* ===== SHARED OBSERVER OPTIONS ===== */
+  const REVEAL_OPTIONS = { threshold: 0.08, rootMargin: '0px 0px 80px 0px' };
 
+  /* ===== SCROLL REVEAL ===== */
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -4840,19 +4930,23 @@ ${nextStepAdvice()}`;
         revealObserver.unobserve(entry.target);
       }
     });
-  }, {
-    threshold: 0.12,
-    rootMargin: '0px 0px -40px 0px'
-  });
+  }, REVEAL_OPTIONS);
 
-  revealItems.forEach(item => revealObserver.observe(item));
-</script>
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => revealObserver.observe(el));
 
-<script>
+  /* ===== TITLE REVEAL ===== */
+  const titleObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        titleObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px 100px 0px' });
+
+  document.querySelectorAll('.title-reveal').forEach(el => titleObserver.observe(el));
 
   /* ===== COUNTER — easeOut RAF ===== */
-  const counters = document.querySelectorAll('.stat-number');
-
   function easeOutExpo(t){ return t === 1 ? 1 : 1 - Math.pow(2, -10 * t); }
 
   const counterObserver = new IntersectionObserver((entries) => {
@@ -4860,14 +4954,12 @@ ${nextStepAdvice()}`;
       if (!entry.isIntersecting) return;
       const el = entry.target;
       const target = parseInt(el.dataset.target, 10) || 0;
-      const duration = 1800;
+      const duration = 1600;
       const start = performance.now();
-
       function tick(now){
-        const elapsed = now - start;
-        const progress = Math.min(elapsed / duration, 1);
-        el.textContent = Math.round(easeOutExpo(progress) * target);
-        if (progress < 1) requestAnimationFrame(tick);
+        const p = Math.min((now - start) / duration, 1);
+        el.textContent = Math.round(easeOutExpo(p) * target);
+        if (p < 1) requestAnimationFrame(tick);
         else el.textContent = target;
       }
       requestAnimationFrame(tick);
@@ -4875,16 +4967,22 @@ ${nextStepAdvice()}`;
     });
   }, { threshold: 0.5 });
 
-  counters.forEach(counter => counterObserver.observe(counter));
+  document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
 
-  /* ===== CARD REVEAL ===== */
-  const cards = document.querySelectorAll(
-    '.service-card, .price-card, .blog-card, .minimal-card, .district-card, .property-card'
-  );
+  /* ===== CARD REVEAL — per-section stagger (max 3 slots × 55ms) ===== */
+  /* Group cards by their nearest section parent so stagger resets per section */
+  const cardSections = new Map();
+  document.querySelectorAll('.service-card,.price-card,.blog-card,.minimal-card,.district-card,.property-card').forEach(card => {
+    const section = card.closest('section') || card.closest('[id]') || document.body;
+    if (!cardSections.has(section)) cardSections.set(section, []);
+    cardSections.get(section).push(card);
+  });
 
-  cards.forEach((card, index) => {
-    card.classList.add('card-reveal');
-    card.style.transitionDelay = `${(index % 4) * 80}ms`;
+  cardSections.forEach(group => {
+    group.forEach((card, i) => {
+      card.classList.add('card-reveal');
+      card.style.transitionDelay = `${Math.min(i, 3) * 55}ms`;
+    });
   });
 
   const cardObserver = new IntersectionObserver((entries) => {
@@ -4894,51 +4992,61 @@ ${nextStepAdvice()}`;
         cardObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.08 });
+  }, { threshold: 0.05, rootMargin: '0px 0px 60px 0px' });
 
-  cards.forEach(card => cardObserver.observe(card));
+  document.querySelectorAll('.card-reveal').forEach(el => cardObserver.observe(el));
 
   /* ===== PROCESS STEPS STAGGER ===== */
-  const processSteps = document.querySelectorAll('.process-step, .process-item, .step-item');
-  processSteps.forEach((step, i) => {
-    step.classList.add('card-reveal');
-    step.style.transitionDelay = `${i * 110}ms`;
+  document.querySelectorAll('.process-step,.process-item,.step-item').forEach((el, i) => {
+    el.classList.add('card-reveal');
+    el.style.transitionDelay = `${i * 80}ms`;
   });
-  const stepObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting){ e.target.classList.add('in-view'); stepObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.08 });
-  processSteps.forEach(s => stepObs.observe(s));
 
   /* ===== WHY ITEMS STAGGER ===== */
-  const whyItems = document.querySelectorAll('.why-frame-left > *, .why-frame-right > *, .why-card, .why-4-item');
-  whyItems.forEach((item, i) => {
-    item.classList.add('card-reveal');
-    item.style.transitionDelay = `${i * 100}ms`;
-  });
-  const whyObs = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting){ e.target.classList.add('in-view'); whyObs.unobserve(e.target); }
-    });
-  }, { threshold: 0.08 });
-  whyItems.forEach(w => whyObs.observe(w));
-
-  /* ===== TITLE REVEAL ===== */
-  const titleItems = document.querySelectorAll('.title-reveal');
-
-  const titleObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in-view');
-        titleObserver.unobserve(entry.target);
-      }
-    });
-  }, {
-    threshold: 0.18
+  document.querySelectorAll('.why-frame-left > *,.why-frame-right > *,.why-card,.why-4-item').forEach((el, i) => {
+    el.classList.add('card-reveal');
+    el.style.transitionDelay = `${Math.min(i, 4) * 70}ms`;
   });
 
-  titleItems.forEach(title => titleObserver.observe(title));
+  /* single observer catches new .card-reveal additions too */
+  document.querySelectorAll('.card-reveal').forEach(el => {
+    if (!el.classList.contains('in-view')) cardObserver.observe(el);
+  });
+
+  /* ===== SCROLL PROGRESS BAR ===== */
+  const progressBar = document.getElementById('scroll-progress');
+  if (progressBar) {
+    window.addEventListener('scroll', () => {
+      const scrolled = window.scrollY;
+      const total = document.documentElement.scrollHeight - window.innerHeight;
+      progressBar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
+    }, { passive: true });
+  }
+
+  /* ===== MAGNETIC CTA BUTTON ===== */
+  const magnetBtn = document.querySelector('.pill-cta button.main');
+  if (magnetBtn) {
+    magnetBtn.addEventListener('mousemove', (e) => {
+      const r = magnetBtn.getBoundingClientRect();
+      const x = e.clientX - r.left - r.width / 2;
+      const y = e.clientY - r.top  - r.height / 2;
+      magnetBtn.style.transform = `translate(${x * 0.22}px, ${y * 0.32}px)`;
+    });
+    magnetBtn.addEventListener('mouseleave', () => {
+      magnetBtn.style.transform = '';
+    });
+  }
+
+  /* ===== SPOTLIGHT GLOW ON SERVICE CARDS (follows cursor) ===== */
+  document.querySelectorAll('.service-card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const r = card.getBoundingClientRect();
+      const x = ((e.clientX - r.left) / r.width  * 100).toFixed(1) + '%';
+      const y = ((e.clientY - r.top)  / r.height * 100).toFixed(1) + '%';
+      card.style.setProperty('--mx', x);
+      card.style.setProperty('--my', y);
+    });
+  });
 </script>
 
 
