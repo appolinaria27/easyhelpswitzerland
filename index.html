@@ -2579,20 +2579,22 @@
   .nav,
   .hero-right{
     opacity:0;
-    transform:translateY(36px);
-    filter:blur(6px);
-    animation:fadeUp 1s cubic-bezier(0.16,1,0.3,1) forwards;
+    transform:translateY(24px);
+    animation:fadeUp .85s cubic-bezier(0.16,1,0.3,1) forwards;
+    will-change:opacity,transform;
   }
 
-  .brand{ animation-delay:.05s; }
-  .nav{ animation-delay:.15s; }
-  .hero-right{ animation-delay:.25s; }
-  .hero-title{ animation-delay:.4s; }
-  .hero-sub{ animation-delay:.6s; }
-  .pill-cta{ animation-delay:.82s; }
+  .brand{ animation-delay:.04s; }
+  .nav{ animation-delay:.12s; }
+  .hero-right{ animation-delay:.20s; }
+  .hero-title{ animation-delay:.32s; }
+  .hero-sub{ animation-delay:.50s; }
+  .pill-cta{ animation-delay:.68s; }
 
+  /* floatSoft starts AFTER hero has fully appeared (delay = title-delay + duration) */
   .hero-title span{
-    animation:floatSoft 6s cubic-bezier(0.45,0.05,0.55,0.95) infinite;
+    display:inline-block;
+    animation:floatSoft 7s ease-in-out 1.6s infinite;
   }
 
   /* reveal on scroll */
@@ -2684,22 +2686,60 @@
   }
 
   @keyframes fadeUp{
-    from{
-      opacity:0;
-      transform:translateY(36px);
-      filter:blur(6px);
-    }
-    to{
-      opacity:1;
-      transform:translateY(0);
-      filter:blur(0);
-    }
+    from{ opacity:0; transform:translateY(24px); }
+    to{   opacity:1; transform:translateY(0); }
   }
 
   @keyframes floatSoft{
     0%,100%{ transform:translateY(0) rotate(0deg); }
-    30%{ transform:translateY(-11px) rotate(.6deg); }
-    65%{ transform:translateY(-5px) rotate(-.4deg); }
+    38%{ transform:translateY(-10px) rotate(.5deg); }
+    65%{ transform:translateY(-4px) rotate(-.3deg); }
+  }
+
+  /* ── aurora orbs ── */
+  .hero-aurora{
+    position:absolute;
+    border-radius:50%;
+    pointer-events:none;
+    z-index:0;
+    filter:blur(72px);
+    opacity:0;
+    animation:auroraFadeIn 1.8s ease forwards;
+  }
+  .hero-aurora-1{
+    width:680px; height:680px;
+    background:radial-gradient(circle,rgba(70,147,232,.22) 0%,transparent 70%);
+    top:-160px; left:-160px;
+    animation:auroraFadeIn 2s ease forwards, auroraFloat1 14s ease-in-out 2s infinite;
+  }
+  .hero-aurora-2{
+    width:520px; height:520px;
+    background:radial-gradient(circle,rgba(110,70,230,.14) 0%,transparent 70%);
+    bottom:-80px; right:-80px;
+    animation:auroraFadeIn 2.4s ease forwards, auroraFloat2 18s ease-in-out 2.4s infinite;
+  }
+  .hero-aurora-3{
+    width:380px; height:380px;
+    background:radial-gradient(circle,rgba(30,200,210,.10) 0%,transparent 70%);
+    top:40%; left:42%;
+    animation:auroraFadeIn 3s ease forwards, auroraFloat3 22s ease-in-out 3s infinite;
+  }
+  @keyframes auroraFadeIn{
+    to{ opacity:1; }
+  }
+  @keyframes auroraFloat1{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    35%{ transform:translate(70px,55px) scale(1.08); }
+    70%{ transform:translate(-30px,75px) scale(.94); }
+  }
+  @keyframes auroraFloat2{
+    0%,100%{ transform:translate(0,0) scale(1); }
+    40%{ transform:translate(-65px,-70px) scale(1.12); }
+    72%{ transform:translate(45px,-35px) scale(.92); }
+  }
+  @keyframes auroraFloat3{
+    0%,100%{ transform:translate(-50%,-50%) scale(1); opacity:1; }
+    50%{ transform:translate(-50%,-50%) scale(1.4); opacity:.6; }
   }
 
   @keyframes heroGlow{
@@ -2840,6 +2880,8 @@
       filter:none !important;
     }
     #scroll-progress{ display:none; }
+    .hero-aurora{ display:none; }
+    .hero-center, .hero-bottom{ transform:none !important; opacity:1 !important; }
   }
 
   /* reveal animation */
@@ -4922,7 +4964,7 @@ ${nextStepAdvice()}`;
   /* ===== SHARED OBSERVER OPTIONS ===== */
   const REVEAL_OPTIONS = { threshold: 0.08, rootMargin: '0px 0px 80px 0px' };
 
-  /* ===== SCROLL REVEAL ===== */
+  /* ===== SCROLL REVEAL — skip hero elements (they use CSS animation, not transition) ===== */
   const revealObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -4932,7 +4974,10 @@ ${nextStepAdvice()}`;
     });
   }, REVEAL_OPTIONS);
 
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-scale').forEach(el => revealObserver.observe(el));
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-scale')
+    .forEach(el => {
+      if (!el.closest('.hero-wrap')) revealObserver.observe(el);
+    });
 
   /* ===== TITLE REVEAL ===== */
   const titleObserver = new IntersectionObserver((entries) => {
@@ -5023,18 +5068,29 @@ ${nextStepAdvice()}`;
     }, { passive: true });
   }
 
-  /* ===== MAGNETIC CTA BUTTON ===== */
-  const magnetBtn = document.querySelector('.pill-cta button.main');
-  if (magnetBtn) {
-    magnetBtn.addEventListener('mousemove', (e) => {
-      const r = magnetBtn.getBoundingClientRect();
-      const x = e.clientX - r.left - r.width / 2;
-      const y = e.clientY - r.top  - r.height / 2;
-      magnetBtn.style.transform = `translate(${x * 0.22}px, ${y * 0.32}px)`;
+  /* ===== AURORA ORBS — inject into hero ===== */
+  const heroWrap = document.querySelector('.hero-wrap');
+  if (heroWrap) {
+    [1, 2, 3].forEach(n => {
+      const orb = document.createElement('div');
+      orb.className = `hero-aurora hero-aurora-${n}`;
+      orb.setAttribute('aria-hidden', 'true');
+      heroWrap.insertBefore(orb, heroWrap.firstChild);
     });
-    magnetBtn.addEventListener('mouseleave', () => {
-      magnetBtn.style.transform = '';
-    });
+  }
+
+  /* ===== HERO PARALLAX on scroll ===== */
+  const heroCenter = document.querySelector('.hero-center');
+  const heroBottom = document.querySelector('.hero-bottom');
+  if (heroCenter && heroBottom) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      if (y < 600) {
+        heroCenter.style.transform = `translateY(${y * 0.18}px)`;
+        heroBottom.style.transform = `translateY(${y * 0.10}px)`;
+        heroCenter.style.opacity = Math.max(0, 1 - y / 480);
+      }
+    }, { passive: true });
   }
 
   /* ===== SPOTLIGHT GLOW ON SERVICE CARDS (follows cursor) ===== */
