@@ -2550,19 +2550,6 @@
 
   /* ===== ANIMATIONS ===== */
 
-  .hero-wrap::after{
-    content:"";
-    position:absolute;
-    inset:auto auto 12% 50%;
-    width:520px;
-    height:520px;
-    transform:translateX(-50%);
-    background:radial-gradient(circle, rgba(255,255,255,.12) 0%, rgba(255,255,255,0) 68%);
-    filter:blur(10px);
-    pointer-events:none;
-    animation:heroGlow 7s ease-in-out infinite;
-    z-index:0;
-  }
 
   .hero-top,
   .hero-title,
@@ -2691,56 +2678,6 @@
     65%{ transform:translateY(-4px) rotate(-.3deg); }
   }
 
-  /* ── aurora orbs ── */
-  .hero-aurora{
-    position:absolute;
-    border-radius:50%;
-    pointer-events:none;
-    z-index:0;
-    filter:blur(72px);
-    opacity:0;
-    animation:auroraFadeIn 1.8s ease forwards;
-  }
-  .hero-aurora-1{
-    width:680px; height:680px;
-    background:radial-gradient(circle,rgba(70,147,232,.22) 0%,transparent 70%);
-    top:-160px; left:-160px;
-    animation:auroraFadeIn 2s ease forwards, auroraFloat1 14s ease-in-out 2s infinite;
-  }
-  .hero-aurora-2{
-    width:520px; height:520px;
-    background:radial-gradient(circle,rgba(110,70,230,.14) 0%,transparent 70%);
-    bottom:-80px; right:-80px;
-    animation:auroraFadeIn 2.4s ease forwards, auroraFloat2 18s ease-in-out 2.4s infinite;
-  }
-  .hero-aurora-3{
-    width:380px; height:380px;
-    background:radial-gradient(circle,rgba(30,200,210,.10) 0%,transparent 70%);
-    top:40%; left:42%;
-    animation:auroraFadeIn 3s ease forwards, auroraFloat3 22s ease-in-out 3s infinite;
-  }
-  @keyframes auroraFadeIn{
-    to{ opacity:1; }
-  }
-  @keyframes auroraFloat1{
-    0%,100%{ transform:translate(0,0) scale(1); }
-    35%{ transform:translate(70px,55px) scale(1.08); }
-    70%{ transform:translate(-30px,75px) scale(.94); }
-  }
-  @keyframes auroraFloat2{
-    0%,100%{ transform:translate(0,0) scale(1); }
-    40%{ transform:translate(-65px,-70px) scale(1.12); }
-    72%{ transform:translate(45px,-35px) scale(.92); }
-  }
-  @keyframes auroraFloat3{
-    0%,100%{ transform:translate(-50%,-50%) scale(1); opacity:1; }
-    50%{ transform:translate(-50%,-50%) scale(1.4); opacity:.6; }
-  }
-
-  @keyframes heroGlow{
-    0%,100%{ transform:translateX(-50%) scale(1); opacity:.55; filter:blur(10px); }
-    50%{ transform:translateX(-50%) scale(1.18); opacity:.95; filter:blur(7px); }
-  }
 
   @keyframes fadeInSlide{
     from{ opacity:0; transform:translateY(14px); filter:blur(3px); }
@@ -2875,7 +2812,6 @@
       filter:none !important;
     }
     #scroll-progress{ display:none; }
-    .hero-aurora{ display:none; }
   }
 
   /* reveal animation */
@@ -5060,17 +4996,6 @@ ${nextStepAdvice()}`;
       const total = document.documentElement.scrollHeight - window.innerHeight;
       progressBar.style.width = (total > 0 ? (scrolled / total) * 100 : 0) + '%';
     }, { passive: true });
-  }
-
-  /* ===== AURORA ORBS — inject into hero ===== */
-  const heroWrap = document.querySelector('.hero-wrap');
-  if (heroWrap) {
-    [1, 2, 3].forEach(n => {
-      const orb = document.createElement('div');
-      orb.className = `hero-aurora hero-aurora-${n}`;
-      orb.setAttribute('aria-hidden', 'true');
-      heroWrap.insertBefore(orb, heroWrap.firstChild);
-    });
   }
 
   /* ===== SPOTLIGHT GLOW ON SERVICE CARDS (follows cursor) ===== */
