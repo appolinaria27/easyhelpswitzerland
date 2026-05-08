@@ -2574,7 +2574,20 @@
   .brand{ animation-delay:.04s; }
   .nav{ animation-delay:.12s; }
   .hero-right{ animation-delay:.20s; }
-  .hero-title{ animation-delay:.32s; }
+  .hero-title{
+    animation-delay:.32s;
+  }
+
+  /* gentle float after entrance finishes */
+  .hero-title{
+    animation:fadeUp .85s cubic-bezier(0.16,1,0.3,1) .32s forwards,
+              heroFloat 6s ease-in-out 1.2s infinite;
+  }
+
+  @keyframes heroFloat{
+    0%,100%{ transform:translateY(0); }
+    50%{ transform:translateY(-10px); }
+  }
   .hero-sub{ animation-delay:.50s; }
   .pill-cta{ animation-delay:.68s; }
 
