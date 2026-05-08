@@ -2591,9 +2591,8 @@
   .hero-sub{ animation-delay:.50s; }
   .pill-cta{ animation-delay:.68s; }
 
-  /* floatSoft starts AFTER hero has fully appeared (delay = title-delay + duration) */
+  /* floatSoft starts AFTER hero has fully appeared */
   .hero-title span{
-    display:inline-block;
     animation:floatSoft 7s ease-in-out 1.6s infinite;
   }
 
@@ -2881,7 +2880,6 @@
     }
     #scroll-progress{ display:none; }
     .hero-aurora{ display:none; }
-    .hero-center, .hero-bottom{ transform:none !important; opacity:1 !important; }
   }
 
   /* reveal animation */
@@ -5077,20 +5075,6 @@ ${nextStepAdvice()}`;
       orb.setAttribute('aria-hidden', 'true');
       heroWrap.insertBefore(orb, heroWrap.firstChild);
     });
-  }
-
-  /* ===== HERO PARALLAX on scroll ===== */
-  const heroCenter = document.querySelector('.hero-center');
-  const heroBottom = document.querySelector('.hero-bottom');
-  if (heroCenter && heroBottom) {
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      if (y < 600) {
-        heroCenter.style.transform = `translateY(${y * 0.18}px)`;
-        heroBottom.style.transform = `translateY(${y * 0.10}px)`;
-        heroCenter.style.opacity = Math.max(0, 1 - y / 480);
-      }
-    }, { passive: true });
   }
 
   /* ===== SPOTLIGHT GLOW ON SERVICE CARDS (follows cursor) ===== */
