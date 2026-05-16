@@ -9,16 +9,30 @@
 
 const { ghRead, ghWrite } = require('../lib/github-storage');
 
-const CACHE_PATH = 'data/news-cache-v4.json';
+const CACHE_PATH = 'data/news-cache-v5.json'; // bumped → forces fresh fetch
 const TTL_MS     = 6 * 60 * 60 * 1000; // 6 hours
 
 let memCache = { data: null, at: 0 };
 
-// Multiple queries — run all, merge, sort by date, keep 3 freshest
-const RSS_QUERIES = [
-  'Switzerland+immigration+permit',
-  'Switzerland+expat+work+visa',
-  'Switzerland+living+residence',
+// Direct RSS feeds — reliable, no bot-blocking issues
+const DIRECT_FEEDS = [
+  { url: 'https://www.swissinfo.ch/eng/rss/top_news',          source: 'SWI swissinfo.ch' },
+  { url: 'https://www.thelocal.ch/feeds/rss.php',              source: 'The Local Switzerland' },
+  { url: 'https://feeds.feedburner.com/Swissinfo-En',          source: 'SWI swissinfo.ch' },
+];
+
+// Bing queries as secondary source if direct feeds return too few results
+const BING_QUERIES = [
+  'Switzerland+immigration+permit+expat',
+  'Switzerland+relocation+residence+foreigners',
+];
+
+// Keywords to filter for relevance
+const KEYWORDS = [
+  'switzerland', 'swiss', 'zürich', 'zurich', 'bern', 'geneva', 'basel',
+  'migration', 'permit', 'residence', 'relocation', 'expat', 'immigrant',
+  'visa', 'citizenship', 'naturali', 'foreigner', 'work permit', 'asylum',
+  'integration', 'housing', 'health insurance', 'ahv', 'pension',
 ];
 
 const TARGET_LANGS = ['de', 'es', 'uk'];
@@ -118,42 +132,74 @@ async function addTranslations(articles) {
   }));
 }
 
-// ── Fetch from all queries, dedupe, sort newest first, keep 3 ─────────────────
+// ── Fetch helpers ─────────────────────────────────────────────────────────────
+
+function isRelevant({ title = '', description = '' }) {
+  const text = `${title} ${description}`.toLowerCase();
+  return KEYWORDS.some(kw => text.includes(kw));
+}
+
+async function fetchFeed(url, defaultSource) {
+  try {
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EasyHelpBot/1.0)' },
+      signal: AbortSignal.timeout(9000),
+    });
+    if (!res.ok) return [];
+    const items = parseRSS(await res.text());
+    return items.map(a => ({ ...a, source: a.source || defaultSource }));
+  } catch (e) {
+    console.warn('Feed failed:', url, e.message);
+    return [];
+  }
+}
+
+async function fetchBing(query) {
+  try {
+    const res = await fetch(
+      `https://www.bing.com/news/search?q=${query}&format=rss&mkt=en-US&freshness=Week`,
+      {
+        headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EasyHelpBot/1.0)' },
+        signal: AbortSignal.timeout(9000),
+      }
+    );
+    if (!res.ok) return [];
+    return parseRSS(await res.text());
+  } catch {
+    return [];
+  }
+}
+
+// ── Main fetch — direct feeds first, Bing as fallback ────────────────────────
 
 async function fetchArticles() {
-  const results = await Promise.all(
-    RSS_QUERIES.map(async (q) => {
-      try {
-        const res = await fetch(
-          `https://www.bing.com/news/search?q=${q}&format=rss&mkt=en-US`,
-          {
-            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EasyHelpBot/1.0)' },
-            signal: AbortSignal.timeout(8000),
-          }
-        );
-        if (!res.ok) return [];
-        return parseRSS(await res.text());
-      } catch {
-        return [];
-      }
-    })
+  // 1. Try direct RSS feeds — most reliable
+  const directResults = await Promise.all(
+    DIRECT_FEEDS.map(f => fetchFeed(f.url, f.source))
   );
+  let all = directResults.flat().filter(isRelevant);
 
-  // Flatten, dedupe by URL, sort newest first, return top 3
+  // 2. If fewer than 3 results, supplement with Bing
+  if (all.length < 3) {
+    const bingResults = await Promise.all(BING_QUERIES.map(fetchBing));
+    all = [...all, ...bingResults.flat().filter(isRelevant)];
+  }
+
+  // Dedupe by URL, sort newest first, return top 3
   const seen = new Set();
-  const all = results.flat().filter(a => {
-    if (seen.has(a.url)) return false;
+  const deduped = all.filter(a => {
+    if (!a.url || seen.has(a.url)) return false;
     seen.add(a.url);
     return true;
   });
 
-  all.sort((a, b) => {
+  deduped.sort((a, b) => {
     const ta = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
     const tb = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
     return tb - ta;
   });
 
-  return all.slice(0, 3);
+  return deduped.slice(0, 3);
 }
 
 // ── Handler ───────────────────────────────────────────────────────────────────
@@ -162,21 +208,27 @@ module.exports = async (req, res) => {
   if (req.method !== 'GET') return res.status(405).end();
 
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Cache-Control', 'public, s-maxage=21600, stale-while-revalidate=3600');
+  res.setHeader('Cache-Control', 'public, s-maxage=3600, stale-while-revalidate=600');
 
   const now = Date.now();
 
-  // 1. In-process memory cache
+  // 1. In-process memory cache (warm instance)
   if (memCache.data && now - memCache.at < TTL_MS) {
     return res.status(200).json(memCache.data);
   }
 
-  // 2. GitHub persistent cache
+  // 2. GitHub persistent cache — always load into memCache as fallback,
+  //    return immediately only if still fresh
+  let ghStale = null;
   try {
     const { data } = await ghRead(CACHE_PATH);
-    if (data?.fetched_at && (now - data.fetched_at) < TTL_MS && data.articles?.length) {
-      memCache = { data: { articles: data.articles }, at: data.fetched_at };
-      return res.status(200).json({ articles: data.articles });
+    if (data?.articles?.length) {
+      // always store as fallback regardless of age
+      ghStale = { articles: data.articles };
+      if (data.fetched_at && (now - data.fetched_at) < TTL_MS) {
+        memCache = { data: ghStale, at: data.fetched_at };
+        return res.status(200).json(ghStale);
+      }
     }
   } catch (e) { console.error('GitHub cache read:', e.message); }
 
@@ -200,7 +252,8 @@ module.exports = async (req, res) => {
     }
   } catch (e) { console.error('Fetch error:', e.message); }
 
-  // 4. Stale beats empty
+  // 4. Stale GitHub cache beats empty — always better than nothing
+  if (ghStale) { memCache = { data: ghStale, at: now - TTL_MS + 60000 }; return res.status(200).json(ghStale); }
   if (memCache.data) return res.status(200).json(memCache.data);
   return res.status(200).json({ articles: [] });
 };
