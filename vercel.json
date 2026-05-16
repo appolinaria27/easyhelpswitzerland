@@ -1,9 +1,11 @@
 {
   "crons": [
-    { "path": "/api/daily-post/morning", "schedule": "0 9 * * *" }
+    { "path": "/api/daily-post/morning", "schedule": "0 9 * * *" },
+    { "path": "/api/news-telegram",      "schedule": "0 17 * * *" }
   ],
   "functions": {
     "api/daily-post/[slot].js": { "memory": 256 },
+    "api/news-telegram.js":    { "memory": 256, "maxDuration": 30 },
     "api/contact.js":         { "memory": 128 },
     "api/checkout.js":        { "memory": 256 },
     "api/webhook.js":         { "memory": 256 },
