@@ -1054,13 +1054,10 @@ export default async function handler(req, res) {
   }
 
   try {
-    // Sequential index: each slot gets its own unique post, cycling through all posts
-    // before any post repeats. With 60 posts × 3 slots/day = ~20 days before repeat.
+    // One post per day — cycles through all 49 posts before repeating (~49 days)
     const EPOCH_MS = new Date('2024-01-01').getTime();
     const daysSinceEpoch = Math.floor((Date.now() - EPOCH_MS) / 86_400_000);
-    const slotNum = slot === 'morning' ? 0 : slot === 'afternoon' ? 1 : 2;
-    const seqIndex = daysSinceEpoch * 3 + slotNum;
-    const post = POSTS_EN[seqIndex % POSTS_EN.length];
+    const post = POSTS_EN[daysSinceEpoch % POSTS_EN.length];
 
     const result = await postToTelegram(post.text);
 
