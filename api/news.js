@@ -9,7 +9,7 @@
 
 const { ghRead, ghWrite } = require('../lib/github-storage');
 
-const CACHE_PATH = 'data/news-cache-v5.json'; // bumped → forces fresh fetch
+const CACHE_PATH = 'data/news-cache-v6.json'; // bumped → forces fresh fetch with image fix
 const TTL_MS     = 6 * 60 * 60 * 1000; // 6 hours
 
 let memCache = { data: null, at: 0 };
@@ -81,9 +81,37 @@ function parseRSS(xml) {
     let publishedAt = null;
     try { if (pubM) publishedAt = new Date(pubM[1].trim()).toISOString(); } catch {}
 
-    // Image — Bing provides this directly in <News:Image>
-    const imgM = chunk.match(/<News:Image>([\s\S]*?)<\/News:Image>/);
-    const image = imgM ? decodeEntities(imgM[1].trim()) + '&w=600&h=338&c=14' : null;
+    // Image — try all common RSS image formats in priority order
+    let image = null;
+
+    // 1. Bing <News:Image>
+    const bingImg = chunk.match(/<News:Image>([\s\S]*?)<\/News:Image>/);
+    if (bingImg) image = decodeEntities(bingImg[1].trim()) + '&w=600&h=338&c=14';
+
+    // 2. <media:content url="..."> (swissinfo, thelocal, most modern feeds)
+    if (!image) {
+      const mediaContent = chunk.match(/<media:content[^>]+url=["']([^"']+)["']/i);
+      if (mediaContent) image = decodeEntities(mediaContent[1]);
+    }
+
+    // 3. <media:thumbnail url="...">
+    if (!image) {
+      const mediaThumbnail = chunk.match(/<media:thumbnail[^>]+url=["']([^"']+)["']/i);
+      if (mediaThumbnail) image = decodeEntities(mediaThumbnail[1]);
+    }
+
+    // 4. <enclosure url="..." type="image/...">
+    if (!image) {
+      const enclosure = chunk.match(/<enclosure[^>]+type=["']image\/[^"']*["'][^>]+url=["']([^"']+)["']/i)
+                     || chunk.match(/<enclosure[^>]+url=["']([^"']+)["'][^>]+type=["']image\/[^"']*["']/i);
+      if (enclosure) image = decodeEntities(enclosure[1]);
+    }
+
+    // 5. First <img src="..."> inside description/content
+    if (!image) {
+      const descImgM = chunk.match(/<img[^>]+src=["']([^"']+)["']/i);
+      if (descImgM) image = decodeEntities(descImgM[1]);
+    }
 
     // Description — plain text
     const descM = chunk.match(/<description>([\s\S]*?)<\/description>/);
