@@ -12,18 +12,23 @@ const { ghRead, ghWrite } = require('../lib/github-storage');
 const POSTED_PATH = 'data/tg-posted-news.json';
 const MAX_STORED  = 120; // keep only last 120 URLs to avoid bloat
 
-const RSS_QUERIES = [
+// Direct RSS feeds — reliable, no bot-blocking
+const DIRECT_FEEDS = [
+  { url: 'https://www.swissinfo.ch/eng/rss/top_news',  source: 'SWI swissinfo.ch' },
+  { url: 'https://www.thelocal.ch/feeds/rss.php',      source: 'The Local Switzerland' },
+];
+
+// Bing as secondary supplement
+const BING_QUERIES = [
   'Switzerland+immigration+permit+expat',
   'Switzerland+relocation+residence+foreigners',
-  'Schweiz+Migration+Aufenthaltsbewilligung',
 ];
 
 const KEYWORDS = [
+  'switzerland', 'swiss', 'zürich', 'zurich', 'bern', 'geneva', 'basel',
   'migration', 'permit', 'residence', 'relocation', 'expat', 'immigrant',
   'visa', 'citizenship', 'naturaliz', 'foreigner', 'work permit', 'asylum',
-  'integration', 'aufenthalt', 'b-permit', 'c-permit', 'anmeldung',
-  'zuwanderung', 'ausländer', 'einwanderung', 'housing', 'zürich',
-  'zurich', 'switzerland living', 'swiss life',
+  'integration', 'housing', 'health insurance', 'aufenthalt', 'anmeldung',
 ];
 
 // ── RSS helpers ───────────────────────────────────────────────────────────────
@@ -79,35 +84,49 @@ function isRelevant({ title, description }) {
 
 // ── Fetch news ────────────────────────────────────────────────────────────────
 
-async function fetchNews() {
-  const cutoff = Date.now() - 48 * 60 * 60 * 1000; // last 48 hours
+async function fetchFeed(url, defaultSource) {
+  try {
+    const res = await fetch(url, {
+      headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EasyHelpBot/1.0)' },
+      signal: AbortSignal.timeout(9000),
+    });
+    if (!res.ok) return [];
+    return parseRSS(await res.text()).map(a => ({ ...a, source: a.source || defaultSource }));
+  } catch (e) {
+    console.warn('Feed failed:', url, e.message);
+    return [];
+  }
+}
 
-  const results = await Promise.all(
-    RSS_QUERIES.map(async q => {
-      try {
-        const res = await fetch(
-          `https://www.bing.com/news/search?q=${q}&format=rss&mkt=en-US&freshness=Day`,
-          {
-            headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EasyHelpBot/1.0)' },
-            signal: AbortSignal.timeout(8000),
-          }
-        );
-        if (!res.ok) return [];
-        return parseRSS(await res.text());
-      } catch (e) {
-        console.warn('RSS fetch failed:', q, e.message);
-        return [];
-      }
-    })
-  );
+async function fetchBing(query) {
+  try {
+    const res = await fetch(
+      `https://www.bing.com/news/search?q=${query}&format=rss&mkt=en-US&freshness=Day`,
+      { headers: { 'User-Agent': 'Mozilla/5.0 (compatible; EasyHelpBot/1.0)' }, signal: AbortSignal.timeout(8000) }
+    );
+    if (!res.ok) return [];
+    return parseRSS(await res.text());
+  } catch { return []; }
+}
+
+async function fetchNews() {
+  const cutoff = Date.now() - 72 * 60 * 60 * 1000; // last 72 hours
+
+  // 1. Direct feeds first
+  const directResults = await Promise.all(DIRECT_FEEDS.map(f => fetchFeed(f.url, f.source)));
+  let all = directResults.flat();
+
+  // 2. Add Bing if we need more
+  if (all.filter(isRelevant).length < 3) {
+    const bingResults = await Promise.all(BING_QUERIES.map(fetchBing));
+    all = [...all, ...bingResults.flat()];
+  }
 
   const seen = new Set();
-  return results
-    .flat()
+  return all
     .filter(a => {
       if (!a.url || seen.has(a.url)) return false;
       seen.add(a.url);
-      // keep articles from last 48h (or unknown date)
       if (a.publishedAt && a.publishedAt.getTime() < cutoff) return false;
       return isRelevant(a);
     })
