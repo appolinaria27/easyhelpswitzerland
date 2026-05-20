@@ -65,7 +65,7 @@ function parseRSS(xml) {
 
     const descM = chunk.match(/<description>([\s\S]*?)<\/description>/);
     const description = descM
-      ? decodeEntities(descM[1].replace(/<!\[CDATA\[|\]\]>/g, '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220)
+      ? decodeEntities(descM[1].replace(/<!\[CDATA\[|\]\]>/g, '').replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 220))
       : '';
 
     const pubM = chunk.match(/<pubDate>([^<]+)<\/pubDate>/);
