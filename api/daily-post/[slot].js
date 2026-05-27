@@ -1,13 +1,17 @@
 /**
- * Dynamic route: /api/daily-post/morning
- *                /api/daily-post/afternoon
- *                /api/daily-post/evening
+ * api/daily-post/[slot].js
+ * Posts ONE Swiss expat tip per day to @easyhelpswitzerland Telegram channel.
  *
- * FIX: Each slot gets a SEQUENTIAL index across all time so morning/afternoon/evening
- * never share the same post, and the cycle is as long as the post pool.
- * With 60 posts × 3 slots/day → any given post repeats only after ~20 days.
+ * State stored in GitHub at data/tg-daily-post.json — survives Vercel cold starts.
+ * Prevents duplicate posts if Vercel retries the cron or multiple instances spin up.
+ * Cycles through all 49 posts before repeating any.
+ *
+ * Triggered by cron: daily at 09:00 UTC (11:00 Zürich time).
  */
-import { existsSync, writeFileSync } from 'fs';
+
+const { ghRead, ghWrite } = require('../../lib/github-storage');
+
+const STATE_PATH = 'data/tg-daily-post.json';
 
 const POSTS_EN = [
   { slug: 'b-permit', text: `Most people moving to Switzerland don't realise there are *4 different residence permits* — and picking the wrong one to apply for wastes weeks.
@@ -772,7 +776,7 @@ Need personalised help? Book a free consultation at easyhelpswitzerland.ch 🇨�
 🛒 *The supermarket hierarchy:*
 
 *Premium:*
-— *Globus Delicatessa* — luxury goods, imported specialties. CHF CHF CHF
+— *Globus Delicatessa* — luxury goods, imported specialties
 — *Coop* and *Migros* premium lines — Swiss quality, higher prices
 
 *Standard:*
@@ -785,7 +789,6 @@ Need personalised help? Book a free consultation at easyhelpswitzerland.ch 🇨�
 💡 *Smart shopping tips:*
 — *Migros M-Budget* and *Coop Prix Garantie* lines offer significantly lower prices
 — Buy seasonal Swiss produce — it's cheaper and better quality than imported
-— Shop at market halls: Zürich's Markthalle and seasonal farmers' markets offer fresh produce at competitive prices
 — The *Migros App* and *Coop App* both have digital loyalty programmes and weekly promotions
 
 *Sunday problem:* Almost everything is closed. Do your main shop on Saturday.
@@ -797,7 +800,7 @@ Need personalised help? Book a free consultation at easyhelpswitzerland.ch 🇨�
 🗺 *Key differences between major cantons:*
 
 💰 *Taxes (lowest to highest roughly):*
-Zug → Schwyz → Nidwalden → Obwalden → Uri → Zürich → Bern → Geneva → Basel
+Zug → Schwyz → Nidwalden → Zürich → Bern → Geneva → Basel
 
 *Zug* is famous for extremely low taxes and is home to many international companies and wealthy residents.
 
@@ -861,8 +864,6 @@ Need personalised help? Book a free consultation at easyhelpswitzerland.ch 🇨�
 — Lights are mandatory at night (front and rear)
 — Helmet is not legally required for adults but strongly recommended
 — Cycling on pavements is illegal in Switzerland
-
-*Tip:* The Zürich VeloNacht (a summer night cycling event) is a great way to explore the city and meet people.
 
 Need personalised help? Book a free consultation at easyhelpswitzerland.ch 🇨🇭` },
 
@@ -1017,6 +1018,8 @@ If moving to a different premium region, contact your insurer. They'll adjust yo
 Need personalised help? Book a free consultation at easyhelpswitzerland.ch 🇨🇭` },
 ];
 
+// ── Telegram ──────────────────────────────────────────────────────────────────
+
 async function postToTelegram(text) {
   const url = `https://api.telegram.org/bot${process.env.TELEGRAM_BOT_TOKEN}/sendMessage`;
   const res = await fetch(url, {
@@ -1034,39 +1037,69 @@ async function postToTelegram(text) {
   return data.result;
 }
 
-export default async function handler(req, res) {
+// ── Handler ───────────────────────────────────────────────────────────────────
+
+module.exports = async (req, res) => {
   if (req.method !== 'GET' && req.method !== 'POST') return res.status(405).end();
 
   const cronSecret = process.env.CRON_SECRET;
   if (cronSecret) {
-    const ok = req.headers.authorization === `Bearer ${cronSecret}` || req.query.secret === cronSecret;
+    const ok =
+      req.headers.authorization === `Bearer ${cronSecret}` ||
+      req.query.secret === cronSecret;
     if (!ok) return res.status(401).json({ error: 'Unauthorized' });
   }
 
-  const slot = req.query.slot; // 'morning' | 'afternoon' | 'evening'
-
-  // Deduplication: prevent double-posting if Vercel retries the cron
   const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD (UTC)
-  const lockFile = `/tmp/ehs_${slot}_${today}.lock`;
-  if (existsSync(lockFile)) {
-    console.log(`[daily-post] Duplicate prevented: ${slot} already posted on ${today}`);
-    return res.status(200).json({ success: true, skipped: true, reason: 'already_posted', slot, date: today });
-  }
 
   try {
-    // One post per day — cycles through all 49 posts before repeating (~49 days)
-    const EPOCH_MS = new Date('2024-01-01').getTime();
-    const daysSinceEpoch = Math.floor((Date.now() - EPOCH_MS) / 86_400_000);
-    const post = POSTS_EN[daysSinceEpoch % POSTS_EN.length];
+    // Load persistent state from GitHub
+    const { data: state, sha } = await ghRead(STATE_PATH);
+    const sentSlugs = state?.sent_slugs || [];
+    const lastPostDate = state?.last_post_date || '';
 
-    const result = await postToTelegram(post.text);
+    // Prevent double-posting if cron fires twice or Vercel retries
+    if (lastPostDate === today) {
+      console.log(`[daily-post] Already posted today (${today}), skipping`);
+      return res.status(200).json({ success: true, skipped: true, reason: 'already_posted_today', date: today });
+    }
 
-    // Write lock file AFTER successful post so a failed post can be retried
-    writeFileSync(lockFile, new Date().toISOString());
+    // Find the next post not yet sent; reset cycle when all 49 are exhausted
+    const sentSet = new Set(sentSlugs);
+    let nextPost = POSTS_EN.find(p => !sentSet.has(p.slug));
 
-    return res.status(200).json({ success: true, lang: 'en', slot, topic: post.slug, message_id: result.message_id });
+    if (!nextPost) {
+      // All posts sent — start a fresh cycle
+      sentSet.clear();
+      nextPost = POSTS_EN[0];
+    }
+
+    // Post to Telegram
+    const result = await postToTelegram(nextPost.text);
+
+    // Persist updated state to GitHub
+    const updatedSlugs = [...sentSet, nextPost.slug];
+    await ghWrite(
+      STATE_PATH,
+      {
+        last_post_date: today,
+        sent_slugs: updatedSlugs,
+        last_topic: nextPost.slug,
+        updated_at: new Date().toISOString(),
+      },
+      sha
+    );
+
+    return res.status(200).json({
+      success: true,
+      topic: nextPost.slug,
+      message_id: result.message_id,
+      date: today,
+      sent_count: updatedSlugs.length,
+      total: POSTS_EN.length,
+    });
   } catch (err) {
-    console.error(err);
+    console.error('[daily-post]', err);
     return res.status(500).json({ error: err.message });
   }
-}
+};
