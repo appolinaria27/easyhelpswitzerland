@@ -1,13 +1,14 @@
 {
-  "last_post_date": "2026-06-02",
+  "last_post_date": "2026-06-03",
   "sent_slugs": [
     "b-permit",
     "anmeldung",
     "health-insurance",
     "apartment",
     "bank-account",
-    "cost-of-living"
+    "cost-of-living",
+    "driving-licence"
   ],
-  "last_topic": "cost-of-living",
-  "updated_at": "2026-06-02T09:12:34.695Z"
+  "last_topic": "driving-licence",
+  "updated_at": "2026-06-03T09:30:58.351Z"
 }
