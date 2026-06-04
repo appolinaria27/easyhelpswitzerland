@@ -1,5 +1,5 @@
 {
-  "last_post_date": "2026-06-03",
+  "last_post_date": "2026-06-04",
   "sent_slugs": [
     "b-permit",
     "anmeldung",
@@ -7,8 +7,9 @@
     "apartment",
     "bank-account",
     "cost-of-living",
-    "driving-licence"
+    "driving-licence",
+    "family-reunion"
   ],
-  "last_topic": "driving-licence",
-  "updated_at": "2026-06-03T09:30:58.351Z"
+  "last_topic": "family-reunion",
+  "updated_at": "2026-06-04T09:35:06.207Z"
 }
