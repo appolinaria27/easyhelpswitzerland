@@ -1,5 +1,5 @@
 {
-  "last_post_date": "2026-06-09",
+  "last_post_date": "2026-06-10",
   "sent_slugs": [
     "b-permit",
     "anmeldung",
@@ -13,8 +13,9 @@
     "taxes",
     "c-permit",
     "salary",
-    "schools"
+    "schools",
+    "transport"
   ],
-  "last_topic": "schools",
-  "updated_at": "2026-06-09T09:05:49.487Z"
+  "last_topic": "transport",
+  "updated_at": "2026-06-10T09:17:59.426Z"
 }
