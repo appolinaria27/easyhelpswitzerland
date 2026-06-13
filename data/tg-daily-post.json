@@ -1,5 +1,5 @@
 {
-  "last_post_date": "2026-06-12",
+  "last_post_date": "2026-06-13",
   "sent_slugs": [
     "b-permit",
     "anmeldung",
@@ -16,8 +16,9 @@
     "schools",
     "transport",
     "german",
-    "self-employed"
+    "self-employed",
+    "pension"
   ],
-  "last_topic": "self-employed",
-  "updated_at": "2026-06-12T09:31:45.324Z"
+  "last_topic": "pension",
+  "updated_at": "2026-06-13T09:21:08.405Z"
 }
