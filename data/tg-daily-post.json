@@ -1,5 +1,5 @@
 {
-  "last_post_date": "2026-06-15",
+  "last_post_date": "2026-06-16",
   "sent_slugs": [
     "b-permit",
     "anmeldung",
@@ -19,8 +19,9 @@
     "self-employed",
     "pension",
     "emergency",
-    "kvg-deadline"
+    "kvg-deadline",
+    "l-permit"
   ],
-  "last_topic": "kvg-deadline",
-  "updated_at": "2026-06-15T09:09:05.324Z"
+  "last_topic": "l-permit",
+  "updated_at": "2026-06-16T09:22:48.688Z"
 }
