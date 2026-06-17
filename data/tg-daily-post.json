@@ -1,5 +1,5 @@
 {
-  "last_post_date": "2026-06-16",
+  "last_post_date": "2026-06-17",
   "sent_slugs": [
     "b-permit",
     "anmeldung",
@@ -20,8 +20,9 @@
     "pension",
     "emergency",
     "kvg-deadline",
-    "l-permit"
+    "l-permit",
+    "haftpflicht"
   ],
-  "last_topic": "l-permit",
-  "updated_at": "2026-06-16T09:22:48.688Z"
+  "last_topic": "haftpflicht",
+  "updated_at": "2026-06-17T09:58:01.688Z"
 }
