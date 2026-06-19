@@ -1,5 +1,5 @@
 {
-  "last_post_date": "2026-06-18",
+  "last_post_date": "2026-06-19",
   "sent_slugs": [
     "b-permit",
     "anmeldung",
@@ -22,8 +22,9 @@
     "kvg-deadline",
     "l-permit",
     "haftpflicht",
-    "sunday-rules"
+    "sunday-rules",
+    "hausarzt"
   ],
-  "last_topic": "sunday-rules",
-  "updated_at": "2026-06-18T09:03:28.319Z"
+  "last_topic": "hausarzt",
+  "updated_at": "2026-06-19T09:56:37.367Z"
 }
