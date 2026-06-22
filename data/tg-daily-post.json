@@ -1,5 +1,5 @@
 {
-  "last_post_date": "2026-06-21",
+  "last_post_date": "2026-06-22",
   "sent_slugs": [
     "b-permit",
     "anmeldung",
@@ -25,8 +25,9 @@
     "sunday-rules",
     "hausarzt",
     "household-insurance",
-    "recycling"
+    "recycling",
+    "dental"
   ],
-  "last_topic": "recycling",
-  "updated_at": "2026-06-21T09:13:12.366Z"
+  "last_topic": "dental",
+  "updated_at": "2026-06-22T09:53:46.327Z"
 }
