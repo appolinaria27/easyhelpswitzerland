@@ -1,5 +1,5 @@
 {
-  "last_post_date": "2026-06-23",
+  "last_post_date": "2026-06-24",
   "sent_slugs": [
     "b-permit",
     "anmeldung",
@@ -27,8 +27,9 @@
     "household-insurance",
     "recycling",
     "dental",
-    "phone-plan"
+    "phone-plan",
+    "rental-deposit"
   ],
-  "last_topic": "phone-plan",
-  "updated_at": "2026-06-23T09:47:38.368Z"
+  "last_topic": "rental-deposit",
+  "updated_at": "2026-06-24T09:25:53.246Z"
 }
