@@ -1,5 +1,5 @@
 {
-  "last_post_date": "2026-06-24",
+  "last_post_date": "2026-06-25",
   "sent_slugs": [
     "b-permit",
     "anmeldung",
@@ -28,8 +28,9 @@
     "recycling",
     "dental",
     "phone-plan",
-    "rental-deposit"
+    "rental-deposit",
+    "kita-childcare"
   ],
-  "last_topic": "rental-deposit",
-  "updated_at": "2026-06-24T09:25:53.246Z"
+  "last_topic": "kita-childcare",
+  "updated_at": "2026-06-25T09:55:42.354Z"
 }
