@@ -1,5 +1,5 @@
 {
-  "last_post_date": "2026-06-25",
+  "last_post_date": "2026-06-26",
   "sent_slugs": [
     "b-permit",
     "anmeldung",
@@ -29,8 +29,9 @@
     "dental",
     "phone-plan",
     "rental-deposit",
-    "kita-childcare"
+    "kita-childcare",
+    "pets"
   ],
-  "last_topic": "kita-childcare",
-  "updated_at": "2026-06-25T09:55:42.354Z"
+  "last_topic": "pets",
+  "updated_at": "2026-06-26T09:54:29.307Z"
 }
