@@ -1,5 +1,5 @@
 {
-  "last_post_date": "2026-06-27",
+  "last_post_date": "2026-06-28",
   "sent_slugs": [
     "b-permit",
     "anmeldung",
@@ -31,8 +31,9 @@
     "rental-deposit",
     "kita-childcare",
     "pets",
-    "job-search"
+    "job-search",
+    "naturalization"
   ],
-  "last_topic": "job-search",
-  "updated_at": "2026-06-27T09:48:09.242Z"
+  "last_topic": "naturalization",
+  "updated_at": "2026-06-28T09:43:22.353Z"
 }
